@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{62845F12-9338-4C4C-948A-A3AA05E1DE0C}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SpriteClasses/IdleSprite.cs">
+    <Files>
+      <File FileName="Game1.cs" Line="66" Column="50" />
+      <File FileName="SpriteClasses/IdleSprite.cs" Line="37" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Sprint2" expanded="True">
+            <Node name="Sprint2" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Sprint2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

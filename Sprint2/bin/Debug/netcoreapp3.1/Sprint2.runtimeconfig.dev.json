@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/keitvu/.dotnet/store/|arch|/|tfm|",
+      "/Users/keitvu/.nuget/packages"
+    ]
+  }
+}

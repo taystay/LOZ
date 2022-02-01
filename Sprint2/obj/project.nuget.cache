@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "tzP4DqfIyvboldNZETNd5wUePA0MBHVgJc/lFNcSvnltTtqnINoMlDbUvbsCcq0PSiIbzb8wEL01l3QlJNubwg==",
+  "success": true,
+  "projectFilePath": "/Users/keitvu/Documents/SP22_Semester_Class/CSE 3902/project/Sprint2/Sprint2.csproj",
+  "expectedPackageFiles": [
+    "/Users/keitvu/.nuget/packages/monogame.content.builder.task/3.8.0.1641/monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "/Users/keitvu/.nuget/packages/monogame.framework.desktopgl/3.8.0.1641/monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+  ],
+  "logs": []
+}
