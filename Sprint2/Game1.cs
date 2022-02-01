@@ -17,9 +17,11 @@ namespace Sprint2
         private Point Start;
 
         private List<IController> controllerList;
-        private Texture2D texture;
+
+
+        //-----Current Objects On Screen-----
+        private List<IItem> Items;
         public ISprite Sprite;
-        private ISprite Font;
 
 
         public Game1()
@@ -27,18 +29,6 @@ namespace Sprint2
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-        }
-        public Point GetDim()
-        {
-            return ScreenDim;
-        }
-        public Texture2D GetTexture()
-        {
-            return texture;  
-        }
-        public Point GetStartingPosition()
-        {
-            return Start;
         }
 
         protected override void Initialize()
@@ -48,16 +38,13 @@ namespace Sprint2
             Start = new Point(ScreenDim.X / 2, ScreenDim.Y / 2); 
             Position = new Point(Start.X, Start.Y);
 
-            //-----------------Initialize Sprites----------------------------
-            texture = Content.Load<Texture2D>("megaman");
-            Sprite = new IdleSprite(texture);
-
             //----------------------Initialize Controllers----------------------
             controllerList = new List<IController>()
             {
                 { new KeyBindings(this).GetController()},
-                { new MouseClickLocations(this).GetController() }
             };
+
+            Items = new List<IItem>();
 
             //----------------Initialize Screen Data-------------------------
             _graphics.PreferredBackBufferWidth = ScreenDim.X;
@@ -70,7 +57,12 @@ namespace Sprint2
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            //Font = new FontSprite(Content.Load<SpriteFont>("Bubble"), "Anthony D'Alesandro\nSprite Sheet: https://www.spriters-resource.com/nes/mm/ \nhttps://www.dafont.com/");
+
+            //---Give All Objects a starting position
+            ItemFactory.Instance.LoadAllTextures(Content);
+            Items.Add(new Compass(new Point(500, 500), 3.0));
+            Items.Add(new Clock(new Point(400, 500), 3.0));
+            Items.Add(new ArrowItem(new Point(300,500), 3.0)); 
         }
         protected override void Update(GameTime gameTime)
         {
@@ -79,7 +71,20 @@ namespace Sprint2
             {
                 controller.Update();
             }
-            Sprite.Update();
+            List<int> IndicesToRemove = new List<int>();
+            foreach (IItem item in Items)
+            {
+                item.Update();
+                if (!item.SpriteActive())
+                {
+                    IndicesToRemove.Add(Items.IndexOf(item));
+                }
+            }
+            foreach(int i in IndicesToRemove)
+            {
+                Items.RemoveAt(i);
+            }
+            
 
             //--------------------------------------------------
             base.Update(gameTime);
@@ -88,8 +93,10 @@ namespace Sprint2
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            Sprite.Draw(_spriteBatch, Position);
-            //Font.Draw(_spriteBatch,new Point(0, ScreenDim.Y * 3 / 4));
+            foreach(IItem item in Items)
+            {
+                item.Draw(_spriteBatch);
+            }
             base.Draw(gameTime);
         }
     }

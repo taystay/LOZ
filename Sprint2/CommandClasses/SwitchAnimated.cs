@@ -14,7 +14,7 @@ namespace Sprint2
         }
         public void execute()
         {
-            GameObject.Sprite = new AnimatedSprite(GameObject.GetTexture());
+            //GameObject.Sprite = new AnimatedSprite(GameObject.GetTexture());
             
         }
     }
