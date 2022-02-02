@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Sprint2",
-    "\\Sprint2\\SpriteClasses"
+    "\\Sprint2"
   ],
-  "SelectedNode": "\\Sprint2\\SpriteClasses\\FireItemSprite.cs",
+  "SelectedNode": "\\Sprint2\\Game1.cs",
   "PreviewInSolutionExplorer": false
 }
