@@ -11,10 +11,22 @@ namespace Sprint2
         private ISprite Sprite;
         private Point ItemLocation;
         private Boolean SpriteActivity = true;
+
         public ArrowItem(Point itemLocation, double scale)
         {
             Sprite = ItemFactory.Instance.CreateArrowItemSprite(scale);
             ItemLocation = itemLocation;
+        }
+
+        public void SetSize(int size)
+        {
+            Sprite.SetSize(size);
+        }
+
+        public void SetPosition(Point Position)
+        {
+            ItemLocation.X = Position.X;
+            ItemLocation.Y = Position.Y;
         }
 
         public void SetSpriteActivity(Boolean activity)
@@ -27,9 +39,9 @@ namespace Sprint2
             return SpriteActivity;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            Sprite.Update();
+            Sprite.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)

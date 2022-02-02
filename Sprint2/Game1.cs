@@ -62,7 +62,8 @@ namespace Sprint2
             ItemFactory.Instance.LoadAllTextures(Content);
             Items.Add(new Compass(new Point(500, 500), 3.0));
             Items.Add(new Clock(new Point(400, 500), 3.0));
-            Items.Add(new ArrowItem(new Point(300,500), 3.0)); 
+            Items.Add(new ArrowItem(new Point(300,500), 3.0));
+            Items.Add(new FireItem(new Point(200, 500), 3.0));
         }
         protected override void Update(GameTime gameTime)
         {
@@ -74,7 +75,7 @@ namespace Sprint2
             List<int> IndicesToRemove = new List<int>();
             foreach (IItem item in Items)
             {
-                item.Update();
+                item.Update(gameTime);
                 if (!item.SpriteActive())
                 {
                     IndicesToRemove.Add(Items.IndexOf(item));

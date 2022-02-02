@@ -6,14 +6,15 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public class Clock : IItem
+    public class FireItem : IItem
     {
         private ISprite Sprite;
         private Point ItemLocation;
         private Boolean SpriteActivity = true;
-        public Clock(Point itemLocation, double scale)
+
+        public FireItem(Point itemLocation, double scale)
         {
-            Sprite = ItemFactory.Instance.CreateClockSprite(scale);
+            Sprite = ItemFactory.Instance.CreateFireItemSprite(scale);
             ItemLocation = itemLocation;
         }
 

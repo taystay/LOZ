@@ -30,7 +30,7 @@ namespace Sprint2
 
 		public void LoadAllTextures(ContentManager content)
 		{
-			ItemSpriteSheet = content.Load<Texture2D>("LinkSprites");
+			ItemSpriteSheet = content.Load<Texture2D>("items");
 		}
 
 		public ISprite CreateArrowItemSprite(double scale)
@@ -47,6 +47,11 @@ namespace Sprint2
 		{
 			return new ClockSprite(ItemSpriteSheet, scale);
 		}
+
+		public ISprite CreateFireItemSprite(double scale)
+        {
+			return new FireItemSprite(ItemSpriteSheet, scale);
+        }
 
 		/*
 		public ISprite CreateSmallEnemySprite()
