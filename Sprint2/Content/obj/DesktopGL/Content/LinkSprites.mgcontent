@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/taylo/Desktop/College Folder/Spring 2022/CSE 3902/Sprint2/Sprint2/Content/LinkSprites.png</SourceFile>
   <SourceTime>2022-02-02T14:28:16.6563653-05:00</SourceTime>
   <DestFile>C:/Users/taylo/Desktop/College Folder/Spring 2022/CSE 3902/Sprint2/Sprint2/Content/bin/DesktopGL/Content/LinkSprites.xnb</DestFile>
   <DestTime>2022-02-02T20:40:10.589909-05:00</DestTime>
+=======
+  <SourceFile>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/LinkSprites.png</SourceFile>
+  <SourceTime>2022-02-02T14:06:54.2154958-05:00</SourceTime>
+  <DestFile>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/Content/LinkSprites.xnb</DestFile>
+  <DestTime>2022-02-02T19:00:59.4797969-05:00</DestTime>
+>>>>>>> parent of 6269816 (Bookkeeping commit because pulling onto my computer makes it think it's changing?)
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
