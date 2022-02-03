@@ -3,6 +3,9 @@
 *.DS_Store
 
 #Visual Studio files
+*.mgcontent
+*.cache
+*.editorconfig
 *.pidb
 *.userprefs
 *.[Oo]bj
