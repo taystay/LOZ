@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/Items.png</SourceFile>
-  <SourceTime>2022-02-01T14:08:34.4543548-05:00</SourceTime>
-  <DestFile>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/Items.xnb</DestFile>
-  <DestTime>2022-02-01T18:16:36.7017952-05:00</DestTime>
+  <SourceFile>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/items.png</SourceFile>
+  <SourceTime>2022-02-02T14:43:52.3238436-05:00</SourceTime>
+  <DestFile>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/items.xnb</DestFile>
+  <DestTime>2022-02-02T15:01:36.6170789-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
   <ProcessorTime>2020-08-10T12:17:54-04:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
-    <Value>116,116,116,255</Value>
+    <Value>255,0,255,255</Value>
   </Parameters>
   <Parameters>
     <Key>ColorKeyEnabled</Key>
