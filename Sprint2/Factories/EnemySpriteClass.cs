@@ -30,7 +30,7 @@ namespace Sprint2
 
 		public void LoadAllTextures(ContentManager content)
 		{
-			enemySpriteSheet = content.Load<Texture2D>("items");
+			enemySpriteSheet = content.Load<Texture2D>("enemySprite");
 		}
 
 		public ISprite CreateBat() {
@@ -38,6 +38,26 @@ namespace Sprint2
 			return new BatSprite(enemySpriteSheet);
 		
 		}
-	
+
+		public ISprite CreateSkeleton()
+		{
+
+			return new SkeletonSprite(enemySpriteSheet);
+
+		}
+
+		public ISprite CreateJelly()
+		{
+
+			return new JellySprite(enemySpriteSheet);
+
+		}
+
+		public ISprite CreateDragon()
+		{
+
+			return new DragonSprite(enemySpriteSheet);
+
+		}
 	}
 }

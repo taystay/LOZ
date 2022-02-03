@@ -8,13 +8,15 @@ namespace Sprint2
     public class Game1 : Game
     {
 
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+
+        private IEnemy enemy;
 
         //-----Public Variables for logic-----
-        private Point ScreenDim;
-        private Point Position;
-        private Point Start;
+        private Point screenDim;
+        private Point position;
+        private Point start;
 
         private List<IController> controllerList;
 
@@ -26,7 +28,7 @@ namespace Sprint2
 
         public Game1()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -34,9 +36,9 @@ namespace Sprint2
         protected override void Initialize()
         {
             //--------------Initialize variables for screen drawing---------------------------
-            ScreenDim = new Point(GraphicsDevice.DisplayMode.Width, GraphicsDevice.DisplayMode.Height);
-            Start = new Point(ScreenDim.X / 2, ScreenDim.Y / 2); 
-            Position = new Point(Start.X, Start.Y);
+            screenDim = new Point(GraphicsDevice.DisplayMode.Width, GraphicsDevice.DisplayMode.Height);
+            start = new Point(screenDim.X / 2, screenDim.Y / 2); 
+            position = new Point(start.X, start.Y);
 
             //----------------------Initialize Controllers----------------------
             controllerList = new List<IController>()
@@ -47,10 +49,10 @@ namespace Sprint2
             Items = new List<IItem>();
 
             //----------------Initialize Screen Data-------------------------
-            _graphics.PreferredBackBufferWidth = ScreenDim.X;
-            _graphics.PreferredBackBufferHeight = ScreenDim.Y;
-            _graphics.IsFullScreen = false;
-            _graphics.ApplyChanges();
+            graphics.PreferredBackBufferWidth = screenDim.X;
+            graphics.PreferredBackBufferHeight = screenDim.Y;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
             base.Initialize();
         }
 
@@ -74,11 +76,15 @@ namespace Sprint2
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //---Give All Objects a starting position
             ItemFactory.Instance.LoadAllTextures(Content);
+
             HiICreateTonysSpritesTest();
+
+           /* EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            enemy = new Skeleton(new Point(100, 100));*/
         }
         protected override void Update(GameTime gameTime)
         {
@@ -96,22 +102,26 @@ namespace Sprint2
                     IndicesToRemove.Add(Items.IndexOf(item));
                 }
             }
-            foreach(int i in IndicesToRemove)
+            foreach (int i in IndicesToRemove)
             {
                 Items.RemoveAt(i);
             }
-            
+
 
             //--------------------------------------------------
+
+            //enemy.Update(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+            //enemy.Draw(spriteBatch);
+
             GraphicsDevice.Clear(Color.Black);
-            foreach(IItem item in Items)
+            foreach (IItem item in Items)
             {
-                item.Draw(_spriteBatch);
+                item.Draw(spriteBatch);
             }
             base.Draw(gameTime);
         }
