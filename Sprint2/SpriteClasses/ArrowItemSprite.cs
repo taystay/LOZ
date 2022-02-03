@@ -19,16 +19,11 @@ namespace Sprint2
 		{
 			Scale = scale;
 			Texture = texture;
-			Frame = new Rectangle(259, 56, 11, 31);
-		}
-
-		public void SetSize(int size)
-		{
-			Scale = size;
+			Frame = new Rectangle(184, 194, 7, 18);
 		}
 
 		//-----Update frame-----
-		public void Update(GameTime gameTime)
+		public void Update()
 		{
 
 		}
