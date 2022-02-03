@@ -1,4 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/keitv/Documents/CSE3902/project/Sprint2/Content/items.png","C:/Users/keitv/Documents/CSE3902/project/Sprint2/Content/bin/DesktopGL/Content/items.xnb","TextureProcessor","Texture2DContent",7678,405597,0.1608627
-"C:/Users/keitv/Documents/CSE3902/project/Sprint2/Content/LinkSprites.png","C:/Users/keitv/Documents/CSE3902/project/Sprint2/Content/bin/DesktopGL/Content/LinkSprites.xnb","TextureProcessor","Texture2DContent",21133,523669,0.014908
-"C:/Users/keitv/Documents/CSE3902/project/Sprint2/Content/megaman.png","C:/Users/keitv/Documents/CSE3902/project/Sprint2/Content/bin/DesktopGL/Content/megaman.xnb","TextureProcessor","Texture2DContent",21167,531961,0.0167803
+"C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/items.png","C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/Content/items.xnb","TextureProcessor","Texture2DContent",7678,405597,0.1451872
+"C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/LinkSprites.png","C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/Content/LinkSprites.xnb","TextureProcessor","Texture2DContent",21133,523669,0.0118343
+"C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/megaman.png","C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/Content/megaman.xnb","TextureProcessor","Texture2DContent",21167,531961,0.0139504

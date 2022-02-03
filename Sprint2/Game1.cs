@@ -54,16 +54,31 @@ namespace Sprint2
             base.Initialize();
         }
 
+        public void HiICreateTonysSpritesTest()
+        {
+            double HiIAmAVariable = 2.0;
+            Items.Add(new Compass(new Point(500, 500), HiIAmAVariable));
+            Items.Add(new Clock(new Point(400, 500), HiIAmAVariable));
+            Items.Add(new ArrowItem(new Point(300, 500), HiIAmAVariable));
+            Items.Add(new FireItem(new Point(200, 500), HiIAmAVariable));
+            Items.Add(new Map(new Point(600, 500), HiIAmAVariable));
+            Items.Add(new Key(new Point(700, 500), HiIAmAVariable));
+            Items.Add(new HeartContainer(new Point(200, 600), HiIAmAVariable));
+            Items.Add(new Triforce(new Point(300, 600), HiIAmAVariable));
+            Items.Add(new Bow(new Point(400, 600), HiIAmAVariable));
+            Items.Add(new Heart(new Point(500, 600), HiIAmAVariable));
+            Items.Add(new Rupee(new Point(600, 600), HiIAmAVariable));
+            Items.Add(new Bomb(new Point(700, 600), HiIAmAVariable));
+            Items.Add(new Fairy(new Point(200, 700), HiIAmAVariable));
+        }
+
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //---Give All Objects a starting position
             ItemFactory.Instance.LoadAllTextures(Content);
-            Items.Add(new Compass(new Point(500, 500), 3.0));
-            Items.Add(new Clock(new Point(400, 500), 3.0));
-            Items.Add(new ArrowItem(new Point(300,500), 3.0));
-            Items.Add(new FireItem(new Point(200, 500), 3.0));
+            HiICreateTonysSpritesTest();
         }
         protected override void Update(GameTime gameTime)
         {
