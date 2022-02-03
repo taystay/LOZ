@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-	class ClockSprite : ISprite
+	class CompassSprite : ISprite
 	{
 		//-----Private Variables-----
 		private Rectangle Frame;
@@ -15,21 +15,15 @@ namespace Sprint2
 
 
 		//-----Constructor-----
-		public ClockSprite(Texture2D texture, double scale)
+		public CompassSprite(Texture2D texture, double scale)
 		{
 			Scale = scale;
 			Texture = texture;
-
-			Frame = new Rectangle(9, 6, 30, 35);
-		}
-
-		public void SetSize(int size)
-		{
-			Scale = size;
+			Frame = new Rectangle(391, 257, 13, 13);
 		}
 
 		//-----Update frame-----
-		public void Update(GameTime gameTime)
+		public void Update()
 		{
 
 		}

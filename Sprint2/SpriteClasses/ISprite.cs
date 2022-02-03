@@ -8,8 +8,7 @@ namespace Sprint2
 {
     public interface ISprite
     {
-        public void SetSize(int size);
-        public void Update(GameTime gameTime);
+        public void Update();
         public void Draw(SpriteBatch spriteBatch, Point location);
     }
 }

@@ -6,27 +6,15 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public class Rupee : IItem
+    public class Compass : IItem
     {
         private ISprite Sprite;
         private Point ItemLocation;
         private Boolean SpriteActivity = true;
-
-        public Rupee(Point itemLocation, double scale)
+        public Compass(Point itemLocation, double scale)
         {
-            Sprite = ItemFactory.Instance.CreateRupeeSprite(scale);
+            Sprite = ItemFactory.Instance.CreateCompassSprite(scale);
             ItemLocation = itemLocation;
-        }
-
-        public void SetSize(int size)
-        {
-            Sprite.SetSize(size);
-        }
-
-        public void SetPosition(Point Position)
-        {
-            ItemLocation.X = Position.X;
-            ItemLocation.Y = Position.Y;
         }
 
         public void SetSpriteActivity(Boolean activity)
@@ -39,9 +27,9 @@ namespace Sprint2
             return SpriteActivity;
         }
 
-        public void Update(GameTime gameTime)
+        public void Update()
         {
-            Sprite.Update(gameTime);
+            Sprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)

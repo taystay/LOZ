@@ -9,10 +9,8 @@ namespace Sprint2
     interface IItem
     {
         public void SetSpriteActivity(Boolean activity);
-        public void SetSize(int size);
-        public void SetPosition(Point position);
         public Boolean SpriteActive();
-        public void Update(GameTime gameTime);
+        public void Update();
 
         public void Draw(SpriteBatch spriteBatch);
 
