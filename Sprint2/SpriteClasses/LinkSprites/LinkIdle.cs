@@ -12,7 +12,6 @@ namespace Sprint2
     {
 
         private Texture2D linkSprite;
-        //private List<Rectangle> frames;
         private int frame;
         private const int maxFrame = 1;
         private const int scale = 3;
@@ -58,14 +57,14 @@ namespace Sprint2
             //There are only 2 columbs and 1 row
             int width =  (linkSprite.Width / 4);
             int height = (linkSprite.Height / 4);
-            int row = 4;
+            int row = 1;
             int column = 1;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
 
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 

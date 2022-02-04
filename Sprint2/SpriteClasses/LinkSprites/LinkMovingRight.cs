@@ -66,7 +66,7 @@ namespace Sprint2
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
