@@ -12,6 +12,7 @@ namespace Sprint2
         private SpriteBatch spriteBatch;
 
         private IEnemy enemy;
+        private ILink link;
 
         //-----Public Variables for logic-----
         private Point screenDim;
@@ -85,9 +86,12 @@ namespace Sprint2
             //---Give All Objects a starting position
             ItemFactory.Instance.LoadAllTextures(Content);
 
-            //TestSwordBeams();
-            //TestArrows();
+            TestSwordBeams();
+            TestArrows();
             TestBomb();
+
+            LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            link = new Link(new Point(200, 200));
 
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             enemy = new Jelly(new Point(100, 100));
@@ -117,6 +121,8 @@ namespace Sprint2
 
             //--------------------------------------------------
 
+            link.Update(gameTime);
+
             enemy.Update(gameTime);
             base.Update(gameTime);
         }
@@ -125,7 +131,10 @@ namespace Sprint2
         {
 
             GraphicsDevice.Clear(Color.Black);
+
+            link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
+
             foreach (IItem item in Items)
             {
                 item.Draw(spriteBatch);
