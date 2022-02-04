@@ -1,20 +1,18 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "ZOK0am5BT/03Q+JQkgaiGeAekn9xpPrOaliDqaL4RnTMhEh8hNHpD+9QlyBaVGg26h1k7U3JaVQ4O3DXGQWWZA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\jjber\\Source\\Repos\\Sprint-2\\Sprint2\\Sprint2.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\jjber\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
-    "C:\\Users\\jjber\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
-=======
   "dgSpecHash": "bedC/UfHeIVgrPdcYI9Xbysp4hlhQ0M+xrufGcHTA8/MP+mf8owCCzzeHBzdX4LIo2GVf1ra7lsrOtdvhO0rlQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\taylo\\Desktop\\College Folder\\Spring 2022\\CSE 3902\\Sprint2\\Sprint2\\Sprint2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\taylo\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
     "C:\\Users\\taylo\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
->>>>>>> 4553f8d0741bf87e1c00265e71394cca4e80db6f
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\taylo\\Desktop\\College Folder\\Spring 2022\\CSE 3902\\Sprint2\\Sprint2\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

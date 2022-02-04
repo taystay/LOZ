@@ -22,7 +22,7 @@ namespace Sprint2
 				Frame = new Rectangle(109, 63, 32, 32);
 			}
 
-			public void SetSize(int size)
+			public void SetSize(double size)
 			{
 				Scale = size;
 			}

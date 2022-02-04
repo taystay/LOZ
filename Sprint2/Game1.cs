@@ -79,6 +79,7 @@ namespace Sprint2
             double HiIAmAVariable = 2.0;
             Items.Add(new Bomb(new Point(screenDim.X/2, screenDim.Y/2), HiIAmAVariable));
         }
+
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -97,6 +98,7 @@ namespace Sprint2
             enemy = new Jelly(new Point(100, 100));
             enemy = new Skeleton(new Point(100, 100));
         }
+
         protected override void Update(GameTime gameTime)
         {
             //-------------------------------------------------------
