@@ -29,7 +29,7 @@ namespace Sprint2
 			Frame = Frames[currentFrame];
 		}
 
-		public void SetSize(int size)
+		public void SetSize(double size)
 		{
 			Scale = size;
 		}

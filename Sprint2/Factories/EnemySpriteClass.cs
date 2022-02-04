@@ -33,31 +33,32 @@ namespace Sprint2
 			enemySpriteSheet = content.Load<Texture2D>("enemySprite");
 		}
 
-		public ISprite CreateBat() {
+        public ISprite CreateBat()
+        {
 
-			return new BatSprite(enemySpriteSheet);
-		
-		}
+            return new BatSprite(enemySpriteSheet);
 
-		public ISprite CreateSkeleton()
+        }
+
+        public ISprite CreateSkeleton()
 		{
 
 			return new SkeletonSprite(enemySpriteSheet);
 
 		}
 
-		public ISprite CreateJelly()
-		{
+        public ISprite CreateJelly()
+        {
 
-			return new JellySprite(enemySpriteSheet);
+            return new JellySprite(enemySpriteSheet);
 
-		}
+        }public ISprite CreateDragon()
+        {
 
-		public ISprite CreateDragon()
-		{
+            return new DragonSprite(enemySpriteSheet);
 
-			return new DragonSprite(enemySpriteSheet);
+        }
 
-		}
-	}
+        
+    }
 }

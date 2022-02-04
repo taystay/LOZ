@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Sprint2",
+    "\\Sprint2\\Content",
+    "\\Sprint2\\SpriteClasses"
   ],
-  "SelectedNode": "\\Sprint2.sln",
+  "SelectedNode": "\\Sprint2\\Content\\LinkSprites.png",
   "PreviewInSolutionExplorer": false
 }

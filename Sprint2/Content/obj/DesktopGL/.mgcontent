@@ -4,11 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/enemySprite.png</File>
     <File>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/items.png</File>
     <File>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/LinkSprites.png</File>
     <File>C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/megaman.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

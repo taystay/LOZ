@@ -20,10 +20,11 @@ namespace Sprint2
 
         public void Update(GameTime timer) {
 
-            var random = new Random();
+            //var random = new Random();
 
-          /*  position.X = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));
-            position.Y = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));*/
+            /*  position.X = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));
+              position.Y = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));*/
+           
             skeleton.Update(timer);
         }
 

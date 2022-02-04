@@ -14,11 +14,11 @@ namespace Sprint2
 
         public ArrowItem(Point itemLocation, double scale)
         {
-            Sprite = ItemFactory.Instance.CreateArrowItemSprite(scale);
+            Sprite = ItemFactory.Instance.CreateArrowUpSprite(scale);
             ItemLocation = itemLocation;
         }
 
-        public void SetSize(int size)
+        public void SetSize(double size)
         {
             Sprite.SetSize(size);
         }

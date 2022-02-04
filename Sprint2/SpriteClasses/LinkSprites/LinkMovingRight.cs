@@ -8,25 +8,24 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class DragonSprite : ISprite
+    class LinkMovingRight : ISprite
     {
 
-        private Texture2D dragonSprite;
+        private Texture2D linkSprite;
         //private List<Rectangle> frames;
         private int frame;
-        private const int maxFrame = 3;
+        private const int maxFrame = 2;
         private const int scale = 3;
-        private bool facingLeft;
 
-        public DragonSprite(Texture2D sprite)
+        public LinkMovingRight(Texture2D sprite)
         {
 
-            dragonSprite = sprite;
-            frame = 1;
+            linkSprite = sprite;
+            frame = 0;
 
         }
 
-        public void SetSize(int size)
+        public void SetSize(double size)
         {
 
             //nothing?? for now....
@@ -46,7 +45,7 @@ namespace Sprint2
             if (frame == maxFrame)
             {
 
-                frame = 1;
+                frame = 0;
             }
 
         }
@@ -58,17 +57,17 @@ namespace Sprint2
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width = scale * (dragonSprite.Width / 2);
-            int height = (dragonSprite.Height / 5);
-            int row = 0;
-            int column = frame % 2;
+            int width =  (linkSprite.Width / 4);
+            int height = (linkSprite.Height / 4);
+            int row = 4;
+            int column = frame % 4;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
 
             spriteBatch.Begin();
-            spriteBatch.Draw(dragonSprite, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
 

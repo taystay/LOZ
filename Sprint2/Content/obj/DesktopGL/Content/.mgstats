@@ -1,6 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/enemySprite.png","C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/enemySprite.xnb","TextureProcessor","Texture2DContent",4648,129685,0.2212598
-"C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/items.png","C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/items.xnb","TextureProcessor","Texture2DContent",7678,405597,0.0207395
-"C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/LinkSprites.png","C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/LinkSprites.xnb","TextureProcessor","Texture2DContent",21133,523669,0.0176153
-"C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/megaman.png","C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/megaman.xnb","TextureProcessor","Texture2DContent",21167,531961,0.0465238
-"C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/ZeldaDungeonBlocks.png","C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/ZeldaDungeonBlocks.xnb","TextureProcessor","Texture2DContent",2415,74085,0.0077944
+"C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/enemySprite.png","C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/enemySprite.xnb","TextureProcessor","Texture2DContent",3061,239701,0.2879078
+"C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/items.png","C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/items.xnb","TextureProcessor","Texture2DContent",6592,405597,0.2069229
+"C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/LinkSprites.png","C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/LinkSprites.xnb","TextureProcessor","Texture2DContent",2516,50261,0.0074613
+"C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/megaman.png","C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/megaman.xnb","TextureProcessor","Texture2DContent",21167,531961,0.0817061
+"C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/ZeldaDungeonBlocks.png","C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/bin/DesktopGL/Content/ZeldaDungeonBlocks.xnb","TextureProcessor","Texture2DContent",2415,74085,0.0081693

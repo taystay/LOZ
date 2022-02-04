@@ -4,11 +4,11 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/enemySprite.png</File>
-    <File>C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/items.png</File>
-    <File>C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/LinkSprites.png</File>
-    <File>C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/megaman.png</File>
-    <File>C:/Users/jjber/source/repos/Sprint-2/Sprint2/Content/ZeldaDungeonBlocks.png</File>
+    <File>C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/enemySprite.png</File>
+    <File>C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/items.png</File>
+    <File>C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/LinkSprites.png</File>
+    <File>C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/megaman.png</File>
+    <File>C:/Users/jjber/Source/Repos/Sprint-2/Sprint2/Content/ZeldaDungeonBlocks.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

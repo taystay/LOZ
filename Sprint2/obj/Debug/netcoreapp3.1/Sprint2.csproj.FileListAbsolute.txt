@@ -103,3 +103,5 @@ C:\Users\keitv\Documents\CSE3902\project\Sprint2\obj\Debug\netcoreapp3.1\Sprint2
 C:\Users\keitv\Documents\CSE3902\project\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.dll
 C:\Users\keitv\Documents\CSE3902\project\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.pdb
 C:\Users\keitv\Documents\CSE3902\project\Sprint2\obj\Debug\netcoreapp3.1\Sprint2.genruntimeconfig.cache
+C:\Users\ajdal\Documents\Programming\MonoGame\Repo_Zelda\Sprint2\bin\Debug\netcoreapp3.1\Content\enemySprite.xnb
+C:\Users\taylo\Desktop\College Folder\Spring 2022\CSE 3902\Sprint2\Sprint2\bin\Debug\netcoreapp3.1\Content\enemySprite.xnb
