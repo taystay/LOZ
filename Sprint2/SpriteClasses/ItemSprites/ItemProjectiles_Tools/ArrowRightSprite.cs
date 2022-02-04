@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-	class DeadArrowSprite : ISprite
+	class ArrowRightSprite : ISprite
 	{
 		//-----Private Variables-----
 		private Rectangle Frame;
@@ -15,14 +15,14 @@ namespace Sprint2
 
 
 		//-----Constructor-----
-		public DeadArrowSprite(Texture2D texture, double scale)
+		public ArrowRightSprite(Texture2D texture, double scale)
 		{
 			Scale = scale;
 			Texture = texture;
-			Frame = new Rectangle(106, 246, 136 - 105, 274 - 245);
+			Frame = new Rectangle(297,65,330 - 296,77 - 64);
 		}
 
-		public void SetSize(int size)
+		public void SetSize(double size)
 		{
 			Scale = size;
 		}

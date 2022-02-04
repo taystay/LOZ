@@ -27,7 +27,7 @@ namespace Sprint2
             ItemLocation = itemLocation;
         }
 
-        public void SetSize(int size)
+        public void SetSize(double size)
         {
             Sprite.SetSize(size);
         }

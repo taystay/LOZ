@@ -21,7 +21,7 @@ namespace Sprint2
 			Texture = texture;
 			Frame = new Rectangle(105, 56, 26, 31);
 		}
-		public void SetSize(int size)
+		public void SetSize(double size)
         {
 			Scale = size;
         }

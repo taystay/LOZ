@@ -26,7 +26,7 @@ namespace Sprint2
 
         }
 
-        public void SetSize(int size)
+        public void SetSize(double size)
         {
 
             //nothing?? for now....

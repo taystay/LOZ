@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-	class KeySprite : ISprite
+	class ArrowUpSprite : ISprite
 	{
 		//-----Private Variables-----
 		private Rectangle Frame;
@@ -15,11 +15,11 @@ namespace Sprint2
 
 
 		//-----Constructor-----
-		public KeySprite(Texture2D texture, double scale)
+		public ArrowUpSprite(Texture2D texture, double scale)
 		{
 			Scale = scale;
 			Texture = texture;
-			Frame = new Rectangle(62, 9, 20, 30);
+			Frame = new Rectangle(259, 56, 11, 31);
 		}
 
 		public void SetSize(double size)

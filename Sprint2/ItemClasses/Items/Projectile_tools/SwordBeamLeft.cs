@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public class ArrowDownItem : IItem
+    public class SwordBeamLeft : IItem
     {
         private ISprite Sprite;
         private Point ItemLocation;
@@ -20,14 +20,14 @@ namespace Sprint2
         private const int DeadArrowSpriteOffSet = -8;
         private readonly double scale;
 
-        public ArrowDownItem(Point itemLocation, double size)
+        public SwordBeamLeft(Point itemLocation, double size)
         {
             scale = size;
-            Sprite = ItemFactory.Instance.CreateArrowDownSprite(size);
+            Sprite = ItemFactory.Instance.CreateSwordBeamLeftSprite(size);
             ItemLocation = itemLocation;
         }
 
-        public void SetSize(int size)
+        public void SetSize(double size)
         {
             Sprite.SetSize(size);
         }
@@ -59,12 +59,12 @@ namespace Sprint2
             if (FramesPassed >= ArrowTravelFrames - DeadFrames)
             {
                 spriteChanged = true;
-                Sprite = ItemFactory.Instance.CreateDeadArrowSprite(scale);
+                Sprite = ItemFactory.Instance.CreateDeadBeamSprite(scale);
                 ItemLocation.X += DeadArrowSpriteOffSet;
                 return;
             }
 
-            ItemLocation.Y += Velocity;
+            ItemLocation.X -= Velocity;
 
         }
 

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-	class ArrowUpSprite : ISprite
+	class BombSprite : ISprite
 	{
 		//-----Private Variables-----
 		private Rectangle Frame;
@@ -15,14 +15,14 @@ namespace Sprint2
 
 
 		//-----Constructor-----
-		public ArrowUpSprite(Texture2D texture, double scale)
+		public BombSprite(Texture2D texture, double scale)
 		{
 			Scale = scale;
 			Texture = texture;
-			Frame = new Rectangle(259, 56, 11, 31);
+			Frame = new Rectangle(111, 99, 129 - 110, 133 - 98);
 		}
 
-		public void SetSize(int size)
+		public void SetSize(double size)
 		{
 			Scale = size;
 		}
@@ -30,7 +30,7 @@ namespace Sprint2
 		//-----Update frame-----
 		public void Update(GameTime gameTime)
 		{
-
+			Scale += 0.007;
 		}
 
 		public void Draw(SpriteBatch spriteBatch, Point location)

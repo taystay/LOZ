@@ -11,14 +11,20 @@ namespace Sprint2
         private ISprite Sprite;
         private Point ItemLocation;
         private Boolean SpriteActivity = true;
+        private int FramesPassed = 0;
+        private Boolean spriteChanged = false;
+        private const int bombActiveTime = 100;
+        private const int deadFrames = 25;
+        private double scale;
 
-        public Bomb(Point itemLocation, double scale)
+        public Bomb(Point itemLocation, double size)
         {
-            Sprite = ItemFactory.Instance.CreateBombSprite(scale);
+            scale = size;
+            Sprite = ItemFactory.Instance.CreateBombSprite(size);
             ItemLocation = itemLocation;
         }
 
-        public void SetSize(int size)
+        public void SetSize(double size)
         {
             Sprite.SetSize(size);
         }
@@ -36,12 +42,21 @@ namespace Sprint2
 
         public Boolean SpriteActive()
         {
+            if (FramesPassed >= bombActiveTime)
+                SpriteActivity = false;
             return SpriteActivity;
         }
 
         public void Update(GameTime gameTime)
         {
+
             Sprite.Update(gameTime);
+            FramesPassed++;
+            if (spriteChanged) return;
+            if (FramesPassed >= bombActiveTime - deadFrames) {
+                spriteChanged = true;
+                Sprite = ItemFactory.Instance.CreateDeadArrowSprite(scale);
+            }          
         }
 
         public void Draw(SpriteBatch spriteBatch)

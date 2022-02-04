@@ -6,23 +6,30 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-	class ArrowDownSprite : ISprite
+	class FireItemSprite : ISprite
 	{
 		//-----Private Variables-----
 		private Rectangle Frame;
 		private Texture2D Texture;
 		private double Scale;
 
+		private List<Rectangle> Frames;
+		private int currentFrame = 0;
+		private int totalFrames = 2;
+
 
 		//-----Constructor-----
-		public ArrowDownSprite(Texture2D texture, double scale)
+		public FireItemSprite(Texture2D texture, double scale)
 		{
 			Scale = scale;
 			Texture = texture;
-			Frame = new Rectangle(161, 55, 174 - 160, 88 - 54);
+			Frames = new List<Rectangle>();
+			Frames.Add(new Rectangle(56, 103, 31, 31));
+			Frames.Add(new Rectangle(8, 103, 31, 31));
+			Frame = Frames[currentFrame];
 		}
 
-		public void SetSize(int size)
+		public void SetSize(double size)
 		{
 			Scale = size;
 		}
@@ -30,7 +37,15 @@ namespace Sprint2
 		//-----Update frame-----
 		public void Update(GameTime gameTime)
 		{
-
+			if(gameTime.TotalGameTime.Milliseconds % 30 == 0)
+            {
+				currentFrame++;
+				if(currentFrame == totalFrames)
+                {
+					currentFrame = 0;
+                }
+				Frame = Frames[currentFrame];
+            }
 		}
 
 		public void Draw(SpriteBatch spriteBatch, Point location)

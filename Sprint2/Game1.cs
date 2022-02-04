@@ -23,7 +23,6 @@ namespace Sprint2
 
         //-----Current Objects On Screen-----
         private List<IItem> Items;
-        public ISprite Sprite;
 
 
         public Game1()
@@ -56,33 +55,29 @@ namespace Sprint2
             base.Initialize();
         }
 
-        public void HiICreateTonysSpritesTest()
+        public void TestArrows()
         {
             double HiIAmAVariable = 2.0;
-            Items.Add(new Compass(new Point(500, 500), HiIAmAVariable));
-            Items.Add(new Clock(new Point(400, 500), HiIAmAVariable));
-            Items.Add(new ArrowItem(new Point(300, 500), HiIAmAVariable));
-            Items.Add(new FireItem(new Point(200, 500), HiIAmAVariable));
-            Items.Add(new Map(new Point(600, 500), HiIAmAVariable));
-            Items.Add(new Key(new Point(700, 500), HiIAmAVariable));
-            Items.Add(new HeartContainer(new Point(200, 600), HiIAmAVariable));
-            Items.Add(new Triforce(new Point(300, 600), HiIAmAVariable));
-            Items.Add(new Bow(new Point(400, 600), HiIAmAVariable));
-            Items.Add(new Heart(new Point(500, 600), HiIAmAVariable));
-            Items.Add(new Rupee(new Point(600, 600), HiIAmAVariable));
-            Items.Add(new Bomb(new Point(700, 600), HiIAmAVariable));
-            Items.Add(new Fairy(new Point(200, 700), HiIAmAVariable));
+            Items.Add(new ArrowUpItem(new Point(400, 800), HiIAmAVariable));
+            Items.Add(new ArrowRightItem(new Point(50, 500), HiIAmAVariable));
+            Items.Add(new ArrowLeftItem(new Point(800, 500), HiIAmAVariable));
+            Items.Add(new ArrowDownItem(new Point(500, 50), HiIAmAVariable));
         }
 
-        public void HiICreateTonyArrows()
+        public void TestSwordBeams()
         {
             double HiIAmAVariable = 2.0;
-            Items.Add(new ArrowUpItem(new Point(100, 800), HiIAmAVariable));
-            Items.Add(new ArrowDownItem(new Point(300, 0), HiIAmAVariable));
-            Items.Add(new ArrowRightItem(new Point(0, 500), HiIAmAVariable));
-            Items.Add(new ArrowLeftItem(new Point(900, 300), HiIAmAVariable));
+            Items.Add(new SwordBeamUp(new Point(400, 800), HiIAmAVariable));
+            Items.Add(new SwordBeamRight(new Point(50, 500), HiIAmAVariable));
+            Items.Add(new SwordBeamLeft(new Point(800, 500), HiIAmAVariable));
+            Items.Add(new SwordBeamDown(new Point(500, 50), HiIAmAVariable));
         }
 
+        public void TestBomb()
+        {
+            double HiIAmAVariable = 2.0;
+            Items.Add(new Bomb(new Point(screenDim.X/2, screenDim.Y/2), HiIAmAVariable));
+        }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -90,8 +85,9 @@ namespace Sprint2
             //---Give All Objects a starting position
             ItemFactory.Instance.LoadAllTextures(Content);
 
-            HiICreateTonysSpritesTest();
-            HiICreateTonyArrows();
+            //TestSwordBeams();
+            //TestArrows();
+            TestBomb();
 
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             enemy = new Jelly(new Point(100, 100));
@@ -129,7 +125,6 @@ namespace Sprint2
         {
 
             GraphicsDevice.Clear(Color.Black);
-
             enemy.Draw(spriteBatch);
             foreach (IItem item in Items)
             {
