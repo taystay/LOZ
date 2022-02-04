@@ -14,7 +14,7 @@ namespace Sprint2
         private Texture2D dragonSprite;
         //private List<Rectangle> frames;
         private int frame;
-        private const int maxFrame = 3;
+        private const int maxFrame = 2;
         private const int scale = 3;
         private bool facingLeft;
 
@@ -22,7 +22,7 @@ namespace Sprint2
         {
 
             dragonSprite = sprite;
-            frame = 1;
+            frame = 0;
 
         }
 
@@ -40,13 +40,11 @@ namespace Sprint2
             {
 
                 frame++;
+                if (frame == maxFrame)
+                {
+                    frame = 0;
+                }
 
-            }
-
-            if (frame == maxFrame)
-            {
-
-                frame = 1;
             }
 
         }
@@ -58,8 +56,8 @@ namespace Sprint2
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width = scale * (dragonSprite.Width / 2);
-            int height = (dragonSprite.Height / 5);
+            int width = dragonSprite.Width / 2;
+            int height = dragonSprite.Height / 5;
             int row = 0;
             int column = frame % 2;
 

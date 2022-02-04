@@ -10,6 +10,6 @@ namespace Sprint2
     {
         public void SetSize(int size);
         public void Update(GameTime gameTime);
-        public void Draw(SpriteBatch spriteBatch, Point location);
+        public void Draw(SpriteBatch spriteBatch,  Point location);
     }
 }

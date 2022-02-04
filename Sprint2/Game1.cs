@@ -49,10 +49,10 @@ namespace Sprint2
             Items = new List<IItem>();
 
             //----------------Initialize Screen Data-------------------------
-            graphics.PreferredBackBufferWidth = screenDim.X;
+           /* graphics.PreferredBackBufferWidth = screenDim.X;
             graphics.PreferredBackBufferHeight = screenDim.Y;
             graphics.IsFullScreen = false;
-            graphics.ApplyChanges();
+            graphics.ApplyChanges();*/
             base.Initialize();
         }
 
@@ -83,8 +83,8 @@ namespace Sprint2
 
             HiICreateTonysSpritesTest();
 
-           /* EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            enemy = new Skeleton(new Point(100, 100));*/
+            /* EnemySpriteFactory.Instance.LoadAllTextures(Content);
+             enemy = new Jelly(new Point(100, 100));*/
         }
         protected override void Update(GameTime gameTime)
         {
@@ -110,15 +110,16 @@ namespace Sprint2
 
             //--------------------------------------------------
 
-            //enemy.Update(gameTime);
+            // enemy.Update(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            //enemy.Draw(spriteBatch);
 
             GraphicsDevice.Clear(Color.Black);
+
+            /* enemy.Draw(spriteBatch);*/
             foreach (IItem item in Items)
             {
                 item.Draw(spriteBatch);

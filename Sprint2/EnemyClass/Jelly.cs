@@ -6,33 +6,35 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class Skeleton : IEnemy
+    class Jelly : IEnemy
     {
         private Point position;
-        private ISprite skeleton;
+        private ISprite jelly;
 
-        public Skeleton(Point location) {
+        public Jelly(Point location)
+        {
 
             position = location;
-            skeleton = EnemySpriteFactory.Instance.CreateSkeleton();
+            jelly = EnemySpriteFactory.Instance.CreateJelly();
 
         }
 
-        public void Update(GameTime timer) {
+        public void Update(GameTime timer)
+        {
 
             //var random = new Random();
 
             /*  position.X = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));
               position.Y = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));*/
-           
-            skeleton.Update(timer);
+
+            jelly.Update(timer);
         }
 
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            skeleton.Draw(spriteBatch, position);
+            jelly.Draw(spriteBatch, position);
 
         }
 

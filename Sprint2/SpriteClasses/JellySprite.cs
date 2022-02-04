@@ -45,7 +45,7 @@ namespace Sprint2
             if (frame == maxFrame)
             {
 
-                frame = 1;
+                frame = 0;
             }
 
         }
@@ -57,7 +57,7 @@ namespace Sprint2
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width = scale * (jellySprite.Width / 2);
+            int width =  (jellySprite.Width / 2);
             int height = (jellySprite.Height / 5);
             int row = 2;
             int column = frame % 2;
