@@ -22,8 +22,8 @@ namespace Sprint2
 
             var random = new Random();
 
-          /*  position.X = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));
-            position.Y = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));*/
+            position.X = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));
+            position.Y = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));
             skeleton.Update(timer);
         }
 

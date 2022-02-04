@@ -33,10 +33,30 @@ namespace Sprint2
 			ItemSpriteSheet = content.Load<Texture2D>("items");
 		}
 
-		public ISprite CreateArrowItemSprite(double scale)
+		public ISprite CreateArrowUpSprite(double scale)
         {
-			return new ArrowItemSprite(ItemSpriteSheet, scale);
+			return new ArrowUpSprite(ItemSpriteSheet, scale);
         }
+
+		public ISprite CreateDeadArrowSprite(double scale)
+		{
+			return new DeadArrowSprite(ItemSpriteSheet, scale);
+		}
+
+		public ISprite CreateArrowLeftSprite(double scale)
+		{
+			return new ArrowLeftSprite(ItemSpriteSheet, scale);
+		}
+
+		public ISprite CreateArrowDownSprite(double scale)
+		{
+			return new ArrowDownSprite(ItemSpriteSheet, scale);
+		}
+
+		public ISprite CreateArrowRightSprite(double scale)
+		{
+			return new ArrowRightSprite(ItemSpriteSheet, scale);
+		}
 
 		public ISprite CreateCompassSprite(double scale)
         {

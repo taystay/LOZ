@@ -74,6 +74,15 @@ namespace Sprint2
             Items.Add(new Fairy(new Point(200, 700), HiIAmAVariable));
         }
 
+        public void HiICreateTonyArrows()
+        {
+            double HiIAmAVariable = 2.0;
+            Items.Add(new ArrowUpItem(new Point(100, 800), HiIAmAVariable));
+            Items.Add(new ArrowDownItem(new Point(300, 0), HiIAmAVariable));
+            Items.Add(new ArrowRightItem(new Point(0, 500), HiIAmAVariable));
+            Items.Add(new ArrowLeftItem(new Point(900, 300), HiIAmAVariable));
+        }
+
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -82,9 +91,10 @@ namespace Sprint2
             ItemFactory.Instance.LoadAllTextures(Content);
 
             HiICreateTonysSpritesTest();
+            HiICreateTonyArrows();
 
-           /* EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            enemy = new Skeleton(new Point(100, 100));*/
+            //EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            //enemy = new Skeleton(new Point(100, 100));
         }
         protected override void Update(GameTime gameTime)
         {
@@ -93,18 +103,18 @@ namespace Sprint2
             {
                 controller.Update();
             }
-            List<int> IndicesToRemove = new List<int>();
+            List<IItem> ItemsToRemove = new List<IItem>();
             foreach (IItem item in Items)
             {
                 item.Update(gameTime);
                 if (!item.SpriteActive())
                 {
-                    IndicesToRemove.Add(Items.IndexOf(item));
+                    ItemsToRemove.Add(item);
                 }
             }
-            foreach (int i in IndicesToRemove)
+            foreach (IItem item in ItemsToRemove)
             {
-                Items.RemoveAt(i);
+                Items.Remove(item);
             }
 
 

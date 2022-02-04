@@ -6,15 +6,24 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public class ArrowItem : IItem
+    public class ArrowLeftItem : IItem
     {
         private ISprite Sprite;
         private Point ItemLocation;
         private Boolean SpriteActivity = true;
+        private Boolean spriteChanged = false;
+        private int FramesPassed = 0;
 
-        public ArrowItem(Point itemLocation, double scale)
+        private const int Velocity = 9;
+        private const int ArrowTravelFrames = 100;
+        private const int DeadFrames = 25;
+        private const int DeadArrowSpriteOffSet = -8;
+        private readonly double scale;
+
+        public ArrowLeftItem(Point itemLocation, double size)
         {
-            Sprite = ItemFactory.Instance.CreateArrowUpSprite(scale);
+            scale = size;
+            Sprite = ItemFactory.Instance.CreateArrowLeftSprite(size);
             ItemLocation = itemLocation;
         }
 
@@ -36,12 +45,27 @@ namespace Sprint2
 
         public Boolean SpriteActive()
         {
+            if (FramesPassed >= ArrowTravelFrames)
+                SpriteActivity = false;
             return SpriteActivity;
         }
 
         public void Update(GameTime gameTime)
         {
+            //---Update Position---
             Sprite.Update(gameTime);
+            FramesPassed++;
+            if (spriteChanged) return;
+            if (FramesPassed >= ArrowTravelFrames - DeadFrames)
+            {
+                spriteChanged = true;
+                Sprite = ItemFactory.Instance.CreateDeadArrowSprite(scale);
+                ItemLocation.X += DeadArrowSpriteOffSet;
+                return;
+            }
+
+            ItemLocation.X -= Velocity;
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
