@@ -10,32 +10,57 @@ namespace Sprint2
     {
         private Point position;
         private ISprite dragon;
+        private IEnemy dragonsFire;
+        private int xPosition;
+        private Random random;
+        private bool activeFire;
 
         public Dragon(Point location)
         {
-
             position = location;
+            activeFire = false;
             dragon = EnemySpriteFactory.Instance.CreateDragon();
-
+            dragonsFire = new DragonBreathe(this);
+            random = new Random();
+            xPosition = random.Next(0, 500);
+        }
+        public bool Fire
+        {
+            get
+            {
+                return activeFire;
+            }
+        }
+        public Point Location
+        {
+            get {
+                return position;
+            }
         }
 
         public void Update(GameTime timer)
         {
+            position.X = (position.X < xPosition) ? position.X += 1 : position.X -= 1;        
+            if (position.X == xPosition )
+            {
+                xPosition = random.Next(0, 500);
+            }
 
-            //var random = new Random();
+            if (timer.TotalGameTime.Milliseconds % 100000 == 0)
+            {
+                activeFire = !activeFire;
+            }
 
-            /*  position.X = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));
-              position.Y = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));*/
-
+            dragonsFire.Update(timer);
             dragon.Update(timer);
         }
-
-
         public void Draw(SpriteBatch spriteBatch)
-        {
-
+        { 
             dragon.Draw(spriteBatch, position);
-
+            if (activeFire)
+            {
+                dragonsFire.Draw(spriteBatch);
+            }
         }
 
     }

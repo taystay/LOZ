@@ -9,11 +9,8 @@ namespace Sprint2
 {
     interface IEnemy
     {
-
         public void Update(GameTime timer);
         public void Draw(SpriteBatch spriteBatch);
-
-
 
     }
 }

@@ -5,22 +5,20 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
 
-
 namespace Sprint2
 {
-    class BatSprite : ISprite
+    class DragonsFireSprite :ISprite
     {
 
-        private Texture2D batSprite;
-        //private List<Rectangle> frames;
+        private Texture2D dragonsBreath;
         private int frame;
-        private const int maxFrame = 2;
-        private const int scale = 2;
+        private const int maxFrame = 4;
+        //private const int scale = 2;
 
-        public BatSprite(Texture2D sprite)
+        public DragonsFireSprite(Texture2D sprite)
         {
 
-            batSprite = sprite;
+            dragonsBreath = sprite;
             frame = 0;
 
         }
@@ -34,21 +32,15 @@ namespace Sprint2
 
         public void Update(GameTime timer)
         {
-
-            if (timer.TotalGameTime.Milliseconds % 150 == 0)
+            if (timer.TotalGameTime.Milliseconds % 200 == 0)
             {
-
-                frame++;
+                 frame++;
                 if (frame == maxFrame)
-                {
-
+                { 
                     frame = 0;
                 }
-
             }
-
         }
-
         public void Draw(SpriteBatch spriteBatch, Point location)
         {
 
@@ -56,22 +48,24 @@ namespace Sprint2
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width =  (batSprite.Width / 2);
-            int height = (batSprite.Height / 5);
-            int row = 4;
+            int width = (dragonsBreath.Width / 2);
+            int height = (dragonsBreath.Height / 2);
+            int row = frame / 2 ;
             int column = frame % 2;
-
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width*scale, height);
-
+            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, width, height);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(batSprite, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(dragonsBreath, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
 
         }
 
+    }
+
+       
+
 
     }
-}
+

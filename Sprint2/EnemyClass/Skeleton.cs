@@ -10,21 +10,30 @@ namespace Sprint2
     {
         private Point position;
         private ISprite skeleton;
+        private int xPosition;
+        private int yPosition;
+        private Random random;
 
         public Skeleton(Point location) {
 
             position = location;
             skeleton = EnemySpriteFactory.Instance.CreateSkeleton();
+            random = new Random();
+            xPosition = random.Next(0, 500);
+            yPosition = random.Next(0, 500);
 
         }
 
         public void Update(GameTime timer) {
 
-            //var random = new Random();
+            position.X = (position.X < xPosition) ? position.X += 1 : position.X -= 1;
+            position.Y = (position.Y < yPosition) ? position.Y += 1 : position.Y -= 1;
 
-            /*  position.X = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));
-              position.Y = (int)(timer.ElapsedGameTime.TotalSeconds * random.Next(10, 100));*/
-           
+            if (position.X == xPosition || position.Y == yPosition) {
+                xPosition = random.Next(0, 500);
+                yPosition = random.Next(0, 500);
+            }          
+
             skeleton.Update(timer);
         }
 

@@ -56,7 +56,7 @@ namespace Sprint2
             base.Initialize();
         }
 
-        public void TestArrows()
+       /* public void TestArrows()
         {
             double HiIAmAVariable = 2.0;
             Items.Add(new ArrowUpItem(new Point(400, 800), HiIAmAVariable));
@@ -79,30 +79,30 @@ namespace Sprint2
             double HiIAmAVariable = 2.0;
             Items.Add(new Bomb(new Point(screenDim.X/2, screenDim.Y/2), HiIAmAVariable));
         }
-
+*/
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //---Give All Objects a starting position
-            ItemFactory.Instance.LoadAllTextures(Content);
+           // ItemFactory.Instance.LoadAllTextures(Content);
 
-            TestSwordBeams();
+           /* TestSwordBeams();
             TestArrows();
-            TestBomb();
+            TestBomb();*/
 
-            LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            link = new Link(new Point(200, 200));
+          /*  LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            link = new Link(new Point(200, 200));*/
 
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            enemy = new Jelly(new Point(100, 100));
-            enemy = new Skeleton(new Point(100, 100));
+            //enemy = new Jelly(new Point(100, 100));
+            enemy =  new Dragon(new Point(500, 500));
         }
 
         protected override void Update(GameTime gameTime)
         {
             //-------------------------------------------------------
-            foreach (IController controller in controllerList)
+            /*foreach (IController controller in controllerList)
             {
                 controller.Update();
             }
@@ -119,11 +119,11 @@ namespace Sprint2
             {
                 Items.Remove(item);
             }
-
+*/
 
             //--------------------------------------------------
 
-            link.Update(gameTime);
+            //link.Update(gameTime);
 
             enemy.Update(gameTime);
             base.Update(gameTime);
@@ -132,15 +132,15 @@ namespace Sprint2
         protected override void Draw(GameTime gameTime)
         {
 
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.White);
 
-            link.Draw(spriteBatch);
+            //link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
-
+/*
             foreach (IItem item in Items)
             {
                 item.Draw(spriteBatch);
-            }
+            }*/
             base.Draw(gameTime);
         }
     }

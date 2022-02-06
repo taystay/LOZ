@@ -14,7 +14,7 @@ namespace Sprint2
         private Texture2D dragonSprite;
         //private List<Rectangle> frames;
         private int frame;
-        private const int maxFrame = 2;
+        private const int maxFrame = 4;
         private const int scale = 3;
         private bool facingLeft;
 
@@ -58,7 +58,7 @@ namespace Sprint2
             //There are only 2 columbs and 1 row
             int width = dragonSprite.Width / 2;
             int height = dragonSprite.Height / 5;
-            int row = 0;
+            int row = frame/2;
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
