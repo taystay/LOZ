@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Sprint2",
-    "\\Sprint2\\CommandClasses",
-    "\\Sprint2\\Factories"
+    "\\Sprint2\\SpriteClasses",
+    "\\Sprint2\\SpriteClasses\\BlockSprites"
   ],
   "SelectedNode": "\\Sprint2\\Game1.cs",
   "PreviewInSolutionExplorer": false

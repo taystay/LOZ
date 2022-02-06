@@ -23,7 +23,7 @@ namespace Sprint2
             controllerMappings.Add(key, command);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             foreach(Keys Key in Keyboard.GetState().GetPressedKeys())
             {

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    interface IItem
+    public interface IItem
     {
         public void SetSpriteActivity(Boolean activity);
         public void SetSize(double size);
