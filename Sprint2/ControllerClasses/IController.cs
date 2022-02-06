@@ -9,6 +9,6 @@ namespace Sprint2
 {
     public interface IController
     {
-        public void Update();
+        public void Update(GameTime gametime);
     }
 }
