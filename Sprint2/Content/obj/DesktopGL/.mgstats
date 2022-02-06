@@ -1,6 +1,0 @@
-Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/enemySprite.png","C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/enemySprite.xnb","TextureProcessor","Texture2DContent",3061,239701,0.0918162
-"C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/items.png","C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/items.xnb","TextureProcessor","Texture2DContent",6592,405597,0.0100692
-"C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/LinkSprites.png","C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/LinkSprites.xnb","TextureProcessor","Texture2DContent",2516,50261,0.0018275
-"C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/megaman.png","C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/megaman.xnb","TextureProcessor","Texture2DContent",21167,531961,0.0093757
-"C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/ZeldaDungeonBlocks.png","C:/Users/ajdal/Documents/Programming/MonoGame/Repo_Zelda/Sprint2/Content/bin/DesktopGL/ZeldaDungeonBlocks.xnb","TextureProcessor","Texture2DContent",2415,74085,0.0026034

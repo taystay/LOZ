@@ -68,52 +68,14 @@ namespace Sprint2
             graphics.PreferredBackBufferHeight = screenDimensions.Y;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
-<<<<<<< HEAD
-            base.Initialize();
-        }
-
-       /* public void TestArrows()
-        {
-            double HiIAmAVariable = 2.0;
-            Items.Add(new ArrowUpItem(new Point(400, 800), HiIAmAVariable));
-            Items.Add(new ArrowRightItem(new Point(50, 500), HiIAmAVariable));
-            Items.Add(new ArrowLeftItem(new Point(800, 500), HiIAmAVariable));
-            Items.Add(new ArrowDownItem(new Point(500, 50), HiIAmAVariable));
-        }
-
-        public void TestSwordBeams()
-        {
-            double HiIAmAVariable = 2.0;
-            Items.Add(new SwordBeamUp(new Point(400, 800), HiIAmAVariable));
-            Items.Add(new SwordBeamRight(new Point(50, 500), HiIAmAVariable));
-            Items.Add(new SwordBeamLeft(new Point(800, 500), HiIAmAVariable));
-            Items.Add(new SwordBeamDown(new Point(500, 50), HiIAmAVariable));
-        }
-=======
->>>>>>> 1a3910bff0a29d49567842cb3e763b998bd45f12
 
             base.Initialize();
         }
-*/
+
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-<<<<<<< HEAD
-            //---Give All Objects a starting position
-           // ItemFactory.Instance.LoadAllTextures(Content);
-
-           /* TestSwordBeams();
-            TestArrows();
-            TestBomb();*/
-
-          /*  LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            link = new Link(new Point(200, 200));*/
-
-            EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            //enemy = new Jelly(new Point(100, 100));
-            enemy =  new Dragon(new Point(500, 500));
-=======
             ItemFactory.Instance.LoadAllTextures(Content);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
@@ -140,17 +102,11 @@ namespace Sprint2
             //enemy = new Jelly(new Point(100, 100));
             enemy = new Skeleton(new Point(100, 100));
 
->>>>>>> 1a3910bff0a29d49567842cb3e763b998bd45f12
         }
 
         protected override void Update(GameTime gameTime)
         {
-<<<<<<< HEAD
-            //-------------------------------------------------------
-            /*foreach (IController controller in controllerList)
-=======
             foreach (IController controller in controllerList)
->>>>>>> 1a3910bff0a29d49567842cb3e763b998bd45f12
             {
                 controller.Update(gameTime);
             }
@@ -172,21 +128,9 @@ namespace Sprint2
                 }
                 i++;
             }
-<<<<<<< HEAD
-            foreach (IItem item in ItemsToRemove)
-            {
-                Items.Remove(item);
-            }
-*/
 
-            //--------------------------------------------------
-
-            //link.Update(gameTime);
-
-=======
             //--------------------------------------------------
             link.Update(gameTime);
->>>>>>> 1a3910bff0a29d49567842cb3e763b998bd45f12
             enemy.Update(gameTime);
             base.Update(gameTime);
         }
@@ -194,22 +138,16 @@ namespace Sprint2
         protected override void Draw(GameTime gameTime)
         {
 
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.Black);
 
             //link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
-<<<<<<< HEAD
-/*
-            foreach (IItem item in Items)
-=======
-
             items[currentItem].Draw(spriteBatch);
 
             foreach (IItem item in linkItems)
->>>>>>> 1a3910bff0a29d49567842cb3e763b998bd45f12
             {
                 item.Draw(spriteBatch);
-            }*/
+            }
             base.Draw(gameTime);
         }
     }
