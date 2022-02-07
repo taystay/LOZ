@@ -33,12 +33,33 @@ namespace Sprint2
 			linkSpriteSheet = content.Load<Texture2D>("LinkSprites");
 		}
 
-        public ISprite LinkIdle()
+        public ISprite LinkDownIdle()
         {
 
-            return new LinkIdle(linkSpriteSheet);
+            return new LinkDownIdle(linkSpriteSheet);
 
         }
+
+		public ISprite LinkUpIdle()
+		{
+
+			return new LinkUpIdle(linkSpriteSheet);
+
+		}
+
+		public ISprite LinkLeftIdle()
+		{
+
+			return new LinkLeftIdle(linkSpriteSheet);
+
+		}
+
+		public ISprite LinkRightIdle()
+		{
+
+			return new LinkRightIdle(linkSpriteSheet);
+
+		}
 
 		public ISprite LinkMovingUp()
 		{

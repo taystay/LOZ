@@ -8,16 +8,15 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class LinkMovingRight : ISprite
+    class LinkRightIdle : ISprite
     {
 
         private Texture2D linkSprite;
-        //private List<Rectangle> frames;
         private int frame;
-        private const int maxFrame = 2;
+        private const int maxFrame = 1;
         private const int scale = 3;
 
-        public LinkMovingRight(Texture2D sprite)
+        public LinkRightIdle(Texture2D sprite)
         {
 
             linkSprite = sprite;
@@ -39,13 +38,12 @@ namespace Sprint2
             {
 
                 frame++;
+                if (frame == maxFrame)
+                {
 
-            }
+                    frame = 0;
+                }
 
-            if (frame == maxFrame)
-            {
-
-                frame = 0;
             }
 
         }
@@ -57,9 +55,9 @@ namespace Sprint2
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width =  (linkSprite.Width / 4);
-            int height = (linkSprite.Height / 4);
-            int row = frame;
+            int width =  (linkSprite.Width/4);
+            int height = (linkSprite.Height/4);
+            int row = 0;
             int column = 3;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);

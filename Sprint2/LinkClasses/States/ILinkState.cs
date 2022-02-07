@@ -6,9 +6,12 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    public interface ILink
+    public interface ILinkState
     {
-        public void ChangeDirection();
+        public void ChangeDirectionUp();
+        public void ChangeDirectionDown();
+        public void ChangeDirectionLeft();
+        public void ChangeDirectionRight();
         public void Move(GameTime gameTime);
         public void Attack();
         public void Update(GameTime timer);

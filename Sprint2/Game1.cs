@@ -98,7 +98,7 @@ namespace Sprint2
                 { new Triforce(itemLocation, scale) },
             };
 
-            link = new Link(new Point(200, 200));       
+            link = new Link(new Point(500, 200));       
             //enemy = new Jelly(new Point(100, 100));
             enemy = new Skeleton(new Point(100, 100));
 
@@ -140,7 +140,7 @@ namespace Sprint2
 
             GraphicsDevice.Clear(Color.Black);
 
-            //link.Draw(spriteBatch);
+            link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
             items[currentItem].Draw(spriteBatch);
 

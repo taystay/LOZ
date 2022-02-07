@@ -59,11 +59,11 @@ namespace Sprint2
             //There are only 2 columbs and 1 row
             int width =  (linkSprite.Width / 4);
             int height = (linkSprite.Height / 4);
-            int row = 4;
-            int column = frame % 4;
+            int row = frame;
+            int column = 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
 
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
