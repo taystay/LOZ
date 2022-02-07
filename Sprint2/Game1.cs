@@ -76,14 +76,8 @@ namespace Sprint2
                 { new Triforce(ItemLocation, scale) },
             };
 
-<<<<<<< HEAD
-            link = new Link(new Point(500, 200));       
-            //enemy = new Jelly(new Point(100, 100));
-            enemy = new Skeleton(new Point(100, 100));
-=======
             link = new Link(new Point(200, 200));       
             enemy = new Dragon(new Point(800, 800));
->>>>>>> 1adfdeca94ef626cd27717e170926589c9cb12cb
 
         }
 
