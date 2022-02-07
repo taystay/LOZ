@@ -10,7 +10,7 @@ namespace Sprint2
     {
         private Point position;
         private ISprite dragon;
-        private IEnemy dragonsFire;
+        private IEnemy dragonsFire; // Dragon need not know about projectile and projectile not need know about dragon. IProjectile interface>>>
         private int xPosition;
         private Random random;
         private bool activeFire;
@@ -24,6 +24,7 @@ namespace Sprint2
             random = new Random();
             xPosition = random.Next(0, 500);
         }
+
         public bool Fire
         {
             get
@@ -46,7 +47,12 @@ namespace Sprint2
                 xPosition = random.Next(0, 500);
             }
 
-            if (timer.TotalGameTime.Milliseconds % 100000 == 0)
+            //3 different projectiles split into different directions.
+            //LIst<IProjectile>().add(DragonBall(Vector2(), Location()));
+            //LIst<IProjectile>().add(DragonBall(Vector2(), Location()));
+            //LIst<IProjectile>().add(DragonBall(Vector2(), Location()));
+
+            if (timer.TotalGameTime.TotalMilliseconds % 2 == 0)
             {
                 activeFire = !activeFire;
             }

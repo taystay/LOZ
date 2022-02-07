@@ -8,44 +8,44 @@ namespace Sprint2
 {
     public class Compass : IItem
     {
-        private ISprite Sprite;
-        private Point ItemLocation;
-        private Boolean SpriteActivity = true;
+        private ISprite sprite;
+        private Point itemLocation;
+        private Boolean spriteActivity = true;
         public Compass(Point itemLocation, double scale)
         {
-            Sprite = ItemFactory.Instance.CreateCompassSprite(scale);
-            ItemLocation = itemLocation;
+            sprite = ItemFactory.Instance.CreateCompassSprite(scale);
+            this.itemLocation = itemLocation;
         }
 
         public void SetSize(double size)
         {
-            Sprite.SetSize(size);
+            sprite.SetSize(size);
         }
 
         public void SetPosition(Point Position)
         {
-            ItemLocation.X = Position.X;
-            ItemLocation.Y = Position.Y;
+            itemLocation.X = Position.X;
+            itemLocation.Y = Position.Y;
         }
 
         public void SetSpriteActivity(Boolean activity)
         {
-            SpriteActivity = activity;
+            spriteActivity = activity;
         }
 
         public Boolean SpriteActive()
         {
-            return SpriteActivity;
+            return spriteActivity;
         }
 
         public void Update(GameTime gameTime)
         {
-            Sprite.Update(gameTime);
+            sprite.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Sprite.Draw(spriteBatch, ItemLocation);
+            sprite.Draw(spriteBatch, itemLocation);
         }
 
     }

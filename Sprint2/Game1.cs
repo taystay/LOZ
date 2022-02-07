@@ -77,7 +77,7 @@ namespace Sprint2
             };
 
             link = new Link(new Point(200, 200));       
-            enemy = new Skeleton(new Point(100, 100));
+            enemy = new Dragon(new Point(800, 800));
 
         }
 
