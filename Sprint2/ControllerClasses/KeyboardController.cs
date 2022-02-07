@@ -25,6 +25,14 @@ namespace Sprint2
             controllerMappings.Add(key, command);
         }
 
+        /* 
+         * public void RegisterHoldCommand(Keys key, ICommand command)
+         * {
+         *   holdCommands.Add(key, command);
+         * }
+         * 
+         */
+
         public void Update(GameTime gameTime)
         {
             //-----Register keys into currently pressed down keys-----
