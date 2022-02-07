@@ -13,20 +13,21 @@ namespace Sprint2
         private Texture2D dragonsBreath;
         private int frame;
         private const int maxFrame = 4;
-        //private const int scale = 2;
+        private double scale;
 
         public DragonsFireSprite(Texture2D sprite)
         {
 
             dragonsBreath = sprite;
             frame = 0;
+            scale = 2;
 
         }
 
         public void SetSize(double size)
         {
 
-            //nothing?? for now....
+            scale = size;
         }
 
 
@@ -53,7 +54,7 @@ namespace Sprint2
             int row = frame / 2 ;
             int column = frame % 2;
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width * scale), (int)(height * scale));
 
             spriteBatch.Begin();
             spriteBatch.Draw(dragonsBreath, destinationRectangle, sourceRectangle, Color.White);

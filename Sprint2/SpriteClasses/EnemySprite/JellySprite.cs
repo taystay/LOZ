@@ -15,20 +15,21 @@ namespace Sprint2
         //private List<Rectangle> frames;
         private int frame;
         private const int maxFrame = 3;
-        private const int scale = 3;
+        private double scale;
 
         public JellySprite(Texture2D sprite)
         {
 
             jellySprite = sprite;
             frame = 1;
+            scale = 1;
 
         }
 
         public void SetSize(double size)
         {
 
-            //nothing?? for now....
+            scale = size;
         }
 
 
@@ -63,7 +64,7 @@ namespace Sprint2
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width * scale), (int)(height * scale));
 
 
             spriteBatch.Begin();
