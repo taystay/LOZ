@@ -6,54 +6,53 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class LeftMovingLinkState : ILinkState
+    class UpAttackLinkState : ILinkState
     {
         private Point position;
         private ISprite linkSprite;
         private Link link;
 
-        public LeftMovingLinkState(Point location, Link link)
+        public UpAttackLinkState(Point location, Link link)
         {
             this.link = link;
             position = location;
-            linkSprite = LinkSpriteFactory.Instance.LinkMovingLeft();
+            linkSprite = LinkSpriteFactory.Instance.LinkUpAttack();
 
         }
 
         public void ChangeDirectionUp()
         {
+            //return to idle after attack
             link.linkState = new UpIdleLinkState(position, link);
         }
 
         public void ChangeDirectionDown()
         {
-            //Does nothing because already facing down
+            //Don't do anything besides attacking
         }
 
         public void ChangeDirectionLeft()
         {
-            link.linkState = new LeftIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void ChangeDirectionRight()
         {
-            link.linkState = new RightIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void Move(GameTime timer)
         {
-            //Nothing, already moving left
+            //Don't do anything besides attacking
         }
 
         public void Attack()
         {
-            link.linkState = new LeftAttackLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void Update(GameTime timer)
         {
-            while(position.X != 0)
-                position.X -= 4;
 
             linkSprite.Update(timer);
         }

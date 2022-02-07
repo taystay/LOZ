@@ -88,6 +88,33 @@ namespace Sprint2
 			return new LinkMovingRight(linkSpriteSheet);
 
 		}
+		public ISprite LinkLeftAttack()
+        {
+
+			return new LinkLeftAttack(linkSpriteSheet);
+
+		}
+
+		public ISprite LinkRightAttack()
+		{
+
+			return new LinkRightAttack(linkSpriteSheet);
+
+		}
+
+		public ISprite LinkUpAttack()
+		{
+
+			return new LinkUpAttack(linkSpriteSheet);
+
+		}
+
+		public ISprite LinkDownAttack()
+		{
+
+			return new LinkDownAttack(linkSpriteSheet);
+
+		}
 
 
 	}

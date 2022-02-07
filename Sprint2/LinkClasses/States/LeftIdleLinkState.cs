@@ -47,7 +47,7 @@ namespace Sprint2
 
         public void Attack()
         {
-            //Nothing here yet
+            link.linkState = new LeftAttackLinkState(position, link);
         }
 
         public void Update(GameTime timer)

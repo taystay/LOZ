@@ -42,7 +42,7 @@ namespace Sprint2
 
         public void Move(GameTime timer)
         {
-            //Nothing, already moving down
+            //Nothing, already moving up
         }
 
         public void Attack()
