@@ -3,6 +3,8 @@
 *.DS_Store
 
 #Visual Studio files
+*.v2
+*.suo
 *.sqlite
 *.mgcontent
 *.mgstats
