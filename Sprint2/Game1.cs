@@ -18,28 +18,8 @@ namespace Sprint2
         //----------------------
         private List<IItem> linkItems;
         private List<IItem> items;
-        private int currentItem;
-        private Point itemLocation = new Point(500, 500);
-        public Point ItemLocation
-        {
-            get
-            {
-                return itemLocation;
-            }
-        }
-
-        public int Item
-        {
-            get
-            {
-                return currentItem;
-            }
-            set
-            {
-                currentItem = value;
-            }
-        }
-
+        public int Item { get; set; }
+        public Point ItemLocation { get; set; } = new Point(500, 500);
         private IEnemy enemy;
         private ILink link;
 
@@ -57,8 +37,6 @@ namespace Sprint2
             {
                 { new KeyBindings(this).GetController()},
             };
-            
-            
 
             /*
              * Allows for a screen that is always the size of the user 
@@ -84,23 +62,28 @@ namespace Sprint2
             double scale = 3.0;
             items = new List<IItem>()
             {
-                { new ArrowItem(itemLocation, scale) },
-                { new Bow(itemLocation, scale) },
-                { new Clock(itemLocation, scale) },
-                { new Compass(itemLocation, scale) },
-                { new Fairy(itemLocation, scale) },
-                { new FireItem(itemLocation, scale) },
-                { new Heart(itemLocation, scale) },
-                { new HeartContainer(itemLocation, scale) },
-                { new Key(itemLocation, scale) },
-                { new Map(itemLocation, scale) },
-                { new Rupee(itemLocation, scale) },
-                { new Triforce(itemLocation, scale) },
+                { new ArrowItem(ItemLocation, scale) },
+                { new Bow(ItemLocation, scale) },
+                { new Clock(ItemLocation, scale) },
+                { new Compass(ItemLocation, scale) },
+                { new Fairy(ItemLocation, scale) },
+                { new FireItem(ItemLocation, scale) },
+                { new Heart(ItemLocation, scale) },
+                { new HeartContainer(ItemLocation, scale) },
+                { new Key(ItemLocation, scale) },
+                { new Map(ItemLocation, scale) },
+                { new Rupee(ItemLocation, scale) },
+                { new Triforce(ItemLocation, scale) },
             };
 
+<<<<<<< HEAD
             link = new Link(new Point(500, 200));       
             //enemy = new Jelly(new Point(100, 100));
             enemy = new Skeleton(new Point(100, 100));
+=======
+            link = new Link(new Point(200, 200));       
+            enemy = new Dragon(new Point(800, 800));
+>>>>>>> 1adfdeca94ef626cd27717e170926589c9cb12cb
 
         }
 
@@ -111,9 +94,11 @@ namespace Sprint2
                 controller.Update(gameTime);
             }
 
-            if (currentItem >= items.Count)
-                currentItem = 0;
-            items[currentItem].Update(gameTime);
+            if (Item >= items.Count)
+                Item = 0;
+            if (Item < 0)
+                Item = items.Count - 1;
+            items[Item].Update(gameTime);
 
             // Allows for items to remove themselves.
             int i = 0;
@@ -142,7 +127,7 @@ namespace Sprint2
 
             link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
-            items[currentItem].Draw(spriteBatch);
+            items[Item].Draw(spriteBatch);
 
             foreach (IItem item in linkItems)
             {

@@ -12,8 +12,6 @@ namespace Sprint2
     {
 
         private Texture2D skeletonSprite;
-        /*private List<Rectangle> frameList;
-        private Rectangle currentFrame;*/
         private int frame;
         private const int maxFrame = 2;
         private const int scale = 3;
@@ -22,11 +20,8 @@ namespace Sprint2
         {
 
             skeletonSprite = sprite;
-         /*   frameList = new List<Rectangle>();
-            frameList.Add(new Rectangle(0, 192, 49, 65));
-            frameList.Add(new Rectangle(49, 192, 49, 65));*/
             frame = 0;
-            //currentFrame = frameList[frame];
+           
                
         }
 
@@ -49,7 +44,6 @@ namespace Sprint2
                     frame = 0;
                     
                 }
-                //currentFrame = frameList[frame];
 
             }
 
@@ -68,9 +62,9 @@ namespace Sprint2
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width * scale), (int)(height * scale));
 
-            
+
             spriteBatch.Begin();
             spriteBatch.Draw(skeletonSprite, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();

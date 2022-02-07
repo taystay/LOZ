@@ -12,23 +12,21 @@ namespace Sprint2
     {
 
         private Texture2D batSprite;
-        //private List<Rectangle> frames;
         private int frame;
         private const int maxFrame = 2;
-        private const int scale = 2;
+        private double scale;
 
         public BatSprite(Texture2D sprite)
         {
-
             batSprite = sprite;
             frame = 0;
-
+            scale = 2;
         }
 
         public void SetSize(double size)
         {
 
-            //nothing?? for now....
+            scale = size; 
         }
 
 
@@ -62,7 +60,7 @@ namespace Sprint2
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width*scale, height);
+            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width*scale), height);
 
 
             spriteBatch.Begin();
