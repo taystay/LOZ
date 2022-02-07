@@ -19,7 +19,8 @@ namespace Sprint2
             ControllerMappings.RegisterCommand(Keys.NumPad0, new QuitGame(gameObject));
             ControllerMappings.RegisterCommand(Keys.T, new IterateBlock(gameObject));
             ControllerMappings.RegisterCommand(Keys.Y, new IterateBlock(gameObject));
-            ControllerMappings.RegisterCommand(Keys.P, new IterateStaticItems(gameObject));
+            ControllerMappings.RegisterCommand(Keys.I, new IterateStaticItems(gameObject));
+            ControllerMappings.RegisterCommand(Keys.U, new IterateRStaticItems(gameObject));
 
         }
 
