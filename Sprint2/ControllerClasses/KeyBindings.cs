@@ -21,6 +21,9 @@ namespace Sprint2
             ControllerMappings.RegisterCommand(Keys.Y, new IterateBlock(gameObject));
             ControllerMappings.RegisterCommand(Keys.I, new IterateStaticItems(gameObject));
             ControllerMappings.RegisterCommand(Keys.U, new IterateRStaticItems(gameObject));
+            //TEST IDEA, MAY OR MAY NOT WORK, THIS IS FOR LINKS FUNCTIONALITY
+            //Holding tilde iterates as the key is pressed not when pressed and then relased. Works!
+            ControllerMappings.RegisterHoldCommand(Keys.OemTilde, new IterateRStaticItems(gameObject));
 
         }
 
