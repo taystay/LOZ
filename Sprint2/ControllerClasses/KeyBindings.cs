@@ -17,8 +17,8 @@ namespace Sprint2
 
             ControllerMappings.RegisterCommand(Keys.D0, new QuitGame(gameObject));
             ControllerMappings.RegisterCommand(Keys.NumPad0, new QuitGame(gameObject));
-            ControllerMappings.RegisterCommand(Keys.T, new IterateBlock(gameObject));
             ControllerMappings.RegisterCommand(Keys.Y, new IterateBlock(gameObject));
+            ControllerMappings.RegisterCommand(Keys.T, new previousBlock(gameObject));
             ControllerMappings.RegisterCommand(Keys.I, new IterateStaticItems(gameObject));
             ControllerMappings.RegisterCommand(Keys.U, new IterateRStaticItems(gameObject));
             //TEST IDEA, MAY OR MAY NOT WORK, THIS IS FOR LINKS FUNCTIONALITY

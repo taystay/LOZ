@@ -18,7 +18,9 @@ namespace Sprint2
         //----------------------
         private List<IItem> linkItems;
         private List<IItem> items;
+        private List<IEnvironment> blocks;
         public int Item { get; set; }
+        public int Block { get; set; }
         public Point ItemLocation { get; set; } = new Point(500, 500);
         private IEnemy enemy;
         private ILink link;
@@ -57,9 +59,22 @@ namespace Sprint2
             ItemFactory.Instance.LoadAllTextures(Content);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
 
             linkItems = new List<IItem>();
             double scale = 3.0;
+
+            blocks = new List<IEnvironment>()
+            {
+                { new BlueSandBlock(new Point(400, 400), scale) },
+                { new BlackTileBlock(new Point(400, 400), scale) },
+                { new BlueTriangleBlock(new Point(400, 400), scale) },
+                { new DarkBlueBlock(new Point(400, 400), scale) },
+                { new MulticoloredBlock1(new Point(400, 400), scale) },
+                { new MulticoloredBlock2(new Point(400, 400), scale) },
+                { new SolidBlueBlock(new Point(400, 400), scale) },
+                { new StairsBlock(new Point(400, 400), scale) },
+            };
             items = new List<IItem>()
             {
                 { new ArrowItem(ItemLocation, scale) },
@@ -75,7 +90,6 @@ namespace Sprint2
                 { new Rupee(ItemLocation, scale) },
                 { new Triforce(ItemLocation, scale) },
             };
-
             link = new Link(new Point(200, 200));       
             enemy = new Dragon(new Point(800, 800));
 
@@ -108,6 +122,12 @@ namespace Sprint2
                 i++;
             }
 
+            if (Block >= blocks.Count)
+                Block = 0;
+            if (Block < 0)
+                Block = blocks.Count - 1;
+            blocks[Block].Update(gameTime);
+
             //--------------------------------------------------
             link.Update(gameTime);
             enemy.Update(gameTime);
@@ -122,6 +142,7 @@ namespace Sprint2
             link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
             items[Item].Draw(spriteBatch);
+            blocks[Block].Draw(spriteBatch);
 
             foreach (IItem item in linkItems)
             {
