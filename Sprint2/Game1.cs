@@ -16,9 +16,6 @@ namespace Sprint2
         private List<IController> controllerList;
         
         //-----------------------
-        private List<IItem> linkItems;
-        private List<IEnvironment> blocks;
-        public int Block { get; set; }
         private IEnemy enemy;
         private ILink link;
 
@@ -57,22 +54,8 @@ namespace Sprint2
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-
-            linkItems = new List<IItem>();
-            double scale = 3.0;
-
-            blocks = new List<IEnvironment>()
-            {
-                { new BlueSandBlock(new Point(400, 400), scale) },
-                { new BlackTileBlock(new Point(400, 400), scale) },
-                { new BlueTriangleBlock(new Point(400, 400), scale) },
-                { new DarkBlueBlock(new Point(400, 400), scale) },
-                { new MulticoloredBlock1(new Point(400, 400), scale) },
-                { new MulticoloredBlock2(new Point(400, 400), scale) },
-                { new SolidBlueBlock(new Point(400, 400), scale) },
-                { new StairsBlock(new Point(400, 400), scale) },
-            };
-            GameObjects.Instance.AddSprint2Items();
+     
+            GameObjects.Instance.PopulateObjects();
             
             link = new Link(new Point(200, 200));       
             enemy = new Dragon(new Point(800, 800));
@@ -85,24 +68,9 @@ namespace Sprint2
             {
                 controller.Update(gameTime);
             }
-
-            
-
+          
             // Allows for items to remove themselves.
-            int i = 0;
-            while(i < linkItems.Count)
-            {
-                IItem item = linkItems[i];
-                item.Update(gameTime);
-                if(!item.SpriteActive())
-                {
-                    linkItems.RemoveAt(i);
-                    continue;
-                }
-                i++;
-            }
-
-            GameObjects.Instance.UpdateItems(gameTime);
+            GameObjects.Instance.UpdateObjects(gameTime);
 
             //--------------------------------------------------
             link.Update(gameTime);
@@ -117,13 +85,9 @@ namespace Sprint2
 
             link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
-            GameObjects.Instance.DrawItems(spriteBatch);
-            blocks[Block].Draw(spriteBatch);
 
-            foreach (IItem item in linkItems)
-            {
-                item.Draw(spriteBatch);
-            }
+            GameObjects.Instance.DrawObjects(spriteBatch);
+
             base.Draw(gameTime);
         }
     }

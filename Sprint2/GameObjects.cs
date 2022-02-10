@@ -10,13 +10,11 @@ namespace Sprint2
 {
     class GameObjects
     {
-        //----------ITEMS
+        //-------------ITEMS--------------------
 		private static List<IItem> items;
-		private static GameObjects instance = new GameObjects();
+		
+        private Point itemLocations = new Point(500, 500);
         private static int itemIndex = 0;
-
-        //-----------LINK
-        
         public static int ItemIndex
         {
             get
@@ -26,12 +24,41 @@ namespace Sprint2
             set
             {
                 itemIndex = value;
+                if (itemIndex >= items.Count)
+                    itemIndex = 0;
+                if (itemIndex < 0)
+                    itemIndex = items.Count - 1;
             }
         }
 
-        private Point itemLocations = new Point(500, 500);
+        //-----------Enviornment-------------
+        private static List<IEnvironment> blocks;
+        private Point blockLocation = new Point(500, 500);
+        private static int blockIndex = 0;
+        public static int BlockIndex
+        {
+            get
+            {
+                return blockIndex;
+            }
+            set
+            {
+                blockIndex = value;
+                if (blockIndex >= blocks.Count)
+                    blockIndex = 0;
+                if (blockIndex < 0)
+                    blockIndex = blocks.Count - 1;
+            }
+        }
 
-		public static GameObjects Instance
+        //----------LINK-----------------------
+        private List<IItem> linkItems;
+
+
+
+        //-----------Singleton Declaration!-------------
+        private static GameObjects instance = new GameObjects();
+        public static GameObjects Instance
 		{
 			get
 			{
@@ -42,16 +69,28 @@ namespace Sprint2
 		private GameObjects()
 		{
 			items = new List<IItem>();
-		}
+            linkItems = new List<IItem>();
+        }
 
+        //-------------OBJECT FUNCTIONS---------------
 		public void SpawnItem(IItem item)
         {
 			items.Add(item);
         }
-
-		public void AddSprint2Items()
+		public void PopulateObjects()
         {
 			double scale = 3.0;
+            blocks = new List<IEnvironment>()
+            {
+                { new BlueSandBlock(blockLocation, scale) },
+                { new BlackTileBlock(blockLocation, scale) },
+                { new BlueTriangleBlock(blockLocation, scale) },
+                { new DarkBlueBlock(blockLocation, scale) },
+                { new MulticoloredBlock1(blockLocation, scale) },
+                { new MulticoloredBlock2(blockLocation, scale) },
+                { new SolidBlueBlock(blockLocation, scale) },
+                { new StairsBlock(blockLocation, scale) },
+            };
             items = new List<IItem>()
             {
                 { new ArrowItem(itemLocations, scale) },
@@ -69,18 +108,34 @@ namespace Sprint2
             };
         }
 
-		public void UpdateItems(GameTime gameTime)
+        //--------------Core Functionality-------------------
+		public void UpdateObjects(GameTime gameTime)
         {
-            if (itemIndex >= items.Count)
-                itemIndex = 0;
-            if (itemIndex < 0)
-                itemIndex = items.Count - 1;
             items[itemIndex].Update(gameTime);
-        }
+            items[itemIndex].Update(gameTime);
 
-		public void DrawItems(SpriteBatch spriteBatch)
+            int i = 0;
+            while (i < linkItems.Count)
+            {
+                IItem item = linkItems[i];
+                item.Update(gameTime);
+                if (!item.SpriteActive())
+                {
+                    linkItems.RemoveAt(i);
+                    continue;
+                }
+                i++;
+            }
+        }
+		public void DrawObjects(SpriteBatch spriteBatch)
         {
+            blocks[blockIndex].Draw(spriteBatch);
             items[itemIndex].Draw(spriteBatch);
+
+            foreach (IItem item in linkItems)
+            {
+                item.Draw(spriteBatch);
+            }
         }
 	}
 }

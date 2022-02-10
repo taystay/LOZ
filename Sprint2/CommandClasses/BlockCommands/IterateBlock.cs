@@ -14,7 +14,7 @@ namespace Sprint2
         }
         public void execute()
         {
-            GameObj.Block++;
+            GameObjects.BlockIndex++;
         }
     }
 }
