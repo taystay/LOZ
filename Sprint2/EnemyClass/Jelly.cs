@@ -20,8 +20,8 @@ namespace Sprint2
             position = location;
             jelly = EnemySpriteFactory.Instance.CreateJelly();
             random = new Random();
-            xPosition = random.Next(0, 500);
-            yPosition = random.Next(0, 500);
+            xPosition = random.Next(700, 900);
+            yPosition = random.Next(700, 900);
 
 
         }
@@ -35,8 +35,8 @@ namespace Sprint2
 
             if (position.X == xPosition || position.Y == yPosition)
             {
-                xPosition = random.Next(0, 500);
-                yPosition = random.Next(0, 500);
+                xPosition = random.Next(700, 900);
+                yPosition = random.Next(700, 900);
             }
 
             jelly.Update(timer);

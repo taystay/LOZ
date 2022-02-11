@@ -20,7 +20,7 @@ namespace Sprint2
         {
             batSprite = sprite;
             frame = 0;
-            scale = 2;
+            scale = 1;
         }
 
         public void SetSize(double size)
@@ -60,7 +60,7 @@ namespace Sprint2
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width*scale), height);
+            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width*scale), (int)(height*scale));
 
 
             spriteBatch.Begin();

@@ -8,20 +8,20 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-    class JellySprite : ISprite
+    class NPCSprite : ISprite
     {
 
-        private Texture2D jellySprite;
+        private Texture2D npcSprite;
         private int frame;
         private const int maxFrame = 3;
         private double scale;
 
-        public JellySprite(Texture2D sprite)
+        public NPCSprite(Texture2D sprite)
         {
 
-            jellySprite = sprite;
+            npcSprite = sprite;
             frame = 1;
-            scale = 1;
+            scale = 3;
 
         }
 
@@ -57,17 +57,17 @@ namespace Sprint2
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width =  (jellySprite.Width / 2);
-            int height = (jellySprite.Height / 5);
-            int row = 2;
+            int width = (npcSprite.Width / 2);
+            int height =  npcSprite.Height;
+            int row = 0;
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width * scale), (int)(height * scale));
 
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(jellySprite, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
+            spriteBatch.Draw(npcSprite, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
 

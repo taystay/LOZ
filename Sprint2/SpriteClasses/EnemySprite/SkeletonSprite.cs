@@ -14,21 +14,21 @@ namespace Sprint2
         private Texture2D skeletonSprite;
         private int frame;
         private const int maxFrame = 2;
-        private const int scale = 3;
+        private double scale;
 
         public SkeletonSprite(Texture2D sprite)
         {
 
             skeletonSprite = sprite;
             frame = 0;
-           
+            scale = 1;
                
         }
 
         public void SetSize(double size)
         {
 
-            //nothing?? for now....
+            scale = size;
         }
 
 

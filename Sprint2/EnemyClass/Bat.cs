@@ -20,8 +20,8 @@ namespace Sprint2
             position = location;
             bat = EnemySpriteFactory.Instance.CreateBat();
             random = new Random();
-            xPosition = random.Next(0, 500);
-            yPosition = random.Next(0, 500);
+            xPosition = random.Next(700, 900);
+            yPosition = random.Next(700, 900);
 
         }
 
@@ -32,8 +32,8 @@ namespace Sprint2
 
             if (position.X == xPosition || position.Y == yPosition)
             {
-                xPosition = random.Next(0, 500);
-                yPosition = random.Next(0, 500);
+                xPosition = random.Next(700, 900);
+                yPosition = random.Next(700, 900);
             }
             bat.Update(timer);
         }

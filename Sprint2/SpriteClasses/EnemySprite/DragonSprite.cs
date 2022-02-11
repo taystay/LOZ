@@ -22,7 +22,7 @@ namespace Sprint2
 
             dragonSprite = sprite;
             frame = 0;
-            scale = 1;
+            scale = 2;
         }
 
         public void SetSize(double size)

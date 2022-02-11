@@ -111,6 +111,7 @@ namespace Sprint2
                 {new Skeleton(new Point(700, 700)) },
                 {new Bat(new Point(700, 700)) },
                 {new Jelly(new Point(700, 700)) },
+                {new NPC(new Point(700,700))},
             };
 
             double scale = 2.0;

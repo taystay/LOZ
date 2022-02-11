@@ -11,7 +11,8 @@ namespace Sprint2
 	class EnemySpriteFactory
 	{
 		private Texture2D enemySpriteSheet;
-		private Texture2D dragonsBreatheSprite; 
+		private Texture2D dragonsBreatheSprite;
+		private Texture2D npc;
 		// More private Texture2Ds follow
 		// ...
 
@@ -33,6 +34,7 @@ namespace Sprint2
 		{
 			enemySpriteSheet = content.Load<Texture2D>("enemySprite");
             dragonsBreatheSprite = content.Load<Texture2D>("dragonsBreathe");
+			npc = content.Load<Texture2D>("oldMan");
 
         }
 
@@ -68,8 +70,14 @@ namespace Sprint2
             return new DragonsFireSprite(dragonsBreatheSprite);
         }
 
+		public ISprite CreateNPC()
+		{
+			return new NPCSprite(npc);
+		}
 
 
 
-    }
+
+
+	}
 }

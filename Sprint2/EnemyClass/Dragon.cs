@@ -19,7 +19,7 @@ namespace Sprint2
             position = location;
             dragon = EnemySpriteFactory.Instance.CreateDragon();          
             random = new Random();
-            xPosition = random.Next(300, 900);
+            xPosition = random.Next(700, 900);
             fireBalls = dragonBreathe;
            
         }
@@ -28,7 +28,7 @@ namespace Sprint2
             position.X = (position.X < xPosition) ? position.X += 1 : position.X -= 1; 
             if (position.X == xPosition )
             {
-                xPosition = random.Next(0, 500);
+                xPosition = random.Next(700, 900);
             }
             
 

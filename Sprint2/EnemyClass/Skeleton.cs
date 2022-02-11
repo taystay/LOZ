@@ -19,8 +19,8 @@ namespace Sprint2
             position = location;
             skeleton = EnemySpriteFactory.Instance.CreateSkeleton();
             random = new Random();
-            xPosition = random.Next(0, 500);
-            yPosition = random.Next(0, 500);
+            xPosition = random.Next(700, 900);
+            yPosition = random.Next(700, 900);
 
         }
 
@@ -30,8 +30,8 @@ namespace Sprint2
             position.Y = (position.Y < yPosition) ? position.Y += 1 : position.Y -= 1;
 
             if (position.X == xPosition || position.Y == yPosition) {
-                xPosition = random.Next(0, 500);
-                yPosition = random.Next(0, 500);
+                xPosition = random.Next(700, 900);
+                yPosition = random.Next(700, 900);
             }          
 
             skeleton.Update(timer);
