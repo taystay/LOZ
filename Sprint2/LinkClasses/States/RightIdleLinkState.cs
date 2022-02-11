@@ -40,9 +40,14 @@ namespace Sprint2
             //Nothing, already facing right
         }
 
-        public void Move(GameTime timer)
+        public void Move()
         {
             link.linkState = new RightMovingLinkState(position, link);
+        }
+
+        public void Idle()
+        {
+            //Do nothing already idle
         }
 
         public void Attack()

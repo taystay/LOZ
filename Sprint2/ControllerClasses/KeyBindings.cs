@@ -23,6 +23,22 @@ namespace Sprint2
             ControllerMappings.RegisterCommand(Keys.U, new IterateRStaticItems(gameObject));
             ControllerMappings.RegisterCommand(Keys.O, new PreviousEnemy(gameObject));
             ControllerMappings.RegisterCommand(Keys.P, new NextEnemy(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.Up, new UpMove(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.Down, new DownMove(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.Left, new LeftMove(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.Right, new RightMove(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.W, new UpMove(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.S, new DownMove(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.A, new LeftMove(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.D, new RightMove(gameObject));
+            ControllerMappings.RegisterCommand(Keys.Up, new Idle(gameObject));
+            ControllerMappings.RegisterCommand(Keys.Down, new Idle(gameObject));
+            ControllerMappings.RegisterCommand(Keys.Left, new Idle(gameObject));
+            ControllerMappings.RegisterCommand(Keys.Right, new Idle(gameObject));
+            ControllerMappings.RegisterCommand(Keys.W, new Idle(gameObject));
+            ControllerMappings.RegisterCommand(Keys.S, new Idle(gameObject));
+            ControllerMappings.RegisterCommand(Keys.A, new Idle(gameObject));
+            ControllerMappings.RegisterCommand(Keys.D, new Idle(gameObject));
 
             ControllerMappings.RegisterHoldCommand(Keys.OemTilde, new IterateRStaticItems(gameObject));
         }

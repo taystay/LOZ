@@ -12,7 +12,8 @@ namespace Sprint2
         public void ChangeDirectionDown();
         public void ChangeDirectionLeft();
         public void ChangeDirectionRight();
-        public void Move(GameTime gameTime);
+        public void Move();
+        public void Idle();
         public void Attack();
         public void Update(GameTime timer);
         public void Draw(SpriteBatch spriteBatch);

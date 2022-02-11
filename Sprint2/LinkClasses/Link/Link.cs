@@ -38,9 +38,14 @@ namespace Sprint2
             linkState.ChangeDirectionRight();
         }
 
-        public void Move(GameTime timer)
+        public void Move()
         {
-            linkState.Move(timer);
+            linkState.Move();
+        }
+
+        public void Idle()
+        {
+            linkState.Idle();
         }
 
         public void Attack()

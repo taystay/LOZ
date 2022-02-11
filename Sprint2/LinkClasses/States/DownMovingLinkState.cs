@@ -40,9 +40,14 @@ namespace Sprint2
             link.linkState = new RightIdleLinkState(position, link);
         }
 
-        public void Move(GameTime timer)
+        public void Move()
         {
             //Nothing, already moving down
+        }
+
+        public void Idle()
+        {
+            link.linkState = new DownIdleLinkState(position, link);
         }
 
         public void Attack()
@@ -52,9 +57,7 @@ namespace Sprint2
 
         public void Update(GameTime timer)
         {
-            while(position.Y != 1000)
-                position.Y += 4;
-
+            position.Y += 4;
             linkSprite.Update(timer);
         }
 

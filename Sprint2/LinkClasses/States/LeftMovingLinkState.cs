@@ -27,12 +27,12 @@ namespace Sprint2
 
         public void ChangeDirectionDown()
         {
-            //Does nothing because already facing down
+            link.linkState = new DownIdleLinkState(position, link);
         }
 
         public void ChangeDirectionLeft()
         {
-            link.linkState = new LeftIdleLinkState(position, link);
+            //Do nothing because already facing left
         }
 
         public void ChangeDirectionRight()
@@ -40,9 +40,14 @@ namespace Sprint2
             link.linkState = new RightIdleLinkState(position, link);
         }
 
-        public void Move(GameTime timer)
+        public void Move()
         {
             //Nothing, already moving left
+        }
+
+        public void Idle()
+        {
+            link.linkState = new LeftIdleLinkState(position, link);
         }
 
         public void Attack()
@@ -52,8 +57,7 @@ namespace Sprint2
 
         public void Update(GameTime timer)
         {
-            while(position.X != 0)
-                position.X -= 4;
+            position.X -= 4;
 
             linkSprite.Update(timer);
         }

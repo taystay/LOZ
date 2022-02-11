@@ -52,7 +52,15 @@ namespace Sprint2
 
         //----------LINK-----------------------
         private List<IItem> linkItems;
-        private ILink link;
+        private static ILink link;
+
+        public static ILink LinkState
+        {
+            get
+            {
+                return link;
+            }
+        }
 
         //----------ENEMIES-----------------------
         private IEnemy enemy;

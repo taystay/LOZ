@@ -41,9 +41,14 @@ namespace Sprint2
             link.linkState = new RightIdleLinkState(position, link);
         }
 
-        public void Move(GameTime timer)
+        public void Move()
         {
             //Don't do anything besides attacking
+        }
+
+        public void Idle()
+        {
+            link.linkState = new RightIdleLinkState(position, link);
         }
 
         public void Attack()
