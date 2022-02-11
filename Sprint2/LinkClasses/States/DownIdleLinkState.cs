@@ -55,6 +55,11 @@ namespace Sprint2
             link.linkState = new DownAttackLinkState(position, link);
         }
 
+        public void TakeDamage()
+        {
+            link.linkState = new DamagedLink(link.linkState);
+        }
+
         public void Update(GameTime timer)
         {
 

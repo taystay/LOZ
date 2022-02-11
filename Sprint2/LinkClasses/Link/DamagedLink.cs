@@ -8,10 +8,10 @@ namespace Sprint2
 {
     class DamagedLink : ILink
     {
-        private ILink decoratedLink;
+        private ILinkState decoratedLink;
         private int count = 1000;
 
-        public DamagedLink(ILink decoratedLink)
+        public DamagedLink(ILinkState decoratedLink)
         {
             this.decoratedLink = decoratedLink;
         }
