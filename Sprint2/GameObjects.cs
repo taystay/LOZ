@@ -12,7 +12,6 @@ namespace Sprint2
     {
         //-------------ITEMS--------------------
 		private static List<IItem> items;
-		
         private Point itemLocations = new Point(700, 200);
         private static int itemIndex = 0;
         public static int ItemIndex
@@ -57,8 +56,24 @@ namespace Sprint2
 
         //----------ENEMIES-----------------------
         private IEnemy enemy;
-
-
+        private List<IProjectile> projectiles;
+        private static List<IEnemy> enemies;
+        private static int enemyIndex = 0;
+        public static int EnemeyIndex
+        {
+            get
+            {
+                return enemyIndex;
+            }
+            set
+            {
+                enemyIndex = value;
+                if (enemyIndex >= enemies.Count)
+                    enemyIndex = 0;
+                if (enemyIndex < 0)
+                    enemyIndex = enemies.Count - 1;
+            }
+        }
 
         //-----------Singleton Declaration!-------------
         private static GameObjects instance = new GameObjects();
@@ -69,11 +84,9 @@ namespace Sprint2
 				return instance;
 			}
 		}
-
 		private GameObjects()
 		{
-			items = new List<IItem>();
-            linkItems = new List<IItem>();
+            
         }
 
         //-------------OBJECT FUNCTIONS---------------
@@ -81,6 +94,7 @@ namespace Sprint2
         {
 			items.Add(item);
         }
+
 		public void LoadObjects(ContentManager Content)
         {
             ItemFactory.Instance.LoadAllTextures(Content);
@@ -88,7 +102,16 @@ namespace Sprint2
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             link = new Link(new Point(700, 400));
-            enemy = new Dragon(new Point(700, 700));
+            linkItems = new List<IItem>();
+
+            projectiles = new List<IProjectile>();
+            enemies = new List<IEnemy>()
+            {
+                {new Dragon(new Point(700, 700), projectiles)},
+                {new Skeleton(new Point(700, 700)) },
+                {new Bat(new Point(700, 700)) },
+                {new Jelly(new Point(700, 700)) },
+            };
 
             double scale = 2.0;
             blocks = new List<IEnvironment>()
@@ -122,17 +145,29 @@ namespace Sprint2
         //--------------Core Functionality-------------------
 		public void UpdateObjects(GameTime gameTime)
         {
+            int i = 0;
             //----LINK---
             link.Update(gameTime);
             //----ENEMY----
-            enemy.Update(gameTime);
+            enemies[enemyIndex].Update(gameTime);
+            while (i < projectiles.Count)
+            {
+                IProjectile item = projectiles[i];
+                item.Update(gameTime);
+                if (!item.IsActive())
+                {
+                    projectiles.RemoveAt(i);
+                    continue;
+                }
+                i++;
+            }
 
             //----ITEM----
             items[itemIndex].Update(gameTime);
             items[itemIndex].Update(gameTime);
 
             //----LINK ITEM----
-            int i = 0;
+            i = 0;
             while (i < linkItems.Count)
             {
                 IItem item = linkItems[i];
@@ -145,6 +180,8 @@ namespace Sprint2
                 i++;
             }
 
+            
+
         }
 
 		public void DrawObjects(SpriteBatch spriteBatch)
@@ -153,7 +190,11 @@ namespace Sprint2
             link.Draw(spriteBatch);
 
             //----ENEMY----
-            enemy.Draw(spriteBatch);
+            enemies[enemyIndex].Draw(spriteBatch);
+            foreach(IProjectile item in projectiles)
+            {
+                item.Draw(spriteBatch);
+            }
 
             //----BLOCK----
             blocks[blockIndex].Draw(spriteBatch);
