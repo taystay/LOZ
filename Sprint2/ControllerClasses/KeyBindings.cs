@@ -23,6 +23,8 @@ namespace Sprint2
             ControllerMappings.RegisterCommand(Keys.U, new IterateRStaticItems(gameObject));
             ControllerMappings.RegisterCommand(Keys.O, new PreviousEnemy(gameObject));
             ControllerMappings.RegisterCommand(Keys.P, new NextEnemy(gameObject));
+
+            //---------------------LINK COMMANDS
             ControllerMappings.RegisterHoldCommand(Keys.Up, new UpMove(gameObject));
             ControllerMappings.RegisterHoldCommand(Keys.Down, new DownMove(gameObject));
             ControllerMappings.RegisterHoldCommand(Keys.Left, new LeftMove(gameObject));
@@ -39,6 +41,10 @@ namespace Sprint2
             ControllerMappings.RegisterCommand(Keys.S, new Idle(gameObject));
             ControllerMappings.RegisterCommand(Keys.A, new Idle(gameObject));
             ControllerMappings.RegisterCommand(Keys.D, new Idle(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.Z, new Attack(gameObject));
+            ControllerMappings.RegisterHoldCommand(Keys.N, new Attack(gameObject));
+            ControllerMappings.RegisterCommand(Keys.Z, new Idle(gameObject));
+            ControllerMappings.RegisterCommand(Keys.N, new Idle(gameObject));
 
             ControllerMappings.RegisterHoldCommand(Keys.OemTilde, new IterateRStaticItems(gameObject));
         }

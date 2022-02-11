@@ -16,7 +16,7 @@ namespace Sprint2
         {
             this.link = link;
             position = location;
-            linkSprite = LinkSpriteFactory.Instance.LinkLeftAttack();
+            linkSprite = LinkSpriteFactory.Instance.LinkDownAttack();
 
         }
 

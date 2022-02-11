@@ -73,7 +73,7 @@ namespace Sprint2
             else
             {
                 sourceRectangle = new Rectangle(60, 84, frameTwoWidth, frameTwoHeight);
-                destinationRectangle = new Rectangle((int)location.X, (int)location.Y-36, frameTwoWidth * scale, frameTwoHeight * scale);
+                destinationRectangle = new Rectangle((int)location.X, (int)location.Y - (12 * scale), frameTwoWidth * scale, frameTwoHeight * scale);
             }
 
 

@@ -68,12 +68,12 @@ namespace Sprint2
             if (frame == 0)
             {
                 sourceRectangle = new Rectangle(90, 30, frameOneWidth, frameOneHeight);
-                destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameOneWidth * scale, frameOneHeight * scale);
+                destinationRectangle = new Rectangle((int)location.X + 12, (int)location.Y, frameOneWidth * scale, frameOneHeight * scale);
             }
             else
             {
                 sourceRectangle = new Rectangle(84, 90, frameTwoWidth, frameTwoHeight);
-                destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameTwoWidth * scale, frameTwoHeight * scale);
+                destinationRectangle = new Rectangle((int)location.X + 12, (int)location.Y, frameTwoWidth * scale, frameTwoHeight * scale);
             }
 
 

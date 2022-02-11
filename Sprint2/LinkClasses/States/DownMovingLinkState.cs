@@ -52,7 +52,7 @@ namespace Sprint2
 
         public void Attack()
         {
-            //Nothing here yet
+            link.linkState = new DownAttackLinkState(position, link);
         }
 
         public void Update(GameTime timer)
