@@ -7,18 +7,10 @@ namespace Sprint2
 {
     public class Game1 : Game
     {
-        //-----MON0GAME STUFF----
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
-        //-----------------------
-        private Point screenDimensions;
         private List<IController> controllerList;
-        
-        //-----------------------
-        private IEnemy enemy;
-        private ILink link;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -28,38 +20,24 @@ namespace Sprint2
 
         protected override void Initialize()
         {
-            screenDimensions = new Point(GraphicsDevice.DisplayMode.Width, GraphicsDevice.DisplayMode.Height);
+            // https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
+            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
+
             controllerList = new List<IController>()
             {
                 { new KeyBindings(this).GetController()},
             };
-
-            /*
-             * Allows for a screen that is always the size of the user 
-             * https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
-             */
-            graphics.PreferredBackBufferWidth = screenDimensions.X;
-            graphics.PreferredBackBufferHeight = screenDimensions.Y;
-            graphics.IsFullScreen = false;
-            graphics.ApplyChanges();
 
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            ItemFactory.Instance.LoadAllTextures(Content);
-            LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            BlockSpriteFactory.Instance.LoadAllTextures(Content);
-     
-            GameObjects.Instance.PopulateObjects();
-            
-            link = new Link(new Point(200, 200));       
-            enemy = new Dragon(new Point(800, 800));
-
+            spriteBatch = new SpriteBatch(GraphicsDevice);         
+            GameObjects.Instance.LoadObjects(Content);
         }
 
         protected override void Update(GameTime gameTime)
@@ -68,13 +46,7 @@ namespace Sprint2
             {
                 controller.Update(gameTime);
             }
-          
-            // Allows for items to remove themselves.
-            GameObjects.Instance.UpdateObjects(gameTime);
-
-            //--------------------------------------------------
-            link.Update(gameTime);
-            enemy.Update(gameTime);
+            GameObjects.Instance.UpdateObjects(gameTime); 
             base.Update(gameTime);
         }
 
@@ -82,12 +54,7 @@ namespace Sprint2
         {
 
             GraphicsDevice.Clear(Color.Black);
-
-            link.Draw(spriteBatch);
-            enemy.Draw(spriteBatch);
-
             GameObjects.Instance.DrawObjects(spriteBatch);
-
             base.Draw(gameTime);
         }
     }

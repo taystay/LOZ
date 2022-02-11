@@ -40,7 +40,7 @@ namespace Sprint2
 
 			int width = (int)(Scale * (int)Frame.Width);
 			int height = (int)(Scale * (int)Frame.Height);
-			destinationRectangle = new Rectangle(250, 250, width, height);
+			destinationRectangle = new Rectangle(location.X, location.Y, width, height);
 
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
 			spriteBatch.Draw(Texture, destinationRectangle, Frame, Color.White);

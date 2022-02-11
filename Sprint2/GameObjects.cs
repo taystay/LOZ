@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
 
 namespace Sprint2
 {
@@ -13,7 +13,7 @@ namespace Sprint2
         //-------------ITEMS--------------------
 		private static List<IItem> items;
 		
-        private Point itemLocations = new Point(500, 500);
+        private Point itemLocations = new Point(700, 200);
         private static int itemIndex = 0;
         public static int ItemIndex
         {
@@ -33,7 +33,7 @@ namespace Sprint2
 
         //-----------Enviornment-------------
         private static List<IEnvironment> blocks;
-        private Point blockLocation = new Point(500, 500);
+        private Point blockLocation = new Point(700, 300);
         private static int blockIndex = 0;
         public static int BlockIndex
         {
@@ -53,6 +53,10 @@ namespace Sprint2
 
         //----------LINK-----------------------
         private List<IItem> linkItems;
+        private ILink link;
+
+        //----------ENEMIES-----------------------
+        private IEnemy enemy;
 
 
 
@@ -77,9 +81,16 @@ namespace Sprint2
         {
 			items.Add(item);
         }
-		public void PopulateObjects()
+		public void LoadObjects(ContentManager Content)
         {
-			double scale = 3.0;
+            ItemFactory.Instance.LoadAllTextures(Content);
+            LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            link = new Link(new Point(700, 400));
+            enemy = new Dragon(new Point(700, 700));
+
+            double scale = 2.0;
             blocks = new List<IEnvironment>()
             {
                 { new BlueSandBlock(blockLocation, scale) },
@@ -111,9 +122,16 @@ namespace Sprint2
         //--------------Core Functionality-------------------
 		public void UpdateObjects(GameTime gameTime)
         {
+            //----LINK---
+            link.Update(gameTime);
+            //----ENEMY----
+            enemy.Update(gameTime);
+
+            //----ITEM----
             items[itemIndex].Update(gameTime);
             items[itemIndex].Update(gameTime);
 
+            //----LINK ITEM----
             int i = 0;
             while (i < linkItems.Count)
             {
@@ -126,12 +144,24 @@ namespace Sprint2
                 }
                 i++;
             }
+
         }
+
 		public void DrawObjects(SpriteBatch spriteBatch)
         {
+            //----LINK---
+            link.Draw(spriteBatch);
+
+            //----ENEMY----
+            enemy.Draw(spriteBatch);
+
+            //----BLOCK----
             blocks[blockIndex].Draw(spriteBatch);
+
+            //----ITEM----
             items[itemIndex].Draw(spriteBatch);
 
+            //----LINK ITEM----
             foreach (IItem item in linkItems)
             {
                 item.Draw(spriteBatch);
