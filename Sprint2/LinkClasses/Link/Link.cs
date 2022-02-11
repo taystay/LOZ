@@ -53,6 +53,11 @@ namespace Sprint2
             linkState.Attack();
         }
 
+        public void TakeDamage()
+        {
+            //linkState.TakeDamage(); IDK WHAT THIS IS DOING HERE
+        }
+
         public void Update(GameTime timer)
         {
 

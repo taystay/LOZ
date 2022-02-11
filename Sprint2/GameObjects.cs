@@ -60,6 +60,10 @@ namespace Sprint2
             {
                 return link;
             }
+            set
+            {
+                link = value;
+            }
         }
 
         //----------ENEMIES-----------------------

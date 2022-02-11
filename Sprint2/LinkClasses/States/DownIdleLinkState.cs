@@ -61,7 +61,6 @@ namespace Sprint2
             linkSprite.Update(timer);
         }
 
-
         public void Draw(SpriteBatch spriteBatch)
         {
 
