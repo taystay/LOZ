@@ -5,16 +5,16 @@ using System.Collections.Generic;
 
 namespace Sprint2
 {
-    class IterateRStaticItems :ICommand
+    class previousBlock : ICommand
     {
-        private Game1 gameObject;
-        public IterateRStaticItems(Game1 obj)
+        Game1 GameObj;
+        public previousBlock(Game1 gameObj)
         {
-            gameObject = obj;
+            GameObj = gameObj;
         }
         public void execute()
         {
-            GameObjects.ItemIndex--;   
+            GameObjects.BlockIndex--;
         }
     }
 }

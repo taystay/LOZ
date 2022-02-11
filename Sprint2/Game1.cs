@@ -7,13 +7,11 @@ namespace Sprint2
 {
     public class Game1 : Game
     {
-        //-----MON0GAME STUFF----
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
-        //-----------------------
-        private Point screenDimensions;
         private List<IController> controllerList;
+<<<<<<< HEAD
         
         //----------------------
         private List<IItem> linkItems;
@@ -24,6 +22,8 @@ namespace Sprint2
         private List<IProjectile> projectiles;
         private ILink link;
 
+=======
+>>>>>>> 59f8a418948ef80ba9225bed212a8b8d956ce1c8
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -33,12 +33,18 @@ namespace Sprint2
 
         protected override void Initialize()
         {
-            screenDimensions = new Point(GraphicsDevice.DisplayMode.Width, GraphicsDevice.DisplayMode.Height);
+            // https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
+            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
+
             controllerList = new List<IController>()
             {
                 { new KeyBindings(this).GetController()},
             };
 
+<<<<<<< HEAD
             projectiles = new List<IProjectile>();
 
             /*
@@ -50,11 +56,14 @@ namespace Sprint2
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
+=======
+>>>>>>> 59f8a418948ef80ba9225bed212a8b8d956ce1c8
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
+<<<<<<< HEAD
             spriteBatch = new SpriteBatch(GraphicsDevice);
 /*
             ItemFactory.Instance.LoadAllTextures(Content);
@@ -82,10 +91,15 @@ namespace Sprint2
             link = new Link(new Point(200, 200));*/
             enemy = new Dragon(new Point(800, 800), projectiles);
 
+=======
+            spriteBatch = new SpriteBatch(GraphicsDevice);         
+            GameObjects.Instance.LoadObjects(Content);
+>>>>>>> 59f8a418948ef80ba9225bed212a8b8d956ce1c8
         }
 
         protected override void Update(GameTime gameTime)
         {
+<<<<<<< HEAD
             /* foreach (IController controller in controllerList)
              {
                  controller.Update(gameTime);
@@ -133,6 +147,13 @@ namespace Sprint2
 
 
 
+=======
+            foreach (IController controller in controllerList)
+            {
+                controller.Update(gameTime);
+            }
+            GameObjects.Instance.UpdateObjects(gameTime); 
+>>>>>>> 59f8a418948ef80ba9225bed212a8b8d956ce1c8
             base.Update(gameTime);
         }
 
@@ -140,6 +161,7 @@ namespace Sprint2
         {
 
             GraphicsDevice.Clear(Color.Black);
+<<<<<<< HEAD
 
             //link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
@@ -155,6 +177,9 @@ namespace Sprint2
             {
                 item.Draw(spriteBatch);
             }*/
+=======
+            GameObjects.Instance.DrawObjects(spriteBatch);
+>>>>>>> 59f8a418948ef80ba9225bed212a8b8d956ce1c8
             base.Draw(gameTime);
         }
     }

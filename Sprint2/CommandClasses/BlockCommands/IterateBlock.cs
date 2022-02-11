@@ -14,7 +14,7 @@ namespace Sprint2
         }
         public void execute()
         {
-           //Some list that goes to previous or forward depending on input
+            GameObjects.BlockIndex++;
         }
     }
 }
