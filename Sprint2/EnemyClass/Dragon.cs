@@ -10,63 +10,40 @@ namespace Sprint2
     {
         private Point position;
         private ISprite dragon;
-        private IEnemy dragonsFire; // Dragon need not know about projectile and projectile not need know about dragon. IProjectile interface>>>
         private int xPosition;
         private Random random;
-        private bool activeFire;
-
-        public Dragon(Point location)
+        private List<IProjectile> fireBalls;
+ 
+        public Dragon(Point location, List<IProjectile> dragonBreathe)
         {
             position = location;
-            activeFire = false;
-            dragon = EnemySpriteFactory.Instance.CreateDragon();
-            dragonsFire = new DragonBreathe(this);
+            dragon = EnemySpriteFactory.Instance.CreateDragon();          
             random = new Random();
-            xPosition = random.Next(0, 500);
+            xPosition = random.Next(300, 900);
+            fireBalls = dragonBreathe;
+           
         }
-
-        public bool Fire
-        {
-            get
-            {
-                return activeFire;
-            }
-        }
-        public Point Location
-        {
-            get {
-                return position;
-            }
-        }
-
         public void Update(GameTime timer)
         {
-            position.X = (position.X < xPosition) ? position.X += 1 : position.X -= 1;        
+            position.X = (position.X < xPosition) ? position.X += 1 : position.X -= 1; 
             if (position.X == xPosition )
             {
                 xPosition = random.Next(0, 500);
             }
+            
 
-            //3 different projectiles split into different directions.
-            //LIst<IProjectile>().add(DragonBall(Vector2(), Location()));
-            //LIst<IProjectile>().add(DragonBall(Vector2(), Location()));
-            //LIst<IProjectile>().add(DragonBall(Vector2(), Location()));
-
-            if (timer.TotalGameTime.TotalMilliseconds % 2 == 0)
-            {
-                activeFire = !activeFire;
+            if ((int) timer.TotalGameTime.TotalMilliseconds % 5000 == 0) {
+                fireBalls.Add(new DragonBreathe(position,-1)); //top fireball
+                fireBalls.Add(new DragonBreathe(position,0)); //middle fireball
+                fireBalls.Add(new DragonBreathe(position,1)); //bottom fireball
             }
 
-            dragonsFire.Update(timer);
             dragon.Update(timer);
         }
         public void Draw(SpriteBatch spriteBatch)
         { 
             dragon.Draw(spriteBatch, position);
-            if (activeFire)
-            {
-                dragonsFire.Draw(spriteBatch);
-            }
+            
         }
 
     }

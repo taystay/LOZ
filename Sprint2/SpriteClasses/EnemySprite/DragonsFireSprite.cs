@@ -35,7 +35,7 @@ namespace Sprint2
         {
             if (timer.TotalGameTime.Milliseconds % 200 == 0)
             {
-                 frame++;
+                frame++;
                 if (frame == maxFrame)
                 { 
                     frame = 0;

@@ -21,6 +21,7 @@ namespace Sprint2
         public int Item { get; set; }
         public Point ItemLocation { get; set; } = new Point(500, 500);
         private IEnemy enemy;
+        private List<IProjectile> projectiles;
         private ILink link;
 
         public Game1()
@@ -38,6 +39,8 @@ namespace Sprint2
                 { new KeyBindings(this).GetController()},
             };
 
+            projectiles = new List<IProjectile>();
+
             /*
              * Allows for a screen that is always the size of the user 
              * https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
@@ -53,12 +56,12 @@ namespace Sprint2
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+/*
             ItemFactory.Instance.LoadAllTextures(Content);
-            LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            LinkSpriteFactory.Instance.LoadAllTextures(Content);*/
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
 
-            linkItems = new List<IItem>();
+           /* linkItems = new List<IItem>();
             double scale = 3.0;
             items = new List<IItem>()
             {
@@ -76,41 +79,60 @@ namespace Sprint2
                 { new Triforce(ItemLocation, scale) },
             };
 
-            link = new Link(new Point(200, 200));       
-            enemy = new Dragon(new Point(800, 800));
+            link = new Link(new Point(200, 200));*/
+            enemy = new Dragon(new Point(800, 800), projectiles);
 
         }
 
         protected override void Update(GameTime gameTime)
         {
-            foreach (IController controller in controllerList)
-            {
-                controller.Update(gameTime);
-            }
+            /* foreach (IController controller in controllerList)
+             {
+                 controller.Update(gameTime);
+             }
 
-            if (Item >= items.Count)
-                Item = 0;
-            if (Item < 0)
-                Item = items.Count - 1;
-            items[Item].Update(gameTime);
+             if (Item >= items.Count)
+                 Item = 0;
+             if (Item < 0)
+                 Item = items.Count - 1;
+             items[Item].Update(gameTime);
 
-            // Allows for items to remove themselves.
-            int i = 0;
-            while(i < linkItems.Count)
+             // Allows for items to remove themselves.
+             int i = 0;
+             while(i < linkItems.Count)
+             {
+                 IItem item = linkItems[i];
+                 item.Update(gameTime);
+                 if(!item.SpriteActive())
+                 {
+                     linkItems.RemoveAt(i);
+                     continue;
+                 }
+                 i++;
+             }
+ */
+            //--------------------------------------------------
+            /*     link.Update(gameTime);*/
+
+
+            //------------------------------------------
+            enemy.Update(gameTime);
+
+            int k;
+            for (k = 0; k < projectiles.Count; k++)
             {
-                IItem item = linkItems[i];
-                item.Update(gameTime);
-                if(!item.SpriteActive())
+                projectiles[k].Update(gameTime);
+
+                if (!projectiles[k].IsActive())
                 {
-                    linkItems.RemoveAt(i);
+                    projectiles.RemoveAt(k);
                     continue;
                 }
-                i++;
+
             }
 
-            //--------------------------------------------------
-            link.Update(gameTime);
-            enemy.Update(gameTime);
+
+
             base.Update(gameTime);
         }
 
@@ -119,14 +141,20 @@ namespace Sprint2
 
             GraphicsDevice.Clear(Color.Black);
 
-            link.Draw(spriteBatch);
+            //link.Draw(spriteBatch);
             enemy.Draw(spriteBatch);
-            items[Item].Draw(spriteBatch);
+
+            foreach (IProjectile FireBall in projectiles) {
+                FireBall.Draw(spriteBatch);
+            
+            }
+            
+           /* items[Item].Draw(spriteBatch);
 
             foreach (IItem item in linkItems)
             {
                 item.Draw(spriteBatch);
-            }
+            }*/
             base.Draw(gameTime);
         }
     }

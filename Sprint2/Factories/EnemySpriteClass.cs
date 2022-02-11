@@ -63,7 +63,7 @@ namespace Sprint2
 
         }
 
-        public ISprite CreateFire()
+        public ISprite CreateFireBall()
         {
             return new DragonsFireSprite(dragonsBreatheSprite);
         }
