@@ -5,19 +5,19 @@ using System.Collections.Generic;
 
 namespace Sprint2
 {
-    class IterateBlock : ICommand
+    class IterateItemForward :ICommand
     {
-        Game1 GameObj;
-        public IterateBlock(Game1 gameObj)
+        private Game1 gameObject;
+        public IterateItemForward(Game1 obj)
         {
-            GameObj = gameObj;
+            gameObject = obj;
         }
         public void execute()
         {
             List<IIterable> objects = GameObjects.IterableObjects;
-            foreach(IIterable item in objects)
+            foreach (IIterable item in objects)
             {
-                if (item.GetType().IsInstanceOfType(new IterableBlock()))
+                if (item.GetType().IsInstanceOfType(new IterableItem()))
                 {
                     item.IterateForward();
                 }

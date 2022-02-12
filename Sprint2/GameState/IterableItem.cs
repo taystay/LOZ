@@ -12,11 +12,10 @@ namespace Sprint2
     {
         private List<IItem> items;
         private int itemIndex = 0;
-        private double scale = 0;
+        private double scale = 1;
         private Point itemLocations = new Point(700, 200);
         public IterableItem()
         {
-            items = new List<IItem>();
             items = new List<IItem>()
             {
                 { new ArrowItem(itemLocations, scale) },

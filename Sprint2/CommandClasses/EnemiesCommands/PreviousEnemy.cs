@@ -14,7 +14,14 @@ namespace Sprint2
         }
         public void execute()
         {
-            GameObjects.EnemeyIndex--;  
+            List<IIterable> objects = GameObjects.IterableObjects;
+            foreach (IIterable item in objects)
+            {
+                if (item.GetType().IsInstanceOfType(new IterableEnemy()))
+                {
+                    item.IterateReverse();
+                }
+            }
         }
     }
 }

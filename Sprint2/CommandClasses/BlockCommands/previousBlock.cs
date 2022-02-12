@@ -14,7 +14,14 @@ namespace Sprint2
         }
         public void execute()
         {
-            GameObjects.BlockIndex--;
+            List<IIterable> objects = GameObjects.IterableObjects;
+            foreach (IIterable item in objects)
+            {
+                if (item.GetType().IsInstanceOfType(new IterableBlock()))
+                {
+                    item.IterateReverse();
+                }
+            }
         }
     }
 }
