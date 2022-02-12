@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+
 namespace Sprint2
 {
     class LeftAttackLinkState : ILinkState
@@ -72,3 +73,4 @@ namespace Sprint2
 
     }
 }
+

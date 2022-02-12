@@ -9,61 +9,75 @@ namespace Sprint2
 {
     class KeyboardController : IController
     {
-        //-------------------------------------------------------
+        private Dictionary<Keys, ICommand> initialPressCommands;
+        private Dictionary<Keys, ICommand> holdCommands;
+        private Dictionary<Keys, ICommand> onReleaseCommands;
+        private List<Keys> initialPressedKeys;
+        private List<Keys> onReleaseKeys;
 
-        private readonly IDictionary<Keys, ICommand> controllerMappings;
-        private Dictionary<Keys, ICommand> holdMappings;
-        private List<Keys> pressedDownKeys;
-        //-------------------------------------------------------
         public KeyboardController(Game1 GameObject)
         {
-            controllerMappings = new Dictionary<Keys, ICommand>();
-            pressedDownKeys = new List<Keys>();
-            holdMappings = new Dictionary<Keys, ICommand>();
+            initialPressCommands = new Dictionary<Keys, ICommand>();
+            holdCommands = new Dictionary<Keys, ICommand>();
+            onReleaseCommands = new Dictionary<Keys, ICommand>();
+            initialPressedKeys = new List<Keys>();
+            onReleaseKeys = new List<Keys>();
         }
 
-        public void RegisterCommand(Keys key, ICommand command)
+        public void RegisterCommand(Keys key, ICommand initialPressCommand, ICommand holdCommand, ICommand onReleaseCommand)
         {
-            controllerMappings.Add(key, command);
+            if(initialPressCommand != null)
+                initialPressCommands.Add(key, initialPressCommand);
+            if(holdCommand != null)
+                holdCommands.Add(key, holdCommand);
+            if (onReleaseCommand != null)
+                onReleaseCommands.Add(key, onReleaseCommand);
         }
-        
-         public void RegisterHoldCommand(Keys key, ICommand command)
-         {
-            holdMappings.Add(key, command);
-         }
 
         public void Update(GameTime gameTime)
         {
-            //-----Hold mapping for keys that you want to keep executing through hold-----
-            foreach(Keys key in Keyboard.GetState().GetPressedKeys())
+            int i;
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+
+            //-----ON INITIAL PRESS-----
+            foreach (Keys key in pressedKeys)
             {
-                if(holdMappings.ContainsKey(key))
+                if (initialPressedKeys.Contains(key)) continue;
+                if (!initialPressCommands.ContainsKey(key)) continue;
+                initialPressedKeys.Add(key);
+                initialPressCommands[key].execute();
+            }
+            i = 0;
+            while(i < initialPressedKeys.Count)
+            {
+                Keys key = initialPressedKeys[i++];
+                if (Keyboard.GetState().IsKeyDown(key)) continue;
+                initialPressedKeys.RemoveAt(--i);
+            }
+
+            //-----HOLD-----
+            foreach (Keys key in Keyboard.GetState().GetPressedKeys())
+            {
+                if(holdCommands.ContainsKey(key))
                 {
-                    holdMappings[key].execute();
+                    holdCommands[key].execute();
                 }
             }
-
-
-            //-----Register keys into currently pressed down keys-----
-            foreach(Keys key in Keyboard.GetState().GetPressedKeys())
+            //-----ON RELEASE-----
+            foreach (Keys key in pressedKeys)
             {
-                if (!controllerMappings.ContainsKey(key))
-                    continue;
-                if(!pressedDownKeys.Contains(key))
-                    pressedDownKeys.Add(key);
+                if (onReleaseKeys.Contains(key)) continue;
+                if (!onReleaseCommands.ContainsKey(key)) continue;
+                onReleaseKeys.Add(key);
             }
-
-            //-----Cryptic logic but only execute keys when they were pressed down and THEN released-----
-            int i = 0;
-            while (i < pressedDownKeys.Count)
+            i = 0;
+            while (i < onReleaseKeys.Count)
             {
-                Keys key = pressedDownKeys[i++];
-                if (Keyboard.GetState().IsKeyDown(key))
-                    continue;
-                controllerMappings[key].execute();
-                pressedDownKeys.RemoveAt(--i);
-            }
-                
+                Keys key = initialPressedKeys[i++];
+                if (Keyboard.GetState().IsKeyDown(key)) continue;
+                onReleaseCommands[key].execute();
+                initialPressedKeys.RemoveAt(--i);
+            }   
         }
     }
 }
