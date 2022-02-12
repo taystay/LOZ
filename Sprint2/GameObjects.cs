@@ -10,23 +10,12 @@ namespace Sprint2
 {
     class GameObjects
     {
-        //-------------ITEMS--------------------
-		private static List<IItem> items;
-        private Point itemLocations = new Point(700, 200);
-        private static int itemIndex = 0;
-        public static int ItemIndex
+        private static IIterable items;
+        public static IIterable Items
         {
             get
             {
-                return itemIndex;
-            }
-            set
-            {
-                itemIndex = value;
-                if (itemIndex >= items.Count)
-                    itemIndex = 0;
-                if (itemIndex < 0)
-                    itemIndex = items.Count - 1;
+                return items;
             }
         }
 
@@ -102,10 +91,6 @@ namespace Sprint2
         }
 
         //-------------OBJECT FUNCTIONS---------------
-		public void SpawnItem(IItem item)
-        {
-			items.Add(item);
-        }
 
 		public void LoadObjects(ContentManager Content)
         {
@@ -113,7 +98,8 @@ namespace Sprint2
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            link = new Link(new Point(700, 400));
+            items = new IterableItem();
+            //link = new Link(new Point(700, 400));
             linkItems = new List<IItem>();
 
             projectiles = new List<IProjectile>();
@@ -138,21 +124,7 @@ namespace Sprint2
                 { new SolidBlueBlock(blockLocation, scale) },
                 { new StairsBlock(blockLocation, scale) },
             };
-            items = new List<IItem>()
-            {
-                { new ArrowItem(itemLocations, scale) },
-                { new Bow(itemLocations, scale) },
-                { new Clock(itemLocations, scale) },
-                { new Compass(itemLocations, scale) },
-                { new Fairy(itemLocations, scale) },
-                { new FireItem(itemLocations, scale) },
-                { new Heart(itemLocations, scale) },
-                { new HeartContainer(itemLocations, scale) },
-                { new Key(itemLocations, scale) },
-                { new Map(itemLocations, scale) },
-                { new Rupee(itemLocations, scale) },
-                { new Triforce(itemLocations, scale) },
-            };
+
         }
 
         //--------------Core Functionality-------------------
@@ -175,10 +147,6 @@ namespace Sprint2
                 i++;
             }
 
-            //----ITEM----
-            items[itemIndex].Update(gameTime);
-            items[itemIndex].Update(gameTime);
-
             //----LINK ITEM----
             i = 0;
             while (i < linkItems.Count)
@@ -193,7 +161,7 @@ namespace Sprint2
                 i++;
             }
 
-            
+            items.Update(gameTime);
 
         }
 
@@ -201,6 +169,8 @@ namespace Sprint2
         {
             //----LINK---
             link.Draw(spriteBatch);
+
+            items.Draw(spriteBatch);
 
             //----ENEMY----
             enemies[enemyIndex].Draw(spriteBatch);
@@ -211,9 +181,6 @@ namespace Sprint2
 
             //----BLOCK----
             blocks[blockIndex].Draw(spriteBatch);
-
-            //----ITEM----
-            items[itemIndex].Draw(spriteBatch);
 
             //----LINK ITEM----
             foreach (IItem item in linkItems)

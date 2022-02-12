@@ -14,7 +14,7 @@ namespace Sprint2
         }
         public void execute()
         {
-            GameObjects.ItemIndex++;  
+            GameObjects.Items.IterateForward();  
         }
     }
 }
