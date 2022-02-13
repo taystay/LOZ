@@ -20,6 +20,11 @@ namespace Sprint2
 
         }
 
+        public void TakeDamage()
+        {
+
+        }
+
         public void ChangeDirectionUp()
         {
             //Don't do anything besides attacking

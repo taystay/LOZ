@@ -21,6 +21,11 @@ namespace Sprint2
 
         }
 
+        public void TakeDamage()
+        {
+
+        }
+
         public void ChangeDirectionUp()
         {
             link.linkState = new UpIdleLinkState(position, link);

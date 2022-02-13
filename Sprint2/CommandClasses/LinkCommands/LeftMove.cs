@@ -14,8 +14,8 @@ namespace Sprint2
         }
         public void execute()
         {
-            GameObjects.LinkState.ChangeDirectionLeft();
-            GameObjects.LinkState.Move();
+            GameObjects.Link.ChangeDirectionLeft();
+            GameObjects.Link.Move();
         }
     }
 }

@@ -8,10 +8,10 @@ namespace Sprint2
 {
     class DamagedLink : ILink
     {
-        private ILinkState decoratedLink;
+        private ILink decoratedLink;
         private int count = 1000;
 
-        public DamagedLink(ILinkState decoratedLink)
+        public DamagedLink(ILink decoratedLink)
         {
             this.decoratedLink = decoratedLink;
         }
@@ -68,7 +68,7 @@ namespace Sprint2
 
         public void RemoveDecorator()
         {
-            GameObjects.LinkState = decoratedLink;
+            GameObjects.Link = decoratedLink;
         }
 
         public void Draw(SpriteBatch spriteBatch)

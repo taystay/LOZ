@@ -19,6 +19,19 @@ namespace Sprint2
             }
         }
         private List<IItem> linkItems;
+        
+        private static ILink link;
+        public static ILink Link
+        {
+            get
+            {
+                return link;
+            }
+            set
+            {
+                link = value;
+            }
+        }
         /*
         private static ILinkState link;
         public static ILinkState LinkState
@@ -33,6 +46,7 @@ namespace Sprint2
             }
         }
         */
+        
         private static GameObjects instance = new GameObjects();
         public static GameObjects Instance
 		{
@@ -50,6 +64,13 @@ namespace Sprint2
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
+
+
+
+            link = new Link(new Point(500,500));
+
+
+
             iterableObjects = new List<IIterable>()
             {
                 {new IterableItem()},
@@ -62,7 +83,9 @@ namespace Sprint2
         //--------------Core Functionality-------------------
 		public void UpdateObjects(GameTime gameTime)
         {
-            //link.Update(gameTime);
+            link.Update(gameTime);
+
+
             int i = 0;
             while (i < linkItems.Count)
             {
@@ -83,7 +106,10 @@ namespace Sprint2
 
 		public void DrawObjects(SpriteBatch spriteBatch)
         {
-            //link.Draw(spriteBatch);
+            link.Draw(spriteBatch);
+
+
+
             foreach (IItem item in linkItems)
             {
                 item.Draw(spriteBatch);

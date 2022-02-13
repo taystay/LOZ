@@ -70,13 +70,14 @@ namespace Sprint2
                 if (!onReleaseCommands.ContainsKey(key)) continue;
                 onReleaseKeys.Add(key);
             }
+
             i = 0;
             while (i < onReleaseKeys.Count)
             {
-                Keys key = initialPressedKeys[i++];
+                Keys key = onReleaseKeys[i++];
                 if (Keyboard.GetState().IsKeyDown(key)) continue;
                 onReleaseCommands[key].execute();
-                initialPressedKeys.RemoveAt(--i);
+                onReleaseKeys.RemoveAt(--i);
             }   
         }
     }

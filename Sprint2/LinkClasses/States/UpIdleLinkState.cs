@@ -20,6 +20,11 @@ namespace Sprint2
 
         }
 
+        public void TakeDamage()
+        {
+
+        }
+
         public void ChangeDirectionUp()
         {
             //Does nothing cause already facing up
