@@ -9,7 +9,7 @@ namespace Sprint2
     class DamagedLink : ILink
     {
         private ILink decoratedLink;
-        private int count = 10;
+        private int count = 15;
 
         public DamagedLink(ILink decoratedLink)
         {
@@ -69,7 +69,6 @@ namespace Sprint2
 
         public void RemoveDecorator()
         {
-            count = 10;
             GameObjects.Link = decoratedLink;
             GameObjects.Damaged = false;
         }
