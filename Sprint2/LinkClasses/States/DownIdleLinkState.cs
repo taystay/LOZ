@@ -59,7 +59,7 @@ namespace Sprint2
 
         public void TakeDamage()
         {
-            //link.linkState = new DamagedLink(link.linkState);
+            GameObjects.Link = new DamagedLink(link);
         }
 
         public void Update(GameTime timer)

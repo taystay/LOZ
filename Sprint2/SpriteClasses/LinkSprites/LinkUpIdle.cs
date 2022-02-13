@@ -65,7 +65,14 @@ namespace Sprint2
 
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-            spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.White);
+            if(GameObjects.Damaged)
+            {
+                spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.HotPink);
+            }
+            else
+            {
+                spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.White);
+            }
             spriteBatch.End();
 
 

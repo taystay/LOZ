@@ -20,12 +20,6 @@ namespace Sprint2
             linkSprite = LinkSpriteFactory.Instance.LinkMovingDown();
 
         }
-
-        public void TakeDamage()
-        {
-
-        }
-
         public void ChangeDirectionUp()
         {
             link.linkState = new UpIdleLinkState(position, link);
@@ -59,6 +53,11 @@ namespace Sprint2
         public void Attack()
         {
             link.linkState = new DownAttackLinkState(position, link);
+        }
+
+        public void TakeDamage()
+        {
+            GameObjects.Link = new DamagedLink(link);
         }
 
         public void Update(GameTime timer)

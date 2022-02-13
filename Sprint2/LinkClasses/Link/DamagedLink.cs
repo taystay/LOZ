@@ -9,11 +9,12 @@ namespace Sprint2
     class DamagedLink : ILink
     {
         private ILink decoratedLink;
-        private int count = 1000;
+        private int count = 10;
 
         public DamagedLink(ILink decoratedLink)
         {
             this.decoratedLink = decoratedLink;
+            GameObjects.Damaged = true;
         }
 
         public void ChangeDirectionUp()
@@ -68,7 +69,9 @@ namespace Sprint2
 
         public void RemoveDecorator()
         {
+            count = 10;
             GameObjects.Link = decoratedLink;
+            GameObjects.Damaged = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)

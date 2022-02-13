@@ -20,11 +20,6 @@ namespace Sprint2
 
         }
 
-        public void TakeDamage()
-        {
-
-        }
-
         public void ChangeDirectionUp()
         {
             //Does nothing cause already facing up
@@ -60,6 +55,10 @@ namespace Sprint2
             link.linkState = new UpAttackLinkState(position, link);
         }
 
+        public void TakeDamage()
+        {
+            GameObjects.Link = new DamagedLink(link);
+        }
         public void Update(GameTime timer)
         {
 

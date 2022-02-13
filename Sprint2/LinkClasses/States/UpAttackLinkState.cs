@@ -20,11 +20,6 @@ namespace Sprint2
 
         }
 
-        public void TakeDamage()
-        {
-
-        }
-
         public void ChangeDirectionUp()
         {
             //return to idle after attack
@@ -59,6 +54,11 @@ namespace Sprint2
         public void Attack()
         {
             //Don't do anything besides attacking
+        }
+
+        public void TakeDamage()
+        {
+            GameObjects.Link = new DamagedLink(link);
         }
 
         public void Update(GameTime timer)
