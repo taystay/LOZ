@@ -21,7 +21,6 @@ namespace Sprint2
         private List<IItem> linkItems;
         private ILink link;
         private Boolean damaged;
-        //private IItem heldItem;
         public ILink Link
         {
             get
@@ -44,17 +43,6 @@ namespace Sprint2
                 damaged = value;
             }
         }
-        /*public IItem HeldItem
-        {
-            get
-            {
-                return heldItem;
-            }
-            set
-            {
-                heldItem = value;
-            }
-        }*/
         private static GameObjects instance = new GameObjects();
         public static GameObjects Instance
 		{
