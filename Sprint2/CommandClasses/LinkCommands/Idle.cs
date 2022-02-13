@@ -14,7 +14,7 @@ namespace Sprint2
         }
         public void execute()
         {
-            GameObjects.Link.Idle();
+            GameObjects.Instance.Link.Idle();
         }
     }
 }

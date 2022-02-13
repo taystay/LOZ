@@ -16,6 +16,7 @@ namespace Sprint2
         public void Idle();
         public void Attack();
         public void TakeDamage();
+        public Point GetPosition();
         public void Update(GameTime timer);
         public void Draw(SpriteBatch spriteBatch);
     }

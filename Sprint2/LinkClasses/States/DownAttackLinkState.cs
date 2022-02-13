@@ -28,7 +28,7 @@ namespace Sprint2
         public void ChangeDirectionDown()
         {
             //return to idle after attack
-            link.linkState = new LeftIdleLinkState(position, link);
+            link.linkState = new DownIdleLinkState(position, link);
         }
 
         public void ChangeDirectionLeft()
@@ -57,7 +57,7 @@ namespace Sprint2
         }
         public void TakeDamage()
         {
-            GameObjects.Link = new DamagedLink(link);
+            GameObjects.Instance.Link = new DamagedLink(link);
         }
 
         public void Update(GameTime timer)

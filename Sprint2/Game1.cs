@@ -26,6 +26,7 @@ namespace Sprint2
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
+            GameObjects.Instance.LoadObjects(Content);
             controllerList = new List<IController>()
             {
                 { new KeyBindings(this).GetController()},
@@ -37,7 +38,7 @@ namespace Sprint2
         {
 
             spriteBatch = new SpriteBatch(GraphicsDevice);         
-            GameObjects.Instance.LoadObjects(Content);
+            
 
         }
 

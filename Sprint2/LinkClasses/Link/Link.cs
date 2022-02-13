@@ -8,16 +8,8 @@ namespace Sprint2
 {
     class Link : ILink
     {
-        private static Point position;
+        private Point position;
         public ILinkState linkState;
-
-        public static Point Position
-        {
-            get
-            {
-                return position;
-            }
-        }
 
         public Link(Point location)
         {
@@ -66,12 +58,16 @@ namespace Sprint2
             linkState.TakeDamage();
         }
 
+        public Point GetPosition()
+        {
+            return position;
+        }
+
         public void Update(GameTime timer)
         {
 
             linkState.Update(timer);
         }
-
 
         public void Draw(SpriteBatch spriteBatch)
         {

@@ -14,7 +14,7 @@ namespace Sprint2
         public DamagedLink(ILink decoratedLink)
         {
             this.decoratedLink = decoratedLink;
-            GameObjects.Damaged = true;
+            GameObjects.Instance.Damaged = true;
         }
 
         public void ChangeDirectionUp()
@@ -57,6 +57,11 @@ namespace Sprint2
             //Already taking damage
         }
 
+        public Point GetPosition()
+        {
+            return decoratedLink.GetPosition();
+        }
+
         public void Update(GameTime timer)
         {
             count--;
@@ -69,8 +74,8 @@ namespace Sprint2
 
         public void RemoveDecorator()
         {
-            GameObjects.Link = decoratedLink;
-            GameObjects.Damaged = false;
+            GameObjects.Instance.Link = decoratedLink;
+            GameObjects.Instance.Damaged = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)

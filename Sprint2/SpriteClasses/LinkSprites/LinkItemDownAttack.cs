@@ -78,7 +78,7 @@ namespace Sprint2
 
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-            if (GameObjects.Damaged)
+            if (GameObjects.Instance.Damaged)
             {
                 spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.HotPink);
             }
