@@ -15,15 +15,15 @@ namespace Sprint2
         {
             ControllerMappings = new KeyboardController(gameObject);
 
-            ControllerMappings.RegisterCommand(Keys.D0, new QuitGame(gameObject),          null, null);
-            ControllerMappings.RegisterCommand(Keys.NumPad0, new QuitGame(gameObject),     null, null);
+            ControllerMappings.RegisterCommand(Keys.Q, new QuitGame(gameObject), null, null);
+            ControllerMappings.RegisterCommand(Keys.R, new Reset(gameObject), null, null);
 
-            ControllerMappings.RegisterCommand(Keys.Y, new IterateBlock(gameObject),       null, null);
-            ControllerMappings.RegisterCommand(Keys.T, new previousBlock(gameObject),      null, null);
+            ControllerMappings.RegisterCommand(Keys.Y, new IterateBlock(gameObject), null, null);
+            ControllerMappings.RegisterCommand(Keys.T, new previousBlock(gameObject), null, null);
             ControllerMappings.RegisterCommand(Keys.I, new IterateItemForward(gameObject), null, null);
             ControllerMappings.RegisterCommand(Keys.U, new IterateItemReverse(gameObject), null, null);
-            ControllerMappings.RegisterCommand(Keys.O, new PreviousEnemy(gameObject),      null, null);
-            ControllerMappings.RegisterCommand(Keys.P, new NextEnemy(gameObject),          null, null);
+            ControllerMappings.RegisterCommand(Keys.O, new PreviousEnemy(gameObject),null, null);
+            ControllerMappings.RegisterCommand(Keys.P, new NextEnemy(gameObject), null, null);
 
             ControllerMappings.RegisterCommand(Keys.W, null, new UpMove(gameObject), new Idle(gameObject));
             ControllerMappings.RegisterCommand(Keys.A, null, new LeftMove(gameObject), new Idle(gameObject));

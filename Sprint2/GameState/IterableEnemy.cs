@@ -18,11 +18,11 @@ namespace Sprint2
             projectiles = new List<IProjectile>();
             enemies = new List<IEnemy>()
             {
-                {new Dragon(new Point(700, 700), projectiles)},
-                {new Skeleton(new Point(700, 700)) },
-                {new Bat(new Point(700, 700)) },
-                {new Jelly(new Point(700, 700)) },
-                {new NPC(new Point(700,700))},
+                {new Dragon(new Point(700, 700), projectiles,2)},
+                {new Skeleton(new Point(700, 700),1) },
+                {new Bat(new Point(700, 700),1) },
+                {new Jelly(new Point(700, 700),1) },
+                {new NPC(new Point(700,700),2)},
             };
             
         }

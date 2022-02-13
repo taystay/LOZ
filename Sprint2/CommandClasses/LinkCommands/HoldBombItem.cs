@@ -16,7 +16,11 @@ namespace Sprint2
         }
         public void execute()
         {
+<<<<<<< HEAD
             GameObjects.HeldItem = new Bomb(, scale);
+=======
+            GameObjects.HeldItem = new Bomb(position, scale);
+>>>>>>> 79fa08eb9149f094020bd8d059c90416ff778588
         }
     }
 }

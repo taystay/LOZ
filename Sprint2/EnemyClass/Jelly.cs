@@ -14,11 +14,13 @@ namespace Sprint2
         private int yPosition;
         private Random random;
 
-        public Jelly(Point location)
+        public Jelly(Point location, double size)
         {
 
             position = location;
             jelly = EnemySpriteFactory.Instance.CreateJelly();
+            jelly.SetSize(size);
+            
             random = new Random();
             xPosition = random.Next(700, 900);
             yPosition = random.Next(700, 900);
