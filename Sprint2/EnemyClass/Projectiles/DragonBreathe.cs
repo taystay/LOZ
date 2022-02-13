@@ -11,7 +11,6 @@ namespace Sprint2
         private Point fireBallPosition;
         private ISprite dragonFire;
         private bool activeFire;
-        private GameTime time;
         private int changeY;
         private const int animationLength = 250;
         private int length=0;

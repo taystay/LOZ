@@ -14,10 +14,12 @@ namespace Sprint2
         private Random random;
         private List<IProjectile> fireBalls;
  
-        public Dragon(Point location, List<IProjectile> dragonBreathe)
+        public Dragon(Point location, List<IProjectile> dragonBreathe, double size)
         {
             position = location;
-            dragon = EnemySpriteFactory.Instance.CreateDragon();          
+            dragon = EnemySpriteFactory.Instance.CreateDragon();
+            dragon.SetSize(size);
+
             random = new Random();
             xPosition = random.Next(700, 900);
             fireBalls = dragonBreathe;

@@ -11,10 +11,11 @@ namespace Sprint2
         private Point position;
         private ISprite npc;
 
-        public NPC(Point location)
+        public NPC(Point location, double size)
         {
             position = location;
             npc = EnemySpriteFactory.Instance.CreateNPC();
+            npc.SetSize(size);
         }
 
         public void Update(GameTime timer)
