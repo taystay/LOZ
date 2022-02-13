@@ -8,7 +8,7 @@ namespace Sprint2
     class HoldBombItem :ICommand
     {
         private Game1 gameObject;
-        private Point position;
+        private Point position = GameObjects.Link.Position;
         private double scale = 3;
         public HoldBombItem(Game1 obj)
         {
@@ -16,7 +16,7 @@ namespace Sprint2
         }
         public void execute()
         {
-            //GameObjects.HeldItem = new Bomb(position, scale);
+            GameObjects.HeldItem = new Bomb(, scale);
         }
     }
 }

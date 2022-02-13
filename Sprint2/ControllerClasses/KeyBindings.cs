@@ -35,8 +35,8 @@ namespace Sprint2
             ControllerMappings.RegisterCommand(Keys.Right, null, new RightMove(gameObject), new Idle(gameObject));
             ControllerMappings.RegisterCommand(Keys.E, new TakeDamage(gameObject), null, null);
             ControllerMappings.RegisterCommand(Keys.D1, new HoldSwordItem(gameObject), null, null);
-            ControllerMappings.RegisterCommand(Keys.D1, new HoldArrowItem(gameObject), null, null);
-            ControllerMappings.RegisterCommand(Keys.D1, new HoldBombItem(gameObject), null, null);
+            ControllerMappings.RegisterCommand(Keys.D2, new HoldArrowItem(gameObject), null, null);
+            ControllerMappings.RegisterCommand(Keys.D3, new HoldBombItem(gameObject), null, null);
         }
 
         public KeyboardController GetController()

@@ -8,8 +8,16 @@ namespace Sprint2
 {
     class Link : ILink
     {
-        private Point position;
+        private static Point position;
         public ILinkState linkState;
+
+        public static Point Position
+        {
+            get
+            {
+                return position;
+            }
+        }
 
         public Link(Point location)
         {
