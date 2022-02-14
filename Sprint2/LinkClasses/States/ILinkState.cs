@@ -9,10 +9,10 @@ namespace Sprint2
 {
     public interface ILinkState
     {
-        public void ChangeDirectionUp();
-        public void ChangeDirectionDown();
-        public void ChangeDirectionLeft();
-        public void ChangeDirectionRight();
+        public void Up();
+        public void Down();
+        public void Left();
+        public void Right();
         public void Move();
         public void Idle();
         public void Attack();

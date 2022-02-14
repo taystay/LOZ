@@ -20,22 +20,22 @@ namespace Sprint2
 
         }
 
-        public void ChangeDirectionUp()
+        public void Up()
         {
             //Don't do anything besides attacking
         }
 
-        public void ChangeDirectionDown()
+        public void Down()
         {
             //Don't do anything besides attacking
         }
 
-        public void ChangeDirectionLeft()
+        public void Left()
         {
             //Don't do anything besides attacking
         }
 
-        public void ChangeDirectionRight()
+        public void Right()
         {
             //return to idle after attack
             link.linkState = new RightIdleLinkState(position, link);

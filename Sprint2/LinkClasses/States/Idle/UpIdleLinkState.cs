@@ -24,22 +24,22 @@ namespace Sprint2
 
         }
 
-        public void ChangeDirectionUp()
+        public void Up()
         {
             //Does nothing cause already facing up
         }
 
-        public void ChangeDirectionDown()
+        public void Down()
         {
             link.linkState = new DownIdleLinkState(position, link);
         }
 
-        public void ChangeDirectionLeft()
+        public void Left()
         {
             link.linkState = new LeftIdleLinkState(position, link);
         }
 
-        public void ChangeDirectionRight()
+        public void Right()
         {
             link.linkState = new RightIdleLinkState(position, link);
         }

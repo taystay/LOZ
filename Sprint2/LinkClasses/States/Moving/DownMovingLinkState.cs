@@ -24,22 +24,22 @@ namespace Sprint2
             linkSprite = LinkSpriteFactory.Instance.LinkMovingDown();
 
         }
-        public void ChangeDirectionUp()
+        public void Up()
         {
             link.linkState = new UpIdleLinkState(position, link);
         }
 
-        public void ChangeDirectionDown()
+        public void Down()
         {
             //Does nothing because already facing down
         }
 
-        public void ChangeDirectionLeft()
+        public void Left()
         {
             link.linkState = new LeftIdleLinkState(position, link);
         }
 
-        public void ChangeDirectionRight()
+        public void Right()
         {
             link.linkState = new RightIdleLinkState(position, link);
         }

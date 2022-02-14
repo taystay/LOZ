@@ -20,22 +20,22 @@ namespace Sprint2
         }
         public void ChangeDirectionUp()
         {
-            linkState.ChangeDirectionUp();
+            linkState.Up();
         }
 
         public void ChangeDirectionDown()
         {
-            linkState.ChangeDirectionDown();
+            linkState.Down();
         }
 
         public void ChangeDirectionLeft()
         {
-            linkState.ChangeDirectionLeft();
+            linkState.Left();
         }
 
         public void ChangeDirectionRight()
         {
-            linkState.ChangeDirectionRight();
+            linkState.Right();
         }
 
         public void Move()
