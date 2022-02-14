@@ -6,43 +6,44 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class UpMovingLinkState : ILinkState
+    class UpAttackItemLinkState : ILinkState
     {
         private Point position;
         private ISprite linkSprite;
         private Link link;
 
-        public UpMovingLinkState(Point location, Link link)
+        public UpAttackItemLinkState(Point location, Link link)
         {
             this.link = link;
             position = location;
-            linkSprite = LinkSpriteFactory.Instance.LinkMovingUp();
+            linkSprite = LinkSpriteFactory.Instance.LinkItemUpAttack();
 
         }
 
         public void ChangeDirectionUp()
         {
-            //Does nothing because already facing Up            
+            //return to idle after attack
+            link.linkState = new UpIdleLinkState(position, link);
         }
 
         public void ChangeDirectionDown()
         {
-            link.linkState = new DownIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void ChangeDirectionLeft()
         {
-            link.linkState = new LeftIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void ChangeDirectionRight()
         {
-            link.linkState = new RightIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void Move()
         {
-            //Nothing, already moving up
+            //Don't do anything besides attacking
         }
 
         public void Idle()
@@ -52,7 +53,7 @@ namespace Sprint2
 
         public void Attack()
         {
-            link.linkState = new UpAttackLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void TakeDamage()
@@ -62,7 +63,6 @@ namespace Sprint2
 
         public void Update(GameTime timer)
         {
-            position.Y -= 4;
 
             linkSprite.Update(timer);
         }

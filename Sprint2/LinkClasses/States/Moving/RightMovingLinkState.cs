@@ -11,11 +11,15 @@ namespace Sprint2
         private Point position;
         private ISprite linkSprite;
         private Link link;
+        private Point attackPosition;
+        private int currentItem;
 
         public RightMovingLinkState(Point location, Link link)
         {
             this.link = link;
             position = location;
+            attackPosition = new Point(position.X + 40, position.Y + 16);
+            currentItem = GameObjects.Instance.HeldItem;
             linkSprite = LinkSpriteFactory.Instance.LinkMovingRight();
 
         }
@@ -52,7 +56,21 @@ namespace Sprint2
 
         public void Attack()
         {
-            link.linkState = new RightAttackLinkState(position, link);
+            if (currentItem == 1)
+            {
+                link.linkState = new RightAttackLinkState(position, link);
+                GameObjects.Instance.LinkItems.Add(new SwordBeamRight(attackPosition, 1));
+            }
+            else if (currentItem == 2)
+            {
+                link.linkState = new RightAttackItemLinkState(position, link);
+                GameObjects.Instance.LinkItems.Add(new ArrowRightItem(attackPosition, 1));
+            }
+            else if (currentItem == 3)
+            {
+                link.linkState = new RightAttackItemLinkState(position, link);
+                GameObjects.Instance.LinkItems.Add(new Bomb(attackPosition, 1));
+            }
         }
 
         public void TakeDamage()

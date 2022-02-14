@@ -6,23 +6,27 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2
 {
-    class UpIdleLinkState : ILinkState
+    class RightIdleLinkState : ILinkState
     {
         private Point position;
         private ISprite linkSprite;
         private Link link;
+        private Point attackPosition;
+        private int currentItem;
 
-        public UpIdleLinkState(Point location, Link link)
+        public RightIdleLinkState(Point location, Link link)
         {
             this.link = link;
             position = location;
-            linkSprite = LinkSpriteFactory.Instance.LinkUpIdle();
+            attackPosition = new Point(position.X + 40, position.Y + 16);
+            currentItem = GameObjects.Instance.HeldItem;
+            linkSprite = LinkSpriteFactory.Instance.LinkRightIdle();
 
         }
 
         public void ChangeDirectionUp()
         {
-            //Does nothing cause already facing up
+            link.linkState = new UpIdleLinkState(position, link);
         }
 
         public void ChangeDirectionDown()
@@ -37,12 +41,12 @@ namespace Sprint2
 
         public void ChangeDirectionRight()
         {
-            link.linkState = new RightIdleLinkState(position, link);
+            //Nothing, already facing right
         }
 
         public void Move()
         {
-            link.linkState = new UpMovingLinkState(position, link);
+            link.linkState = new RightMovingLinkState(position, link);
         }
 
         public void Idle()
@@ -52,13 +56,28 @@ namespace Sprint2
 
         public void Attack()
         {
-            link.linkState = new UpAttackLinkState(position, link);
+            if (currentItem == 1)
+            {
+                link.linkState = new RightAttackLinkState(position, link);
+                GameObjects.Instance.LinkItems.Add(new SwordBeamRight(attackPosition, 1));
+            }
+            else if (currentItem == 2)
+            {
+                link.linkState = new RightAttackItemLinkState(position, link);
+                GameObjects.Instance.LinkItems.Add(new ArrowRightItem(attackPosition, 1));
+            }
+            else if (currentItem == 3)
+            {
+                link.linkState = new RightAttackItemLinkState(position, link);
+                GameObjects.Instance.LinkItems.Add(new Bomb(attackPosition, 1));
+            }
         }
 
         public void TakeDamage()
         {
             GameObjects.Instance.Link = new DamagedLink(link);
         }
+
         public void Update(GameTime timer)
         {
 

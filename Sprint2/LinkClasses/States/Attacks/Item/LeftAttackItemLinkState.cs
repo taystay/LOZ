@@ -4,55 +4,57 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+
 namespace Sprint2
 {
-    class RightIdleLinkState : ILinkState
+    class LeftAttackItemLinkState : ILinkState
     {
         private Point position;
         private ISprite linkSprite;
         private Link link;
 
-        public RightIdleLinkState(Point location, Link link)
+        public LeftAttackItemLinkState(Point location, Link link)
         {
             this.link = link;
             position = location;
-            linkSprite = LinkSpriteFactory.Instance.LinkRightIdle();
+            linkSprite = LinkSpriteFactory.Instance.LinkItemLeftAttack();
 
         }
 
         public void ChangeDirectionUp()
         {
-            link.linkState = new UpIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void ChangeDirectionDown()
         {
-            link.linkState = new DownIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void ChangeDirectionLeft()
         {
+            //return to idle after attack
             link.linkState = new LeftIdleLinkState(position, link);
         }
 
         public void ChangeDirectionRight()
         {
-            //Nothing, already facing right
+            //Don't do anything besides attacking
         }
 
         public void Move()
         {
-            link.linkState = new RightMovingLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void Idle()
         {
-            //Do nothing already idle
+            link.linkState = new LeftIdleLinkState(position, link);
         }
 
         public void Attack()
         {
-            link.linkState = new RightAttackLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void TakeDamage()
@@ -76,3 +78,4 @@ namespace Sprint2
 
     }
 }
+

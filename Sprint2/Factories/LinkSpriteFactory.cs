@@ -116,6 +116,34 @@ namespace Sprint2
 
 		}
 
+		public ISprite LinkItemLeftAttack()
+		{
+
+			return new LinkItemLeftAttack(linkSpriteSheet);
+
+		}
+
+		public ISprite LinkItemRightAttack()
+		{
+
+			return new LinkItemRightAttack(linkSpriteSheet);
+
+		}
+
+		public ISprite LinkItemUpAttack()
+		{
+
+			return new LinkItemUpAttack(linkSpriteSheet);
+
+		}
+
+		public ISprite LinkItemDownAttack()
+		{
+
+			return new LinkItemDownAttack(linkSpriteSheet);
+
+		}
+
 
 	}
 }

@@ -19,8 +19,14 @@ namespace Sprint2
             }
         }
         private List<IItem> linkItems;
+        public List<IItem> LinkItems
+        {
+            get
+            {
+                return linkItems;
+            }
+        }
         private ILink link;
-        private Boolean damaged;
         public ILink Link
         {
             get
@@ -32,6 +38,19 @@ namespace Sprint2
                 link = value;
             }
         }
+        private int heldItem = 1;
+        public int HeldItem
+        {
+            get
+            {
+                return heldItem;
+            }
+            set
+            {
+                heldItem = value;
+            }
+        }
+        private Boolean damaged;
         public Boolean Damaged
         {
             get

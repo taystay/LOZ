@@ -4,59 +4,57 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-
-
 namespace Sprint2
 {
-    class DownIdleLinkState : ILinkState
+    class DownAttackItemLinkState : ILinkState
     {
         private Point position;
         private ISprite linkSprite;
         private Link link;
 
-        public DownIdleLinkState(Point location, Link link)
+        public DownAttackItemLinkState(Point location, Link link)
         {
             this.link = link;
             position = location;
-            linkSprite = LinkSpriteFactory.Instance.LinkDownIdle();
+            linkSprite = LinkSpriteFactory.Instance.LinkItemDownAttack();
 
         }
 
         public void ChangeDirectionUp()
         {
-            link.linkState = new UpIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void ChangeDirectionDown()
         {
-            //Does nothing because already facing down
+            //return to idle after attack
+            link.linkState = new DownIdleLinkState(position, link);
         }
 
         public void ChangeDirectionLeft()
         {
-            link.linkState = new LeftIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void ChangeDirectionRight()
         {
-            link.linkState = new RightIdleLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void Move()
         {
-            link.linkState = new DownMovingLinkState(position, link);
+            //Don't do anything besides attacking
         }
 
         public void Idle()
         {
-            //Do nothing already idle
+            link.linkState = new DownIdleLinkState(position, link);
         }
 
         public void Attack()
         {
-            link.linkState = new DownAttackLinkState(position, link);
+            //Don't do anything besides attacking
         }
-
         public void TakeDamage()
         {
             GameObjects.Instance.Link = new DamagedLink(link);
@@ -67,6 +65,7 @@ namespace Sprint2
 
             linkSprite.Update(timer);
         }
+
 
         public void Draw(SpriteBatch spriteBatch)
         {
