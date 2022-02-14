@@ -55,7 +55,7 @@ namespace Sprint2
         protected override void Draw(GameTime gameTime)
         {
 
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.CornflowerBlue);
 
             GameObjects.Instance.DrawObjects(spriteBatch);
             base.Draw(gameTime);

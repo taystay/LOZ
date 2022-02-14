@@ -136,12 +136,5 @@ namespace Sprint2
 		{
 			return new FairySprite(ItemSpriteSheet, scale);
 		}
-
-		/*
-		public ISprite CreateSmallEnemySprite()
-		{
-			return new EnemySprite(enemySpritesheet, 32, 32);
-		}
-		*/
 	}
 }
