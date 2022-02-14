@@ -55,7 +55,6 @@ namespace Sprint2
         public void Attack()
         {
             link.linkState = new RightAttackLinkState(position, link);
-            GameObjects.Instance.LinkItems.Add(new SwordBeamRight(attackPosition, 1.7));
         }
 
         public void TakeDamage()

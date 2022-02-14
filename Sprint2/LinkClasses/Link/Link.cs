@@ -9,7 +9,7 @@ namespace Sprint2
     class Link : ILink
     {
         private Point position;
-        public ILinkState linkState;
+        public ILinkState linkState { get; set; }
 
         public Link(Point location)
         {
