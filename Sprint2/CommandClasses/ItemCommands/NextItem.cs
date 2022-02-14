@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace Sprint2
 {
-    class TakeDamage :ICommand
+    class NextItem :ICommand
     {
-        public TakeDamage()
+        public NextItem()
         {
         }
         public void execute()
         {
-            GameObjects.Instance.Link.TakeDamage();
+            GameObjects.Items.IterateReverse();
         }
     }
 }

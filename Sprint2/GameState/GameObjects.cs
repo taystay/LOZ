@@ -10,7 +10,9 @@ namespace Sprint2
 {
     class GameObjects
     {
-        public static List<IIterable> IterableObjects { get; set; }
+        public static IIterable Items { get; set; }
+        public static IIterable Enemies { get; set; }
+        public static IIterable Blocks { get; set; }
         public List<IItem> LinkItems { get; set; }
         public ILink Link { get; set; }
         public bool Damaged { get; set; }
@@ -32,12 +34,9 @@ namespace Sprint2
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             Link = new Link(new Point(500,500));
-            IterableObjects = new List<IIterable>()
-            {
-                {new IterableItem()},
-                {new IterableEnemy()},
-                {new IterableBlock()},
-            };
+            Items = new IterableItem();
+            Enemies = new IterableEnemy();
+            Blocks = new IterableBlock();
             LinkItems = new List<IItem>();
         }
         //--------------Core Functionality-------------------
@@ -56,10 +55,9 @@ namespace Sprint2
                 }
                 i++;
             }
-            foreach(IIterable item in IterableObjects)
-            {
-                item.Update(gameTime);
-            }
+            Items.Update(gameTime);
+            Enemies.Update(gameTime);
+            Blocks.Update(gameTime);
         }
 		public void DrawObjects(SpriteBatch spriteBatch)
         {
@@ -68,10 +66,9 @@ namespace Sprint2
             {
                 item.Draw(spriteBatch);
             }
-            foreach(IIterable item in IterableObjects)
-            {
-                item.Draw(spriteBatch);
-            }
+            Items.Draw(spriteBatch);
+            Enemies.Draw(spriteBatch);
+            Blocks.Draw(spriteBatch);
         }
 	}
 }

@@ -7,10 +7,8 @@ namespace Sprint2
 {
     class Attack :ICommand
     {
-        private Game1 gameObject;
-        public Attack(Game1 obj)
+        public Attack()
         {
-            gameObject = obj;
         }
         public void execute()
         {

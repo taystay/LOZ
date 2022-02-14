@@ -7,10 +7,8 @@ namespace Sprint2
 {
     class RightMove :ICommand
     {
-        private Game1 gameObject;
-        public RightMove(Game1 obj)
+        public RightMove()
         {
-            gameObject = obj;
         }
         public void execute()
         {

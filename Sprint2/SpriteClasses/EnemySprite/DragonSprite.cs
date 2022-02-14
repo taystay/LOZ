@@ -35,7 +35,7 @@ namespace Sprint2
         public void Update(GameTime timer)
         {
 
-            if (timer.TotalGameTime.Milliseconds % 150 == 0)
+            if (timer.TotalGameTime.Milliseconds % 100 == 0)
             {
 
                 frame++;
@@ -64,7 +64,7 @@ namespace Sprint2
             Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width * scale), (int)(height * scale));
 
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(dragonSprite, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 

@@ -7,12 +7,10 @@ namespace Sprint2
 {
     class AttackBomb :ICommand
     {
-        private Game1 gameObject;
         private Point linkPosition;
         private double scale = 1;
-        public AttackBomb(Game1 obj)
+        public AttackBomb()
         {
-            gameObject = obj;
             linkPosition = GameObjects.Instance.Link.GetPosition();
         }
         public void execute()

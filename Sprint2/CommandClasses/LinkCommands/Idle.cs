@@ -7,10 +7,8 @@ namespace Sprint2
 {
     class Idle :ICommand
     {
-        private Game1 gameObject;
-        public Idle(Game1 obj)
+        public Idle()
         {
-            gameObject = obj;
         }
         public void execute()
         {

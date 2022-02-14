@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2
 {
-	class SwordBeamSprite : ISprite
+	class SwordBeamRightSprite : ISprite
 	{
 		//-----Private Variables-----
 		private Rectangle Frame;
@@ -15,11 +15,11 @@ namespace Sprint2
 
 
 		//-----Constructor-----
-		public SwordBeamSprite(Texture2D texture, double scale)
+		public SwordBeamRightSprite(Texture2D texture, double scale)
 		{
 			Scale = scale;
 			Texture = texture;
-			Frame = new Rectangle(161, 55, 174 - 160, 88 - 54);
+			Frame = new Rectangle(156,161,181 - 155,174 - 160);
 		}
 
 		public void SetSize(double size)

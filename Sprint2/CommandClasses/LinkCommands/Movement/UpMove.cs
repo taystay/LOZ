@@ -7,10 +7,8 @@ namespace Sprint2
 {
     class UpMove :ICommand
     {
-        private Game1 gameObject;
-        public UpMove(Game1 obj)
+        public UpMove()
         {
-            gameObject = obj;
         }
         public void execute()
         {

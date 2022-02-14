@@ -40,22 +40,22 @@ namespace Sprint2
 
 		public ISprite CreateSwordBeamDownSprite(double scale)
 		{
-			return new ArrowDownSprite(ItemSpriteSheet, scale);
+			return new SwordBeamDownSprite(ItemSpriteSheet, scale);
 		}
 
 		public ISprite CreateSwordBeamUpSprite(double scale)
 		{
-			return new ArrowUpSprite(ItemSpriteSheet, scale);
+			return new SwordBeamUpSprite(ItemSpriteSheet, scale);
 		}
 
 		public ISprite CreateSwordBeamLeftSprite(double scale)
 		{
-			return new ArrowLeftSprite(ItemSpriteSheet, scale);
+			return new SwordBeamLeftSprite(ItemSpriteSheet, scale);
 		}
 
 		public ISprite CreateSwordBeamRightSprite(double scale)
 		{
-			return new ArrowRightSprite(ItemSpriteSheet, scale);
+			return new SwordBeamRightSprite(ItemSpriteSheet, scale);
 		}
 
 		public ISprite CreateArrowUpSprite(double scale)

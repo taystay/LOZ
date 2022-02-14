@@ -7,21 +7,12 @@ namespace Sprint2
 {
     class PreviousEnemy :ICommand
     {
-        private Game1 gameObject;
-        public PreviousEnemy(Game1 obj)
+        public PreviousEnemy()
         {
-            gameObject = obj;
         }
         public void execute()
         {
-            List<IIterable> objects = GameObjects.IterableObjects;
-            foreach (IIterable item in objects)
-            {
-                if (item.GetType().IsInstanceOfType(new IterableEnemy()))
-                {
-                    item.IterateReverse();
-                }
-            }
+            GameObjects.Enemies.IterateReverse();
         }
     }
 }

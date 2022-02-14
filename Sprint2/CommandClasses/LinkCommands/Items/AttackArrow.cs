@@ -7,17 +7,17 @@ namespace Sprint2
 {
     class AttackArrow :ICommand
     {
-        private Game1 gameObject;
         private Point linkPosition;
         private double scale = 1;
-        public AttackArrow(Game1 obj)
+        private List<IItem> linkItems;
+        public AttackArrow(List<IItem> LinkItems)
         {
-            gameObject = obj;
+            linkItems = LinkItems;
             linkPosition = GameObjects.Instance.Link.GetPosition();
         }
         public void execute()
         {
-            GameObjects.Instance.LinkItems.Add(new ArrowDownItem(linkPosition, scale));
+            linkItems.Add(new ArrowDownItem(linkPosition, scale));
         }
     }
 }
