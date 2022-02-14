@@ -10,46 +10,10 @@ namespace Sprint2
 {
     class GameObjects
     {
-        private static List<IIterable> iterableObjects;
-        public static List<IIterable> IterableObjects
-        {
-            get
-            {
-                return iterableObjects;
-            }
-        }
-        private List<IItem> linkItems;
-        public List<IItem> LinkItems
-        {
-            get
-            {
-                return linkItems;
-            }
-        }
-        private ILink link;
-        public ILink Link
-        {
-            get
-            {
-                return link;
-            }
-            set
-            {
-                link = value;
-            }
-        }
-        private Boolean damaged;
-        public Boolean Damaged
-        {
-            get
-            {
-                return damaged;
-            }
-            set
-            {
-                damaged = value;
-            }
-        }
+        public static List<IIterable> IterableObjects { get; set; }
+        public List<IItem> LinkItems { get; set; }
+        public ILink Link { get; set; }
+        public bool Damaged { get; set; }
         private static GameObjects instance = new GameObjects();
         public static GameObjects Instance
 		{
@@ -67,44 +31,44 @@ namespace Sprint2
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            link = new Link(new Point(500,500));
-            iterableObjects = new List<IIterable>()
+            Link = new Link(new Point(500,500));
+            IterableObjects = new List<IIterable>()
             {
                 {new IterableItem()},
                 {new IterableEnemy()},
                 {new IterableBlock()},
             };
-            linkItems = new List<IItem>();
+            LinkItems = new List<IItem>();
         }
         //--------------Core Functionality-------------------
 		public void UpdateObjects(GameTime gameTime)
         {
-            link.Update(gameTime);
+            Link.Update(gameTime);
             int i = 0;
-            while (i < linkItems.Count)
+            while (i < LinkItems.Count)
             {
-                IItem item = linkItems[i];
+                IItem item = LinkItems[i];
                 item.Update(gameTime);
                 if (!item.SpriteActive())
                 {
-                    linkItems.RemoveAt(i);
+                    LinkItems.RemoveAt(i);
                     continue;
                 }
                 i++;
             }
-            foreach(IIterable item in iterableObjects)
+            foreach(IIterable item in IterableObjects)
             {
                 item.Update(gameTime);
             }
         }
 		public void DrawObjects(SpriteBatch spriteBatch)
         {
-            link.Draw(spriteBatch);
-            foreach (IItem item in linkItems)
+            Link.Draw(spriteBatch);
+            foreach (IItem item in LinkItems)
             {
                 item.Draw(spriteBatch);
             }
-            foreach(IIterable item in iterableObjects)
+            foreach(IIterable item in IterableObjects)
             {
                 item.Draw(spriteBatch);
             }
