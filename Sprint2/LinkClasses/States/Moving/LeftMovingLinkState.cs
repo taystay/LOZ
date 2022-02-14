@@ -12,14 +12,12 @@ namespace Sprint2
         private ISprite linkSprite;
         private Link link;
         private Point attackPosition;
-        private int currentItem;
 
         public LeftMovingLinkState(Point location, Link link)
         {
             this.link = link;
             position = location;
             attackPosition = new Point(position.X - 36, position.Y + 20);
-            currentItem = GameObjects.Instance.HeldItem;
             linkSprite = LinkSpriteFactory.Instance.LinkMovingLeft();
 
         }

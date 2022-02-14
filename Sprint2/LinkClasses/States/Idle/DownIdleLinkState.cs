@@ -14,14 +14,12 @@ namespace Sprint2
         private ISprite linkSprite;
         private Link link;
         private Point attackPosition;
-        private int currentItem;
 
         public DownIdleLinkState(Point location, Link link)
         {
             this.link = link;
             position = location;
             attackPosition = new Point(position.X + 18, position.Y + 36);
-            currentItem = GameObjects.Instance.HeldItem;
             linkSprite = LinkSpriteFactory.Instance.LinkDownIdle();
 
         }

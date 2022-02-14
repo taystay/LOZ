@@ -5,16 +5,19 @@ using System.Collections.Generic;
 
 namespace Sprint2
 {
-    class HoldArrow :ICommand
+    class AttackBomb :ICommand
     {
         private Game1 gameObject;
-        public HoldArrow(Game1 obj)
+        private Point linkPosition;
+        private double scale = 1;
+        public AttackBomb(Game1 obj)
         {
             gameObject = obj;
+            linkPosition = GameObjects.Instance.Link.GetPosition();
         }
         public void execute()
         {
-            GameObjects.Instance.HeldItem = 2;
+            GameObjects.Instance.LinkItems.Add(new Bomb(linkPosition, scale));
         }
     }
 }
