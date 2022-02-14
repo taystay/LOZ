@@ -56,21 +56,8 @@ namespace Sprint2
 
         public void Attack()
         {
-            if (currentItem == 1)
-            {
-                link.linkState = new RightAttackLinkState(position, link);
-                GameObjects.Instance.LinkItems.Add(new SwordBeamRight(attackPosition, 1));
-            }
-            else if (currentItem == 2)
-            {
-                link.linkState = new RightAttackItemLinkState(position, link);
-                GameObjects.Instance.LinkItems.Add(new ArrowRightItem(attackPosition, 1));
-            }
-            else if (currentItem == 3)
-            {
-                link.linkState = new RightAttackItemLinkState(position, link);
-                GameObjects.Instance.LinkItems.Add(new Bomb(attackPosition, 1));
-            }
+            link.linkState = new RightAttackLinkState(position, link);
+            GameObjects.Instance.LinkItems.Add(new SwordBeamRight(attackPosition, 1));
         }
 
         public void TakeDamage()
