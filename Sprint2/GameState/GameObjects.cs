@@ -61,14 +61,16 @@ namespace Sprint2.GameState
         }
 		public void DrawObjects(SpriteBatch spriteBatch)
         {
+            Blocks.Draw(spriteBatch);
+            Items.Draw(spriteBatch);
+            Enemies.Draw(spriteBatch);
+            
             Link.Draw(spriteBatch);
             foreach (IItem item in LinkItems)
             {
                 item.Draw(spriteBatch);
             }
-            Items.Draw(spriteBatch);
-            Enemies.Draw(spriteBatch);
-            Blocks.Draw(spriteBatch);
+            
         }
 	}
 }

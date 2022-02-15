@@ -1,4 +1,5 @@
 ﻿using Sprint2.GameState;
+using Sprint2.LinkClasses;
 
 namespace Sprint2.CommandClasses
 {
@@ -9,7 +10,7 @@ namespace Sprint2.CommandClasses
         }
         public void execute()
         {
-            GameObjects.Instance.Link.Attack();
+            GameObjects.Instance.Link.Attack(Weapon.Default);
         }
     }
 }

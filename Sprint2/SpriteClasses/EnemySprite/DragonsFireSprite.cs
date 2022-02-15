@@ -52,7 +52,7 @@ namespace Sprint2.SpriteClasses.EnemeySprite
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width * scale), (int)(height * scale));
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(dragonsBreath, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 

@@ -14,18 +14,12 @@ namespace Sprint2.ItemsClasses.Projectile_tools
         private Boolean spriteChanged = false;
         private const int bombActiveTime = 100;
         private const int deadFrames = 25;
-        private double scale;
+        private const double scale = 2.0;
 
-        public Bomb(Point itemLocation, double size)
+        public Bomb(Point itemLocation)
         {
-            scale = size;
-            Sprite = ItemFactory.Instance.CreateBombSprite(size);
+            Sprite = ItemFactory.Instance.CreateBombSprite(scale);
             ItemLocation = itemLocation;
-        }
-
-        public void SetSize(double size)
-        {
-            Sprite.SetSize(size);
         }
 
         public void SetPosition(Point Position)

@@ -9,25 +9,29 @@ namespace Sprint2.GameState
     {
         private List<IItem> items;
         private int itemIndex = 0;
-        private double scale = 1;
         private Point itemLocations = new Point(700, 200);
         public IterableItem()
         {
             items = new List<IItem>()
             {
-                { new ArrowItem(itemLocations, scale) },
-                { new Bow(itemLocations, scale) },
-                { new Clock(itemLocations, scale) },
-                { new Compass(itemLocations, scale) },
-                { new Fairy(itemLocations, scale) },
-                { new FireItem(itemLocations, scale) },
-                { new Heart(itemLocations, scale) },
-                { new HeartContainer(itemLocations, scale) },
-                { new Key(itemLocations, scale) },
-                { new Map(itemLocations, scale) },
-                { new Rupee(itemLocations, scale) },
-                { new Triforce(itemLocations, scale) },
+                { new ArrowItem(itemLocations) },
+                { new Bow(itemLocations) },
+                { new Clock(itemLocations) },
+                { new Compass(itemLocations) },
+                { new Fairy(itemLocations) },
+                { new FireItem(itemLocations) },
+                { new Heart(itemLocations) },
+                { new HeartContainer(itemLocations) },
+                { new Key(itemLocations) },
+                { new Map(itemLocations) },
+                { new Rupee(itemLocations) },
+                { new Triforce(itemLocations) },
             };
+        }
+
+        public void SetToDefault()
+        {
+            itemIndex = 0;
         }
 
         public void IterateForward()

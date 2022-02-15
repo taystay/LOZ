@@ -1,23 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Sprint2.GameState;
-using Sprint2.ItemsClasses.Projectile_tools;
+﻿using Sprint2.LinkClasses;
 
 namespace Sprint2.CommandClasses
 {
     class AttackArrow :ICommand
     {
-        private Point linkPosition;
-        private double scale = 1;
-        private List<IItem> linkItems;
-        public AttackArrow(List<IItem> LinkItems)
+        private ILink link;
+        public AttackArrow(ILink Link)
         {
-            linkItems = LinkItems;
-            linkPosition = GameObjects.Instance.Link.GetPosition();
+            link = Link;
         }
         public void execute()
         {
-            linkItems.Add(new ArrowDownItem(linkPosition, scale));
+            link.Attack(Weapon.Arrow);
         }
     }
 }

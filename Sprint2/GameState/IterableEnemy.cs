@@ -26,6 +26,10 @@ namespace Sprint2.GameState
             
         }
 
+        public void SetToDefault()
+        {
+            enemyIndex = 0;
+        }
         public void IterateForward()
         {
             enemyIndex++;

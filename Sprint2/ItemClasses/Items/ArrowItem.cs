@@ -10,16 +10,12 @@ namespace Sprint2.ItemsClasses
         private ISprite sprite;
         private Point itemLocation;
         private Boolean spriteActivity = true;
+        private const double scale = 2.0;
 
-        public ArrowItem(Point itemLocation, double scale)
+        public ArrowItem(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateArrowUpSprite(scale);
             this.itemLocation = itemLocation;
-        }
-
-        public void SetSize(double size)
-        {
-            sprite.SetSize(size);
         }
 
         public void SetPosition(Point Position)

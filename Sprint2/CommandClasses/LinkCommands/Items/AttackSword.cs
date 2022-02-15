@@ -1,20 +1,17 @@
-﻿using Sprint2.GameState;
-using Sprint2.ItemsClasses.Projectile_tools;
-using Microsoft.Xna.Framework;
+﻿using Sprint2.LinkClasses;
 
 namespace Sprint2.CommandClasses
 {
     class AttackSword :ICommand
     {
-        private Point linkPosition;
-        private double scale = 1;
-        public AttackSword()
+        private ILink link;
+        public AttackSword(ILink Link)
         {
-            linkPosition = GameObjects.Instance.Link.GetPosition();
+            link = Link;
         }
         public void execute()
         {
-            GameObjects.Instance.LinkItems.Add(new SwordBeamDown(linkPosition, scale));
+            link.Attack(Weapon.Swordbeam);
         }
     }
 }

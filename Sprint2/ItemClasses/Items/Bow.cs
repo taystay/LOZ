@@ -9,17 +9,13 @@ namespace Sprint2.ItemsClasses
     {
         private ISprite sprite;
         private Point itemLocation;
-        private Boolean spriteActivity = true;
+        private bool spriteActivity = true;
+        private const double scale = 2.0;
 
-        public Bow(Point itemLocation, double scale)
+        public Bow(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateBowSprite(scale);
             this.itemLocation = itemLocation;
-        }
-
-        public void SetSize(double size)
-        {
-            sprite.SetSize(size);
         }
 
         public void SetPosition(Point Position)
@@ -28,7 +24,7 @@ namespace Sprint2.ItemsClasses
             itemLocation.Y = Position.Y;
         }
 
-        public void SetSpriteActivity(Boolean activity)
+        public void SetSpriteActivity(bool activity)
         {
             spriteActivity = activity;
         }

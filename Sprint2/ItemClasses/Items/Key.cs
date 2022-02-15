@@ -10,16 +10,12 @@ namespace Sprint2.ItemsClasses
         private ISprite sprite;
         private Point itemLocation;
         private Boolean spriteAcitvity = true;
+        private const double scale = 2.0;
 
-        public Key(Point itemLocation, double scale)
+        public Key(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateKeySprite(scale);
             this.itemLocation = itemLocation;
-        }
-
-        public void SetSize(double size)
-        {
-            sprite.SetSize(size);
         }
 
         public void SetPosition(Point Position)

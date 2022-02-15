@@ -51,7 +51,7 @@ namespace Sprint2.LinkClasses.States
             link.linkState = new LeftIdleLinkState(position, link);
         }
 
-        public void Attack()
+        public void Attack(Weapon toUse)
         {
             //Don't do anything besides attacking
         }

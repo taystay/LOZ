@@ -46,9 +46,9 @@ namespace Sprint2.LinkClasses
             linkState.Idle();
         }
 
-        public void Attack()
+        public void Attack(Weapon currentUse)
         {
-            linkState.Attack();
+            linkState.Attack(currentUse);
         }
 
         public void TakeDamage()

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint2.Factories;
 using Sprint2.GameState;
+using Sprint2.ItemsClasses.Projectile_tools;
 
 
 namespace Sprint2.LinkClasses.States
@@ -51,9 +52,19 @@ namespace Sprint2.LinkClasses.States
             link.linkState = new DownIdleLinkState(position, link);
         }
 
-        public void Attack()
+        public void Attack(Weapon toUse)
         {
             //Don't do anything besides attacking
+            if(toUse == Weapon.Swordbeam)
+            {
+                GameObjects.Instance.LinkItems.Add(new SwordBeamDown(position));
+            } else if (toUse == Weapon.Arrow)
+            {
+                GameObjects.Instance.LinkItems.Add(new ArrowDownItem(position));
+            } else if (toUse == Weapon.Bomb)
+            {
+                GameObjects.Instance.LinkItems.Add(new Bomb(position));
+            }
         }
         public void TakeDamage()
         {

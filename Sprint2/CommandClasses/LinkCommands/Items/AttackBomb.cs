@@ -1,20 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using Sprint2.ItemsClasses.Projectile_tools;
-using Sprint2.GameState;
+﻿using Sprint2.LinkClasses;
 
 namespace Sprint2.CommandClasses
 {
     class AttackBomb :ICommand
     {
-        private Point linkPosition;
-        private double scale = 1;
-        public AttackBomb()
+        private ILink link;
+        public AttackBomb(ILink Link)
         {
-            linkPosition = GameObjects.Instance.Link.GetPosition();
+            link = Link;
         }
         public void execute()
         {
-            GameObjects.Instance.LinkItems.Add(new Bomb(linkPosition, scale));
+            link.Attack(Weapon.Bomb);
         }
     }
 }

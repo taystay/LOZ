@@ -3,6 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2.LinkClasses
 {
+    public enum Weapon : int
+    {
+        Swordbeam,
+        Arrow,
+        Bomb,
+        Default
+    }
     public interface ILink
     {
         public void ChangeDirectionUp();
@@ -11,7 +18,7 @@ namespace Sprint2.LinkClasses
         public void ChangeDirectionRight();
         public void Move();
         public void Idle();
-        public void Attack();
+        public void Attack(Weapon currentUse);
         public void TakeDamage();
         public Point GetPosition();
         public void Update(GameTime timer);

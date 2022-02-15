@@ -13,30 +13,48 @@ namespace Sprint2.ControllerClasses
         {
             ControllerMappings = new KeyboardController(gameObject);
 
-            ControllerMappings.RegisterCommand(Keys.Q, new QuitGame(gameObject), null, null);
-            ControllerMappings.RegisterCommand(Keys.R, new Reset(gameObject), null, null);
+            ControllerMappings.RegisterInitialCommand(Keys.Q, new QuitGame(gameObject));
+            ControllerMappings.RegisterInitialCommand(Keys.R, new Reset(gameObject));
 
-            ControllerMappings.RegisterCommand(Keys.Y, new IterateBlock(), null, null);
-            ControllerMappings.RegisterCommand(Keys.T, new previousBlock(), null, null);
-            ControllerMappings.RegisterCommand(Keys.I, new NextItem(), null, null);
-            ControllerMappings.RegisterCommand(Keys.U, new PreviousItem(), null, null);
-            ControllerMappings.RegisterCommand(Keys.O, new PreviousEnemy(),null, null);
-            ControllerMappings.RegisterCommand(Keys.P, new NextEnemy(), null, null);
+            ControllerMappings.RegisterInitialCommand(Keys.Y, new IterateBlock());
+            ControllerMappings.RegisterInitialCommand(Keys.T, new previousBlock());
+            ControllerMappings.RegisterInitialCommand(Keys.I, new NextItem());
+            ControllerMappings.RegisterInitialCommand(Keys.U, new PreviousItem());
+            ControllerMappings.RegisterInitialCommand(Keys.O, new PreviousEnemy());
+            ControllerMappings.RegisterInitialCommand(Keys.P, new NextEnemy());
 
-            ControllerMappings.RegisterCommand(Keys.W, null, new UpMove(), new Idle());
-            ControllerMappings.RegisterCommand(Keys.A, null, new LeftMove(), new Idle());
-            ControllerMappings.RegisterCommand(Keys.S, null, new DownMove(), new Idle());
-            ControllerMappings.RegisterCommand(Keys.D, null, new RightMove(), new Idle());
-            ControllerMappings.RegisterCommand(Keys.Up, null, new UpMove(), new Idle());
-            ControllerMappings.RegisterCommand(Keys.Left, null, new LeftMove(), new Idle());
-            ControllerMappings.RegisterCommand(Keys.Down, null, new DownMove(), new Idle());
-            ControllerMappings.RegisterCommand(Keys.Right, null, new RightMove(), new Idle());
-            ControllerMappings.RegisterCommand(Keys.Z, new Attack(), null, new Idle());
-            ControllerMappings.RegisterCommand(Keys.N, new Attack(), null, new Idle());
-            ControllerMappings.RegisterCommand(Keys.E, new TakeDamage(), null, null);
-            ControllerMappings.RegisterCommand(Keys.D1, new AttackSword(), null, null);
-            ControllerMappings.RegisterCommand(Keys.D2, new AttackArrow(GameObjects.Instance.LinkItems), null, null);
-            ControllerMappings.RegisterCommand(Keys.D3, new AttackBomb(), null, null);
+            ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(GameObjects.Instance.Link));
+            ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(GameObjects.Instance.Link));
+            ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(GameObjects.Instance.Link));
+
+            ControllerMappings.RegisterReleaseCommand(Keys.D1, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.D2, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.D3, new Idle());
+
+            ControllerMappings.RegisterHoldCommand(Keys.W,new UpMove());
+            ControllerMappings.RegisterHoldCommand(Keys.A, new LeftMove());
+            ControllerMappings.RegisterHoldCommand(Keys.S, new DownMove());
+            ControllerMappings.RegisterHoldCommand(Keys.D, new RightMove());
+            ControllerMappings.RegisterHoldCommand(Keys.Up, new UpMove());
+            ControllerMappings.RegisterHoldCommand(Keys.Left, new LeftMove());
+            ControllerMappings.RegisterHoldCommand(Keys.Down, new DownMove());
+            ControllerMappings.RegisterHoldCommand(Keys.Right, new RightMove());
+            ControllerMappings.RegisterHoldCommand(Keys.Z, new Attack());
+            ControllerMappings.RegisterHoldCommand(Keys.N, new Attack());
+            ControllerMappings.RegisterHoldCommand(Keys.E, new TakeDamage());
+
+            ControllerMappings.RegisterReleaseCommand(Keys.W, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.A, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.S, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.D, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.Up, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.Left, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.Down, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.Right, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.Z, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.N, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.E, new Idle());
+
         }
 
         public KeyboardController GetController()

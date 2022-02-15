@@ -22,14 +22,17 @@ namespace Sprint2.ControllerClasses
             onReleaseKeys = new List<Keys>();
         }
 
-        public void RegisterCommand(Keys key, ICommand initialPressCommand, ICommand holdCommand, ICommand onReleaseCommand)
+        public void RegisterInitialCommand(Keys key, ICommand initialPressCommand)
         {
-            if(initialPressCommand != null)
-                initialPressCommands.Add(key, initialPressCommand);
-            if(holdCommand != null)
-                holdCommands.Add(key, holdCommand);
-            if (onReleaseCommand != null)
-                onReleaseCommands.Add(key, onReleaseCommand);
+            initialPressCommands.Add(key, initialPressCommand);
+        }
+        public void RegisterHoldCommand(Keys key, ICommand holdCommand)
+        {
+            holdCommands.Add(key, holdCommand);
+        }
+        public void RegisterReleaseCommand(Keys key, ICommand onReleaseCommand)
+        {
+            onReleaseCommands.Add(key, onReleaseCommand);
         }
 
         public void Update(GameTime gameTime)

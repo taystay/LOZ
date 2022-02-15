@@ -17,18 +17,12 @@ namespace Sprint2.ItemsClasses.Projectile_tools
         private const int ArrowTravelFrames = 100;
         private const int DeadFrames = 25;
         private const int DeadArrowSpriteOffSet = -8;
-        private readonly double scale;
+        private const double scale = 2.0;
 
-        public SwordBeamDown(Point itemLocation, double size)
+        public SwordBeamDown(Point itemLocation)
         {
-            scale = size;
-            Sprite = ItemFactory.Instance.CreateSwordBeamDownSprite(size);
+            Sprite = ItemFactory.Instance.CreateSwordBeamDownSprite(scale);
             ItemLocation = itemLocation;
-        }
-
-        public void SetSize(double size)
-        {
-            Sprite.SetSize(size);
         }
 
         public void SetPosition(Point Position)

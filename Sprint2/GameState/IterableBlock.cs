@@ -28,6 +28,10 @@ namespace Sprint2.GameState
             }; 
         }
 
+        public void SetToDefault()
+        {
+            blockIndex = 0;
+        }
         public void IterateForward()
         {
             blockIndex++;

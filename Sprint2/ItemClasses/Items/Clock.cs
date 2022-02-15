@@ -10,15 +10,12 @@ namespace Sprint2.ItemsClasses
         private ISprite sprite;
         private Point itemLocation;
         private Boolean spriteActivity = true;
-        public Clock(Point itemLocation, double scale)
-        {
-            sprite = ItemFactory.Instance.CreateClockSprite(scale);
-            this.itemLocation = itemLocation;
-        }
+        private const double scale = 2.0;
 
-        public void SetSize(double size)
+        public Clock(Point itemLocation)
         {
-            sprite.SetSize(size);
+            sprite = ItemFactory.Instance.CreateArrowUpSprite(scale);
+            this.itemLocation = itemLocation;
         }
 
         public void SetPosition(Point Position)

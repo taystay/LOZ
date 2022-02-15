@@ -4,6 +4,7 @@ using Sprint2.GameState;
 
 namespace Sprint2.LinkClasses
 {
+    
     class DamagedLink : ILink
     {
         private ILink decoratedLink;
@@ -45,9 +46,9 @@ namespace Sprint2.LinkClasses
             decoratedLink.Idle();
         }
 
-        public void Attack()
+        public void Attack(Weapon currentUse)
         {
-            decoratedLink.Attack();
+            decoratedLink.Attack(currentUse);
         }
 
         public void TakeDamage()

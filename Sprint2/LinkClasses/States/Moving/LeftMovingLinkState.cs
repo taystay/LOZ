@@ -52,9 +52,13 @@ namespace Sprint2.LinkClasses.States
             link.linkState = new LeftIdleLinkState(position, link);
         }
 
-        public void Attack()
+        public void Attack(Weapon toUse)
         {
-            link.linkState = new LeftAttackLinkState(position, link);
+            if (toUse == Weapon.Default)
+                link.linkState = new LeftAttackLinkState(position, link);
+            else
+                link.linkState = new LeftAttackItemLinkState(position, link);
+            link.linkState.Attack(toUse);
         }
 
         public void TakeDamage()
