@@ -1,9 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
-
-namespace Sprint2
+﻿using Sprint2.GameState;
+namespace Sprint2.CommandClasses
 {
     class RightMove :ICommand
     {

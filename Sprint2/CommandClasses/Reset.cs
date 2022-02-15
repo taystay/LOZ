@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Sprint2.GameState;
 
-namespace Sprint2
+namespace Sprint2.CommandClasses
 {
     class Reset : ICommand
     {

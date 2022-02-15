@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
+using Sprint2.ItemsClasses.Projectile_tools;
+using Sprint2.GameState;
 
-namespace Sprint2
+namespace Sprint2.CommandClasses
 {
     class AttackBomb :ICommand
     {

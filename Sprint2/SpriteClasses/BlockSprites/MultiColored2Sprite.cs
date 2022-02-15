@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint2
-{
-    class MultiColored2Sprite : ISprite
+namespace Sprint2.SpriteClasses.BlockSprites
+{ 
+	class MultiColored2Sprite : ISprite
     {
 		//-----Private Variables-----
 		private Rectangle Frame;

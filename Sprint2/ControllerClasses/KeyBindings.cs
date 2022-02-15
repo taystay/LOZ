@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
 using Microsoft.Xna.Framework.Input;
+using Sprint2.CommandClasses;
+using Sprint2.GameState;
 
-namespace Sprint2
+namespace Sprint2.ControllerClasses
 {
     class KeyBindings
     {

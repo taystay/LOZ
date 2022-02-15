@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Sprint2.Factories;
 
-namespace Sprint2
+namespace Sprint2.ItemsClasses
 {
     public class ArrowItem : IItem
     {

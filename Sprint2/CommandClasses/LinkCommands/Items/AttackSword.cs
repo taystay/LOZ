@@ -1,9 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
+﻿using Sprint2.GameState;
+using Sprint2.ItemsClasses.Projectile_tools;
+using Microsoft.Xna.Framework;
 
-namespace Sprint2
+namespace Sprint2.CommandClasses
 {
     class AttackSword :ICommand
     {

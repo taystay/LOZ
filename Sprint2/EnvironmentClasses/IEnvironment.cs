@@ -3,7 +3,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint2
+namespace Sprint2.EnvironmentalClasses
 {
     public interface IEnvironment
     {
