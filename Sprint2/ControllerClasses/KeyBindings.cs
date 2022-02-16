@@ -17,7 +17,7 @@ namespace Sprint2.ControllerClasses
             ControllerMappings.RegisterInitialCommand(Keys.R, new Reset(gameObject));
 
             ControllerMappings.RegisterInitialCommand(Keys.Y, new IterateBlock());
-            ControllerMappings.RegisterInitialCommand(Keys.T, new previousBlock());
+            ControllerMappings.RegisterInitialCommand(Keys.T, new PreviousBlock());
             ControllerMappings.RegisterInitialCommand(Keys.I, new NextItem());
             ControllerMappings.RegisterInitialCommand(Keys.U, new PreviousItem());
             ControllerMappings.RegisterInitialCommand(Keys.O, new PreviousEnemy());

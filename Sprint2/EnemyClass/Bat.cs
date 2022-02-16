@@ -13,14 +13,12 @@ namespace Sprint2.EnemyClass
         private int xPosition;
         private int yPosition;
         private Random random;
-        private int seed;
 
         public Bat(Point location, double size)
         {
 
             position = location;
             bat = EnemySpriteFactory.Instance.CreateBat();
-            bat.SetSize(size);
 
             random = new Random();
             xPosition = random.Next(700, 900);

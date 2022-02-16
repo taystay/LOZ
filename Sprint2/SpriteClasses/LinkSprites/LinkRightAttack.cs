@@ -14,35 +14,16 @@ namespace Sprint2.SpriteClasses.LinkSprites
 
         public LinkRightAttack(Texture2D sprite)
         {
-
             linkSprite = sprite;
             frame = 0;
-
         }
-
-        public void SetSize(double size)
-        {
-
-            //nothing?? for now....
-        }
-
 
         public void Update(GameTime timer)
         {
-
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
-            {
-
                 frame++;
-                
-            }
-
             if (frame == maxFrame)
-            {
-
                 frame = 0;
-            }
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)

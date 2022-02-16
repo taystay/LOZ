@@ -20,7 +20,6 @@ namespace Sprint2.EnemyClass
         {
             position = location;
             dragon = EnemySpriteFactory.Instance.CreateDragon();
-            dragon.SetSize(size);
 
             random = new Random();
             xPosition = random.Next(700, 900);

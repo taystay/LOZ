@@ -8,25 +8,13 @@ namespace Sprint2.ItemsClasses
     public class Fairy : IItem
     {
         private ISprite sprite;
-        private Point itemLocation;
+        private Point _itemLocation;
         private Boolean spriteActivity = true;
-        private const double scale = 2.0;
 
         public Fairy(Point itemLocation)
         {
-            sprite = ItemFactory.Instance.CreateFairySprite(scale);
-            this.itemLocation = itemLocation;
-        }
-
-        public void SetPosition(Point Position)
-        {
-            itemLocation.X = Position.X;
-            itemLocation.Y = Position.Y;
-        }
-
-        public void SetSpriteActivity(Boolean activity)
-        {
-            spriteActivity = activity;
+            sprite = ItemFactory.Instance.CreateFairySprite();
+            _itemLocation = itemLocation;
         }
 
         public Boolean SpriteActive()
@@ -41,7 +29,7 @@ namespace Sprint2.ItemsClasses
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, itemLocation);
+            sprite.Draw(spriteBatch, _itemLocation);
         }
 
     }

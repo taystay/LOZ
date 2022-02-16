@@ -6,43 +6,22 @@ namespace Sprint2.SpriteClasses.EnemeySprite
     class NPCSprite : ISprite
     {
 
-        private Texture2D npcSprite;
-        private int frame;
+        private Texture2D _texture;
+        private int frame = 1;
         private const int maxFrame = 3;
-        private double scale;
+        private const double scale = 3.0;
 
-        public NPCSprite(Texture2D sprite)
+        public NPCSprite(Texture2D textue)
         {
-
-            npcSprite = sprite;
-            frame = 1;
-            scale = 3;
-
+            _texture = textue;
         }
-
-        public void SetSize(double size)
-        {
-
-            scale = size;
-        }
-
 
         public void Update(GameTime timer)
         {
-
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
-            {
-
                 frame++;
-
-            }
-
             if (frame == maxFrame)
-            {
-
                 frame = 0;
-            }
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)
@@ -52,8 +31,8 @@ namespace Sprint2.SpriteClasses.EnemeySprite
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width = (npcSprite.Width / 2);
-            int height =  npcSprite.Height;
+            int width = (_texture.Width / 2);
+            int height =  _texture.Height;
             int row = 0;
             int column = frame % 2;
 
@@ -62,7 +41,7 @@ namespace Sprint2.SpriteClasses.EnemeySprite
 
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-            spriteBatch.Draw(npcSprite, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
 

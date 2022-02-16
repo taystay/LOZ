@@ -11,8 +11,6 @@ namespace Sprint2.CommandClasses
         }
 
         public void execute() {
-
-            GameObjects.Instance.LoadObjects(gameObject.Content);
             GameObjects.Blocks.SetToDefault();
             GameObjects.Enemies.SetToDefault();
             GameObjects.Items.SetToDefault();

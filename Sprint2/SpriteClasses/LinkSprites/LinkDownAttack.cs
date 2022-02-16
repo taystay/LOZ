@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint2.GameState;
+using System.Collections.Generic;
 
 namespace Sprint2.SpriteClasses.LinkSprites
 {
@@ -8,80 +9,43 @@ namespace Sprint2.SpriteClasses.LinkSprites
     {
 
         private Texture2D linkSprite;
-        private int frame;
-        private const int maxFrame = 3;
+        private List<Rectangle> frames;
+        private Rectangle frame;
+        private int frame2;
+        private const int maxFrame = 2;
         private const int scale = 3;
 
         public LinkDownAttack(Texture2D sprite)
         {
-
             linkSprite = sprite;
-            frame = 0;
-
+            frame2 = 0;
+            frames = new List<Rectangle>();
+            frames.Add(new Rectangle(0, 30, 16, 16));
+            frames.Add(new Rectangle(0, 84, 16, 27));
         }
-
-        public void SetSize(double size)
-        {
-
-            //nothing?? for now....
-        }
-
-
         public void Update(GameTime timer)
         {
-
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
-            {
-
-                frame++;
-                
-            }
-
-            if (frame == maxFrame)
-            {
-
-                frame = 0;
-            }
-
+                frame2++;          
+            if (frame2 == maxFrame)
+                frame2 = 0;
+            frame = frames[frame2];
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)
         {
-
-            //The code below was taken for the sprite atalas tutorial
-            // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
-
-            //There are only 2 columns and 1 row
-            int frameOneWidth = 16;
-            int frameOneHeight = 16;
-
-            int frameTwoWidth = 16;
-            int frameTwoHeight = 27;
-
-            Rectangle sourceRectangle = new Rectangle();
-            Rectangle destinationRectangle = new Rectangle();
-
-            if (frame == 0)
-            {
-                sourceRectangle = new Rectangle(0, 30, frameOneWidth, frameOneHeight);
-                destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameOneWidth * scale, frameOneHeight * scale);
-            }
-            else
-            {
-                sourceRectangle = new Rectangle(0, 84, frameTwoWidth, frameTwoHeight);
-                destinationRectangle = new Rectangle((int)location.X, (int)location.Y, frameTwoWidth * scale, frameTwoHeight * scale);
-            }
+            int width = (int)(scale * (int)frame.Width);
+            int height = (int)(scale * (int)frame.Height);
+            //Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
+            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, width, height);
 
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             if (GameObjects.Instance.Damaged)
-            {
-                spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.HotPink);
-            }
+                spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.HotPink);
             else
-            {
-                spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.White);
-            }
+                spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.White);
+
             spriteBatch.End();
 
 

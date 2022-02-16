@@ -8,8 +8,6 @@ namespace Sprint2.Factories
     class BlockSpriteFactory
     {
 		private Texture2D blockSpritesheet;
-		// More private Texture2Ds follow
-		// ...
 
 		private static BlockSpriteFactory instance = new BlockSpriteFactory();
 
@@ -30,44 +28,44 @@ namespace Sprint2.Factories
 			blockSpritesheet = content.Load<Texture2D>("ZeldaDungeonBlocks");
 		}
 
-		public ISprite CreateBlackTileSprite(double scale)
+		public ISprite CreateBlackTileSprite()
 		{
-			return new BlackTileSprite(blockSpritesheet, scale);
+			return new BlackTileSprite(blockSpritesheet);
 		}
 
-		public ISprite CreateBlueSandBlockSprite(double scale) 
+		public ISprite CreateBlueSandBlockSprite() 
 		{
-			return new BlueSandBlockSprite(blockSpritesheet, scale);
+			return new BlueSandBlockSprite(blockSpritesheet);
 		}
 
-		public ISprite CreateBlueTriangleBlockSprite(double scale)
+		public ISprite CreateBlueTriangleBlockSprite()
 		{
-			return new BlueTriangleTileSprite(blockSpritesheet, scale);
+			return new BlueTriangleTileSprite(blockSpritesheet);
 		}
 
-		public ISprite CreateDarkBlueSolidBlockSprite(double scale)
+		public ISprite CreateDarkBlueSolidBlockSprite()
 		{
-			return new DarkBlueSolidBlockSprite(blockSpritesheet, scale);
+			return new DarkBlueSolidBlockSprite(blockSpritesheet);
 		}
 
-		public ISprite CreateMulticolored1Sprite(double scale)
+		public ISprite CreateMulticolored1Sprite()
 		{
-			return new Multicolored1Sprite(blockSpritesheet, scale);
+			return new Multicolored1Sprite(blockSpritesheet);
 		}
 
-		public ISprite CreateMulticolored2Sprite(double scale)
+		public ISprite CreateMulticolored2Sprite()
 		{
-			return new MultiColored2Sprite(blockSpritesheet, scale);
+			return new MultiColored2Sprite(blockSpritesheet);
 		}
 
-		public ISprite CreateSolidBlueTileSprite(double scale)
+		public ISprite CreateSolidBlueTileSprite()
 		{
-			return new SolidBlueTileSprite(blockSpritesheet, scale);
+			return new SolidBlueTileSprite(blockSpritesheet);
 		}
 
-		public ISprite CreateStairsBlockSprite(double scale)
+		public ISprite CreateStairsBlockSprite()
 		{
-			return new StairsBlockSprite(blockSpritesheet, scale);
+			return new StairsBlockSprite(blockSpritesheet);
 		}
 
 

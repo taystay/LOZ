@@ -2,14 +2,14 @@
 
 namespace Sprint2.CommandClasses
 {
-    class previousBlock : ICommand
+    class PreviousBlock : ICommand
     {
-        public previousBlock()
+        public PreviousBlock()
         {
         }
         public void execute()
         {
-            GameObjects.Blocks.IterateForward();
+            GameObjects.Blocks.IterateReverse();
         }
     }
 }

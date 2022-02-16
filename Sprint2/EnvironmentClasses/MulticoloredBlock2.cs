@@ -10,9 +10,9 @@ namespace Sprint2.EnvironmentalClasses
         private ISprite sprite;
         private Point itemLocation;
 
-        public MulticoloredBlock2(Point itemLocation, double scale)
+        public MulticoloredBlock2(Point itemLocation)
         {
-            sprite = BlockSpriteFactory.Instance.CreateMulticolored2Sprite(scale);
+            sprite = BlockSpriteFactory.Instance.CreateMulticolored2Sprite();
             this.itemLocation = itemLocation;
         }
         public void Update(GameTime gameTime)

@@ -3,58 +3,47 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint2.Factories;
 
-namespace Sprint2.ItemsClasses.Projectile_tools
+namespace Sprint2.ItemsClasses
 {
     public class Bomb : IItem
     {
-        private ISprite Sprite;
-        private Point ItemLocation;
-        private Boolean SpriteActivity = true;
-        private int FramesPassed = 0;
+        private ISprite sprite;
+        private Point itemLocation;
+        private Boolean spriteActivity = true;
         private Boolean spriteChanged = false;
+
+        private int framesPassed = 0;
+
         private const int bombActiveTime = 100;
         private const int deadFrames = 25;
-        private const double scale = 2.0;
 
         public Bomb(Point itemLocation)
         {
-            Sprite = ItemFactory.Instance.CreateBombSprite(scale);
-            ItemLocation = itemLocation;
-        }
-
-        public void SetPosition(Point Position)
-        {
-            ItemLocation.X = Position.X;
-            ItemLocation.Y = Position.Y;
-        }
-
-        public void SetSpriteActivity(Boolean activity)
-        {
-            SpriteActivity = activity;
+            sprite = ItemFactory.Instance.CreateBombSprite();
+            this.itemLocation = itemLocation;
         }
 
         public Boolean SpriteActive()
         {
-            if (FramesPassed >= bombActiveTime)
-                SpriteActivity = false;
-            return SpriteActivity;
+            if (framesPassed >= bombActiveTime)
+                spriteActivity = false;
+            return spriteActivity;
         }
 
         public void Update(GameTime gameTime)
         {
-
-            Sprite.Update(gameTime);
-            FramesPassed++;
+            sprite.Update(gameTime);
+            framesPassed++;
             if (spriteChanged) return;
-            if (FramesPassed >= bombActiveTime - deadFrames) {
+            if (framesPassed >= bombActiveTime - deadFrames) {
                 spriteChanged = true;
-                Sprite = ItemFactory.Instance.CreateDeadBombSprite(scale);
+                sprite = ItemFactory.Instance.CreateDeadBombSprite();
             }          
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Sprite.Draw(spriteBatch, ItemLocation);
+            sprite.Draw(spriteBatch, itemLocation);
         }
 
     }

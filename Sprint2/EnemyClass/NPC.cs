@@ -15,7 +15,6 @@ namespace Sprint2.EnemyClass
         {
             position = location;
             npc = EnemySpriteFactory.Instance.CreateNPC();
-            npc.SetSize(size);
         }
 
         public void Update(GameTime timer)

@@ -10,9 +10,9 @@ namespace Sprint2.EnvironmentalClasses
         private ISprite sprite;
         private Point itemLocation;
 
-        public StairsBlock(Point itemLocation, double scale)
+        public StairsBlock(Point itemLocation)
         {
-            sprite = BlockSpriteFactory.Instance.CreateStairsBlockSprite(scale);
+            sprite = BlockSpriteFactory.Instance.CreateStairsBlockSprite();
             this.itemLocation = itemLocation;
         }
         public void Update(GameTime gameTime)

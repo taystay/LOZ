@@ -7,41 +7,21 @@ namespace Sprint2.SpriteClasses.EnemeySprite
     {
 
         private Texture2D skeletonSprite;
-        private int frame;
+        private int frame = 0;
         private const int maxFrame = 2;
-        private double scale;
+        private const double scale = 1.0;
 
         public SkeletonSprite(Texture2D sprite)
         {
-
-            skeletonSprite = sprite;
-            frame = 0;
-            scale = 1;
-               
+            skeletonSprite = sprite;             
         }
-
-        public void SetSize(double size)
-        {
-
-            scale = size;
-        }
-
 
         public void Update(GameTime timer)
         {
-
             if (timer.TotalGameTime.Milliseconds % 200 == 0)
-            {
-
                 frame++;
-                if (frame == maxFrame)
-                {
-                    frame = 0;
-                    
-                }
-
-            }
-
+            if (frame == maxFrame)
+                frame = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)

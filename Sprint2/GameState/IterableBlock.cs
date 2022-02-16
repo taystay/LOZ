@@ -10,34 +10,38 @@ namespace Sprint2.GameState
         private static List<IEnvironment> blocks;
         private Point blockLocation = new Point(700, 300);
         private static int blockIndex = 0;
-        private double scale = 1.0;
 
         public IterableBlock()
         {
-            
-            blocks = new List<IEnvironment>()
-            {
-                { new BlueSandBlock(blockLocation, scale) },
-                { new BlackTileBlock(blockLocation, scale) },
-                { new BlueTriangleBlock(blockLocation, scale) },
-                { new DarkBlueBlock(blockLocation, scale) },
-                { new MulticoloredBlock1(blockLocation, scale) },
-                { new MulticoloredBlock2(blockLocation, scale) },
-                { new SolidBlueBlock(blockLocation, scale) },
-                { new StairsBlock(blockLocation, scale) },
-            }; 
+            LoadList();
+             
         }
 
+        private void LoadList()
+        {
+            blocks = new List<IEnvironment>()
+            {
+                { new BlueSandBlock(blockLocation) },
+                { new BlackTileBlock(blockLocation) },
+                { new BlueTriangleBlock(blockLocation) },
+                { new DarkBlueBlock(blockLocation) },
+                { new MulticoloredBlock1(blockLocation) },
+                { new MulticoloredBlock2(blockLocation) },
+                { new SolidBlueBlock(blockLocation) },
+                { new StairsBlock(blockLocation) },
+            };
+        }
         public void SetToDefault()
         {
             blockIndex = 0;
+            LoadList();
         }
+
         public void IterateForward()
         {
             blockIndex++;
             if (blockIndex >= blocks.Count)
-                blockIndex = 0;
-            
+                blockIndex = 0;  
 
         }
         public void IterateReverse()

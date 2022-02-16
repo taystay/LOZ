@@ -6,43 +6,22 @@ namespace Sprint2.SpriteClasses.EnemeySprite
     class JellySprite : ISprite
     {
 
-        private Texture2D jellySprite;
-        private int frame;
+        private Texture2D _texture;
+        private int frame = 1;
         private const int maxFrame = 3;
-        private double scale;
+        private const double scale = 1.0;
 
-        public JellySprite(Texture2D sprite)
+        public JellySprite(Texture2D texture)
         {
-
-            jellySprite = sprite;
-            frame = 1;
-            scale = 1;
-
+            _texture = texture;
         }
-
-        public void SetSize(double size)
-        {
-
-            scale = size;
-        }
-
 
         public void Update(GameTime timer)
         {
-
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
-            {
-
                 frame++;
-
-            }
-
             if (frame == maxFrame)
-            {
-
                 frame = 0;
-            }
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)
@@ -52,17 +31,17 @@ namespace Sprint2.SpriteClasses.EnemeySprite
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width =  (jellySprite.Width / 2);
-            int height = (jellySprite.Height / 5);
+            int width =  (_texture.Width / 2);
+            int height = (_texture.Height / 5);
             int row = 2;
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width * scale), (int)(height * scale));
+            Rectangle destinationRectangle = new Rectangle(location.X - (int)(width * scale) / 2, location.Y - (int)(height * scale) / 2, (int)(width * scale), (int)(height * scale));
 
 
             spriteBatch.Begin();
-            spriteBatch.Draw(jellySprite, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
 

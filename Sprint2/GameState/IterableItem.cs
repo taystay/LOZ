@@ -12,6 +12,11 @@ namespace Sprint2.GameState
         private Point itemLocations = new Point(700, 200);
         public IterableItem()
         {
+            LoadList();
+        }
+
+        private void LoadList()
+        {
             items = new List<IItem>()
             {
                 { new ArrowItem(itemLocations) },
@@ -32,6 +37,7 @@ namespace Sprint2.GameState
         public void SetToDefault()
         {
             itemIndex = 0;
+            LoadList();
         }
 
         public void IterateForward()

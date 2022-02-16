@@ -8,30 +8,18 @@ namespace Sprint2.ItemsClasses
     public class Key : IItem
     {
         private ISprite sprite;
-        private Point itemLocation;
-        private Boolean spriteAcitvity = true;
-        private const double scale = 2.0;
+        private Point _itemLocation;
+        private Boolean spriteActivity = true;
 
         public Key(Point itemLocation)
         {
-            sprite = ItemFactory.Instance.CreateKeySprite(scale);
-            this.itemLocation = itemLocation;
-        }
-
-        public void SetPosition(Point Position)
-        {
-            itemLocation.X = Position.X;
-            itemLocation.Y = Position.Y;
-        }
-
-        public void SetSpriteActivity(Boolean activity)
-        {
-            spriteAcitvity = activity;
+            sprite = ItemFactory.Instance.CreateKeySprite();
+            _itemLocation = itemLocation;
         }
 
         public Boolean SpriteActive()
         {
-            return spriteAcitvity;
+            return spriteActivity;
         }
 
         public void Update(GameTime gameTime)
@@ -41,7 +29,7 @@ namespace Sprint2.ItemsClasses
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, itemLocation);
+            sprite.Draw(spriteBatch, _itemLocation);
         }
 
     }

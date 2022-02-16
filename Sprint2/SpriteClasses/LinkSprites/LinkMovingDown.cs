@@ -8,42 +8,21 @@ namespace Sprint2.SpriteClasses.LinkSprites
     {
 
         private Texture2D linkSprite;
-        //private List<Rectangle> frames;
         private int frame;
         private const int maxFrame = 2;
         private const int scale = 3;
-
         public LinkMovingDown(Texture2D sprite)
         {
-
             linkSprite = sprite;
             frame = 0;
-
         }
-
-        public void SetSize(double size)
-        {
-
-            //nothing?? for now....
-        }
-
 
         public void Update(GameTime timer)
-        {
-
+        { 
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
-            {
-
                 frame++;
-                
-            }
-
             if (frame == maxFrame)
-            {
-
                 frame = 0;
-            }
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)

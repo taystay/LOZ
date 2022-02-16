@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint2.Factories;
 
-namespace Sprint2.ItemsClasses.Projectile_tools
+namespace Sprint2.ItemsClasses
 {
     public class ArrowUpItem : IItem
     {
@@ -17,24 +17,13 @@ namespace Sprint2.ItemsClasses.Projectile_tools
         private const int ArrowTravelFrames = 100;
         private const int DeadFrames = 25;
         private const int DeadArrowSpriteOffSet = -8;
-        private const double scale = 2.0;
 
         public ArrowUpItem(Point itemLocation)
         {
-            Sprite = ItemFactory.Instance.CreateArrowUpSprite(scale);
+            Sprite = ItemFactory.Instance.CreateArrowUpSprite();
             ItemLocation = itemLocation;
         }
 
-        public void SetPosition(Point Position)
-        {
-            ItemLocation.X = Position.X;
-            ItemLocation.Y = Position.Y;
-        }
-
-        public void SetSpriteActivity(Boolean activity)
-        {
-            SpriteActivity = activity;
-        }
 
         public Boolean SpriteActive()
         {
@@ -52,7 +41,7 @@ namespace Sprint2.ItemsClasses.Projectile_tools
             if (FramesPassed >= ArrowTravelFrames - DeadFrames)
             {
                 spriteChanged = true;
-                Sprite = ItemFactory.Instance.CreateDeadArrowSprite(scale);
+                Sprite = ItemFactory.Instance.CreateDeadArrowSprite();
                 ItemLocation.X += DeadArrowSpriteOffSet;
                 return;
             }

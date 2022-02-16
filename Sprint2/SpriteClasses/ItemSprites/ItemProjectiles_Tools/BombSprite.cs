@@ -6,20 +6,16 @@ namespace Sprint2
 	class BombSprite : ISprite
 	{
 		//-----Private Variables-----
-		private Rectangle Frame;
-		private Texture2D Texture;
-		private double scale = 2;
+		private Rectangle frame;
+		private Texture2D _texture;
+		private double scale = 2.0;
 
 
 		//-----Constructor-----
 		public BombSprite(Texture2D texture)
 		{
-			Texture = texture;
-			Frame = new Rectangle(111, 99, 129 - 110, 133 - 98);
-		}
-
-		public void SetSize(double size)
-		{
+			_texture = texture;
+			frame = new Rectangle(111, 99, 129 - 110, 133 - 98);
 		}
 
 		//-----Update frame-----
@@ -33,12 +29,12 @@ namespace Sprint2
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = (int)(scale * (int)Frame.Width);
-			int height = (int)(scale * (int)Frame.Height);
+			int width = (int)(scale * (int)frame.Width);
+			int height = (int)(scale * (int)frame.Height);
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-			spriteBatch.Draw(Texture, destinationRectangle, Frame, Color.White);
+			spriteBatch.Draw(_texture, destinationRectangle, frame, Color.White);
 			spriteBatch.End();
 		}
 	}

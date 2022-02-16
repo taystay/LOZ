@@ -6,40 +6,22 @@ namespace Sprint2.SpriteClasses.EnemeySprite
     class BatSprite : ISprite
     {
 
-        private Texture2D batSprite;
-        private int frame;
+        private Texture2D _texture;
+        private int frame = 0;
         private const int maxFrame = 2;
-        private double scale;
+        private const double scale = 1.0;
 
-        public BatSprite(Texture2D sprite)
+        public BatSprite(Texture2D texture)
         {
-            batSprite = sprite;
-            frame = 0;
-            scale = 1;
+            _texture = texture;
         }
-
-        public void SetSize(double size)
-        {
-
-            scale = size; 
-        }
-
 
         public void Update(GameTime timer)
         {
-
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
-            {
-
                 frame++;
-                if (frame == maxFrame)
-                {
-
-                    frame = 0;
-                }
-
-            }
-
+            if (frame == maxFrame)
+                frame = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)
@@ -49,17 +31,17 @@ namespace Sprint2.SpriteClasses.EnemeySprite
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             //There are only 2 columbs and 1 row
-            int width =  (batSprite.Width / 2);
-            int height = (batSprite.Height / 5);
+            int width =  (_texture.Width / 2);
+            int height = (_texture.Height / 5);
             int row = 4;
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, (int)(width*scale), (int)(height*scale));
+            Rectangle destinationRectangle = new Rectangle(location.X - (int)(width * scale) / 2, location.Y - (int)(height * scale) /2, (int)(width*scale), (int)(height*scale));
 
 
             spriteBatch.Begin();
-            spriteBatch.Draw(batSprite, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 
 

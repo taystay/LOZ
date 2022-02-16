@@ -18,7 +18,6 @@ namespace Sprint2.EnemyClass
 
             position = location;
             skeleton = EnemySpriteFactory.Instance.CreateSkeleton();
-            skeleton.SetSize(size);
 
             random = new Random();
             xPosition = random.Next(700, 900);

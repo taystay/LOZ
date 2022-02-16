@@ -7,29 +7,23 @@ namespace Sprint2
 	class FireItemSprite : ISprite
 	{
 		//-----Private Variables-----
-		private Rectangle Frame;
-		private Texture2D Texture;
-		private double Scale;
+		private Rectangle frame;
+		private Texture2D _texture;
+		private const double scale = 2.0;
 
-		private List<Rectangle> Frames;
+		private List<Rectangle> frames;
 		private int currentFrame = 0;
 		private int totalFrames = 2;
 
 
 		//-----Constructor-----
-		public FireItemSprite(Texture2D texture, double scale)
+		public FireItemSprite(Texture2D texture)
 		{
-			Scale = scale;
-			Texture = texture;
-			Frames = new List<Rectangle>();
-			Frames.Add(new Rectangle(56, 103, 31, 31));
-			Frames.Add(new Rectangle(8, 103, 31, 31));
-			Frame = Frames[currentFrame];
-		}
-
-		public void SetSize(double size)
-		{
-			Scale = size;
+			_texture = texture;
+			frames = new List<Rectangle>();
+			frames.Add(new Rectangle(56, 103, 31, 31));
+			frames.Add(new Rectangle(8, 103, 31, 31));
+			frame = frames[currentFrame];
 		}
 
 		//-----Update frame-----
@@ -42,7 +36,7 @@ namespace Sprint2
                 {
 					currentFrame = 0;
                 }
-				Frame = Frames[currentFrame];
+				frame = frames[currentFrame];
             }
 		}
 
@@ -51,12 +45,12 @@ namespace Sprint2
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = (int)(Scale * (int)Frame.Width);
-			int height = (int)(Scale * (int)Frame.Height);
-			destinationRectangle = new Rectangle(location.X, location.Y, width, height);
+			int width = (int)(scale * (int)frame.Width);
+			int height = (int)(scale * (int)frame.Height);
+			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-			spriteBatch.Draw(Texture, destinationRectangle, Frame, Color.White);
+			spriteBatch.Draw(_texture, destinationRectangle, frame, Color.White);
 			spriteBatch.End();
 		}
 	}

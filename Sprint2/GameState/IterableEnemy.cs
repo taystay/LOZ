@@ -14,6 +14,11 @@ namespace Sprint2.GameState
         private static int enemyIndex = 0;
         public IterableEnemy()
         {
+            LoadList();
+        }
+
+        private void LoadList()
+        {
             projectiles = new List<IProjectile>();
             enemies = new List<IEnemy>()
             {
@@ -23,12 +28,11 @@ namespace Sprint2.GameState
                 {new Jelly(new Point(700, 700),1) },
                 {new NPC(new Point(700,700),2)},
             };
-            
         }
-
         public void SetToDefault()
         {
             enemyIndex = 0;
+            LoadList();
         }
         public void IterateForward()
         {

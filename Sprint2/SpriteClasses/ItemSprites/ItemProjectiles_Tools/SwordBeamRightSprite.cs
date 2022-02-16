@@ -6,22 +6,16 @@ namespace Sprint2
 	class SwordBeamRightSprite : ISprite
 	{
 		//-----Private Variables-----
-		private Rectangle Frame;
-		private Texture2D Texture;
-		private double Scale;
+		private Rectangle frame;
+		private Texture2D _texture;
+		private const double scale = 2.0;
 
 
 		//-----Constructor-----
-		public SwordBeamRightSprite(Texture2D texture, double scale)
+		public SwordBeamRightSprite(Texture2D texture)
 		{
-			Scale = scale;
-			Texture = texture;
-			Frame = new Rectangle(156,161,181 - 155,174 - 160);
-		}
-
-		public void SetSize(double size)
-		{
-			Scale = size;
+			_texture = texture;
+			frame = new Rectangle(156,161,181 - 155,174 - 160);
 		}
 
 		//-----Update frame-----
@@ -35,12 +29,12 @@ namespace Sprint2
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = (int)(Scale * (int)Frame.Width);
-			int height = (int)(Scale * (int)Frame.Height);
-			destinationRectangle = new Rectangle(location.X, location.Y, width, height);
+			int width = (int)(scale * (int)frame.Width);
+			int height = (int)(scale * (int)frame.Height);
+			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-			spriteBatch.Draw(Texture, destinationRectangle, Frame, Color.White);
+			spriteBatch.Draw(_texture, destinationRectangle, frame, Color.White);
 			spriteBatch.End();
 		}
 	}

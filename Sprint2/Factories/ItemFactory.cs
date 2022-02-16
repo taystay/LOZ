@@ -28,112 +28,112 @@ namespace Sprint2.Factories
 			ItemSpriteSheet = content.Load<Texture2D>("items");
 		}
 
-		public ISprite CreateDeadBeamSprite(double scale)
+		public ISprite CreateDeadBeamSprite()
 		{
-			return new SwordBeamDeathSprite(ItemSpriteSheet, scale);
+			return new SwordBeamDeathSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateSwordBeamDownSprite(double scale)
+		public ISprite CreateSwordBeamDownSprite()
 		{
-			return new SwordBeamDownSprite(ItemSpriteSheet, scale);
+			return new SwordBeamDownSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateSwordBeamUpSprite(double scale)
+		public ISprite CreateSwordBeamUpSprite()
 		{
-			return new SwordBeamUpSprite(ItemSpriteSheet, scale);
+			return new SwordBeamUpSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateSwordBeamLeftSprite(double scale)
+		public ISprite CreateSwordBeamLeftSprite()
 		{
-			return new SwordBeamLeftSprite(ItemSpriteSheet, scale);
+			return new SwordBeamLeftSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateSwordBeamRightSprite(double scale)
+		public ISprite CreateSwordBeamRightSprite()
 		{
-			return new SwordBeamRightSprite(ItemSpriteSheet, scale);
+			return new SwordBeamRightSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateArrowUpSprite(double scale)
+		public ISprite CreateArrowUpSprite()
         {
-			return new ArrowUpSprite(ItemSpriteSheet, scale);
+			return new ArrowUpSprite(ItemSpriteSheet);
         }
 
-		public ISprite CreateDeadArrowSprite(double scale)
+		public ISprite CreateDeadArrowSprite()
 		{
-			return new DeadArrowSprite(ItemSpriteSheet, scale);
+			return new DeadArrowSprite(ItemSpriteSheet);
 		}
-		public ISprite CreateDeadBombSprite(double scale)
+		public ISprite CreateDeadBombSprite()
 		{
-			return new DeadBombSprite(ItemSpriteSheet, scale);
-		}
-
-		public ISprite CreateArrowLeftSprite(double scale)
-		{
-			return new ArrowLeftSprite(ItemSpriteSheet, scale);
+			return new DeadBombSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateArrowDownSprite(double scale)
+		public ISprite CreateArrowLeftSprite()
 		{
-			return new ArrowDownSprite(ItemSpriteSheet, scale);
+			return new ArrowLeftSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateArrowRightSprite(double scale)
+		public ISprite CreateArrowDownSprite()
 		{
-			return new ArrowRightSprite(ItemSpriteSheet, scale);
+			return new ArrowDownSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateCompassSprite(double scale)
+		public ISprite CreateArrowRightSprite()
+		{
+			return new ArrowRightSprite(ItemSpriteSheet);
+		}
+
+		public ISprite CreateCompassSprite()
         {
-			return new CompassSprite(ItemSpriteSheet, scale);
+			return new CompassSprite(ItemSpriteSheet);
         }
 
-		public ISprite CreateClockSprite(double scale)
+		public ISprite CreateClockSprite()
 		{
-			return new ClockSprite(ItemSpriteSheet, scale);
+			return new ClockSprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateFireItemSprite(double scale)
+		public ISprite CreateFireItemSprite()
         {
-			return new FireItemSprite(ItemSpriteSheet, scale);
+			return new FireItemSprite(ItemSpriteSheet);
         }
 
-		public ISprite CreateMapSprite(double scale)
+		public ISprite CreateMapSprite()
         {
-			return new MapSprite(ItemSpriteSheet, scale);
+			return new MapSprite(ItemSpriteSheet);
         }
 
-		public ISprite CreateKeySprite(double scale)
+		public ISprite CreateKeySprite()
 		{
-			return new KeySprite(ItemSpriteSheet, scale);
+			return new KeySprite(ItemSpriteSheet);
 		}
 
-		public ISprite CreateHeartContainerSprite(double scale)
+		public ISprite CreateHeartContainerSprite()
 		{
-			return new HeartContainerSprite(ItemSpriteSheet, scale);
+			return new HeartContainerSprite(ItemSpriteSheet);
 		}
-		public ISprite CreateTriforceSprite(double scale)
+		public ISprite CreateTriforceSprite()
 		{
-			return new TriforceSprite(ItemSpriteSheet, scale);
+			return new TriforceSprite(ItemSpriteSheet);
 		}
-		public ISprite CreateBowSprite(double scale)
+		public ISprite CreateBowSprite()
 		{
-			return new BowSprite(ItemSpriteSheet, scale);
+			return new BowSprite(ItemSpriteSheet);
 		}
-		public ISprite CreateHeartSprite(double scale)
+		public ISprite CreateHeartSprite()
 		{
-			return new HeartSprite(ItemSpriteSheet, scale);
+			return new HeartSprite(ItemSpriteSheet);
 		}
-		public ISprite CreateRupeeSprite(double scale)
+		public ISprite CreateRupeeSprite()
 		{
-			return new RupeeSprite(ItemSpriteSheet, scale);
+			return new RupeeSprite(ItemSpriteSheet);
 		}
-		public ISprite CreateBombSprite(double scale)
+		public ISprite CreateBombSprite()
 		{
 			return new BombSprite(ItemSpriteSheet);
 		}
-		public ISprite CreateFairySprite(double scale)
+		public ISprite CreateFairySprite()
 		{
-			return new FairySprite(ItemSpriteSheet, scale);
+			return new FairySprite(ItemSpriteSheet);
 		}
 	}
 }

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint2.Factories;
 using Sprint2.LinkClasses;
+using Sprint2.ItemsClasses;
 
 
 namespace Sprint2.GameState
@@ -26,6 +27,14 @@ namespace Sprint2.GameState
 		}
 		private GameObjects()
 		{
+        }
+        public void Reset()
+        {
+            ILink link = this.Link;
+            link.Po
+            Items.SetToDefault();
+            Enemies.SetToDefault();
+            Blocks.SetToDefault();
         }
 		public void LoadObjects(ContentManager Content)
         {

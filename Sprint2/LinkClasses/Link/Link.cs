@@ -6,14 +6,14 @@ namespace Sprint2.LinkClasses
 {
     class Link : ILink
     {
-        private Point position;
+        private Point Position { get; set; }
         public ILinkState linkState { get; set; }
 
         public Link(Point location)
         {
 
-            position = location;
-            linkState = new DownIdleLinkState(position, this);
+            Position = location;
+            linkState = new DownIdleLinkState(Position, this);
 
         }
         public void ChangeDirectionUp()
@@ -58,7 +58,7 @@ namespace Sprint2.LinkClasses
 
         public Point GetPosition()
         {
-            return position;
+            return Position;
         }
 
         public void Update(GameTime timer)
