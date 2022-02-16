@@ -1,21 +1,28 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace Sprint2
 {
-	class BombSprite : ISprite
+	class DeadBombSprite : ISprite
 	{
 		//-----Private Variables-----
+		private List<Rectangle> frames;
 		private Rectangle Frame;
 		private Texture2D Texture;
-		private double scale = 2;
+		private double scale = 3.5;
+		private const int totalTime = 20;
+		private int time = totalTime;
 
 
 		//-----Constructor-----
-		public BombSprite(Texture2D texture)
+		public DeadBombSprite(Texture2D texture, double scale)
 		{
 			Texture = texture;
-			Frame = new Rectangle(111, 99, 129 - 110, 133 - 98);
+			frames = new List<Rectangle>();
+			frames.Add(new Rectangle(189, 250, 206 - 188, 267 - 249));
+			frames.Add(new Rectangle(210, 250, 227 - 209, 267 - 249));
+			frames.Add(new Rectangle(231, 250, 248 - 230, 267 - 249));
 		}
 
 		public void SetSize(double size)
@@ -25,14 +32,19 @@ namespace Sprint2
 		//-----Update frame-----
 		public void Update(GameTime gameTime)
 		{
-			scale += .007;
+			time--;
+			if (time <= totalTime/3)
+				Frame = frames[2];
+			else if (totalTime/3+1 <= time && time <= totalTime/3 * 2)
+				Frame = frames[1];
+			else
+				Frame = frames[0];
 		}
 
 		public void Draw(SpriteBatch spriteBatch, Point location)
 		{
 			Rectangle destinationRectangle;
 
-			//--------FRAME 1---------
 			int width = (int)(scale * (int)Frame.Width);
 			int height = (int)(scale * (int)Frame.Height);
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);

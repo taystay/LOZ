@@ -8,8 +8,6 @@ namespace Sprint2.Factories
     class ItemFactory
     {
 		private Texture2D ItemSpriteSheet;
-		// More private Texture2Ds follow
-		// ...
 
 		private static ItemFactory instance = new ItemFactory();
 
@@ -63,6 +61,10 @@ namespace Sprint2.Factories
 		public ISprite CreateDeadArrowSprite(double scale)
 		{
 			return new DeadArrowSprite(ItemSpriteSheet, scale);
+		}
+		public ISprite CreateDeadBombSprite(double scale)
+		{
+			return new DeadBombSprite(ItemSpriteSheet, scale);
 		}
 
 		public ISprite CreateArrowLeftSprite(double scale)
@@ -127,7 +129,7 @@ namespace Sprint2.Factories
 		}
 		public ISprite CreateBombSprite(double scale)
 		{
-			return new BombSprite(ItemSpriteSheet, scale);
+			return new BombSprite(ItemSpriteSheet);
 		}
 		public ISprite CreateFairySprite(double scale)
 		{

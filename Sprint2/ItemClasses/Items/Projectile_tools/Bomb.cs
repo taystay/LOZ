@@ -48,7 +48,7 @@ namespace Sprint2.ItemsClasses.Projectile_tools
             if (spriteChanged) return;
             if (FramesPassed >= bombActiveTime - deadFrames) {
                 spriteChanged = true;
-                Sprite = ItemFactory.Instance.CreateDeadArrowSprite(scale);
+                Sprite = ItemFactory.Instance.CreateDeadBombSprite(scale);
             }          
         }
 
