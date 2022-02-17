@@ -14,7 +14,7 @@ namespace Sprint2.ControllerClasses
             ControllerMappings = new KeyboardController(gameObject);
 
             ControllerMappings.RegisterInitialCommand(Keys.Q, new QuitGame(gameObject));
-            ControllerMappings.RegisterInitialCommand(Keys.R, new Reset(gameObject));
+            ControllerMappings.RegisterInitialCommand(Keys.R, new Reset());
 
             ControllerMappings.RegisterInitialCommand(Keys.Y, new IterateBlock());
             ControllerMappings.RegisterInitialCommand(Keys.T, new PreviousBlock());

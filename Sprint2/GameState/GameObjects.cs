@@ -30,11 +30,13 @@ namespace Sprint2.GameState
         }
         public void Reset()
         {
-            ILink link = this.Link;
-            link.Po
+            Link.Position = new Point(500, 500);
+            Link.ChangeDirectionDown();
+            Link.Idle();
             Items.SetToDefault();
             Enemies.SetToDefault();
             Blocks.SetToDefault();
+            LinkItems = new List<IItem>();
         }
 		public void LoadObjects(ContentManager Content)
         {

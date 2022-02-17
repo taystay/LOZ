@@ -8,14 +8,12 @@ namespace Sprint2.LinkClasses.States
 { 
     class UpAttackItemLinkState : ILinkState
     {
-        private Point position;
         private ISprite linkSprite;
         private Link link;
 
-        public UpAttackItemLinkState(Point location, Link link)
+        public UpAttackItemLinkState(Link link)
         {
             this.link = link;
-            position = location;
             linkSprite = LinkSpriteFactory.Instance.LinkItemUpAttack();
 
         }
@@ -23,7 +21,7 @@ namespace Sprint2.LinkClasses.States
         public void Up()
         {
             //return to idle after attack
-            link.linkState = new UpIdleLinkState(position, link);
+            link.LinkState = new UpIdleLinkState(link);
         }
 
         public void Down()
@@ -48,10 +46,10 @@ namespace Sprint2.LinkClasses.States
 
         public void Idle()
         {
-            link.linkState = new UpIdleLinkState(position, link);
+            link.LinkState = new UpIdleLinkState(link);
         }
 
-        public void Attack(Weapon toUse)
+        public void Attack(Weapon toUse, Point position)
         {
             //Don't do anything besides attacking
             if (toUse == Weapon.Swordbeam)
@@ -80,7 +78,7 @@ namespace Sprint2.LinkClasses.States
         }
 
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Point position)
         {
 
             linkSprite.Draw(spriteBatch, position);

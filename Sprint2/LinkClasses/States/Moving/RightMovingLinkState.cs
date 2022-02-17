@@ -8,33 +8,30 @@ namespace Sprint2.LinkClasses.States
 {
     class RightMovingLinkState : ILinkState
     {
-        private Point position;
         private ISprite linkSprite;
         private Link link;
-        private Point attackPosition;
+        private const int speed = 4;
 
-        public RightMovingLinkState(Point location, Link link)
+        public RightMovingLinkState(Link link)
         {
             this.link = link;
-            position = location;
-            attackPosition = new Point(position.X + 40, position.Y + 16);
             linkSprite = LinkSpriteFactory.Instance.LinkMovingRight();
 
         }
 
         public void Up()
         {
-            link.linkState = new UpIdleLinkState(position, link);
+            link.LinkState = new UpIdleLinkState(link);
         }
 
         public void Down()
         {
-            link.linkState = new DownIdleLinkState(position, link);
+            link.LinkState = new DownIdleLinkState(link);
         }
 
         public void Left()
         {
-            link.linkState = new LeftIdleLinkState(position, link);
+            link.LinkState = new LeftIdleLinkState(link);
         }
 
         public void Right()
@@ -49,16 +46,16 @@ namespace Sprint2.LinkClasses.States
 
         public void Idle()
         {
-            link.linkState = new RightIdleLinkState(position, link);
+            link.LinkState = new RightIdleLinkState( link);
         }
 
-        public void Attack(Weapon toUse)
+        public void Attack(Weapon toUse, Point position)
         {
             if (toUse == Weapon.Default)
-                link.linkState = new RightAttackLinkState(position, link);
+                link.LinkState = new RightAttackLinkState(link);
             else
-                link.linkState = new RightAttackItemLinkState(position, link);
-            link.linkState.Attack(toUse);
+                link.LinkState = new RightAttackItemLinkState(link);
+            link.LinkState.Attack(toUse, position);
         }
 
         public void TakeDamage()
@@ -68,13 +65,13 @@ namespace Sprint2.LinkClasses.States
 
         public void Update(GameTime timer)
         {
-            position.X += 4;
+            link.Position = new Point(link.Position.X + speed, link.Position.Y);
 
             linkSprite.Update(timer);
         }
 
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Point position)
         {
 
             linkSprite.Draw(spriteBatch, position);

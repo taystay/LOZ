@@ -9,6 +9,7 @@ namespace Sprint2.LinkClasses
     {
         private ILink decoratedLink;
         private int count = 15;
+        public Point Position { get; set; }
 
         public DamagedLink(ILink decoratedLink)
         {

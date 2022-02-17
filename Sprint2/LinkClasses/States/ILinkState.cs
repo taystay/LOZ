@@ -13,10 +13,10 @@ namespace Sprint2.LinkClasses
         public void Right();
         public void Move();
         public void Idle();
-        public void Attack(Weapon toUse);
+        public void Attack(Weapon toUse, Point position);
         public void TakeDamage();
         public void Update(GameTime timer);
-        public void Draw(SpriteBatch spriteBatch);
+        public void Draw(SpriteBatch spriteBatch, Point Location);
     }
 }
 

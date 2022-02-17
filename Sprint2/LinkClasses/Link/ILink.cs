@@ -12,6 +12,7 @@ namespace Sprint2.LinkClasses
     }
     public interface ILink
     {
+        public Point Position { get; set; }
         public void ChangeDirectionUp();
         public void ChangeDirectionDown();
         public void ChangeDirectionLeft();

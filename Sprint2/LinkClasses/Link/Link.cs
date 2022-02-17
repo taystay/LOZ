@@ -6,54 +6,52 @@ namespace Sprint2.LinkClasses
 {
     class Link : ILink
     {
-        private Point Position { get; set; }
-        public ILinkState linkState { get; set; }
+        public Point Position { get; set; }
+        public ILinkState LinkState { get; set; }
 
         public Link(Point location)
         {
-
             Position = location;
-            linkState = new DownIdleLinkState(Position, this);
-
+            LinkState = new DownIdleLinkState(this);
         }
         public void ChangeDirectionUp()
         {
-            linkState.Up();
+            LinkState.Up();
         }
 
         public void ChangeDirectionDown()
         {
-            linkState.Down();
+            LinkState.Down();
         }
 
         public void ChangeDirectionLeft()
         {
-            linkState.Left();
+            LinkState.Left();
         }
 
         public void ChangeDirectionRight()
         {
-            linkState.Right();
+            LinkState.Right();
         }
 
         public void Move()
         {
-            linkState.Move();
+            LinkState.Move();
         }
 
         public void Idle()
         {
-            linkState.Idle();
+            LinkState.Idle();
         }
 
         public void Attack(Weapon currentUse)
         {
-            linkState.Attack(currentUse);
+            LinkState.Attack(currentUse, Position);
         }
 
         public void TakeDamage()
         {
-            linkState.TakeDamage();
+            LinkState.TakeDamage();
         }
 
         public Point GetPosition()
@@ -64,13 +62,13 @@ namespace Sprint2.LinkClasses
         public void Update(GameTime timer)
         {
 
-            linkState.Update(timer);
+            LinkState.Update(timer);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            linkState.Draw(spriteBatch);
+            LinkState.Draw(spriteBatch, Position);
 
         }
 

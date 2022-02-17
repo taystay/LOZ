@@ -4,16 +4,11 @@ namespace Sprint2.CommandClasses
 {
     class Reset : ICommand
     {
-        Game1 gameObject;
-        public Reset(Game1 gameObj) {
-            gameObject = gameObj;
-    
+        public Reset() { 
         }
 
         public void execute() {
-            GameObjects.Blocks.SetToDefault();
-            GameObjects.Enemies.SetToDefault();
-            GameObjects.Items.SetToDefault();
+            GameObjects.Instance.Reset();
         }
     }
 }
