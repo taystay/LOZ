@@ -11,14 +11,14 @@ namespace Sprint2.SpriteClasses.LinkSprites
         private Texture2D linkSprite;
         private List<Rectangle> frames;
         private Rectangle frame;
-        private int frame2;
-        private const int maxFrame = 2;
-        private const int scale = 3;
+        private int currentFrame;
+        private const int maxFrames = 2;
+        private const double scale = 3;
 
         public LinkDownAttack(Texture2D sprite)
         {
             linkSprite = sprite;
-            frame2 = 0;
+            currentFrame = 0;
             frames = new List<Rectangle>();
             frames.Add(new Rectangle(0, 30, 16, 16));
             frames.Add(new Rectangle(0, 84, 16, 27));
@@ -26,18 +26,17 @@ namespace Sprint2.SpriteClasses.LinkSprites
         public void Update(GameTime timer)
         {
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
-                frame2++;          
-            if (frame2 == maxFrame)
-                frame2 = 0;
-            frame = frames[frame2];
+                currentFrame++;          
+            if (currentFrame == maxFrames)
+                currentFrame = 0;
+            frame = frames[currentFrame];
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)
         {
             int width = (int)(scale * (int)frame.Width);
             int height = (int)(scale * (int)frame.Height);
-            //Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X, location.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
@@ -47,10 +46,6 @@ namespace Sprint2.SpriteClasses.LinkSprites
                 spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.White);
 
             spriteBatch.End();
-
-
         }
-
-
     }
 }

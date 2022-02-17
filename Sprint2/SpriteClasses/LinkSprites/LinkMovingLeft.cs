@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint2.GameState;
+using System.Collections.Generic;
 
 namespace Sprint2.SpriteClasses.LinkSprites
 {
@@ -8,54 +9,42 @@ namespace Sprint2.SpriteClasses.LinkSprites
     {
 
         private Texture2D linkSprite;
-        private int frame;
-        private const int maxFrame = 2;
-        private const int scale = 3;
-
+        private List<Rectangle> frames;
+        private Rectangle frame;
+        private int currentFrame;
+        private const int maxFrames = 2;
+        private const double scale = 3;
         public LinkMovingLeft(Texture2D sprite)
         {
             linkSprite = sprite;
-            frame = 0;
+            currentFrame = 0;
+            frames = new List<Rectangle>();
+            frames.Add(new Rectangle(linkSprite.Width / 4, 0, linkSprite.Width / 4, linkSprite.Height / 4));
+            frames.Add(new Rectangle(linkSprite.Width / 4, linkSprite.Height / 4, linkSprite.Width / 4, linkSprite.Height / 4));
         }
-
         public void Update(GameTime timer)
         {
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
-                frame++;
-            if (frame == maxFrame)
-                frame = 0;
+                currentFrame++;
+            if (currentFrame == maxFrames)
+                currentFrame = 0;
+            frame = frames[currentFrame];
         }
 
         public void Draw(SpriteBatch spriteBatch, Point location)
         {
-
-            //The code below was taken for the sprite atalas tutorial
-            // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
-
-            //There are only 2 columbs and 1 row
-            int width =  (linkSprite.Width / 4);
-            int height = (linkSprite.Height / 4);
-            int row = frame;
-            int column = 1;
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
+            int width = (int)(scale * (int)frame.Width);
+            int height = (int)(scale * (int)frame.Height);
+            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             if (GameObjects.Instance.Damaged)
-            {
-                spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.HotPink);
-            }
+                spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.HotPink);
             else
-            {
-                spriteBatch.Draw(linkSprite, destinationRectangle, sourceRectangle, Color.White);
-            }
+                spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.White);
+
             spriteBatch.End();
-
-
         }
-
-
     }
 }

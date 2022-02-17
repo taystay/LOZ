@@ -1,6 +1,4 @@
-﻿
-
-namespace Sprint2.CommandClasses
+﻿namespace Sprint2.CommandClasses
 {
     public interface ICommand
     {
