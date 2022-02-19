@@ -14,7 +14,7 @@ namespace Sprint2.EnemyClass
         private int yPosition;
         private Random random;
 
-        public Bat(Point location, double size)
+        public Bat(Point location)
         {
 
             position = location;

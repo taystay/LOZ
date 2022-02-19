@@ -1,24 +1,21 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Sprint2.SpriteClasses;
+
 
 namespace Sprint2.SpriteClasses.ItemSprites
 {
-	class FairySprite : ISprite
-	{
-		//-----Private Variables-----
-		private Rectangle frame;
-		private Texture2D _texture;
-		private const double scale = 2.0;
-
+	class FairySprite : AbstractItemBlockClass
+	{   //-----Private Variables-----
 		private List<Rectangle> frames;
 		private int currentFrame = 0;
 		private int totalFrames = 2;
 
-
 		//-----Constructor-----
 		public FairySprite(Texture2D texture)
 		{
+			scale = 2.0;
 			_texture = texture;
 			frames = new List<Rectangle>();
 			frames.Add(new Rectangle(17, 57, 30 - 16, 85 - 56));
@@ -27,9 +24,9 @@ namespace Sprint2.SpriteClasses.ItemSprites
 		}
 
 		//-----Update frame-----
-		public void Update(GameTime gameTime)
+		public override void Update(GameTime timer)
 		{
-			if (gameTime.TotalGameTime.Milliseconds % 30 == 0)
+			if (timer.TotalGameTime.Milliseconds % 30 == 0)
 			{
 				currentFrame++;
 				if (currentFrame == totalFrames)
@@ -38,19 +35,6 @@ namespace Sprint2.SpriteClasses.ItemSprites
 				}
 				frame = frames[currentFrame];
 			}
-		}
-
-		public void Draw(SpriteBatch spriteBatch, Point location)
-		{
-			Rectangle destinationRectangle;
-
-			//--------FRAME 1---------
-			int width = (int)(scale * (int)frame.Width);
-			int height = (int)(scale * (int)frame.Height);
-			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-			spriteBatch.Draw(_texture, destinationRectangle, frame, Color.White);
-			spriteBatch.End();
 		}
 	}
 }

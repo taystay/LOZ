@@ -16,7 +16,7 @@ namespace Sprint2.EnemyClass
         private Random random;
         private List<IProjectile> fireBalls;
  
-        public Dragon(Point location, List<IProjectile> dragonBreathe, double size)
+        public Dragon(Point location, List<IProjectile> dragonBreathe)
         {
             position = location;
             dragon = EnemySpriteFactory.Instance.CreateDragon();

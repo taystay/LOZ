@@ -3,38 +3,18 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2.SpriteClasses.ItemSprites
 {
-	class KeySprite : ISprite
+	class KeySprite : AbstractItemBlockClass
 	{
-		//-----Private Variables-----
-		private Rectangle frame;
-		private Texture2D _texture;
-		private const double scale = 2.0;
-
-
 		//-----Constructor-----
 		public KeySprite(Texture2D texture)
 		{
+			scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(62, 9, 20, 30);
 		}
 
 		//-----Update frame-----
-		public void Update(GameTime gameTime)
-		{
-
-		}
-
-		public void Draw(SpriteBatch spriteBatch, Point location)
-		{
-			Rectangle destinationRectangle;
-
-			//--------FRAME 1---------
-			int width = (int)(scale * (int)frame.Width);
-			int height = (int)(scale * (int)frame.Height);
-			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-			spriteBatch.Draw(_texture, destinationRectangle, frame, Color.White);
-			spriteBatch.End();
-		}
+		public override void Update(GameTime gameTime) { }
+		
 	}
 }

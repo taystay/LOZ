@@ -1,16 +1,12 @@
 ﻿
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint2.Factories;
-using Sprint2.GameState;
 using Sprint2.LinkClasses.States;
 
 namespace Sprint2.LinkClasses
 {
-    class DownIdleLinkState : ILinkState
+    class DownIdleLinkState : LinkStateAbstract
     {
-        private ISprite linkSprite;
-        private Link link;
 
         public DownIdleLinkState(Link link)
         {
@@ -19,37 +15,28 @@ namespace Sprint2.LinkClasses
 
         }
 
-        public void Up()
+        public override void Up()
         {
             link.LinkState = new UpIdleLinkState(link);
         }
 
-        public void Down()
-        {
-            //Does nothing because already facing down
-        }
 
-        public void Left()
+        public override void Left()
         {
             link.LinkState = new LeftIdleLinkState(link);
         }
 
-        public void Right()
+        public override void Right()
         {
             link.LinkState = new RightIdleLinkState(link);
         }
 
-        public void Move()
+        public override void Move()
         {
             link.LinkState = new DownMovingLinkState(link);
         }
 
-        public void Idle()
-        {
-            //Do nothing already idle
-        }
-
-        public void Attack(Weapon toUse, Point position)
+        public override void Attack(Weapon toUse, Point position)
         {
             if (toUse == Weapon.Default)
                 link.LinkState = new DownAttackLinkState(link);
@@ -57,24 +44,6 @@ namespace Sprint2.LinkClasses
                 link.LinkState = new DownAttackItemLinkState(link);
 
             link.LinkState.Attack(toUse, position);
-        }
-
-        public void TakeDamage()
-        {
-            GameObjects.Instance.Link = new DamagedLink(link);
-        }
-
-        public void Update(GameTime timer)
-        {
-
-            linkSprite.Update(timer);
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Point position)
-        {
-
-            linkSprite.Draw(spriteBatch, position);
-
         }
 
     }

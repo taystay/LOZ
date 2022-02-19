@@ -7,10 +7,8 @@ using Sprint2.ItemsClasses;
 
 namespace Sprint2.LinkClasses.States
 {
-    class DownAttackItemLinkState : ILinkState
-    {
-        private ISprite linkSprite;
-        private Link link;
+    class DownAttackItemLinkState : LinkStateAbstract
+    { 
 
         public DownAttackItemLinkState(Link link)
         {
@@ -19,38 +17,18 @@ namespace Sprint2.LinkClasses.States
 
         }
 
-        public void Up()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Down()
+        public override void Down()
         {
             //return to idle after attack
             link.LinkState = new DownIdleLinkState(link);
         }
 
-        public void Left()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Right()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Move()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Idle()
+        public override void Idle()
         {
             link.LinkState = new DownIdleLinkState(link);
         }
 
-        public void Attack(Weapon toUse, Point position)
+        public override void Attack(Weapon toUse, Point position)
         {
             //Don't do anything besides attacking
             if(toUse == Weapon.Swordbeam)
@@ -63,21 +41,6 @@ namespace Sprint2.LinkClasses.States
             {
                 GameObjects.Instance.LinkItems.Add(new Bomb(position));
             }
-        }
-        public void TakeDamage()
-        {
-            GameObjects.Instance.Link = new DamagedLink(link);
-        }
-
-        public void Update(GameTime timer)
-        {
-            linkSprite.Update(timer);
-        }
-
-
-        public void Draw(SpriteBatch spriteBatch, Point position)
-        {
-            linkSprite.Draw(spriteBatch, position);
         }
 
     }

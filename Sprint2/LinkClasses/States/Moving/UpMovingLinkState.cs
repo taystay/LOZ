@@ -1,15 +1,11 @@
 ﻿
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Sprint2.GameState;
+using Microsoft.Xna.Framework; 
 using Sprint2.Factories;
 
 namespace Sprint2.LinkClasses.States
 {
-    class UpMovingLinkState : ILinkState
+    class UpMovingLinkState : LinkStateAbstract
     {
-        private ISprite linkSprite;
-        private Link link;
         private const int speed = 4;
 
         public UpMovingLinkState(Link link)
@@ -19,37 +15,26 @@ namespace Sprint2.LinkClasses.States
 
         }
 
-        public void Up()
-        {
-            //Does nothing because already facing Up            
-        }
-
-        public void Down()
+        public override void Down()
         {
             link.LinkState = new DownIdleLinkState(link);
         }
 
-        public void Left()
+        public override void Left()
         {
             link.LinkState = new LeftIdleLinkState(link);
         }
 
-        public void Right()
+        public override void Right()
         {
             link.LinkState = new RightIdleLinkState(link);
         }
-
-        public void Move()
-        {
-            //Nothing, already moving up
-        }
-
-        public void Idle()
+        public override void Idle()
         {
             link.LinkState = new UpIdleLinkState(link);
         }
 
-        public void Attack(Weapon toUse, Point position)
+        public override void Attack(Weapon toUse, Point position)
         {
             if (toUse == Weapon.Default)
                 link.LinkState = new UpAttackLinkState(link);
@@ -58,24 +43,10 @@ namespace Sprint2.LinkClasses.States
             link.LinkState.Attack(toUse, position);
         }
 
-        public void TakeDamage()
-        {
-            GameObjects.Instance.Link = new DamagedLink(link);
-        }
-
-        public void Update(GameTime timer)
+        public override void Update(GameTime timer)
         {
             link.Position = new Point(link.Position.X, link.Position.Y - speed);
             linkSprite.Update(timer);
         }
-
-
-        public void Draw(SpriteBatch spriteBatch, Point position)
-        {
-
-            linkSprite.Draw(spriteBatch, position);
-
-        }
-
     }
 }

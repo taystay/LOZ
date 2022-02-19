@@ -14,7 +14,7 @@ namespace Sprint2.EnemyClass
         private int yPosition;
         private Random random;
 
-        public Skeleton(Point location, double size) {
+        public Skeleton(Point location) {
 
             position = location;
             skeleton = EnemySpriteFactory.Instance.CreateSkeleton();

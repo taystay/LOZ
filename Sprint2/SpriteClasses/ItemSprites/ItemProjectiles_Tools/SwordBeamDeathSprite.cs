@@ -67,6 +67,8 @@ namespace Sprint2
 
 		public void Draw(SpriteBatch spriteBatch, Point location)
 		{
+			//for spriteBatch.Begin the paramter idea was from:
+			//https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
 			int offset = dz * numUpdates;
 			DrawTopLeft(spriteBatch, new Point(location.X - offset, location.Y - offset));

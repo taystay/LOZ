@@ -9,7 +9,7 @@ namespace Sprint2.SpriteClasses.EnemeySprite
         private Texture2D _texture;
         private int frame = 0;
         private const int maxFrame = 4;
-        private const double scale = 2.0;
+        private const int scale = 2;
 
         public DragonsFireSprite(Texture2D texture)
         {
@@ -35,7 +35,7 @@ namespace Sprint2.SpriteClasses.EnemeySprite
             int row = frame / 2 ;
             int column = frame % 2;
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X - (int)(width * scale) / 2, location.Y - (int)(height * scale) / 2, (int)(width * scale), (int)(height * scale));
+            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width*scale, height*scale);
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, Color.White);

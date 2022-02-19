@@ -1,15 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint2.Factories;
 using Sprint2.GameState;
 using Sprint2.ItemsClasses;
 
 namespace Sprint2.LinkClasses.States
 { 
-    class UpAttackItemLinkState : ILinkState
+    class UpAttackItemLinkState : LinkStateAbstract
     {
-        private ISprite linkSprite;
-        private Link link;
 
         public UpAttackItemLinkState(Link link)
         {
@@ -18,38 +15,18 @@ namespace Sprint2.LinkClasses.States
 
         }
 
-        public void Up()
+        public override void Up()
         {
             //return to idle after attack
             link.LinkState = new UpIdleLinkState(link);
         }
 
-        public void Down()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Left()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Right()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Move()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Idle()
+        public override void Idle()
         {
             link.LinkState = new UpIdleLinkState(link);
         }
 
-        public void Attack(Weapon toUse, Point position)
+        public override void Attack(Weapon toUse, Point position)
         {
             //Don't do anything besides attacking
             if (toUse == Weapon.Swordbeam)
@@ -64,25 +41,6 @@ namespace Sprint2.LinkClasses.States
             {
                 GameObjects.Instance.LinkItems.Add(new Bomb(position));
             }
-        }
-
-        public void TakeDamage()
-        {
-            GameObjects.Instance.Link = new DamagedLink(link);
-        }
-
-        public void Update(GameTime timer)
-        {
-
-            linkSprite.Update(timer);
-        }
-
-
-        public void Draw(SpriteBatch spriteBatch, Point position)
-        {
-
-            linkSprite.Draw(spriteBatch, position);
-
         }
 
     }

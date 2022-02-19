@@ -9,7 +9,7 @@ namespace Sprint2.SpriteClasses.EnemeySprite
         private Texture2D _texture;
         private int frame = 0;
         private const int maxFrame = 2;
-        private const double scale = 1.0;
+        private const int scale = 1;
 
         public BatSprite(Texture2D texture)
         {
@@ -37,10 +37,10 @@ namespace Sprint2.SpriteClasses.EnemeySprite
             int column = frame % 2;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X - (int)(width * scale) / 2, location.Y - (int)(height * scale) /2, (int)(width*scale), (int)(height*scale));
+            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width*scale, height*scale);
 
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
 

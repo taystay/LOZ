@@ -15,7 +15,7 @@ namespace Sprint2.EnemyClass
         private int yPosition;
         private Random random;
 
-        public Jelly(Point location, double size)
+        public Jelly(Point location)
         {
 
             position = location;

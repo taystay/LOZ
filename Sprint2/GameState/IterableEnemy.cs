@@ -22,11 +22,11 @@ namespace Sprint2.GameState
             projectiles = new List<IProjectile>();
             enemies = new List<IEnemy>()
             {
-                {new Dragon(new Point(700, 700), projectiles,2)},
-                {new Skeleton(new Point(700, 700),1) },
-                {new Bat(new Point(700, 700),1) },
-                {new Jelly(new Point(700, 700),1) },
-                {new NPC(new Point(700,700),2)},
+                {new Dragon(new Point(700, 700), projectiles)},
+                {new Skeleton(new Point(700, 700)) },
+                {new Bat(new Point(700, 700)) },
+                {new Jelly(new Point(700, 700)) },
+                {new NPC(new Point(700,700))},
             };
         }
         public void SetToDefault()

@@ -1,15 +1,11 @@
 ﻿
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint2.Factories;
-using Sprint2.GameState;
 
 namespace Sprint2.LinkClasses.States
 { 
-    class UpAttackLinkState : ILinkState
+    class UpAttackLinkState : LinkStateAbstract
     {
-        private ISprite linkSprite;
-        private Link link;
 
         public UpAttackLinkState(Link link)
         {
@@ -17,30 +13,10 @@ namespace Sprint2.LinkClasses.States
             linkSprite = LinkSpriteFactory.Instance.LinkUpAttack();
         }
 
-        public void Up()
+        public override void Up()
         {
             //return to idle after attack
             link.LinkState = new UpIdleLinkState(link);
-        }
-
-        public void Down()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Left()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Right()
-        {
-            //Don't do anything besides attacking
-        }
-
-        public void Move()
-        {
-            //Don't do anything besides attacking
         }
 
         public void Idle()
@@ -48,28 +24,9 @@ namespace Sprint2.LinkClasses.States
             link.LinkState = new UpIdleLinkState(link);
         }
 
-        public void Attack(Weapon toUse, Point position)
+        public override void Attack(Weapon toUse, Point position)
         {
             //Don't do anything besides attacking
-        }
-
-        public void TakeDamage()
-        {
-            GameObjects.Instance.Link = new DamagedLink(link);
-        }
-
-        public void Update(GameTime timer)
-        {
-
-            linkSprite.Update(timer);
-        }
-
-
-        public void Draw(SpriteBatch spriteBatch, Point position)
-        {
-
-            linkSprite.Draw(spriteBatch, position);
-
         }
 
     }

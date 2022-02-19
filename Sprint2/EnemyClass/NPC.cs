@@ -11,7 +11,7 @@ namespace Sprint2.EnemyClass
         private Point position;
         private ISprite npc;
 
-        public NPC(Point location, double size)
+        public NPC(Point location)
         {
             position = location;
             npc = EnemySpriteFactory.Instance.CreateNPC();
