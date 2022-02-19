@@ -1,0 +1,20 @@
+Author: Keit Vu
+Date: 2/19/22
+Sprint 2
+
+File: LinkMovingRight -- Author: Taylor Liu
+	-Time: 5 minutes
+	-Comments:
+		--The code is overall easy to follow. 
+		--I think the variable for the list data structure could be written better so it easier to understand.
+		it is hard to identify the difference of 'frame' and 'frames' so I think a better name convention.
+		--The Draw method is easy to understand and why there is a if statement to changel the color of link.
+		--Lastly, I would say that adding the frames to the list is hard to understand since it is mostly 
+		number to create a new rectangle of the frame that Taylor wants for link and hard to follow.
+
+File: RightAttackItemLinkState -- Author: Taylor Liu
+	-Time: 5 minutes
+	-Comments:
+		--The code is easy to follow 
+		--I like the comment in the method Right() as it describe why to return to the idle state
+		-- the Attack method is easy to follow as it addes an item toa list to of the item being used by link

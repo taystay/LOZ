@@ -1,0 +1,25 @@
+Author of review: Keit Vu
+Date: 2/19/22
+Sprint 2
+
+File: RightAttackItemLinkState -- Author: Taylor Liu
+	-Time: 5 minutes
+	-Comments:
+		-The code is low coupling as it doesn't have too many interdependence on other code.
+		however relies on calling many other states to change the state of link. 
+		-The code is high cohesion and specific as it is only for Link's right attack 
+		-The code relies 
+		-A hypothetical change would be implementing another weapon and it would be easy to do with the current frame work
+		however if more and multiple weapons are being adding it could be a long if-else-if and could need to be re-worked then
+		
+
+File: LinkMovingRight --Author: Taylor Liu
+	-Time: 5 minutes
+	-Comments:
+		-The code is low coupling and doesn't rely too much on other class
+		-The code does have high cohesion as it is only one of the state of link
+		-The code does have many private variable and possibly move it into another class such as an abstract class so there is a central set of variable
+		instead of repeatedly calling the variable in a different class for a very similar state. 
+		-A hypothetical change would be that link has multiple frames and adding it to the list could 
+		take a lot of time to do and figure out and how to properly find the correct frame and doing the correct math.
+		
