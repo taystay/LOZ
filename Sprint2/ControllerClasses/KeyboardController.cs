@@ -7,79 +7,91 @@ namespace Sprint2.ControllerClasses
 {
     class KeyboardController : IController
     {
-        private Dictionary<Keys, ICommand> initialPressCommands;
-        private Dictionary<Keys, ICommand> holdCommands;
-        private Dictionary<Keys, ICommand> onReleaseCommands;
-        private List<Keys> initialPressedKeys;
-        private List<Keys> onReleaseKeys;
+        private Dictionary<Keys, ICommand> storedInitCommands;
+        private Dictionary<Keys, ICommand> storedHoldCommands;
+        private Dictionary<Keys, ICommand> storedReleaseCommands;
+        private List<Keys> initKeysPressed;
+        private List<Keys> releaseKeysPressed;
 
         public KeyboardController(Game1 GameObject)
         {
-            initialPressCommands = new Dictionary<Keys, ICommand>();
-            holdCommands = new Dictionary<Keys, ICommand>();
-            onReleaseCommands = new Dictionary<Keys, ICommand>();
-            initialPressedKeys = new List<Keys>();
-            onReleaseKeys = new List<Keys>();
+            storedInitCommands = new Dictionary<Keys, ICommand>();
+            storedHoldCommands = new Dictionary<Keys, ICommand>();
+            storedReleaseCommands = new Dictionary<Keys, ICommand>();
+            initKeysPressed = new List<Keys>();
+            releaseKeysPressed = new List<Keys>();
         }
 
         public void RegisterInitialCommand(Keys key, ICommand initialPressCommand)
         {
-            initialPressCommands.Add(key, initialPressCommand);
+            storedInitCommands.Add(key, initialPressCommand);
         }
         public void RegisterHoldCommand(Keys key, ICommand holdCommand)
         {
-            holdCommands.Add(key, holdCommand);
+            storedHoldCommands.Add(key, holdCommand);
         }
         public void RegisterReleaseCommand(Keys key, ICommand onReleaseCommand)
         {
-            onReleaseCommands.Add(key, onReleaseCommand);
+            storedReleaseCommands.Add(key, onReleaseCommand);
+        }
+
+        private void UpdateInitPress()
+        {
+            int i;
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            foreach (Keys key in pressedKeys)
+            {
+                if (initKeysPressed.Contains(key)) continue;
+                if (!storedInitCommands.ContainsKey(key)) continue;
+                initKeysPressed.Add(key);
+                storedInitCommands[key].execute();
+            }
+            i = 0;
+            while (i < initKeysPressed.Count)
+            {
+                Keys key = initKeysPressed[i++];
+                if (Keyboard.GetState().IsKeyDown(key)) continue;
+                initKeysPressed.RemoveAt(--i);
+            }
+        }
+
+        private void UpdateHold()
+        {
+            foreach (Keys key in Keyboard.GetState().GetPressedKeys())
+            {
+                if (storedHoldCommands.ContainsKey(key))
+                {
+                    storedHoldCommands[key].execute();
+                }
+            }
+        }
+
+        private void UpdateRelease()
+        {
+            int i;
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            foreach (Keys key in pressedKeys)
+            {
+                if (releaseKeysPressed.Contains(key)) continue;
+                if (!storedReleaseCommands.ContainsKey(key)) continue;
+                releaseKeysPressed.Add(key);
+            }
+            i = 0;
+            while (i < releaseKeysPressed.Count)
+            {
+                Keys key = releaseKeysPressed[i++];
+                if (Keyboard.GetState().IsKeyDown(key)) continue;
+                storedReleaseCommands[key].execute();
+                releaseKeysPressed.RemoveAt(--i);
+            }
         }
 
         public void Update(GameTime gameTime)
         {
-            int i;
-            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-
-            //-----ON INITIAL PRESS-----
-            foreach (Keys key in pressedKeys)
-            {
-                if (initialPressedKeys.Contains(key)) continue;
-                if (!initialPressCommands.ContainsKey(key)) continue;
-                initialPressedKeys.Add(key);
-                initialPressCommands[key].execute();
-            }
-            i = 0;
-            while(i < initialPressedKeys.Count)
-            {
-                Keys key = initialPressedKeys[i++];
-                if (Keyboard.GetState().IsKeyDown(key)) continue;
-                initialPressedKeys.RemoveAt(--i);
-            }
-
-            //-----HOLD-----
-            foreach (Keys key in Keyboard.GetState().GetPressedKeys())
-            {
-                if(holdCommands.ContainsKey(key))
-                {
-                    holdCommands[key].execute();
-                }
-            }
-            //-----ON RELEASE-----
-            foreach (Keys key in pressedKeys)
-            {
-                if (onReleaseKeys.Contains(key)) continue;
-                if (!onReleaseCommands.ContainsKey(key)) continue;
-                onReleaseKeys.Add(key);
-            }
-
-            i = 0;
-            while (i < onReleaseKeys.Count)
-            {
-                Keys key = onReleaseKeys[i++];
-                if (Keyboard.GetState().IsKeyDown(key)) continue;
-                onReleaseCommands[key].execute();
-                onReleaseKeys.RemoveAt(--i);
-            }   
+            UpdateInitPress();
+            UpdateHold();
+            UpdateRelease();
+              
         }
     }
 }
