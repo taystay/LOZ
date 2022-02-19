@@ -14,6 +14,7 @@ namespace Sprint2.SpriteClasses.BlockSprites
 			frame = new Rectangle(109, 29, 32, 32);
 		}
 
+
 		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
 	}

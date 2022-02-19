@@ -16,5 +16,6 @@ namespace Sprint2.SpriteClasses.BlockSprites
 
 		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
+
 		}
 }

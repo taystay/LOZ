@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2.SpriteClasses.BlockSprites
 {
-    class DarkBlueSolidBlockSprite : AbstractItemBlockClass
 
+    class DarkBlueSolidBlockSprite : AbstractItemBlockClass
     {
 		//-----Constructor-----
 		public DarkBlueSolidBlockSprite(Texture2D texture)
@@ -14,11 +14,11 @@ namespace Sprint2.SpriteClasses.BlockSprites
 			frame = new Rectangle(75, 63, 32, 32);
 		}
 
+
 		//-----Update frame-----
 		public override void Update(GameTime gameTime)
 		{
 
 		}
-
 	}
 }

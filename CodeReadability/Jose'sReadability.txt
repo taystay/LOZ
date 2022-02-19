@@ -1,0 +1,26 @@
+Author:
+	Anthony D'Alesandro
+
+Date:
+	Febuary 18th 2022
+
+Sprint Number:
+	Sprint 2
+
+FILE ---- IEnviornment and all its implementations ---- AUTHOR ---- jose
+	The code is of very high quality. Not much to it and we know exactly how it will act.
+
+	How are the blocks going to be able to be pushed. Are we going to have to split up IEnviornment and make it implement something else or do we need to 
+	Have a collidableBehavior and pushableBehavior to the blocks?
+
+FILE ---- sprites in /SpriteClasses/BlockSprites ---- AUTHOR ---- jose
+	The code is of very high quality. Not much to it and we know exactly how it will act.
+	
+	There arent many hypothetical changes that could be made here. The code is very simple. If the time comes when the way we get sprites
+	is changed we can conquere that when we get there.
+
+FILE ---- Block commands ---- AUTHOR ---- jose
+	not much code to even look at but very good quality.
+
+	Are there going to be any block commands that we are going to need for sprint3 that you can think of. What if a block gets in a certain location 
+	and needs to reveal something special to the user. How do you plan to implement a design like that.

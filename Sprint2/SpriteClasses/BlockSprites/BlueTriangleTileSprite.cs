@@ -6,7 +6,6 @@ namespace Sprint2.SpriteClasses.BlockSprites
 {
     class BlueTriangleTileSprite : AbstractItemBlockClass
     {
-
 		//-----Constructor-----
 		public BlueTriangleTileSprite(Texture2D texture)
 		{

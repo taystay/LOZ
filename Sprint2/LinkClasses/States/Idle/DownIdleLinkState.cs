@@ -19,8 +19,6 @@ namespace Sprint2.LinkClasses
         {
             link.LinkState = new UpIdleLinkState(link);
         }
-
-
         public override void Left()
         {
             link.LinkState = new LeftIdleLinkState(link);

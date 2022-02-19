@@ -6,8 +6,6 @@ namespace Sprint2.SpriteClasses.BlockSprites
 {
 	class Multicolored1Sprite :AbstractItemBlockClass
 	{
-
-		//-----Constructor-----
 		public Multicolored1Sprite(Texture2D texture)
 		{
 			scale = 2.0;
@@ -17,6 +15,7 @@ namespace Sprint2.SpriteClasses.BlockSprites
 
 		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
+
 
 	}
 }

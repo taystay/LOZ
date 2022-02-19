@@ -1,0 +1,24 @@
+Author:
+	Anthony D'Alesandro
+
+Date:
+	Febuary 18th 2022
+
+Sprint Number:
+	Sprint 2
+
+
+FILE ---- IEnviornment and all its implementations ---- AUTHOR ---- jose
+	~5 minutes of review
+	all the code is very readable. If you've read one of the IEnviornment objects you've read them all. So not much work to read.
+	the naming conventions make sense, the coupling is low but the coehesion seems middle of the road since you have to call a
+	sprite factory so there is room to improve upon that.
+
+FILE ---- sprites in /SpriteClasses/BlockSprites ---- AUTHOR ---- jose
+	~5 minutes of review
+	If you've read one you've read them all. The design pattern is repeated pretty throughly. the coupling and coehesion is very low.
+	the variables are named appropriately. The only thing is that the width and height variables had a redundant type cast that I fixed. also texture could be readonly.
+
+FILE ---- Block commands ---- AUTHOR ---- jose
+	~2 minutes of review
+	copy and paste of agreed upon design pattern. Just calls a singletons private variable to iterate in reverse/forward. not even any variables.

@@ -16,7 +16,6 @@ namespace Sprint2.LinkClasses.States
             linkSprite = LinkSpriteFactory.Instance.LinkItemDownAttack();
 
         }
-
         public override void Down()
         {
             //return to idle after attack

@@ -5,8 +5,6 @@ namespace Sprint2.SpriteClasses.BlockSprites
 {
     class BlackTileSprite : AbstractItemBlockClass
     {
-
-		//-----Constructor-----
 		public BlackTileSprite(Texture2D texture)
 		{
 			scale = 2.0;
