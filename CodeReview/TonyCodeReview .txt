@@ -1,0 +1,26 @@
+Author:
+	Taylor Liu
+
+Date:
+	Febuary 19th 2022
+
+Sprint Number:
+	Sprint 2
+
+FILE ----- IItem and all it's implementations ---- AUTHOR --- Tony
+	~7 minutes of review
+	The code is very minimal and readable. Every IItem contains the same four methods with extremely low coupleing from calling the factory
+	and high cohesion.
+	Projectile classes are a little more complex but has slightly higher coupling with a little less cohesion from the use of SpriteActive().
+	This should be fine though.
+
+FILE ----- Sprites in SpriteClasses/ItemSprites ---- AUTHOR ---- Tony
+	~3 minutes of review
+	Only definition of source rectangle being handled in the sprites themselves with the destination and draw being handled in the abstract class.
+	Very high cohesion and very low coupling as each class only relies ISprite and the abstract class with each doing exactly one thing.
+	The projectiles are exactly the same except for having four classes for each type of projectile for determining the direction it is meant to be fired at.
+
+FILE ---- Item Commands ----- AUTHOR ---- Tony
+	~2 minutes of review
+	Next Item and previous item do exactly what they say they do and has virtually no coupling while doing the one task it sets out to. Relies only on
+	GameObjects the singleton for iterating the item across the list.

@@ -1,0 +1,24 @@
+Author:
+	Taylor Liu
+Date:
+	Febuary 19th 2022
+
+Sprint Number:
+	Sprint 2
+
+FILE ---- IItem and all its implementations ---- AUTHOR ---- Tony
+	All of them are insanely easy to read, making a single call to the factory before calling the sprite itself's update function. 
+	The projectiles that move across the screen feels a little over-engineered but everyh variable is named very well and makes the code insanely easy to follow.
+
+FILE ---- sprites in /SpriteClasses/ItemSprites ---- AUTHOR ---- Tony
+	The iterative item sprites are essentially one line only with setting the frame which is clear as day.
+	The sprites that move are very readable as well as we either set multiple frames for animating (which is very well named), or we
+	let the IItem class update it's position.
+
+	For the future, we might want to so the same enumerating for the direction of fire by rotating the sprite? (not sure how to do that but it would also
+	unlimit us from the four cardinal directions).
+
+FILE ---- Item commands ---- AUTHOR ---- Tony
+	Literally one line of code per class and does exactly what it says it will.
+
+	When we implement these items in game with collision and stuff, what commands will these two iterative commands change to?
