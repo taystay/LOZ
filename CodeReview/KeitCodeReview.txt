@@ -1,0 +1,33 @@
+Author: Jose Berrios
+Date: 2/19/22
+Sprint 2
+
+File:  IEnemy and Implementations(Bat, NPC, Dragon, Jelly, Skeleton) -- Author: Keit Vu
+	-Time taken: 10 minutes
+	-Comments:
+		There is very little code and it is readable, and each piece of code is necessary. 
+    Each different implementation are similar with the same methods and with high cohesion. 
+    A change you could make is the use of the ? command, it is not easy to understand by 
+    looking at it with all of the different commands on those same lines. Maybe split it up
+    a bit more. 
+
+File: DragonBreath -- Author: Keit Vu
+	-Time taken: 5 minutes
+	-Comments:
+		Very small amount of code for what we are trying to do here with the breath. 
+    Every line of code is easy to understand and comprehend what is going on. 
+    There is no unnecessary lines of code to get rid of. 
+    
+    File: sprites in /SpriteClasses/EnemySprites -- Author: Keit Vu
+	-Time taken: 5 minutes
+	-Comments:
+    Code quality is good. Each variable is named well and has correct conventions. Each
+    sprite class only relies on ISprite so it has low coupling and high cohesion. Using the reference
+    to the site and using the sprite grid method is a nice touch. Each program has a small amount of 
+    code. 
+    
+    File: EnemySpriteFactory-- Author: Keit Vu
+	-Time taken: 3 minutes
+	-Comments:
+		Code quality is done really well. Not much code in the program. Factory does what it 
+    is supposed to do in the best way possible. Not much you can change here to make it better. 
