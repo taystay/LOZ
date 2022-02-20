@@ -10,7 +10,6 @@ namespace Sprint2.LinkClasses.States
         {
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkRightAttack();
-
         }
 
         public void Right()
