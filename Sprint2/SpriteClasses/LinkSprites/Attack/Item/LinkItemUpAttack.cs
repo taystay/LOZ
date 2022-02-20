@@ -36,7 +36,7 @@ namespace Sprint2.SpriteClasses.LinkSprites
         {
             int width = (int)(scale * (int)frame.Width);
             int height = (int)(scale * (int)frame.Height);
-            Rectangle destinationRectangle = new Rectangle(location.X - width / 2 - 5, location.Y - height / 2 - 15, width, height);
+            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);

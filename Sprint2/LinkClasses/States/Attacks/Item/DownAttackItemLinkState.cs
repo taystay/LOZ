@@ -29,8 +29,8 @@ namespace Sprint2.LinkClasses.States
 
         public override void Attack(Weapon toUse, Point position)
         {
-            attackPosition.X = position.X - 12;
-            attackPosition.Y = position.Y + 6;
+            attackPosition.X = position.X;
+            attackPosition.Y = position.Y + 36;
             //Don't do anything besides attacking
             if(toUse == Weapon.Swordbeam)
             {
