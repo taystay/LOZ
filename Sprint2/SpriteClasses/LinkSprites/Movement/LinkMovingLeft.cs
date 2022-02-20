@@ -19,8 +19,8 @@ namespace Sprint2.SpriteClasses.LinkSprites
             linkSprite = sprite;
             currentFrame = 0;
             frames = new List<Rectangle>();
-            frames.Add(new Rectangle(linkSprite.Width / 4, 0, linkSprite.Width / 4, linkSprite.Height / 4));
-            frames.Add(new Rectangle(linkSprite.Width / 4, linkSprite.Height / 4, linkSprite.Width / 4, linkSprite.Height / 4));
+            frames.Add(new Rectangle(30, 0, 16, 16));
+            frames.Add(new Rectangle(30, 30, 16, 16));
         }
         public void Update(GameTime timer)
         {

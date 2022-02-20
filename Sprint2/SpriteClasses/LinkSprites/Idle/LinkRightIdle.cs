@@ -12,7 +12,7 @@ namespace Sprint2.SpriteClasses.LinkSprites
         public LinkRightIdle(Texture2D sprite)
         {
             linkSprite = sprite;
-            frame = new Rectangle(3 * linkSprite.Width / 4, 0, linkSprite.Width / 4, linkSprite.Height / 4);
+            frame = new Rectangle(90, 0, 16, 16);
         }
 
         public void Update(GameTime timer)
