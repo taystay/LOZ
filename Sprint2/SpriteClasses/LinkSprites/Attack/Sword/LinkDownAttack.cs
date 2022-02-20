@@ -38,6 +38,11 @@ namespace Sprint2.SpriteClasses.LinkSprites
             int height = (int)(scale * (int)frame.Height);
             Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
+            if(currentFrame == 1)
+            {
+                destinationRectangle = new Rectangle((location.X - width / 2), (location.Y - height / 2) + 12, width, height);
+            }
+
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             if (GameObjects.Instance.Damaged)
                 spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.HotPink);
