@@ -26,10 +26,16 @@ namespace Sprint2.ControllerClasses
             ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(GameObjects.Instance.Link));
             ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(GameObjects.Instance.Link));
             ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(GameObjects.Instance.Link));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad1, new AttackSword(GameObjects.Instance.Link));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(GameObjects.Instance.Link));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(GameObjects.Instance.Link));
 
             ControllerMappings.RegisterReleaseCommand(Keys.D1, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.D2, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.D3, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.NumPad1, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.NumPad2, new Idle());
+            ControllerMappings.RegisterReleaseCommand(Keys.NumPad3, new Idle());
 
             ControllerMappings.RegisterHoldCommand(Keys.W,new UpMove());
             ControllerMappings.RegisterHoldCommand(Keys.A, new LeftMove());
