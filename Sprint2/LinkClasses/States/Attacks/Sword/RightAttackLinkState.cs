@@ -12,7 +12,7 @@ namespace Sprint2.LinkClasses.States
             linkSprite = LinkSpriteFactory.Instance.LinkRightAttack();
         }
 
-        public void Right()
+        public override void Right()
         {
             //return to idle after attack
             link.LinkState = new RightIdleLinkState(link);

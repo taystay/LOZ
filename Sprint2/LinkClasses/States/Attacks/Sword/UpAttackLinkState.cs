@@ -19,7 +19,7 @@ namespace Sprint2.LinkClasses.States
             link.LinkState = new UpIdleLinkState(link);
         }
 
-        public void Idle()
+        public override void Idle()
         {
             link.LinkState = new UpIdleLinkState(link);
         }
