@@ -29,7 +29,6 @@ namespace Sprint2.SpriteClasses.LinkSprites
                 currentFrame = 0;
             frame = frames[currentFrame];
         }
-
         public void Draw(SpriteBatch spriteBatch, Point location)
         {
             int width = (int)(scale * (int)frame.Width);

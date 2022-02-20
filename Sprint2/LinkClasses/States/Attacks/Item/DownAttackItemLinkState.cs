@@ -8,8 +8,8 @@ using Sprint2.ItemsClasses;
 namespace Sprint2.LinkClasses.States
 {
     class DownAttackItemLinkState : LinkStateAbstract
-    { 
-
+    {
+        private Point attackPosition;
         public DownAttackItemLinkState(Link link)
         {
             this.link = link;
@@ -29,16 +29,18 @@ namespace Sprint2.LinkClasses.States
 
         public override void Attack(Weapon toUse, Point position)
         {
+            attackPosition.X = position.X - 12;
+            attackPosition.Y = position.Y + 6;
             //Don't do anything besides attacking
             if(toUse == Weapon.Swordbeam)
             {
-                GameObjects.Instance.LinkItems.Add(new SwordBeamDown(position));
+                GameObjects.Instance.LinkItems.Add(new SwordBeamDown(attackPosition));
             } else if (toUse == Weapon.Arrow)
             {
-                GameObjects.Instance.LinkItems.Add(new ArrowDownItem(position));
+                GameObjects.Instance.LinkItems.Add(new ArrowDownItem(attackPosition));
             } else if (toUse == Weapon.Bomb)
             {
-                GameObjects.Instance.LinkItems.Add(new Bomb(position));
+                GameObjects.Instance.LinkItems.Add(new Bomb(attackPosition));
             }
         }
 

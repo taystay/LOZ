@@ -7,39 +7,38 @@ namespace Sprint2.LinkClasses.States
 { 
     class UpAttackItemLinkState : LinkStateAbstract
     {
-
+        private Point attackPosition;
         public UpAttackItemLinkState(Link link)
         {
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkItemUpAttack();
 
         }
-
         public override void Up()
         {
             //return to idle after attack
             link.LinkState = new UpIdleLinkState(link);
         }
-
         public override void Idle()
         {
             link.LinkState = new UpIdleLinkState(link);
         }
-
         public override void Attack(Weapon toUse, Point position)
         {
-            //Don't do anything besides attacking
+            attackPosition.X = position.X - 6;
+            attackPosition.Y = position.Y - 70;
+;            //Don't do anything besides attacking
             if (toUse == Weapon.Swordbeam)
             {
-                GameObjects.Instance.LinkItems.Add(new SwordBeamUp(position));
+                GameObjects.Instance.LinkItems.Add(new SwordBeamUp(attackPosition));
             }
             else if (toUse == Weapon.Arrow)
             {
-                GameObjects.Instance.LinkItems.Add(new ArrowUpItem(position));
+                GameObjects.Instance.LinkItems.Add(new ArrowUpItem(attackPosition));
             }
             else if (toUse == Weapon.Bomb)
             {
-                GameObjects.Instance.LinkItems.Add(new Bomb(position));
+                GameObjects.Instance.LinkItems.Add(new Bomb(attackPosition));
             }
         }
 
