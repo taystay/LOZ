@@ -27,8 +27,23 @@ namespace Sprint2.EnemyClass
 
         public void Update(GameTime timer) {
 
-            position.X = (position.X < xPosition) ? position.X += 1 : position.X -= 1;
-            position.Y = (position.Y < yPosition) ? position.Y += 1 : position.Y -= 1;
+            if (position.X < xPosition)
+            {
+                position.X += 1;
+            }
+            else
+            {
+                position.X -= 1;
+            }
+
+            if (position.Y < yPosition)
+            {
+                position.Y += 1;
+            }
+            else
+            {
+                position.Y -= 1;
+            }
 
             if (position.X == xPosition || position.Y == yPosition) {
                 xPosition = random.Next(700, 900);
