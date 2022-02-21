@@ -46,7 +46,11 @@ namespace Sprint2.ControllerClasses
                 if (initKeysPressed.Contains(key)) continue;
                 if (!storedInitCommands.ContainsKey(key)) continue;
                 initKeysPressed.Add(key);
+<<<<<<< HEAD
                 if (!initKeysTimeHeld.ContainsKey(key))
+=======
+                if(!initKeysTimeHeld.ContainsKey(key))
+>>>>>>> 60ab2cda10163ea28dcb74571301cd02d120ad73
                     initKeysTimeHeld.Add(key, 20);
                 storedInitCommands[key].execute();
             }
@@ -54,13 +58,21 @@ namespace Sprint2.ControllerClasses
             while (i < initKeysPressed.Count)
             {
                 Keys key = initKeysPressed[i++];
+<<<<<<< HEAD
                 if (initKeysTimeHeld[key] == 0)
+=======
+                if(initKeysTimeHeld[key] == 0)
+>>>>>>> 60ab2cda10163ea28dcb74571301cd02d120ad73
                 {
                     initKeysTimeHeld.Remove(key);
                     initKeysPressed.Remove(key);
                     continue;
+<<<<<<< HEAD
                 }
                 else
+=======
+                } else
+>>>>>>> 60ab2cda10163ea28dcb74571301cd02d120ad73
                 {
                     initKeysTimeHeld[key]--;
                 }
