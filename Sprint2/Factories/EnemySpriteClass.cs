@@ -10,6 +10,7 @@ namespace Sprint2.Factories
 		private Texture2D enemySpriteSheet;
 		private Texture2D dragonsBreatheSprite;
 		private Texture2D npc;
+		private Texture2D spikeTrap;
 		// More private Texture2Ds follow
 		// ...
 
@@ -32,6 +33,7 @@ namespace Sprint2.Factories
 			enemySpriteSheet = content.Load<Texture2D>("enemySprite");
             dragonsBreatheSprite = content.Load<Texture2D>("dragonsBreathe");
 			npc = content.Load<Texture2D>("oldMan");
+			spikeTrap = content.Load<Texture2D>("spikeTrap");
 
         }
 
@@ -72,8 +74,10 @@ namespace Sprint2.Factories
 			return new NPCSprite(npc);
 		}
 
-
-
+		public ISprite CreateTrap()
+		{
+			return new SpikeTrapSprite(spikeTrap);
+		}
 
 
 	}

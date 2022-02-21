@@ -26,7 +26,8 @@ namespace Sprint2.GameState
                 {new Skeleton(new Point(700, 700)) },
                 {new Bat(new Point(700, 700)) },
                 {new Jelly(new Point(700, 700)) },
-                {new NPC(new Point(700,700))},
+                {new NPC(new Point(700,700)) },
+                { new SpikeTrap(new Point(700,700))}
             };
         }
         public void SetToDefault()

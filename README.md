@@ -22,3 +22,8 @@ Tools used:
 		-used on the enemies sprite to make a personal spritesheet of enemies
 		and cut unneccessary enemies from the spritesheet
 
+Citation:
+	-for SpriteBatch.Begin(...)
+		-the paramter idea was from:
+		https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
+
