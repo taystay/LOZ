@@ -4,6 +4,15 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint2.ItemsClasses
 {
+
+    public enum Direction
+    {
+        Up, 
+        Left,
+        Right,
+        Down
+    };
+
     public interface IItem
     {
         public Boolean SpriteActive();

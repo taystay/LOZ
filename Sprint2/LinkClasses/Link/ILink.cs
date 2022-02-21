@@ -8,6 +8,7 @@ namespace Sprint2.LinkClasses
         Swordbeam,
         Arrow,
         Bomb,
+        Fire,
         Default
     }
     public interface ILink

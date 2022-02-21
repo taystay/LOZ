@@ -39,6 +39,10 @@ namespace Sprint2.LinkClasses.States
             {
                 GameObjects.Instance.LinkItems.Add(new Bomb(attackPosition));
             }
+            else if (toUse == Weapon.Fire)
+            {
+                GameObjects.Instance.LinkItems.Add(new FireProjectile(attackPosition, Direction.Right));
+            }
         }
 
     }
