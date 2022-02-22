@@ -18,8 +18,6 @@ namespace Sprint2.SpriteClasses
 			int height = (int)(scale * (int)frame.Height);
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
-			//for spriteBatch.Begin the paramter idea was from:
-			//https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
 			spriteBatch.Draw(_texture, destinationRectangle, frame, Color.White);
 			spriteBatch.End();

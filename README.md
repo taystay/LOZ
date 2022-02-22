@@ -26,4 +26,6 @@ Citation:
 	-for SpriteBatch.Begin(...)
 		-the paramter idea was from:
 		https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
+		https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
+	
 
