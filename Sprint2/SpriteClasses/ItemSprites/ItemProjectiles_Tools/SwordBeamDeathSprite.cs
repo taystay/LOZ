@@ -67,8 +67,10 @@ namespace Sprint2
 
 		public void Draw(SpriteBatch spriteBatch, Point location)
 		{
-			//for spriteBatch.Begin the paramter idea was from:
+			//for SpriteBatch.Begin(...)
+			//the paramater idea was from:
 			//https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
+			//https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
 			int offset = dz * numUpdates;
 			DrawTopLeft(spriteBatch, new Point(location.X - offset, location.Y - offset));

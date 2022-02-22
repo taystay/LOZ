@@ -35,7 +35,10 @@ namespace Sprint2.SpriteClasses.LinkSprites
             int height = (int)(scale * (int)frame.Height);
             Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
-
+            //for SpriteBatch.Begin(...)
+            //the paramater idea was from:
+            //https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
+            //https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             if (GameObjects.Instance.Damaged)
                 spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.HotPink);

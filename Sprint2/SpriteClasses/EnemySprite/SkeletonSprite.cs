@@ -39,6 +39,10 @@ namespace Sprint2.SpriteClasses.EnemeySprite
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width*scale, height*scale);
 
+            //for SpriteBatch.Begin(...)
+            //the paramater idea was from:
+            //https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
+            //https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(skeletonSprite, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
