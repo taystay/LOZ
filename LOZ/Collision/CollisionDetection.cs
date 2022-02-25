@@ -12,7 +12,6 @@ namespace LOZ.Collision.Iterator
         Left,
         Right
     }
-
     //private bool collides;
     //private CollisionSide side; 
     class CollisionDetection

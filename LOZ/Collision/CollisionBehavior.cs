@@ -12,7 +12,11 @@ namespace LOZ.Collision.Iterator
         }
         public void HandleCollision(IGameObjects one, IGameObjects two, CollisionSide side)
         {
-
+            /*
+             * type = CollisionType(one, two);
+             * Collide(type, side);
+             * 
+             */
         }
     }
 }
