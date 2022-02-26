@@ -1,4 +1,5 @@
 ﻿using Sprint2.GameState;
+using LOZ.GameState;
 
 namespace Sprint2.CommandClasses
 {
@@ -9,7 +10,7 @@ namespace Sprint2.CommandClasses
         }
         public void execute()
         {
-            GameObjects.Instance.Link.Idle();
+            TestingRoom.Instance.Link.Idle();
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.Collision.Iterator
 {
-    interface IGameObjects
+    public interface IGameObjects
     {
         public Rectangle GetHitBox();
         public void Update(GameTime gameTime);

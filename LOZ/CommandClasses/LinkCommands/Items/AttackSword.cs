@@ -1,17 +1,18 @@
 ﻿using Sprint2.LinkClasses;
+using LOZ.GameState;
 
 namespace Sprint2.CommandClasses
 {
-    class AttackSword :ICommand
+    class AttackSword : ICommand
     {
-        private ILink link;
-        public AttackSword(ILink Link)
+        private Room _room;
+        public AttackSword(Room room)
         {
-            link = Link;
+            _room = room;
         }
         public void execute()
         {
-            link.Attack(Weapon.Swordbeam);
+            _room.Link.Attack(Weapon.Swordbeam);
         }
     }
 }

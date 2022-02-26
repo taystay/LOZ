@@ -11,7 +11,7 @@ namespace Sprint2
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private Room currentRoom;
+        public Room CurrentRoom { get; set; }
 
         private List<IController> controllerList;
         public Game1()
@@ -29,8 +29,8 @@ namespace Sprint2
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
-            currentRoom = new TestingRoom();
-            
+            CurrentRoom = TestingRoom.Instance;
+            CurrentRoom.LoadContent(Content);
             //GameObjects.Instance.LoadObjects(Content);
             controllerList = new List<IController>()
             {
@@ -43,7 +43,7 @@ namespace Sprint2
 
         protected override void LoadContent()
         {
-            currentRoom.LoadContent(Content);
+            
             spriteBatch = new SpriteBatch(GraphicsDevice);         
             
 
@@ -56,7 +56,7 @@ namespace Sprint2
                 controller.Update(gameTime);
             }
             //GameObjects.Instance.UpdateObjects(gameTime); 
-            currentRoom.Update(gameTime);
+            CurrentRoom.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -66,7 +66,7 @@ namespace Sprint2
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             //GameObjects.Instance.DrawObjects(spriteBatch);
-            currentRoom.Draw(spriteBatch);
+            CurrentRoom.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }

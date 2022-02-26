@@ -14,7 +14,7 @@ namespace Sprint2.ItemsClasses
         Down
     };
 
-    interface IItem : IGameObjects
+    public interface IItem : IGameObjects
     {
         public Boolean SpriteActive();
 

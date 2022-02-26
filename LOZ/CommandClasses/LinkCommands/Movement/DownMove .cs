@@ -1,4 +1,5 @@
 ﻿using Sprint2.GameState;
+using LOZ.GameState;
 
 namespace Sprint2.CommandClasses
 {
@@ -9,8 +10,8 @@ namespace Sprint2.CommandClasses
         }
         public void execute()
         {
-            GameObjects.Instance.Link.ChangeDirectionDown();
-            GameObjects.Instance.Link.Move();
+            TestingRoom.Instance.Link.ChangeDirectionDown();
+            TestingRoom.Instance.Link.Move();
         }
     }
 }

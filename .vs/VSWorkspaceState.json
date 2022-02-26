@@ -7,6 +7,6 @@
     "\\LOZ\\ItemClasses\\Items",
     "\\LOZ\\ItemClasses\\Items\\Projectile_tools"
   ],
-  "SelectedNode": "\\LOZ\\LOZ.sln",
+  "SelectedNode": "\\LOZ\\GameState\\GameObjects.cs",
   "PreviewInSolutionExplorer": false
 }

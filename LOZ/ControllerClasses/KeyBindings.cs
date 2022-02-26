@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.Xna.Framework.Input;
 using Sprint2.CommandClasses;
-using Sprint2.GameState;
+using LOZ.GameState;
 
 namespace Sprint2.ControllerClasses
 {
@@ -23,14 +23,14 @@ namespace Sprint2.ControllerClasses
             ControllerMappings.RegisterInitialCommand(Keys.O, new PreviousEnemy());
             ControllerMappings.RegisterInitialCommand(Keys.P, new NextEnemy());
 
-            ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(GameObjects.Instance.Link));
-            ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(GameObjects.Instance.Link));
-            ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(GameObjects.Instance.Link));
-            ControllerMappings.RegisterInitialCommand(Keys.D4, new AttackFire(GameObjects.Instance.Link));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad1, new AttackSword(GameObjects.Instance.Link));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(GameObjects.Instance.Link));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(GameObjects.Instance.Link));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(GameObjects.Instance.Link));
+            ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(gameObject.CurrentRoom));
+            ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(gameObject.CurrentRoom));
+            ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(gameObject.CurrentRoom));
+            ControllerMappings.RegisterInitialCommand(Keys.D4, new AttackFire(gameObject.CurrentRoom));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad1, new AttackSword(gameObject.CurrentRoom));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(gameObject.CurrentRoom));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(gameObject.CurrentRoom));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(gameObject.CurrentRoom));
 
             ControllerMappings.RegisterReleaseCommand(Keys.D1, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.D2, new Idle());

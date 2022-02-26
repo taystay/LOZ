@@ -4,14 +4,16 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint2.ItemsClasses;
 using LOZ.Collision.Iterator;
+using Sprint2.LinkClasses;
 using System.IO;
 using System.Diagnostics;
 
 namespace LOZ.GameState
 {
-    abstract class Room
+    public abstract class Room
     {
-        private protected List<IGameObjects> gameObjects = new List<IGameObjects>();
+        public List<IGameObjects> gameObjects { get; set; }
+        public ILink Link { get; set; }
         public abstract void LoadContent(ContentManager Content);
 
         private bool HasInterface(object o, System.Type t)
@@ -27,6 +29,7 @@ namespace LOZ.GameState
 
         public void Update(GameTime gameTime)
         {
+            Link.Update(gameTime);
             foreach(IGameObjects item in gameObjects)
             {
                 item.Update(gameTime);
@@ -50,6 +53,7 @@ namespace LOZ.GameState
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            Link.Draw(spriteBatch);
             foreach(IGameObjects item in gameObjects)
             {
                 item.Draw(spriteBatch);

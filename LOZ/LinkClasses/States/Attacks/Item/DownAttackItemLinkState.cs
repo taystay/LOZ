@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint2.Factories;
 using Sprint2.GameState;
 using Sprint2.ItemsClasses;
+using LOZ.GameState;
 
 
 namespace Sprint2.LinkClasses.States
@@ -34,16 +35,16 @@ namespace Sprint2.LinkClasses.States
             //Don't do anything besides attacking
             if(toUse == Weapon.Swordbeam)
             {
-                GameObjects.Instance.LinkItems.Add(new SwordBeamDown(attackPosition));
+                TestingRoom.Instance.gameObjects.Add(new SwordBeamDown(attackPosition));
             } else if (toUse == Weapon.Arrow)
             {
-                GameObjects.Instance.LinkItems.Add(new ArrowDownItem(attackPosition));
+                TestingRoom.Instance.gameObjects.Add(new ArrowDownItem(attackPosition));
             } else if (toUse == Weapon.Bomb)
             {
-                GameObjects.Instance.LinkItems.Add(new Bomb(attackPosition));
+                TestingRoom.Instance.gameObjects.Add(new Bomb(attackPosition));
             } else if (toUse == Weapon.Fire)
             {
-                GameObjects.Instance.LinkItems.Add(new FireProjectile(attackPosition, Direction.Down));
+                TestingRoom.Instance.gameObjects.Add(new FireProjectile(attackPosition, Direction.Down));
             }
         }
 
