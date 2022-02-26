@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses.BlockSprites;
+using LOZ.SpriteClasses;
 
 namespace LOZ.Factories
 {
