@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using LOZ.Factories;
 using LOZ.LinkClasses;
 using LOZ.ItemsClasses;
-using LOZ.Collision.Iterator;
-
+using LOZ.Collision;
 namespace LOZ.GameState
 {
     class TestingRoom : Room

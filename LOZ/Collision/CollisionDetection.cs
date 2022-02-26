@@ -1,5 +1,5 @@
 ﻿
-namespace LOZ.Collision.Iterator
+namespace LOZ.Collision
 {
     enum CollisionSide
     {

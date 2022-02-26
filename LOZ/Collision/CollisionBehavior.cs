@@ -4,7 +4,8 @@ using LOZ.LinkClasses;
 using LOZ.EnvironmentalClasses;
 using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
-namespace LOZ.Collision.Iterator
+
+namespace LOZ.Collision
 {
     class CollisionBehavior
     {
