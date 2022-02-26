@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.Xna.Framework.Input;
-using Sprint2.CommandClasses;
+using LOZ.CommandClasses;
 using LOZ.GameState;
 
-namespace Sprint2.ControllerClasses
+namespace LOZ.ControllerClasses
 {
     class KeyBindings
     {

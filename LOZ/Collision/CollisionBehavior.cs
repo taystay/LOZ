@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Sprint2.LinkClasses;
-using Sprint2.EnvironmentalClasses;
-using Sprint2.EnemyClass;
-using Sprint2.ItemsClasses;
+using LOZ.LinkClasses;
+using LOZ.EnvironmentalClasses;
+using LOZ.EnemyClass;
+using LOZ.ItemsClasses;
 namespace LOZ.Collision.Iterator
 {
     class CollisionBehavior

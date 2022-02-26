@@ -1,9 +1,7 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using Sprint2.Factories;
+﻿using Microsoft.Xna.Framework;
+using LOZ.Factories;
 
-namespace Sprint2.ItemsClasses
+namespace LOZ.ItemsClasses
 {
     class Compass : ItemAbstract
     {

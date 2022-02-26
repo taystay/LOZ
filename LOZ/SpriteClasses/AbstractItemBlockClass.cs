@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint2.SpriteClasses
+namespace LOZ.SpriteClasses
 {
     abstract class AbstractItemBlockClass : ISprite
     {

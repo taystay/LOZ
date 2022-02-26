@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Sprint2.Factories;
-using Sprint2.LinkClasses;
-using Sprint2.ItemsClasses;
+using LOZ.Factories;
+using LOZ.LinkClasses;
+using LOZ.ItemsClasses;
 using LOZ.Collision.Iterator;
 
 namespace LOZ.GameState

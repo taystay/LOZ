@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Sprint2.GameState;
+using LOZ.GameState;
 
-namespace Sprint2.SpriteClasses.LinkSprites
+namespace LOZ.SpriteClasses.LinkSprites
 {
     class LinkUpIdle : ISprite
     {

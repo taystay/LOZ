@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.ItemsClasses;
+using LOZ.ItemsClasses;
 using LOZ.Collision.Iterator;
-using Sprint2.LinkClasses;
+using LOZ.LinkClasses;
 using System.IO;
 using System.Diagnostics;
 

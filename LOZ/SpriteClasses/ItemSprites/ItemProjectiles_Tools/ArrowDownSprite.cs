@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Sprint2.SpriteClasses;
 
-namespace Sprint2.SpriteClasses.ItemSprites
+namespace LOZ.SpriteClasses.ItemSprites
 {
 	class ArrowDownSprite : AbstractItemBlockClass
 	{ 

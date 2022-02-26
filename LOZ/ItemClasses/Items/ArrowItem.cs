@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint2.Factories;
+using LOZ.Factories;
 
-namespace Sprint2.ItemsClasses
+namespace LOZ.ItemsClasses
 {
     class ArrowItem : ItemAbstract
     {

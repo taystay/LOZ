@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint2.Factories;
+using LOZ.Factories;
 
-
-
-namespace Sprint2.LinkClasses.States
+namespace LOZ.LinkClasses.States
 {
     class LeftAttackLinkState : LinkStateAbstract
     {

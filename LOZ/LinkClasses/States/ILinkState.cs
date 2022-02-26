@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
 
-namespace Sprint2.LinkClasses
+namespace LOZ.LinkClasses
 {
     public interface ILinkState
     {

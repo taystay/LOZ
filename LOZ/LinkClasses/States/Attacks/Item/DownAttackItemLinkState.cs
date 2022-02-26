@@ -1,12 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.Factories;
-using Sprint2.GameState;
-using Sprint2.ItemsClasses;
+using LOZ.Factories;
+using LOZ.GameState;
+using LOZ.ItemsClasses;
 using LOZ.GameState;
 
 
-namespace Sprint2.LinkClasses.States
+namespace LOZ.LinkClasses.States
 {
     class DownAttackItemLinkState : LinkStateAbstract
     {

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.GameState;
 
-namespace Sprint2.LinkClasses
+namespace LOZ.LinkClasses
 {
     
     class DamagedLink : ILink

@@ -1,9 +1,7 @@
 ﻿using System;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 using LOZ.Collision.Iterator;
 
-namespace Sprint2.ItemsClasses
+namespace LOZ.ItemsClasses
 {
 
     public enum Direction

@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Sprint2.ControllerClasses;
+using LOZ.ControllerClasses;
 using LOZ.GameState;
 
-namespace Sprint2
+namespace LOZ
 {
     public class Game1 : Game
     {

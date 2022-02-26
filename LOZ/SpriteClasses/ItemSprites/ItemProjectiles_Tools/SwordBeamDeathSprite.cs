@@ -1,7 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using LOZ.SpriteClasses;
 
-namespace Sprint2
+namespace LOZ
 {
 	class SwordBeamDeathSprite : ISprite
 	{

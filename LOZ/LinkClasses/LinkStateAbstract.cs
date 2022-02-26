@@ -1,8 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.GameState;
 using Microsoft.Xna.Framework.Graphics;
+using LOZ.SpriteClasses;
 
-namespace Sprint2.LinkClasses
+namespace LOZ.LinkClasses
 {
     abstract class LinkStateAbstract : ILinkState
     {

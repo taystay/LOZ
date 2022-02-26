@@ -1,8 +1,7 @@
-﻿
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint2.EnemyClass
+namespace LOZ.EnemyClass
 {
     interface IEnemy
     {

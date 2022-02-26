@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint2.EnemyClass.Projectiles
+namespace LOZ.EnemyClass.Projectiles
 {
     interface IProjectile
     {

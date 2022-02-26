@@ -1,5 +1,5 @@
 ﻿using LOZ.GameState;
-namespace Sprint2.CommandClasses
+namespace LOZ.CommandClasses
 {
     class RightMove :ICommand
     {

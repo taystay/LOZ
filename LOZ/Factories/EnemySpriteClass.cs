@@ -1,9 +1,10 @@
 ﻿
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.SpriteClasses.EnemeySprite;
+using LOZ.SpriteClasses;
+using LOZ.SpriteClasses.EnemeySprite;
 
-namespace Sprint2.Factories
+namespace LOZ.Factories
 {
 	class EnemySpriteFactory
 	{

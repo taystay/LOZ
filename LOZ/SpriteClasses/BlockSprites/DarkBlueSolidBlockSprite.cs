@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint2.SpriteClasses.BlockSprites
+namespace LOZ.SpriteClasses.BlockSprites
 {
 
     class DarkBlueSolidBlockSprite : AbstractItemBlockClass

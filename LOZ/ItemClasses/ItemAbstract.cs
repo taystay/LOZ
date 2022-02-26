@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-namespace Sprint2.ItemsClasses
+using LOZ.SpriteClasses;
+
+namespace LOZ.ItemsClasses
 {
     abstract class ItemAbstract : IItem
     {

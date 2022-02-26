@@ -1,9 +1,9 @@
-﻿using Sprint2.SpriteClasses.EnemeySprite;
-using Sprint2.Factories;
+﻿using LOZ.SpriteClasses;
+using LOZ.Factories;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint2.EnemyClass
+namespace LOZ.EnemyClass
 {
     class SpikeTrap : IEnemy
     {

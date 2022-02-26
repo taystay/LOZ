@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
-namespace Sprint2.SpriteClasses.ItemSprites
+namespace LOZ.SpriteClasses.ItemSprites
 {
 	class DeadBombSprite : AbstractItemBlockClass
 	{

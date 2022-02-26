@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.Xna.Framework;
-using Sprint2.Factories;
-using Sprint2.LinkClasses.States;
+using LOZ.Factories;
+using LOZ.LinkClasses.States;
 
-namespace Sprint2.LinkClasses
+namespace LOZ.LinkClasses
 {
     class DownIdleLinkState : LinkStateAbstract
     {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Sprint2.CommandClasses;
+using LOZ.CommandClasses;
 
-namespace Sprint2.ControllerClasses
+namespace LOZ.ControllerClasses
 {
     class KeyboardController : IController
     {

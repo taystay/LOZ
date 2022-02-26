@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint2.LinkClasses
+namespace LOZ.LinkClasses
 {
     class Link : ILink
     {

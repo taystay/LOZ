@@ -1,9 +1,9 @@
-﻿
+﻿using LOZ.SpriteClasses;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Sprint2.Factories;
+using LOZ.Factories;
 
-namespace Sprint2.EnvironmentalClasses
+namespace LOZ.EnvironmentalClasses
 {
     public class StairsBlock: IEnvironment
     {

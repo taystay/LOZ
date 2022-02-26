@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.SpriteClasses.LinkSprites;
+using LOZ.SpriteClasses.LinkSprites;
+using LOZ.SpriteClasses;
 
 
-namespace Sprint2.Factories
+namespace LOZ.Factories
 {
 	class LinkSpriteFactory
 	{

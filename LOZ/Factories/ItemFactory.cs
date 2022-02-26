@@ -1,9 +1,8 @@
-﻿
-using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.SpriteClasses.ItemSprites;
+using LOZ.SpriteClasses.ItemSprites;
 
-namespace Sprint2.Factories
+namespace LOZ.Factories
 {
     class ItemFactory
     {

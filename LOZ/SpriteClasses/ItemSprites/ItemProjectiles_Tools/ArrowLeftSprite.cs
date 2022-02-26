@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint2.SpriteClasses.ItemSprites
+namespace LOZ.SpriteClasses.ItemSprites
 {
 	class ArrowLeftSprite :AbstractItemBlockClass
 	{

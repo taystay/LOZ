@@ -1,7 +1,7 @@
-﻿using Sprint2.LinkClasses;
+﻿using LOZ.LinkClasses;
 using LOZ.GameState;
 
-namespace Sprint2.CommandClasses
+namespace LOZ.CommandClasses
 {
     class Attack :ICommand
     {

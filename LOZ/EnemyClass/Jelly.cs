@@ -1,11 +1,11 @@
 ﻿using System;
-
+using LOZ.SpriteClasses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.Factories;
+using LOZ.Factories;
 
 
-namespace Sprint2.EnemyClass
+namespace LOZ.EnemyClass
 {
     class Jelly : IEnemy
     {

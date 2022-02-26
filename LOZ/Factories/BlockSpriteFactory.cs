@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.SpriteClasses.BlockSprites;
+using LOZ.SpriteClasses.BlockSprites;
 
-namespace Sprint2.Factories
+namespace LOZ.Factories
 {
     class BlockSpriteFactory
     {

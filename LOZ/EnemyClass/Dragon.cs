@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.Factories;
-using Sprint2.EnemyClass.Projectiles;
+using LOZ.Factories;
+using LOZ.SpriteClasses;
+using LOZ.EnemyClass.Projectiles;
 
 
-namespace Sprint2.EnemyClass
+namespace LOZ.EnemyClass
 {
     class Dragon : IEnemy
     {

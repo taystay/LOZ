@@ -1,4 +1,4 @@
-﻿namespace Sprint2.CommandClasses
+﻿namespace LOZ.CommandClasses
 {
     public interface ICommand
     {

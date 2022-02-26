@@ -1,10 +1,10 @@
 ﻿using System;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.Factories;
+using LOZ.Factories;
+using LOZ.SpriteClasses;
 
-namespace Sprint2.EnemyClass
+namespace LOZ.EnemyClass
 {
     class Bat : IEnemy
     {
