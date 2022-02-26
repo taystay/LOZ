@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LOZ.Collision.Iterator
+namespace LOZ.Collision
 {
     class CollisionIterator
     {
