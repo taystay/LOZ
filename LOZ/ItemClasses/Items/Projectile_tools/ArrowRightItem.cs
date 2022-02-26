@@ -5,53 +5,43 @@ using Sprint2.Factories;
 
 namespace Sprint2.ItemsClasses
 {
-    public class ArrowRightItem : IItem
+    class ArrowRightItem : IPlayerProjectile
     {
-        private ISprite Sprite;
-        private Point ItemLocation;
-        private Boolean SpriteActivity = true;
         private Boolean spriteChanged = false;
-        private int FramesPassed = 0;
+        private int framesPassed = 0;
 
         private const int Velocity = 9;
         private const int ArrowTravelFrames = 100;
         private const int DeadFrames = 25;
         private const int DeadArrowSpriteOffSet = -8;
 
+
         public ArrowRightItem(Point itemLocation)
         {
-            Sprite = ItemFactory.Instance.CreateArrowRightSprite();
-            ItemLocation = itemLocation;
+            sprite = ItemFactory.Instance.CreateArrowRightSprite();
+            _itemLocation = itemLocation;
+            hitBoxWidth = 14;
+            hitBoxHeight = 34;
         }
 
-        public Boolean SpriteActive()
+        public override void Update(GameTime gameTime)
         {
-            if (FramesPassed >= ArrowTravelFrames)
-                SpriteActivity = false;
-            return SpriteActivity;
-        }
-
-        public void Update(GameTime gameTime)
-        {
+            if (framesPassed >= ArrowTravelFrames)
+                base.spriteActivity = false;
             //---Update Position---
-            Sprite.Update(gameTime);
-            FramesPassed++;
+            sprite.Update(gameTime);
+            framesPassed++;
             if (spriteChanged) return;
-            if (FramesPassed >= ArrowTravelFrames - DeadFrames)
+            if (framesPassed >= ArrowTravelFrames - DeadFrames)
             {
                 spriteChanged = true;
-                Sprite = ItemFactory.Instance.CreateDeadArrowSprite();
-                ItemLocation.X += DeadArrowSpriteOffSet;
+                sprite = ItemFactory.Instance.CreateDeadArrowSprite();
+                _itemLocation.X += DeadArrowSpriteOffSet;
                 return;
             }
 
-            ItemLocation.X += Velocity;
+            _itemLocation.X += Velocity;
 
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            Sprite.Draw(spriteBatch, ItemLocation);
         }
 
     }

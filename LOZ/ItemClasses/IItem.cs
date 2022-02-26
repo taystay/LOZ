@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using LOZ.Collision.Iterator;
 
 namespace Sprint2.ItemsClasses
 {
@@ -13,13 +14,9 @@ namespace Sprint2.ItemsClasses
         Down
     };
 
-    public interface IItem
+    interface IItem : IGameObjects
     {
         public Boolean SpriteActive();
-
-        public void Update(GameTime gameTime);
-
-        public void Draw(SpriteBatch spriteBatch);
 
     }
 }

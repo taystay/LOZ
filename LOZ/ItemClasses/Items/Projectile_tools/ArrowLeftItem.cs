@@ -5,11 +5,8 @@ using Sprint2.Factories;
 
 namespace Sprint2.ItemsClasses
 {
-    public class ArrowLeftItem : IItem
+    class ArrowLeftItem : IPlayerProjectile
     {
-        private ISprite Sprite;
-        private Point ItemLocation;
-        private Boolean SpriteActivity = true;
         private Boolean spriteChanged = false;
         private int FramesPassed = 0;
 
@@ -18,40 +15,35 @@ namespace Sprint2.ItemsClasses
         private const int DeadFrames = 25;
         private const int DeadArrowSpriteOffSet = -8;
 
+
         public ArrowLeftItem(Point itemLocation)
         {
-            Sprite = ItemFactory.Instance.CreateArrowLeftSprite();
-            ItemLocation = itemLocation;
+            sprite = ItemFactory.Instance.CreateArrowLeftSprite();
+            _itemLocation = itemLocation;
+            hitBoxWidth = 14;
+            hitBoxHeight = 34;
         }
 
-        public Boolean SpriteActive()
-        {
-            if (FramesPassed >= ArrowTravelFrames)
-                SpriteActivity = false;
-            return SpriteActivity;
-        }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
+            if (spriteActivity && FramesPassed >= ArrowTravelFrames)
+                spriteActivity = false;
+
             //---Update Position---
-            Sprite.Update(gameTime);
+            sprite.Update(gameTime);
             FramesPassed++;
             if (spriteChanged) return;
             if (FramesPassed >= ArrowTravelFrames - DeadFrames)
             {
                 spriteChanged = true;
-                Sprite = ItemFactory.Instance.CreateDeadArrowSprite();
-                ItemLocation.X += DeadArrowSpriteOffSet;
+                sprite = ItemFactory.Instance.CreateDeadArrowSprite();
+                _itemLocation.X += DeadArrowSpriteOffSet;
                 return;
             }
 
-            ItemLocation.X -= Velocity;
+            _itemLocation.X -= Velocity;
 
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            Sprite.Draw(spriteBatch, ItemLocation);
         }
 
     }

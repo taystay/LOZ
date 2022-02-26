@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LOZ"
+    "\\LOZ",
+    "\\LOZ\\GameState",
+    "\\LOZ\\ItemClasses",
+    "\\LOZ\\ItemClasses\\Items",
+    "\\LOZ\\ItemClasses\\Items\\Projectile_tools"
   ],
+  "SelectedNode": "\\LOZ\\ItemClasses\\Items\\Projectile_tools\\SwordBeamUp.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -5,54 +5,43 @@ using Sprint2.Factories;
 
 namespace Sprint2.ItemsClasses
 {
-    public class SwordBeamRight : IItem
+    class SwordBeamRight : IPlayerProjectile
     {
-        private ISprite Sprite;
-        private Point ItemLocation;
-        private Boolean SpriteActivity = true;
         private Boolean spriteChanged = false;
         private int FramesPassed = 0;
 
-        private const int Velocity = 9;
-        private const int ArrowTravelFrames = 100;
-        private const int DeadFrames = 25;
-        private const int DeadArrowSpriteOffSet = -8;
+        private const int velocity = 9;
+        private const int arrowTravelFrames = 100;
+        private const int deadFrames = 25;
+        private const int deadArrowFrameOffset = -8;
 
         public SwordBeamRight(Point itemLocation)
         {
-            Sprite = ItemFactory.Instance.CreateSwordBeamRightSprite();
-            ItemLocation = itemLocation;
+            sprite = ItemFactory.Instance.CreateSwordBeamRightSprite();
+            _itemLocation = itemLocation;
+            hitBoxWidth = 14;
+            hitBoxHeight = 34;
         }
 
-        public Boolean SpriteActive()
+        public override void Update(GameTime gameTime)
         {
-            if (FramesPassed >= ArrowTravelFrames)
-                SpriteActivity = false;
-            return SpriteActivity;
-        }
+            if (spriteActivity && FramesPassed >= arrowTravelFrames)
+                spriteActivity = false;
 
-        public void Update(GameTime gameTime)
-        {
             //---Update Position---
-            Sprite.Update(gameTime);
+            sprite.Update(gameTime);
             FramesPassed++;
             if (spriteChanged) return;
-            if (FramesPassed >= ArrowTravelFrames - DeadFrames)
+            if (FramesPassed >= arrowTravelFrames - deadFrames)
             {
                 spriteChanged = true;
-                Sprite = ItemFactory.Instance.CreateDeadBeamSprite();
-                ItemLocation.X += DeadArrowSpriteOffSet;
+                sprite = ItemFactory.Instance.CreateDeadBeamSprite();
+                _itemLocation.X += deadArrowFrameOffset;
                 return;
             }
 
-            ItemLocation.X += Velocity;
+            _itemLocation.X += velocity;
 
         }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            Sprite.Draw(spriteBatch, ItemLocation);
-        }
-
     }
 }

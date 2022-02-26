@@ -12,6 +12,8 @@ namespace Sprint2.ItemsClasses
         {
             sprite = ItemFactory.Instance.CreateRupeeSprite();
             _itemLocation = itemLocation;
+            hitBoxWidth = 14;
+            hitBoxHeight = 34;
         }
         public override void Update(GameTime gameTime)
         {

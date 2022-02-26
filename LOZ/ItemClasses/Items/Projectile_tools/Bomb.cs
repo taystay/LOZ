@@ -5,11 +5,8 @@ using Sprint2.Factories;
 
 namespace Sprint2.ItemsClasses
 {
-    public class Bomb : IItem
+    class Bomb : IPlayerProjectile
     {
-        private ISprite sprite;
-        private Point itemLocation;
-        private Boolean spriteActivity = true;
         private Boolean spriteChanged = false;
 
         private int framesPassed = 0;
@@ -20,18 +17,16 @@ namespace Sprint2.ItemsClasses
         public Bomb(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateBombSprite();
-            this.itemLocation = itemLocation;
+            _itemLocation = itemLocation;
+            hitBoxWidth = 14;
+            hitBoxHeight = 34;
         }
 
-        public Boolean SpriteActive()
+        public override void Update(GameTime gameTime)
         {
-            if (framesPassed >= bombActiveTime)
+            if (spriteActivity && framesPassed >= bombActiveTime)
                 spriteActivity = false;
-            return spriteActivity;
-        }
 
-        public void Update(GameTime gameTime)
-        {
             sprite.Update(gameTime);
             framesPassed++;
             if (spriteChanged) return;
@@ -40,11 +35,5 @@ namespace Sprint2.ItemsClasses
                 sprite = ItemFactory.Instance.CreateDeadBombSprite();
             }          
         }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            sprite.Draw(spriteBatch, itemLocation);
-        }
-
     }
 }

@@ -5,11 +5,8 @@ using Sprint2.Factories;
 
 namespace Sprint2.ItemsClasses
 {
-    public class FireProjectile : IItem
+    class FireProjectile : IPlayerProjectile
     {
-        private ISprite sprite;
-        private Point _itemLocation;
-        private Boolean spriteActivity = true;
         private int deadFrames = 50;
         private int frame = 0;
 
@@ -19,7 +16,6 @@ namespace Sprint2.ItemsClasses
         private int dy = dMag;
         private Direction _direction;
 
-        /* make it take */
         public FireProjectile(Point itemLocation, Direction direction)
         {
             _direction = direction;
@@ -27,15 +23,11 @@ namespace Sprint2.ItemsClasses
             _itemLocation = itemLocation;
         }
 
-        public Boolean SpriteActive()
+        public override void Update(GameTime gameTime)
         {
-            if (deadFrames <= 0)
+            if (spriteActivity && deadFrames <= 0)
                 spriteActivity = false;
-            return spriteActivity;
-        }
 
-        public void Update(GameTime gameTime)
-        {
             //---Update Position---
             sprite.Update(gameTime);
 
@@ -60,11 +52,6 @@ namespace Sprint2.ItemsClasses
             }
             frame++;
 
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            sprite.Draw(spriteBatch, _itemLocation);
         }
 
     }

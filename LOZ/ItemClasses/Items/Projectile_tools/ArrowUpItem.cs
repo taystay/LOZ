@@ -5,11 +5,8 @@ using Sprint2.Factories;
 
 namespace Sprint2.ItemsClasses
 {
-    public class ArrowUpItem : IItem
+    class ArrowUpItem : IPlayerProjectile
     {
-        private ISprite Sprite;
-        private Point ItemLocation;
-        private Boolean SpriteActivity = true;
         private Boolean spriteChanged = false;
         private int FramesPassed = 0;
 
@@ -18,42 +15,34 @@ namespace Sprint2.ItemsClasses
         private const int DeadFrames = 25;
         private const int DeadArrowSpriteOffSet = -8;
 
+
         public ArrowUpItem(Point itemLocation)
         {
-            Sprite = ItemFactory.Instance.CreateArrowUpSprite();
-            ItemLocation = itemLocation;
+            sprite = ItemFactory.Instance.CreateArrowUpSprite();
+            _itemLocation = itemLocation;
+            hitBoxWidth = 14;
+            hitBoxHeight = 34;
         }
 
-
-        public Boolean SpriteActive()
+        public override void Update(GameTime gameTime)
         {
-            if (FramesPassed >= ArrowTravelFrames)
-                SpriteActivity = false;
-            return SpriteActivity;
-        }
+            if (spriteActivity && FramesPassed >= ArrowTravelFrames)
+                spriteActivity = false;
 
-        public void Update(GameTime gameTime)
-        {
             //---Update Position---
-            Sprite.Update(gameTime);
+            sprite.Update(gameTime);
             FramesPassed++;
             if (spriteChanged) return;
             if (FramesPassed >= ArrowTravelFrames - DeadFrames)
             {
                 spriteChanged = true;
-                Sprite = ItemFactory.Instance.CreateDeadArrowSprite();
-                ItemLocation.X += DeadArrowSpriteOffSet;
+                sprite = ItemFactory.Instance.CreateDeadArrowSprite();
+                _itemLocation.X += DeadArrowSpriteOffSet;
                 return;
             }
             
-            ItemLocation.Y -= Velocity;
+            _itemLocation.Y -= Velocity;
             
         }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            Sprite.Draw(spriteBatch, ItemLocation);
-        }
-
     }
 }

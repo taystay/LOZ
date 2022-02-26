@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 namespace Sprint2.ItemsClasses
 {
-    abstract class ItemAbstract : IItem
+    abstract class IPlayerProjectile : IItem
     {
         private protected ISprite sprite;
         private protected Point _itemLocation;

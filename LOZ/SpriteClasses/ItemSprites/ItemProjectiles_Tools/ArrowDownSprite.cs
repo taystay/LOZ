@@ -12,7 +12,7 @@ namespace Sprint2.SpriteClasses.ItemSprites
 		{
 			scale = 2.0;
 			_texture = texture;
-			frame = new Rectangle(161, 55, 174 - 160, 88 - 54);
+			frame = new Rectangle(161, 55, 14, 34);
 		}
 
 		//-----Update frame-----
