@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint2.GameState;
+using LOZ.GameState;
 
 namespace Sprint2.LinkClasses
 {
@@ -14,7 +14,7 @@ namespace Sprint2.LinkClasses
         public DamagedLink(ILink decoratedLink)
         {
             this.decoratedLink = decoratedLink;
-            GameObjects.Instance.Damaged = true;
+            TestingRoom.Instance.Damaged = true;
         }
 
         public void ChangeDirectionUp()

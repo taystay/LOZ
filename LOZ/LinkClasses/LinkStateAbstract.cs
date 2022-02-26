@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint2.GameState;
+using LOZ.GameState;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint2.LinkClasses
@@ -18,7 +18,7 @@ namespace Sprint2.LinkClasses
         public abstract void Attack(Weapon toUse, Point position);
         public virtual void TakeDamage()
         {
-            GameObjects.Instance.Link = new DamagedLink(link);
+            TestingRoom.Instance.Link = new DamagedLink(link);
         }
         public virtual void Update(GameTime timer)
         {

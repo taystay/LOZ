@@ -1,4 +1,4 @@
-﻿using Sprint2.GameState;
+﻿using LOZ.GameState;
 namespace Sprint2.CommandClasses
 {
     class RightMove :ICommand
@@ -8,8 +8,8 @@ namespace Sprint2.CommandClasses
         }
         public void execute()
         {
-            GameObjects.Instance.Link.ChangeDirectionRight();
-            GameObjects.Instance.Link.Move();
+            TestingRoom.Instance.Link.ChangeDirectionRight();
+            TestingRoom.Instance.Link.Move();
         }
     }
 }

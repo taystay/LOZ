@@ -1,5 +1,5 @@
-﻿using Sprint2.GameState;
-using Sprint2.LinkClasses;
+﻿using Sprint2.LinkClasses;
+using LOZ.GameState;
 
 namespace Sprint2.CommandClasses
 {
@@ -10,7 +10,7 @@ namespace Sprint2.CommandClasses
         }
         public void execute()
         {
-            GameObjects.Instance.Link.Attack(Weapon.Default);
+            TestingRoom.Instance.Link.Attack(Weapon.Default);
         }
     }
 }

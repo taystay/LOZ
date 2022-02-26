@@ -1,5 +1,4 @@
-﻿using Sprint2.GameState;
-using LOZ.GameState;
+﻿using LOZ.GameState;
 
 namespace Sprint2.CommandClasses
 {
