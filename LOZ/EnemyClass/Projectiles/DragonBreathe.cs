@@ -23,6 +23,11 @@ namespace LOZ.EnemyClass.Projectiles
             fireBallPosition = location;
             changeY = changeYPosition;
         }
+
+        public Rectangle GetHitBox() {
+
+            return new Rectangle(fireBallPosition.X - 32, fireBallPosition.y - 32, 10, 10);
+        }
         
         public void Update(GameTime timer)
         {

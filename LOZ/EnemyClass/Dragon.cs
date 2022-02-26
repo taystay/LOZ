@@ -9,25 +9,26 @@ using LOZ.EnemyClass.Projectiles;
 
 namespace LOZ.EnemyClass
 {
-    class Dragon : IEnemy
+    class Dragon : AbstractEnemy
     {
-        private Point position;
-        private ISprite dragon;
-        private int xPosition;
-        private Random random;
         private List<IProjectile> fireBalls;
  
         public Dragon(Point location, List<IProjectile> dragonBreathe)
         {
             position = location;
-            dragon = EnemySpriteFactory.Instance.CreateDragon();
-
+            _texture = EnemySpriteFactory.Instance.CreateDragon();
             random = new Random();
             xPosition = random.Next(700, 900);
             fireBalls = dragonBreathe;
            
         }
-        public void Update(GameTime timer)
+
+        public override Rectangle GetHitBox()
+        {
+            return new Rectangle(position.X - WidthSpriteSection / 2, position.Y - HeightSpriteSection / 2, 48, 64);
+        }
+
+        public override void Update(GameTime timer)
         {
             position.X = (position.X < xPosition) ? position.X += 1 : position.X -= 1; 
             if (position.X == xPosition )
@@ -42,12 +43,7 @@ namespace LOZ.EnemyClass
                 fireBalls.Add(new DragonBreathe(position,1)); //bottom fireball
             }
 
-            dragon.Update(timer);
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        { 
-            dragon.Draw(spriteBatch, position);
-            
+            _texture.Update(timer);
         }
 
     }

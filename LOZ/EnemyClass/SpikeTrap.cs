@@ -5,21 +5,20 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.EnemyClass
 {
-    class SpikeTrap : IEnemy
+    class SpikeTrap : AbstractEnemy
     {
-        private ISprite trap;
-        private Point position;
         public SpikeTrap(Point location) {
-            trap = EnemySpriteFactory.Instance.CreateTrap();
+            _texture= EnemySpriteFactory.Instance.CreateTrap();
             position = location;
         }
 
-        public void Update(GameTime timer) {
-            trap.Update(timer);
+        public override Rectangle GetHitBox()
+        {
+            return new Rectangle(position.X - 8, position.Y - 8,  16, 16);
         }
 
-        public void Draw(SpriteBatch spriteBatch) {
-            trap.Draw(spriteBatch, position);
+        public override void Update(GameTime timer) {
+            _texture.Update(timer);
         }
 
     }

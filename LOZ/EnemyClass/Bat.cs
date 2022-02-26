@@ -6,27 +6,24 @@ using LOZ.SpriteClasses;
 
 namespace LOZ.EnemyClass
 {
-    class Bat : IEnemy
+    class Bat : AbstractEnemy
     {
-        private Point position;
-        private ISprite bat;
-        private int xPosition;
-        private int yPosition;
-        private Random random;
-
         public Bat(Point location)
         {
-
             position = location;
-            bat = EnemySpriteFactory.Instance.CreateBat();
-
+            _texture = EnemySpriteFactory.Instance.CreateBat();
             random = new Random();
             xPosition = random.Next(700, 900);
             yPosition = random.Next(700, 900);
 
         }
 
-        public void Update(GameTime timer)
+        public override Rectangle GetHitBox()
+        {
+            return new Rectangle(position.X-WidthSpriteSection/2, position.Y - HeightSpriteSection/2, 67, 40);
+        }
+
+        public override void Update(GameTime timer)
         {
             if (position.X < xPosition)
             {
@@ -51,15 +48,7 @@ namespace LOZ.EnemyClass
                 xPosition = random.Next(700, 900);
                 yPosition = random.Next(700, 900);
             }
-            bat.Update(timer);
-        }
-
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-
-            bat.Draw(spriteBatch, position);
-
+            _texture.Update(timer);
         }
 
     }

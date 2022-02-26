@@ -7,28 +7,24 @@ using LOZ.Factories;
 
 namespace LOZ.EnemyClass
 {
-    class Jelly : IEnemy
+    class Jelly : AbstractEnemy
     {
-        private Point position;
-        private ISprite jelly;
-        private int xPosition;
-        private int yPosition;
-        private Random random;
 
         public Jelly(Point location)
         {
-
             position = location;
-            jelly = EnemySpriteFactory.Instance.CreateJelly();
-            
+            _texture = EnemySpriteFactory.Instance.CreateJelly();       
             random = new Random();
             xPosition = random.Next(700, 900);
             yPosition = random.Next(700, 900);
-
-
         }
 
-        public void Update(GameTime timer)
+        public override Rectangle GetHitBox()
+        {
+            return new Rectangle(position.X - WidthSpriteSection / 2, position.Y - HeightSpriteSection / 2, 16, 19);
+        }
+
+        public override void Update(GameTime timer)
         {
 
             if (position.X < xPosition)
@@ -54,16 +50,7 @@ namespace LOZ.EnemyClass
                 xPosition = random.Next(700, 900);
                 yPosition = random.Next(700, 900);
             }
-
-            jelly.Update(timer);
-        }
-
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-
-            jelly.Draw(spriteBatch, position);
-
+            _texture.Update(timer);
         }
 
     }

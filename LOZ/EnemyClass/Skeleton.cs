@@ -6,26 +6,24 @@ using LOZ.Factories;
 
 namespace LOZ.EnemyClass
 {
-    class Skeleton : IEnemy
+    class Skeleton : AbstractEnemy
     {
-        private Point position;
-        private ISprite skeleton;
-        private int xPosition;
-        private int yPosition;
-        private Random random;
-
         public Skeleton(Point location) {
 
             position = location;
-            skeleton = EnemySpriteFactory.Instance.CreateSkeleton();
-
+            _texture = EnemySpriteFactory.Instance.CreateSkeleton();
             random = new Random();
             xPosition = random.Next(700, 900);
             yPosition = random.Next(700, 900);
 
         }
 
-        public void Update(GameTime timer) {
+        public override Rectangle GetHitBox()
+        {
+            return new Rectangle(position.X - WidthSpriteSection / 2, position.Y - HeightSpriteSection / 2, 48, 64);
+        }
+
+        public override void Update(GameTime timer) {
 
             if (position.X < xPosition)
             {
@@ -50,15 +48,7 @@ namespace LOZ.EnemyClass
                 yPosition = random.Next(700, 900);
             }          
 
-            skeleton.Update(timer);
-        }
-
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-
-            skeleton.Draw(spriteBatch, position);
-
+            _texture.Update(timer);
         }
 
     }

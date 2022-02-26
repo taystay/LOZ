@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.EnemeySprite
         private Texture2D _texture;
         private int frame = 1;
         private const int maxFrame = 3;
-        private const int scale = 2;
+        private const int scale = 1;
 
         public JellySprite(Texture2D texture)
         {

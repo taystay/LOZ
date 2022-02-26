@@ -1,13 +1,11 @@
-﻿
+﻿using LOZ.Collision;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace LOZ.EnemyClass.Projectiles
 {
-    interface IProjectile
+    interface IProjectile : IGameObjects
     {
-        public bool IsActive(); //Projectiles should tell the user when they are done.*/
-        public void Update(GameTime gameTime); //Update positions and stuff.
-        public void Draw(SpriteBatch spriteBatch); //Draw where is needs to be.
+        public bool IsActive(); //Projectiles should tell the user when they are done.*/   
     }
 }

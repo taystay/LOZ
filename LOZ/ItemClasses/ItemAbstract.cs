@@ -30,7 +30,5 @@ namespace LOZ.ItemsClasses
             sprite.Draw(spriteBatch, _itemLocation);
         }
 
-
-
     }
 }

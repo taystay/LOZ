@@ -6,26 +6,23 @@ using LOZ.SpriteClasses;
 
 namespace LOZ.EnemyClass
 {
-    class NPC : IEnemy
+    class NPC : AbstractEnemy
     {
-        private Point position;
-        private ISprite npc;
 
         public NPC(Point location)
         {
             position = location;
-            npc = EnemySpriteFactory.Instance.CreateNPC();
+            _texture = EnemySpriteFactory.Instance.CreateNPC();
         }
 
-        public void Update(GameTime timer)
+        public override Rectangle GetHitBox()
         {
-            npc.Update(timer);
+            return new Rectangle(position.X - 17 / 2, position.Y - 5, 14, 16);
         }
 
-
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Update(GameTime timer)
         {
-            npc.Draw(spriteBatch, position);
+            _texture.Update(timer);
         }
 
     }

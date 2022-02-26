@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.EnemeySprite
         private Texture2D _texture;
         private int frame = 0;
         private const int maxFrame = 4;
-        private const int scale = 2;
+        private const int scale = 1;
 
         public DragonSprite(Texture2D texture)
         {
