@@ -1,5 +1,5 @@
 ﻿using System;
-using LOZ.Collision.Iterator;
+using LOZ.Collision;
 
 namespace LOZ.ItemsClasses
 {
