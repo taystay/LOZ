@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
 using LOZ.GameState;
 using LOZ.ItemsClasses;
-using LOZ.GameState;
 
 
 namespace LOZ.LinkClasses.States

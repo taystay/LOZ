@@ -16,6 +16,16 @@ namespace LOZ.Collision
         {
 
         }
+        private bool IsType(object o, System.Type t)
+        {
+            if (o.GetType().IsAssignableFrom(t)) return true;
+            System.Type[] interfaces = o.GetType().GetInterfaces();
+            foreach (System.Type type in interfaces)
+            {
+                if (type == t) return true;
+            }
+            return false;
+        }
         public void HandleCollision(IGameObjects one, IGameObjects two, CollisionSide side)
         {
             firstBox = one.GetHitBox();
@@ -23,43 +33,49 @@ namespace LOZ.Collision
             _side = side;
 
             //LINK && ENVIORNMENT COLLISION
-            if (one.GetType().IsAssignableFrom(typeof(ILink)) && two.GetType().IsAssignableFrom(typeof(IEnvironment)))
+            if (IsType(one, typeof(ILink)) && IsType(one, typeof(IEnvironment)))
                 HandleLinkEnviornment((ILink)one, (IEnvironment)two);
 
             //LINK && ENEMY COLLISION
-            else if (one.GetType().IsAssignableFrom(typeof(ILink)) && two.GetType().IsAssignableFrom(typeof(IEnemy)))
+            else if (IsType(one, typeof(ILink)) && IsType(one, typeof(IEnemy)))
                 HandleLinkEnemy((ILink)one, (IEnemy)two);
 
             //ENEMY && ENVIORNMENT COLLISION
-            else if (one.GetType().IsAssignableFrom(typeof(IEnemy)) && two.GetType().IsAssignableFrom(typeof(IEnvironment)))
+            else if (IsType(one, typeof(IEnemy)) && IsType(one, typeof(IEnvironment)))
                 HandleEnemyEnviornment((IEnemy)one, (IEnvironment)two);
 
             //PLAYER PROJECTILE && ENEMY
-            else if (one.GetType().IsAssignableFrom(typeof(IPlayerProjectile)) && two.GetType().IsAssignableFrom(typeof(IEnemy)))
+            else if (IsType(one, typeof(IPlayerProjectile)) && IsType(one, typeof(IEnemy)))
                 HandleProjectileEnemy((IPlayerProjectile)one, (IEnemy)two);
+
+            //PLAYER PROJECTILE && ENEMY
+            else if (IsType(one, typeof(ILink)) && IsType(one, typeof(IItem)))
+                HandleLinkItem((ILink)one, (IItem)two);
 
         }
         private void HandleLinkEnviornment(ILink link, IEnvironment block)
         {
-            /*
-            if(_side == CollisionSide.Bottom)
-                link.Position = new Point(firstBox.X - firstBox.Width / 2, firstBox.Y)
-            */
+            //Make link not be able to move forward at all.
         }
 
         private void HandleLinkEnemy(ILink link, IEnemy enemy)
         {
-
+            //Make link turn pink or take damage lmao.
         }
 
         private void HandleEnemyEnviornment(IEnemy enemy, IEnvironment block)
         {
-
+            //Make enemy not be able to move forward when walking into a wall
         }
 
         private void HandleProjectileEnemy(IPlayerProjectile link, IEnemy enemy)
         {
+            //Make enemy take damage or maybe disappear for the time being or even teleport back or move back
+        }
 
+        private void HandleLinkItem(ILink link, IItem item)
+        {
+            //Make item disappear *poof*
         }
     }
 }

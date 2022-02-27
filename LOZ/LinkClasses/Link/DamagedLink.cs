@@ -74,8 +74,8 @@ namespace LOZ.LinkClasses
 
         public void RemoveDecorator()
         {
-            GameObjects.Instance.Link = decoratedLink;
-            GameObjects.Instance.Damaged = false;
+            TestingRoom.Instance.Link = decoratedLink;
+            TestingRoom.Instance.Damaged = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)

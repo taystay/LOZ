@@ -32,19 +32,19 @@ namespace LOZ.LinkClasses.States
             //Don't do anything besides attacking
             if (toUse == Weapon.Swordbeam)
             {
-                GameObjects.Instance.LinkItems.Add(new SwordBeamLeft(attackPosition));
+                TestingRoom.Instance.gameObjects.Add(new SwordBeamLeft(attackPosition));
             }
             else if (toUse == Weapon.Arrow)
             {
-                GameObjects.Instance.LinkItems.Add(new ArrowLeftItem(attackPosition));
+                TestingRoom.Instance.gameObjects.Add(new ArrowLeftItem(attackPosition));
             }
             else if (toUse == Weapon.Bomb)
             {
-                GameObjects.Instance.LinkItems.Add(new Bomb(attackPosition));
+                TestingRoom.Instance.gameObjects.Add(new Bomb(attackPosition));
             }
             else if (toUse == Weapon.Fire)
             {
-                GameObjects.Instance.LinkItems.Add(new FireProjectile(attackPosition, Direction.Left));
+                TestingRoom.Instance.gameObjects.Add(new FireProjectile(attackPosition, Direction.Left));
             }
         }
 

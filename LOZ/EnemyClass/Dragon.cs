@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
 using LOZ.EnemyClass.Projectiles;
+using LOZ.Collision;
 
 
 namespace LOZ.EnemyClass

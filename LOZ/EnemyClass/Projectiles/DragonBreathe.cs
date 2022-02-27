@@ -26,7 +26,7 @@ namespace LOZ.EnemyClass.Projectiles
 
         public Rectangle GetHitBox() {
 
-            return new Rectangle(fireBallPosition.X - 32, fireBallPosition.y - 32, 10, 10);
+            return new Rectangle(fireBallPosition.X - 32, fireBallPosition.Y - 32, 10, 10);
         }
         
         public void Update(GameTime timer)

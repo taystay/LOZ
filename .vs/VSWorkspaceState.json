@@ -5,8 +5,12 @@
     "\\LOZ\\GameState",
     "\\LOZ\\ItemClasses",
     "\\LOZ\\ItemClasses\\Items",
-    "\\LOZ\\ItemClasses\\Items\\Projectile_tools"
+    "\\LOZ\\ItemClasses\\Items\\Projectile_tools",
+    "\\LOZ\\LinkClasses",
+    "\\LOZ\\LinkClasses\\States",
+    "\\LOZ\\LinkClasses\\States\\Attacks",
+    "\\LOZ\\LinkClasses\\States\\Attacks\\Item"
   ],
-  "SelectedNode": "\\LOZ\\GameState\\GameObjects.cs",
+  "SelectedNode": "\\LOZ\\LinkClasses\\States\\Attacks\\Item\\DownAttackItemLinkState.cs",
   "PreviewInSolutionExplorer": false
 }
