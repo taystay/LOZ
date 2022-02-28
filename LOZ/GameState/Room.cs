@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.ItemsClasses;
 using LOZ.Collision;
 using LOZ.LinkClasses;
-using LOZ.EnemyClass.Projectiles;
 
 namespace LOZ.GameState
 {
@@ -16,7 +15,6 @@ namespace LOZ.GameState
         public bool Damaged { get; set; } = false;
 
         private protected CollisionIterator coll;
-        private protected List<IProjectile> projectiles;
         
         
         public abstract void LoadContent(ContentManager Content);
@@ -48,21 +46,16 @@ namespace LOZ.GameState
             coll.Iterate();
 
             
-            gameObjects.Add((IGameObjects)Link);
-
-            
             Link.Update(gameTime);
-            foreach(IGameObjects item in gameObjects)
+            int i = 0;
+            int count = gameObjects.Count;
+            while(i < count)
             {
+                IGameObjects item = gameObjects[i++];
                 if (!IsType(item, typeof(ILink)))
                 {
                     item.Update(gameTime);
                 }
-            }
-            foreach (IProjectile p in projectiles)
-            {
-                p.Update(gameTime);
-                //gameObjects.Add((IGameObjects)p);
             }
 
             List<IGameObjects> toRemove = new List<IGameObjects>();
@@ -83,15 +76,12 @@ namespace LOZ.GameState
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Link.Draw(spriteBatch);
+            
             foreach(IGameObjects item in gameObjects)
             {
                 item.Draw(spriteBatch);
             }
-            foreach (IProjectile p in projectiles)
-            {
-                p.Draw(spriteBatch);
-            }
+            Link.Draw(spriteBatch);
         }
     }
 }

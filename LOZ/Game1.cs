@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using LOZ.ControllerClasses;
 using LOZ.GameState;
-using System.Diagnostics;
 
 namespace LOZ
 {

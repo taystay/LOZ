@@ -6,8 +6,5 @@ namespace LOZ.EnvironmentalClasses
 {
     public interface IEnvironment :IGameObjects
     {
-        public void Update(GameTime gameTime);
-
-        public void Draw(SpriteBatch spriteBatch);
     }
 }

@@ -17,7 +17,7 @@ namespace LOZ.EnemyClass
 
         public override Rectangle GetHitBox()
         {
-            return new Rectangle(position.X - 17 / 2, position.Y - 5, 14, 16);
+            return new Rectangle(-50 ,-50,0,0);
         }
 
         public override void Update(GameTime timer)

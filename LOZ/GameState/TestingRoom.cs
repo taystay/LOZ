@@ -59,9 +59,9 @@ namespace LOZ.GameState
         private void LoadEnemiesForTesting()
         {
             gameObjects.Add(new Bat(new Point(600, 500)));
-            gameObjects.Add(new Dragon(new Point(200, 500), projectiles));
+            gameObjects.Add(new Dragon(new Point(200, 500)));
             gameObjects.Add(new Jelly(new Point(1000, 500)));
-            gameObjects.Add(new NPC(new Point(800, 500)));
+            gameObjects.Add(new NPC(new Point(1000, 1000)));
             gameObjects.Add(new Skeleton(new Point(700, 500)));
             gameObjects.Add(new SpikeTrap(new Point(1000, 900)));
         }
@@ -73,7 +73,6 @@ namespace LOZ.GameState
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             gameObjects = new List<IGameObjects>();
-            projectiles = new List<IProjectile>();
             coll = new CollisionIterator(gameObjects);
             
 
@@ -81,8 +80,8 @@ namespace LOZ.GameState
             gameObjects.Add((IGameObjects)Link);
 
             //LoadItemsForTesting();
-            LoadBlocksForTesting();
-            //LoadEnemiesForTesting();
+            //LoadBlocksForTesting();
+            LoadEnemiesForTesting();
         }
     }
 }

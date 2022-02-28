@@ -43,7 +43,7 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterHoldCommand(Keys.Right, new RightMove());
             ControllerMappings.RegisterHoldCommand(Keys.Z, new Attack());
             ControllerMappings.RegisterHoldCommand(Keys.N, new Attack());
-            ControllerMappings.RegisterHoldCommand(Keys.E, new TakeDamage());
+            //ControllerMappings.RegisterHoldCommand(Keys.E, new TakeDamage());
 
             ControllerMappings.RegisterReleaseCommand(Keys.W, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.A, new Idle());

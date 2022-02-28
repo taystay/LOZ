@@ -6,21 +6,21 @@ using LOZ.Factories;
 using LOZ.SpriteClasses;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.Collision;
+using LOZ.GameState;
 
 
 namespace LOZ.EnemyClass
 {
     class Dragon : AbstractEnemy
     {
-        private List<IProjectile> fireBalls;
+
  
-        public Dragon(Point location, List<IProjectile> dragonBreathe)
+        public Dragon(Point location)
         {
             position = location;
             _texture = EnemySpriteFactory.Instance.CreateDragon();
             random = new Random();
             xPosition = random.Next(700, 900);
-            fireBalls = dragonBreathe;
            
         }
 
@@ -39,9 +39,9 @@ namespace LOZ.EnemyClass
             
 
             if ((int) timer.TotalGameTime.TotalMilliseconds % 5000 == 0) {
-                fireBalls.Add(new DragonBreathe(position,-1)); //top fireball
-                fireBalls.Add(new DragonBreathe(position,0)); //middle fireball
-                fireBalls.Add(new DragonBreathe(position,1)); //bottom fireball
+                TestingRoom.Instance.gameObjects.Add(new DragonBreathe(position,-1)); //top fireball
+                TestingRoom.Instance.gameObjects.Add(new DragonBreathe(position,0)); //middle fireball
+                TestingRoom.Instance.gameObjects.Add(new DragonBreathe(position,1)); //bottom fireball
             }
 
             _texture.Update(timer);
