@@ -39,12 +39,10 @@ namespace LOZ.Collision
                 {
                     if (differenceY < 0)
                     {
-                        Console.WriteLine("TRUE");
                         collisionBehavior.HandleCollision(objOne, objTwo, CollisionSide.Top);
                     }
                     else
                     {
-                        Console.WriteLine("TRUE");
                         collisionBehavior.HandleCollision(objOne, objTwo, CollisionSide.Bottom);
                     }
                 }
@@ -52,12 +50,10 @@ namespace LOZ.Collision
                 {
                     if (differenceX < 0)
                     {
-                        Console.WriteLine("TRUE");
                         collisionBehavior.HandleCollision(objOne, objTwo, CollisionSide.Left);
                     }
                     else
                     {
-                        Console.WriteLine("TRUE");
                         collisionBehavior.HandleCollision(objOne, objTwo, CollisionSide.Right);
                     }
 

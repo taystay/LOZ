@@ -14,7 +14,6 @@ namespace LOZ.Collision
         public void Iterate()
         {
             CollisionDetection detect = new CollisionDetection();
-            Debug.WriteLine("ENTERED@");
 
             foreach (IGameObjects obj1 in _gameObjects)
                 {

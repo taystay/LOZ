@@ -44,8 +44,8 @@ namespace LOZ.GameState
 
         private void LoadBlocksForTesting()
         {
-            int x = 32;
-            int y = 32;
+            int x = 75;
+            int y = 75;
             gameObjects.Add(new BlackTileBlock(     new Point(11*x,10*y)));
             gameObjects.Add(new BlueSandBlock(      new Point(12*x,10*y)));
             gameObjects.Add(new BlueTriangleBlock(  new Point(13*x,10*y)));
