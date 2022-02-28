@@ -17,6 +17,11 @@ namespace LOZ.ItemsClasses
             return spriteActivity;
         }
 
+        public void KillItem()
+        {
+            spriteActivity = false;
+        }
+
         public Rectangle GetHitBox()
         {
             Rectangle hitbox = new Rectangle(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
