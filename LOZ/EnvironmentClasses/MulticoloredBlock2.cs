@@ -10,6 +10,12 @@ namespace LOZ.EnvironmentalClasses
         private ISprite sprite;
         private Point itemLocation;
 
+
+        public Rectangle GetHitBox() {
+
+            return new Rectangle(itemLocation.X, itemLocation.Y, 32, 32);
+        }
+
         public MulticoloredBlock2(Point itemLocation)
         {
             sprite = BlockSpriteFactory.Instance.CreateMulticolored2Sprite();
