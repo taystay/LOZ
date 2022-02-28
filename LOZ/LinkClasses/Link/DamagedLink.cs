@@ -70,6 +70,7 @@ namespace LOZ.LinkClasses
 
         public void Update(GameTime timer)
         {
+            RemoveDecorator();
             count--;
             if(count == 0)
             {

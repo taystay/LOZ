@@ -9,8 +9,6 @@ namespace LOZ.LinkClasses
     {
         private protected ISprite linkSprite;
         private protected Link link;
-        private int hitBoxWidth = 16;
-        private int hitBoxHeight = 16;
 
         public virtual void Up() { }
         public virtual void Down() { }
@@ -26,11 +24,6 @@ namespace LOZ.LinkClasses
              */
             TestingRoom.Instance.Link = new DamagedLink(link);
         }
-        public Rectangle GetHitBox()
-        {
-            Rectangle hitbox = new Rectangle(link.Position.X - hitBoxWidth / 2, link.Position.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
-            return hitbox;
-        }
         public virtual void Update(GameTime timer)
         {
             linkSprite.Update(timer);
@@ -39,13 +32,6 @@ namespace LOZ.LinkClasses
         {
             linkSprite.Draw(spriteBatch, position);
         }
-
-
-
-
-
-
-
 
     }
 }

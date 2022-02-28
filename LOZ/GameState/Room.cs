@@ -32,6 +32,17 @@ namespace LOZ.GameState
             return r;
         }
 
+        private bool IsType(object o, System.Type t)
+        {
+            if (o.GetType().IsAssignableFrom(t)) return true;
+            System.Type[] interfaces = o.GetType().GetInterfaces();
+            foreach (System.Type type in interfaces)
+            {
+                if (type == t) return true;
+            }
+            return false;
+        }
+
         public void Update(GameTime gameTime)
         {
             coll.Iterate();
@@ -40,10 +51,13 @@ namespace LOZ.GameState
             gameObjects.Add((IGameObjects)Link);
 
             
-            //Link.Update(gameTime);
+            Link.Update(gameTime);
             foreach(IGameObjects item in gameObjects)
             {
-                item.Update(gameTime);
+                if (!IsType(item, typeof(ILink)))
+                {
+                    item.Update(gameTime);
+                }
             }
             foreach (IProjectile p in projectiles)
             {
