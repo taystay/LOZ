@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace LOZ.Collision
 {
@@ -12,7 +13,18 @@ namespace LOZ.Collision
         }
         public void Iterate()
         {
-            
+            CollisionDetection detect = new CollisionDetection();
+
+            foreach (IGameObjects obj1 in _gameObjects)
+                {
+                foreach (IGameObjects obj2 in _gameObjects)
+                {
+                    if(!(obj1.Equals(obj2)) { 
+                        detect.CheckCollision(obj1, obj2);
+                    }
+                }
+
+            }    
         }
     }
 }
