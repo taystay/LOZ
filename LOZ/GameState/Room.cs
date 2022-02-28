@@ -35,6 +35,10 @@ namespace LOZ.GameState
         public void Update(GameTime gameTime)
         {
             coll.Iterate();
+
+            
+            gameObjects.Add((IGameObjects)Link);
+
             
             //Link.Update(gameTime);
             foreach(IGameObjects item in gameObjects)

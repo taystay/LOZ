@@ -16,7 +16,7 @@ namespace LOZ.SpriteClasses
 			//--------FRAME 1---------
 			int width = (int)(scale * (int)frame.Width);
 			int height = (int)(scale * (int)frame.Height);
-			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
+			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, 32, 32);
 
 		//for SpriteBatch.Begin(...)
 		//the paramater idea was from:

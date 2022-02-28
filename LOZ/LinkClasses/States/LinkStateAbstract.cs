@@ -21,6 +21,9 @@ namespace LOZ.LinkClasses
         public abstract void Attack(Weapon toUse, Point position);
         public virtual void TakeDamage()
         {
+            /*
+             * 
+             */
             TestingRoom.Instance.Link = new DamagedLink(link);
         }
         public Rectangle GetHitBox()

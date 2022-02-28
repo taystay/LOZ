@@ -7,6 +7,7 @@ using LOZ.ItemsClasses;
 using LOZ.Collision;
 using LOZ.EnemyClass;
 using LOZ.EnemyClass.Projectiles;
+using LOZ.EnvironmentalClasses;
 
 namespace LOZ.GameState
 {
@@ -43,7 +44,16 @@ namespace LOZ.GameState
 
         private void LoadBlocksForTesting()
         {
-
+            int x = 32;
+            int y = 32;
+            gameObjects.Add(new BlackTileBlock(     new Point(11*x,10*y)));
+            gameObjects.Add(new BlueSandBlock(      new Point(12*x,10*y)));
+            gameObjects.Add(new BlueTriangleBlock(  new Point(13*x,10*y)));
+            gameObjects.Add(new DarkBlueBlock(      new Point(14*x,10*y)));
+            gameObjects.Add(new MulticoloredBlock1( new Point(15*x,10*y)));
+            gameObjects.Add(new MulticoloredBlock2( new Point(16*x,10*y)));
+            gameObjects.Add(new SolidBlueBlock(     new Point(17*x,10*y)));
+            gameObjects.Add(new StairsBlock(        new Point(18*x,10*y)));
         }
 
         private void LoadEnemiesForTesting()
@@ -70,9 +80,9 @@ namespace LOZ.GameState
             Link = new Link(new Point(500, 500));
             gameObjects.Add((IGameObjects)Link);
 
-            LoadItemsForTesting();
+            //LoadItemsForTesting();
             LoadBlocksForTesting();
-            LoadEnemiesForTesting();
+            //LoadEnemiesForTesting();
         }
     }
 }
