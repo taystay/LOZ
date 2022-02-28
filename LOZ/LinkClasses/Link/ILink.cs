@@ -24,7 +24,5 @@ namespace LOZ.LinkClasses
         public void Attack(Weapon currentUse);
         public void TakeDamage();
         public Point GetPosition();
-        public void Update(GameTime timer);
-        public void Draw(SpriteBatch spriteBatch);
     }
 }

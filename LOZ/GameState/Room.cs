@@ -13,9 +13,12 @@ namespace LOZ.GameState
     {
         public List<IGameObjects> gameObjects { get; set; }
         public ILink Link { get; set; }
-        private protected List<IProjectile> projectiles;
         public bool Damaged { get; set; } = false;
-       //private protected CollisionIterator collisions;
+
+        private protected CollisionIterator coll;
+        private protected List<IProjectile> projectiles;
+        
+        
         public abstract void LoadContent(ContentManager Content);
 
         private bool HasInterface(object o, System.Type t)
@@ -31,6 +34,7 @@ namespace LOZ.GameState
 
         public void Update(GameTime gameTime)
         {
+            coll.Iterate();
             
             //Link.Update(gameTime);
             foreach(IGameObjects item in gameObjects)

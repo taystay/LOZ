@@ -7,7 +7,6 @@ using LOZ.ItemsClasses;
 using LOZ.Collision;
 using LOZ.EnemyClass;
 using LOZ.EnemyClass.Projectiles;
-using LOZ.Collision;
 
 namespace LOZ.GameState
 {
@@ -65,7 +64,8 @@ namespace LOZ.GameState
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             gameObjects = new List<IGameObjects>();
             projectiles = new List<IProjectile>();
-            CollisionIterator collisions = new CollisionIterator(gameObjects);
+            coll = new CollisionIterator(gameObjects);
+            
 
             Link = new Link(new Point(500, 500));
             gameObjects.Add((IGameObjects)Link);

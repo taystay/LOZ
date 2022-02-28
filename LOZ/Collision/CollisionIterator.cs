@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LOZ.Collision
 {
-    class CollisionIterator
+    public class CollisionIterator
     {
         private List<IGameObjects> _gameObjects;
         public CollisionIterator(List<IGameObjects> gameObjects)
@@ -21,7 +21,6 @@ namespace LOZ.Collision
                 foreach (IGameObjects obj2 in _gameObjects)
                 {
                     if(!(obj1.Equals(obj2))) {
-                        Debug.WriteLine("ENTERED");
                         detect.CheckCollision(obj1, obj2);
                     }
                 }
