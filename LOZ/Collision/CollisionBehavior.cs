@@ -66,6 +66,15 @@ namespace LOZ.Collision
         private void HandleEnemyEnviornment(IEnemy enemy, IEnvironment block)
         {
             //Make enemy not be able to move forward when walking into a wall
+            //only way to do this right is by testing.
+            //Rectangle enemRec = enemy.GetHitBox();
+            //Rectangle blockRec = block.GetHitBox();
+            //dx = enemyRec.X - blockRec.X
+            //dy = enemyRec.Y - blockRec.Y
+            //IF(SIDE == DOWN)
+            //enemy.position = new Point(enemyRec.X, enemyRec.Y - dy)
+
+            //ROUGHLY something like that.
         }
 
         private void HandleProjectileEnemy(IPlayerProjectile link, IEnemy enemy)
@@ -76,6 +85,7 @@ namespace LOZ.Collision
         private void HandleLinkItem(ILink link, IItem item)
         {
             //Make item disappear *poof*
+            item.KillItem();
         }
     }
 }

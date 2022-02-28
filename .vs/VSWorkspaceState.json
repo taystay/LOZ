@@ -2,7 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\LOZ",
-    "\\LOZ\\GameState",
+    "\\LOZ\\Collision",
     "\\LOZ\\ItemClasses",
     "\\LOZ\\ItemClasses\\Items",
     "\\LOZ\\ItemClasses\\Items\\Projectile_tools",
@@ -11,6 +11,6 @@
     "\\LOZ\\LinkClasses\\States\\Attacks",
     "\\LOZ\\LinkClasses\\States\\Attacks\\Item"
   ],
-  "SelectedNode": "\\LOZ\\LinkClasses\\States\\Attacks\\Item\\DownAttackItemLinkState.cs",
+  "SelectedNode": "\\LOZ\\Game1.cs",
   "PreviewInSolutionExplorer": false
 }
