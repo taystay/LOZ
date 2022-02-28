@@ -13,8 +13,9 @@ namespace LOZ.EnvironmentalClasses
 
         public Rectangle GetHitBox() {
 
-            return new Rectangle();
+            return new Rectangle(itemLocation.X, itemLocation.Y, 32, 32);
         }
+ 
         public BlackTileBlock(Point itemLocation)
         {
             sprite = BlockSpriteFactory.Instance.CreateBlackTileSprite();
