@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using LOZ.Collision;
 
 namespace LOZ.LinkClasses
 {
@@ -11,7 +12,7 @@ namespace LOZ.LinkClasses
         Fire,
         Default
     }
-    public interface ILink
+    public interface ILink : IGameObjects
     {
         public Point Position { get; set; }
         public void ChangeDirectionUp();

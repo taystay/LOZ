@@ -49,7 +49,7 @@ namespace LOZ.Collision
                 HandleProjectileEnemy((IPlayerProjectile)one, (IEnemy)two);
 
             //PLAYER PROJECTILE && ENEMY
-            else if (IsType(one, typeof(ILink)) && IsType(one, typeof(IItem)))
+            else if (IsType(one, typeof(ILink)) && IsType(two, typeof(IItem)))
                 HandleLinkItem((ILink)one, (IItem)two);
 
         }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
+using System.Diagnostics;
 
 namespace LOZ.Collision
 {
@@ -23,7 +24,7 @@ namespace LOZ.Collision
             Rectangle rec1 = objOne.GetHitBox();
             Rectangle rec2 = objTwo.GetHitBox();
 
-            if (rec1.Intersects(rec2) && rec2.Intersects(rec1)) {
+            if (rec1.Intersects(rec2)) {
                 //rec2 is the focal point 
 
                 //if positive difference in X: rec1 is right side of rec2(collision = right)

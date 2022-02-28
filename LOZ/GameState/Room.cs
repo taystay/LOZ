@@ -32,7 +32,7 @@ namespace LOZ.GameState
         public void Update(GameTime gameTime)
         {
             
-            Link.Update(gameTime);
+            //Link.Update(gameTime);
             foreach(IGameObjects item in gameObjects)
             {
                 item.Update(gameTime);

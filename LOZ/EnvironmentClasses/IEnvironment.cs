@@ -4,7 +4,7 @@ using LOZ.Collision;
 
 namespace LOZ.EnvironmentalClasses
 {
-    public interface IEnvironment : IGameObjects
+    public interface IEnvironment
     {
         public void Update(GameTime gameTime);
 

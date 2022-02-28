@@ -59,6 +59,12 @@ namespace LOZ.LinkClasses
             return Position;
         }
 
+        public Rectangle GetHitBox()
+        {
+            Rectangle hitbox = new Rectangle(Position.X, Position.Y, 16, 16);
+            return hitbox;
+        }
+
         public void Update(GameTime timer)
         {
 
