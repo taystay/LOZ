@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.ItemsClasses;
 using LOZ.Collision;
 using LOZ.LinkClasses;
+using LOZ.EnemyClass;
 
 namespace LOZ.GameState
 {
@@ -30,13 +31,16 @@ namespace LOZ.GameState
             return r;
         }
 
-        private bool IsType(object o, System.Type t)
+        private bool IsType(object object_o, System.Type comparisonType)
         {
-            if (o.GetType().IsAssignableFrom(t)) return true;
-            System.Type[] interfaces = o.GetType().GetInterfaces();
+            System.Type actualType = object_o.GetType();
+            if (actualType.IsAssignableFrom(comparisonType)) return true;
+            if (actualType.IsSubclassOf(comparisonType)) return true;
+
+            System.Type[] interfaces = actualType.GetInterfaces();
             foreach (System.Type type in interfaces)
             {
-                if (type == t) return true;
+                if (type == comparisonType) return true;
             }
             return false;
         }
@@ -65,6 +69,11 @@ namespace LOZ.GameState
                 {
                     IItem itemObject = (IItem)item;
                     if (!itemObject.SpriteActive()) toRemove.Add(item);
+                }
+                if(IsType(item, typeof(AbstractEnemy)))
+                {
+                    AbstractEnemy itemObject = (AbstractEnemy)item;
+                    if (!itemObject.IsActive()) toRemove.Add(item);
                 }
             }
 

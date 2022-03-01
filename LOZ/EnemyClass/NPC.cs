@@ -11,7 +11,7 @@ namespace LOZ.EnemyClass
 
         public NPC(Point location)
         {
-            position = location;
+            Position = location;
             _texture = EnemySpriteFactory.Instance.CreateNPC();
         }
 

@@ -10,7 +10,7 @@ namespace LOZ.EnemyClass
     {
         public Skeleton(Point location) {
 
-            position = location;
+            Position = location;
             _texture = EnemySpriteFactory.Instance.CreateSkeleton();
             random = new Random();
             xPosition = random.Next(700, 900);
@@ -20,30 +20,30 @@ namespace LOZ.EnemyClass
 
         public override Rectangle GetHitBox()
         {
-            return new Rectangle(position.X - WidthSpriteSection / 2, position.Y - HeightSpriteSection / 2, 48, 64);
+            return new Rectangle(Position.X - WidthSpriteSection / 2, Position.Y - HeightSpriteSection / 2, 48, 64);
         }
 
         public override void Update(GameTime timer) {
 
-            if (position.X < xPosition)
+            if (Position.X < xPosition)
             {
-                position.X += 1;
+                modifyPosition(1, 0);
             }
             else
             {
-                position.X -= 1;
+                modifyPosition(-1, 0); ;
             }
 
-            if (position.Y < yPosition)
+            if (Position.Y < yPosition)
             {
-                position.Y += 1;
+                modifyPosition(0, 1);
             }
             else
             {
-                position.Y -= 1;
+                modifyPosition(0, -1);
             }
 
-            if (position.X == xPosition || position.Y == yPosition) {
+            if (Position.X == xPosition || Position.Y == yPosition) {
                 xPosition = random.Next(700, 900);
                 yPosition = random.Next(700, 900);
             }          

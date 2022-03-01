@@ -6,6 +6,7 @@ namespace LOZ.Collision
     public interface IGameObjects
     {
         public Rectangle GetHitBox();
+        
         public void Update(GameTime gameTime);
         public void Draw(SpriteBatch spriteBatch);
     }

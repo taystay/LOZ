@@ -8,9 +8,10 @@ namespace LOZ.EnemyClass
 {
     class Bat : AbstractEnemy
     {
+        private Point velocity;
         public Bat(Point location)
         {
-            position = location;
+            Position = location;
             _texture = EnemySpriteFactory.Instance.CreateBat();
             random = new Random();
             xPosition = random.Next(700, 900);
@@ -20,34 +21,17 @@ namespace LOZ.EnemyClass
 
         public override Rectangle GetHitBox()
         {
-            return new Rectangle(position.X-WidthSpriteSection/2, position.Y - HeightSpriteSection/2, 67, 40);
+            return new Rectangle(Position.X-WidthSpriteSection/2, Position.Y - HeightSpriteSection/2 + 10, 67, 40);
         }
 
         public override void Update(GameTime timer)
         {
-            if (position.X < xPosition)
+            if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
             {
-                position.X += 1;
+                velocity.X = random.Next(-4, 4);
+                velocity.Y = random.Next(-4, 4);
             }
-            else
-            {
-                position.X -= 1;
-            }
-
-            if (position.Y < yPosition)
-            {
-                position.Y += 1;
-            }
-            else
-            {
-                position.Y -= 1;
-            }
-
-            if (position.X == xPosition || position.Y == yPosition)
-            {
-                xPosition = random.Next(700, 900);
-                yPosition = random.Next(700, 900);
-            }
+            modifyPosition(velocity.X, velocity.Y);
             _texture.Update(timer);
         }
 

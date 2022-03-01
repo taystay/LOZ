@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.BlockSprites
 {
-	class Multicolored1Sprite :AbstractItemBlockClass
+	class Multicolored1Sprite : AbstractBlock
 	{
 		public Multicolored1Sprite(Texture2D texture)
 		{

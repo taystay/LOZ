@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.BlockSprites
 {
-    class BlackTileSprite : AbstractItemBlockClass
-    {
+    class BlackTileSprite : AbstractBlock
+	{
 		public BlackTileSprite(Texture2D texture)
 		{
 			scale = 2.0;

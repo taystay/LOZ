@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.BlockSprites
 {
-    class BlueSandBlockSprite : AbstractItemBlockClass
-    {
+    class BlueSandBlockSprite : AbstractBlock
+	{
 		//-----Constructor-----
 		public BlueSandBlockSprite(Texture2D texture)
 		{

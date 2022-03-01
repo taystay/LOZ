@@ -61,7 +61,7 @@ namespace LOZ.LinkClasses
 
         public Rectangle GetHitBox()
         {
-            Rectangle hitbox = new Rectangle(Position.X, Position.Y, 16, 16);
+            Rectangle hitbox = new Rectangle(Position.X - 48 / 2, Position.Y - 48 / 2, 48, 48);
             return hitbox;
         }
 

@@ -15,6 +15,7 @@ namespace LOZ.Collision
         private Rectangle firstBox;
         private Rectangle secondBox;
         private CollisionSide _side;
+        private Rectangle collisionBox;
         public CollisionBehavior()
         {
 
@@ -37,6 +38,7 @@ namespace LOZ.Collision
             firstBox = one.GetHitBox();
             secondBox = two.GetHitBox();
             _side = side;
+            
 
             //LINK && ENVIORNMENT COLLISION
             if (IsType(one, typeof(ILink)) && IsType(two, typeof(IEnvironment)))
@@ -47,12 +49,12 @@ namespace LOZ.Collision
                 HandleLinkEnemy((ILink)one, (IEnemy)two);
 
             //ENEMY && ENVIORNMENT COLLISION
-            else if (IsType(one, typeof(IEnemy)) && IsType(two, typeof(IEnvironment)))
-                HandleEnemyEnviornment((IEnemy)one, (IEnvironment)two);
+            else if (IsType(one, typeof(AbstractEnemy)) && IsType(two, typeof(IEnvironment)))
+                HandleEnemyEnviornment((AbstractEnemy)one, (IEnvironment)two);
 
             //PLAYER PROJECTILE && ENEMY
-            else if (IsType(one, typeof(IPlayerProjectile)) && IsType(two, typeof(IEnemy)))
-                HandleProjectileEnemy((IPlayerProjectile)one, (IEnemy)two);
+            else if (IsType(one, typeof(IPlayerProjectile)) && IsType(two, typeof(AbstractEnemy)))
+                HandleProjectileEnemy((IPlayerProjectile)one, (AbstractEnemy)two);
 
             //PLAYER PROJECTILE && LInk
             else if (IsType(one, typeof(ILink)) && IsType(two, typeof(IItem)))
@@ -65,7 +67,18 @@ namespace LOZ.Collision
         }
         private void HandleLinkEnviornment(ILink link, IEnvironment block)
         {
+            Point linkPos = link.Position;
+            collisionBox = Rectangle.Intersect(firstBox, secondBox);
             //Make link not be able to move forward at all.
+            if (_side == CollisionSide.Top)
+                link.Position = new Point(linkPos.X, linkPos.Y - collisionBox.Height);          
+            else if (_side == CollisionSide.Left)
+                link.Position = new Point(linkPos.X - collisionBox.Width, linkPos.Y);           
+            else if (_side == CollisionSide.Right)
+                link.Position = new Point(linkPos.X + collisionBox.Width, linkPos.Y);      
+            else if (_side == CollisionSide.Bottom)
+                link.Position = new Point(linkPos.X, linkPos.Y + collisionBox.Height);
+
         }
         private void HandleLinkProjectile(ILink link, IProjectile proj)
         {
@@ -80,23 +93,25 @@ namespace LOZ.Collision
             TestingRoom.Instance.Link.TakeDamage();
         }
 
-        private void HandleEnemyEnviornment(IEnemy enemy, IEnvironment block)
+        private void HandleEnemyEnviornment(AbstractEnemy enemy, IEnvironment block)
         {
-            //Make enemy not be able to move forward when walking into a wall
-            //only way to do this right is by testing.
-            //Rectangle enemRec = enemy.GetHitBox();
-            //Rectangle blockRec = block.GetHitBox();
-            //dx = enemyRec.X - blockRec.X
-            //dy = enemyRec.Y - blockRec.Y
-            //IF(SIDE == DOWN)
-            //enemy.position = new Point(enemyRec.X, enemyRec.Y - dy)
-
-            //ROUGHLY something like that.
+            Point enemyPos = enemy.Position;
+            collisionBox = Rectangle.Intersect(firstBox, secondBox);
+            //Make link not be able to move forward at all.
+            if (_side == CollisionSide.Top)
+                enemy.Position = new Point(enemyPos.X, enemyPos.Y - collisionBox.Height);
+            else if (_side == CollisionSide.Left)
+                enemy.Position = new Point(enemyPos.X - collisionBox.Width, enemyPos.Y);
+            else if (_side == CollisionSide.Right)
+                enemy.Position = new Point(enemyPos.X + collisionBox.Width, enemyPos.Y);
+            else if (_side == CollisionSide.Bottom)
+                enemy.Position = new Point(enemyPos.X, enemyPos.Y + collisionBox.Height);
         }
 
-        private void HandleProjectileEnemy(IPlayerProjectile link, IEnemy enemy)
+        private void HandleProjectileEnemy(IPlayerProjectile proj, AbstractEnemy enemy)
         {
             //Make enemy take damage or maybe disappear for the time being or even teleport back or move back
+            enemy.KillItem();
         }
 
         private void HandleLinkItem(ILink link, IItem item)

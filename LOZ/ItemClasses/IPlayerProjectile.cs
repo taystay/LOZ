@@ -22,7 +22,7 @@ namespace LOZ.ItemsClasses
             spriteActivity = false;
         }
 
-        public Rectangle GetHitBox()
+        public virtual Rectangle GetHitBox()
         {
             Rectangle hitbox = new Rectangle(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
             return hitbox;

@@ -26,9 +26,37 @@ namespace LOZ.GameState
             
         }
 
+        private void EnemyCollisionTesting()
+        {
+            int dz = 48;
+
+            gameObjects.Add(new Bat(new Point(800, 800)));
+            
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 2*dz, 800 + 0*dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 2 * dz, 800 + 1 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 2 * dz, 800 + 2 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 2 * dz, 800 + -1 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 2 * dz, 800 + -2 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + -2 * dz, 800 + 0 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + -2 * dz, 800 + 1 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + -2 * dz, 800 + 2 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + -2 * dz, 800 + -1 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + -2 * dz, 800 + -2 * dz)));
+
+            gameObjects.Add(new BlackTileBlock(new Point(800 + -1 * dz, 800 + -2 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 0 * dz, 800 + -2 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 1 * dz, 800 + -2 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + -1 * dz, 800 + 2 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 0 * dz, 800 + 2 * dz)));
+            gameObjects.Add(new BlackTileBlock(new Point(800 + 1 * dz, 800 + 2 * dz)));
+            
+
+        }
+
         private void LoadItemsForTesting()
         {
             gameObjects.Add(new ArrowItem(new Point(100, 100)));
+            
             gameObjects.Add(new Bow(new Point(200, 100)));
             gameObjects.Add(new Clock(new Point(300, 100)));
             gameObjects.Add(new Compass(new Point(400, 100)));
@@ -47,6 +75,7 @@ namespace LOZ.GameState
             int x = 75;
             int y = 75;
             gameObjects.Add(new BlackTileBlock(     new Point(11*x,10*y)));
+            /*
             gameObjects.Add(new BlueSandBlock(      new Point(12*x,10*y)));
             gameObjects.Add(new BlueTriangleBlock(  new Point(13*x,10*y)));
             gameObjects.Add(new DarkBlueBlock(      new Point(14*x,10*y)));
@@ -54,6 +83,7 @@ namespace LOZ.GameState
             gameObjects.Add(new MulticoloredBlock2( new Point(16*x,10*y)));
             gameObjects.Add(new SolidBlueBlock(     new Point(17*x,10*y)));
             gameObjects.Add(new StairsBlock(        new Point(18*x,10*y)));
+            */
         }
 
         private void LoadEnemiesForTesting()
@@ -81,7 +111,8 @@ namespace LOZ.GameState
 
             //LoadItemsForTesting();
             //LoadBlocksForTesting();
-            LoadEnemiesForTesting();
+            //LoadEnemiesForTesting();
+            EnemyCollisionTesting();
         }
     }
 }
