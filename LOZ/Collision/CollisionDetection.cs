@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace LOZ.Collision
 {
-    enum CollisionSide
+    public enum CollisionSide
     {
         Top,
         Bottom,
