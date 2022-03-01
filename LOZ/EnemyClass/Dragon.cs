@@ -13,15 +13,11 @@ namespace LOZ.EnemyClass
 {
     class Dragon : AbstractEnemy
     {
-
- 
         public Dragon(Point location)
         {
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateDragon();
-            random = new Random();
-            xPosition = random.Next(700, 900);
-           
+            random = new Random();     
         }
 
         public override Rectangle GetHitBox()
@@ -31,21 +27,15 @@ namespace LOZ.EnemyClass
 
         public override void Update(GameTime timer)
         {
-            
-            if (Position.X < xPosition)
-            {
-                modifyPosition(1, 0);
 
-            } else
+
+            if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
             {
-                modifyPosition(-1, 0);
+                velocity.X = random.Next(-4, 4);
+            
             }
 
-            if (Position.X == xPosition )
-            {
-                xPosition = random.Next(700, 900);
-            }
-            
+            modifyPosition(velocity.X,0);
 
             if ((int) timer.TotalGameTime.TotalMilliseconds % 5000 == 0) {
                 TestingRoom.Instance.gameObjects.Add(new DragonBreathe(Position,-1)); //top fireball

@@ -9,11 +9,9 @@ namespace LOZ.EnemyClass
     {
         private protected const int HeightSpriteSection = 83;
         private protected const int WidthSpriteSection = 64;
-        //private protected int scale;
         private protected ISprite _texture;
         public Point Position { get; set; }
-        private protected int xPosition;
-        private protected int yPosition;
+        private protected Point velocity;
         private protected Random random;
         private protected bool isActive = true;
 
@@ -26,9 +24,7 @@ namespace LOZ.EnemyClass
             return isActive;
         }
 
-
-
-        public void modifyPosition(int dx, int dy)
+        protected void modifyPosition(int dx, int dy)
         {
             Position = new Point(Position.X + dx, Position.Y + dy);
         }

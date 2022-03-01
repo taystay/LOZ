@@ -8,14 +8,11 @@ namespace LOZ.EnemyClass
 {
     class Bat : AbstractEnemy
     {
-        private Point velocity;
         public Bat(Point location)
         {
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateBat();
             random = new Random();
-            xPosition = random.Next(700, 900);
-            yPosition = random.Next(700, 900);
 
         }
 
@@ -31,7 +28,9 @@ namespace LOZ.EnemyClass
                 velocity.X = random.Next(-4, 4);
                 velocity.Y = random.Next(-4, 4);
             }
+
             modifyPosition(velocity.X, velocity.Y);
+
             _texture.Update(timer);
         }
 
