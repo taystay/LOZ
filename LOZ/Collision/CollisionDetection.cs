@@ -59,8 +59,6 @@ namespace LOZ.Collision
                     }
 
                 }
-
-          
             }
         }
 

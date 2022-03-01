@@ -24,7 +24,5 @@ namespace LOZ.GameState
             Link = new Link(new Point(1000, 500));
             gameObjects.Add(Link);
         }
-
-
     }
 }

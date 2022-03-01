@@ -68,7 +68,5 @@ namespace LOZ.GameState
                 gameObjects.Remove(item);
             }
         }
-
-
     }
 }

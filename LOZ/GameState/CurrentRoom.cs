@@ -43,7 +43,5 @@ namespace LOZ.GameState
         {
             Room.Draw(spriteBatch);
         }
-
-
     }
 }

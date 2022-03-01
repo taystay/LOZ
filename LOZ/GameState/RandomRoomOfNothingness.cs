@@ -113,7 +113,5 @@ namespace LOZ.GameState
             }
             gameObjects.Add(block);
         }
-
-
     }
 }
