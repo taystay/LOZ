@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
+using LOZ.Collision;
 
 namespace LOZ.ItemsClasses
 {
@@ -22,9 +23,9 @@ namespace LOZ.ItemsClasses
             spriteActivity = false;
         }
 
-        public virtual Rectangle GetHitBox()
+        public virtual Hitbox GetHitBox()
         {
-            Rectangle hitbox = new Rectangle(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
+            Hitbox hitbox = new Hitbox(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
             return hitbox;
         }
 

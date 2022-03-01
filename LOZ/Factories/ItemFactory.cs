@@ -135,5 +135,10 @@ namespace LOZ.Factories
 		{
 			return new FairySprite(ItemSpriteSheet);
 		}
+
+		public ISprite CreateYellowPixelSprite()
+		{
+			return new YellowPixelSprite(ItemSpriteSheet);
+		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.GameState;
+using LOZ.Collision;
 
 namespace LOZ.LinkClasses
 {
@@ -62,9 +63,9 @@ namespace LOZ.LinkClasses
             return decoratedLink.GetPosition();
         }
 
-        public Rectangle GetHitBox()
+        public Hitbox GetHitBox()
         {
-            Rectangle hitbox = new Rectangle(Position.X - 48 / 2, Position.Y - 48 / 2, 48, 48);
+            Hitbox hitbox = new Hitbox(Position.X - 48 / 2, Position.Y - 48 / 2, 48, 48);
             return hitbox;
         }
 

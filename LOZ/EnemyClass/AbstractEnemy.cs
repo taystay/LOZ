@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using System;
+using LOZ.Collision;
 
 namespace LOZ.EnemyClass
 {
@@ -29,7 +30,7 @@ namespace LOZ.EnemyClass
             Position = new Point(Position.X + dx, Position.Y + dy);
         }
 
-        public abstract Rectangle GetHitBox();
+        public abstract Hitbox GetHitBox();
         public abstract void Update(GameTime timer);
         public void Draw(SpriteBatch spriteBatch)
         {

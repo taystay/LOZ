@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
+using LOZ.Collision;
 
 
 namespace LOZ.EnemyClass
@@ -15,9 +16,9 @@ namespace LOZ.EnemyClass
             _texture = EnemySpriteFactory.Instance.CreateNPC();
         }
 
-        public override Rectangle GetHitBox()
+        public override Hitbox GetHitBox()
         {
-            return new Rectangle(-50 ,-50,0,0);
+            return new Hitbox(-50 ,-50,0,0);
         }
 
         public override void Update(GameTime timer)

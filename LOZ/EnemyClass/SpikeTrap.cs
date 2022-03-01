@@ -2,6 +2,7 @@
 using LOZ.Factories;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using LOZ.Collision;
 
 namespace LOZ.EnemyClass
 {
@@ -12,9 +13,9 @@ namespace LOZ.EnemyClass
             Position = location;
         }
 
-        public override Rectangle GetHitBox()
+        public override Hitbox GetHitBox()
         {
-            return new Rectangle(Position.X - 8, Position.Y - 8,  16, 16);
+            return new Hitbox(Position.X - 8, Position.Y - 8,  16, 16);
         }
 
         public override void Update(GameTime timer) {

@@ -35,8 +35,8 @@ namespace LOZ.Collision
         }
         public void HandleCollision(IGameObjects one, IGameObjects two, CollisionSide side)
         {
-            firstBox = one.GetHitBox();
-            secondBox = two.GetHitBox();
+            firstBox = one.GetHitBox().ToRectangle();
+            secondBox = two.GetHitBox().ToRectangle();
             _side = side;
             
 

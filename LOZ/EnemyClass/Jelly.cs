@@ -3,6 +3,7 @@ using LOZ.SpriteClasses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
+using LOZ.Collision;
 
 
 namespace LOZ.EnemyClass
@@ -16,9 +17,9 @@ namespace LOZ.EnemyClass
             random = new Random();
         }
 
-        public override Rectangle GetHitBox()
+        public override Hitbox GetHitBox()
         {
-            return new Rectangle(Position.X - WidthSpriteSection / 2, Position.Y - HeightSpriteSection / 2, 16, 19);
+            return new Hitbox(Position.X - WidthSpriteSection / 2, Position.Y - HeightSpriteSection / 2, 16, 19);
         }
 
         public override void Update(GameTime timer)

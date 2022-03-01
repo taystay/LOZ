@@ -21,8 +21,8 @@ namespace LOZ.Collision
         }
         public void CheckCollision(IGameObjects objOne, IGameObjects objTwo)
         {
-            Rectangle rec1 = objOne.GetHitBox();
-            Rectangle rec2 = objTwo.GetHitBox();
+            Rectangle rec1 = objOne.GetHitBox().ToRectangle();
+            Rectangle rec2 = objTwo.GetHitBox().ToRectangle();
 
             if (rec1.Intersects(rec2)) {
                 

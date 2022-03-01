@@ -85,10 +85,10 @@ namespace LOZ.GameState
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
             foreach(IGameObjects item in gameObjects)
             {
                 item.Draw(spriteBatch);
+                item.GetHitBox().Draw(spriteBatch);
             }
             Link.Draw(spriteBatch);
         }

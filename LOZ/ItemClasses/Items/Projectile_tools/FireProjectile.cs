@@ -19,7 +19,9 @@ namespace LOZ.ItemsClasses
             _direction = direction;
             sprite = ItemFactory.Instance.CreateFireItemSprite();
             _itemLocation = itemLocation;
-        }
+            hitBoxWidth = 50;
+            hitBoxHeight = 50;
+    }
 
         public override void Update(GameTime gameTime)
         {

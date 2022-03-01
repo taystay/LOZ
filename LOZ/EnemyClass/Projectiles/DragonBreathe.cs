@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
+using LOZ.Collision;
 
 
 namespace LOZ.EnemyClass.Projectiles
@@ -24,8 +25,8 @@ namespace LOZ.EnemyClass.Projectiles
             changeY = changeYPosition;
         }
 
-        public Rectangle GetHitBox() {
-            return new Rectangle(fireBallPosition.X , fireBallPosition.Y , 10 * 3, 10 * 3);
+        public Hitbox GetHitBox() {
+            return new Hitbox(fireBallPosition.X , fireBallPosition.Y , 10 * 3, 10 * 3);
         }
         
         public void Update(GameTime timer)

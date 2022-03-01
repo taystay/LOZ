@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using LOZ.Factories;
+using LOZ.Collision;
 
 namespace LOZ.ItemsClasses
 {
@@ -23,12 +24,12 @@ namespace LOZ.ItemsClasses
             hitBoxHeight = 34;
         }
 
-        public override Rectangle GetHitBox()
+        public override Hitbox GetHitBox()
         {
             if (spriteChanged)
-                return  new Rectangle(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, 75, 75);
+                return  new Hitbox(_itemLocation.X - 75 / 2 , _itemLocation.Y - 75 / 2, 75, 75);
             else
-                return new Rectangle(-50, -50,0,0);
+                return new Hitbox(-50, -50,0,0);
 
         }
 
