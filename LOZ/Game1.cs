@@ -25,6 +25,8 @@ namespace LOZ
             // https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
             graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
             graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            //graphics.PreferredBackBufferWidth = 640;
+            //graphics.PreferredBackBufferHeight = 900;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 

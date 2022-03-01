@@ -15,7 +15,7 @@ namespace LOZ.EnemyClass
 
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(Position.X - 8, Position.Y - 8,  16, 16);
+            return new Hitbox(Position.X -10, Position.Y - 10,  32, 32);
         }
 
         public override void Update(GameTime timer) {

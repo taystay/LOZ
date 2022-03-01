@@ -21,7 +21,7 @@ namespace LOZ.SpriteClasses.EnemeySprite
             int column = 0;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width * scale, height * scale);
+            Rectangle destinationRectangle = new Rectangle(location.X - sourceRectangle.Width / 2, location.Y - sourceRectangle.Height / 2, width * scale, height * scale);
 
             //for SpriteBatch.Begin(...)
             //the paramater idea was from:
