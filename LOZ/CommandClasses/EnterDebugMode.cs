@@ -9,7 +9,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            TestingRoom room = TestingRoom.Instance;
+            Room room = CurrentRoom.Room;
             room.DEBUGMODE = !room.DEBUGMODE;
         }
     }

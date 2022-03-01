@@ -22,7 +22,7 @@ namespace LOZ.LinkClasses
             /*
              * 
              */
-            TestingRoom.Instance.Link = new DamagedLink(link);
+            CurrentRoom.Room.Link = new DamagedLink(link);
         }
         public virtual void Update(GameTime timer)
         {

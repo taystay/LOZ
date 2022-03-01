@@ -17,7 +17,7 @@ namespace LOZ.GameState
         public bool DEBUGMODE { get; set; } = false;
         private protected CollisionIterator colliders;        
         
-        public abstract void LoadContent(ContentManager Content);       
+        public abstract void LoadContent();       
 
         public void Update(GameTime gameTime)
         {         

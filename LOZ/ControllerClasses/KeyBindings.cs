@@ -15,15 +15,16 @@ namespace LOZ.ControllerClasses
 
             ControllerMappings.RegisterInitialCommand(Keys.Q, new QuitGame(gameObject));
             ControllerMappings.RegisterReleaseCommand(Keys.LeftShift, new EnterDebugMode());
+            ControllerMappings.RegisterReleaseCommand(Keys.Enter, new SwitchRoom());
 
-            ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(gameObject.CurrentRoom));
-            ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(gameObject.CurrentRoom));
-            ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(gameObject.CurrentRoom));
-            ControllerMappings.RegisterInitialCommand(Keys.D4, new AttackFire(gameObject.CurrentRoom));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad1, new AttackSword(gameObject.CurrentRoom));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(gameObject.CurrentRoom));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(gameObject.CurrentRoom));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(gameObject.CurrentRoom));
+            ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(CurrentRoom.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(CurrentRoom.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(CurrentRoom.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.D4, new AttackFire(CurrentRoom.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad1, new AttackSword(CurrentRoom.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(CurrentRoom.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(CurrentRoom.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(CurrentRoom.Room));
 
             ControllerMappings.RegisterReleaseCommand(Keys.D1, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.D2, new Idle());

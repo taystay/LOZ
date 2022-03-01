@@ -10,7 +10,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            TestingRoom.Instance.Link.Attack(Weapon.Default);
+            CurrentRoom.Room.Link.Attack(Weapon.Default);
         }
     }
 }

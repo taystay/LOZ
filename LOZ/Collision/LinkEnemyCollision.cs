@@ -6,7 +6,7 @@ namespace LOZ.Collision
     {
         public static void Handle()
         {
-            TestingRoom.Instance.Link.TakeDamage();
+            CurrentRoom.Room.Link.TakeDamage();
         }
     }
 }

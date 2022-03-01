@@ -47,7 +47,7 @@ namespace LOZ.SpriteClasses.LinkSprites
             //https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
             //https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-            if (TestingRoom.Instance.Damaged)
+            if (CurrentRoom.Room.Damaged)
                 spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.HotPink);
             else
                 spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.White);

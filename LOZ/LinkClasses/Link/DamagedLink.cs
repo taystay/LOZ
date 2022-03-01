@@ -15,7 +15,7 @@ namespace LOZ.LinkClasses
         public DamagedLink(ILink decoratedLink)
         {
             this.decoratedLink = decoratedLink;
-            TestingRoom.Instance.Damaged = true;
+            CurrentRoom.Room.Damaged = true;
         }
 
         public void ChangeDirectionUp()
@@ -81,8 +81,8 @@ namespace LOZ.LinkClasses
 
         public void RemoveDecorator()
         {
-            TestingRoom.Instance.Link = decoratedLink;
-            TestingRoom.Instance.Damaged = false;
+            CurrentRoom.Room.Link = decoratedLink;
+            CurrentRoom.Room.Damaged = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)

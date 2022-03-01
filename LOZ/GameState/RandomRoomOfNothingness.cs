@@ -10,19 +10,22 @@ using LOZ.EnvironmentalClasses;
 using System;
 namespace LOZ.GameState
 {
-    class TestingRoom : Room
+    public class TestRoom : Room
     {
-        private static TestingRoom instance = new TestingRoom();
-        public static TestingRoom Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
-        private TestingRoom()
+        public TestRoom()
         {
             
+        }
+
+        public override void LoadContent()
+        {
+            gameObjects = new List<IGameObjects>();
+            colliders = new CollisionIterator(gameObjects);
+            Link = new Link(new Point(1000, 500));
+            gameObjects.Add(Link);
+            LoadAllItems();
+            LoadBorder(30, 15, 48 + 48);
+            LoadEnemiesForTesting();
         }
 
         private void LoadAllItems()
@@ -41,38 +44,15 @@ namespace LOZ.GameState
             gameObjects.Add(new Triforce(new Point(300, 200 + 50)));
         }
 
-        private void PlaceRandomBlock(int x, int y, Random rand)
+
+        private void LoadEnemiesForTesting()
         {
-            int r = rand.Next() % 8;
-            IEnvironment block;
-            switch(r)
-            {
-                case 1:
-                    block = new BlackTileBlock(new Point(x, y));
-                    break;
-                case 2:
-                    block = new BlueSandBlock(new Point(x, y));
-                    break;
-                case 3:
-                    block = new BlueTriangleBlock(new Point(x, y));
-                    break;
-                case 4:
-                    block = new DarkBlueBlock(new Point(x, y));
-                    break;
-                case 5:
-                    block = new MulticoloredBlock1(new Point(x, y));
-                    break;
-                case 6:
-                    block = new MulticoloredBlock2(new Point(x, y));
-                    break;
-                case 7:
-                    block = new SolidBlueBlock(new Point(x, y));
-                    break;
-                default:
-                    block = new StairsBlock(new Point(x, y));
-                    break;
-            }
-            gameObjects.Add((IGameObjects)block);
+            gameObjects.Add(new Bat(new Point(600, 500)));
+            gameObjects.Add(new Dragon(new Point(200, 500)));
+            gameObjects.Add(new Jelly(new Point(1000, 500)));
+            gameObjects.Add(new NPC(new Point(700, 300)));
+            gameObjects.Add(new Skeleton(new Point(700, 500)));
+            gameObjects.Add(new SpikeTrap(new Point(500, 400)));
         }
 
         private void LoadBorder(int width, int height, int dx)
@@ -100,32 +80,40 @@ namespace LOZ.GameState
             }
         }
 
-        private void LoadEnemiesForTesting()
+        private void PlaceRandomBlock(int x, int y, Random rand)
         {
-            gameObjects.Add(new Bat(new Point(600, 500)));
-            gameObjects.Add(new Dragon(new Point(200, 500)));
-            gameObjects.Add(new Jelly(new Point(1000, 500)));
-            gameObjects.Add(new NPC(new Point(700, 300)));
-            gameObjects.Add(new Skeleton(new Point(700, 500)));
-            gameObjects.Add(new SpikeTrap(new Point(500, 400)));
+            int r = rand.Next() % 8;
+            IEnvironment block;
+            switch (r)
+            {
+                case 1:
+                    block = new BlackTileBlock(new Point(x, y));
+                    break;
+                case 2:
+                    block = new BlueSandBlock(new Point(x, y));
+                    break;
+                case 3:
+                    block = new BlueTriangleBlock(new Point(x, y));
+                    break;
+                case 4:
+                    block = new DarkBlueBlock(new Point(x, y));
+                    break;
+                case 5:
+                    block = new MulticoloredBlock1(new Point(x, y));
+                    break;
+                case 6:
+                    block = new MulticoloredBlock2(new Point(x, y));
+                    break;
+                case 7:
+                    block = new SolidBlueBlock(new Point(x, y));
+                    break;
+                default:
+                    block = new StairsBlock(new Point(x, y));
+                    break;
+            }
+            gameObjects.Add(block);
         }
 
-        public override void LoadContent(ContentManager Content)
-        {
-            ItemFactory.Instance.LoadAllTextures(Content);
-            LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            gameObjects = new List<IGameObjects>();
-            colliders = new CollisionIterator(gameObjects);
-            
 
-            Link = new Link(new Point(500, 500));
-            gameObjects.Add((IGameObjects)Link);
-
-            LoadAllItems();
-            LoadBorder(30 ,15  , 48);
-            LoadEnemiesForTesting();
-        }
     }
 }
