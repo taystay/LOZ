@@ -47,7 +47,7 @@ namespace LOZ.GameState
 
         public void Update(GameTime gameTime)
         {
-            coll.Iterate();
+            
 
             
             Link.Update(gameTime);
@@ -81,6 +81,8 @@ namespace LOZ.GameState
             {
                 gameObjects.Remove(item);
             }
+
+            coll.Iterate();
         }
 
         public void Draw(SpriteBatch spriteBatch)
