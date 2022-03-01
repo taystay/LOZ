@@ -117,7 +117,7 @@ namespace LOZ.GameState
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             gameObjects = new List<IGameObjects>();
-            coll = new CollisionIterator(gameObjects);
+            colliders = new CollisionIterator(gameObjects);
             
 
             Link = new Link(new Point(500, 500));

@@ -14,6 +14,7 @@ namespace LOZ.ControllerClasses
             ControllerMappings = new KeyboardController(gameObject);
 
             ControllerMappings.RegisterInitialCommand(Keys.Q, new QuitGame(gameObject));
+            ControllerMappings.RegisterReleaseCommand(Keys.LeftShift, new EnterDebugMode());
 
             ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(gameObject.CurrentRoom));
             ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(gameObject.CurrentRoom));
