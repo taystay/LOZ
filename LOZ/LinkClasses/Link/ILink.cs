@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using LOZ.Collision;
+using LOZ.ItemsClasses;
 
 namespace LOZ.LinkClasses
 {
@@ -21,6 +22,7 @@ namespace LOZ.LinkClasses
         public void ChangeDirectionRight();
         public void Move();
         public void Idle();
+        public void RaiseItem(IItem item);
         public void Attack(Weapon currentUse);
         public void TakeDamage();
         public Point GetPosition();

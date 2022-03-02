@@ -2,6 +2,8 @@
 using LOZ.GameState;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
+using LOZ.LinkClasses.States;
+using LOZ.ItemsClasses;
 
 namespace LOZ.LinkClasses
 {
@@ -20,6 +22,10 @@ namespace LOZ.LinkClasses
         public virtual void TakeDamage()
         {
             CurrentRoom.Room.Link = new DamagedLink(link);
+        }
+        public virtual void RaiseItem(IItem item)
+        {
+            link.LinkState = new RaiseItemLinkState(link, item);
         }
         public virtual void Update(GameTime timer)
         {

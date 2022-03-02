@@ -142,6 +142,9 @@ namespace LOZ.Factories
 
 		}
 
-
+		public ISprite LinkRaiseItem()
+        {
+			return new LinkRaiseItem(linkSpriteSheet);
+        }
 	}
 }

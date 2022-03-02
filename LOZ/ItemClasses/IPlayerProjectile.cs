@@ -13,6 +13,11 @@ namespace LOZ.ItemsClasses
         private protected int hitBoxWidth = 2;
         private protected int hitBoxHeight = 2;
 
+        public void SetPosition(Point position)
+        {
+            _itemLocation = position;
+        }
+
         public bool SpriteActive()
         {
             return spriteActivity;

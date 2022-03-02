@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Collision;
+using LOZ.ItemsClasses;
 
 namespace LOZ.LinkClasses
 {
@@ -43,6 +44,11 @@ namespace LOZ.LinkClasses
         public void Idle()
         {
             LinkState.Idle();
+        }
+
+        public void RaiseItem(IItem item)
+        {
+            LinkState.RaiseItem(item);
         }
 
         public void Attack(Weapon currentUse)
