@@ -1,17 +1,17 @@
 ﻿using System.IO;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using LOZ.EnvironmentalClasses;
 using LOZ.Collision;
+using Microsoft.Xna.Framework;
 
 namespace LOZ.MapIO
 {
     class MapIO
     {
-        //private enum Tiles{ SolidBlue, Black, BlueSand, BlueTriangle, DarkBlue};
-        //private enum BlockNum { _blockNum}
-        Dictionary<string, List<IGameObjects>> listOfRooms;
+        Dictionary<Point, List<IGameObjects>> listOfRooms;
         string folder;
-        public MapIO(Dictionary<string, List<IGameObjects>> rooms, string folderPathName) {
+        public MapIO(Dictionary<Point, List<IGameObjects>> rooms , string folderPathName) {
             listOfRooms = rooms;
             folder = folderPathName;
         }
@@ -26,10 +26,16 @@ namespace LOZ.MapIO
                 StreamReader reader = new StreamReader(pathName);
                 List<IGameObjects> objects = new List<IGameObjects>();
 
+                Point gridLocation = (Point)Convert.ChangeType(reader.ReadLine(), typeof(Point));
+
                 while (reader.Peek() != -1) {
                     string lineRead = reader.ReadLine();
                     ParseLine(objects, lineRead);
                 }
+
+                listOfRooms.Add(gridLocation, objects);
+
+               
 
             }
         }
@@ -38,11 +44,19 @@ namespace LOZ.MapIO
 
             int i=0;
             int commaPosition;
+            Point location = new Point(100, 100);
+
             //https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0#properties
-            while (i< lineRead.Length)
+            while (i<lineRead.Length)
             {
                 //https://docs.microsoft.com/en-us/dotnet/api/system.string.indexof?view=net-6.0#system-string-indexof(system-char)
- 
+                commaPosition = lineRead.IndexOf(',',i);
+             
+                //https://docs.microsoft.com/en-us/dotnet/api/system.convert.changetype?view=net-6.0#system-convert-changetype(system-object-system-type)
+                IGameObjects blockType = (IGameObjects) Convert.ChangeType(lineRead.Substring(i, commaPosition), typeof(IGameObjects));
+                i += commaPosition;
+                obj.Add(blockType);
+              
             }
 
         }
