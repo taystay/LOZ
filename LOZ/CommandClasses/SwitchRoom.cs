@@ -12,12 +12,12 @@ namespace LOZ.CommandClasses
         {
             Room room = CurrentRoom.Room;
             
-            if(Type.Check(room, typeof(TestRoom)))
+            if(Type.Check(room, typeof(DevRoom)))
             {
-                CurrentRoom.Room = new RandomRoomOfNothingness();
+                CurrentRoom.Room = new EmptyRoom();
             } else
             {
-                CurrentRoom.Room = new TestRoom();
+                CurrentRoom.Room = new DevRoom();
             }
             CurrentRoom.Instance.LoadContent();
         }

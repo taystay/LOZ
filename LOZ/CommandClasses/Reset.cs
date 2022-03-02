@@ -10,7 +10,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            CurrentRoom.Room = new TestRoom();
+            CurrentRoom.Room = new DevRoom();
             CurrentRoom.Instance.LoadContent();
         }
     }

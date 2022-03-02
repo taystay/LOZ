@@ -40,7 +40,7 @@ namespace LOZ
         {
             
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            CurrentRoom.Room = new TestRoom();
+            CurrentRoom.Room = new DevRoom();
             CurrentRoom.Room.LoadContent();
 
         }

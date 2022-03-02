@@ -10,9 +10,9 @@ using LOZ.EnvironmentalClasses;
 using System;
 namespace LOZ.GameState
 {
-    public class TestRoom : Room
+    public class DevRoom : Room
     {
-        public TestRoom()
+        public DevRoom()
         {
             
         }

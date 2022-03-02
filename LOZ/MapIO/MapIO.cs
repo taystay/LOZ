@@ -54,6 +54,7 @@ namespace LOZ.MapIO
              
                 //https://docs.microsoft.com/en-us/dotnet/api/system.convert.changetype?view=net-6.0#system-convert-changetype(system-object-system-type)
                 IGameObjects blockType = (IGameObjects) Convert.ChangeType(lineRead.Substring(i, commaPosition), typeof(IGameObjects));
+                //gameObjects.Add(StringToBlock.Convert(lineRead.Substring(i, commaPosition), x, y));
                 i += commaPosition;
                 obj.Add(blockType);
               
