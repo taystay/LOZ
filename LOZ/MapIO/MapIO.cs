@@ -21,45 +21,79 @@ namespace LOZ.MapIO
             //https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.getfiles?view=net-6.0#system-io-directory-getfiles(system-string-system-string)
             string[] allMapsPaths = Directory.GetFiles(folder);
 
-            int i = 0;
             foreach (string pathName in allMapsPaths) {
                 StreamReader reader = new StreamReader(pathName);
                 List<IGameObjects> objects = new List<IGameObjects>();
 
-                Point gridLocation = (Point)Convert.ChangeType(reader.ReadLine(), typeof(Point));
+                string position = reader.ReadLine();
+                int xPosition = Convert.ToInt32(position.Substring(1, 1));
+                int yPosition = Convert.ToInt32(position.Substring(3, 1));
 
-                while (reader.Peek() != -1) {
-                    string lineRead = reader.ReadLine();
-                    ParseLine(objects, lineRead);
-                }
+                ParseDoor(objects, reader.ReadLine());
+                ParseRoom(objects, reader);
 
-                listOfRooms.Add(gridLocation, objects);
-
-               
+                listOfRooms.Add(new Point(xPosition,yPosition), objects);
 
             }
         }
 
-        private void ParseLine(List<IGameObjects> obj, string lineRead) {
+        private void ParseRoom(List<IGameObjects> obj, StreamReader reader) {
 
-            int i=0;
-            int commaPosition;
+            int i = 0, xIndex = 0, yIndex=0, commaPosition=0, ;
+            
             Point location = new Point(100, 100);
 
-            //https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0#properties
-            while (i<lineRead.Length)
-            {
-                //https://docs.microsoft.com/en-us/dotnet/api/system.string.indexof?view=net-6.0#system-string-indexof(system-char)
-                commaPosition = lineRead.IndexOf(',',i);
-             
-                //https://docs.microsoft.com/en-us/dotnet/api/system.convert.changetype?view=net-6.0#system-convert-changetype(system-object-system-type)
-                IGameObjects blockType = (IGameObjects) Convert.ChangeType(lineRead.Substring(i, commaPosition), typeof(IGameObjects));
-                //gameObjects.Add(StringToBlock.Convert(lineRead.Substring(i, commaPosition), x, y));
-                i += commaPosition;
-                obj.Add(blockType);
-              
+            while (reader.Peek() != 1 && yIndex != 9) {
+                string lineRead = reader.ReadLine();
+
+                while (xIndex < 14)
+                {
+                    //https://docs.microsoft.com/en-us/dotnet/api/system.string.indexof?view=net-6.0#system-string-indexof(system-char)
+                    commaPosition = lineRead.IndexOf(',', i);
+
+                    obj.Add(StringToBlock.Convert(lineRead.Substring(i, commaPosition), location.X, location.Y));
+                    i += commaPosition;
+                    location.X += 48;
+                    xIndex++;
+
+                    if (xIndex == 13) {
+                        location.Y += 48;
+                        location.X = 100;                    
+                    }
+                }
+
+                xIndex = 0;
+                yIndex++;
             }
 
         }
+
+        private void ParseDoor(List<IGameObjects> obj, string lineRead) {
+
+            int index = 0;
+            int i = 0;
+            int commaPosition = 0;
+            Point location = new Point(500, 100);
+
+            while (index < 4) {
+                commaPosition = lineRead.IndexOf(',', i);
+
+                obj.Add(StringToDoor.Convert(lineRead.Substring(i, commaPosition), location.X, location.Y));
+                if (index == 1)
+                {
+
+                }
+                else if (index == 2)
+                {
+
+                }
+                else { 
+                
+                }
+            }
+        
+        }
+
+
     }
 }
