@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
+using LOZ.Collision;
 
 namespace LOZ.EnvironmentalClasses
 {
@@ -11,6 +12,10 @@ namespace LOZ.EnvironmentalClasses
         {
             sprite = BlockSpriteFactory.Instance.CreateMulticolored2Sprite();
             this.itemLocation = itemLocation;
+        }
+        public override Hitbox GetHitBox()
+        {
+            return new Hitbox(itemLocation.X - 32, itemLocation.Y - 32, 48, 48);
         }
         public override void Update(GameTime gameTime)
         {

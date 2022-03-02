@@ -12,11 +12,7 @@ namespace LOZ.EnvironmentalClasses
 		private protected Point itemLocation;
 		public abstract void Update(GameTime timer);
 
-		public Hitbox GetHitBox()
-		{
-
-			return new Hitbox(itemLocation.X - 32, itemLocation.Y - 32, 48, 48);
-		}
+		public abstract Hitbox GetHitBox();
 
 		public void Draw(SpriteBatch spriteBatch) {
 			sprite.Draw(spriteBatch, itemLocation);
