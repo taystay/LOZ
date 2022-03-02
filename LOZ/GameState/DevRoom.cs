@@ -8,6 +8,7 @@ using LOZ.Collision;
 using LOZ.EnemyClass;
 using LOZ.EnvironmentalClasses;
 using System;
+using LOZ.DungeonClasses;
 namespace LOZ.GameState
 {
     public class DevRoom : Room
@@ -23,6 +24,7 @@ namespace LOZ.GameState
             colliders = new CollisionIterator(gameObjects);
             Link = new Link(new Point(1000, 500));
             gameObjects.Add(Link);
+            gameObjects.Add(new ExteriorObject(new Point(200, 200)));
             LoadAllItems();
             LoadBorder(30, 15, 48 + 48);
             LoadEnemiesForTesting();

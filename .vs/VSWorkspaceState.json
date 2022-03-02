@@ -2,13 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\LOZ",
-    "\\LOZ\\Collision",
-    "\\LOZ\\EnvironmentClasses",
-    "\\LOZ\\GameState",
-    "\\LOZ\\ItemClasses",
+    "\\LOZ\\CommandClasses",
     "\\LOZ\\ItemClasses\\Items",
-    "\\LOZ\\ItemClasses\\Items\\Projectile_tools"
+    "\\LOZ\\ItemClasses\\Items\\Projectile_tools",
+    "\\LOZ\\MapIO"
   ],
-  "SelectedNode": "\\LOZ\\ItemClasses\\Items\\Projectile_tools\\Bomb.cs",
+  "SelectedNode": "\\LOZ\\CommandClasses\\Reset.cs",
   "PreviewInSolutionExplorer": false
 }

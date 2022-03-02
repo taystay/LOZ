@@ -6,6 +6,7 @@ using LOZ.ItemsClasses;
 using LOZ.Collision;
 using LOZ.LinkClasses;
 using LOZ.EnemyClass;
+using LOZ.SpriteClasses;
 
 namespace LOZ.GameState
 {
@@ -15,8 +16,8 @@ namespace LOZ.GameState
         public ILink Link { get; set; }
         public bool Damaged { get; set; } = false;
         public bool DEBUGMODE { get; set; } = false;
-        private protected CollisionIterator colliders;        
-        
+        private protected CollisionIterator colliders;
+
         public abstract void LoadContent();       
 
         public void Update(GameTime gameTime)

@@ -27,6 +27,7 @@ namespace LOZ.GameState
             LinkSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            DungeonFactory.Instance.LoadAllTextures(Content);
         }
 
         public void LoadContent()

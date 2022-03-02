@@ -2,7 +2,9 @@
 using Microsoft.Xna.Framework;
 using LOZ.LinkClasses;
 using LOZ.Collision;
+using LOZ.EnvironmentalClasses;
 using LOZ.MapIO;
+using LOZ.SpriteClasses.BlockSprites;
 namespace LOZ.GameState
 {
     public class EmptyRoom : Room
@@ -20,6 +22,7 @@ namespace LOZ.GameState
             gameObjects.Add(Link);
 
             gameObjects.Add(StringToBlock.Convert("BlackTileBlock", 200, 500));
+            gameObjects.Add(new InvisibleBlock(new Point(300, 500)));
         }
     }
 }
