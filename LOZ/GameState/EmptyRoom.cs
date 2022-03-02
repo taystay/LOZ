@@ -4,6 +4,7 @@ using LOZ.LinkClasses;
 using LOZ.Collision;
 using LOZ.EnvironmentalClasses;
 using LOZ.MapIO;
+using LOZ.DungeonClasses;
 using LOZ.SpriteClasses.BlockSprites;
 namespace LOZ.GameState
 {
@@ -20,7 +21,7 @@ namespace LOZ.GameState
             colliders = new CollisionIterator(gameObjects);
             Link = new Link(new Point(1000, 500));
             gameObjects.Add(Link);
-
+            gameObjects.Add(new ExteriorObject(new Point(200, 200)));
             gameObjects.Add(StringToBlock.Convert("BlackTileBlock", 200, 500));
             gameObjects.Add(new InvisibleBlock(new Point(300, 500)));
         }
