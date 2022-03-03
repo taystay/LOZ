@@ -119,6 +119,10 @@ namespace LOZ.Factories
 		{
 			return new BowSprite(ItemSpriteSheet);
 		}
+		public ISprite CreateSwordSprite()
+        {
+			return new SwordSprite(ItemSpriteSheet);
+        }
 		public ISprite CreateHeartSprite()
 		{
 			return new HeartSprite(ItemSpriteSheet);
