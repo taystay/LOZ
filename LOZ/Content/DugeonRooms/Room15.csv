@@ -1,0 +1,12 @@
+﻿"(5,3)",,,,,,,,,,,,,
+locked,wall,wall,door,,,,,,,,,,
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,blueT,blueT,blueT,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,blueT,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,wall
+empty,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,empty
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,blueT,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,blueT,blueT,blueT,wall
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+"dragon(12,4)",,,,,,,,,,,,,

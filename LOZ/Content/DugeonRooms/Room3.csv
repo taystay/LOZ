@@ -1,0 +1,12 @@
+﻿"(4,6)",,,,,,,,,,,,,
+wall,wall,wall,door,,,,,,,,,,
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueT,blueT,blueB,blueB,blueB,blueB,blueT,blueT,blueB,blueB,wall
+empty,blueB,blueB,blueT,blueT,blueB,blueB,blueB,blueB,blueT,blueT,blueB,blueB,empty
+wall,blueB,blueB,blueT,blueT,blueB,blueB,blueB,blueB,blueT,blueT,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+"skeleton(3,2)","skeleton(3,6)","skeleton(8,5)","skeleton(11,3)","skeleton(12,12)",,,,,,,,,

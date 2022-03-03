@@ -1,0 +1,11 @@
+﻿"(3,6)",,,,,,,,,,,,,
+locked,door,door,door,,,,,,,,,,
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,S1,blueB,blueB,S1,blueB,blueB,S2,blueB,blueB,S2,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+empty,blueB,S1,blueB,blueB,S1,blueB,blueB,S2,blueB,blueB,S2,blueB,empty
+wall,blueB,blueB,blueB,blueB,blueB,blueS,blueS,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,S1,blueB,blueS,S1,blueS,blueS,S2,blueS,blueB,S2,blueB,wall
+wall,blueB,blueB,blueB,blueS,blueS,blueS,blueS,blueS,blueS,blueB,blueB,blueB,wall
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall

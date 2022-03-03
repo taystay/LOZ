@@ -1,0 +1,12 @@
+﻿"(2,6)",,,,,,,,,,,,,
+wall,door,wall,wall,,,,,,,,,,
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+empty,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,empty
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+"bat(2,3)","bat(6,5)","bat(8,5)",,,,,,,,,,,

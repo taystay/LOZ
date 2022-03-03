@@ -1,0 +1,12 @@
+﻿"(4,4)",,,,,,,,,,,,,
+wall,wall,wall,door,,,,,,,,,,
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueT,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+empty,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,empty
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,blueB,blueB,blueT,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueB,blueB,wall
+wall,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,wall
+wall,wall,wall,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall,wall
+"bat(4,1)","bat(4,9)","bat(7,3)","bat(9,3)","bat(9,5)","bat(11,2)","bat(12,4)","bat(11,6)",,,,,,
