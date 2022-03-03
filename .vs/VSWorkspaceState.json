@@ -2,11 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\LOZ",
-    "\\LOZ\\CommandClasses",
-    "\\LOZ\\ItemClasses\\Items",
-    "\\LOZ\\ItemClasses\\Items\\Projectile_tools",
+    "\\LOZ\\EnvironmentClasses",
     "\\LOZ\\MapIO"
   ],
-  "SelectedNode": "\\LOZ\\CommandClasses\\Reset.cs",
+  "SelectedNode": "\\LOZ\\LOZ.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -41,8 +41,14 @@ namespace LOZ.GameState
             {
                 item.Draw(spriteBatch);
 
-                if(DEBUGMODE)
+                
+            }
+            if (DEBUGMODE)
+            {
+                foreach (IGameObjects item in gameObjects)
+                {
                     item.GetHitBox().Draw(spriteBatch);
+                }
             }
             Link.Draw(spriteBatch);
         }

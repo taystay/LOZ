@@ -39,7 +39,7 @@ namespace LOZ.MapIO
 
         private void ParseRoom(List<IGameObjects> obj, StreamReader reader) {
 
-            int i = 0, xIndex = 0, yIndex=0, commaPosition=0, ;
+            int i = 0, xIndex = 0, yIndex=0, commaPosition=0;
             
             Point location = new Point(100, 100);
 

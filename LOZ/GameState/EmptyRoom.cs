@@ -21,8 +21,8 @@ namespace LOZ.GameState
             colliders = new CollisionIterator(gameObjects);
             Link = new Link(new Point(1000, 500));
             gameObjects.Add(Link);
-            gameObjects.Add(new ExteriorObject(new Point(200, 200)));
-            gameObjects.Add(StringToBlock.Convert("BlackTileBlock", 200, 500));
+            gameObjects.Add(new ExteriorObject());
+            //gameObjects.Add(StringToBlock.Convert("BlackTileBlock", 200, 500));
             gameObjects.Add(new InvisibleBlock(new Point(300, 500)));
         }
     }

@@ -31,7 +31,12 @@ namespace LOZ.Factories
 
 		public ISprite GetExterior()
         {
-			return new Exterior(blockSpritesheet);
+			return new ExteriorSprite(blockSpritesheet);
+        }
+
+		public ISprite CreateDoorWay(int num)
+        {
+			return new DoorSprite(blockSpritesheet, num);
         }
 
 

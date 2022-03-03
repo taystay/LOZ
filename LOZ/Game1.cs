@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using LOZ.ControllerClasses;
 using LOZ.GameState;
-
+using LOZ.DungeonClasses;
 namespace LOZ
 {
     public class Game1 : Game
@@ -40,6 +40,11 @@ namespace LOZ
         {
             
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            
+            int x = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - DungeonInfo.DungeonWidth / 2;
+            int y = 400;
+            DungeonInfo.Map = new Rectangle(x, y, 3 * (776 - 521 + 1), 3 * (186 - 11 + 1));
+            DungeonInfo.Inside = new Rectangle(x + 32 * 3, y + 32 * 3, 576, 336);
             CurrentRoom.Room = new DevRoom();
             CurrentRoom.Room.LoadContent();
 
@@ -58,7 +63,7 @@ namespace LOZ
         protected override void Draw(GameTime gameTime)
         {
 
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
             CurrentRoom.Room.Draw(spriteBatch);
             base.Draw(gameTime);
         }

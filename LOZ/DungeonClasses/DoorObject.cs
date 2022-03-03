@@ -5,16 +5,15 @@ using LOZ.Collision;
 
 namespace LOZ.DungeonClasses
 {
-    public class ExteriorObject : IGameObjects
+    public class DoorObject : IGameObjects
     {
 
 		private protected ISprite sprite;
 		private protected Point itemLocation;
-        public ExteriorObject()
+        public DoorObject(Point location, int number)
         {
-            sprite = Factories.DungeonFactory.Instance.GetExterior();
-            itemLocation = DungeonInfo.Map.Location;
-            
+            sprite = Factories.DungeonFactory.Instance.CreateDoorWay(number);
+            itemLocation = location;
         }
 
 		public void Update(GameTime timer)
@@ -24,11 +23,10 @@ namespace LOZ.DungeonClasses
 
 		public Hitbox GetHitBox()
         {
-            Rectangle i = DungeonInfo.Inside;
-            return new Hitbox(i.X, i.Y, i.Width, i.Height);
+            return new Hitbox(itemLocation.X, itemLocation.Y, 96, 96);
         }
 
-		public virtual void Draw(SpriteBatch spriteBatch) {
+		public void Draw(SpriteBatch spriteBatch) {
 			sprite.Draw(spriteBatch, itemLocation);
 		}
 
