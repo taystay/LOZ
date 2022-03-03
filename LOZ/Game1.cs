@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using LOZ.ControllerClasses;
 using LOZ.GameState;
 using LOZ.DungeonClasses;
+using LOZ.MapIO;
+using LOZ.Collision;
+
 namespace LOZ
 {
     public class Game1 : Game
@@ -12,6 +15,7 @@ namespace LOZ
         private SpriteBatch spriteBatch;
 
         private List<IController> controllerList;
+        private Dictionary<Point, List<IGameObjects>> maps;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,6 +30,8 @@ namespace LOZ
             graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
+
+            maps = new Dictionary<Point, List<IGameObjects>>();
 
             CurrentRoom.Instance.LoadTextures(Content);
             controllerList = new List<IController>()
@@ -47,6 +53,8 @@ namespace LOZ
             DungeonInfo.Inside = new Rectangle(x + 32 * 3, y + 32 * 3, 576, 336);
             CurrentRoom.Room = new DevRoom();
             CurrentRoom.Room.LoadContent();
+            //IO allMap = new IO(maps, "");
+            //allMap.Parse();
 
         }
 

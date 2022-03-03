@@ -13,16 +13,20 @@ namespace LOZ.MapIO
         internal static void ParseEnemy(List<IGameObjects> obj, StreamReader reader) {
             string lineRead = reader.ReadLine();
             int lastParenthesis = lineRead.LastIndexOf(')');
+
+            //https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0#methods for all the string methods
             lineRead = lineRead.Remove(lastParenthesis + 1);
             int i = 0, commaPosition = 0;
 
             while (i < lineRead.Length) {
+
                 commaPosition = lineRead.IndexOf(')') +1;
                 string subStr = lineRead.Substring(i, commaPosition + 1);
                 int parenthesis = subStr.IndexOf('(');
 
-                int xCord = Convert.ToInt32(subStr.Substring(parenthesis, 1));
-                int yCord = Convert.ToInt32(subStr.Substring(parenthesis+2, 1));
+                //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/how-to-convert-a-string-to-a-number parse a string to num
+                int xCord = Int32.Parse(subStr.Substring(parenthesis, 1));
+                int yCord = Int32.Parse(subStr.Substring(parenthesis+2, 1));
 
                 int indexElement = yCord * 14 + xCord;
                 IEnvironment block = (IEnvironment) obj[indexElement];

@@ -15,64 +15,45 @@ namespace LOZ.MapIO
             int index = 0;
             int i = 0;
             int commaPosition = 0;
+            DoorType[] doors = new DoorType[4];
 
             while (index < 4)
             {
+
+                //https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0#methods for string methods
                 commaPosition = lineRead.IndexOf(',', i);
-                Point doorLocation;
-                DoorLocation side;
-                if (index == 0) {
-                    doorLocation = new Point(DungeonInfo.DoorToCornerWidth, 0);
-                    side = DoorLocation.Top;
-                }
-                else if (index == 1)
-                {
-                    doorLocation = new Point(DungeonInfo.DungeonWidth, DungeonInfo.DoorToCornerHeight);
-                    side = DoorLocation.Right;
-                }
-                else if (index == 2)
-                {
-                    doorLocation = new Point(DungeonInfo.DoorToCornerWidth, DungeonInfo.DungeonHeight);
-                    side = DoorLocation.Left;
-                }
-                else
-                {
-                    doorLocation = new Point(0, DungeonInfo.DoorToCornerHeight);
-                    side = DoorLocation.Bottom; 
 
+                switch (lineRead.Substring(i,commaPosition))
+                {
+                    case "door":
+                        doors[index] = DoorType.Door;
+                        break;
+                    case "wall":
+                        doors[index] = DoorType.Wall;
+                        break;
+                    case "brokenWall":
+                        doors[index] = DoorType.Hole;
+                        break;
+                    case "locked":
+                        doors[index] = DoorType.KeyDoor;
+                        break;
+                    case "shut":
+                        doors[index] = DoorType.CrackedDoor;
+                        break;
+                    default:
+                        doors[index] = DoorType.Door;
+                        break;
                 }
 
-                obj.Add(Convert(lineRead, side, doorLocation));
-           
+                i += commaPosition;
+                index++;
+
+
             }
 
-        }
-        private static IGameObjects Convert(string s, DoorLocation side, Point location)
-        {
-            IGameObjects returnVal;
-            switch (s)
-            {
-                case "door":
-                    returnVal = new DoorObject(location, side);
-                    break;
-                case "wall":
-                    returnVal = new BlueSandBlock(location);
-                    break;
-                case "brokenWall":
-                    returnVal = new BlueTriangleBlock(location);
-                    break;
-                case "locked":
-                    returnVal = new DarkBlueBlock(location);
-                    break;
-                case "shut":
-                    returnVal = new MulticoloredBlock1(location);
-                    break;
-                default:
-                    returnVal = null;
-                    break;
-            }
+            obj.Add(new ExteriorObject(doors[0], doors[1], doors[2], doors[3]));
 
-            return returnVal;
         }
+    
     }
 }

@@ -6,12 +6,15 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.MapIO
 {
-    internal  class ParseToBlock
+    internal class ParseToBlock
     {
         internal static void ParseRoom(List<IGameObjects> obj, StreamReader reader)
         {
             int i = 0, xIndex = 0, yIndex = 0, commaPosition = 0;
-            Point location = new Point(100, 100);
+            Point location = DungeonClasses.DungeonInfo.Inside.Location;
+            location.X += 24;
+            location.Y += 24;
+            int leftSide = location.X;
 
             while (reader.Peek() != 1 && yIndex != 9){
                 string lineRead = reader.ReadLine();
@@ -28,7 +31,7 @@ namespace LOZ.MapIO
                     if (xIndex == 13)
                     {
                         location.Y += 48;
-                        location.X = 100;
+                        location.X = leftSide;
                     }
                 }
                 xIndex = 0;
@@ -67,7 +70,7 @@ namespace LOZ.MapIO
                     returnVal = new StairsBlock(location);
                     break;
                 case "wall":
-                    returnVal = new InvisibleBlock(location);
+                    returnVal = new InvisibleBlock(new Point(0,0));
                     break;
                 default:
                     returnVal = null;
