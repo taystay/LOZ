@@ -6,14 +6,14 @@ using LOZ.SpriteClasses.BlockSprites;
 
 namespace LOZ.DungeonClasses
 {
-    public class DoorObject : IGameObjects
+    public class KeyDoor : IGameObjects
     {
 
 		private protected ISprite sprite;
 		private protected Point itemLocation;
-        public DoorObject(Point location, DoorLocation n)
+        public KeyDoor(Point location, DoorLocation n)
         {
-            sprite = Factories.DungeonFactory.Instance.CreateDoorWay(n);
+            sprite = Factories.DungeonFactory.Instance.CreateKeyDoor(n);
             itemLocation = location;
         }
 

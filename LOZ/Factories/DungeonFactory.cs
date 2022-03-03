@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses.BlockSprites;
 using LOZ.SpriteClasses;
+using LOZ.DungeonClasses;
 
 namespace LOZ.Factories
 {
@@ -34,10 +35,28 @@ namespace LOZ.Factories
 			return new ExteriorSprite(blockSpritesheet);
         }
 
-		public ISprite CreateDoorWay(int num)
+		public ISprite CreateDoorWay(DoorLocation num)
         {
 			return new DoorSprite(blockSpritesheet, num);
         }
+
+		public ISprite CreateKeyDoor(DoorLocation location)
+        {
+            return new KeyDoorSprite(blockSpritesheet, location);
+        }
+
+		public ISprite CreateWall(DoorLocation location)
+		{
+			return new WallSprite(blockSpritesheet, location);
+		}
+		public ISprite CreateCrackDoor(DoorLocation location)
+		{
+			return new CrackDoorSprite(blockSpritesheet, location);
+		}
+		public ISprite CreateHoleWall(DoorLocation location)
+		{
+			return new HoleWallSprite(blockSpritesheet, location);
+		}
 
 
 

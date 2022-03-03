@@ -3,6 +3,7 @@ using LOZ.EnvironmentalClasses;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using LOZ.DungeonClasses;
+using LOZ.SpriteClasses.BlockSprites;
 
 namespace LOZ.MapIO
 {
@@ -18,36 +19,41 @@ namespace LOZ.MapIO
             while (index < 4)
             {
                 commaPosition = lineRead.IndexOf(',', i);
-                Point doorLocation; 
+                Point doorLocation;
+                DoorLocation side;
                 if (index == 0) {
                     doorLocation = new Point(DungeonInfo.DoorToCornerWidth, 0);
+                    side = DoorLocation.Top;
                 }
                 else if (index == 1)
                 {
                     doorLocation = new Point(DungeonInfo.DungeonWidth, DungeonInfo.DoorToCornerHeight);
+                    side = DoorLocation.Right;
                 }
                 else if (index == 2)
                 {
                     doorLocation = new Point(DungeonInfo.DoorToCornerWidth, DungeonInfo.DungeonHeight);
+                    side = DoorLocation.Left;
                 }
                 else
                 {
                     doorLocation = new Point(0, DungeonInfo.DoorToCornerHeight);
+                    side = DoorLocation.Bottom; 
 
                 }
 
-                obj.Add(Convert(lineRead, index, doorLocation));
+                obj.Add(Convert(lineRead, side, doorLocation));
            
             }
 
         }
-        private static IGameObjects Convert(string s, int numberForDirect, Point location)
+        private static IGameObjects Convert(string s, DoorLocation side, Point location)
         {
             IGameObjects returnVal;
             switch (s)
             {
                 case "door":
-                    returnVal = new DoorObject(location, numberForDirect);
+                    returnVal = new DoorObject(location, side);
                     break;
                 case "wall":
                     returnVal = new BlueSandBlock(location);
