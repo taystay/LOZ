@@ -7,23 +7,23 @@ namespace LOZ.ControllerClasses
 {
     class MouseController : IController
     {
-        private Dictionary<Rectangle,ICommand> LeftHitLocations;
-        private List<ICommand> RightClickCommands;
+        private List<ICommand> leftClickCommands;
+        private List<ICommand> rightClickCommands;
 
         public MouseController()
         {
-            LeftHitLocations = new Dictionary<Rectangle, ICommand>();
-            RightClickCommands = new List<ICommand>();
+            leftClickCommands = new List<ICommand>();
+            rightClickCommands = new List<ICommand>();
         }
 
         public void RegisterRightClickCommands(ICommand command)
         {
-            RightClickCommands.Add(command);
+            rightClickCommands.Add(command);
         }
 
-        public void RegisterLeftClickLocation(Rectangle location, ICommand command)
+        public void RegisterLeftClickCommands(ICommand command)
         {
-            LeftHitLocations.Add(location, command);
+            leftClickCommands.Add(command);
         }
 
         public void Update(GameTime gametime)
@@ -31,7 +31,7 @@ namespace LOZ.ControllerClasses
             MouseState State = Mouse.GetState();
             if(State.RightButton == ButtonState.Pressed)
             {
-                foreach(ICommand command in RightClickCommands)
+                foreach(ICommand command in rightClickCommands)
                 {
                     command.execute();
                 }
@@ -39,15 +39,9 @@ namespace LOZ.ControllerClasses
 
             if(State.LeftButton == ButtonState.Pressed)
             {
-                foreach(KeyValuePair<Rectangle, ICommand> pair in LeftHitLocations)
+                foreach (ICommand command in leftClickCommands)
                 {
-                    if(State.X >= pair.Key.X && 
-                        State.Y >= pair.Key.Y && 
-                        State.X <= pair.Key.X + pair.Key.Width && 
-                        State.Y <= pair.Key.Y + pair.Key.Height)
-                    {
-                        pair.Value.execute();
-                    }
+                    command.execute();
                 }
             }
         }

@@ -8,10 +8,11 @@ namespace LOZ.ControllerClasses
     class KeyBindings
     {
         private KeyboardController ControllerMappings;
-
+        private MouseController mouseControllerMappings;
         public KeyBindings(Game1 gameObject)
         {
             ControllerMappings = new KeyboardController(gameObject);
+            mouseControllerMappings = new MouseController();
 
             ControllerMappings.RegisterInitialCommand(Keys.Q, new QuitGame(gameObject));
             ControllerMappings.RegisterReleaseCommand(Keys.LeftShift, new EnterDebugMode());
@@ -60,6 +61,8 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.N, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.E, new Idle());
 
+            mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoom());
+            mouseControllerMappings.RegisterRightClickCommands(new SwitchRoom());
         }
 
         public KeyboardController GetController()
