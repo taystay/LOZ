@@ -1,11 +1,13 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
+using LOZ.GameState;
+using LOZ.ItemsClasses;
 
 namespace LOZ.LinkClasses.States
 {
     class RightAttackLinkState : LinkStateAbstract
     {
+        private Point attackPosition;
         public RightAttackLinkState(Link link)
         {
             this.link = link;
@@ -25,7 +27,9 @@ namespace LOZ.LinkClasses.States
 
         public override void Attack(Weapon toUse, Point position)
         {
-            //Don't do anything besides attacking
+            attackPosition.X = position.X + 35;
+            attackPosition.Y = position.Y;
+            CurrentRoom.Room.gameObjects.Add(new LeftRightSwordHitBox(attackPosition));
         }
 
     }

@@ -1,12 +1,13 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
+using LOZ.GameState;
+using LOZ.ItemsClasses;
 
 namespace LOZ.LinkClasses.States
 { 
     class UpAttackLinkState : LinkStateAbstract
     {
-
+        private Point attackPosition;
         public UpAttackLinkState(Link link)
         {
             this.link = link;
@@ -26,7 +27,9 @@ namespace LOZ.LinkClasses.States
 
         public override void Attack(Weapon toUse, Point position)
         {
-            //Don't do anything besides attacking
+            attackPosition.X = position.X - 5;
+            attackPosition.Y = position.Y - 40;
+            CurrentRoom.Room.gameObjects.Add(new UpDownSwordHitBox(attackPosition));
         }
 
     }
