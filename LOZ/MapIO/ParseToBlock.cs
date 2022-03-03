@@ -70,7 +70,7 @@ namespace LOZ.MapIO
                     returnVal = new StairsBlock(location);
                     break;
                 case "wall":
-                    returnVal = new InvisibleBlock(new Point(0,0));
+                    returnVal = new InvisibleBlock(new Point(0,0), 0,0);
                     break;
                 default:
                     returnVal = null;

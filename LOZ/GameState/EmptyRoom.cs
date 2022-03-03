@@ -23,7 +23,7 @@ namespace LOZ.GameState
             gameObjects.Add(Link);
             //gameObjects.Add(new ExteriorObject());
             //gameObjects.Add(StringToBlock.Convert("BlackTileBlock", 200, 500));
-            gameObjects.Add(new InvisibleBlock(new Point(300, 500)));
+            //gameObjects.Add(new InvisibleBlock(new Point(300, 500)));
         }
     }
 }
