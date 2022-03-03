@@ -6,5 +6,6 @@ namespace LOZ.EnvironmentalClasses
 {
     public interface IEnvironment :IGameObjects
     {
+        public Point GetPosition();
     }
 }

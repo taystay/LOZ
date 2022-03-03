@@ -13,6 +13,10 @@ namespace LOZ.EnvironmentalClasses
 		public abstract void Update(GameTime timer);
 
 		public abstract Hitbox GetHitBox();
+		public Point GetPosition() {
+			return itemLocation;
+		
+		}
 
 		public virtual void Draw(SpriteBatch spriteBatch) {
 			sprite.Draw(spriteBatch, itemLocation);
