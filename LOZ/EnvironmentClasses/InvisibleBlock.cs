@@ -9,14 +9,17 @@ namespace LOZ.EnvironmentalClasses
 {
     public class InvisibleBlock: AbstractTileBlock
     {
-
-        public InvisibleBlock(Point itemLocation)
+        private int width;
+        private int height;
+        public InvisibleBlock(Point itemLocation, int width, int height)
         {
-            this.itemLocation = itemLocation; 
+            this.itemLocation = itemLocation;
+            this.width = width;
+            this.height = height;
         }
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(itemLocation.X - 24, itemLocation.Y - 24, 48, 48);
+            return new Hitbox(itemLocation.X, itemLocation.Y, width, height);
         }
         public override void Update(GameTime gameTime)
         { 

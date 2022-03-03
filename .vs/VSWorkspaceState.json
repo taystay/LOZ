@@ -3,8 +3,9 @@
     "",
     "\\LOZ",
     "\\LOZ\\EnvironmentClasses",
+    "\\LOZ\\GameState",
     "\\LOZ\\MapIO"
   ],
-  "SelectedNode": "\\LOZ\\LOZ.sln",
+  "SelectedNode": "\\LOZ\\GameState\\DevRoom.cs",
   "PreviewInSolutionExplorer": false
 }

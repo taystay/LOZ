@@ -16,10 +16,10 @@ namespace LOZ.SpriteClasses.BlockSprites
 				case DoorLocation.Top:
 					frame = new Rectangle(848 + 2* offset, 11, 879 - 847, 42 - 10);
 					break;
-				case DoorLocation.Right:
+				case DoorLocation.Left:
 					frame = new Rectangle(848 + 2*offset, 44, 879 - 847, 42 - 10);
 					break;
-				case DoorLocation.Left:
+				case DoorLocation.Right:
 					frame = new Rectangle(848 + 2* offset, 77, 879 - 847, 42 - 10);
 					break;
 				default:
