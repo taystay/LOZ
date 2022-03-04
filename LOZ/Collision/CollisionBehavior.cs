@@ -39,7 +39,11 @@ namespace LOZ.Collision
             {
                 PlayerProjectileEnemyCollision.Handle(firstObject, secondObject);
             }
-                
+            else if (Type.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnvironment)))
+            {
+                PlayerProjectileEnvironmentCollision.Handle(firstObject, secondObject);
+            }
+
         }
     }
 }
