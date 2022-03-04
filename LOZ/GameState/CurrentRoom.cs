@@ -35,42 +35,37 @@ namespace LOZ.GameState
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
         }
-
-        public void LoadContent()
-        {
-            Room.LoadContent();
-        }
-
         public Room NextRoom()
         {
-            Debug.WriteLine("Rooms size: " + Rooms.Count);
-            Debug.WriteLine("Room number: " + roomCount);
-            Room retRoom = Rooms[roomCount];
+            Room = Rooms[roomCount];
             if (roomCount == Rooms.Count-1)
                 roomCount = 0;
             else
                 roomCount++;
 
-            return retRoom;
+            return Room;
         }
 
         public Room PreviousRoom()
         {
-            Debug.WriteLine("Rooms size: " + Rooms.Count);
-            Debug.WriteLine("Room number: " + roomCount);
-            Room retRoom = Rooms[roomCount];
+            Room = Rooms[roomCount];
             roomCount--;
             if (roomCount <= 0)
                 roomCount = Rooms.Count-1;
             else
                 roomCount--;
 
-            return retRoom;
+            return Room;
         }
 
         public void Update(GameTime gameTime)
         {
             Room.Update(gameTime);
+        }
+
+        public void LoadContent()
+        {
+            Room.LoadContent();
         }
 
         public void Draw(SpriteBatch spriteBatch)

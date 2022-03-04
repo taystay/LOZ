@@ -32,7 +32,7 @@ namespace LOZ.GameState
             }
             //Link.Update(gameTime);
             RemoveDeadItems();
-            //colliders.Iterate();
+            colliders.Iterate();
         }
 
         public void Draw(SpriteBatch spriteBatch)

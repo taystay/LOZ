@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using LOZ.Collision;
+using LOZ.LinkClasses;
+using Microsoft.Xna.Framework;
+
 namespace LOZ.GameState
 {
     public class DungeonRoom : Room
@@ -9,6 +12,9 @@ namespace LOZ.GameState
             gameObjects = list;
         }
 
-        public override void LoadContent() { }
+        public override void LoadContent() {
+            colliders = new CollisionIterator(gameObjects);
+
+        }
     }
 }

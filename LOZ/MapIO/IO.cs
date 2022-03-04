@@ -3,14 +3,16 @@ using System;
 using System.Collections.Generic;
 using LOZ.Collision;
 using Microsoft.Xna.Framework;
+using LOZ.LinkClasses;
+using LOZ.GameState;
 
 namespace LOZ.MapIO
 {
     class IO
     {
-        private Dictionary<Point, List<IGameObjects>> listOfRooms;
+        private Dictionary<Point, DungeonRoom> listOfRooms;
         private string folder;
-        public IO(Dictionary<Point, List<IGameObjects>> rooms , string folderPathName) {
+        public IO(Dictionary<Point, DungeonRoom> rooms , string folderPathName) {
             listOfRooms = rooms;
             folder = folderPathName;
           
@@ -36,7 +38,8 @@ namespace LOZ.MapIO
                 if (enemyRow!= null)
                     ParseToEnemy.ParseEnemy(objects, enemyRow);
 
-                listOfRooms.Add(new Point(xPosition,yPosition), objects);
+
+                listOfRooms.Add(new Point(xPosition,yPosition), new DungeonRoom(objects));
                 reader.Close();
 
             }

@@ -19,7 +19,7 @@ namespace LOZ
         
         private List<IController> controllerList;
 
-        private Dictionary<Point, List<IGameObjects>> maps;
+        private Dictionary<Point, DungeonRoom> maps;
         public List<Room> Rooms { get; set; } = new List<Room>();
 
         public Game1()
@@ -60,16 +60,16 @@ namespace LOZ
             CurrentRoom.Room = new DevRoom();
             CurrentRoom.Room.LoadContent();
 
-            maps = new Dictionary<Point, List<IGameObjects>>();
+            maps = new Dictionary<Point, DungeonRoom>();
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();
 
-            foreach (KeyValuePair<Point, List<IGameObjects>> room in maps)
+            foreach (KeyValuePair<Point, DungeonRoom> room in maps)
             {
-                Rooms.Add(new DungeonRoom(room.Value));
+                Rooms.Add(room.Value);
             }
 
             CurrentRoom.Instance.Rooms = Rooms;

@@ -71,7 +71,7 @@ namespace LOZ.MapIO
                     returnVal = new InvisibleBlock(new Point(0,0), 0,0);
                     break;
                 default:
-                    returnVal = new SolidBlueBlock(location);
+                    returnVal = new InvisibleBlock(new Point(0, 0), 0, 0);
                     break;
             }
 

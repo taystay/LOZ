@@ -27,7 +27,7 @@ namespace LOZ.GameState
             gameObjects.Add(Link);
             gameObjects.Add(new ExteriorObject(DoorType.Wall, DoorType.Wall, DoorType.Wall, DoorType.Wall));
 
-            PlaceFloor();
+            //PlaceFloor();
         }
 
         private void PlaceFloor()
