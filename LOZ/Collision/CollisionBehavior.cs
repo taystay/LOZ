@@ -16,34 +16,34 @@ namespace LOZ.Collision
 
         public void HandleCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
-            if (Type.CheckPair(firstObject, typeof(ILink), secondObject, typeof(IEnvironment)))
+            if (TypeC.CheckPair(firstObject, typeof(ILink), secondObject, typeof(IEnvironment)))
             {
                 LinkBlockCollision.Handle(firstObject, secondObject, side);
             } 
-            else if (Type.CheckPair(firstObject, typeof(ILink), secondObject, typeof(IProjectile)))
+            else if (TypeC.CheckPair(firstObject, typeof(ILink), secondObject, typeof(IProjectile)))
             {
                 LinkProjectileCollision.Handle(secondObject);
             }               
-            else if (Type.CheckPair(firstObject, typeof(ILink), secondObject, typeof(IEnemy)))
+            else if (TypeC.CheckPair(firstObject, typeof(ILink), secondObject, typeof(IEnemy)))
             {
                 LinkEnemyCollision.Handle();
             }              
-            else if (Type.CheckPair(firstObject, typeof(ILink), secondObject, typeof(IItem)))
+            else if (TypeC.CheckPair(firstObject, typeof(ILink), secondObject, typeof(IItem)))
             {
                 LinkItemCollision.Handle(secondObject);
             }              
-            else if (Type.CheckPair(firstObject, typeof(AbstractEnemy), secondObject, typeof(IEnvironment)))
+            else if (TypeC.CheckPair(firstObject, typeof(AbstractEnemy), secondObject, typeof(IEnvironment)))
             {
                 EnemyEnviornmentCollision.Handle(firstObject, secondObject, side);
             }              
-            else if (Type.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnemy)))
+            else if (TypeC.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnemy)))
             {
                 PlayerProjectileEnemyCollision.Handle(firstObject, secondObject);
             }
-            else if (Type.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnvironment)))
+            else if (TypeC.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnvironment)))
             {
                 PlayerProjectileEnvironmentCollision.Handle(firstObject, secondObject);
-            } else if(Type.CheckPair(firstObject, typeof(DoorCollider), secondObject, typeof(ILink)))
+            } else if(TypeC.CheckPair(firstObject, typeof(DoorCollider), secondObject, typeof(ILink)))
             {
 
             }

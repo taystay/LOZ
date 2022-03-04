@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\LOZ",
+    "\\LOZ\\Content",
     "\\LOZ\\EnvironmentClasses",
     "\\LOZ\\GameState",
     "\\LOZ\\MapIO"
   ],
-  "SelectedNode": "\\LOZ\\GameState\\DevRoom.cs",
+  "SelectedNode": "\\LOZ\\LOZ.sln",
   "PreviewInSolutionExplorer": false
 }

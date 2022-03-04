@@ -10,7 +10,7 @@ namespace LOZ.Collision
         {
             IPlayerProjectile projectile = (IPlayerProjectile)p;
             AbstractEnemy _enemy = (AbstractEnemy)enemy;
-            if(!Type.Check(enemy, typeof(SpikeTrap)))
+            if(!TypeC.Check(enemy, typeof(SpikeTrap)))
                 _enemy.KillItem();
         }
     }

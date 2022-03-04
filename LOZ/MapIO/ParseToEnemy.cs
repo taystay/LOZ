@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using LOZ.EnvironmentalClasses;
 using LOZ.EnemyClass;
 using System.Diagnostics;
+using LOZ.DungeonClasses;
 
 
 namespace LOZ.MapIO
@@ -19,6 +20,8 @@ namespace LOZ.MapIO
 
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?view=net-6.0
             lineRead = lineRead.Replace('\"', ' ');
+
+            int countBefore = obj.Count - 1;
    
             while (lineRead.Length !=0) {
                 int i = 0;
@@ -38,7 +41,8 @@ namespace LOZ.MapIO
                 int yCord = Int32.Parse(subStr.Substring(commaPosition+1, closingParens-commaPosition-2));
 
                 Debug.WriteLine("xCord: " + xCord + "\nyCord: " + yCord);
-                int indexElement = ((yCord-1) * 12) + (xCord-1);
+                int indexElement = ((yCord-1) * 12) + (xCord-1) + countBefore - 84 + 1;
+                    
                 Debug.WriteLine("indexElement: " + indexElement);
                 IEnvironment block = (IEnvironment) obj[indexElement];
                 Point spawnLocation = block.GetPosition();

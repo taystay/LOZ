@@ -13,7 +13,7 @@ namespace LOZ.Collision
             Rectangle blockBox = block.GetHitBox().ToRectangle();
 
             Rectangle collisionBox = Rectangle.Intersect(projectileBox, blockBox);
-            if (!Type.Check(projectile, typeof(Bomb)) && !Type.Check(projectile, typeof(FireProjectile)))
+            if (!TypeC.Check(projectile, typeof(Bomb)) && !TypeC.Check(projectile, typeof(FireProjectile)))
                 projectile.KillItem();
         }
     }

@@ -25,7 +25,7 @@ namespace LOZ.GameState
             for(int i = 0; i < gameObjects.Count; i++)
             {
                 IGameObjects item = gameObjects[i];
-                if (!Type.Check(item, typeof(ILink)))
+                if (!TypeC.Check(item, typeof(ILink)))
                 {
                     item.Update(gameTime);
                 }
@@ -58,12 +58,12 @@ namespace LOZ.GameState
             List<IGameObjects> toRemove = new List<IGameObjects>();
             foreach (IGameObjects item in gameObjects)
             {
-                if (Type.Check(item, typeof(IItem)))
+                if (TypeC.Check(item, typeof(IItem)))
                 {
                     IItem itemObject = (IItem)item;
                     if (!itemObject.SpriteActive()) toRemove.Add(item);
                 }
-                if (Type.Check(item, typeof(AbstractEnemy)))
+                if (TypeC.Check(item, typeof(AbstractEnemy)))
                 {
                     AbstractEnemy itemObject = (AbstractEnemy)item;
                     if (!itemObject.IsActive()) toRemove.Add(item);

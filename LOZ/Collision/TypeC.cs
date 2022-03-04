@@ -1,6 +1,6 @@
 ﻿namespace LOZ.Collision
 {
-    public static class Type
+    public static class TypeC
     {
         public static bool Check(object object_o, System.Type comparisonType)
         {

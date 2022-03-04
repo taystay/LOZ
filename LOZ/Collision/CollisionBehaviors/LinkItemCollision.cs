@@ -9,7 +9,7 @@ namespace LOZ.Collision
         public static void Handle(IGameObjects item)
         {
             IItem item_user = (IItem)item;
-            if (!Type.Check(item, typeof(IPlayerProjectile)))
+            if (!TypeC.Check(item, typeof(IPlayerProjectile)))
             {
                 CurrentRoom.Instance.Room.Link.RaiseItem(item_user);
             }
