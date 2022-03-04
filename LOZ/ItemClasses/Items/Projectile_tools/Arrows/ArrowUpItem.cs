@@ -21,7 +21,7 @@ namespace LOZ.ItemsClasses
             sprite = ItemFactory.Instance.CreateArrowUpSprite();
             _itemLocation = itemLocation;
             hitBoxWidth = 14;
-            hitBoxHeight = 34;
+            hitBoxHeight = 40;
         }
 
         public override void Update(GameTime gameTime)
