@@ -18,17 +18,15 @@ namespace LOZ.MapIO
 
             while (reader.Peek() != 1 && yIndex != 9){
                 string lineRead = reader.ReadLine();
+                //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
+                string[] words = lineRead.Split(',');
 
                 while (xIndex < 14) {
-                    //https://docs.microsoft.com/en-us/dotnet/api/system.string.indexof?view=net-6.0#system-string-indexof(system-char)
-                    commaPosition = lineRead.IndexOf(',', i);
-
-                    obj.Add(Convert(lineRead.Substring(i, commaPosition), location.X, location.Y));
-                    i += commaPosition;
+                    obj.Add(Convert(words[xIndex], location.X, location.Y));
                     location.X += 48;
                     xIndex++;
 
-                    if (xIndex == 13)
+                    if (xIndex == 14)
                     {
                         location.Y += 48;
                         location.X = leftSide;
@@ -57,10 +55,10 @@ namespace LOZ.MapIO
                 case "darkB":
                     returnVal = new DarkBlueBlock(location);
                     break;
-                case "s1":
+                case "S1":
                     returnVal = new MulticoloredBlock1(location);
                     break;
-                case "s2":
+                case "S2":
                     returnVal = new MulticoloredBlock2(location);
                     break;
                 case "blueB":

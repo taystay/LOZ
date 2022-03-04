@@ -5,6 +5,8 @@ using LOZ.ControllerClasses;
 using LOZ.GameState;
 using LOZ.DungeonClasses;
 using LOZ.MapIO;
+using System.IO;
+using System.Reflection;
 using LOZ.Collision;
 
 namespace LOZ
@@ -13,14 +15,16 @@ namespace LOZ
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-
+        
         private List<IController> controllerList;
         private Dictionary<Point, List<IGameObjects>> maps;
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
         }
 
         protected override void Initialize()
@@ -53,8 +57,12 @@ namespace LOZ
             DungeonInfo.Inside = new Rectangle(x + 32 * 3, y + 32 * 3, 576, 336);
             CurrentRoom.Room = new DevRoom();
             CurrentRoom.Room.LoadContent();
-            //IO allMap = new IO(maps, "");
-            //allMap.Parse();
+
+            //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
+            //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
+            string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(40);
+            IO allMap = new IO(maps, filePath+"/Content/DugeonRooms");
+            allMap.Parse();
 
         }
 

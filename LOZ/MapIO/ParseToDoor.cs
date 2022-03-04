@@ -14,16 +14,13 @@ namespace LOZ.MapIO
 
             int index = 0;
             int i = 0;
-            int commaPosition = 0;
+            //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
+            string[] words = lineRead.Split(',');
             DoorType[] doors = new DoorType[4];
 
             while (index < 4)
-            {
-
-                //https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0#methods for string methods
-                commaPosition = lineRead.IndexOf(',', i);
-
-                switch (lineRead.Substring(i,commaPosition))
+            { 
+                switch (words[index])
                 {
                     case "door":
                         doors[index] = DoorType.Door;
@@ -44,8 +41,6 @@ namespace LOZ.MapIO
                         doors[index] = DoorType.Door;
                         break;
                 }
-
-                i += commaPosition;
                 index++;
 
 
