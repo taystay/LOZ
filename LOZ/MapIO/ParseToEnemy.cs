@@ -5,6 +5,8 @@ using LOZ.Collision;
 using Microsoft.Xna.Framework;
 using LOZ.EnvironmentalClasses;
 using LOZ.EnemyClass;
+using System.Diagnostics;
+
 
 namespace LOZ.MapIO
 {
@@ -32,19 +34,24 @@ namespace LOZ.MapIO
 
                 //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/how-to-convert-a-string-to-a-number
                 //^ String to int
-
                 int xCord = Int32.Parse(subStr.Substring(openingParens+1, commaPosition-openingParens-1));
                 int yCord = Int32.Parse(subStr.Substring(commaPosition+1, closingParens-commaPosition-2));
 
-                int indexElement = (yCord) * 14 + xCord;
+                int indexElement = ((yCord+1) * 14) + (xCord+1);
                 IEnvironment block = (IEnvironment) obj[indexElement];
                 Point spawnLocation = block.GetPosition();
 
-                string enemY = subStr.Substring(i, openingParens);
-               IGameObjects enemyType = ConvertEnemy(enemY, spawnLocation);
+                string enemyStr = subStr.Substring(i, openingParens);
+                IGameObjects enemyType = ConvertEnemy(enemyStr, spawnLocation);
                 obj.Add(enemyType);
 
-                lineRead = lineRead.Substring(subStr.Length+2);
+                if (lineRead.Length > subStr.Length + 3)
+                {
+                    lineRead = lineRead.Substring(subStr.Length + 3);
+                }
+                else {
+                    lineRead = lineRead.Substring(lineRead.Length);
+                }
             }
         }
 
@@ -67,7 +74,7 @@ namespace LOZ.MapIO
                     returnVal = new Dragon (location);
                     break;
                 default:
-                    returnVal = null;
+                    returnVal = new Skeleton(location);
                     break;
             }
 
