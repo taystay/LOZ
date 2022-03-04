@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using LOZ.CommandClasses;
+using Microsoft.Xna.Framework.Input;
+
 
 namespace LOZ.ControllerClasses
 {
@@ -8,11 +10,13 @@ namespace LOZ.ControllerClasses
     {
         private List<ICommand> leftClickCommands;
         private List<ICommand> rightClickCommands;
+        private List<ICommand> alreadyExecuted;
 
         public MouseController()
         {
             leftClickCommands = new List<ICommand>();
             rightClickCommands = new List<ICommand>();
+            alreadyExecuted = new List<ICommand>();
         }
 
         public void RegisterRightClickCommands(ICommand command)
@@ -27,9 +31,19 @@ namespace LOZ.ControllerClasses
 
         public void Update(GameTime gametime)
         {
-            foreach(ICommand command in leftClickCommands)
+            MouseState state = Mouse.GetState();
+            foreach (ICommand command in leftClickCommands)
             {
-                command.execute();
+                if (alreadyExecuted.Contains(command)) continue;
+                command.execute();                
+                alreadyExecuted.Add(command);
+            }
+            if(state.LeftButton != ButtonState.Pressed)
+            {
+                while(alreadyExecuted.Count > 0)
+                {
+                    alreadyExecuted.RemoveAt(0);
+                }
             }
             foreach(ICommand command in rightClickCommands)
             {

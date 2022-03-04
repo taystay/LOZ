@@ -12,12 +12,16 @@ namespace LOZ.GameState
     {
         private static CurrentRoom instance = new CurrentRoom();
         private int roomCount = 0;
-        
-        public List<Room> Rooms { get; set; }
+        private int x = 3;
+        private int y = 6;
+        public Dictionary<Point, DungeonRoom> Rooms { get; set; }
         public Room Room
         {   get
             {
-                return Rooms[roomCount];
+                if (Rooms.ContainsKey(new Point(x, y)))
+                    return Rooms[new Point(x, y)];
+                else
+                    return null;
             }
             set
             {
@@ -47,22 +51,23 @@ namespace LOZ.GameState
         }
         public void Debug()
         {
-            Rooms[roomCount].DEBUGMODE = !Rooms[roomCount].DEBUGMODE;
-        }
-        public Room NextRoom()
-        {
-            Room = Rooms[roomCount];
-            if (roomCount == Rooms.Count-1)
-                roomCount = 0;
-            else
-                roomCount++;
+            Room.DEBUGMODE = !Room.DEBUGMODE;
 
-            return Room;
+        }
+
+        public void MoveRoomDirection(int dx, int dy)
+        {
+            x += dx;
+            y += dy;
+            if(Room == null)
+            {
+                x -= dx;
+                y -= dy;
+            }
         }
 
         public Room PreviousRoom()
         {
-            Room = Rooms[roomCount];
             roomCount--;
             if (roomCount <= 0)
                 roomCount = Rooms.Count-1;
@@ -74,17 +79,17 @@ namespace LOZ.GameState
 
         public void Update(GameTime gameTime)
         {
-            Rooms[roomCount].Update(gameTime);
+            Room.Update(gameTime);
         }
 
         public void LoadContent()
         {
-            Rooms[roomCount].LoadContent();
+            Room.LoadContent();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rooms[roomCount].Draw(spriteBatch);
+            Room.Draw(spriteBatch);
         }
     }
 }

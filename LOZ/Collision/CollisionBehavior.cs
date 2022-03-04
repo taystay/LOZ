@@ -3,6 +3,7 @@ using LOZ.EnvironmentalClasses;
 using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
 using LOZ.EnemyClass.Projectiles;
+using LOZ.GameState;
 
 namespace LOZ.Collision
 {
@@ -42,6 +43,9 @@ namespace LOZ.Collision
             else if (Type.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnvironment)))
             {
                 PlayerProjectileEnvironmentCollision.Handle(firstObject, secondObject);
+            } else if(Type.CheckPair(firstObject, typeof(DoorCollider), secondObject, typeof(ILink)))
+            {
+
             }
 
         }

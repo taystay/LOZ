@@ -63,7 +63,7 @@ namespace LOZ
                 Rooms.Add(room.Value);
             }
 
-            CurrentRoom.Instance.Rooms = Rooms;
+            CurrentRoom.Instance.Rooms = maps;
             
 
             

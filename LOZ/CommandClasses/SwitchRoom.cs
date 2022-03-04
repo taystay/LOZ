@@ -23,16 +23,8 @@ namespace LOZ.CommandClasses
                 CurrentRoom.Room = new DevRoom();
             }
             */
-            if(state.LeftButton == ButtonState.Pressed)
-            {
-                CurrentRoom.Instance.Room = CurrentRoom.Instance.NextRoom();
+                CurrentRoom.Instance.MoveRoomDirection(-1,0);
                 CurrentRoom.Instance.LoadContent();
-            }
-            else if (state.RightButton == ButtonState.Pressed)
-            {
-                CurrentRoom.Instance.Room = CurrentRoom.Instance.PreviousRoom();
-                CurrentRoom.Instance.LoadContent();
-            }
 
             CurrentRoom.Instance.LoadContent();
         }
