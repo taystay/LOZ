@@ -65,8 +65,8 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.N, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.E, new Idle());
 
-            //mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoom());
-            //mouseControllerMappings.RegisterRightClickCommands(new SwitchRoom());
+            mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoomLeftClick());
+            mouseControllerMappings.RegisterRightClickCommands(new SwitchRoomRightClick());
         }
 
         public KeyboardController GetKeyboardController()

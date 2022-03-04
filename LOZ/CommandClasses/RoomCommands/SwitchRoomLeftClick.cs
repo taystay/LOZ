@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace LOZ.CommandClasses
 {
-    class SwitchRoomUp : ICommand
+    class SwitchRoomLeftClick : ICommand
     {
-        public SwitchRoomUp()
+        public SwitchRoomLeftClick()
         {
         }
         public void execute()
@@ -13,7 +13,7 @@ namespace LOZ.CommandClasses
             Room room = CurrentRoom.Instance.Room;
             MouseState state = Mouse.GetState();
 
-            CurrentRoom.Instance.MoveRoomDirection(0,-1);
+            CurrentRoom.Instance.NextRoom();
             CurrentRoom.Instance.LoadContent();
         }
     }

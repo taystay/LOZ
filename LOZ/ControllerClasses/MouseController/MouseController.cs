@@ -34,9 +34,12 @@ namespace LOZ.ControllerClasses
             MouseState state = Mouse.GetState();
             foreach (ICommand command in leftClickCommands)
             {
-                if (alreadyExecuted.Contains(command)) continue;
-                command.execute();                
-                alreadyExecuted.Add(command);
+                if(state.LeftButton == ButtonState.Pressed)
+                {
+                    if (alreadyExecuted.Contains(command)) continue;
+                    //command.execute();
+                    alreadyExecuted.Add(command);
+                }
             }
             if(state.LeftButton != ButtonState.Pressed)
             {
@@ -47,7 +50,10 @@ namespace LOZ.ControllerClasses
             }
             foreach(ICommand command in rightClickCommands)
             {
-                command.execute();
+                if (state.RightButton == ButtonState.Released)
+                {
+                    //command.execute();
+                }
             }    
         }
     }
