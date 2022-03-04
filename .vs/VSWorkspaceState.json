@@ -4,9 +4,8 @@
     "\\LOZ",
     "\\LOZ\\EnvironmentClasses",
     "\\LOZ\\GameState",
-    "\\LOZ\\SpriteClasses",
-    "\\LOZ\\SpriteClasses\\ItemSprites"
+    "\\LOZ\\MapIO"
   ],
-  "SelectedNode": "\\LOZ\\LOZ.sln",
+  "SelectedNode": "\\LOZ\\GameState\\DevRoom.cs",
   "PreviewInSolutionExplorer": false
 }

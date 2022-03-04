@@ -46,7 +46,7 @@ namespace LOZ.MapIO
 
             }
 
-            obj.Add(new ExteriorObject(doors[0], doors[1], doors[2], doors[3]));
+            obj.Add(new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj));
 
         }
     

@@ -13,13 +13,15 @@ namespace LOZ.DungeonClasses
 
 		private ISprite sprite;
 		private Point itemLocation;
+        private List<IGameObjects> objectsInGame;
 
         private List<IGameObjects> doors;
-        public ExteriorObject(DoorType top, DoorType right, DoorType Bottom, DoorType Left)
+        public ExteriorObject(DoorType top, DoorType right, DoorType Bottom, DoorType Left, List<IGameObjects> objectsInGame)
         {
             sprite = Factories.DungeonFactory.Instance.GetExterior();
             itemLocation = DungeonInfo.Map.Location;
             doors = new List<IGameObjects>();
+            this.objectsInGame = objectsInGame;
 
             PlaceInvisibleBlocks( top, right, Bottom,Left);
 
@@ -47,48 +49,48 @@ namespace LOZ.DungeonClasses
             Point Location = DungeonInfo.Inside.Location;
             Location.Y -= 48;
             if (top != DoorType.Door && top != DoorType.Hole)
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width, 48));
+                objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width, 48));
             else
             {
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
+                objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X += DungeonInfo.DoorToCornerWidth - 24;
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
+                objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
             }
 
             //LEFT
             Location = DungeonInfo.Inside.Location;
             Location.X -= 48;
             if (Left != DoorType.Door && Left != DoorType.Hole)
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height));
+                objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height));
             else
             {
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
+                objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.Y += DungeonInfo.DoorToCornerHeight - 24;
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
+                objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
             }
 
             //RIGHT
             Location = DungeonInfo.Inside.Location;
             Location.X += DungeonInfo.Inside.Width;
             if (right != DoorType.Door && right != DoorType.Hole)
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height));
+                objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height));
             else
             {
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
+                objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.Y += DungeonInfo.DoorToCornerHeight - 24;
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
+                objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
             }
 
             //BOTTOM
             Location = DungeonInfo.Inside.Location;
             Location.Y += DungeonInfo.Inside.Height;
             if (Bottom != DoorType.Door && Bottom != DoorType.Hole)
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width, 48));
+                objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width, 48));
             else
             {
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
+                objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X += DungeonInfo.DoorToCornerWidth - 24;
-                CurrentRoom.Room.gameObjects.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
+                objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
             }
 
         }
