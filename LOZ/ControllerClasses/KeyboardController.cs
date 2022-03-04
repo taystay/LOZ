@@ -104,8 +104,7 @@ namespace LOZ.ControllerClasses
         {
             UpdateInitPress();
             UpdateHold();
-            UpdateRelease();
-              
+            UpdateRelease(); 
         }
     }
 }
