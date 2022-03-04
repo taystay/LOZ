@@ -11,7 +11,6 @@ namespace LOZ.CommandClasses
         public void execute()
         {
             Room room = CurrentRoom.Room;
-            
             if(Type.Check(room, typeof(DevRoom)))
             {
                 CurrentRoom.Room = new EmptyRoom();
@@ -19,6 +18,7 @@ namespace LOZ.CommandClasses
             {
                 CurrentRoom.Room = new DevRoom();
             }
+
             CurrentRoom.Instance.LoadContent();
         }
     }

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using LOZ.CommandClasses;
+using LOZ.GameState;
 
 namespace LOZ.ControllerClasses
 {
@@ -33,7 +34,7 @@ namespace LOZ.ControllerClasses
             {
                 foreach(ICommand command in rightClickCommands)
                 {
-                    command.execute();
+                    //CurrentRoom.Room = CurrentRoom.Instance.PreviousRoom();
                 }
             }
 
@@ -41,7 +42,7 @@ namespace LOZ.ControllerClasses
             {
                 foreach (ICommand command in leftClickCommands)
                 {
-                    command.execute();
+                    //CurrentRoom.Room = CurrentRoom.Instance.NextRoom();
                 }
             }
         }

@@ -65,9 +65,14 @@ namespace LOZ.ControllerClasses
             mouseControllerMappings.RegisterRightClickCommands(new SwitchRoom());
         }
 
-        public KeyboardController GetController()
+        public KeyboardController GetKeyboardController()
         {
             return ControllerMappings;
+        }
+
+        public MouseController GetMouseController()
+        {
+            return mouseControllerMappings;
         }
     }
 }

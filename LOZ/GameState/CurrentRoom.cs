@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using LOZ.Factories;
 
+
 namespace LOZ.GameState
 {
     class CurrentRoom
@@ -16,9 +17,10 @@ namespace LOZ.GameState
                 return instance;
             }
         }
+
         private CurrentRoom()
         {
-            
+
         }
 
         public void LoadTextures(ContentManager Content)

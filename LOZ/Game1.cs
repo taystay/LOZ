@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using LOZ.ControllerClasses;
 using LOZ.GameState;
 using LOZ.DungeonClasses;
+using LOZ.Collision;
+using System.Diagnostics;
 using LOZ.MapIO;
 using System.IO;
 using System.Reflection;
-using LOZ.Collision;
 
 namespace LOZ
 {
@@ -17,8 +18,11 @@ namespace LOZ
         private SpriteBatch spriteBatch;
         
         private List<IController> controllerList;
+
         private Dictionary<Point, List<IGameObjects>> maps;
-        
+        private int roomCount = 0;
+        public List<Room> Rooms { get; set; } = new List<Room>();
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -35,12 +39,11 @@ namespace LOZ
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
-            maps = new Dictionary<Point, List<IGameObjects>>();
-
             CurrentRoom.Instance.LoadTextures(Content);
             controllerList = new List<IController>()
             {
-                { new KeyBindings(this).GetController()},
+                { new KeyBindings(this).GetKeyboardController()},
+                { new KeyBindings(this).GetMouseController()},
             };         
             
             base.Initialize();
@@ -58,12 +61,50 @@ namespace LOZ
             CurrentRoom.Room = new DevRoom();
             CurrentRoom.Room.LoadContent();
 
+            maps = new Dictionary<Point, List<IGameObjects>>();
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            IO allMap = new IO(maps, filePath+ "/Content/DugeonRooms");
-            allMap.Parse();
+            Debug.WriteLine("Calling IO");
+            IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
+            Debug.WriteLine("Calling parse");
+            maps = allMap.Parse();
 
+            Debug.WriteLine("Maps size: " + maps.Count);
+            foreach (KeyValuePair<Point, List<IGameObjects>> room in maps)
+            {
+                Debug.WriteLine("Rooms was entered and a room is trying to be added");
+                Rooms.Add(new DungeonRoom(room.Value));
+                Debug.WriteLine("Rooms size: " + Rooms.Count);
+            }
+
+        }
+
+        public Room NextRoom()
+        {
+            Debug.WriteLine("Rooms size: " + Rooms.Count);
+            Debug.WriteLine("Room number: " + roomCount);
+            Room retRoom = Rooms[roomCount];
+            if (roomCount == Rooms.Count)
+                roomCount = 0;
+            else
+                roomCount++;
+
+            return retRoom;
+        }
+
+        public Room PreviousRoom()
+        {
+            Debug.WriteLine("Rooms size: " + Rooms.Count);
+            Debug.WriteLine("Room number: " + roomCount);
+            Room retRoom = Rooms[roomCount];
+            roomCount--;
+            if (roomCount == 0)
+                roomCount = Rooms.Count;
+            else
+                roomCount--;
+
+            return retRoom;
         }
 
         protected override void Update(GameTime gameTime)
