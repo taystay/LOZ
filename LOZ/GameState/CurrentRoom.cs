@@ -3,13 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using LOZ.Factories;
 using System.Collections.Generic;
-<<<<<<< HEAD
-
-=======
-using System.Diagnostics;
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
->>>>>>> 06b2e99eef9886825b0e9b226ef6488f5ad7971f
 
 namespace LOZ.GameState
 {
@@ -90,6 +85,7 @@ namespace LOZ.GameState
             {
                 x -= dx;
                 y -= dy;
+                return;
             }
 
             Room.Link = previousLink;

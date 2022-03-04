@@ -10,13 +10,13 @@ namespace LOZ.ControllerClasses
     {
         private List<ICommand> leftClickCommands;
         private List<ICommand> rightClickCommands;
-        private List<ICommand> alreadyExecuted;
+        private bool leftClicked = false;
+        private bool rightClicked = false;
 
         public MouseController()
         {
             leftClickCommands = new List<ICommand>();
             rightClickCommands = new List<ICommand>();
-            alreadyExecuted = new List<ICommand>();
         }
 
         public void RegisterRightClickCommands(ICommand command)
@@ -34,26 +34,23 @@ namespace LOZ.ControllerClasses
             MouseState state = Mouse.GetState();
             foreach (ICommand command in leftClickCommands)
             {
-                if(state.LeftButton == ButtonState.Pressed)
+                if (state.LeftButton == ButtonState.Pressed && !leftClicked)
                 {
-                    if (alreadyExecuted.Contains(command)) continue;
-                    //command.execute();
-                    alreadyExecuted.Add(command);
+                    command.execute();
+                    leftClicked = true;
                 }
-            }
-            if(state.LeftButton != ButtonState.Pressed)
-            {
-                while(alreadyExecuted.Count > 0)
-                {
-                    alreadyExecuted.RemoveAt(0);
-                }
+                else if (state.LeftButton == ButtonState.Released && leftClicked)
+                    leftClicked = false;
             }
             foreach(ICommand command in rightClickCommands)
             {
-                if (state.RightButton == ButtonState.Released)
+                if (state.RightButton == ButtonState.Pressed && !rightClicked)
                 {
-                    //command.execute();
+                    command.execute();
+                    rightClicked = true;
                 }
+                else if (state.RightButton == ButtonState.Released && rightClicked)
+                    rightClicked = false;
             }    
         }
     }
