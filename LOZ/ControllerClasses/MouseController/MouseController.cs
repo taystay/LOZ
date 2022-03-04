@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using LOZ.CommandClasses;
-using LOZ.GameState;
 
 namespace LOZ.ControllerClasses
 {
@@ -29,22 +27,14 @@ namespace LOZ.ControllerClasses
 
         public void Update(GameTime gametime)
         {
-            MouseState State = Mouse.GetState();
-            if(State.RightButton == ButtonState.Pressed)
+            foreach(ICommand command in leftClickCommands)
             {
-                foreach(ICommand command in rightClickCommands)
-                {
-                   CurrentRoom.Room = CurrentRoom.Instance.PreviousRoom();
-                }
+                command.execute();
             }
-
-            if(State.LeftButton == ButtonState.Pressed)
+            foreach(ICommand command in rightClickCommands)
             {
-                foreach (ICommand command in leftClickCommands)
-                {
-                    CurrentRoom.Room = CurrentRoom.Instance.NextRoom();
-                }
-            }
+                command.execute();
+            }    
         }
     }
 }

@@ -10,10 +10,10 @@ namespace LOZ.MapIO
     {
         internal static void ParseRoom(List<IGameObjects> obj, StreamReader reader)
         {
-            int i = 0, xIndex = 0, yIndex = 0, commaPosition = 0;
+            int xIndex = 0, yIndex = 0;
             Point location = DungeonClasses.DungeonInfo.Inside.Location;
-            location.X += 24;
-            location.Y += 24;
+            location.X -= 24;
+            location.Y -= 24;
             int leftSide = location.X;
 
             while (reader.Peek() != 1 && yIndex != 9){
@@ -71,7 +71,7 @@ namespace LOZ.MapIO
                     returnVal = new InvisibleBlock(new Point(0,0), 0,0);
                     break;
                 default:
-                    returnVal = null;
+                    returnVal = new SolidBlueBlock(location);
                     break;
             }
 

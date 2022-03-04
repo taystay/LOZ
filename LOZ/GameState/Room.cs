@@ -30,9 +30,9 @@ namespace LOZ.GameState
                     item.Update(gameTime);
                 }
             }
-            Link.Update(gameTime);
+            //Link.Update(gameTime);
             RemoveDeadItems();
-            colliders.Iterate();
+            //colliders.Iterate();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -50,7 +50,7 @@ namespace LOZ.GameState
                     item.GetHitBox().Draw(spriteBatch);
                 }
             }
-            Link.Draw(spriteBatch);
+            //Link.Draw(spriteBatch);
         }
 
         private void RemoveDeadItems()

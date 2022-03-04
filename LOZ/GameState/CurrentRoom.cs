@@ -46,7 +46,7 @@ namespace LOZ.GameState
             Debug.WriteLine("Rooms size: " + Rooms.Count);
             Debug.WriteLine("Room number: " + roomCount);
             Room retRoom = Rooms[roomCount];
-            if (roomCount == Rooms.Count)
+            if (roomCount == Rooms.Count-1)
                 roomCount = 0;
             else
                 roomCount++;
@@ -60,8 +60,8 @@ namespace LOZ.GameState
             Debug.WriteLine("Room number: " + roomCount);
             Room retRoom = Rooms[roomCount];
             roomCount--;
-            if (roomCount == 0)
-                roomCount = Rooms.Count;
+            if (roomCount <= 0)
+                roomCount = Rooms.Count-1;
             else
                 roomCount--;
 

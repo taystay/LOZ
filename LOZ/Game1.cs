@@ -8,6 +8,7 @@ using LOZ.Collision;
 using LOZ.MapIO;
 using System.IO;
 using System.Reflection;
+using LOZ.LinkClasses;
 
 namespace LOZ
 {
