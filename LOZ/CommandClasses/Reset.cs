@@ -1,5 +1,10 @@
 ﻿using LOZ.GameState;
-using LOZ.Collision;
+using LOZ.MapIO;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using System.IO;
+using System.Reflection;
+using LOZ.LinkClasses;
 
 namespace LOZ.CommandClasses
 {
@@ -10,8 +15,15 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            CurrentRoom.Instance.Room = new DevRoom();
-            CurrentRoom.Instance.LoadContent();
+            ILink link = CurrentRoom.Instance.Room.Link;
+            Dictionary<Point, DungeonRoom> maps = new Dictionary<Point, DungeonRoom>() ;
+            string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
+            allMap.Parse();
+            CurrentRoom.Instance.Rooms = maps;
+            CurrentRoom.Instance.Room.Link = link;
+            CurrentRoom.Instance.Room.gameObjects.Add(link);
+
         }
     }
 }

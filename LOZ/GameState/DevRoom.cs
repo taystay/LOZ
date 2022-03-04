@@ -23,8 +23,6 @@ namespace LOZ.GameState
         {
             gameObjects = new List<IGameObjects>();
             colliders = new CollisionIterator(gameObjects);
-            Link = new Link(new Point(1000, 500));
-            gameObjects.Add(Link);
             gameObjects.Add(new ExteriorObject(DoorType.Wall, DoorType.Wall, DoorType.Wall, DoorType.Wall, gameObjects));
 
             PlaceFloor();

@@ -3,6 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using LOZ.Factories;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using System.Diagnostics;
+>>>>>>> 68e7e750bb6cc3257a8d740d6aa3ef1c44c0500f
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 
@@ -36,11 +40,14 @@ namespace LOZ.GameState
         private int x = 3;
         private int y = 6;
         public Dictionary<Point, DungeonRoom> Rooms { get; set; }
+        private Room dev = new DevRoom();
         public Room Room
         {   get
             {
                 if (Rooms.ContainsKey(new Point(x, y)))
                     return Rooms[new Point(x, y)];
+                else if (x == 3 && y == 7)
+                    return dev;
                 else
                     return null;
             }
@@ -142,9 +149,13 @@ namespace LOZ.GameState
         public void LoadContent()
         {
             Room.LoadContent();
+            dev.LoadContent();
             if (Room.Link == null)
             {
-                Room.Link = new Link(new Point(700, 700));
+                Rectangle loc = DungeonInfo.Map;
+                Point p = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + loc.Height - 96);
+                Room.Link = new Link(p);
+                Room.Link.ChangeDirectionUp();
                 Room.gameObjects.Add(Room.Link);
             }
         }
