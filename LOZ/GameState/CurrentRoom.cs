@@ -12,8 +12,18 @@ namespace LOZ.GameState
     {
         private static CurrentRoom instance = new CurrentRoom();
         private int roomCount = 0;
-        public static Room Room { get; set; }
+        
         public List<Room> Rooms { get; set; }
+        public Room Room
+        {   get
+            {
+                return Rooms[roomCount];
+            }
+            set
+            {
+                
+            }
+        }
         public static CurrentRoom Instance
         {
             get
@@ -34,6 +44,10 @@ namespace LOZ.GameState
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
+        }
+        public void Debug()
+        {
+            Rooms[roomCount].DEBUGMODE = !Rooms[roomCount].DEBUGMODE;
         }
         public Room NextRoom()
         {
@@ -60,17 +74,17 @@ namespace LOZ.GameState
 
         public void Update(GameTime gameTime)
         {
-            Room.Update(gameTime);
+            Rooms[roomCount].Update(gameTime);
         }
 
         public void LoadContent()
         {
-            Room.LoadContent();
+            Rooms[roomCount].LoadContent();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Room.Draw(spriteBatch);
+            Rooms[roomCount].Draw(spriteBatch);
         }
     }
 }

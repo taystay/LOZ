@@ -11,7 +11,7 @@ namespace LOZ.Collision
             IItem item_user = (IItem)item;
             if (!Type.Check(item, typeof(IPlayerProjectile)))
             {
-                CurrentRoom.Room.Link.RaiseItem(item_user);
+                CurrentRoom.Instance.Room.Link.RaiseItem(item_user);
             }
         }
     }

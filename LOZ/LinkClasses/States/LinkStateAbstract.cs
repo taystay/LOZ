@@ -21,7 +21,7 @@ namespace LOZ.LinkClasses
         public abstract void Attack(Weapon toUse, Point position);
         public virtual void TakeDamage()
         {
-            CurrentRoom.Room.Link = new DamagedLink(link);
+            CurrentRoom.Instance.Room.Link = new DamagedLink(link);
         }
         public virtual void RaiseItem(IItem item)
         {

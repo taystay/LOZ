@@ -9,8 +9,8 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            CurrentRoom.Room.Link.ChangeDirectionUp();
-            CurrentRoom.Room.Link.Move();
+            CurrentRoom.Instance.Room.Link.ChangeDirectionUp();
+            CurrentRoom.Instance.Room.Link.Move();
         }
     }
 }

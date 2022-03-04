@@ -19,14 +19,14 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.Enter, new SwitchRoom());
             ControllerMappings.RegisterReleaseCommand(Keys.R, new Reset());
 
-            ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(CurrentRoom.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(CurrentRoom.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(CurrentRoom.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.D4, new AttackFire(CurrentRoom.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad1, new AttackSword(CurrentRoom.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(CurrentRoom.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(CurrentRoom.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(CurrentRoom.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.D4, new AttackFire(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad1, new AttackSword(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(CurrentRoom.Instance.Room));
 
             ControllerMappings.RegisterReleaseCommand(Keys.D1, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.D2, new Idle());

@@ -38,28 +38,19 @@ namespace LOZ
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
-            CurrentRoom.Instance.LoadTextures(Content);
-            controllerList = new List<IController>()
-            {
-                { new KeyBindings(this).GetKeyboardController()},
-                { new KeyBindings(this).GetMouseController()},
-            };         
+                    
             
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+            spriteBatch = new SpriteBatch(GraphicsDevice);        
             int x = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - DungeonInfo.DungeonWidth / 2;
             int y = 400;
             DungeonInfo.Map = new Rectangle(x, y, 3 * (776 - 521 + 1), 3 * (186 - 11 + 1));
             DungeonInfo.Inside = new Rectangle(x + 32 * 3, y + 32 * 3, 576, 336);
-            CurrentRoom.Room = new DevRoom();
-            CurrentRoom.Room.LoadContent();
-
+            CurrentRoom.Instance.LoadTextures(Content);
             maps = new Dictionary<Point, DungeonRoom>();
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
@@ -73,6 +64,16 @@ namespace LOZ
             }
 
             CurrentRoom.Instance.Rooms = Rooms;
+            
+
+            
+            controllerList = new List<IController>()
+            {
+                { new KeyBindings(this).GetKeyboardController()},
+                { new KeyBindings(this).GetMouseController()},
+            };
+            CurrentRoom.Instance.LoadContent();
+            base.LoadContent();
         }
 
         protected override void Update(GameTime gameTime)
@@ -81,7 +82,7 @@ namespace LOZ
             {
                 controller.Update(gameTime);
             }
-            CurrentRoom.Room.Update(gameTime);
+            CurrentRoom.Instance.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -89,7 +90,7 @@ namespace LOZ
         {
 
             GraphicsDevice.Clear(Color.Black);
-            CurrentRoom.Room.Draw(spriteBatch);
+            CurrentRoom.Instance.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }

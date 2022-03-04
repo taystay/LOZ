@@ -9,7 +9,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            CurrentRoom.Room.Link.Idle();
+            CurrentRoom.Instance.Room.Link.Idle();
         }
     }
 }

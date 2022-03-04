@@ -38,9 +38,9 @@ namespace LOZ.EnemyClass
             modifyPosition(velocity.X,0);
 
             if ((int) timer.TotalGameTime.TotalMilliseconds % 5000 == 0) {
-                CurrentRoom.Room.gameObjects.Add(new DragonBreathe(Position,-1)); //top fireball
-                CurrentRoom.Room.gameObjects.Add(new DragonBreathe(Position,0)); //middle fireball
-                CurrentRoom.Room.gameObjects.Add(new DragonBreathe(Position,1)); //bottom fireball
+                CurrentRoom.Instance.Room.gameObjects.Add(new DragonBreathe(Position,-1)); //top fireball
+                CurrentRoom.Instance.Room.gameObjects.Add(new DragonBreathe(Position,0)); //middle fireball
+                CurrentRoom.Instance.Room.gameObjects.Add(new DragonBreathe(Position,1)); //bottom fireball
             }
 
             _texture.Update(timer);

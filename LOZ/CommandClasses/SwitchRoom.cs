@@ -11,7 +11,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            Room room = CurrentRoom.Room;
+            Room room = CurrentRoom.Instance.Room;
             MouseState state = Mouse.GetState();
 
             /*
@@ -25,11 +25,13 @@ namespace LOZ.CommandClasses
             */
             if(state.LeftButton == ButtonState.Pressed)
             {
-                CurrentRoom.Room = CurrentRoom.Instance.NextRoom();
+                CurrentRoom.Instance.Room = CurrentRoom.Instance.NextRoom();
+                CurrentRoom.Instance.LoadContent();
             }
             else if (state.RightButton == ButtonState.Pressed)
             {
-                CurrentRoom.Room = CurrentRoom.Instance.PreviousRoom();
+                CurrentRoom.Instance.Room = CurrentRoom.Instance.PreviousRoom();
+                CurrentRoom.Instance.LoadContent();
             }
 
             CurrentRoom.Instance.LoadContent();

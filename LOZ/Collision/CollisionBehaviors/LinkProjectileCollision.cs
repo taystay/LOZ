@@ -8,7 +8,7 @@ namespace LOZ.Collision
         public static void Handle(IGameObjects p)
         {
             IProjectile projectile = (IProjectile)p;
-            CurrentRoom.Room.Link.TakeDamage();
+            CurrentRoom.Instance.Room.Link.TakeDamage();
         }
     }
 }
