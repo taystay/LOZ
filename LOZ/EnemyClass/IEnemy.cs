@@ -4,7 +4,7 @@ using LOZ.Collision;
 
 namespace LOZ.EnemyClass
 {
-    interface IEnemy : IGameObjects
+    public interface IEnemy : IGameObjects
     {
         //Nothing here just a separation between enemies and the rest of the game Object
     }

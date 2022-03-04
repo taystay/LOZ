@@ -43,7 +43,15 @@ namespace LOZ.Collision
             else if (TypeC.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnvironment)))
             {
                 PlayerProjectileEnvironmentCollision.Handle(firstObject, secondObject);
-            } else if(TypeC.CheckPair(firstObject, typeof(DoorCollider), secondObject, typeof(ILink)))
+            }
+            else if(TypeC.CheckPair(firstObject, typeof(DoorCollider), secondObject, typeof(ILink)))
+            {
+                DoorColliderLinkCollision.Handle( firstObject);
+            }
+            else if (TypeC.CheckPair(firstObject, typeof(DoorCollider), secondObject, typeof(IEnemy)))
+            {
+                DoorColliderEnemyCollision.Handle(firstObject, secondObject, side);
+            } else
             {
 
             }

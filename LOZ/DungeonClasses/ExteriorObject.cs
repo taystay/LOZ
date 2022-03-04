@@ -56,11 +56,10 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X += DungeonInfo.DoorToCornerWidth - 24;
+                objectsInGame.Add(new DoorCollider(Location.X - 48, Location.Y - 48, 48, 48));
                 objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X -= 72;
-                Location.Y -= 48;
-                //objectsInGame.Add(new DoorObject(Location, DoorLocation.Top));
-            }
+                Location.Y -= 48;            }
 
             //LEFT
             Location = DungeonInfo.Inside.Location;
@@ -71,11 +70,10 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.Y += DungeonInfo.DoorToCornerHeight - 24;
+                objectsInGame.Add(new DoorCollider(Location.X - 48, Location.Y - 48, 48, 48));
                 objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.X -= 48;
-                Location.Y -= 72;
-                objectsInGame.Add(new DoorObject(Location, DoorLocation.Left));
-            }
+                Location.Y -= 72;            }
 
             //RIGHT
             Location = DungeonInfo.Inside.Location;
@@ -86,10 +84,9 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.Y += DungeonInfo.DoorToCornerHeight - 24;
+                objectsInGame.Add(new DoorCollider(Location.X + 48, Location.Y - 48, 48, 48));
                 objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
-                Location.Y -= 72;
-                //objectsInGame.Add(new DoorObject(Location, DoorLocation.Right));
-            }
+                Location.Y -= 72;            }
 
             //BOTTOM
             Location = DungeonInfo.Inside.Location;
@@ -100,9 +97,9 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X += DungeonInfo.DoorToCornerWidth - 24;
+                objectsInGame.Add(new DoorCollider(Location.X - 48, Location.Y + 48, 48, 48));
                 objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
-                Location.X -= 72;
-                //objectsInGame.Add(new DoorObject(Location, DoorLocation.Bottom));
+                Location.X -= 72;            
             }
 
         }
@@ -136,8 +133,8 @@ namespace LOZ.DungeonClasses
 
 		public Hitbox GetHitBox()
         {
-            Rectangle i = DungeonInfo.Inside;
-            return new Hitbox(i.X, i.Y,0 , 0);
+            //Rectangle i = DungeonInfo.Inside;
+            return new Hitbox(0, 0,0 , 0);
         }
 
 		public virtual void Draw(SpriteBatch spriteBatch) {
@@ -145,6 +142,7 @@ namespace LOZ.DungeonClasses
             foreach(IGameObjects d in doors)
             {
                 d.Draw(spriteBatch);
+                //d.GetHitBox().Draw(spriteBatch);
             }
 		}
 

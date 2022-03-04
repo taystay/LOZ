@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LOZ.GameState
 {
-    class DoorCollider : IGameObjects
+    public class DoorCollider : IGameObjects
     {
         private Hitbox box;
         public DoorCollider(int x, int y, int width, int height)
