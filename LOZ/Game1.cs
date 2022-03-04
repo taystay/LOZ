@@ -60,8 +60,8 @@ namespace LOZ
 
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
-            string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(40);
-            IO allMap = new IO(maps, filePath+"/Content/DugeonRooms");
+            string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            IO allMap = new IO(maps, filePath+ "/Content/DugeonRooms");
             allMap.Parse();
 
         }
