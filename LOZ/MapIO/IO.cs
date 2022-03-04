@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using LOZ.Collision;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
 
 namespace LOZ.MapIO
 {
@@ -17,17 +16,15 @@ namespace LOZ.MapIO
           
         }
 
-        public Dictionary<Point, List<IGameObjects>> Parse()
+        public void Parse()
         {   
             string[] allMapsPaths = Directory.GetFiles(folder);
 
             foreach (string pathName in allMapsPaths) {
                 StreamReader reader = new StreamReader(pathName);
                 List<IGameObjects> objects = new List<IGameObjects>();
-                listOfRooms = new Dictionary<Point, List<IGameObjects>>();
 
                 string position = reader.ReadLine();
-                Debug.WriteLine("What the reader reads: " + position);
                 //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/how-to-convert-a-string-to-a-number
                 //parse a string to num
                 int xPosition = Int32.Parse(position.Substring(2, 1));
@@ -43,7 +40,6 @@ namespace LOZ.MapIO
                 reader.Close();
 
             }
-            return listOfRooms;
             
         }
 

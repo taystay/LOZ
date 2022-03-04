@@ -34,7 +34,7 @@ namespace LOZ.ControllerClasses
             {
                 foreach(ICommand command in rightClickCommands)
                 {
-                    //CurrentRoom.Room = CurrentRoom.Instance.PreviousRoom();
+                   CurrentRoom.Room = CurrentRoom.Instance.PreviousRoom();
                 }
             }
 
@@ -42,7 +42,7 @@ namespace LOZ.ControllerClasses
             {
                 foreach (ICommand command in leftClickCommands)
                 {
-                    //CurrentRoom.Room = CurrentRoom.Instance.NextRoom();
+                    CurrentRoom.Room = CurrentRoom.Instance.NextRoom();
                 }
             }
         }
