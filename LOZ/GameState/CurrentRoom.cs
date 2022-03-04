@@ -37,11 +37,14 @@ namespace LOZ.GameState
         private int x = 3;
         private int y = 6;
         public Dictionary<Point, DungeonRoom> Rooms { get; set; }
+        private Room dev = new DevRoom();
         public Room Room
         {   get
             {
                 if (Rooms.ContainsKey(new Point(x, y)))
                     return Rooms[new Point(x, y)];
+                else if (x == 3 && y == 7)
+                    return dev;
                 else
                     return null;
             }
@@ -143,6 +146,7 @@ namespace LOZ.GameState
         public void LoadContent()
         {
             Room.LoadContent();
+            dev.LoadContent();
             if (Room.Link == null)
             {
                 Rectangle loc = DungeonInfo.Map;
