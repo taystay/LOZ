@@ -17,13 +17,13 @@ namespace LOZ.Collision
 
             //Make link not be able to move forward at all.
             if (side == CollisionSide.Top)
-                enemy.Position = new Point(linkPos.X, linkPos.Y - collisionBox.Height);
+                enemy.Position = new Point(blockBox.X - blockBox.Width / 2, blockBox.Y - collisionBox.Height - blockBox.Height / 2);
             else if (side == CollisionSide.Left)
-                enemy.Position = new Point(linkPos.X - collisionBox.Width, linkPos.Y);
+                enemy.Position = new Point(linkPos.X - collisionBox.Width - blockBox.Width / 2, linkPos.Y - blockBox.Height / 2);
             else if (side == CollisionSide.Right)
-                enemy.Position = new Point(linkPos.X + collisionBox.Width, linkPos.Y);
+                enemy.Position = new Point(linkPos.X + collisionBox.Width - blockBox.Width / 2, linkPos.Y - blockBox.Height / 2);
             else if (side == CollisionSide.Bottom)
-                enemy.Position = new Point(linkPos.X, linkPos.Y + collisionBox.Height);
+                enemy.Position = new Point(linkPos.X - blockBox.Width / 2, linkPos.Y + collisionBox.Height - blockBox.Height / 2);
         }
     }
 }

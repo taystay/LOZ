@@ -3,7 +3,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using LOZ.Factories;
 using System.Collections.Generic;
+<<<<<<< HEAD
 
+=======
+using System.Diagnostics;
+using LOZ.LinkClasses;
+using LOZ.DungeonClasses;
+>>>>>>> 06b2e99eef9886825b0e9b226ef6488f5ad7971f
 
 namespace LOZ.GameState
 {
@@ -77,12 +83,36 @@ namespace LOZ.GameState
 
         public void MoveRoomDirection(int dx, int dy)
         {
+            ILink previousLink = Room.Link;
             x += dx;
             y += dy;
             if(Room == null)
             {
                 x -= dx;
                 y -= dy;
+            }
+
+            Room.Link = previousLink;
+            Room.gameObjects.Add(Room.Link);
+
+            if(dx == 1)
+            {
+                Rectangle loc = DungeonInfo.Map;
+                Room.Link.Position = new Point(loc.Location.X + 96, loc.Location.Y + DungeonInfo.DoorToCornerHeight + 48);
+            } else if (dx == -1)
+            {
+                Rectangle loc = DungeonInfo.Map;
+                Room.Link.Position = new Point(loc.Location.X + loc.Width - 96, loc.Location.Y + DungeonInfo.DoorToCornerHeight + 48);
+            }
+            else if (dy == 1)
+            {
+                Rectangle loc = DungeonInfo.Map;
+                Room.Link.Position = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + 96);
+            }
+            else if (dy == -1)
+            {
+                Rectangle loc = DungeonInfo.Map;
+                Room.Link.Position = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + loc.Height -96);
             }
         }
 
@@ -116,6 +146,11 @@ namespace LOZ.GameState
         public void LoadContent()
         {
             Room.LoadContent();
+            if (Room.Link == null)
+            {
+                Room.Link = new Link(new Point(700, 700));
+                Room.gameObjects.Add(Room.Link);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
