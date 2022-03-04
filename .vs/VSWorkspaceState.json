@@ -3,7 +3,9 @@
     "",
     "\\LOZ",
     "\\LOZ\\EnvironmentClasses",
-    "\\LOZ\\MapIO"
+    "\\LOZ\\GameState",
+    "\\LOZ\\SpriteClasses",
+    "\\LOZ\\SpriteClasses\\ItemSprites"
   ],
   "SelectedNode": "\\LOZ\\LOZ.sln",
   "PreviewInSolutionExplorer": false
