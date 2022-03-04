@@ -37,7 +37,9 @@ namespace LOZ.MapIO
                 int xCord = Int32.Parse(subStr.Substring(openingParens+1, commaPosition-openingParens-1));
                 int yCord = Int32.Parse(subStr.Substring(commaPosition+1, closingParens-commaPosition-2));
 
-                int indexElement = ((yCord+1) * 14) + (xCord+1);
+                Debug.WriteLine("xCord: " + xCord + "\nyCord: " + yCord);
+                int indexElement = ((yCord-1) * 12) + (xCord-1);
+                Debug.WriteLine("indexElement: " + indexElement);
                 IEnvironment block = (IEnvironment) obj[indexElement];
                 Point spawnLocation = block.GetPosition();
 

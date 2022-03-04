@@ -12,21 +12,21 @@ namespace LOZ.MapIO
         {
             int xIndex = 0, yIndex = 0;
             Point location = DungeonClasses.DungeonInfo.Inside.Location;
-            location.X -= 24;
-            location.Y -= 24;
+            location.X += 24;
+            location.Y += 24;
             int leftSide = location.X;
 
-            while (reader.Peek() != 1 && yIndex != 9){
+            while (reader.Peek() != 1 && yIndex != 7){
                 string lineRead = reader.ReadLine();
                 //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
                 string[] words = lineRead.Split(',');
 
-                while (xIndex < 14) {
+                while (xIndex < 12) {
                     obj.Add(Convert(words[xIndex], location.X, location.Y));
                     location.X += 48;
                     xIndex++;
 
-                    if (xIndex == 14)
+                    if (xIndex == 12)
                     {
                         location.Y += 48;
                         location.X = leftSide;
