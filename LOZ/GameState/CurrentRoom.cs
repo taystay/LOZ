@@ -86,6 +86,7 @@ namespace LOZ.GameState
             {
                 x -= dx;
                 y -= dy;
+                return;
             }
 
             Room.Link = previousLink;
@@ -144,7 +145,10 @@ namespace LOZ.GameState
             Room.LoadContent();
             if (Room.Link == null)
             {
-                Room.Link = new Link(new Point(700, 700));
+                Rectangle loc = DungeonInfo.Map;
+                Point p = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + loc.Height - 96);
+                Room.Link = new Link(p);
+                Room.Link.ChangeDirectionUp();
                 Room.gameObjects.Add(Room.Link);
             }
         }
