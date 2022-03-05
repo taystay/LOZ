@@ -1,0 +1,10 @@
+﻿"(3,2)",,,,,,,,,,,
+locked,wall,door,wall,,,,,,,,
+darkB,darkB,darkB,darkB,darkB,blueB,blueB,darkB,darkB,darkB,darkB,darkB
+darkB,blueB,blueB,blueB,darkB,blueB,blueB,blueB,blueB,darkB,blueB,darkB
+darkB,blueB,darkB,blueB,darkB,blueB,darkB,darkB,blueB,darkB,blueB,darkB
+blueB,blueB,darkB,blueB,darkB,blueB,blueB,darkB,blueB,darkB,blueB,blueB
+darkB,blueB,darkB,blueB,darkB,darkB,blueB,darkB,blueB,darkB,blueB,darkB
+darkB,blueB,darkB,blueB,blueB,blueB,blueB,darkB,blueB,blueB,blueB,darkB
+darkB,darkB,darkB,darkB,darkB,blueB,blueB,darkB,darkB,darkB,darkB,darkB
+"skeleton(2,4)","skeleton(11,2)","skeleton(8,2)",,,,,,,,,

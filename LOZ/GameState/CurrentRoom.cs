@@ -3,10 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using LOZ.Factories;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using System.Diagnostics;
->>>>>>> 68e7e750bb6cc3257a8d740d6aa3ef1c44c0500f
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 
@@ -44,6 +41,7 @@ namespace LOZ.GameState
         public Room Room
         {   get
             {
+                System.Diagnostics.Debug.WriteLine("" + x + " " + y);
                 if (Rooms.ContainsKey(new Point(x, y)))
                     return Rooms[new Point(x, y)];
                 else if (x == 3 && y == 7)
@@ -121,24 +119,33 @@ namespace LOZ.GameState
 
         public void NextRoom()
         {
-            if (roomCount == roomList.Count-1)
+            ILink previousLink = Room.Link;
+            if (roomCount == roomList.Count - 1)
                 roomCount = 0;
             else
                 roomCount++;
 
             x = roomList[roomCount].X;
             y = roomList[roomCount].Y;
+
+            Room.Link = previousLink;
+            Room.gameObjects.Add(Room.Link);
+
         }
 
         public void PreviousRoom()
         {
+            ILink previousLink = Room.Link;
             if (roomCount <= 0)
-                roomCount = Rooms.Count-1;
+                roomCount = Rooms.Count - 1;
             else
                 roomCount--;
 
             x = roomList[roomCount].X;
             y = roomList[roomCount].Y;
+
+            Room.Link = previousLink;
+            Room.gameObjects.Add(Room.Link);
         }
 
         public void Update(GameTime gameTime)
@@ -148,8 +155,11 @@ namespace LOZ.GameState
 
         public void LoadContent()
         {
-            Room.LoadContent();
-            dev.LoadContent();
+            if (Room == null)
+                return;
+                Room.LoadContent();
+            if(dev.gameObjects == null)
+                dev.LoadContent();
             if (Room.Link == null)
             {
                 Rectangle loc = DungeonInfo.Map;
