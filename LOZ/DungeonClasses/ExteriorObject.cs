@@ -56,7 +56,7 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X += DungeonInfo.DoorToCornerWidth - 24;
-                objectsInGame.Add(new DoorCollider(Location.X - 48, Location.Y - 48, 48, 48));
+                objectsInGame.Add(new DoorCollider(Location.X - 48 -48, Location.Y - 48, 144, 48));
                 objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X -= 72;
                 Location.Y -= 48;            }
@@ -70,7 +70,7 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.Y += DungeonInfo.DoorToCornerHeight - 24;
-                objectsInGame.Add(new DoorCollider(Location.X - 48, Location.Y - 48, 48, 48));
+                objectsInGame.Add(new DoorCollider(Location.X - 48, Location.Y - 48 - 48, 48, 144));
                 objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.X -= 48;
                 Location.Y -= 72;            }
@@ -84,7 +84,7 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.Y += DungeonInfo.DoorToCornerHeight - 24;
-                objectsInGame.Add(new DoorCollider(Location.X + 48, Location.Y - 48, 48, 48));
+                objectsInGame.Add(new DoorCollider(Location.X + 48, Location.Y - 48 - 48, 48, 144));
                 objectsInGame.Add(new InvisibleBlock(Location, 48, DungeonInfo.Inside.Height / 2 - 24));
                 Location.Y -= 72;            }
 
@@ -97,7 +97,7 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X += DungeonInfo.DoorToCornerWidth - 24;
-                objectsInGame.Add(new DoorCollider(Location.X - 48, Location.Y + 48, 48, 48));
+                objectsInGame.Add(new DoorCollider(Location.X - 48 - 48, Location.Y + 48, 144, 48));
                 objectsInGame.Add(new InvisibleBlock(Location, DungeonInfo.Inside.Width / 2 - 24, 48));
                 Location.X -= 72;            
             }

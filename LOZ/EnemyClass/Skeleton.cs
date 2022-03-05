@@ -18,7 +18,7 @@ namespace LOZ.EnemyClass
 
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(Position.X - WidthSpriteSection / 2, Position.Y - HeightSpriteSection / 2, 48, 64);
+            return new Hitbox(Position.X - WidthSpriteSection / 2, Position.Y - HeightSpriteSection / 2, 44, 60);
         }
 
         public override void Update(GameTime timer) {

@@ -24,8 +24,9 @@ namespace LOZ.GameState
             gameObjects = new List<IGameObjects>();
             colliders = new CollisionIterator(gameObjects);
             gameObjects.Add(new ExteriorObject(DoorType.Wall, DoorType.Wall, DoorType.Wall, DoorType.Wall, gameObjects));
-
             PlaceFloor();
+            PlaceItemsForDev();
+            
         }
 
         private void PlaceFloor()
@@ -35,8 +36,43 @@ namespace LOZ.GameState
             for(int i = 0; i < 12; i ++)
                 for(int j = 0; j < 7; j++)
                     gameObjects.Add(new SolidBlueBlock(new Point(x + 48 * i, y + 48 * j)));
-            
+        }
 
+        private void IncrementPointX(Point p)
+        {
+            p.X += 48;
+            p.Y += 48;
+        }
+        private void PlaceItemsForDev()
+        {
+            Point start = DungeonInfo.Inside.Location;
+            start.X += 24;
+            start.Y += 24;
+            gameObjects.Add(new ArrowItem(start));
+            start.Y += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.Y += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.Y += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.Y += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.Y += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.X += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.X += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.X += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.X += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.X += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.X += 48;
+            gameObjects.Add(new ArrowItem(start));
+            start.X += 48;
+            gameObjects.Add(new ArrowItem(start));
         }
 
     }
