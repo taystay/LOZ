@@ -8,7 +8,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public KeySprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(62, 9, 20, 30);
 		}

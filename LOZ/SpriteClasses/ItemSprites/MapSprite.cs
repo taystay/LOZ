@@ -8,7 +8,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public MapSprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(303, 108, 18, 27);
 		}

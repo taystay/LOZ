@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 
 		public BombSprite(Texture2D texture)
 		{
-			scale = 1.5;
+			//scale = 1.0;
 			_texture = texture;
 			frame = new Rectangle(111, 99, 129 - 110, 133 - 98);
 		}

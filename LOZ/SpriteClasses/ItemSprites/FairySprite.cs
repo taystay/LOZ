@@ -13,7 +13,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public FairySprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frames = new List<Rectangle>();
 			frames.Add(new Rectangle(17, 57, 30 - 16, 85 - 56));

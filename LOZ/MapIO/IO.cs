@@ -38,6 +38,10 @@ namespace LOZ.MapIO
                 if (enemyRow!= null)
                     ParseToEnemy.ParseEnemy(objects, enemyRow);
 
+                string itemRow = reader.ReadLine();
+                if (itemRow != null)
+                    ParseToItem.ParseItem(objects, itemRow);
+
 
                 listOfRooms.Add(new Point(xPosition,yPosition), new DungeonRoom(objects));
                 reader.Close();

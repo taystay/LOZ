@@ -23,7 +23,7 @@ namespace LOZ.GameState
         {
             gameObjects = new List<IGameObjects>();
             colliders = new CollisionIterator(gameObjects);
-            gameObjects.Add(new ExteriorObject(DoorType.Wall, DoorType.Wall, DoorType.Wall, DoorType.Wall, gameObjects));
+            gameObjects.Add(new ExteriorObject(DoorType.Door, DoorType.Wall, DoorType.Wall, DoorType.Wall, gameObjects));
             PlaceFloor();
             PlaceItemsForDev();
             
@@ -50,29 +50,29 @@ namespace LOZ.GameState
             start.Y += 24;
             gameObjects.Add(new ArrowItem(start));
             start.Y += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Heart(start));
             start.Y += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new HeartContainer(start));
             start.Y += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new FireItem(start));
             start.Y += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Bow(start));
             start.Y += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Map(start));
             start.X += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Compass(start));
             start.X += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Key(start));
             start.X += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Rupee(start));
             start.X += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Sword(start));
             start.X += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Triforce(start));
             start.X += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Clock(start));
             start.X += 48;
-            gameObjects.Add(new ArrowItem(start));
+            gameObjects.Add(new Fairy(start));
         }
 
     }

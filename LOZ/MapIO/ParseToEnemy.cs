@@ -77,6 +77,9 @@ namespace LOZ.MapIO
                 case "dragon":
                     returnVal = new Dragon (location);
                     break;
+                case "npc":
+                    returnVal = new NPC(location);
+                    break;
                 default:
                     returnVal = new Skeleton(location);
                     break;

@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public CompassSprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(105, 56, 26, 31);
 		}

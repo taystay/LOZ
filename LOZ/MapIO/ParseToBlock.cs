@@ -67,11 +67,8 @@ namespace LOZ.MapIO
                 case "stairB":
                     returnVal = new StairsBlock(location);
                     break;
-                case "wall":
-                    returnVal = new InvisibleBlock(new Point(0,0), 0,0);
-                    break;
                 default:
-                    returnVal = new InvisibleBlock(new Point(0, 0), 0, 0);
+                    returnVal = new BlackTileBlock(new Point(0, 0));
                     break;
             }
 

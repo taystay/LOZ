@@ -10,8 +10,8 @@ namespace LOZ.ItemsClasses
         private protected ISprite sprite;
         private protected Point _itemLocation;
         private protected bool spriteActivity =  true;
-        private protected int hitBoxWidth = 2;
-        private protected int hitBoxHeight = 2;
+        private protected int hitBoxWidth = 1;
+        private protected int hitBoxHeight = 1;
 
         public void SetPosition(Point position)
         {

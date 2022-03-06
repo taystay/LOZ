@@ -8,7 +8,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public TriforceSprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(155, 7, 179 - 154, 33 - 6);
 		}

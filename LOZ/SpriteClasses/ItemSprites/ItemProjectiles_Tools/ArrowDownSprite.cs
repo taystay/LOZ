@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public ArrowDownSprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(161, 55, 14, 34);
 		}

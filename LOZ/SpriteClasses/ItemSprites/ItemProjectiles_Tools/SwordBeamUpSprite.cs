@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 
 		public SwordBeamUpSprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(112, 152, 124 - 111, 181 - 151);
 		}

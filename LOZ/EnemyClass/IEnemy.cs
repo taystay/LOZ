@@ -6,6 +6,9 @@ namespace LOZ.EnemyClass
 {
     public interface IEnemy : IGameObjects
     {
-        //Nothing here just a separation between enemies and the rest of the game Object
+        public void KillItem();
+
+        public bool IsActive();
+   
     }
 }

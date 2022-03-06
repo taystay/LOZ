@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public DeadArrowSprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(106, 246, 136 - 105, 274 - 245);
 		}

@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public HeartContainerSprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 1.0;
 			_texture = texture;
 			frame = new Rectangle(102, 6, 139 - 101, 38 - 5);
 		}

@@ -8,7 +8,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Constructor-----
 		public SwordBeamRightSprite(Texture2D texture)
 		{
-			scale = 2.0;
+			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(156,161,181 - 155,174 - 160);
 		}
