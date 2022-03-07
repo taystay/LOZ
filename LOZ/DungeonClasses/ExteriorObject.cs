@@ -133,7 +133,7 @@ namespace LOZ.DungeonClasses
 
 		public Hitbox GetHitBox()
         {
-            //Rectangle i = DungeonInfo.Inside;
+            
             return new Hitbox(0, 0,0 , 0);
         }
 
@@ -142,7 +142,7 @@ namespace LOZ.DungeonClasses
             foreach(IGameObjects d in doors)
             {
                 d.Draw(spriteBatch);
-                //d.GetHitBox().Draw(spriteBatch);
+               
             }
 		}
 

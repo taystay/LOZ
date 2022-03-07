@@ -20,7 +20,7 @@ namespace LOZ
         private List<IController> controllerList;
 
         private Dictionary<Point, DungeonRoom> maps;
-        public List<Room> Rooms { get; set; } = new List<Room>();
+        
 
         public Game1()
         {
@@ -58,10 +58,7 @@ namespace LOZ
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();
 
-            foreach (KeyValuePair<Point, DungeonRoom> room in maps)
-            {
-                Rooms.Add(room.Value);
-            }
+       
 
             CurrentRoom.Instance.Rooms = maps;
             

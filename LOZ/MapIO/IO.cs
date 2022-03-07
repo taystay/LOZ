@@ -19,7 +19,8 @@ namespace LOZ.MapIO
         }
 
         public void Parse()
-        {   
+        {
+            //https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.getfiles?view=net-6.0
             string[] allMapsPaths = Directory.GetFiles(folder);
 
             foreach (string pathName in allMapsPaths) {
