@@ -41,6 +41,7 @@ namespace LOZ.LinkClasses.States
             }
             else if (toUse == Weapon.Fire)
             {
+                attackPosition.X = position.X + 45;
                 CurrentRoom.Instance.Room.gameObjects.Add(new FireProjectile(attackPosition, Direction.Right));
             }
         }

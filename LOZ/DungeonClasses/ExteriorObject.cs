@@ -101,7 +101,6 @@ namespace LOZ.DungeonClasses
             }
 
         }
-
         public void PlaceDoor(Point location, DoorLocation side, DoorType t)
         {
             switch (t)
@@ -123,18 +122,15 @@ namespace LOZ.DungeonClasses
                     break;
             }
         }
-
 		public void Update(GameTime timer)
         {
 
         }
-
 		public Hitbox GetHitBox()
         {
             
             return new Hitbox(0, 0,0 , 0);
         }
-
 		public virtual void Draw(SpriteBatch spriteBatch) {
 			sprite.Draw(spriteBatch, itemLocation);
             foreach(IGameObjects d in doors)
