@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.ItemsClasses;
 using LOZ.Collision;
 using LOZ.LinkClasses;
 using LOZ.EnemyClass;
-using LOZ.SpriteClasses;
 
 namespace LOZ.GameState
 {
@@ -17,9 +15,7 @@ namespace LOZ.GameState
         public bool Damaged { get; set; } = false;
         public bool DEBUGMODE { get; set; } = false;
         private protected CollisionIterator colliders;
-
         public abstract void LoadContent();       
-
         public void Update(GameTime gameTime)
         {         
             for(int i = 0; i < gameObjects.Count; i++)
@@ -34,7 +30,6 @@ namespace LOZ.GameState
             RemoveDeadItems();
             colliders.Iterate();
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (IGameObjects item in gameObjects)
@@ -52,7 +47,6 @@ namespace LOZ.GameState
             }
             Link.Draw(spriteBatch);
         }
-
         private void RemoveDeadItems()
         {
             List<IGameObjects> toRemove = new List<IGameObjects>();
@@ -69,7 +63,6 @@ namespace LOZ.GameState
                     if (!itemObject.IsActive()) toRemove.Add(item);
                 }
             }
-
             foreach (IGameObjects item in toRemove)
             {
                 gameObjects.Remove(item);

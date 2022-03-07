@@ -18,7 +18,6 @@ namespace LOZ.GameState
         {
             return box;
         }
-
         public void Update(GameTime gameTime)
         {
             //nothing

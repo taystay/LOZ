@@ -4,11 +4,9 @@ using System.Collections.Generic;
 using LOZ.ControllerClasses;
 using LOZ.GameState;
 using LOZ.DungeonClasses;
-using LOZ.Collision;
 using LOZ.MapIO;
 using System.IO;
 using System.Reflection;
-using LOZ.LinkClasses;
 
 namespace LOZ
 {
@@ -16,12 +14,8 @@ namespace LOZ
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        
         private List<IController> controllerList;
-
         private Dictionary<Rectangle, Room> maps;
-        
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -29,7 +23,6 @@ namespace LOZ
             IsMouseVisible = true;
 
         }
-
         protected override void Initialize()
         {
             // https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
@@ -42,7 +35,6 @@ namespace LOZ
             
             base.Initialize();
         }
-
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);        
@@ -73,7 +65,6 @@ namespace LOZ
             CurrentRoom.Instance.LoadContent();
             base.LoadContent();
         }
-
         protected override void Update(GameTime gameTime)
         {
             foreach (IController controller in controllerList)
@@ -83,7 +74,6 @@ namespace LOZ
             CurrentRoom.Instance.Update(gameTime);
             base.Update(gameTime);
         }
-
         protected override void Draw(GameTime gameTime)
         {
 

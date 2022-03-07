@@ -13,7 +13,6 @@ namespace LOZ.Collision
         {
 
         }
-
         public void HandleCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
             if(TypeC.Check(firstObject, typeof(ILink)))
@@ -29,7 +28,6 @@ namespace LOZ.Collision
             } 
 
         }
-
         public void EnemyCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
             if (TypeC.Check(secondObject, typeof(IPlayerProjectile)))
@@ -45,7 +43,6 @@ namespace LOZ.Collision
                 EnemyEnviornmentCollision.Handle(firstObject, secondObject, side);
             }
         }
-
         public void LinkCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
             if (TypeC.Check(secondObject, typeof(IEnvironment)))

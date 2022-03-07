@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using LOZ.Factories;
 using System.Collections.Generic;
-using System.Diagnostics;
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 
@@ -59,12 +58,10 @@ namespace LOZ.GameState
                 return instance;
             }
         }
-
         private CurrentRoom()
         {
 
         }
-
         public void LoadTextures(ContentManager Content)
         {
             ItemFactory.Instance.LoadAllTextures(Content);
@@ -78,7 +75,6 @@ namespace LOZ.GameState
             Room.DEBUGMODE = !Room.DEBUGMODE;
 
         }
-
         public void MoveRoomDirection(int dx, int dy, int dz)
         {
             ILink previousLink = Room.Link;
@@ -119,7 +115,6 @@ namespace LOZ.GameState
                 Room.Link.ChangeDirectionUp();
             }
         }
-
         public void NextRoom()
         {
             ILink previousLink = Room.Link;
@@ -137,7 +132,6 @@ namespace LOZ.GameState
             Room.gameObjects.Add(Room.Link);
 
         }
-
         public void PreviousRoom()
         {
             ILink previousLink = Room.Link;
@@ -153,12 +147,10 @@ namespace LOZ.GameState
             Room.Link = previousLink;
             Room.gameObjects.Add(Room.Link);
         }
-
         public void Update(GameTime gameTime)
         {
             Room.Update(gameTime);
         }
-
         public void LoadContent()
         {
             if (Room.Link != null) return;
@@ -168,7 +160,6 @@ namespace LOZ.GameState
             Room.Link.ChangeDirectionUp();
             Room.gameObjects.Add(Room.Link);
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             Room.Draw(spriteBatch);

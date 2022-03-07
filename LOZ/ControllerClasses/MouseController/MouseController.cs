@@ -12,18 +12,15 @@ namespace LOZ.ControllerClasses
         private List<ICommand> rightClickCommands;
         private bool leftClicked = false;
         private bool rightClicked = false;
-
         public MouseController()
         {
             leftClickCommands = new List<ICommand>();
             rightClickCommands = new List<ICommand>();
         }
-
         public void RegisterRightClickCommands(ICommand command)
         {
             rightClickCommands.Add(command);
         }
-
         public void RegisterLeftClickCommands(ICommand command)
         {
             leftClickCommands.Add(command);

@@ -12,7 +12,6 @@ namespace LOZ.CommandClasses
         {
             Room room = CurrentRoom.Instance.Room;
             MouseState state = Mouse.GetState();
-
             CurrentRoom.Instance.PreviousRoom();
             CurrentRoom.Instance.LoadContent();
         }

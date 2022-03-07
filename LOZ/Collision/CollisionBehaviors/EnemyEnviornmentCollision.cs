@@ -14,7 +14,6 @@ namespace LOZ.Collision
             Point linkPos = enemy.Position;
             Rectangle collisionBox = Rectangle.Intersect(enemyBox, blockBox);
 
-            //Make link not be able to move forward at all.
             if (side == CollisionSide.Top)
                 enemy.Position = new Point(linkPos.X, linkPos.Y - collisionBox.Height);
             else if (side == CollisionSide.Left)

@@ -1,15 +1,10 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using LOZ.Factories;
-using LOZ.LinkClasses;
 using LOZ.ItemsClasses;
 using LOZ.Collision;
-using LOZ.EnemyClass;
 using LOZ.EnvironmentalClasses;
-using System;
 using LOZ.DungeonClasses;
-using LOZ.SpriteClasses.BlockSprites;
+
 namespace LOZ.GameState
 {
     public class DevRoom : Room
@@ -18,7 +13,6 @@ namespace LOZ.GameState
         {
             LoadContent();
         }
-
         public override void LoadContent()
         {
             gameObjects = new List<IGameObjects>();
@@ -28,7 +22,6 @@ namespace LOZ.GameState
             PlaceItemsForDev();
             
         }
-
         private void PlaceFloor()
         {
             int x = DungeonInfo.Inside.X + 24;
@@ -37,7 +30,6 @@ namespace LOZ.GameState
                 for(int j = 0; j < 7; j++)
                     gameObjects.Add(new SolidBlueBlock(new Point(x + 48 * i, y + 48 * j)));
         }
-
         private void IncrementPointX(Point p)
         {
             p.X += 48;
@@ -74,6 +66,5 @@ namespace LOZ.GameState
             start.X += 48;
             gameObjects.Add(new Fairy(start));
         }
-
     }
 }

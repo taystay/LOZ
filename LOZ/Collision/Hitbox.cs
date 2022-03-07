@@ -6,7 +6,6 @@ namespace LOZ.Collision
 {
     public class Hitbox
     {
-
         private Rectangle box;
         private ISprite yellowPixel;
         public Hitbox(int x, int y, int width, int height)

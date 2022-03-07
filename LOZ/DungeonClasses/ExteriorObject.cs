@@ -10,11 +10,9 @@ namespace LOZ.DungeonClasses
 {
     public class ExteriorObject : IGameObjects
     {
-
 		private ISprite sprite;
 		private Point itemLocation;
         private List<IGameObjects> objectsInGame;
-
         private List<IGameObjects> doors;
         public ExteriorObject(DoorType top, DoorType right, DoorType bottom, DoorType left, List<IGameObjects> objectsInGame)
         {

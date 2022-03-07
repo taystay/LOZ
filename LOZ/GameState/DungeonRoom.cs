@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using LOZ.Collision;
-using LOZ.LinkClasses;
-using Microsoft.Xna.Framework;
 
 namespace LOZ.GameState
 {
@@ -13,7 +11,6 @@ namespace LOZ.GameState
             colliders = new CollisionIterator(gameObjects);
             
         }
-
         public override void LoadContent() {
             colliders = new CollisionIterator(gameObjects);
 

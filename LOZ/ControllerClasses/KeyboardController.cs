@@ -13,7 +13,6 @@ namespace LOZ.ControllerClasses
         private Dictionary<Keys, ICommand> storedReleaseCommands;
         private List<Keys> initKeysPressed;
         private List<Keys> releaseKeysPressed;
-
         public KeyboardController(Game1 GameObject)
         {
             storedInitCommands = new Dictionary<Keys, ICommand>();
@@ -23,7 +22,6 @@ namespace LOZ.ControllerClasses
             releaseKeysPressed = new List<Keys>();
             initKeysTimeHeld = new Dictionary<Keys, int>();
         }
-
         public void RegisterInitialCommand(Keys key, ICommand initialPressCommand)
         {
             storedInitCommands.Add(key, initialPressCommand);
@@ -36,7 +34,6 @@ namespace LOZ.ControllerClasses
         {
             storedReleaseCommands.Add(key, onReleaseCommand);
         }
-
         private void UpdateInitPress()
         {
             int i;
@@ -68,7 +65,6 @@ namespace LOZ.ControllerClasses
                 initKeysPressed.RemoveAt(--i);
             }
         }
-
         private void UpdateHold()
         {
             foreach (Keys key in Keyboard.GetState().GetPressedKeys())
@@ -79,7 +75,6 @@ namespace LOZ.ControllerClasses
                 }
             }
         }
-
         private void UpdateRelease()
         {
             int i;
@@ -99,7 +94,6 @@ namespace LOZ.ControllerClasses
                 releaseKeysPressed.RemoveAt(--i);
             }
         }
-
         public void Update(GameTime gameTime)
         {
             UpdateInitPress();

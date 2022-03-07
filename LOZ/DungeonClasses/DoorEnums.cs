@@ -8,7 +8,6 @@
 		CrackedDoor,
 		Hole
 	};
-
 	public enum DoorLocation
 	{
 		Top,
