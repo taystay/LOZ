@@ -6,7 +6,7 @@ namespace LOZ.Collision
 {
     public static class DoorColliderEnemyCollision
     {
-        public static void Handle(IGameObjects blockObj, IGameObjects enemyObj, CollisionSide side)
+        public static void Handle(IGameObjects enemyObj, IGameObjects blockObj, CollisionSide side)
         {
             AbstractEnemy enemy = (AbstractEnemy)enemyObj;
             Rectangle enemyBox = enemyObj.GetHitBox().ToRectangle();

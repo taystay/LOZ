@@ -16,7 +16,7 @@ namespace LOZ.GameState
     {
         public DevRoom()
         {
-            
+            LoadContent();
         }
 
         public override void LoadContent()

@@ -13,7 +13,6 @@ namespace LOZ.MapIO
         {
 
             int index = 0;
-            int i = 0;
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
             string[] words = lineRead.Split(',');
             DoorType[] doors = new DoorType[4];

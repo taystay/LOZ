@@ -16,7 +16,7 @@ namespace LOZ.CommandClasses
         public void execute()
         {
             ILink link = CurrentRoom.Instance.Room.Link;
-            Dictionary<Point, DungeonRoom> maps = new Dictionary<Point, DungeonRoom>() ;
+            Dictionary<Rectangle, Room> maps = new Dictionary<Rectangle, Room>() ;
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();

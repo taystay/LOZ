@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 using LOZ.SpriteClasses.ItemSprites;
 using LOZ.SpriteClasses;
 
@@ -139,9 +140,9 @@ namespace LOZ.Factories
 		{
 			return new FairySprite(ItemSpriteSheet);
 		}
-		public ISprite CreateYellowPixelSprite()
+		public ISprite CreateYellowPixelSprite(Rectangle Box)
 		{
-			return new YellowPixelSprite(ItemSpriteSheet);
+			return new YellowPixelSprite(ItemSpriteSheet, Box);
 		}
 		public ISprite CreateInvisibleSprite()
         {

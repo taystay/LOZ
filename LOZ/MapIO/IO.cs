@@ -10,9 +10,10 @@ namespace LOZ.MapIO
 {
     class IO
     {
-        private Dictionary<Point, DungeonRoom> listOfRooms;
+        private Dictionary<Rectangle, Room> listOfRooms;
         private string folder;
-        public IO(Dictionary<Point, DungeonRoom> rooms , string folderPathName) {
+        
+        public IO(Dictionary<Rectangle, Room> rooms , string folderPathName) {
             listOfRooms = rooms;
             folder = folderPathName;
           
@@ -32,6 +33,7 @@ namespace LOZ.MapIO
                 //parse a string to num
                 int xPosition = Int32.Parse(position.Substring(2, 1));
                 int yPosition = Int32.Parse(position.Substring(4, 1));
+                int zPosition = Int32.Parse(position.Substring(6, 1));
 
                 ParseToDoor.ParseDoor(objects, reader.ReadLine());
                 ParseToBlock.ParseRoom(objects, reader);
@@ -44,11 +46,13 @@ namespace LOZ.MapIO
                     ParseToItem.ParseItem(objects, itemRow);
 
 
-                listOfRooms.Add(new Point(xPosition,yPosition), new DungeonRoom(objects));
+                listOfRooms.Add(new Rectangle(xPosition,yPosition, zPosition, 0), new DungeonRoom(objects));
+                
                 reader.Close();
 
             }
-            
+            listOfRooms.Add(new Rectangle(3, 7 , 0, 0), new DevRoom());
+
         }
 
     }

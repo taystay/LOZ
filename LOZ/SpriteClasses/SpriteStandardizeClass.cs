@@ -5,9 +5,9 @@ namespace LOZ.SpriteClasses
 {
     abstract class SpriteStandardizeClass : ISprite
     {
-		private protected double scale;
-		private protected Rectangle frame;
-		private protected Texture2D _texture;
+		private protected double scale = 0;
+		private protected Rectangle frame = new Rectangle(0,0,0,0);
+		private protected Texture2D _texture = null;
 		public abstract void Update(GameTime timer);
 
 		public void Draw(SpriteBatch spriteBatch, Point location) {

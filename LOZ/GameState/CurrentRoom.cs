@@ -11,41 +11,39 @@ namespace LOZ.GameState
 {
     class CurrentRoom
     {
-        private List<Point> roomList = new List<Point>() 
+        private List<Rectangle> roomList = new List<Rectangle>() 
         { 
-            new Point(3,6),
-            new Point(2,6),
-            new Point(4,6),
-            new Point(3,5),
-            new Point(3,4),
-            new Point(4,4),
-            new Point(2,4),
-            new Point(2,3),
-            new Point(3,3),
-            new Point(3,2),
-            new Point(3,1),
-            new Point(2,1),
-            new Point(4,3),
-            new Point(5,3),
-            new Point(5,2),
-            new Point(6,2),
-            new Point(2,1),
-            new Point(1,3),
+            new Rectangle(3,6,0,0),
+            new Rectangle(2,6,0,0),
+            new Rectangle(4,6,0,0),
+            new Rectangle(3,5,0,0),
+            new Rectangle(3,4,0,0),
+            new Rectangle(4,4,0,0),
+            new Rectangle(2,4,0,0),
+            new Rectangle(2,3,0,0),
+            new Rectangle(3,3,0,0),
+            new Rectangle(3,2,0,0),
+            new Rectangle(3,1,0,0),
+            new Rectangle(2,1,0,0),
+            new Rectangle(4,3,0,0),
+            new Rectangle(5,3,0,0),
+            new Rectangle(5,2,0,0),
+            new Rectangle(6,2,0,0),
+            new Rectangle(2,1,0,0),
+            new Rectangle(1,3,0,0),
+            new Rectangle(2,1,1,0),
         };
         private static CurrentRoom instance = new CurrentRoom();
         private int roomCount = 0;
         private int x = 3;
         private int y = 6;
-        public Dictionary<Point, DungeonRoom> Rooms { get; set; }
-        private Room dev = new DevRoom();
+        private int z = 0;
+        public Dictionary<Rectangle, Room> Rooms { get; set; }
         public Room Room
         {   get
             {
-                System.Diagnostics.Debug.WriteLine("" + x + " " + y);
-                if (Rooms.ContainsKey(new Point(x, y)))
-                    return Rooms[new Point(x, y)];
-                else if (x == 3 && y == 7)
-                    return dev;
+                if (Rooms.ContainsKey(new Rectangle(x, y, z, 0)))
+                    return Rooms[new Rectangle(x, y, z, 0)];
                 else
                     return null;
             }
@@ -81,18 +79,19 @@ namespace LOZ.GameState
 
         }
 
-        public void MoveRoomDirection(int dx, int dy)
+        public void MoveRoomDirection(int dx, int dy, int dz)
         {
             ILink previousLink = Room.Link;
             x += dx;
             y += dy;
+            z += dz;
             if(Room == null)
             {
                 x -= dx;
                 y -= dy;
+                z -= dz;
                 return;
             }
-
             Room.Link = previousLink;
             Room.gameObjects.Add(Room.Link);
 
@@ -100,20 +99,24 @@ namespace LOZ.GameState
             {
                 Rectangle loc = DungeonInfo.Map;
                 Room.Link.Position = new Point(loc.Location.X + 96, loc.Location.Y + DungeonInfo.DoorToCornerHeight + 48);
+                Room.Link.ChangeDirectionRight();
             } else if (dx == -1)
             {
                 Rectangle loc = DungeonInfo.Map;
                 Room.Link.Position = new Point(loc.Location.X + loc.Width - 96, loc.Location.Y + DungeonInfo.DoorToCornerHeight + 48);
+                Room.Link.ChangeDirectionLeft();
             }
             else if (dy == 1)
             {
                 Rectangle loc = DungeonInfo.Map;
                 Room.Link.Position = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + 96);
+                Room.Link.ChangeDirectionDown();
             }
             else if (dy == -1)
             {
                 Rectangle loc = DungeonInfo.Map;
                 Room.Link.Position = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + loc.Height -96);
+                Room.Link.ChangeDirectionUp();
             }
         }
 
@@ -127,6 +130,8 @@ namespace LOZ.GameState
 
             x = roomList[roomCount].X;
             y = roomList[roomCount].Y;
+            z = roomList[roomCount].Width;
+
 
             Room.Link = previousLink;
             Room.gameObjects.Add(Room.Link);
@@ -143,6 +148,7 @@ namespace LOZ.GameState
 
             x = roomList[roomCount].X;
             y = roomList[roomCount].Y;
+            z = roomList[roomCount].Width;
 
             Room.Link = previousLink;
             Room.gameObjects.Add(Room.Link);
@@ -155,19 +161,12 @@ namespace LOZ.GameState
 
         public void LoadContent()
         {
-            if (Room == null)
-                return;
-                Room.LoadContent();
-            if(dev.gameObjects == null)
-                dev.LoadContent();
-            if (Room.Link == null)
-            {
-                Rectangle loc = DungeonInfo.Map;
-                Point p = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + loc.Height - 96);
-                Room.Link = new Link(p);
-                Room.Link.ChangeDirectionUp();
-                Room.gameObjects.Add(Room.Link);
-            }
+            if (Room.Link != null) return;
+            Rectangle loc = DungeonInfo.Map;
+            Point p = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + loc.Height - 96);
+            Room.Link = new Link(p);
+            Room.Link.ChangeDirectionUp();
+            Room.gameObjects.Add(Room.Link);
         }
 
         public void Draw(SpriteBatch spriteBatch)

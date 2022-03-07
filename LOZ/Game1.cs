@@ -19,7 +19,7 @@ namespace LOZ
         
         private List<IController> controllerList;
 
-        private Dictionary<Point, DungeonRoom> maps;
+        private Dictionary<Rectangle, Room> maps;
         
 
         public Game1()
@@ -51,7 +51,8 @@ namespace LOZ
             DungeonInfo.Map = new Rectangle(x, y, 3 * (776 - 521 + 1), 3 * (186 - 11 + 1));
             DungeonInfo.Inside = new Rectangle(x + 32 * 3, y + 32 * 3, 576, 336);
             CurrentRoom.Instance.LoadTextures(Content);
-            maps = new Dictionary<Point, DungeonRoom>();
+
+            maps = new Dictionary<Rectangle, Room>();
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
