@@ -69,6 +69,18 @@ namespace LOZ.Factories
 			return new StairsBlockSprite(blockSpritesheet);
 		}
 
+		public ISprite CreateBasementBlockSprite()
+		{
+			return new BasementTileSprite(blockSpritesheet);
+		}
+
+		public ISprite CreateLadderSprite()
+		{
+			return new LadderSprite(blockSpritesheet);
+		}
+
+
+
 
 
 	}
