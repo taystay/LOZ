@@ -13,9 +13,9 @@ namespace LOZ.Collision
             Point collider = obj.GetHitBox().ToRectangle().Location;
 
             //GET CENTER
-            Point center = DungeonInfo.Map.Location;
-            center.X += DungeonInfo.DoorToCornerWidth + 48;
-            center.Y += DungeonInfo.DoorToCornerHeight + 48;
+            Point center = Info.Map.Location;
+            center.X += Info.DoorToCornerWidth + 48;
+            center.Y += Info.DoorToCornerHeight + 48;
 
             if (collider.X - center.X > 200)
                 CurrentRoom.Instance.MoveRoomDirection(1, 0, 0);

@@ -24,46 +24,42 @@ namespace LOZ.GameState
         }
         private void PlaceFloor()
         {
-            int x = DungeonInfo.Inside.X + 24;
-            int y = DungeonInfo.Inside.Y + 24;
+            int x = Info.Inside.X + Info.BlockWidth / 2;
+            int y = Info.Inside.Y + Info.BlockWidth / 2;
             for(int i = 0; i < 12; i ++)
                 for(int j = 0; j < 7; j++)
-                    gameObjects.Add(new SolidBlueBlock(new Point(x + 48 * i, y + 48 * j)));
+                    gameObjects.Add(new SolidBlueBlock(new Point(x + Info.BlockWidth * i, y + Info.BlockWidth * j)));
         }
-        private void IncrementPointX(Point p)
-        {
-            p.X += 48;
-            p.Y += 48;
-        }
+
         private void PlaceItemsForDev()
         {
-            Point start = DungeonInfo.Inside.Location;
-            start.X += 24;
-            start.Y += 24;
+            Point start = Info.Inside.Location;
+            start.X += Info.BlockWidth / 2;
+            start.Y += Info.BlockWidth / 2;
             gameObjects.Add(new ArrowItem(start));
-            start.Y += 48;
+            start.Y += Info.BlockWidth;
             gameObjects.Add(new Heart(start));
-            start.Y += 48;
+            start.Y += Info.BlockWidth;
             gameObjects.Add(new HeartContainer(start));
-            start.Y += 48;
+            start.Y += Info.BlockWidth;
             gameObjects.Add(new FireItem(start));
-            start.Y += 48;
+            start.Y += Info.BlockWidth;
             gameObjects.Add(new Bow(start));
-            start.Y += 48;
+            start.Y += Info.BlockWidth;
             gameObjects.Add(new Map(start));
-            start.X += 48;
+            start.X += Info.BlockWidth;
             gameObjects.Add(new Compass(start));
-            start.X += 48;
+            start.X += Info.BlockWidth;
             gameObjects.Add(new Key(start));
-            start.X += 48;
+            start.X += Info.BlockWidth;
             gameObjects.Add(new Rupee(start));
-            start.X += 48;
+            start.X += Info.BlockWidth;
             gameObjects.Add(new Sword(start));
-            start.X += 48;
+            start.X += Info.BlockWidth;
             gameObjects.Add(new Triforce(start));
-            start.X += 48;
+            start.X += Info.BlockWidth;
             gameObjects.Add(new Clock(start));
-            start.X += 48;
+            start.X += Info.BlockWidth;
             gameObjects.Add(new Fairy(start));
         }
     }

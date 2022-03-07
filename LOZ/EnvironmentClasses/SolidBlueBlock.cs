@@ -15,7 +15,7 @@ namespace LOZ.EnvironmentalClasses
         }
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(itemLocation.X - 24, itemLocation.Y - 24, 0, 0);
+            return new Hitbox(0, 0, 0, 0);
         }
         public override void Update(GameTime gameTime)
         {

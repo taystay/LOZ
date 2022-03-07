@@ -2,11 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\LOZ",
-    "\\LOZ\\EnvironmentClasses",
-    "\\LOZ\\Factories",
-    "\\LOZ\\SpriteClasses",
-    "\\LOZ\\SpriteClasses\\BlockSprites"
+    "\\LOZ\\Content",
+    "\\LOZ\\GameState",
+    "\\LOZ\\MapIO"
   ],
-  "SelectedNode": "\\LOZ\\EnvironmentClasses\\BasementBlock.cs",
+  "SelectedNode": "\\LOZ\\GameState\\CurrentRoom.cs",
   "PreviewInSolutionExplorer": false
 }

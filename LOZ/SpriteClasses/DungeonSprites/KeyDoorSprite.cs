@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.BlockSprites
 	{
 		public KeyDoorSprite(Texture2D texture, DoorLocation type)
 		{
-			int offset = DungeonInfo.DoorWidth / 3 + 1;
+			int offset = Info.DoorWidth / 3 + 1;
 			scale = 3.0;
 			_texture = texture;
 			switch (type)

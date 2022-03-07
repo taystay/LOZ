@@ -26,8 +26,8 @@ namespace LOZ
         protected override void Initialize()
         {
             // https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
-            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
-            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            graphics.PreferredBackBufferWidth = Info.screenWidth;
+            graphics.PreferredBackBufferHeight = Info.screenHeight;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
@@ -38,10 +38,6 @@ namespace LOZ
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);        
-            int x = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - DungeonInfo.DungeonWidth / 2;
-            int y = 400;
-            DungeonInfo.Map = new Rectangle(x, y, 3 * (776 - 521 + 1), 3 * (186 - 11 + 1));
-            DungeonInfo.Inside = new Rectangle(x + 32 * 3, y + 32 * 3, 576, 336);
             CurrentRoom.Instance.LoadTextures(Content);
 
             maps = new Dictionary<Rectangle, Room>();

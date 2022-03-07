@@ -11,7 +11,7 @@ namespace LOZ.MapIO
         internal static void ParseRoom(List<IGameObjects> obj, StreamReader reader)
         {
             int xIndex = 0, yIndex = 0;
-            Point location = DungeonClasses.DungeonInfo.Inside.Location;
+            Point location = DungeonClasses.Info.Inside.Location;
             location.X += 24;
             location.Y += 24;
             int leftSide = location.X;

@@ -12,6 +12,7 @@ namespace LOZ.GameState
     {
         private List<Rectangle> roomList = new List<Rectangle>() 
         { 
+            //Rectangle (X,Y,Z,0), of the map coordinate. basement is Z = 1
             new Rectangle(3,6,0,0),
             new Rectangle(2,6,0,0),
             new Rectangle(4,6,0,0),
@@ -91,27 +92,25 @@ namespace LOZ.GameState
             Room.Link = previousLink;
             Room.gameObjects.Add(Room.Link);
 
-            if(dx == 1)
+            Rectangle loc = Info.Map;
+            if (dx == 1)
             {
-                Rectangle loc = DungeonInfo.Map;
-                Room.Link.Position = new Point(loc.Location.X + 96, loc.Location.Y + DungeonInfo.DoorToCornerHeight + 48);
+                Room.Link.Position = new Point(loc.Location.X + Info.DoorWidth , loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth);
                 Room.Link.ChangeDirectionRight();
             } else if (dx == -1)
             {
-                Rectangle loc = DungeonInfo.Map;
-                Room.Link.Position = new Point(loc.Location.X + loc.Width - 96, loc.Location.Y + DungeonInfo.DoorToCornerHeight + 48);
+                
+                Room.Link.Position = new Point(loc.Location.X + loc.Width - Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth);
                 Room.Link.ChangeDirectionLeft();
             }
             else if (dy == 1)
             {
-                Rectangle loc = DungeonInfo.Map;
-                Room.Link.Position = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + 96);
+                Room.Link.Position = new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + Info.DoorWidth);
                 Room.Link.ChangeDirectionDown();
             }
             else if (dy == -1)
             {
-                Rectangle loc = DungeonInfo.Map;
-                Room.Link.Position = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + loc.Height -96);
+                Room.Link.Position = new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + loc.Height - Info.DoorWidth);
                 Room.Link.ChangeDirectionUp();
             }
         }
@@ -154,8 +153,8 @@ namespace LOZ.GameState
         public void LoadContent()
         {
             if (Room.Link != null) return;
-            Rectangle loc = DungeonInfo.Map;
-            Point p = new Point(loc.Location.X + DungeonInfo.DoorToCornerWidth + 48, loc.Location.Y + loc.Height - 96);
+            Rectangle loc = Info.Map;
+            Point p = new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + loc.Height - Info.DoorWidth);
             Room.Link = new Link(p);
             Room.Link.ChangeDirectionUp();
             Room.gameObjects.Add(Room.Link);

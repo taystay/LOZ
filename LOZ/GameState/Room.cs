@@ -38,14 +38,12 @@ namespace LOZ.GameState
 
                 
             }
-            if (DEBUGMODE)
-            {
-                foreach (IGameObjects item in gameObjects)
-                {
-                    item.GetHitBox().Draw(spriteBatch);
-                }
-            }
             Link.Draw(spriteBatch);
+            if (!DEBUGMODE) return;
+            foreach (IGameObjects item in gameObjects)
+            {
+                item.GetHitBox().Draw(spriteBatch);
+            }       
         }
         private void RemoveDeadItems()
         {

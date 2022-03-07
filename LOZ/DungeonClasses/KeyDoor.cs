@@ -21,7 +21,7 @@ namespace LOZ.DungeonClasses
         }
 		public Hitbox GetHitBox()
         {
-            return new Hitbox(itemLocation.X, itemLocation.Y, 0, 0);
+            return new Hitbox(0, 0, 0, 0);
         }
 		public void Draw(SpriteBatch spriteBatch) {
 			sprite.Draw(spriteBatch, itemLocation);

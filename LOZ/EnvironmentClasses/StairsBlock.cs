@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.Collision;
+using LOZ.DungeonClasses;
 
 namespace LOZ.EnvironmentalClasses
 {
@@ -15,7 +16,8 @@ namespace LOZ.EnvironmentalClasses
         }
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(itemLocation.X - 24, itemLocation.Y - 24, 48, 48);
+            int w = Info.BlockWidth;
+            return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w, w);
         }
         public override void Update(GameTime gameTime)
         {

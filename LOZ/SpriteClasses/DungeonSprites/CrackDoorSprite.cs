@@ -8,7 +8,7 @@ namespace LOZ.SpriteClasses.BlockSprites
 	{
 		public CrackDoorSprite(Texture2D texture, DoorLocation number)
 		{
-			int offset = DungeonInfo.DoorWidth / 3 + 1;
+			int offset = Info.DoorWidth / 3 + 1;
 			scale = 3.0;
 			_texture = texture;
 			switch (number)
