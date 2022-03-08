@@ -9,6 +9,7 @@ namespace LOZ.Factories
     class BlockSpriteFactory
     {
 		private Texture2D blockSpritesheet;
+		private Texture2D basementSheet;
 
 		private static BlockSpriteFactory instance = new BlockSpriteFactory();
 
@@ -27,6 +28,7 @@ namespace LOZ.Factories
 		public void LoadAllTextures(ContentManager content)
 		{
 			blockSpritesheet = content.Load<Texture2D>("ZeldaDungeonBlocks");
+			basementSheet = content.Load<Texture2D>("BasementTiles");
 		}
 
 		public ISprite CreateBlackTileSprite()
@@ -71,12 +73,12 @@ namespace LOZ.Factories
 
 		public ISprite CreateBasementBlockSprite()
 		{
-			return new BasementTileSprite(blockSpritesheet);
+			return new BasementTileSprite(basementSheet);
 		}
 
 		public ISprite CreateLadderSprite()
 		{
-			return new LadderSprite(blockSpritesheet);
+			return new LadderSprite(basementSheet);
 		}
 
 

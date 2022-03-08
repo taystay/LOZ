@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.LinkClasses;
+using LOZ.EnvironmentalClasses;
 
 namespace LOZ.Collision
 {
@@ -7,6 +8,7 @@ namespace LOZ.Collision
     {
         public static void Handle(IGameObjects linkObj, IGameObjects blockObj, CollisionSide side)
         {
+            if (TypeC.Check(blockObj, typeof(StairsBlock))) return;
             ILink link = (ILink)linkObj;
             Rectangle linkBox = linkObj.GetHitBox().ToRectangle();
             Rectangle blockBox = blockObj.GetHitBox().ToRectangle();

@@ -65,9 +65,14 @@ namespace LOZ.Collision
             {
                 DoorColliderLinkCollision.Handle(secondObject);
             }
-            else if (TypeC.Check(secondObject, typeof(StairsBlock)))
+
+            if (TypeC.Check(secondObject, typeof(StairsBlock)))
             {
-                CurrentRoom.Instance.MoveRoomDirection(0, 0, -1);
+                CurrentRoom.Instance.MoveRoomDirection(0, 0, 1);
+            } 
+            if (TypeC.Check(secondObject, typeof(Bomb)) || TypeC.Check(secondObject, typeof(FireProjectile)))
+            {
+                CurrentRoom.Instance.Room.Link.TakeDamage();
             }
         }
 
