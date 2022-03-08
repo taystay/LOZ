@@ -34,39 +34,43 @@ namespace LOZ
 			numUpdates++;
 		}
 
-		public void DrawTopLeft(SpriteBatch spriteBatch, Point location)
+		public void DrawTopLeft(SpriteBatch spriteBatch, Point location, Color c)
         {
 			int width = (int)(scale * (int)topLeftProjectile.Width);
 			int height = (int)(scale * (int)topLeftProjectile.Height);
 			Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-			spriteBatch.Draw(_texture, destinationRectangle, topLeftProjectile, Color.White);
+			spriteBatch.Draw(_texture, destinationRectangle, topLeftProjectile, c);
 		}
 
-		public void DrawTopRight(SpriteBatch spriteBatch, Point location)
+		public void DrawTopRight(SpriteBatch spriteBatch, Point location, Color c)
 		{			
 			int width = (int)(scale * (int)topRightProjectile.Width);
 			int height = (int)(scale * (int)topRightProjectile.Height);
 			Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-			spriteBatch.Draw(_texture, destinationRectangle, topRightProjectile, Color.White);
+			spriteBatch.Draw(_texture, destinationRectangle, topRightProjectile, c);
 		}
 
-		public void DrawBottomLeft(SpriteBatch spriteBatch, Point location)
+		public void DrawBottomLeft(SpriteBatch spriteBatch, Point location, Color c)
 		{
 			int width = (int)(scale * (int)bottomLeftProjectile.Width);
 			int height = (int)(scale * (int)bottomLeftProjectile.Height);
 			Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-			spriteBatch.Draw(_texture, destinationRectangle, bottomLeftProjectile, Color.White);
+			spriteBatch.Draw(_texture, destinationRectangle, bottomLeftProjectile, c);
 		}
 
-		public void DrawBottomRight(SpriteBatch spriteBatch, Point location)
+		public void DrawBottomRight(SpriteBatch spriteBatch, Point location, Color c)
 		{	
 			int width = (int)(scale * (int)bottomRightProjectile.Width);
 			int height = (int)(scale * (int)bottomRightProjectile.Height);
 			Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-			spriteBatch.Draw(_texture, destinationRectangle, bottomRightProjectile, Color.White);
+			spriteBatch.Draw(_texture, destinationRectangle, bottomRightProjectile, c);
 		}
-
 		public void Draw(SpriteBatch spriteBatch, Point location)
+        {
+			Draw(spriteBatch, location, Color.White);
+        }
+
+		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
 		{
 			//for SpriteBatch.Begin(...)
 			//the paramater idea was from:
@@ -74,10 +78,10 @@ namespace LOZ
 			//https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
 			int offset = dz * numUpdates;
-			DrawTopLeft(spriteBatch, new Point(location.X - offset, location.Y - offset));
-			DrawTopRight(spriteBatch, new Point(location.X + offset, location.Y - offset));
-			DrawBottomLeft(spriteBatch, new Point(location.X - offset, location.Y + offset));
-			DrawBottomRight(spriteBatch, new Point(location.X + offset, location.Y + offset));
+			DrawTopLeft(spriteBatch, new Point(location.X - offset, location.Y - offset), c);
+			DrawTopRight(spriteBatch, new Point(location.X + offset, location.Y - offset), c);
+			DrawBottomLeft(spriteBatch, new Point(location.X - offset, location.Y + offset), c);
+			DrawBottomRight(spriteBatch, new Point(location.X + offset, location.Y + offset), c);
 			spriteBatch.End();
 		}
 	}

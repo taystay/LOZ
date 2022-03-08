@@ -6,7 +6,7 @@ namespace LOZ.Collision
 {
     public static class PlayerProjectileEnvironmentCollision
     {
-        public static void Handle(IGameObjects p, IGameObjects block)
+        public static void Handle(IGameObjects p, IGameObjects e)
         {
             IPlayerProjectile projectile = (IPlayerProjectile)p;
 

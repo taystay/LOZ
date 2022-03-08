@@ -2,9 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\LOZ",
-    "\\LOZ\\Content",
-    "\\LOZ\\GameState",
-    "\\LOZ\\MapIO"
+    "\\LOZ\\GameState"
   ],
   "SelectedNode": "\\LOZ\\GameState\\CurrentRoom.cs",
   "PreviewInSolutionExplorer": false

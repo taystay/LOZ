@@ -28,6 +28,13 @@ namespace LOZ.EnemyClass
                 velocity.X = random.Next(-2, 2);
                 velocity.Y = random.Next(-2, 2);
             }
+            if (IsDamaged)
+            {
+                timeLeftDamage--;
+                if (timeLeftDamage <= 0)
+                    IsDamaged = false;
+            }
+
             modifyPosition(velocity.X, velocity.Y);
 
             _texture.Update(timer);

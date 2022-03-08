@@ -7,5 +7,7 @@ namespace LOZ.SpriteClasses
     {
         public void Update(GameTime gameTime);
         public void Draw(SpriteBatch spriteBatch,  Point location);
+
+        public void Draw(SpriteBatch spriteBatch, Point location, Color c);
     }
 }

@@ -20,6 +20,12 @@ namespace LOZ.EnemyClass
 
         public override void Update(GameTime timer) {
             _texture.Update(timer);
+            if (IsDamaged)
+            {
+                timeLeftDamage--;
+                if (timeLeftDamage <= 0)
+                    IsDamaged = false;
+            }
         }
 
     }

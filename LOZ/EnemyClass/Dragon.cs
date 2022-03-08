@@ -35,6 +35,13 @@ namespace LOZ.EnemyClass
             
             }
 
+            if (IsDamaged)
+            {
+                timeLeftDamage--;
+                if (timeLeftDamage <= 0)
+                    IsDamaged = false;
+            }
+
             modifyPosition(velocity.X,0);
 
             if ((int) timer.TotalGameTime.TotalMilliseconds % 5000 == 0) {

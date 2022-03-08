@@ -19,9 +19,15 @@ namespace LOZ.SpriteClasses
 		public void Update(GameTime timer) { }
 
 		public void Draw(SpriteBatch spriteBatch, Point location) {
+			Draw(spriteBatch, location, Color.White);
+
+		}
+
+		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
+		{
 			Rectangle destinationRectangle;
 
-			
+
 			spriteBatch.Begin();
 
 			destinationRectangle = new Rectangle(_box.X, _box.Y, _box.Width, 2);
@@ -37,5 +43,5 @@ namespace LOZ.SpriteClasses
 
 		}
 
-    }
+	}
 }

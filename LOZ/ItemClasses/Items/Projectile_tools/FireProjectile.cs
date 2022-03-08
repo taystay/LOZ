@@ -21,6 +21,7 @@ namespace LOZ.ItemsClasses
             _itemLocation = itemLocation;
             hitBoxWidth = 50;
             hitBoxHeight = 50;
+            Damage = 1;
     }
 
         public override void Update(GameTime gameTime)

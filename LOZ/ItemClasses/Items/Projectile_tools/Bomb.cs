@@ -22,6 +22,7 @@ namespace LOZ.ItemsClasses
             _itemLocation = itemLocation;
             hitBoxWidth = 14;
             hitBoxHeight = 34;
+            Damage = 3;
         }
 
         public override Hitbox GetHitBox()

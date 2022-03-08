@@ -15,6 +15,7 @@ namespace LOZ.ItemsClasses
 
     public interface IItem : IGameObjects
     {
+        
         public void SetPosition(Point position);
         public void KillItem();
         public Boolean SpriteActive();

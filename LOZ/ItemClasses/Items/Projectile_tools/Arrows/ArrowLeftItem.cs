@@ -22,6 +22,7 @@ namespace LOZ.ItemsClasses
             _itemLocation = itemLocation;
             hitBoxWidth = 40;
             hitBoxHeight = 14;
+            Damage = 2;
         }
 
 

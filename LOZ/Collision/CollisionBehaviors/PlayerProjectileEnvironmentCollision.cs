@@ -9,9 +9,10 @@ namespace LOZ.Collision
         public static void Handle(IGameObjects p, IGameObjects enemy)
         {
             IPlayerProjectile projectile = (IPlayerProjectile)p;
-            AbstractEnemy _enemy = (AbstractEnemy)enemy;
+            IEnemy _enemy = (IEnemy)enemy;
             if(!TypeC.Check(enemy, typeof(SpikeTrap)))
-                _enemy.KillItem();
+                _enemy.TakeDamage(projectile.Damage);
+
         }
     }
 }
