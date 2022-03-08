@@ -33,7 +33,7 @@ namespace LOZ.SpriteClasses
             //https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
             //https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-            spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.White);
+            spriteBatch.Draw(linkSprite, destinationRectangle, frame, c);
 
             spriteBatch.End();
         }

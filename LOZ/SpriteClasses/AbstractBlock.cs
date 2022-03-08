@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using LOZ.DungeonClasses;
 
 namespace LOZ.SpriteClasses
 {
@@ -21,7 +22,7 @@ namespace LOZ.SpriteClasses
 			//--------FRAME 1---------
 			int width = (int)(scale * (int)frame.Width);
 			int height = (int)(scale * (int)frame.Height);
-			destinationRectangle = new Rectangle(location.X - 24, location.Y - 24, 48, 48);
+			destinationRectangle = new Rectangle(location.X - Info.BlockWidth / 2, location.Y - Info.BlockWidth / 2, Info.BlockWidth, Info.BlockWidth);
 
 			//for SpriteBatch.Begin(...)
 			//the paramater idea was from:
