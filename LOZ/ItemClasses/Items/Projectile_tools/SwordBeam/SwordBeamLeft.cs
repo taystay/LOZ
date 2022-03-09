@@ -33,10 +33,10 @@ namespace LOZ.ItemsClasses
             {
                 spriteChanged = true;
                 sprite = ItemFactory.Instance.CreateDeadBeamSprite();
-                _itemLocation.X += deadArrowOffSet;
+                _itemLocation = new Point(_itemLocation.X + deadArrowOffSet, _itemLocation.Y);
                 return;
             }
-            _itemLocation.X -= velocity;
+            _itemLocation = new Point(_itemLocation.X - velocity, _itemLocation.Y);
         }
     }
 }

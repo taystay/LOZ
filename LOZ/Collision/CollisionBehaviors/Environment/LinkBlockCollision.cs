@@ -10,10 +10,9 @@ namespace LOZ.Collision
         {
             if (TypeC.Check(blockObj, typeof(StairsBlock))) return;
             ILink link = (ILink)linkObj;
+            Point linkPos = link.Position;
             Rectangle linkBox = linkObj.GetHitBox().ToRectangle();
             Rectangle blockBox = blockObj.GetHitBox().ToRectangle();
-
-            Point linkPos = link.Position;
             Rectangle collisionBox = Rectangle.Intersect(linkBox, blockBox);
 
             //Make link not be able to move forward at all.

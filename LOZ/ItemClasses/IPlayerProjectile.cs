@@ -8,7 +8,7 @@ namespace LOZ.ItemsClasses
     abstract class IPlayerProjectile : IItem
     {
         private protected ISprite sprite;
-        private protected Point _itemLocation;
+        public Point _itemLocation { get; set; }
         private protected bool spriteActivity = true;
         private protected int hitBoxWidth = 2;
         private protected int hitBoxHeight = 2;

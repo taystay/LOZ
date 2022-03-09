@@ -36,13 +36,13 @@ namespace LOZ.ItemsClasses
             }
 
             if (_direction == Direction.Up)
-                _itemLocation.Y += -dy;
+                _itemLocation = new Point(_itemLocation.X, _itemLocation.Y - dy);
             else if (_direction == Direction.Right)
-                _itemLocation.X += dx;
+                _itemLocation = new Point(_itemLocation.X + dx, _itemLocation.Y);
             else if (_direction == Direction.Left)
-                _itemLocation.X += -dx;
+                _itemLocation = new Point(_itemLocation.X - dx, _itemLocation.Y);
             else if (_direction == Direction.Down)
-                _itemLocation.Y += dy;
+                _itemLocation = new Point(_itemLocation.X, _itemLocation.Y + dy);
 
             if (frame % slowDownSpeed == 0) { 
                 dx--;
