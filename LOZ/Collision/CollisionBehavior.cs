@@ -25,7 +25,11 @@ namespace LOZ.Collision
             else if (TypeC.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnvironment)))
             {
                 PlayerProjectileEnvironmentCollision.Handle(firstObject, secondObject);
-            } 
+            } else if (TypeC.Check(firstObject, typeof(DoorCollider)))
+            {
+                DoorCollider d = (DoorCollider)firstObject;
+                d.Collision(secondObject);
+            }
 
         }
         public void EnemyCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
@@ -61,11 +65,6 @@ namespace LOZ.Collision
             {
                 LinkItemCollision.Handle(secondObject);
             }
-            else if (TypeC.Check(secondObject, typeof(DoorCollider)))
-            {
-                DoorColliderLinkCollision.Handle(secondObject);
-            }
-
             if (TypeC.Check(secondObject, typeof(StairsBlock)))
             {
                 CurrentRoom.Instance.MoveRoomDirection(0, 0, 1);

@@ -17,8 +17,9 @@ namespace LOZ.GameState
         private protected CollisionIterator colliders;
         public abstract void LoadContent();       
         public void Update(GameTime gameTime)
-        {         
-            for(int i = 0; i < gameObjects.Count; i++)
+        {
+            
+            for (int i = 0; i < gameObjects.Count; i++)
             {
                 IGameObjects item = gameObjects[i];
                 if (!TypeC.Check(item, typeof(ILink)))
@@ -26,9 +27,11 @@ namespace LOZ.GameState
                     item.Update(gameTime);
                 }
             }
+            
             Link.Update(gameTime);
             RemoveDeadItems();
             colliders.Iterate();
+
         }
         public void Draw(SpriteBatch spriteBatch)
         {

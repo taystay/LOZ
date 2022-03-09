@@ -17,6 +17,13 @@ namespace LOZ.EnvironmentalClasses
             this.width = width;
             this.height = height;
         }
+
+        public InvisibleBlock(Rectangle r)
+        {
+            this.itemLocation = r.Location;
+            this.width = r.Width;
+            this.height = r.Height;
+        }
         public override Hitbox GetHitBox()
         {
             return new Hitbox(itemLocation.X, itemLocation.Y, width, height);

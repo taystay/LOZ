@@ -9,6 +9,7 @@ namespace LOZ.Collision
     {
         public static void Handle(IGameObjects obj)
         {
+            /*
             //GET WHERE COLLIDER IS
             Point collider = obj.GetHitBox().ToRectangle().Location;
 
@@ -25,6 +26,7 @@ namespace LOZ.Collision
                 CurrentRoom.Instance.MoveRoomDirection(0, 1, 0);
             else if (center.Y - collider.Y > 150)
                 CurrentRoom.Instance.MoveRoomDirection(0, -1, 0);
+            */
 
         }
     }

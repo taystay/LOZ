@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\LOZ",
-    "\\LOZ\\GameState"
+    "\\LOZ\\Collision",
+    "\\LOZ\\Collision\\CollisionBehaviors",
+    "\\LOZ\\SpriteClasses"
   ],
-  "SelectedNode": "\\LOZ\\GameState\\CurrentRoom.cs",
+  "SelectedNode": "\\LOZ\\Collision\\CollisionBehaviors\\PlayerProjectileEnemyCollision.cs",
   "PreviewInSolutionExplorer": false
 }

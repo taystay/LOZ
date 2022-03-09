@@ -21,6 +21,9 @@ namespace LOZ.MapIO
             { 
                 switch (words[index])
                 {
+                    case "breakable":
+                        doors[index] = DoorType.Breakable;
+                        break;
                     case "door":
                         doors[index] = DoorType.Door;
                         break;

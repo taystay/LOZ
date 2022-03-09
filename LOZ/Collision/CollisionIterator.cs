@@ -14,6 +14,7 @@ namespace LOZ.Collision
         {
             CollisionDetection detect = new CollisionDetection();
 
+           
             foreach (IGameObjects obj1 in _gameObjects)
                 {
                 foreach (IGameObjects obj2 in _gameObjects)
@@ -23,7 +24,8 @@ namespace LOZ.Collision
                     }
                 }
 
-            }    
+            }  
+           
         }
     }
 }

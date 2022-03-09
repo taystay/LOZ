@@ -6,7 +6,8 @@
 		Door,
 		KeyDoor,
 		CrackedDoor,
-		Hole
+		Hole,
+		Breakable
 	};
 	public enum DoorLocation
 	{

@@ -4,19 +4,30 @@ using System.Text;
 using LOZ.Collision;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using LOZ.CommandClasses;
 
 namespace LOZ.GameState
 {
     public class DoorCollider : IGameObjects
     {
         private Hitbox box;
-        public DoorCollider(int x, int y, int width, int height)
+        private ICommand _command;
+        private Type _responseType;
+        public DoorCollider(Rectangle r, ICommand command, System.Type responseType)
         {
-            box = new Hitbox(x, y, width, height);
+            box = new Hitbox(r.X, r.Y, r.Width, r.Height);
+            _command = command;
+            _responseType = responseType;
         }
         public Hitbox GetHitBox()
         {
             return box;
+        }
+
+        public void Collision(IGameObjects o)
+        {
+            if (TypeC.Check(o, _responseType))
+                _command.execute();
         }
         public void Update(GameTime gameTime)
         {

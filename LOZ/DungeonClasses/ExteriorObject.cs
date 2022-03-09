@@ -5,6 +5,8 @@ using LOZ.Collision;
 using LOZ.GameState;
 using System.Collections.Generic;
 using LOZ.EnvironmentalClasses;
+using LOZ.CommandClasses;
+using LOZ.LinkClasses; 
 
 namespace LOZ.DungeonClasses
 {
@@ -12,119 +14,78 @@ namespace LOZ.DungeonClasses
     {
 		private ISprite sprite;
 		private Point itemLocation;
-        private List<IGameObjects> objectsInGame;
         private List<IGameObjects> doors;
+        private List<IGameObjects> currentItems;
+        private DoorType _top, _right, _bottom, _left, changeType;
+        private bool needsUpdate = false;
+        private DoorLocation changeLocation;
+        private bool hasChangedBefore = false;
+
         public ExteriorObject(DoorType top, DoorType right, DoorType bottom, DoorType left, List<IGameObjects> objectsInGame)
         {
+            _top = top;
+            _right = right;
+            _bottom = bottom;
+            _left = left;
             sprite = Factories.DungeonFactory.Instance.GetExterior();
             itemLocation = Info.Map.Location;
             doors = new List<IGameObjects>();
-            this.objectsInGame = objectsInGame;
+            currentItems = new List<IGameObjects>();
 
-            PlaceInvisibleBlocks(top,right,bottom,left);
-
-            Point location = new Point(Info.Map.X + Info.DoorToCornerWidth, Info.Map.Y);
-            PlaceDoor(location, DoorLocation.Top, top);
-
-            location = new Point(Info.Map.X, Info.Map.Y + Info.DoorToCornerHeight);
-            PlaceDoor(location, DoorLocation.Left, left);
-
-            location = new Point(Info.Map.X + Info.DoorToCornerWidth, Info.Map.Y + Info.DungeonHeight - Info.DoorHeight);
-            PlaceDoor(location, DoorLocation.Bottom, bottom);
-
-            location = new Point(Info.Map.X + Info.DungeonWidth - Info.DoorWidth, Info.Map.Y + Info.DoorToCornerHeight);
-            PlaceDoor(location, DoorLocation.Right, right);
+            ExteriorColliders.PlaceColliders(top, right, bottom, left, currentItems);
+            ExteriorColliders.PlaceDoors(top, right, bottom, left, doors);       
+            
+            foreach(IGameObjects i in  currentItems)
+            {
+                objectsInGame.Add(i);
+            }
         }
 
-        public void PlaceInvisibleBlocks(DoorType top, DoorType right, DoorType Bottom, DoorType Left)
+        public void ChangeDoorOnUpdate(DoorLocation location, DoorType t)
         {
-            //TOP
-            Point Location = Info.Inside.Location;
-            Location.Y -= Info.BlockWidth;
-            if (top != DoorType.Door && top != DoorType.Hole)
-                objectsInGame.Add(new InvisibleBlock(Location, Info.Inside.Width, Info.BlockWidth));
-            else
-            {
-                objectsInGame.Add(new InvisibleBlock(Location, Info.Inside.Width / 2 - Info.BlockWidth / 2, Info.BlockWidth));
-                Location.X += Info.DoorToCornerWidth - Info.BlockWidth / 2;
-                objectsInGame.Add(new DoorCollider(Location.X - Info.DoorWidth, Location.Y - Info.BlockWidth, Info.BlockWidth * 3, Info.BlockWidth));
-                objectsInGame.Add(new InvisibleBlock(Location, Info.Inside.Width / 2 - Info.BlockWidth / 2, Info.BlockWidth));
-                Location.X -= Info.BlockWidth + Info.BlockWidth / 2;
-                Location.Y -= Info.BlockWidth;            
-            }
-
-            //LEFT
-            Location = Info.Inside.Location;
-            Location.X -= Info.BlockWidth;
-            if (Left != DoorType.Door && Left != DoorType.Hole)
-                objectsInGame.Add(new InvisibleBlock(Location, Info.BlockWidth, Info.Inside.Height));
-            else
-            {
-                objectsInGame.Add(new InvisibleBlock(Location, Info.BlockWidth, Info.Inside.Height / 2 - Info.BlockWidth / 2));
-                Location.Y += Info.DoorToCornerHeight - Info.BlockWidth / 2;
-                objectsInGame.Add(new DoorCollider(Location.X - Info.BlockWidth, Location.Y - Info.DoorWidth, Info.BlockWidth, Info.BlockWidth * 3));
-                objectsInGame.Add(new InvisibleBlock(Location, Info.BlockWidth, Info.Inside.Height / 2 - Info.BlockWidth / 2));
-                Location.X -= Info.BlockWidth;
-                Location.Y -= Info.BlockWidth + Info.BlockWidth / 2;
-            }
-
-            //RIGHT
-            Location = Info.Inside.Location;
-            Location.X += Info.Inside.Width;
-            if (right != DoorType.Door && right != DoorType.Hole)
-                objectsInGame.Add(new InvisibleBlock(Location, Info.BlockWidth, Info.Inside.Height));
-            else
-            {
-                objectsInGame.Add(new InvisibleBlock(Location, Info.BlockWidth, Info.Inside.Height / 2 - Info.BlockWidth / 2));
-                Location.Y += Info.DoorToCornerHeight - Info.BlockWidth / 2;
-                objectsInGame.Add(new DoorCollider(Location.X + Info.BlockWidth, Location.Y - Info.DoorWidth, Info.BlockWidth, Info.BlockWidth * 3));
-                objectsInGame.Add(new InvisibleBlock(Location, Info.BlockWidth, Info.Inside.Height / 2 - Info.BlockWidth / 2));
-                Location.Y -= Info.BlockWidth + Info.BlockWidth / 2;            
-            }
-
-            //BOTTOM
-            Location = Info.Inside.Location;
-            Location.Y += Info.Inside.Height;
-            if (Bottom != DoorType.Door && Bottom != DoorType.Hole)
-                objectsInGame.Add(new InvisibleBlock(Location, Info.Inside.Width, Info.BlockWidth));
-            else
-            {
-                objectsInGame.Add(new InvisibleBlock(Location, Info.Inside.Width / 2 - Info.BlockWidth / 2, Info.BlockWidth));
-                Location.X += Info.DoorToCornerWidth - Info.BlockWidth / 2;
-                objectsInGame.Add(new DoorCollider(Location.X - Info.DoorWidth, Location.Y + Info.BlockWidth, Info.BlockWidth * 3, Info.BlockWidth));
-                objectsInGame.Add(new InvisibleBlock(Location, Info.Inside.Width / 2 - Info.BlockWidth / 2, Info.BlockWidth));
-                Location.X -= 72;            
-            }
-
-        }
-        public void PlaceDoor(Point location, DoorLocation side, DoorType t)
-        {
-            switch (t)
-            {
-                case DoorType.CrackedDoor:
-                    doors.Add(new CrackDoor(location, side));
-                    break;
-                case DoorType.Hole:
-                    doors.Add(new HoleWall(location, side));
-                    break;
-                case DoorType.Wall:
-                    doors.Add(new Wall(location, side));
-                    break;
-                case DoorType.KeyDoor:
-                    doors.Add(new KeyDoor(location, side));
-                    break;
-                default:
-                    doors.Add(new DoorObject(location, side));
-                    break;
+            if (!hasChangedBefore) { 
+                 changeLocation = location;
+                changeType = t;
+                needsUpdate = true;
+                hasChangedBefore = true;
             }
         }
+        
 		public void Update(GameTime timer)
         {
-
+            
+            
+            if(needsUpdate)
+            {
+                List<IGameObjects> objectsInGame = CurrentRoom.Instance.Room.gameObjects;
+                foreach (IGameObjects i in currentItems)
+                {
+                    objectsInGame.Remove(i);
+                    System.Diagnostics.Debug.WriteLine("" + i.ToString());
+                }
+                doors = new List<IGameObjects>();
+                switch (changeLocation)
+                {
+                    case DoorLocation.Bottom:
+                        _bottom = changeType;
+                        break;
+                    case DoorLocation.Left:
+                        _left = changeType;
+                        break;
+                    case DoorLocation.Right:
+                        _right = changeType;
+                        break;
+                    default:
+                        _top = changeType;
+                        break;
+                }
+                ExteriorColliders.PlaceColliders(_top, _right, _bottom, _left, objectsInGame);
+                ExteriorColliders.PlaceDoors(_top, _right, _bottom, _left, doors);
+            }
+            needsUpdate = false;
         }
 		public Hitbox GetHitBox()
-        {
-            
+        {            
             return new Hitbox(0, 0,0 , 0);
         }
 		public virtual void Draw(SpriteBatch spriteBatch) {
