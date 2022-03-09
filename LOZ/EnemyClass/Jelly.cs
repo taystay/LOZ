@@ -1,7 +1,5 @@
 ﻿using System;
-using LOZ.SpriteClasses;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
 using LOZ.Collision;
 
@@ -12,6 +10,7 @@ namespace LOZ.EnemyClass
     {
         public Jelly(Point location)
         {
+            Health = 1;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateJelly();       
             random = new Random();

@@ -40,18 +40,16 @@ namespace LOZ.EnemyClass
             if (Health <= 0) return false;
             return isActive;
         }
-
         protected void modifyPosition(int dx, int dy)
         {
             Position = new Point(Position.X + dx, Position.Y + dy);
         }
-
         public abstract Hitbox GetHitBox();
         public abstract void Update(GameTime timer);
         public void Draw(SpriteBatch spriteBatch)
         {
             if(IsDamaged)
-                _texture.Draw(spriteBatch, Position, Color.HotPink);
+                _texture.Draw(spriteBatch, Position, Color.Red);
             else 
                 _texture.Draw(spriteBatch, Position);
         }

@@ -1,7 +1,5 @@
 ﻿using System;
-using LOZ.SpriteClasses;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
 using LOZ.Collision;
 
@@ -11,6 +9,7 @@ namespace LOZ.EnemyClass
     {
         public Skeleton(Point location) 
         {
+            Health = 2;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateSkeleton();
             random = new Random();

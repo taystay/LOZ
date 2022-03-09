@@ -12,11 +12,11 @@ namespace LOZ.EnemyClass
         private protected Vector2 velocity2;
         public Bat(Point location)
         {
+            Health = 1;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateBat();
             random = new Random();
             velocity2 = new Vector2(0, 0);
-
         }
 
         public override Hitbox GetHitBox()

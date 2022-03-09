@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.Collision;
 
@@ -9,13 +7,9 @@ namespace LOZ.ItemsClasses
     class Bomb : IPlayerProjectile
     {
         private bool spriteChanged = false;
-
         private int framesPassed = 0;
-
         private const int bombActiveTime = 100;
         private const int deadFrames = 25;
-
-
         public Bomb(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateBombSprite();
@@ -24,7 +18,6 @@ namespace LOZ.ItemsClasses
             hitBoxHeight = 34;
             Damage = 3;
         }
-
         public override Hitbox GetHitBox()
         {
             if (spriteChanged)
@@ -33,7 +26,6 @@ namespace LOZ.ItemsClasses
                 return new Hitbox(-50, -50,0,0);
 
         }
-
         public override void Update(GameTime gameTime)
         {
             if (spriteActivity && framesPassed >= bombActiveTime)

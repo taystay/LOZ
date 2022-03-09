@@ -6,9 +6,7 @@ namespace LOZ.ItemsClasses
     class LeftRightSwordHitBox : IPlayerProjectile
     {
         private int FramesPassed = 0;
-
         private const int TotalActiveFrames = 10;
-
         public LeftRightSwordHitBox(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateInvisibleSprite();
@@ -17,7 +15,6 @@ namespace LOZ.ItemsClasses
             hitBoxHeight = 11;
             Damage = 1;
         }
-
         public override void Update(GameTime gameTime)
         {
             if (spriteActivity && FramesPassed >= TotalActiveFrames)

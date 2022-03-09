@@ -8,12 +8,10 @@ namespace LOZ.ItemsClasses
     {
         private Boolean spriteChanged = false;
         private int FramesPassed = 0;
-
         private const int velocity = 9;
         private const int arrowTravelTime = 100;
         private const int deadFrames = 25;
         private const int deadArrowOffSet = -8;
-
         public SwordBeamLeft(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateSwordBeamLeftSprite();
@@ -22,7 +20,6 @@ namespace LOZ.ItemsClasses
             hitBoxHeight = 14;
             Damage = 2;
         }
-
         public override void Update(GameTime gameTime)
         {
             if (spriteActivity && FramesPassed >= arrowTravelTime)
@@ -39,9 +36,7 @@ namespace LOZ.ItemsClasses
                 _itemLocation.X += deadArrowOffSet;
                 return;
             }
-
             _itemLocation.X -= velocity;
-
         }
     }
 }

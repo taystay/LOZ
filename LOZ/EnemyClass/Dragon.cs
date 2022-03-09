@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
-using LOZ.SpriteClasses;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.Collision;
 using LOZ.GameState;
@@ -15,6 +12,7 @@ namespace LOZ.EnemyClass
     {
         public Dragon(Point location)
         {
+            Health = 6;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateDragon();
             random = new Random();     

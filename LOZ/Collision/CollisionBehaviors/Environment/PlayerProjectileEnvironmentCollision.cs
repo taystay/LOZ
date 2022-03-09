@@ -1,5 +1,4 @@
 ﻿using LOZ.EnemyClass;
-using LOZ.EnemyClass.Projectiles;
 using LOZ.ItemsClasses;
 
 namespace LOZ.Collision
@@ -12,7 +11,6 @@ namespace LOZ.Collision
             IEnemy _enemy = (IEnemy)enemy;
             if(!TypeC.Check(enemy, typeof(SpikeTrap)))
                 _enemy.TakeDamage(projectile.Damage);
-
         }
     }
 }

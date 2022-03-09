@@ -7,13 +7,11 @@ namespace LOZ.ItemsClasses
     {
         private int deadFrames = 50;
         private int frame = 0;
-
         private const int dMag = 4;
         private const int slowDownSpeed = 27;
         private int dx = dMag;
         private int dy = dMag;
         private Direction _direction;
-
         public FireProjectile(Point itemLocation, Direction direction)
         {
             _direction = direction;
@@ -21,9 +19,8 @@ namespace LOZ.ItemsClasses
             _itemLocation = itemLocation;
             hitBoxWidth = 50;
             hitBoxHeight = 50;
-            Damage = 1;
-    }
-
+            Damage = 1;  
+        }
         public override void Update(GameTime gameTime)
         {
             if (spriteActivity && deadFrames <= 0)
@@ -52,8 +49,6 @@ namespace LOZ.ItemsClasses
                 dy--;
             }
             frame++;
-
         }
-
     }
 }
