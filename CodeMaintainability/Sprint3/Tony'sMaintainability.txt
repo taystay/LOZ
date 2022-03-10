@@ -1,0 +1,28 @@
+Author: Keit Vu
+
+Date: 3/10/22
+
+Sprint 3
+
+
+ExteriorCollider.cs : Author Tony D'Alesandro
+	-Time: 5 mins
+
+	-Quality: Tony's code quality is overall good. There is a lot of if-else statement in PlaceColliders. The high cyclomatic c
+	complexity with all the if-else statement and the possiblities
+
+	-Maintainablitiy: If the the room did not have four door but instead had more than 4 it would be hard to 
+	maintain since it would require a new if-else statement. Also the PlaceDoor would begin to grow more and more 
+	so maintainability would not be good.
+
+
+CollisionBehavior.cs: Author Tony D'Alesandro
+	-Time: 5 mins
+
+	-Quality: The quality is overall good. A lot of if-else blocks leading to high cyclomatic complexity however for collision 
+	it is to be expected. The quality is good with naming convention proper use of splitting the collsiion up and separating 
+	it under 2 main collsion type which are link and enemies.
+
+	-Maintainability: If Link or Enemies need a new collsion it would be easy to add however it could possibly lead to a new static class
+	to handle the object. The maintainability is rigid and would need to create new static class for different types
+	of collision. 
