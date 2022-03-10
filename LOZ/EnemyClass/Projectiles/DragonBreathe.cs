@@ -21,7 +21,8 @@ namespace LOZ.EnemyClass.Projectiles
         {
             dragonFire = EnemySpriteFactory.Instance.CreateFireBall();
             activeFire = true;
-            fireBallPosition = location;
+            fireBallPosition.Y = location.Y - 20 ;
+            fireBallPosition.X = location.X - 40;
             changeY = changeYPosition;
         }
 

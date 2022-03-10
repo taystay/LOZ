@@ -29,7 +29,7 @@ namespace LOZ.EnemyClass
 
             if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
             {
-                velocity.X = random.Next(-2, 2);
+                velocity.X = random.Next(-4, 4);
             
             }
 

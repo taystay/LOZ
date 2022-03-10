@@ -10,7 +10,7 @@ namespace LOZ.SpriteClasses.EnemeySprite
         public SkeletonSprite(Texture2D sprite)
         {
             _texture = sprite;
-            scale = 1;
+            scale = 0.75;
             width = _texture.Width / 2;
             height = _texture.Height / 5;
         }

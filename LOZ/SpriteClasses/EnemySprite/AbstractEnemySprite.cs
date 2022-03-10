@@ -11,7 +11,7 @@ namespace LOZ.SpriteClasses
         private protected int column;
         private protected int width;
         private protected int height;
-        private protected int scale = 1;
+        private protected double scale = 1;
         public abstract void Update(GameTime timer);
 
 		public void Draw(SpriteBatch spriteBatch, Point location) {
@@ -20,12 +20,11 @@ namespace LOZ.SpriteClasses
 
         public void Draw(SpriteBatch spriteBatch, Point location, Color c)
         {
-
             //The code below was taken for the sprite atalas tutorial
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width * scale, height * scale);
+            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, (int)(width * scale), (int)(height * scale));
 
             //for SpriteBatch.Begin(...)
             //the paramater idea was from:
