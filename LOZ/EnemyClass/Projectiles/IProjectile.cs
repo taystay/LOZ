@@ -1,6 +1,4 @@
 ﻿using LOZ.Collision;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 
 namespace LOZ.EnemyClass.Projectiles
 {

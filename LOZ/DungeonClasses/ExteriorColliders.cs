@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using LOZ.SpriteClasses;
 using LOZ.Collision;
 using LOZ.GameState;
 using System.Collections.Generic;

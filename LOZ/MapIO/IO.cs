@@ -35,7 +35,10 @@ namespace LOZ.MapIO
                 int yPosition = Int32.Parse(position.Substring(4, 1));
                 int zPosition = Int32.Parse(position.Substring(6, 1));
 
-                ParseToDoor.ParseDoor(objects, reader.ReadLine());
+                string doorRow = reader.ReadLine();
+                if(doorRow.Length >0)
+                    ParseToDoor.ParseDoor(objects, doorRow);
+
                 ParseToBlock.ParseRoom(objects, reader);
                 string enemyRow = reader.ReadLine();
                 if (enemyRow!= null)

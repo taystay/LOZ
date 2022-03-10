@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.EnemyClass;
-using LOZ.GameState;
 
 namespace LOZ.Collision
 {

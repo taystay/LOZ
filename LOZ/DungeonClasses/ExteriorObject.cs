@@ -4,9 +4,6 @@ using LOZ.SpriteClasses;
 using LOZ.Collision;
 using LOZ.GameState;
 using System.Collections.Generic;
-using LOZ.EnvironmentalClasses;
-using LOZ.CommandClasses;
-using LOZ.LinkClasses; 
 
 namespace LOZ.DungeonClasses
 {

@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using LOZ.Collision;
-using LOZ.SpriteClasses.BlockSprites;
 
 namespace LOZ.DungeonClasses
 {

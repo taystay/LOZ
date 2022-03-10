@@ -10,23 +10,37 @@ namespace LOZ.MapIO
     {
         internal static void ParseRoom(List<IGameObjects> obj, StreamReader reader)
         {
+            bool basementFlag = false;
             int xIndex = 0, yIndex = 0;
             Point location = DungeonClasses.Info.Inside.Location;
             location.X += 24;
             location.Y += 24;
             int leftSide = location.X;
+            int dynamicHeight = 7;
+           
 
-            while (reader.Peek() != 1 && yIndex != 7){
+            while (reader.Peek() != 1 && yIndex != dynamicHeight){
                 string lineRead = reader.ReadLine();
+                if (lineRead == null)
+                    break;
                 //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
                 string[] words = lineRead.Split(',');
 
-                while (xIndex < 12) {
+                if (words[0].Equals("brick") && !basementFlag)
+                {
+                    location.X -= 96;
+                    location.Y -= 96;
+                    leftSide = location.X;
+                    dynamicHeight = 11;
+                    basementFlag = true;
+                }
+
+                for (int i=0; i< words.Length; i++) { 
                     obj.Add(Convert(words[xIndex], location.X, location.Y));
                     location.X += 48;
                     xIndex++;
 
-                    if (xIndex == 12)
+                    if (xIndex == words.Length)
                     {
                         location.Y += 48;
                         location.X = leftSide;

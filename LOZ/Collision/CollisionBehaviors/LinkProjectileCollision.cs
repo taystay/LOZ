@@ -1,5 +1,4 @@
-﻿using LOZ.EnemyClass.Projectiles;
-using LOZ.GameState;
+﻿using LOZ.GameState;
 
 namespace LOZ.Collision
 {

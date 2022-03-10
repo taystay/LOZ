@@ -1,12 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using LOZ.Collision;
 using Microsoft.Xna.Framework;
 using LOZ.EnvironmentalClasses;
 using LOZ.EnemyClass;
-using System.Diagnostics;
-using LOZ.DungeonClasses;
 
 
 namespace LOZ.MapIO
