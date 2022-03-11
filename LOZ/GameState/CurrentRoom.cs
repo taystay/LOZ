@@ -95,11 +95,12 @@ namespace LOZ.GameState
             Rectangle loc = Info.Map;
             if (dx == 1)
             {
-                Room.Link.Position = new Point(loc.Location.X + Info.DoorWidth , loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth);
+                Room.Link.Position = new Point(loc.Location.X + Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth);
                 Room.Link.ChangeDirectionRight();
-            } else if (dx == -1)
+            }
+            else if (dx == -1)
             {
-                
+
                 Room.Link.Position = new Point(loc.Location.X + loc.Width - Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth);
                 Room.Link.ChangeDirectionLeft();
             }
@@ -113,6 +114,12 @@ namespace LOZ.GameState
                 Room.Link.Position = new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + loc.Height - Info.DoorWidth);
                 Room.Link.ChangeDirectionUp();
             }
+            else if (dz == 1)
+            {
+                Room.Link.Position = new Point(loc.Location.X + 3*Info.BlockWidth , loc.Location.Y + Info.BlockWidth);
+                Room.Link.ChangeDirectionDown();
+            }
+            
         }
         public void NextRoom()
         {
