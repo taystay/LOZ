@@ -16,7 +16,7 @@ namespace LOZ.Collision
 
            
             foreach (IGameObjects obj1 in _gameObjects)
-                {
+            {
                 foreach (IGameObjects obj2 in _gameObjects)
                 {
                     if(!(obj1.Equals(obj2))) {

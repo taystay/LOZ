@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
@@ -12,7 +11,7 @@ namespace LOZ.EnemyClass.Projectiles
     {
         private Point fireBallPosition;
         private ISprite dragonFire;
-        private bool activeFire;
+        public bool activeFire { get; set; }
         private int changeY;
         private const int animationLength = 250;
         private int length=0;
@@ -48,8 +47,8 @@ namespace LOZ.EnemyClass.Projectiles
             }
 
             return activeFire;
-        
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             dragonFire.Draw(spriteBatch, fireBallPosition);

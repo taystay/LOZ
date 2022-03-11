@@ -5,6 +5,7 @@ using LOZ.ItemsClasses;
 using LOZ.Collision;
 using LOZ.LinkClasses;
 using LOZ.EnemyClass;
+using LOZ.EnemyClass.Projectiles;
 
 namespace LOZ.GameState
 {
@@ -38,8 +39,6 @@ namespace LOZ.GameState
             foreach (IGameObjects item in gameObjects)
             {
                 item.Draw(spriteBatch);
-
-                
             }
             Link.Draw(spriteBatch);
             if (!DEBUGMODE) return;
@@ -61,6 +60,11 @@ namespace LOZ.GameState
                 if (TypeC.Check(item, typeof(AbstractEnemy)))
                 {
                     AbstractEnemy itemObject = (AbstractEnemy)item;
+                    if (!itemObject.IsActive()) toRemove.Add(item);
+                }
+                if(TypeC.Check(item, typeof(DragonBreathe)))
+                {
+                    DragonBreathe itemObject = (DragonBreathe)item;
                     if (!itemObject.IsActive()) toRemove.Add(item);
                 }
             }
