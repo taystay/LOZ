@@ -1,0 +1,24 @@
+Author: Anthony D'Alesandro
+
+Date: 3/11/2022
+
+Sprint 3
+
+IO.cs: author: Keit VU
+	-time: 5 mins
+	
+	Readability: Readability is very good. There are some magic numbers that seem very easy to get rid of though by making some constant variables.
+
+
+ParseToBlock.cs: author: Keit VU
+	-time: 5 mins
+	
+	Readability: The code is very tricky to follow. Maybe some naming conventions or encapsulation of some details or even some functions can make it exponentially
+                more readable. It is likely we are just trying to get functionality but there are lots of magic numbers that I dont quite understand either.
+                
+                
+CollisionDetection.cs: author: Keit Vu
+  -time: 5 minutes
+  
+    Readability: The collision detections is very readable. I can follow exactly what is going on and the variables used are named very properly. The gaurd clause
+                  used makes it easy to understand when you would not find a collision.
