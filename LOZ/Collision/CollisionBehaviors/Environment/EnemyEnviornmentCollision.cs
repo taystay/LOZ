@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.EnemyClass;
+using LOZ.EnvironmentalClasses;
 
 namespace LOZ.Collision
 {
@@ -8,21 +9,24 @@ namespace LOZ.Collision
         public static void Handle(IGameObjects enemyObj, IGameObjects blockObj, CollisionSide side)
         {
             AbstractEnemy enemy = (AbstractEnemy)enemyObj;
+            IEnvironment block = (IEnvironment)blockObj;
             Rectangle enemyBox = enemyObj.GetHitBox().ToRectangle();
             Rectangle blockBox = blockObj.GetHitBox().ToRectangle();
 
             Point linkPos = enemy.Position;
             Rectangle collisionBox = Rectangle.Intersect(enemyBox, blockBox);
 
-            if (side == CollisionSide.Top)
-                enemy.Position = new Point(linkPos.X, linkPos.Y - collisionBox.Height);
-            else if (side == CollisionSide.Left)
-                enemy.Position = new Point(linkPos.X - collisionBox.Width, linkPos.Y);
-            else if (side == CollisionSide.Right)
-                enemy.Position = new Point(linkPos.X + collisionBox.Width, linkPos.Y);
-            else if (side == CollisionSide.Bottom)
-                enemy.Position = new Point(linkPos.X, linkPos.Y + collisionBox.Height);
-
+            if (!TypeC.Check(enemy, typeof(Dragon)) || TypeC.Check(block, typeof(InvisibleBlock)))
+            {
+                if (side == CollisionSide.Top)
+                    enemy.Position = new Point(linkPos.X, linkPos.Y - collisionBox.Height);
+                else if (side == CollisionSide.Left)
+                    enemy.Position = new Point(linkPos.X - collisionBox.Width, linkPos.Y);
+                else if (side == CollisionSide.Right)
+                    enemy.Position = new Point(linkPos.X + collisionBox.Width, linkPos.Y);
+                else if (side == CollisionSide.Bottom)
+                    enemy.Position = new Point(linkPos.X, linkPos.Y + collisionBox.Height);
+            }
         }
     }
 }
