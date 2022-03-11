@@ -38,7 +38,5 @@ namespace LOZ.SpriteClasses
 			spriteBatch.End();
 
 		}
-
-
 	}
 }

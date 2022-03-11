@@ -18,17 +18,23 @@ namespace LOZ.Collision
             if(TypeC.Check(firstObject, typeof(ILink)))
             {
                 LinkCollision(firstObject, secondObject, side);
-            } else if (TypeC.Check(firstObject, typeof(IEnemy)))
+            } 
+            else if (TypeC.Check(firstObject, typeof(IEnemy)))
             {
                 EnemyCollision(firstObject, secondObject, side);
             }       
             else if (TypeC.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnvironment)))
             {
                 PlayerProjectileEnvironmentCollision.Handle(firstObject, secondObject, side);
-            } else if (TypeC.Check(firstObject, typeof(DoorCollider)))
+            } 
+            else if (TypeC.Check(firstObject, typeof(DoorCollider)))
             {
                 DoorCollider d = (DoorCollider)firstObject;
                 d.Collision(secondObject);
+            }
+            else if (TypeC.CheckPair(firstObject, typeof(IProjectile), secondObject, typeof(IEnvironment)))
+            {
+                EnemyProjectileEnvironmentCollision.Handle(firstObject, secondObject, side);
             }
 
         }

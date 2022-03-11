@@ -1,0 +1,24 @@
+Author: Taylor Liu
+
+Date: 3/10/22
+
+Sprint 3
+
+
+CollisionIterator.cs : Jose Berrios
+	-Time: 5 mins
+
+	-Quality: Overall code quality is fine. Using nested for each loops gives very bad cyclomatic complexity but we
+	currently do not care.
+
+	-Maintainablitiy: If we were to upscale this to a bigger map or having multiple rooms loaded at the same time,
+	this would be a problem. As it stands, everything is being compared to each other twice.
+
+
+SpriteStandardizeClass.cs : Jose Berrios
+	-Time: 2 mins
+
+	-Quality: The quality is interesting? I am unsure why we have things being declared as a 0 size Rectangle or initializing Texture2D's to null.
+	This shouldn't happen.
+
+	-Maintainability: As I am unsure what this class does right now. I am unsure whether this code is maintainable or not :/

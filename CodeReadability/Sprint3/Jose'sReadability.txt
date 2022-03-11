@@ -1,0 +1,17 @@
+Author: Taylor Liu
+Date: 3/10/22
+
+Sprint 3
+
+
+CollisionIterator.cs : Jose Berrios
+	-Time: 5 mins
+
+	-Readability: The code is very simple and readable. Every variable is nammed well as well as having a clear purpose.
+
+
+SpriteStandardizeClass.cs : Jose Berrios
+	-Time: 5 mins
+
+	-Readability: The intent of the variables are clear but I am unsure whether the implementation is following your intent.
+	That aside, I am also unsure why there exists 2 Draw() methods. What does overloading this method do?

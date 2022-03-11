@@ -1,0 +1,18 @@
+Author: Jose Berrios
+
+Date: 3/11/22
+
+Sprint 3
+
+
+All mouse Controller files(SwitchRoom.cs files) : Author Taylor Liu
+	-Time: 5 mins
+  
+  Readability: Every file in that coincides with the mouse controls is very short and easy to read and simple to follow. 
+
+CollisionDetection.cs: Author Taylor Liu
+	-Time: 5 mins
+
+Readability: The code is easy to read if you know the reason for the file. The different x and y positions can sometimes
+be confusing to understand how each type of collision is checked but overall the naming conventions are good and with some
+time it is simple to understand what is happening within the file. 
