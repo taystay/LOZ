@@ -1,0 +1,25 @@
+Author: Anthony D'Alesandro
+
+Date: 3/11/22
+
+Sprint 3
+
+IO.cs : Author Keit Vu
+	-Time: 5 mins
+
+	-Quality: The code is overall very easy to follow. However, there are quite a few magic numbers and room for improvement. He also checks for null which
+  isnt neccesarily bad but begs the question if there is a better way to solve that.
+
+	-Maintainablitiy: maintainability is good because it is flexible in how you can design the corresponding CSV file.
+
+
+ParseToBlock.cs: Author Keit Vu
+	-Time: 5 mins
+
+	-Quality: The quality is good. however, there are many magic numbers and the flow is hard to follow. The y value of how tall the room is seems like it
+            would be 7 but it is able to change in the loop. The way the basement is implemented could be improved with less magic numbers and a more dynamic height.
+            maybe if you have a line for the height and width of the room before reading it you can dynamically start at the right spot, and have a more flexible
+            dungeon basement.
+
+	-Maintainability: the code is not very maintainble. If you change a few details in the room part of the CSV its likely there will be many changes that need to be 
+                    made in this code.
