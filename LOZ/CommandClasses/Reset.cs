@@ -15,13 +15,13 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            ILink link = CurrentRoom.Instance.Room.Link;
+            ILink link = Room.Link;
             Dictionary<Rectangle, Room> maps = new Dictionary<Rectangle, Room>() ;
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();
             CurrentRoom.Instance.Rooms = maps;
-            CurrentRoom.Instance.Room.Link = link;
+            Room.Link = link;
             CurrentRoom.Instance.Room.gameObjects.Add(link);
 
         }

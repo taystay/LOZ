@@ -11,7 +11,17 @@ namespace LOZ.LinkClasses
     {
         private ILink decoratedLink;
         private int count = 15;
-        public Point Position { get; set; }
+        public Point Position
+        {
+            get
+            {
+                return decoratedLink.Position;
+            }
+            set
+            {
+                decoratedLink.Position = value;
+            }
+        }
 
         public DamagedLink(ILink decoratedLink)
         {
@@ -87,7 +97,7 @@ namespace LOZ.LinkClasses
 
         public void RemoveDecorator()
         {
-            CurrentRoom.Instance.Room.Link = decoratedLink;
+           Room.Link = decoratedLink;
             CurrentRoom.Instance.Room.Damaged = false;
         }
 

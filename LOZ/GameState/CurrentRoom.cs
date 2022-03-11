@@ -90,7 +90,6 @@ namespace LOZ.GameState
                 return;
             }
             Room.Link = previousLink;
-            Room.gameObjects.Add(Room.Link);
 
             Rectangle loc = Info.Map;
             if (dx == 1)
@@ -135,7 +134,6 @@ namespace LOZ.GameState
 
 
             Room.Link = previousLink;
-            Room.gameObjects.Add(Room.Link);
 
         }
         public void PreviousRoom()
@@ -151,7 +149,6 @@ namespace LOZ.GameState
             z = roomList[roomCount].Width;
 
             Room.Link = previousLink;
-            Room.gameObjects.Add(Room.Link);
         }
         public void Update(GameTime gameTime)
         {
@@ -159,12 +156,13 @@ namespace LOZ.GameState
         }
         public void LoadContent()
         {
+
             if (Room.Link != null) return;
             Rectangle loc = Info.Map;
             Point p = new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + loc.Height - Info.DoorWidth);
             Room.Link = new Link(p);
-            Room.Link.ChangeDirectionUp();
-            Room.gameObjects.Add(Room.Link);
+            Room.Link.ChangeDirectionUp();         
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {

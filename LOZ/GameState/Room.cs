@@ -12,7 +12,7 @@ namespace LOZ.GameState
     public abstract class Room
     {
         public List<IGameObjects> gameObjects { get; set; }
-        public ILink Link { get; set; }
+        public static ILink Link { get; set; }
         public bool Damaged { get; set; } = false;
         public bool DEBUGMODE { get; set; } = false;
         private protected CollisionIterator colliders;
@@ -23,10 +23,7 @@ namespace LOZ.GameState
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 IGameObjects item = gameObjects[i];
-                if (!TypeC.Check(item, typeof(ILink)))
-                {
-                    item.Update(gameTime);
-                }
+                item.Update(gameTime);
             }
             
             Link.Update(gameTime);
@@ -45,7 +42,8 @@ namespace LOZ.GameState
             foreach (IGameObjects item in gameObjects)
             {
                 item.GetHitBox().Draw(spriteBatch);
-            }       
+            }
+            Link.GetHitBox().Draw(spriteBatch);
         }
         private void RemoveDeadItems()
         {

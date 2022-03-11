@@ -68,7 +68,7 @@ namespace LOZ.LinkClasses
 
         public Hitbox GetHitBox()
         {
-            Hitbox hitbox = new Hitbox(Position.X - 48 / 2 - 2 + 4, Position.Y - 48 / 2 + 4, 40, 40);
+            Hitbox hitbox = new Hitbox(Position.X - 48 / 2 + 4, Position.Y - 48 / 2 + 4, 40, 40);
             return hitbox;
         }
 

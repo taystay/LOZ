@@ -12,7 +12,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            CurrentRoom.Instance.Room.Link.Attack(Weapon.Fire);
+            Room.Link.Attack(Weapon.Fire);
         }
     }
 }
