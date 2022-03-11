@@ -92,6 +92,9 @@ namespace LOZ.MapIO
                 case "arrowitem":
                     returnVal = new ArrowItem(location);
                     break;
+                case "pushingBlock":
+                    returnVal = new BlueTriangleBlock(location, true);
+                    break;
                 default:
                     returnVal = new Triforce(location);
                     break;

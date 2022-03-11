@@ -22,7 +22,10 @@ namespace LOZ.Collision
             else if (TypeC.Check(firstObject, typeof(IEnemy)))
             {
                 EnemyCollision(firstObject, secondObject, side);
-            }       
+            }  else if (TypeC.CheckPair(firstObject, typeof(IEnvironment), secondObject, typeof(IEnvironment)))    
+            {
+                BlockBlockCollision.Handle(firstObject, secondObject, side);
+            }
             else if (TypeC.CheckPair(firstObject, typeof(IPlayerProjectile), secondObject, typeof(IEnvironment)))
             {
                 PlayerProjectileEnvironmentCollision.Handle(firstObject, secondObject, side);

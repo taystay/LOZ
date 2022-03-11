@@ -7,15 +7,25 @@ namespace LOZ.EnvironmentalClasses
 {
     public abstract class AbstractTileBlock : IEnvironment
     {
-
+		public Point Position
+        {
+            get
+            {
+				return itemLocation;
+            } 
+			set
+            {
+				itemLocation = value;
+            }
+        }
+		public bool Pushable { get; set; } = false;
 		private protected ISprite sprite;
 		private protected Point itemLocation;
 		public abstract void Update(GameTime timer);
 
 		public abstract Hitbox GetHitBox();
 		public Point GetPosition() {
-			return itemLocation;
-		
+			return Position;	
 		}
 
 		public virtual void Draw(SpriteBatch spriteBatch) {

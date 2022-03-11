@@ -16,10 +16,20 @@ namespace LOZ.EnvironmentalClasses
             sprite = BlockSpriteFactory.Instance.CreateBlueTriangleBlockSprite();
             this.itemLocation = itemLocation;
         }
+
+        public BlueTriangleBlock(Point itemLocation, bool pushable)
+        {
+            Pushable = pushable;
+            sprite = BlockSpriteFactory.Instance.CreateBlueTriangleBlockSprite();
+            this.itemLocation = itemLocation;
+        }
         public override Hitbox GetHitBox()
         {
             int w = Info.BlockWidth;
-            return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w, w);
+            if(! Pushable)
+                return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w, w);
+            else
+                return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w - 5, w - 5);
         }
         public override void Update(GameTime gameTime)
         {
