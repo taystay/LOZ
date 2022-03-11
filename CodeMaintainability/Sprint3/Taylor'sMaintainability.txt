@@ -1,0 +1,26 @@
+Author: Jose Berrios
+
+Date: 3/11/22
+
+Sprint 3
+
+
+All SwitchRoom mouse controller files : Author: Taylor Liu
+	-Time: 5 mins
+
+	-Quality: Quality of all files is good. All of these files are generally the same and short and simple
+  so it has good quality
+
+	-Maintainablitiy: Since all of the files are similar and work generally the same and are very short
+  This code is maintainable. We could try to make just one big file for the mousecontroller in the future instead of having
+  files for different directions and movement.
+
+
+CollisionDetection.cs: Author Taylor Liu
+	-Time: 5 mins
+
+	-Quality: The quality is overall good. A lot of if-else  could lead to higher runtimes but we are not worried about that.
+  Each collisison type is specified and handled correctly and in a good manner overall. 
+
+	-Maintainability: This code is pretty maintainable, There likely wont be any new collision types or the need to change
+  the existing collision types, adding new collision type is simple. 
