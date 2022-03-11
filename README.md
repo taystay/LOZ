@@ -6,14 +6,14 @@ Team Members:
 
 Program Controls: 
 	Z&N: Tells link to attack
-	P&O: Switches between enemies
-	T&Y: Switches the environment blocks
-	U&I: Switches between items
 	WASD + Arrowkeys: Move the link
 	Number keys (1234...): Create Link's item
-	R: Reset the game
+	R: Reset the current room enemies
 	Q: Quit game
 	E: Damage link
+	Mouse right-click: goes to the previous room
+	Mouse left-click: goes to the next room
+	Left shift: toggle hit box on all entities
 
 Tools used:
 	-paint.net
@@ -29,3 +29,10 @@ Citation:
 		https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
 	
 
+Bugs:
+	-Sometimes when link transitions from room to room the hitbox does not update and follow link. This allows him to walk outside of the room 
+	(the room with the jellies starts the bug) and then it persist to the other rooms.
+
+	-When going between room to room sometimes the rooms skip rooms
+
+`	-When transitioning from room to room link sometimes is permanently

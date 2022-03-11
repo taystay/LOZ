@@ -1,0 +1,21 @@
+Author: Keit Vu
+
+Date: 3/11/2022
+
+Sprint 3
+
+ExteriorObjects.cs: author: Tony D'Alesandro
+	-time: 5 mins
+	
+	Readability: I can read most of the the code and can follow along what is happening without thinking about 
+		what the src file is trying to say. It is slightly diffificult to follow along the Update method 
+		and what it is doing exactly. 
+
+
+ExteriorColliders.cs: author: Tony D'Alesandro
+	-time: 6 mins
+	
+	Readability: I can somewhat follow along what is happening in PlaceCollider sometimes I get lost on what
+		is being done and the flow of the code. Very overwhelming and slightly hard to follow.v
+		The PlaceDoors and PlaceDoor is easier to follow and can be seen what is being acheived with those 
+		two method and what is being done.

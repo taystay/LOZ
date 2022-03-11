@@ -119,7 +119,7 @@ namespace LOZ.GameState
                 Room.Link.Position = new Point(loc.Location.X + 3*Info.BlockWidth , loc.Location.Y + Info.BlockWidth);
                 Room.Link.ChangeDirectionDown();
             }
-            
+
         }
         public void NextRoom()
         {
