@@ -15,7 +15,6 @@ namespace LOZ.CommandClasses
             MouseState state = Mouse.GetState();
 
             CurrentRoom.Instance.MoveRoomDirection(1,0, 0);
-            CurrentRoom.Instance.LoadContent();
         }
     }
 }

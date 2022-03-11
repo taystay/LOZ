@@ -54,7 +54,7 @@ namespace LOZ.DungeonClasses
             
             if(needsUpdate)
             {
-                List<IGameObjects> objectsInGame = CurrentRoom.Instance.Room.gameObjects;
+                List<IGameObjects> objectsInGame = CurrentRoom.Instance.Room.GameObjects;
                 foreach (IGameObjects i in currentItems)
                 {
                     objectsInGame.Remove(i);

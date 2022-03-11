@@ -33,17 +33,17 @@ namespace LOZ.LinkClasses.States
             //Don't do anything besides attacking
             if(toUse == Weapon.Swordbeam)
             {
-                CurrentRoom.Instance.Room.gameObjects.Add(new SwordBeamDown(attackPosition));
+                CurrentRoom.Instance.Room.GameObjects.Add(new SwordBeamDown(attackPosition));
             } else if (toUse == Weapon.Arrow)
             {
-                CurrentRoom.Instance.Room.gameObjects.Add(new ArrowDownItem(attackPosition));
+                CurrentRoom.Instance.Room.GameObjects.Add(new ArrowDownItem(attackPosition));
             } else if (toUse == Weapon.Bomb)
             {
-                CurrentRoom.Instance.Room.gameObjects.Add(new Bomb(attackPosition));
+                CurrentRoom.Instance.Room.GameObjects.Add(new Bomb(attackPosition));
             } else if (toUse == Weapon.Fire)
             {
                 attackPosition.Y = position.Y + 45;
-                CurrentRoom.Instance.Room.gameObjects.Add(new FireProjectile(attackPosition, Direction.Down));
+                CurrentRoom.Instance.Room.GameObjects.Add(new FireProjectile(attackPosition, Direction.Down));
             }
         }
 

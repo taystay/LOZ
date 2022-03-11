@@ -10,47 +10,20 @@ namespace LOZ.GameState
 {
     class CurrentRoom
     {
-        private List<Rectangle> roomList = new List<Rectangle>() 
-        { 
-            //Rectangle (X,Y,Z,0), of the map coordinate. basement is Z = 1
-            new Rectangle(3,6,0,0),
-            new Rectangle(2,6,0,0),
-            new Rectangle(4,6,0,0),
-            new Rectangle(3,5,0,0),
-            new Rectangle(3,4,0,0),
-            new Rectangle(4,4,0,0),
-            new Rectangle(2,4,0,0),
-            new Rectangle(2,3,0,0),
-            new Rectangle(3,3,0,0),
-            new Rectangle(3,2,0,0),
-            new Rectangle(3,1,0,0),
-            new Rectangle(2,1,0,0),
-            new Rectangle(4,3,0,0),
-            new Rectangle(5,3,0,0),
-            new Rectangle(5,2,0,0),
-            new Rectangle(6,2,0,0),
-            new Rectangle(2,1,0,0),
-            new Rectangle(1,3,0,0),
-            new Rectangle(2,1,1,0),
-        };
+        private List<Point3D> roomList = RoomPoints.roomList;
         private static CurrentRoom instance = new CurrentRoom();
         private int roomCount = 0;
-        private int x = 3;
-        private int y = 6;
-        private int z = 0;
-        public Dictionary<Rectangle, Room> Rooms { get; set; }
+        private Point3D coor = new Point3D(3, 6);
+        public Dictionary<Point3D, Room> Rooms { get; set; }
         public Room Room
         {   get
             {
-                if (Rooms.ContainsKey(new Rectangle(x, y, z, 0)))
-                    return Rooms[new Rectangle(x, y, z, 0)];
+                if (Rooms.ContainsKey(coor))
+                    return Rooms[coor];
                 else
                     return null;
             }
-            set
-            {
-                
-            }
+            set { }
         }
         public static CurrentRoom Instance
         {
@@ -59,10 +32,7 @@ namespace LOZ.GameState
                 return instance;
             }
         }
-        private CurrentRoom()
-        {
-
-        }
+        private CurrentRoom() { }
         public void LoadTextures(ContentManager Content)
         {
             ItemFactory.Instance.LoadAllTextures(Content);
@@ -73,96 +43,47 @@ namespace LOZ.GameState
         }
         public void Debug()
         {
-            Room.DEBUGMODE = !Room.DEBUGMODE;
-
+            Room.DebugMode = !Room.DebugMode;
         }
         public void MoveRoomDirection(int dx, int dy, int dz)
         {
-            ILink previousLink = Room.Link;
-            x += dx;
-            y += dy;
-            z += dz;
+            coor.changeBy(dx, dy, dz);
             if(Room == null)
             {
-                x -= dx;
-                y -= dy;
-                z -= dz;
+                coor.changeBy(-dx, -dy, -dz);
                 return;
             }
-            Room.Link = previousLink;
 
-            Rectangle loc = Info.Map;
-            if (dx == 1)
-            {
-                Room.Link.Position = new Point(loc.Location.X + Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth);
-                Room.Link.ChangeDirectionRight();
-            }
-            else if (dx == -1)
-            {
-
-                Room.Link.Position = new Point(loc.Location.X + loc.Width - Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth);
-                Room.Link.ChangeDirectionLeft();
-            }
-            else if (dy == 1)
-            {
-                Room.Link.Position = new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + Info.DoorWidth);
-                Room.Link.ChangeDirectionDown();
-            }
-            else if (dy == -1)
-            {
-                Room.Link.Position = new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + loc.Height - Info.DoorWidth);
-                Room.Link.ChangeDirectionUp();
-            }
-            else if (dz == 1)
-            {
-                Room.Link.Position = new Point(loc.Location.X + 3*Info.BlockWidth , loc.Location.Y + Info.BlockWidth);
-                Room.Link.ChangeDirectionDown();
-            }
-
+            if (dx == 1) // moved right
+                PlaceLink.LeftDungeonDoor();
+            else if (dx == -1) // moved left
+                PlaceLink.RightDungeonDoor();
+            else if (dy == 1) // moved down
+                PlaceLink.TopDungeonDoor();
+            else if (dy == -1) // moved up
+                PlaceLink.BottomDungeonDoor();
+            else if (dz == 1) // moved into dungeon
+                PlaceLink.PlaceInDungeon();
+            else if (dz == -1)
+                PlaceLink.OutOfDungeon();
         }
-        public void NextRoom()
+        public void NextRoom(int change)
         {
-            ILink previousLink = Room.Link;
-            if (roomCount == roomList.Count - 1)
-                roomCount = 0;
-            else
-                roomCount++;
-
-            x = roomList[roomCount].X;
-            y = roomList[roomCount].Y;
-            z = roomList[roomCount].Width;
-
-
-            Room.Link = previousLink;
-
-        }
-        public void PreviousRoom()
-        {
-            ILink previousLink = Room.Link;
-            if (roomCount <= 0)
-                roomCount = Rooms.Count - 1;
-            else
-                roomCount--;
-
-            x = roomList[roomCount].X;
-            y = roomList[roomCount].Y;
-            z = roomList[roomCount].Width;
-
-            Room.Link = previousLink;
+            roomCount += change;
+            roomCount = (roomCount % roomList.Count + roomList.Count) % roomList.Count; //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain
+            coor = roomList[roomCount];
         }
         public void Update(GameTime gameTime)
         {
             Room.Update(gameTime);
         }
-        public void LoadContent()
+        public void SpawnLink()
         {
-
             if (Room.Link != null) return;
-            Rectangle loc = Info.Map;
-            Point p = new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + loc.Height - Info.DoorWidth);
-            Room.Link = new Link(p);
-            Room.Link.ChangeDirectionUp();         
-            
+            Rectangle map = Info.Map;
+            Point spawnPoint = new Point(map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, map.Location.Y + map.Height - Info.DoorWidth);
+            Room.Link = new Link(spawnPoint);
+            Room.Link.ChangeDirectionUp();                     
         }
         public void Draw(SpriteBatch spriteBatch)
         {

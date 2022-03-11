@@ -7,12 +7,12 @@ namespace LOZ.GameState
     {
         public DungeonRoom(List<IGameObjects> list)
         {
-            gameObjects = list;
-            colliders = new CollisionIterator(gameObjects);
+            GameObjects = list;
+            colliders = new CollisionIterator(GameObjects);
             
         }
         public override void LoadContent() {
-            colliders = new CollisionIterator(gameObjects);
+            colliders = new CollisionIterator(GameObjects);
 
         }
     }

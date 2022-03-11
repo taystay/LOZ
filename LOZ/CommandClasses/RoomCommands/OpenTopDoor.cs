@@ -13,7 +13,7 @@ namespace LOZ.CommandClasses
         {
             Room room = CurrentRoom.Instance.Room;
             ExteriorObject exterior = null;
-            foreach(IGameObjects i in  room.gameObjects)
+            foreach(IGameObjects i in  room.GameObjects)
             {
                 if(TypeC.Check(i, typeof(ExteriorObject)))
                 {

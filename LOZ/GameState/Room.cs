@@ -11,35 +11,36 @@ namespace LOZ.GameState
 {
     public abstract class Room
     {
-        public List<IGameObjects> gameObjects { get; set; }
-        public static ILink Link { get; set; }
-        public bool Damaged { get; set; } = false;
-        public bool DEBUGMODE { get; set; } = false;
+        public List<IGameObjects> GameObjects { get; set; }
         private protected CollisionIterator colliders;
+
+        public static ILink Link { get; set; } // only one link so we dont accidently break the game with the decorator.
+        public static bool DebugMode { get; set; } = false;
+        public bool Damaged { get; set; } = false;
+        
         public abstract void LoadContent();       
         public void Update(GameTime gameTime)
         {
-            
-            for (int i = 0; i < gameObjects.Count; i++)
-            {
-                IGameObjects item = gameObjects[i];
-                item.Update(gameTime);
-            }
-            
             Link.Update(gameTime);
+            for (int i = 0; i < GameObjects.Count; i++)
+            { // for loop because state of list may change. (items added)
+                IGameObjects item = GameObjects[i];
+                item.Update(gameTime);
+            }    
+
             RemoveDeadItems();
             colliders.Iterate();
-
         }
         public void Draw(SpriteBatch spriteBatch)
-        {
-            foreach (IGameObjects item in gameObjects)
+        {         
+            foreach (IGameObjects item in GameObjects)
             {
                 item.Draw(spriteBatch);
             }
             Link.Draw(spriteBatch);
-            if (!DEBUGMODE) return;
-            foreach (IGameObjects item in gameObjects)
+
+            if (!DebugMode) return; //Debug hitboxes for easy of testing numbers
+            foreach (IGameObjects item in GameObjects)
             {
                 item.GetHitBox().Draw(spriteBatch);
             }
@@ -48,10 +49,10 @@ namespace LOZ.GameState
         private void RemoveDeadItems()
         {
             List<IGameObjects> toRemove = new List<IGameObjects>();
-            foreach (IGameObjects item in gameObjects)
+            foreach (IGameObjects item in GameObjects)
             {
                 if (TypeC.Check(item, typeof(IItem)))
-                {
+                { //allow us to take items out of the game without them doing it themselves.
                     IItem itemObject = (IItem)item;
                     if (!itemObject.SpriteActive()) toRemove.Add(item);
                 }
@@ -68,7 +69,7 @@ namespace LOZ.GameState
             }
             foreach (IGameObjects item in toRemove)
             {
-                gameObjects.Remove(item);
+                GameObjects.Remove(item);
             }
         }
     }

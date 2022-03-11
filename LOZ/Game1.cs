@@ -15,7 +15,7 @@ namespace LOZ
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private List<IController> controllerList;
-        private Dictionary<Rectangle, Room> maps;
+        private Dictionary<Point3D, Room> maps;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -40,7 +40,7 @@ namespace LOZ
             spriteBatch = new SpriteBatch(GraphicsDevice);        
             CurrentRoom.Instance.LoadTextures(Content);
 
-            maps = new Dictionary<Rectangle, Room>();
+            maps = new Dictionary<Point3D, Room>();
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
@@ -58,7 +58,7 @@ namespace LOZ
                 { new KeyBindings(this).GetKeyboardController()},
                 { new KeyBindings(this).GetMouseController()},
             };
-            CurrentRoom.Instance.LoadContent();
+            CurrentRoom.Instance.SpawnLink();
             base.LoadContent();
         }
         protected override void Update(GameTime gameTime)

@@ -15,12 +15,11 @@ namespace LOZ.GameState
         }
         public override void LoadContent()
         {
-            gameObjects = new List<IGameObjects>();
-            colliders = new CollisionIterator(gameObjects);
-            gameObjects.Add(new ExteriorObject(DoorType.Door, DoorType.Wall, DoorType.Wall, DoorType.Wall, gameObjects));
+            GameObjects = new List<IGameObjects>();
+            colliders = new CollisionIterator(GameObjects);
+            GameObjects.Add(new ExteriorObject(DoorType.Door, DoorType.Wall, DoorType.Wall, DoorType.Wall, GameObjects));
             PlaceFloor();
-            PlaceItemsForDev();
-            
+            PlaceItemsForDev();         
         }
         private void PlaceFloor()
         {
@@ -28,7 +27,7 @@ namespace LOZ.GameState
             int y = Info.Inside.Y + Info.BlockWidth / 2;
             for(int i = 0; i < 12; i ++)
                 for(int j = 0; j < 7; j++)
-                    gameObjects.Add(new SolidBlueBlock(new Point(x + Info.BlockWidth * i, y + Info.BlockWidth * j)));
+                    GameObjects.Add(new SolidBlueBlock(new Point(x + Info.BlockWidth * i, y + Info.BlockWidth * j)));
         }
 
         private void PlaceItemsForDev()
@@ -36,31 +35,31 @@ namespace LOZ.GameState
             Point start = Info.Inside.Location;
             start.X += Info.BlockWidth / 2;
             start.Y += Info.BlockWidth / 2;
-            gameObjects.Add(new ArrowItem(start));
+            GameObjects.Add(new ArrowItem(start));
             start.Y += Info.BlockWidth;
-            gameObjects.Add(new Heart(start));
+            GameObjects.Add(new Heart(start));
             start.Y += Info.BlockWidth;
-            gameObjects.Add(new HeartContainer(start));
+            GameObjects.Add(new HeartContainer(start));
             start.Y += Info.BlockWidth;
-            gameObjects.Add(new FireItem(start));
+            GameObjects.Add(new FireItem(start));
             start.Y += Info.BlockWidth;
-            gameObjects.Add(new Bow(start));
+            GameObjects.Add(new Bow(start));
             start.Y += Info.BlockWidth;
-            gameObjects.Add(new Map(start));
+            GameObjects.Add(new Map(start));
             start.X += Info.BlockWidth;
-            gameObjects.Add(new Compass(start));
+            GameObjects.Add(new Compass(start));
             start.X += Info.BlockWidth;
-            gameObjects.Add(new Key(start));
+            GameObjects.Add(new Key(start));
             start.X += Info.BlockWidth;
-            gameObjects.Add(new Rupee(start));
+            GameObjects.Add(new Rupee(start));
             start.X += Info.BlockWidth;
-            gameObjects.Add(new Sword(start));
+            GameObjects.Add(new Sword(start));
             start.X += Info.BlockWidth;
-            gameObjects.Add(new Triforce(start));
+            GameObjects.Add(new Triforce(start));
             start.X += Info.BlockWidth;
-            gameObjects.Add(new Clock(start));
+            GameObjects.Add(new Clock(start));
             start.X += Info.BlockWidth;
-            gameObjects.Add(new Fairy(start));
+            GameObjects.Add(new Fairy(start));
         }
     }
 }

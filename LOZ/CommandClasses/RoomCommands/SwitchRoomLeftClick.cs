@@ -10,10 +10,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            Room room = CurrentRoom.Instance.Room;
-            MouseState state = Mouse.GetState();
-            CurrentRoom.Instance.NextRoom();
-            CurrentRoom.Instance.LoadContent();
+            CurrentRoom.Instance.NextRoom(1);
         }
     }
 }

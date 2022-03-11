@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using LOZ.EnvironmentalClasses;
 using LOZ.Collision;
 using Microsoft.Xna.Framework;
+using LOZ.GameState;
+using LOZ.CommandClasses.RoomCommands;
+using LOZ.LinkClasses;
 
 namespace LOZ.MapIO
 {
@@ -33,7 +36,10 @@ namespace LOZ.MapIO
                     leftSide = location.X;
                     dynamicHeight = 11;
                     basementFlag = true;
+                    obj.Add(new DoorCollider(new Rectangle(location.X + 24 + 96, location.Y - 48, 48, 48), new LeaveBasement(), typeof(ILink)));
                 }
+
+               
 
                 for (int i=0; i< words.Length; i++) { 
                     obj.Add(Convert(words[xIndex], location.X, location.Y));
