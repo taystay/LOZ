@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using LOZ.LinkClasses.States;
 using LOZ.ItemsClasses;
+using LOZ.Collision;
 
 namespace LOZ.LinkClasses
 {
@@ -11,6 +12,11 @@ namespace LOZ.LinkClasses
     {
         private protected ISprite linkSprite;
         private protected Link link;
+        protected static int attackCoolDown = 30;
+        protected static int timeSinceAttack = 0;
+        protected static bool attackAllowed = true;
+        protected int attackXOffSet = 0;
+        protected int attackYOffSet = 0;
 
         public virtual void Up() { }
         public virtual void Down() { }
@@ -18,7 +24,18 @@ namespace LOZ.LinkClasses
         public virtual void Right() { }
         public virtual void Move() { }
         public virtual void Idle() { }
-        public abstract void Attack(Weapon toUse, Point position);
+        public virtual void Attack(Weapon toUse, Point position) { }
+        public virtual void AttemptAttack(IGameObjects weapon)
+        {
+            if (attackAllowed)
+            {
+                CurrentRoom.Instance.Room.GameObjects.Add(weapon);
+                attackAllowed = false;
+                return;
+            }
+            
+            
+        }
         public virtual void TakeDamage()
         {
            Room.Link = new DamagedLink(link);
@@ -29,7 +46,16 @@ namespace LOZ.LinkClasses
         }
         public virtual void Update(GameTime timer)
         {
-            linkSprite.Update(timer);
+            if (!attackAllowed)
+            {
+                timeSinceAttack++;
+                if (timeSinceAttack >= attackCoolDown)
+                {
+                    attackAllowed = true;
+                    timeSinceAttack = 0;
+                }
+            }
+                linkSprite.Update(timer);
         }
         public void Draw(SpriteBatch spriteBatch, Point position)
         {

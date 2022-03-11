@@ -28,7 +28,7 @@ namespace LOZ.LinkClasses.States
         {
             attackPosition.X = position.X - 40;
             attackPosition.Y = position.Y;
-            CurrentRoom.Instance.Room.GameObjects.Add(new LeftRightSwordHitBox(attackPosition));
+            AttemptAttack(new LeftRightSwordHitBox(attackPosition));
         }
 
     }

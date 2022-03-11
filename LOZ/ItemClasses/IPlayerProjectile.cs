@@ -21,7 +21,7 @@ namespace LOZ.ItemsClasses
         {
             return spriteActivity;
         }
-        public void KillItem()
+        public virtual void KillItem()
         {
             spriteActivity = false;
         }

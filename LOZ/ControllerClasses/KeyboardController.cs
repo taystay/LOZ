@@ -8,19 +8,15 @@ namespace LOZ.ControllerClasses
     class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> storedInitCommands;
-        private Dictionary<Keys, int> initKeysTimeHeld;
         private Dictionary<Keys, ICommand> storedHoldCommands;
         private Dictionary<Keys, ICommand> storedReleaseCommands;
-        private List<Keys> initKeysPressed;
         private List<Keys> releaseKeysPressed;
         public KeyboardController(Game1 GameObject)
         {
             storedInitCommands = new Dictionary<Keys, ICommand>();
             storedHoldCommands = new Dictionary<Keys, ICommand>();
             storedReleaseCommands = new Dictionary<Keys, ICommand>();
-            initKeysPressed = new List<Keys>();
             releaseKeysPressed = new List<Keys>();
-            initKeysTimeHeld = new Dictionary<Keys, int>();
         }
         public void RegisterInitialCommand(Keys key, ICommand initialPressCommand)
         {
@@ -36,33 +32,10 @@ namespace LOZ.ControllerClasses
         }
         private void UpdateInitPress()
         {
-            int i;
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-            foreach (Keys key in pressedKeys)
+            foreach(Keys key in pressedKeys)
             {
-                if (initKeysPressed.Contains(key)) continue;
-                if (!storedInitCommands.ContainsKey(key)) continue;
-                initKeysPressed.Add(key);
-                if (!initKeysTimeHeld.ContainsKey(key))
-                    initKeysTimeHeld.Add(key, 20);
-                storedInitCommands[key].execute();
-            }
-            i = 0;
-            while (i < initKeysPressed.Count)
-            {
-                Keys key = initKeysPressed[i++];
-                if (initKeysTimeHeld[key] == 0)
-                {
-                    initKeysTimeHeld.Remove(key);
-                    initKeysPressed.Remove(key);
-                    continue;
-                }
-                else
-                {
-                    initKeysTimeHeld[key]--;
-                }
-                if (Keyboard.GetState().IsKeyDown(key)) continue;
-                initKeysPressed.RemoveAt(--i);
+                if (storedInitCommands.ContainsKey(key)) storedInitCommands[key].execute();
             }
         }
         private void UpdateHold()

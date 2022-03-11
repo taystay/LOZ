@@ -18,6 +18,11 @@ namespace LOZ.ItemsClasses
             hitBoxHeight = 34;
             Damage = 3;
         }
+        public override void KillItem()
+        {
+            if (spriteChanged) return;
+            spriteActivity = false;
+        }
         public override Hitbox GetHitBox()
         {
             if (spriteChanged)

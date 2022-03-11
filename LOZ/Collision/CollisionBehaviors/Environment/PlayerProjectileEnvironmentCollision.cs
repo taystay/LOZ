@@ -14,10 +14,8 @@ namespace LOZ.Collision
             Rectangle blockBox = environemnt.GetHitBox().ToRectangle();
             Rectangle collisionBox = Rectangle.Intersect(projectileBox, blockBox);
 
-            if (TypeC.Check(environemnt, typeof(InvisibleBlock)) && !TypeC.Check(projectile, typeof(FireProjectile)))
-                projectile.KillItem();
-
-            if(TypeC.Check(projectile, typeof(FireProjectile)) && TypeC.Check(environemnt, typeof(InvisibleBlock)))
+            if (TypeC.Check(projectile, typeof(FireProjectile)) && TypeC.Check(environemnt, typeof(InvisibleBlock)))
+            {
                 if (side == CollisionSide.Top)
                     projectile.SetPosition(new Point(projectile._itemLocation.X, projectile._itemLocation.Y - collisionBox.Height));
                 else if (side == CollisionSide.Left)
@@ -26,6 +24,13 @@ namespace LOZ.Collision
                     projectile.SetPosition(new Point(projectile._itemLocation.X + collisionBox.Width, projectile._itemLocation.Y));
                 else if (side == CollisionSide.Bottom)
                     projectile.SetPosition(new Point(projectile._itemLocation.X, projectile._itemLocation.Y + collisionBox.Height));
+            }
+
+            if (TypeC.Check(environemnt, typeof(SolidBlueBlock)) || TypeC.Check(environemnt, typeof(DarkBlueBlock))) return;
+            projectile.KillItem();
+
+            
+                
         }
     }
 }

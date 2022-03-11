@@ -26,10 +26,7 @@ namespace LOZ.EnvironmentalClasses
         public override Hitbox GetHitBox()
         {
             int w = Info.BlockWidth;
-            if(! Pushable)
-                return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w, w);
-            else
-                return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w - 5, w - 5);
+            return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w, w);
         }
         public override void Update(GameTime gameTime)
         {
