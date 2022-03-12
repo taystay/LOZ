@@ -1,8 +1,6 @@
 ﻿
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using LOZ.Factories;
-using LOZ.SpriteClasses;
 using LOZ.Collision;
 
 namespace LOZ.EnvironmentalClasses

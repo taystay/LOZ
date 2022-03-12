@@ -9,7 +9,7 @@ namespace LOZ.MapIO
 {
     internal class ParseToItem
     {
-        internal static void ParseItem(List<IGameObjects> obj, string lineRead)
+        internal static void ParseItem(List<IGameObjects> obj, string lineRead, int offset)
         {
 
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.trimend?view=net-6.0
@@ -17,8 +17,6 @@ namespace LOZ.MapIO
 
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?view=net-6.0
             lineRead = lineRead.Replace('\"', ' ');
-
-            int countBefore = obj.Count - 1;
 
             while (lineRead.Length != 0)
             {
@@ -34,7 +32,7 @@ namespace LOZ.MapIO
                 int xCord = Int32.Parse(subStr.Substring(openingParens + 1, commaPosition - openingParens - 1));
                 int yCord = Int32.Parse(subStr.Substring(commaPosition + 1, closingParens - commaPosition - 2));
 
-                int indexElement = ((yCord - 1) * 12) + (xCord - 1) + countBefore - 84 + 1;
+                int indexElement = ((yCord - 1) * 12) + (xCord - 1) + offset;
 
                 IEnvironment block = (IEnvironment)obj[indexElement];
                 Point spawnLocation = block.GetPosition();

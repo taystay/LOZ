@@ -37,6 +37,10 @@ namespace LOZ.MapIO
                     dynamicHeight = 11;
                     basementFlag = true;
                     obj.Add(new DoorCollider(new Rectangle(location.X + 24 + 96, location.Y - 48, 48, 48), new LeaveBasement(), typeof(ILink)));
+                    obj.Add(new InvisibleBlock(new Point(location.X - 24, location.Y - 72), 48 * 16, 48));
+                    obj.Add(new InvisibleBlock(new Point(location.X - 72, location.Y - 24), 48, 48 * 11));
+                    obj.Add(new InvisibleBlock(new Point(location.X - 24 + (48*16), location.Y - 24), 48, 48 * 11));
+                    obj.Add(new InvisibleBlock(new Point(location.X - 24, location.Y - 24 + (48 * 11)), 48 * 16, 48));
                 }
 
                

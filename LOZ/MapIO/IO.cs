@@ -39,14 +39,16 @@ namespace LOZ.MapIO
                 if(doorRow.Length >0)
                     ParseToDoor.ParseDoor(objects, doorRow);
 
+                int offset = objects.Count;
+
                 ParseToBlock.ParseRoom(objects, reader);
                 string enemyRow = reader.ReadLine();
                 if (enemyRow!= null)
-                    ParseToEnemy.ParseEnemy(objects, enemyRow);
+                    ParseToEnemy.ParseEnemy(objects, enemyRow, offset);
 
                 string itemRow = reader.ReadLine();
                 if (itemRow != null)
-                    ParseToItem.ParseItem(objects, itemRow);
+                    ParseToItem.ParseItem(objects, itemRow, offset);
 
 
                 listOfRooms.Add(new Point3D(xPosition,yPosition, zPosition), new DungeonRoom(objects));

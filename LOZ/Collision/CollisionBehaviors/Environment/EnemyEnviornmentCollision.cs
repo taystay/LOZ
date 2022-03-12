@@ -16,7 +16,7 @@ namespace LOZ.Collision
             Point linkPos = enemy.Position;
             Rectangle collisionBox = Rectangle.Intersect(enemyBox, blockBox);
 
-            if (!TypeC.Check(enemy, typeof(Dragon)) || TypeC.Check(block, typeof(InvisibleBlock)))
+            if (!TypeC.CheckPair(enemy, typeof(Bat), block, typeof(BasementBlock)) || TypeC.Check(block, typeof(InvisibleBlock)))
             {
                 if (side == CollisionSide.Top)
                     enemy.Position = new Point(linkPos.X, linkPos.Y - collisionBox.Height);
