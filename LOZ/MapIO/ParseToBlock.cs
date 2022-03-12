@@ -23,6 +23,7 @@ namespace LOZ.MapIO
            
 
             while (reader.Peek() != 1 && yIndex != dynamicHeight){
+                //https://docs.microsoft.com/en-US/troubleshoot/developer/visualstudio/csharp/general/file-io-operation
                 string lineRead = reader.ReadLine();
                 if (lineRead == null)
                     break;

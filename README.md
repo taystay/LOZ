@@ -29,4 +29,6 @@ Citation:
 		https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
 	
 
-Bugs:
+Have not implemented:
+	-Link can move around int the black tile area of the basement. The group did not implement the blocks so that link does not walk around
+	 those area since we did not have time for it. 

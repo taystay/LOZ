@@ -25,6 +25,7 @@ namespace LOZ.MapIO
             string[] allMapsPaths = Directory.GetFiles(folder);
 
             foreach (string pathName in allMapsPaths) {
+                //https://docs.microsoft.com/en-US/troubleshoot/developer/visualstudio/csharp/general/file-io-operation
                 StreamReader reader = new StreamReader(pathName);
                 List<IGameObjects> objects = new List<IGameObjects>();
 
