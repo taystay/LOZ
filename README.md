@@ -30,9 +30,3 @@ Citation:
 	
 
 Bugs:
-	-Sometimes when link transitions from room to room the hitbox does not update and follow link. This allows him to walk outside of the room 
-	(the room with the jellies starts the bug) and then it persist to the other rooms.
-
-	-When going between room to room sometimes the rooms skip rooms
-
-`	-When transitioning from room to room link sometimes is permanently
