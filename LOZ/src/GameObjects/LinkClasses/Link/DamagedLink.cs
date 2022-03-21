@@ -54,6 +54,11 @@ namespace LOZ.LinkClasses
             decoratedLink.Move();
         }
 
+        public void KnockBack(Point vel)
+        {
+            decoratedLink.KnockBack(vel);
+        }
+
         public void Idle()
         {
             decoratedLink.Idle();

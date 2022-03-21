@@ -17,6 +17,11 @@ namespace LOZ.LinkClasses
         protected static bool attackAllowed = true;
         protected int attackXOffSet = 0;
         protected int attackYOffSet = 0;
+        protected int moveVelocity = 4;
+        protected static int knockBackDuration = 10;
+        protected static int currentKnockBack = 0;
+        protected static bool knockedBack = false;
+        public Point knockBackVel = new Point(0, 0);
 
         public virtual void Up() { }
         public virtual void Down() { }
@@ -33,8 +38,15 @@ namespace LOZ.LinkClasses
                 attackAllowed = false;
                 return;
             }
-            
-            
+        }
+        public virtual void KnockBack(Point vel)
+        {
+            if(!knockedBack)
+            {
+                knockedBack = true;
+                knockBackVel = vel;
+                return;
+            }
         }
         public virtual void TakeDamage()
         {
@@ -55,7 +67,20 @@ namespace LOZ.LinkClasses
                     timeSinceAttack = 0;
                 }
             }
-                linkSprite.Update(timer);
+            if (knockedBack)
+            {
+                currentKnockBack++;
+                if(currentKnockBack >= knockBackDuration)
+                {
+                    knockedBack = false;
+                    currentKnockBack = 0;
+                } 
+                else
+                {
+                    link.Position = new Point(link.Position.X + knockBackVel.X, link.Position.Y + knockBackVel.Y);
+                }
+            } 
+            linkSprite.Update(timer);
         }
         public void Draw(SpriteBatch spriteBatch, Point position)
         {

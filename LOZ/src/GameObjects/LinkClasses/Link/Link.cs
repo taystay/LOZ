@@ -41,6 +41,11 @@ namespace LOZ.LinkClasses
             LinkState.Move();
         }
 
+        public void KnockBack(Point vel)
+        {
+            LinkState.KnockBack(vel);
+        }
+
         public void Idle()
         {
             LinkState.Idle();
@@ -74,15 +79,12 @@ namespace LOZ.LinkClasses
 
         public void Update(GameTime timer)
         {
-
             LinkState.Update(timer);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
             LinkState.Draw(spriteBatch, Position);
-
         }
 
     }

@@ -20,6 +20,7 @@ namespace LOZ.LinkClasses
         public void ChangeDirectionLeft();
         public void ChangeDirectionRight();
         public void Move();
+        public void KnockBack(Point vel);
         public void Idle();
         public void RaiseItem(IItem item);
         public void Attack(Weapon currentUse);

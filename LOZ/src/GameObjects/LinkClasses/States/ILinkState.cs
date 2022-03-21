@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using LOZ.ItemsClasses;
 
@@ -15,6 +14,7 @@ namespace LOZ.LinkClasses
         public void Move();
         public void Idle();
         public void Attack(Weapon toUse, Point position);
+        public void KnockBack(Point vel);
         public void TakeDamage();
         public void RaiseItem(IItem item);
         public void Update(GameTime timer);

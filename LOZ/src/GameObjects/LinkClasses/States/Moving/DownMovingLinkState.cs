@@ -6,8 +6,6 @@ namespace LOZ.LinkClasses.States
 {
     class DownMovingLinkState : LinkStateAbstract
     {
-        private const int speed = 4;
-
         public DownMovingLinkState(Link link)
         {
             this.link = link;
@@ -22,17 +20,14 @@ namespace LOZ.LinkClasses.States
         {
             link.LinkState = new LeftIdleLinkState(link);
         }
-
         public override void Right()
         {
             link.LinkState = new RightIdleLinkState(link);
         }
-
         public override void Idle()
         {
             link.LinkState = new DownIdleLinkState(link);
         }
-
         public override void Attack(Weapon toUse, Point position)
         {
             if (toUse == Weapon.Default)
@@ -41,12 +36,24 @@ namespace LOZ.LinkClasses.States
                 link.LinkState = new DownAttackItemLinkState(link);
             link.LinkState.Attack(toUse, position);
         }
-
         public override void Update(GameTime timer)
         {
-            link.Position = new Point(link.Position.X, link.Position.Y + speed);
+            if(!knockedBack)
+                link.Position = new Point(link.Position.X, link.Position.Y + moveVelocity);
+            else
+            {
+                currentKnockBack++;
+                if (currentKnockBack >= knockBackDuration)
+                {
+                    knockedBack = false;
+                    currentKnockBack = 0;
+                }
+                else
+                {
+                    link.Position = new Point(link.Position.X + knockBackVel.X, link.Position.Y + knockBackVel.Y);
+                }
+            }
             linkSprite.Update(timer);
         }
-
     }
 }

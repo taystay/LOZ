@@ -68,7 +68,7 @@ namespace LOZ.Collision
             }
             else if (TypeC.Check(secondObject, typeof(IEnemy)))
             {
-                LinkEnemyCollision.Handle(firstObject, side);
+                LinkEnemyCollision.Handle(side);
             }
             else if (TypeC.Check(secondObject, typeof(IItem)))
             {
