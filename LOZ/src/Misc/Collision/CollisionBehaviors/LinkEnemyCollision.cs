@@ -8,6 +8,7 @@ namespace LOZ.Collision
     {
         public static void Handle(IGameObjects firstObj, CollisionSide side)
         {
+            /*
             Room.Link.TakeDamage();
             ILink link = (ILink)firstObj;
             Point linkPos = link.Position;
@@ -21,6 +22,7 @@ namespace LOZ.Collision
                 link.Position = new Point(linkPos.X + knockback, linkPos.Y);
             else if (side == CollisionSide.Bottom)
                 link.Position = new Point(linkPos.X, linkPos.Y + knockback);
+            */
         }
     }
 }
