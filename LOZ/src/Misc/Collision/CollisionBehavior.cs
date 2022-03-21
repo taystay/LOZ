@@ -45,7 +45,7 @@ namespace LOZ.Collision
         {
             if (TypeC.Check(secondObject, typeof(IPlayerProjectile)))
             {
-                PlayerProjectileEnemyCollision.Handle(secondObject, firstObject);
+                PlayerProjectileEnemyCollision.Handle(secondObject, firstObject, side);
             }
             else if (TypeC.Check(secondObject, typeof(DoorCollider)))
             {
@@ -68,7 +68,7 @@ namespace LOZ.Collision
             }
             else if (TypeC.Check(secondObject, typeof(IEnemy)))
             {
-                LinkEnemyCollision.Handle();
+                LinkEnemyCollision.Handle(firstObject, side);
             }
             else if (TypeC.Check(secondObject, typeof(IItem)))
             {

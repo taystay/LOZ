@@ -12,7 +12,7 @@ namespace LOZ.EnemyClass
         private protected const int HeightSpriteSection = 83;
         private protected const int WidthSpriteSection = 64;
         private protected const int InivincibilityFrames = 30;
-        private protected bool IsDamaged = false;
+        public bool IsDamaged { get; set; }
         private protected int timeLeftDamage = 100;
         private protected ISprite _texture;
         public Point Position { get; set; }

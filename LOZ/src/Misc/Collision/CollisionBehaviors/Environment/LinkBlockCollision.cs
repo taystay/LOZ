@@ -17,7 +17,6 @@ namespace LOZ.Collision
             Rectangle blockBox = blockObj.GetHitBox().ToRectangle();
             Rectangle collisionBox = Rectangle.Intersect(linkBox, blockBox);
 
-            //Make link not be able to move forward at all.
             if (block.Pushable)
             {
                 if (side == CollisionSide.Top)
@@ -39,8 +38,6 @@ namespace LOZ.Collision
                 else if (side == CollisionSide.Bottom)
                     link.Position = new Point(linkPos.X, linkPos.Y + collisionBox.Height);
             }
-            
-
         }
     }
 }
