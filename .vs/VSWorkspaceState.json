@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\LOZ",
-    "\\LOZ\\Collision",
-    "\\LOZ\\Collision\\CollisionBehaviors",
-    "\\LOZ\\SpriteClasses"
+    ""
   ],
-  "SelectedNode": "\\LOZ\\Collision\\CollisionBehaviors\\PlayerProjectileEnemyCollision.cs",
+  "SelectedNode": "\\LOZ.sln",
   "PreviewInSolutionExplorer": false
 }
