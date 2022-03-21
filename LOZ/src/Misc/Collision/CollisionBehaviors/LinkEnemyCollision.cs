@@ -7,7 +7,6 @@ namespace LOZ.Collision
     {
         public static void Handle(CollisionSide side)
         {
-            /*
             Room.Link.TakeDamage();
 
             if (side == CollisionSide.Top)
@@ -17,9 +16,7 @@ namespace LOZ.Collision
             else if (side == CollisionSide.Left)
                 Room.Link.KnockBack(new Point(-4, 0));
             else if (side == CollisionSide.Right)
-                link.Position = new Point(linkPos.X + knockback, linkPos.Y);
-            else if (side == CollisionSide.Bottom)
-                link.Position = new Point(linkPos.X, linkPos.Y + knockback);
+                Room.Link.KnockBack(new Point(4, 0));
         }
     }
 }
