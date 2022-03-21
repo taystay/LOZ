@@ -68,6 +68,11 @@ namespace LOZ.MapIO
             IGameObjects returnVal;
             switch(s)
             {
+                case "invisB":
+
+                    Rectangle r = new Rectangle(location.X - 24, location.Y - 24, 48, 48);
+                    returnVal = new InvisibleBlock(r);
+                    break;
                 case "blackB":
                     returnVal = new BlackTileBlock(location);
                     break;
