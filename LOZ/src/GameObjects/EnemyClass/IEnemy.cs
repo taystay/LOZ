@@ -1,4 +1,5 @@
 ﻿using LOZ.Collision;
+using Microsoft.Xna.Framework;
 
 namespace LOZ.EnemyClass
 {
@@ -8,6 +9,6 @@ namespace LOZ.EnemyClass
         public void KillItem();
         public void TakeDamage(int damage);
         public bool IsActive();
-   
+        public void KnockBack(Point vel);
     }
 }

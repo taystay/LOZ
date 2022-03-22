@@ -9,7 +9,7 @@ namespace LOZ.EnemyClass
     {
         public Skeleton(Point location) 
         {
-            Health = 2;
+            Health = 100;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateSkeleton();
             random = new Random();
@@ -22,20 +22,35 @@ namespace LOZ.EnemyClass
 
         public override void Update(GameTime timer) {
 
-            if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
+            if (knockedBack)
             {
-                velocity.X = random.Next(-2, 2);
-                velocity.Y = random.Next(-2, 2);
-            }
-            if (IsDamaged)
+                currentKnockBack++;
+                if (currentKnockBack >= knockBackDuration)
+                {
+                    knockedBack = false;
+                    currentKnockBack = 0;
+                }
+                else
+                {
+                    Position = new Point(Position.X + knockBackVel.X, Position.Y + knockBackVel.Y);
+                }
+            } 
+            else
             {
-                timeLeftDamage--;
-                if (timeLeftDamage <= 0)
-                    IsDamaged = false;
+                if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
+                {
+                    velocity.X = random.Next(-2, 2);
+                    velocity.Y = random.Next(-2, 2);
+                }
+                if (IsDamaged)
+                {
+                    timeLeftDamage--;
+                    if (timeLeftDamage <= 0)
+                        IsDamaged = false;
+                }
+
+                modifyPosition(velocity.X, velocity.Y);
             }
-
-            modifyPosition(velocity.X, velocity.Y);
-
             _texture.Update(timer);
         }
 

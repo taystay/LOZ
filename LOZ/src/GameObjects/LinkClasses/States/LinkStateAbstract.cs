@@ -18,7 +18,7 @@ namespace LOZ.LinkClasses
         protected int attackXOffSet = 0;
         protected int attackYOffSet = 0;
         protected int moveVelocity = 4;
-        protected static int knockBackDuration = 10;
+        protected static int knockBackDuration = 20;
         protected static int currentKnockBack = 0;
         protected static bool knockedBack = false;
         public Point knockBackVel = new Point(0, 0);

@@ -20,6 +20,10 @@ namespace LOZ.EnemyClass
         private protected Point velocity;
         private protected Random random;
         private protected bool isActive = true;
+        protected static int knockBackDuration = 20;
+        protected static int currentKnockBack = 0;
+        protected static bool knockedBack = false;
+        public Point knockBackVel = new Point(0, 0);
 
         public void KillItem()
         {
@@ -45,6 +49,15 @@ namespace LOZ.EnemyClass
             Position = new Point(Position.X + dx, Position.Y + dy);
         }
         public abstract Hitbox GetHitBox();
+        public void KnockBack(Point vel)
+        {
+            if (!knockedBack)
+            {
+                knockedBack = true;
+                knockBackVel = vel;
+                return;
+            }
+        }
         public abstract void Update(GameTime timer);
         public void Draw(SpriteBatch spriteBatch)
         {
