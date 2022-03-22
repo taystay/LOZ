@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LOZ",
+    "\\LOZ\\src",
+    "\\LOZ\\src\\Room\\helpers",
+    "\\LOZ\\src\\Sprites",
+    "\\LOZ\\src\\Sprites\\Factories"
   ],
-  "SelectedNode": "\\LOZ.sln",
+  "SelectedNode": "\\LOZ\\src\\Sprites\\SpriteClasses",
   "PreviewInSolutionExplorer": false
 }
