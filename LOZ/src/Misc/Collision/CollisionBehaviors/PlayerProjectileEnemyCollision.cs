@@ -10,23 +10,19 @@ namespace LOZ.Collision
         {
             IPlayerProjectile projectile = (IPlayerProjectile)p;
             AbstractEnemy _enemy = (AbstractEnemy)enemy;
-            int knockback = 40;
 
             if (!TypeC.Check(enemy, typeof(SpikeTrap)))
             {
-                if(!_enemy.IsDamaged)
-                {
-                    if (side == CollisionSide.Top)
-                        _enemy.Position = new Point(_enemy.Position.X, _enemy.Position.Y - knockback);
-                    else if (side == CollisionSide.Left)
-                        _enemy.Position = new Point(_enemy.Position.X - knockback, _enemy.Position.Y);
-                    else if (side == CollisionSide.Right)
-                        _enemy.Position = new Point(_enemy.Position.X + knockback, _enemy.Position.Y);
-                    else if (side == CollisionSide.Bottom)
-                        _enemy.Position = new Point(_enemy.Position.X, _enemy.Position.Y + knockback);
-                }
-
                 _enemy.TakeDamage(projectile.Damage);
+
+                if (side == CollisionSide.Top)
+                    _enemy.KnockBack(new Point(0, -4));
+                else if (side == CollisionSide.Bottom)
+                    _enemy.KnockBack(new Point(0, 4));
+                else if (side == CollisionSide.Left)
+                    _enemy.KnockBack(new Point(-4, 0));
+                else if (side == CollisionSide.Right)
+                    _enemy.KnockBack(new Point(4, 0));
             }
         }
     }
