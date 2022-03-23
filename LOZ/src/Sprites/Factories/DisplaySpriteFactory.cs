@@ -34,6 +34,11 @@ namespace LOZ.Factories
 			return new HUDSprite(HUDSpritesheet);
 		}
 
+		public ISprite GetHudHeart(bool fullHeart)
+        {
+			return new HudHeart(HUDSpritesheet, fullHeart);
+        }
+
 
 	}
 }

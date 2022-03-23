@@ -10,9 +10,28 @@ namespace LOZ.LinkClasses
     {
         public Point Position { get; set; }
         public ILinkState LinkState { get; set; }
+        private int health = 6;
+        public int Health
+        {
+            get
+            {
+                return health;
+            }
+            set
+            {
+                health = value;
+                if (health > MaxHealth)
+                {
+                    health = MaxHealth;
+                }
+            }
+        }
+
+        public int MaxHealth { get; set; }
 
         public Link(Point location)
         {
+            MaxHealth = 6;
             Position = location;
             LinkState = new DownIdleLinkState(this);
         }
@@ -61,9 +80,9 @@ namespace LOZ.LinkClasses
             LinkState.Attack(currentUse, Position);
         }
 
-        public void TakeDamage()
+        public void TakeDamage(int damage)
         {
-            LinkState.TakeDamage();
+            LinkState.TakeDamage(damage);
         }
 
         public Point GetPosition()

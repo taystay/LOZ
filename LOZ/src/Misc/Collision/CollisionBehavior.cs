@@ -80,7 +80,7 @@ namespace LOZ.Collision
             } 
             if (TypeC.Check(secondObject, typeof(Bomb)) || TypeC.Check(secondObject, typeof(FireProjectile)))
             {
-                Room.Link.TakeDamage();
+                Room.Link.TakeDamage(1);
                 
             }
         }

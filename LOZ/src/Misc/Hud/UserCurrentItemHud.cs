@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using LOZ.Inventory;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
+using LOZ.GameState;
 
 namespace LOZ.Hud
 {
@@ -24,15 +25,30 @@ namespace LOZ.Hud
             //Might not even need this at all lol
         }
 
-        private void DrawInventorySprites()
+        private void DrawHearts(SpriteBatch spriteBatch)
         {
+            Point currentDrawPoint = new Point(725, 200);
+            int offset = 40;
+            ISprite fullHeart = DisplaySpriteFactory.Instance.GetHudHeart(true);
+            ISprite halfHeart = DisplaySpriteFactory.Instance.GetHudHeart(false);
+            int linkCurrentHealth = Room.Link.Health;
+            if (linkCurrentHealth < 0) return;
 
-             
+            for(int i = 0; i < linkCurrentHealth / 2; i++)
+            {
+                fullHeart.Draw(spriteBatch, currentDrawPoint);
+                currentDrawPoint.X += offset;
+            }
+
+            if(linkCurrentHealth % 2 == 1)
+            {
+                halfHeart.Draw(spriteBatch, currentDrawPoint);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            DrawHearts(spriteBatch);
             spriteBatch.Begin();
             spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().rupees, new Vector2(375, 100), Color.White);
             spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().keys, new Vector2(375, 150), Color.White);

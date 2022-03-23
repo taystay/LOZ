@@ -14,7 +14,7 @@ namespace LOZ.Inventory
         public LinkInventory()
         {
             useItems = new List<IGameObjects>();
-            countableItems = new itemCount(20, 0, 0);
+            countableItems = new itemCount(20, 0, 5);
         }
 
         public itemCount getItemCounts()
@@ -24,7 +24,7 @@ namespace LOZ.Inventory
 
         public void AddItem(IGameObjects item)
         {
-            if(TypeC.Check(item, typeof(Key)))
+            if (TypeC.Check(item, typeof(Key)))
             {
                 countableItems.keys++;
             }
@@ -39,12 +39,10 @@ namespace LOZ.Inventory
             else if (TypeC.Check(item, typeof(ArrowItem)))
             {
                 useItems.Add(item);
-            }
-            else if (TypeC.Check(item, typeof(Bomb)))
+            } 
+            else if (TypeC.Check(item, typeof(Rupee)))
             {
-                countableItems.bombs++;
-                if(countableItems.bombs == 1)
-                    useItems.Add(item);
+                countableItems.rupees++;
             }
         }
 

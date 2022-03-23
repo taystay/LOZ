@@ -15,6 +15,8 @@ namespace LOZ.LinkClasses
     public interface ILink : IGameObjects
     {
         public Point Position { get; set; }
+        public int Health { get; set; } 
+        public int MaxHealth { get; set; }
         public void ChangeDirectionUp();
         public void ChangeDirectionDown();
         public void ChangeDirectionLeft();
@@ -24,7 +26,7 @@ namespace LOZ.LinkClasses
         public void Idle();
         public void RaiseItem(IItem item);
         public void Attack(Weapon currentUse);
-        public void TakeDamage();
+        public void TakeDamage(int damage);
         public Point GetPosition();
     }
 }

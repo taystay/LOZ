@@ -6,7 +6,7 @@ namespace LOZ.Collision
     {
         public static void Handle(IGameObjects p)
         {
-            Room.Link.TakeDamage();
+            Room.Link.TakeDamage(1);
         }
     }
 }

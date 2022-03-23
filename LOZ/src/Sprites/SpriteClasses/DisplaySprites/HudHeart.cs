@@ -4,16 +4,17 @@ using LOZ.DungeonClasses;
 
 namespace LOZ.SpriteClasses.DisplaySprites
 {
-	class HUDSprite : ISprite
+	class HudHeart : ISprite
 	{
 		private Texture2D _texture;
 		private Rectangle frame;
-		int width = 256;
-		int height = 231 - 169;
-		public HUDSprite(Texture2D texture)
+		public HudHeart(Texture2D texture, bool fullHeart)
 		{
 			_texture = texture;
-			frame = new Rectangle(0, 169, width, height);
+			if (fullHeart)
+				frame = new Rectangle(1, 0, 7, 6);
+			else
+				frame = new Rectangle(9, 0, 4, 6);
 		}
 
 		public void Update(GameTime gameTime)
@@ -30,9 +31,9 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width2 = Info.screenWidth;
-			int height2 = (width2 / width + 1) * height;
-			destinationRectangle = new Rectangle(location.X , location.Y, width2, height2);
+			int width = frame.Width * 5;
+			int height = frame.Height * 5;
+			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 			//for SpriteBatch.Begin(...)
 			//the paramater idea was from:

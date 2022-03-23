@@ -7,6 +7,7 @@ using LOZ.LinkClasses;
 using LOZ.EnemyClass;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.Hud;
+using LOZ.Inventory;
 
 namespace LOZ.GameState
 {
@@ -14,7 +15,7 @@ namespace LOZ.GameState
     {
 
         public static HudElement hudele { get; set; }
-
+        public static LinkInventory RoomInventory { get; set;}
 
         public List<IGameObjects> GameObjects { get; set; }
         private protected CollisionIterator colliders;

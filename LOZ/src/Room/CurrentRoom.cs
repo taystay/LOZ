@@ -7,6 +7,7 @@ using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 using LOZ.Sound;
 using LOZ.Hud;
+using LOZ.Inventory;
 
 namespace LOZ.GameState
 {
@@ -34,7 +35,7 @@ namespace LOZ.GameState
                 return instance;
             }
         }
-        private CurrentRoom() {   }
+        private CurrentRoom() { Room.RoomInventory = new Inventory.LinkInventory();  }
         public void LoadTextures(ContentManager Content)
         {
             DisplaySpriteFactory.Instance.LoadAllTextures(Content);
@@ -44,7 +45,7 @@ namespace LOZ.GameState
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
             SoundManager.Instance.LoadSound(Content);
-            Room.hudele = new UserCurrentItemHud(new Inventory.LinkInventory(), Content);
+            Room.hudele = new UserCurrentItemHud(Room.RoomInventory, Content);
         }
         public void Debug()
         {

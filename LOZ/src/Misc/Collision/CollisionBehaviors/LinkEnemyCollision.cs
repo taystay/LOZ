@@ -7,7 +7,7 @@ namespace LOZ.Collision
     {
         public static void Handle(CollisionSide side)
         {
-            Room.Link.TakeDamage();
+            Room.Link.TakeDamage(1);
 
             if (side == CollisionSide.Top)
                 Room.Link.KnockBack(new Point(0, -4));

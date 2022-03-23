@@ -23,8 +23,34 @@ namespace LOZ.LinkClasses
             }
         }
 
-        public DamagedLink(ILink decoratedLink)
+        public int Health
         {
+            get
+            { 
+                return decoratedLink.Health;
+                
+            }
+            set
+            {
+                decoratedLink.Health = value;
+            }
+        }
+        public int MaxHealth
+        {
+            get
+            {
+                return decoratedLink.MaxHealth;
+            }
+            set
+            {
+                decoratedLink.MaxHealth = value;
+            }
+        }
+
+
+        public DamagedLink(ILink decoratedLink, int damage)
+        {
+            Room.Link.Health -= damage;
             this.decoratedLink = decoratedLink;
             CurrentRoom.Instance.Room.Damaged = true;
         }
@@ -74,7 +100,7 @@ namespace LOZ.LinkClasses
             decoratedLink.Attack(currentUse);
         }
 
-        public void TakeDamage()
+        public void TakeDamage(int damage)
         {
             //Already taking damage
         }

@@ -9,7 +9,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            Room.Link.TakeDamage();
+            Room.Link.TakeDamage(1);
         }
     }
 }

@@ -35,6 +35,7 @@ namespace LOZ.LinkClasses
             if (attackAllowed)
             {
                 CurrentRoom.Instance.Room.GameObjects.Add(weapon);
+                if (TypeC.Check(weapon, typeof(Bomb))) Room.RoomInventory.UseBomb();
                 attackAllowed = false;
                 return;
             }
@@ -48,13 +49,21 @@ namespace LOZ.LinkClasses
                 return;
             }
         }
-        public virtual void TakeDamage()
+        public virtual void TakeDamage(int damage)
         {
-           Room.Link = new DamagedLink(link);
+           Room.Link = new DamagedLink(link, damage);
         }
         public virtual void RaiseItem(IItem item)
         {
             link.LinkState = new RaiseItemLinkState(link, item);
+            if(TypeC.Check(item, typeof(HeartContainer)))
+            {
+                Room.Link.MaxHealth += 2;
+            }
+            else if (TypeC.Check(item, typeof(Heart)))
+            {
+                Room.Link.Health += 2;
+            }
         }
         public virtual void Update(GameTime timer)
         {

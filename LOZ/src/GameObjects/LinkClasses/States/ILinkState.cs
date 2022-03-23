@@ -15,7 +15,7 @@ namespace LOZ.LinkClasses
         public void Idle();
         public void Attack(Weapon toUse, Point position);
         public void KnockBack(Point vel);
-        public void TakeDamage();
+        public void TakeDamage(int damage);
         public void RaiseItem(IItem item);
         public void Update(GameTime timer);
         public void Draw(SpriteBatch spriteBatch, Point Location);
