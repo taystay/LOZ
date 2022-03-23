@@ -1,6 +1,7 @@
 ﻿using LOZ.EnvironmentalClasses;
 using LOZ.ItemsClasses;
 using Microsoft.Xna.Framework;
+using LOZ.GameState;
 
 namespace LOZ.Collision
 {
@@ -24,13 +25,8 @@ namespace LOZ.Collision
                     projectile.SetPosition(new Point(projectile._itemLocation.X + collisionBox.Width, projectile._itemLocation.Y));
                 else if (side == CollisionSide.Bottom)
                     projectile.SetPosition(new Point(projectile._itemLocation.X, projectile._itemLocation.Y + collisionBox.Height));
-            }
-
-            if (TypeC.Check(environemnt, typeof(SolidBlueBlock)) || TypeC.Check(environemnt, typeof(DarkBlueBlock))) return;
-            projectile.KillItem();
-
-            
-                
+            } else if (TypeC.Check(environemnt, typeof(InvisibleBlock)))
+                projectile.KillItem();   
         }
     }
 }
