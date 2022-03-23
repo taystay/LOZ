@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
-using LOZ.GameState;
+using LOZ.Sound;
 using LOZ.ItemsClasses;
 
 
@@ -34,6 +34,7 @@ namespace LOZ.LinkClasses.States
             if(toUse == Weapon.Swordbeam)
             {
                 AttemptAttack(new SwordBeamDown(attackPosition));
+                SoundFactory.Instance.SoundToPlay(SoundEnum.SwordShoot);
             } else if (toUse == Weapon.Arrow)
             {
                 AttemptAttack(new ArrowDownItem(attackPosition));

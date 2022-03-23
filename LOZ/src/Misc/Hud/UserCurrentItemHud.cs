@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using LOZ.src.Misc.Inventory;
+using LOZ.Inventory;
 
-namespace LOZ.src.Misc.Hud
+namespace LOZ.Hud
 {
     class UserCurrentItemHud : HudElement
     {

@@ -4,7 +4,7 @@ using System.Text;
 using LOZ.Collision;
 using LOZ.ItemsClasses;
 
-namespace LOZ.src.Misc.Inventory
+namespace LOZ.Inventory
 {
     class LinkInventory
     {

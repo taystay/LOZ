@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LOZ.src.Misc.Inventory
+namespace LOZ.Inventory
 {
     public struct itemCount
     {

@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace LOZ.src.Misc.Hud
+namespace LOZ.Hud
 {
     interface HudElement
     {

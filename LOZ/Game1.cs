@@ -31,8 +31,6 @@ namespace LOZ
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
-                    
-            
             base.Initialize();
         }
         protected override void LoadContent()
@@ -47,12 +45,8 @@ namespace LOZ
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();
 
-       
-
             CurrentRoom.Instance.Rooms = maps;
-            
 
-            
             controllerList = new List<IController>()
             {
                 { new KeyBindings(this).GetKeyboardController()},
