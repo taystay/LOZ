@@ -41,7 +41,7 @@ namespace LOZ.GameState
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
-            SoundFactory.Instance.LoadContentManager(Content);
+            SoundManager.Instance.LoadSound(Content);
         }
         public void Debug()
         {

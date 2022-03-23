@@ -14,7 +14,7 @@ namespace LOZ.CommandClasses
         public void execute()
         {
             Room.Link.Attack(Weapon.Bomb);
-            SoundFactory.Instance.SoundToPlay(SoundEnum.BombDrop);
+            //SoundManager.Instance.SoundToPlay(SoundEnum.Bomb_Blow);
         }
     }
 }

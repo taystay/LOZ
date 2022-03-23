@@ -34,7 +34,6 @@ namespace LOZ.LinkClasses.States
             if(toUse == Weapon.Swordbeam)
             {
                 AttemptAttack(new SwordBeamDown(attackPosition));
-                SoundFactory.Instance.SoundToPlay(SoundEnum.SwordShoot);
             } else if (toUse == Weapon.Arrow)
             {
                 AttemptAttack(new ArrowDownItem(attackPosition));
