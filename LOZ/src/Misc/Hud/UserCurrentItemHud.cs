@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using LOZ.Inventory;
+using LOZ.Factories;
+using LOZ.SpriteClasses;
 
 namespace LOZ.Hud
 {
-    class UserCurrentItemHud : HudElement
+    public class UserCurrentItemHud : HudElement
     {
         private LinkInventory _linkInventory;
-        public UserCurrentItemHud(LinkInventory linkInventory)
+        private SpriteFont font;
+        public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content)
         {
             _linkInventory = linkInventory;
+            font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
         }
         public void Update()
         {
@@ -21,15 +26,21 @@ namespace LOZ.Hud
 
         private void DrawInventorySprites()
         {
-             Point BItemLocation = new Point();
-             Point AItemLocation = new Point();
-             List<LinkItems> items = _linkInventory.linkItemsHeld;
+
              
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
+            spriteBatch.Begin();
+            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().rupees, new Vector2(375, 100), Color.White);
+            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().keys, new Vector2(375, 150), Color.White);
+            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().bombs, new Vector2(375, 200), Color.White);
+            spriteBatch.End();
+
+            ISprite hud = DisplaySpriteFactory.Instance.CreateHUDSprite();
+            hud.Draw(spriteBatch, new Point(0, 0));
         }
     }
 }

@@ -6,11 +6,16 @@ using LOZ.Collision;
 using LOZ.LinkClasses;
 using LOZ.EnemyClass;
 using LOZ.EnemyClass.Projectiles;
+using LOZ.Hud;
 
 namespace LOZ.GameState
 {
     public abstract class Room
     {
+
+        public static HudElement hudele { get; set; }
+
+
         public List<IGameObjects> GameObjects { get; set; }
         private protected CollisionIterator colliders;
 
@@ -32,7 +37,8 @@ namespace LOZ.GameState
             colliders.Iterate();
         }
         public void Draw(SpriteBatch spriteBatch)
-        {         
+        {
+            hudele.Draw(spriteBatch);
             foreach (IGameObjects item in GameObjects)
             {
                 item.Draw(spriteBatch);

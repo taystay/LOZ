@@ -6,19 +6,15 @@ using LOZ.ItemsClasses;
 
 namespace LOZ.Inventory
 {
-    class LinkInventory
+    public class LinkInventory
     {
-        public List<LinkItems> linkItemsHeld { get; set; } // maybe make it ISprites so then you can just draw the sprite that is selected instead. ??
-        private List<IGameObjects> objectsHeld;
+        public List<IGameObjects> useItems { get; set; }
+        public bool hasMap { get; set; } = false;
         private itemCount countableItems;
         public LinkInventory()
         {
-            objectsHeld = new List<IGameObjects>();
+            useItems = new List<IGameObjects>();
             countableItems = new itemCount(20, 0, 0);
-        }
-        public List<IGameObjects> getInventoryItems()
-        {
-            return objectsHeld;
         }
 
         public itemCount getItemCounts()
@@ -28,23 +24,28 @@ namespace LOZ.Inventory
 
         public void AddItem(IGameObjects item)
         {
-            if(TypeC.Check(item, typeof(ArrowItem)))
+            if(TypeC.Check(item, typeof(Key)))
             {
-                linkItemsHeld.Add(LinkItems.Arrow);
-            } 
-            else if (TypeC.Check(item, typeof(FireItem)))
-            {
-                linkItemsHeld.Add(LinkItems.Fire);
+                countableItems.keys++;
             }
-            else if (TypeC.Check(item, typeof(FireItem)))
+            else if (TypeC.Check(item, typeof(Map)))
             {
-                linkItemsHeld.Add(LinkItems.Fire);
+                hasMap = true;
+            }
+            else if (TypeC.Check(item, typeof(ArrowItem)))
+            {
+                useItems.Add(item);
+            }
+            else if (TypeC.Check(item, typeof(ArrowItem)))
+            {
+                useItems.Add(item);
             }
             else if (TypeC.Check(item, typeof(Bomb)))
             {
                 countableItems.bombs++;
+                if(countableItems.bombs == 1)
+                    useItems.Add(item);
             }
-            objectsHeld.Add(item);
         }
 
         public void UseRupee(int count)

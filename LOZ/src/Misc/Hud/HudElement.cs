@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LOZ.Hud
 {
-    interface HudElement
+    public interface HudElement
     {
         public void Update();
 
