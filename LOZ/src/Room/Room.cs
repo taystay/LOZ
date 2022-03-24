@@ -55,28 +55,24 @@ namespace LOZ.GameState
         }
         private void RemoveDeadItems()
         {
-            List<IGameObjects> toRemove = new List<IGameObjects>();
-            foreach (IGameObjects item in GameObjects)
+            for(int i = GameObjects.Count - 1; i >= 0; i--)
             {
+                IGameObjects item = GameObjects[i];
                 if (TypeC.Check(item, typeof(IItem)))
                 { //allow us to take items out of the game without them doing it themselves.
                     IItem itemObject = (IItem)item;
-                    if (!itemObject.SpriteActive()) toRemove.Add(item);
+                    if (!itemObject.SpriteActive()) GameObjects.RemoveAt(i);
                 }
                 if (TypeC.Check(item, typeof(AbstractEnemy)))
                 {
                     AbstractEnemy itemObject = (AbstractEnemy)item;
-                    if (!itemObject.IsActive()) toRemove.Add(item);
+                    if (!itemObject.IsActive()) GameObjects.RemoveAt(i);
                 }
-                if(TypeC.Check(item, typeof(DragonBreathe)))
+                if (TypeC.Check(item, typeof(DragonBreathe)))
                 {
                     DragonBreathe itemObject = (DragonBreathe)item;
-                    if (!itemObject.IsActive()) toRemove.Add(item);
+                    if (!itemObject.IsActive()) GameObjects.RemoveAt(i);
                 }
-            }
-            foreach (IGameObjects item in toRemove)
-            {
-                GameObjects.Remove(item);
             }
         }
     }

@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using System;
 using LOZ.Collision;
+using LOZ.GameState;
+using LOZ.ItemsClasses;
 
 namespace LOZ.EnemyClass
 {
@@ -41,7 +43,16 @@ namespace LOZ.EnemyClass
         }
         public bool IsActive()
         {
-            if (Health <= 0) return false;
+            if (Health <= 0)
+            {
+                int num = random.Next();
+                if (num % 2 == 0)
+                {
+                    CurrentRoom.Instance.Room.GameObjects.Add(new Rupee(Position));
+                }
+                return false;
+            }
+            
             return isActive;
         }
         protected void modifyPosition(int dx, int dy)
