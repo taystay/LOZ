@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.Collision;
+using LOZ.Sound;
 
 namespace LOZ.ItemsClasses
 {
@@ -42,6 +43,7 @@ namespace LOZ.ItemsClasses
             if (framesPassed >= bombActiveTime - deadFrames) {
                 spriteChanged = true;
                 sprite = ItemFactory.Instance.CreateDeadBombSprite();
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Bomb_Blow);
             }          
         }
     }

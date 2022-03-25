@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.GameState;
 using LOZ.Collision;
 using LOZ.ItemsClasses;
+using LOZ.Sound;
 
 namespace LOZ.LinkClasses
 {
@@ -51,8 +52,14 @@ namespace LOZ.LinkClasses
         public DamagedLink(ILink decoratedLink, int damage)
         {
             Room.Link.Health -= damage;
+            SoundManager.Instance.SoundToPlayInstance(SoundEnum.Link_Hurt);
             this.decoratedLink = decoratedLink;
             CurrentRoom.Instance.Room.Damaged = true;
+
+            if (Room.Link.Health <= 2)
+            {
+                SoundManager.Instance.SoundToLoop(SoundEnum.LowHealth);
+            }
         }
 
         public void ChangeDirectionUp()
@@ -129,7 +136,7 @@ namespace LOZ.LinkClasses
         public void RemoveDecorator()
         {
            Room.Link = decoratedLink;
-            CurrentRoom.Instance.Room.Damaged = false;
+           CurrentRoom.Instance.Room.Damaged = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -5,6 +5,7 @@ using LOZ.SpriteClasses;
 using LOZ.LinkClasses.States;
 using LOZ.ItemsClasses;
 using LOZ.Collision;
+using LOZ.Sound;
 
 namespace LOZ.LinkClasses
 {
@@ -63,6 +64,11 @@ namespace LOZ.LinkClasses
             else if (TypeC.Check(item, typeof(Heart)))
             {
                 Room.Link.Health += 2;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
+
+                if (Room.Link.Health > 2) {
+                    SoundManager.Instance.SoundToNotLoop(SoundEnum.LowHealth);
+                }
             }
         }
         public virtual void Update(GameTime timer)

@@ -7,7 +7,7 @@ using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 using LOZ.Sound;
 using LOZ.Hud;
-using LOZ.Inventory;
+using LOZ.Sound;
 
 namespace LOZ.GameState
 {
@@ -68,11 +68,17 @@ namespace LOZ.GameState
                 PlaceLink.TopDungeonDoor();
             else if (dy == -1) // moved up
                 PlaceLink.BottomDungeonDoor();
-            else if (dz == 1) // moved into dungeon
+            else if (dz == 1)// moved into dungeon
+            {
                 PlaceLink.PlaceInDungeon();
-            else if (dz == -1)
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
+            }
+            else if (dz == -1) {
                 PlaceLink.OutOfDungeon();
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
+            }
         }
+        
         public void NextRoom(int change)
         {
             roomCount += change;

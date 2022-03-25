@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using LOZ.Collision;
 using LOZ.ItemsClasses;
+using LOZ.Sound;
 
 namespace LOZ.Inventory
 {
@@ -27,22 +26,27 @@ namespace LOZ.Inventory
             if (TypeC.Check(item, typeof(Key)))
             {
                 countableItems.keys++;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             }
             else if (TypeC.Check(item, typeof(Map)))
             {
                 hasMap = true;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             }
             else if (TypeC.Check(item, typeof(ArrowItem)))
             {
                 useItems.Add(item);
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             }
             else if (TypeC.Check(item, typeof(ArrowItem)))
             {
                 useItems.Add(item);
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             } 
             else if (TypeC.Check(item, typeof(Rupee)))
             {
                 countableItems.rupees++;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Rupee);
             }
         }
 
@@ -54,6 +58,7 @@ namespace LOZ.Inventory
         public void UseBomb()
         {
             countableItems.bombs--;
+            SoundManager.Instance.SoundToPlayInstance(SoundEnum.Bomb_Drop);
         }
 
         public void UseKey()

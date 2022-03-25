@@ -5,6 +5,7 @@ using System;
 using LOZ.Collision;
 using LOZ.GameState;
 using LOZ.ItemsClasses;
+using LOZ.Sound;
 
 namespace LOZ.EnemyClass
 {
@@ -38,6 +39,7 @@ namespace LOZ.EnemyClass
             {
                 IsDamaged = true;
                 Health -= damage;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Hit);
                 timeLeftDamage = InivincibilityFrames;
             } 
         }
@@ -49,6 +51,7 @@ namespace LOZ.EnemyClass
                 if (num % 2 == 0)
                 {
                     CurrentRoom.Instance.Room.GameObjects.Add(new Rupee(Position));
+                    SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Die);
                 }
                 return false;
             }
