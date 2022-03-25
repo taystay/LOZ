@@ -66,8 +66,6 @@ namespace LOZ.LinkClasses
             {
                 Room.Link.Health += 2;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
-
-                
             }
         }
         public virtual void Update(GameTime timer)

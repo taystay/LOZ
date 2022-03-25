@@ -9,6 +9,7 @@ namespace LOZ.Inventory
     {
         public List<IGameObjects> useItems { get; set; }
         public bool hasMap { get; set; } = false;
+        public bool hasCompass { get; set; } = false;
         private itemCount countableItems;
         public LinkInventory()
         {
@@ -35,32 +36,45 @@ namespace LOZ.Inventory
             }
             else if (TypeC.Check(item, typeof(ArrowItem)))
             {
-                useItems.Add(item);
+                countableItems.rupees++;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             }
-            else if (TypeC.Check(item, typeof(ArrowItem)))
+            else if (TypeC.Check(item, typeof(Compass)))
             {
-                useItems.Add(item);
+                hasCompass = true;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
+            }
+            else if (TypeC.Check(item, typeof(Heart)))
+            {
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
             } 
             else if (TypeC.Check(item, typeof(Rupee)))
             {
                 countableItems.rupees++;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Rupee);
             }
+            else if (TypeC.Check(item, typeof(HeartContainer)))
+            {
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
+            }
+            else if (TypeC.Check(item, typeof(Triforce)))
+            {
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Fanfare);
+            }
+            else
+            {
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
+            }
         }
-
         public void UseRupee(int count)
         {
             countableItems.rupees -= count;
         }
-
         public void UseBomb()
         {
             countableItems.bombs--;
             SoundManager.Instance.SoundToPlayInstance(SoundEnum.Bomb_Drop);
         }
-
         public void UseKey()
         {
             countableItems.keys--;

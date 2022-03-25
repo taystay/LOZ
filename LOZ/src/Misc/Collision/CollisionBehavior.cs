@@ -72,7 +72,7 @@ namespace LOZ.Collision
             }
             else if (TypeC.Check(secondObject, typeof(IItem)))
             {
-                LinkItemCollision.Handle(secondObject);
+                LinkItemCollision.Handle(secondObject, side);
             }
             if (TypeC.Check(secondObject, typeof(StairsBlock)))
             {
