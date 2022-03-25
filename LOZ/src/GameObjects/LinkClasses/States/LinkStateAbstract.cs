@@ -52,6 +52,7 @@ namespace LOZ.LinkClasses
         }
         public virtual void TakeDamage(int damage)
         {
+            
            Room.Link = new DamagedLink(link, damage);
         }
         public virtual void RaiseItem(IItem item)
@@ -66,13 +67,15 @@ namespace LOZ.LinkClasses
                 Room.Link.Health += 2;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
 
-                if (Room.Link.Health > 2) {
-                    SoundManager.Instance.SoundToNotLoop(SoundEnum.LowHealth);
-                }
+                
             }
         }
         public virtual void Update(GameTime timer)
         {
+            if (Room.Link.Health > 2)
+            {
+                SoundManager.Instance.SoundToNotLoop(SoundEnum.LowHealth);
+            }
             if (!attackAllowed)
             {
                 timeSinceAttack++;

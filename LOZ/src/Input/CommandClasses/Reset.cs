@@ -20,6 +20,7 @@ namespace LOZ.CommandClasses
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();
             CurrentRoom.Instance.Rooms = maps;
+            Room.Link.Health = 6;
         }
     }
 }

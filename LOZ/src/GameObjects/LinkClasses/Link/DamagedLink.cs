@@ -11,7 +11,7 @@ namespace LOZ.LinkClasses
     class DamagedLink : ILink
     {
         private ILink decoratedLink;
-        private int count = 15;
+        private int count = 60;
         public Point Position
         {
             get
