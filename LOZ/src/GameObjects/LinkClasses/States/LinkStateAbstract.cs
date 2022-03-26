@@ -31,10 +31,18 @@ namespace LOZ.LinkClasses
         public virtual void Move() { }
         public virtual void Idle() { }
         public virtual void Attack(Weapon toUse, Point position) { }
-        public virtual void AttemptAttack(IGameObjects weapon)
+        public virtual void AttemptAttack(IGameObjects weapon, Weapon type)
         {
-            if (attackAllowed)
+            if (attackAllowed) 
             {
+                if (type == Weapon.Default)
+                    SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Slash);
+                else if (type == Weapon.Swordbeam)
+                    SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Shoot);
+                else if (type == Weapon.Arrow)
+                    SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Shoot);
+                else if (type == Weapon.Fire)
+                    SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Combined);
                 CurrentRoom.Instance.Room.GameObjects.Add(weapon);
                 if (TypeC.Check(weapon, typeof(Bomb))) Room.RoomInventory.UseBomb();
                 attackAllowed = false;
@@ -102,6 +110,5 @@ namespace LOZ.LinkClasses
         {
             linkSprite.Draw(spriteBatch, position);
         }
-
     }
 }

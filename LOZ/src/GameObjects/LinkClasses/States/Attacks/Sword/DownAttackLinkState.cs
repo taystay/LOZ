@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
-using LOZ.GameState;
 using LOZ.ItemsClasses;
 
 namespace LOZ.LinkClasses.States
@@ -29,7 +28,7 @@ namespace LOZ.LinkClasses.States
         {
             attackPosition.X = position.X;
             attackPosition.Y = position.Y + 35;
-            AttemptAttack(new UpDownSwordHitBox(attackPosition));
+            AttemptAttack(new UpDownSwordHitBox(attackPosition), toUse);
         }
  
 

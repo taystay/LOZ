@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
 
 namespace LOZ.LinkClasses.States

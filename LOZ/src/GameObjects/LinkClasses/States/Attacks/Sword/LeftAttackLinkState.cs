@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
-using LOZ.GameState;
 using LOZ.ItemsClasses;
 
 namespace LOZ.LinkClasses.States
@@ -28,7 +27,7 @@ namespace LOZ.LinkClasses.States
         {
             attackPosition.X = position.X - 40;
             attackPosition.Y = position.Y;
-            AttemptAttack(new LeftRightSwordHitBox(attackPosition));
+            AttemptAttack(new LeftRightSwordHitBox(attackPosition), toUse);
         }
 
     }
