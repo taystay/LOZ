@@ -7,6 +7,7 @@ using LOZ.DungeonClasses;
 using LOZ.MapIO;
 using System.IO;
 using System.Reflection;
+using LOZ.Sound;
 
 namespace LOZ
 {
@@ -37,6 +38,7 @@ namespace LOZ
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);        
             CurrentRoom.Instance.LoadTextures(Content);
+            SoundManager.Instance.LoadSound(Content);
 
             maps = new Dictionary<Point3D, Room>();
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path

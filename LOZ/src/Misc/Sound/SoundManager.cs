@@ -9,9 +9,9 @@ namespace LOZ.Sound
 	class SoundManager
 	{
 		private SoundEffect soundEffect;
-		private Dictionary<String, SoundEffect> sounds;
-		private Dictionary<SoundEnum, SoundEffectInstance> loopedSounds;
+		private Dictionary<String, SoundEffectInstance> sounds;
 		private static SoundManager instance = new SoundManager();
+		private bool mute;
 
 		public static SoundManager Instance
 		{
@@ -27,41 +27,64 @@ namespace LOZ.Sound
 
 		public void LoadSound(ContentManager content)
         {
-			sounds = new Dictionary<string, SoundEffect>();
-			loopedSounds = new Dictionary<SoundEnum, SoundEffectInstance>();
+			mute = false;
+			sounds = new Dictionary<string, SoundEffectInstance>();
+
 			//https://www.c-sharpcorner.com/article/loop-through-enum-values-in-c-sharp/
 			//https://docs.microsoft.com/en-us/dotnet/api/system.enum.getnames?view=net-6.0
 			string[] soundNames = Enum.GetNames(typeof(SoundEnum));
 
 			foreach (string s in soundNames) {
 				soundEffect = content.Load<SoundEffect>("LOZ_"+s);
-				sounds.Add(s, soundEffect);
+				sounds.Add(s, soundEffect.CreateInstance());
 			}
+
+			sounds["Background"].IsLooped = true;
+			sounds["Background"].Play();
         }
 
         public void SoundToPlayInstance(SoundEnum soundType) {
-			sounds[soundType.ToString()].Play();
+
+			if(!mute) sounds[soundType.ToString()].Play();
 		}
 
 		public void SoundToLoop(SoundEnum soundType) {
 
-			if (!loopedSounds.ContainsKey(soundType))
+			if (!mute)
 			{
-				SoundEffectInstance instance = sounds[soundType.ToString()].CreateInstance();
-				instance.IsLooped = true;
-				instance.Play();
-				loopedSounds.Add(soundType, instance);
+				sounds[soundType.ToString()].IsLooped = true;
+				sounds[soundType.ToString()].Play();
 			}
 		}
 
 		public void SoundToNotLoop(SoundEnum soundType)
 		{
-			if (loopedSounds.ContainsKey(soundType))
-			{ 
-				loopedSounds[soundType].IsLooped = false;
-				loopedSounds[soundType].Stop();
-				loopedSounds.Remove(soundType);
+			if (!mute)
+			{
+				sounds[soundType.ToString()].IsLooped = false;
+				sounds[soundType.ToString()].Stop();
 			}
 		}
+
+		public void ToggleMute() {
+            mute = !mute;
+            int i = 0;
+            if (mute)
+            {
+                foreach (KeyValuePair<String, SoundEffectInstance> s in sounds)
+                {
+                    s.Value.Pause();
+                }
+            }
+            else
+            {
+                foreach (KeyValuePair<String, SoundEffectInstance> s in sounds)
+                {
+                    s.Value.Resume();
+                    if ( !s.Key.Equals(SoundEnum.Background.ToString())  && !s.Key.Equals(SoundEnum.LowHealth.ToString()) ) s.Value.Stop();
+                }
+            }
+
+        }
 	}
 }

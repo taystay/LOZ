@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using LOZ.CommandClasses;
 using LOZ.GameState;
+using LOZ.Sound;
 
 namespace LOZ.ControllerClasses
 {
@@ -16,6 +17,8 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterInitialCommand(Keys.Q, new QuitGame(gameObject));
             ControllerMappings.RegisterReleaseCommand(Keys.LeftShift, new EnterDebugMode());
             ControllerMappings.RegisterReleaseCommand(Keys.R, new Reset());
+            ControllerMappings.RegisterReleaseCommand(Keys.M, new Mute());
+
 
             ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(CurrentRoom.Instance.Room));
             ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(CurrentRoom.Instance.Room));

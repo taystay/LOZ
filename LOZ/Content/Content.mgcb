@@ -104,6 +104,12 @@
 /processorParam:TextureFormat=Color
 /build:LinkSprites.png
 
+#begin LOZ_Background.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LOZ_Background.wav
+
 #begin LOZ_Bomb_Blow.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

@@ -44,7 +44,6 @@ namespace LOZ.GameState
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
-            SoundManager.Instance.LoadSound(Content);
             Room.hudele = new UserCurrentItemHud(Room.RoomInventory, Content);
         }
         public void Debug()
