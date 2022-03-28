@@ -40,6 +40,7 @@ namespace LOZ.Sound
 			}
 
 			sounds["Background"].IsLooped = true;
+			sounds["Background"].Volume = 0.1f;
 			sounds["Background"].Play();
         }
 
