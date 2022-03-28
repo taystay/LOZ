@@ -50,17 +50,16 @@ namespace LOZ.DungeonClasses
         
 		public void Update(GameTime timer)
         {
-            
-            
+                     
             if(needsUpdate)
             {
                 List<IGameObjects> objectsInGame = CurrentRoom.Instance.Room.GameObjects;
                 foreach (IGameObjects i in currentItems)
                 {
                     objectsInGame.Remove(i);
-                    System.Diagnostics.Debug.WriteLine("" + i.ToString());
                 }
                 doors = new List<IGameObjects>();
+                currentItems = new List<IGameObjects>();
                 switch (changeLocation)
                 {
                     case DoorLocation.Bottom:
@@ -76,23 +75,31 @@ namespace LOZ.DungeonClasses
                         _top = changeType;
                         break;
                 }
-                ExteriorColliders.PlaceColliders(_top, _right, _bottom, _left, objectsInGame);
+                ExteriorColliders.PlaceColliders(_top, _right, _bottom, _left, currentItems);
                 ExteriorColliders.PlaceDoors(_top, _right, _bottom, _left, doors);
+                foreach (IGameObjects i in currentItems)
+                {
+                    objectsInGame.Add(i);
+                }
             }
             needsUpdate = false;
+            hasChangedBefore = false;
         }
 		public Hitbox GetHitBox()
         {            
             return new Hitbox(0, 0,0 , 0);
         }
 		public virtual void Draw(SpriteBatch spriteBatch) {
-			sprite.Draw(spriteBatch, itemLocation);
-            foreach(IGameObjects d in doors)
+            foreach(IGameObjects door in doors)
             {
-                d.Draw(spriteBatch);
-               
+                door.Draw(spriteBatch);
             }
-		}
+            sprite.Draw(spriteBatch, itemLocation);
+            foreach (IGameObjects door in doors)
+            {
+                door.Draw(spriteBatch);
+            }
+        }
 
     }
 }

@@ -4,9 +4,9 @@ using LOZ.Collision;
 
 namespace LOZ.CommandClasses
 {
-    class OpenTopDoor : ICommand
+    class OpenBottomDoor : ICommand
     {
-        public OpenTopDoor()
+        public OpenBottomDoor()
         {
         }
         public void execute()
@@ -15,7 +15,7 @@ namespace LOZ.CommandClasses
             ExteriorObject exterior = room.exterior;
             if(exterior != null)
             {
-                exterior.ChangeDoorOnUpdate(DoorLocation.Top, DoorType.Hole);
+                exterior.ChangeDoorOnUpdate(DoorLocation.Bottom, DoorType.Hole);
             }
                 
         }

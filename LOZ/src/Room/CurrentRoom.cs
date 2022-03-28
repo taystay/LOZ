@@ -7,7 +7,6 @@ using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 using LOZ.Sound;
 using LOZ.Hud;
-using LOZ.Sound;
 
 namespace LOZ.GameState
 {

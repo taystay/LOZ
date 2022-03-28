@@ -8,6 +8,7 @@ using LOZ.EnemyClass;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.Hud;
 using LOZ.Inventory;
+using LOZ.DungeonClasses;
 
 namespace LOZ.GameState
 {
@@ -18,6 +19,7 @@ namespace LOZ.GameState
         public static LinkInventory RoomInventory { get; set;}
 
         public List<IGameObjects> GameObjects { get; set; }
+        public ExteriorObject exterior { get; set; }
         private protected CollisionIterator colliders;
 
         public static ILink Link { get; set; } // only one link so we dont accidently break the game with the decorator.
@@ -27,6 +29,7 @@ namespace LOZ.GameState
         public abstract void LoadContent();       
         public void Update(GameTime gameTime)
         {
+            if(exterior != null) exterior.Update(gameTime);
             Link.Update(gameTime);
             for (int i = 0; i < GameObjects.Count; i++)
             { // for loop because state of list may change. (items added)
@@ -39,6 +42,7 @@ namespace LOZ.GameState
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (exterior != null) exterior.Draw(spriteBatch);
             hudele.Draw(spriteBatch);
             foreach (IGameObjects item in GameObjects)
             {

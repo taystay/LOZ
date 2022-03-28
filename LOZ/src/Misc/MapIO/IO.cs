@@ -5,6 +5,7 @@ using LOZ.Collision;
 using Microsoft.Xna.Framework;
 using LOZ.LinkClasses;
 using LOZ.GameState;
+using LOZ.DungeonClasses;
 
 namespace LOZ.MapIO
 {
@@ -37,8 +38,9 @@ namespace LOZ.MapIO
                 int zPosition = Int32.Parse(position.Substring(6, 1));
 
                 string doorRow = reader.ReadLine();
-                if(doorRow.Length >0)
-                    ParseToDoor.ParseDoor(objects, doorRow);
+                ExteriorObject exteriorObj = null;
+                if (doorRow.Length >0)
+                    exteriorObj = ParseToDoor.ParseDoor(objects, doorRow);
 
                 int offset = objects.Count;
 
@@ -51,8 +53,9 @@ namespace LOZ.MapIO
                 if (itemRow != null)
                     ParseToItem.ParseItem(objects, itemRow, offset);
 
-
-                listOfRooms.Add(new Point3D(xPosition,yPosition, zPosition), new DungeonRoom(objects));
+                Room room = new DungeonRoom(objects);
+                room.exterior = exteriorObj;
+                listOfRooms.Add(new Point3D(xPosition,yPosition, zPosition), room);
                 
                 reader.Close();
 

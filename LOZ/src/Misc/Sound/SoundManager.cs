@@ -69,7 +69,6 @@ namespace LOZ.Sound
 
 		public void ToggleMute() {
             mute = !mute;
-            int i = 0;
             if (mute)
             {
                 foreach (KeyValuePair<String, SoundEffectInstance> s in sounds)

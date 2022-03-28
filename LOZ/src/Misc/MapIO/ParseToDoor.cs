@@ -4,12 +4,14 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using LOZ.DungeonClasses;
 using LOZ.SpriteClasses.BlockSprites;
+using LOZ.GameState;
+using LOZ.CommandClasses.RoomCommands;
 
 namespace LOZ.MapIO
 {
    internal class ParseToDoor
     {
-        internal static void ParseDoor(List<IGameObjects> obj, string lineRead)
+        internal static ExteriorObject ParseDoor(List<IGameObjects> obj, string lineRead)
         {
 
             int index = 0;
@@ -46,10 +48,9 @@ namespace LOZ.MapIO
                 index++;
 
 
+
             }
-
-            obj.Add(new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj));
-
+            return new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj);
         }
     
     }

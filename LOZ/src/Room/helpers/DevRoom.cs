@@ -17,7 +17,7 @@ namespace LOZ.GameState
         {
             GameObjects = new List<IGameObjects>();
             colliders = new CollisionIterator(GameObjects);
-            GameObjects.Add(new ExteriorObject(DoorType.Door, DoorType.Wall, DoorType.Wall, DoorType.Wall, GameObjects));
+            exterior = new ExteriorObject(DoorType.Door, DoorType.Wall, DoorType.Wall, DoorType.Wall, GameObjects);
             PlaceFloor();
             PlaceItemsForDev();         
         }

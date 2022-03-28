@@ -6,6 +6,8 @@ using LOZ.EnvironmentalClasses;
 using LOZ.CommandClasses;
 using LOZ.LinkClasses;
 using LOZ.ItemsClasses;
+using LOZ.CommandClasses.RoomCommands;
+
 
 namespace LOZ.DungeonClasses
 {
@@ -20,7 +22,11 @@ namespace LOZ.DungeonClasses
                 {
                     Rectangle bombSite = Info.topDoorCollider;
                     bombSite.Y += 48;
-                    objectsInGame.Insert(0, new DoorCollider(bombSite, new OpenTopDoor(), typeof(Bomb)));
+                    objectsInGame.Insert(0, new DoorCollider(new Rectangle(450, 425, 50, 10), new OpenTopDoor(), typeof(Bomb)));
+                }
+                else if(top == DoorType.KeyDoor)
+                {
+                    objectsInGame.Insert(0, new DoorCollider(new Rectangle(450, 425, 50, 10), new UnlockTop(), typeof(ILink)));
                 }
             }     
             else
@@ -32,7 +38,20 @@ namespace LOZ.DungeonClasses
             }
 
             if (left != DoorType.Door && left != DoorType.Hole)
+            {
                 objectsInGame.Insert(0, new InvisibleBlock(Info.singleLeftBox));
+                if (left == DoorType.Breakable)
+                {
+                    Rectangle bombSite = Info.topDoorCollider;
+                    bombSite.Y += 48;
+                    objectsInGame.Insert(0, new DoorCollider(new Rectangle(200, 575, 10, 50), new OpenLeftDoor(), typeof(Bomb)));
+                }
+                else if (left == DoorType.KeyDoor)
+                {
+                    objectsInGame.Insert(0, new DoorCollider(new Rectangle(200, 575, 10, 50), new UnlockLeft(), typeof(ILink)));
+                }
+            }
+                
             else
             {
                 objectsInGame.Insert(0, new InvisibleBlock(Info.leftHalfBox));
@@ -42,7 +61,21 @@ namespace LOZ.DungeonClasses
             }
 
             if (right != DoorType.Door && right != DoorType.Hole)
+            {
                 objectsInGame.Insert(0, new InvisibleBlock(Info.singleRightBox));
+                if (right == DoorType.Breakable)
+                {
+                    Rectangle bombSite = Info.topDoorCollider;
+                    bombSite.Y += 48;
+                    objectsInGame.Insert(0, new DoorCollider(new Rectangle(750, 575, 10, 50), new OpenRightDoor(), typeof(Bomb)));
+                }
+                else if (right == DoorType.KeyDoor)
+                {
+                    objectsInGame.Insert(0, new DoorCollider(new Rectangle(750, 575, 10, 50), new UnlockRight(), typeof(ILink)));
+                }
+            }
+
+                
             else
             {
                 objectsInGame.Insert(0, new InvisibleBlock(Info.rightHalfBox));
@@ -52,7 +85,20 @@ namespace LOZ.DungeonClasses
             }
 
             if (bottom != DoorType.Door && bottom != DoorType.Hole)
+            {
+                if (bottom == DoorType.Breakable)
+                {
+                    Rectangle bombSite = Info.topDoorCollider;
+                    bombSite.Y += 48;
+                    objectsInGame.Insert(0, new DoorCollider(new Rectangle(450, 750, 50, 10), new OpenBottomDoor(), typeof(Bomb)));
+                }
+                else if (bottom == DoorType.KeyDoor)
+                {
+                    objectsInGame.Insert(0, new DoorCollider(new Rectangle(450, 750, 50, 10), new UnlockBottom(), typeof(ILink)));
+                }
                 objectsInGame.Insert(0, new InvisibleBlock(Info.singleBottomBox));
+            }
+                
             else
             {
                 objectsInGame.Insert(0, new InvisibleBlock(Info.bottomHalfBox));
