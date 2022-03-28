@@ -45,6 +45,7 @@ namespace LOZ.LinkClasses
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Combined);
                 CurrentRoom.Instance.Room.GameObjects.Add(weapon);
                 if (TypeC.Check(weapon, typeof(Bomb))) Room.RoomInventory.UseBomb();
+                if (type == Weapon.Arrow) Room.RoomInventory.UseRupee(1);
                 attackAllowed = false;
                 return;
             }
