@@ -9,7 +9,7 @@ namespace LOZ.EnemyClass
     {
         public Skeleton(Point location) 
         {
-            Health = 6;
+            Health = 2;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateSkeleton();
             random = new Random();

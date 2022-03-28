@@ -23,7 +23,6 @@ namespace LOZ.LinkClasses
                 decoratedLink.Position = value;
             }
         }
-
         public int Health
         {
             get
@@ -47,8 +46,6 @@ namespace LOZ.LinkClasses
                 decoratedLink.MaxHealth = value;
             }
         }
-
-
         public DamagedLink(ILink decoratedLink, int damage)
         {
             Room.Link.Health -= damage;
@@ -56,73 +53,69 @@ namespace LOZ.LinkClasses
             this.decoratedLink = decoratedLink;
             CurrentRoom.Instance.Room.Damaged = true;
 
-            if (Room.Link.Health <= 2)
+            if (Room.Link.Health <= 2 && Room.Link.Health > 0)
             {
                 SoundManager.Instance.SoundToLoop(SoundEnum.LowHealth);
             }
+            if(Room.Link.Health <= 0)
+            {
+                SoundManager.Instance.SoundToNotLoop(SoundEnum.LowHealth);
+                decoratedLink.Die();
+            }
         }
-
         public void ChangeDirectionUp()
         {
             decoratedLink.ChangeDirectionUp();
         }
-
         public void ChangeDirectionDown()
         {
             decoratedLink.ChangeDirectionDown();
         }
-
         public void ChangeDirectionLeft()
         {
             decoratedLink.ChangeDirectionLeft();
         }
-
         public void ChangeDirectionRight()
         {
             decoratedLink.ChangeDirectionRight();
         }
-
         public void Move()
         {
             decoratedLink.Move();
         }
-
         public void KnockBack(Point vel)
         {
-            decoratedLink.KnockBack(vel);
+            //Should not be knocked back while taking damage
         }
-
         public void Idle()
         {
             decoratedLink.Idle();
         }
-
         public void RaiseItem(IItem item)
         {
             decoratedLink.RaiseItem(item);
         }
-
         public void Attack(Weapon currentUse)
         {
             decoratedLink.Attack(currentUse);
         }
-
         public void TakeDamage(int damage)
         {
             //Already taking damage
         }
-
+        public void Die()
+        {
+            decoratedLink.Die();
+        }
         public Point GetPosition()
         {
             return decoratedLink.GetPosition();
         }
-
         public Hitbox GetHitBox()
         {
             Hitbox hitbox = new Hitbox(Position.X - 48 / 2 + 4, Position.Y - 48 / 2 + 4, 40, 40);
             return hitbox;
         }
-
         public void Update(GameTime timer)
         {
             count--;
@@ -132,19 +125,14 @@ namespace LOZ.LinkClasses
             }
             decoratedLink.Update(timer);
         }
-
         public void RemoveDecorator()
         {
            Room.Link = decoratedLink;
            CurrentRoom.Instance.Room.Damaged = false;
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
-
             decoratedLink.Draw(spriteBatch);
-
         }
-
     }
 }

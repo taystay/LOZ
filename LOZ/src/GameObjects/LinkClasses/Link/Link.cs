@@ -85,6 +85,11 @@ namespace LOZ.LinkClasses
             LinkState.TakeDamage(damage);
         }
 
+        public void Die()
+        {
+            LinkState.Die();
+        }
+
         public Point GetPosition()
         {
             return Position;

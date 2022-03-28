@@ -11,9 +11,7 @@ namespace LOZ.Factories
 		private Texture2D linkSpriteSheet;
 		// More private Texture2Ds follow
 		// ...
-
 		private static LinkSpriteFactory instance = new LinkSpriteFactory();
-
 		public static LinkSpriteFactory Instance
 		{
 			get
@@ -21,65 +19,55 @@ namespace LOZ.Factories
 				return instance;
 			}
 		}
-
 		private LinkSpriteFactory()
 		{
 		}
-
 		public void LoadAllTextures(ContentManager content)
 		{
 			linkSpriteSheet = content.Load<Texture2D>("LinkSprites");
 		}
-
         public ISprite LinkDownIdle()
         {
 
             return new LinkDownIdle(linkSpriteSheet);
 
         }
-
 		public ISprite LinkUpIdle()
 		{
 
 			return new LinkUpIdle(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkLeftIdle()
 		{
 
 			return new LinkLeftIdle(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkRightIdle()
 		{
 
 			return new LinkRightIdle(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkMovingUp()
 		{
 
 			return new LinkMovingUp(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkMovingDown()
 		{
 
 			return new LinkMovingDown(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkMovingLeft()
 		{
 
 			return new LinkMovingLeft(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkMovingRight()
 		{
 
@@ -92,59 +80,55 @@ namespace LOZ.Factories
 			return new LinkLeftAttack(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkRightAttack()
 		{
 
 			return new LinkRightAttack(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkUpAttack()
 		{
 
 			return new LinkUpAttack(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkDownAttack()
 		{
 
 			return new LinkDownAttack(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkItemLeftAttack()
 		{
 
 			return new LinkItemLeftAttack(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkItemRightAttack()
 		{
 
 			return new LinkItemRightAttack(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkItemUpAttack()
 		{
 
 			return new LinkItemUpAttack(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkItemDownAttack()
 		{
 
 			return new LinkItemDownAttack(linkSpriteSheet);
 
 		}
-
 		public ISprite LinkRaiseItem()
         {
 			return new LinkRaiseItem(linkSpriteSheet);
         }
+		public ISprite LinkDead()
+		{
+			return new LinkDead(linkSpriteSheet);
+		}
 	}
 }

@@ -27,6 +27,7 @@ namespace LOZ.LinkClasses
         public void RaiseItem(IItem item);
         public void Attack(Weapon currentUse);
         public void TakeDamage(int damage);
+        public void Die();
         public Point GetPosition();
     }
 }

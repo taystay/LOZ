@@ -1,10 +1,8 @@
 ﻿using LOZ.GameState;
 using LOZ.MapIO;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 using System.IO;
 using System.Reflection;
-using LOZ.LinkClasses;
 
 namespace LOZ.CommandClasses
 {

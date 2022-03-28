@@ -22,7 +22,7 @@ namespace LOZ.LinkClasses
         protected static int knockBackDuration = 20;
         protected static int currentKnockBack = 0;
         protected static bool knockedBack = false;
-        public Point knockBackVel = new Point(0, 0);
+        protected static Point knockBackVel = new Point(0, 0);
 
         public virtual void Up() { }
         public virtual void Down() { }
@@ -61,8 +61,12 @@ namespace LOZ.LinkClasses
         }
         public virtual void TakeDamage(int damage)
         {
-            
            Room.Link = new DamagedLink(link, damage);
+        }
+        public virtual void Die()
+        {
+            SoundManager.Instance.SoundToPlayInstance(SoundEnum.Link_Die);
+            link.LinkState = new DeadLinkState(link);
         }
         public virtual void RaiseItem(IItem item)
         {
