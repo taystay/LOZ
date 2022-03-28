@@ -18,6 +18,7 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.LeftShift, new EnterDebugMode());
             ControllerMappings.RegisterReleaseCommand(Keys.R, new Reset());
             ControllerMappings.RegisterReleaseCommand(Keys.M, new Mute());
+            ControllerMappings.RegisterReleaseCommand(Keys.Escape, new Pause(gameObject));
 
 
             ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(CurrentRoom.Instance.Room));

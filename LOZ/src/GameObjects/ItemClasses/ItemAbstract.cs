@@ -16,6 +16,7 @@ namespace LOZ.ItemsClasses
         {
             _itemLocation = position;
         }
+
         public bool SpriteActive()
         {
             return spriteActivity;

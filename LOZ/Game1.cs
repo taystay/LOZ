@@ -8,15 +8,25 @@ using LOZ.MapIO;
 using System.IO;
 using System.Reflection;
 using LOZ.Sound;
+using LOZ.Hud;
 
 namespace LOZ
 {
+    public enum CameraState
+    {
+        Paused,
+        Playing,
+    }
+
     public class Game1 : Game
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private List<IController> controllerList;
         private Dictionary<Point3D, Room> maps;
+
+        public CameraState state { get; set; } = CameraState.Playing;
+        private HudElement pausedHud;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -55,6 +65,8 @@ namespace LOZ
                 { new KeyBindings(this).GetMouseController()},
             };
             CurrentRoom.Instance.SpawnLink();
+
+            pausedHud = new PauseHud(Room.RoomInventory, Content);
             base.LoadContent();
         }
         protected override void Update(GameTime gameTime)
@@ -63,14 +75,25 @@ namespace LOZ
             {
                 controller.Update(gameTime);
             }
-            CurrentRoom.Instance.Update(gameTime);
+            if (state == CameraState.Playing)
+                CurrentRoom.Instance.Update(gameTime);
+            else if (state == CameraState.Paused)
+                pausedHud.Update();
+
+
             base.Update(gameTime);
         }
         protected override void Draw(GameTime gameTime)
         {
 
             GraphicsDevice.Clear(Color.Black);
-            CurrentRoom.Instance.Draw(spriteBatch);
+
+            if (state == CameraState.Playing)
+                CurrentRoom.Instance.Draw(spriteBatch);
+            else if (state == CameraState.Paused)
+                pausedHud.Draw(spriteBatch);
+
+
             base.Draw(gameTime);
         }
     }

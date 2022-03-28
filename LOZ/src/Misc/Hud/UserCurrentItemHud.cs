@@ -16,6 +16,14 @@ namespace LOZ.Hud
         {
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
+            _offset = new Point(0, 0);
+        }
+        private Point _offset;
+        public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content, Point offset)
+        {
+            _linkInventory = linkInventory;
+            font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
+            _offset = offset;
         }
         public void Update()
         {
@@ -24,7 +32,7 @@ namespace LOZ.Hud
 
         private void DrawHearts(SpriteBatch spriteBatch)
         {
-            Point currentDrawPoint = new Point(725, 200);
+            Point currentDrawPoint = new Point(725 + _offset.X, 200 + _offset.Y);
             int offset = 40;
             ISprite fullHeart = DisplaySpriteFactory.Instance.GetHudHeart(true);
             ISprite halfHeart = DisplaySpriteFactory.Instance.GetHudHeart(false);
@@ -48,13 +56,13 @@ namespace LOZ.Hud
         {
             DrawHearts(spriteBatch);
             spriteBatch.Begin();
-            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().rupees, new Vector2(375, 100), Color.White);
-            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().keys, new Vector2(375, 150), Color.White);
-            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().bombs, new Vector2(375, 200), Color.White);
+            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().rupees, new Vector2(375 + _offset.X, 100 + _offset.Y), Color.White);
+            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().keys, new Vector2(375 + _offset.X, 150 + _offset.Y), Color.White);
+            spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().bombs, new Vector2(375 + _offset.X, 200 + _offset.Y), Color.White);
             spriteBatch.End();
 
             ISprite hud = DisplaySpriteFactory.Instance.CreateHUDSprite();
-            hud.Draw(spriteBatch, new Point(0, 0));
+            hud.Draw(spriteBatch, new Point(0 + _offset.X, 0 + _offset.Y));
         }
     }
 }

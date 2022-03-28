@@ -38,11 +38,13 @@ namespace LOZ.Inventory
             {
                 countableItems.rupees++;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
+                useItems.Add(item);
             }
             else if (TypeC.Check(item, typeof(Compass)))
             {
                 hasCompass = true;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
+                useItems.Add(item);
             }
             else if (TypeC.Check(item, typeof(Heart)))
             {
