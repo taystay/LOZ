@@ -30,36 +30,35 @@ namespace LOZ.GameState
                     GameObjects.Add(new SolidBlueBlock(new Point(x + Info.BlockWidth * i, y + Info.BlockWidth * j)));
         }
 
-        private void PlaceItemsForDev()
+        private Point GetCoorPoint(double x, double y)
         {
             Point start = Info.Inside.Location;
             start.X += Info.BlockWidth / 2;
             start.Y += Info.BlockWidth / 2;
-            GameObjects.Add(new ArrowItem(start));
-            start.Y += Info.BlockWidth;
-            GameObjects.Add(new Heart(start));
-            start.Y += Info.BlockWidth;
-            GameObjects.Add(new HeartContainer(start));
-            start.Y += Info.BlockWidth;
-            GameObjects.Add(new FireItem(start));
-            start.Y += Info.BlockWidth;
-            GameObjects.Add(new Bow(start));
-            start.Y += Info.BlockWidth;
-            GameObjects.Add(new Map(start));
-            start.X += Info.BlockWidth;
-            GameObjects.Add(new Compass(start));
-            start.X += Info.BlockWidth;
-            GameObjects.Add(new Key(start));
-            start.X += Info.BlockWidth;
-            GameObjects.Add(new Rupee(start));
-            start.X += Info.BlockWidth;
-            GameObjects.Add(new Sword(start));
-            start.X += Info.BlockWidth;
-            GameObjects.Add(new Triforce(start));
-            start.X += Info.BlockWidth;
-            GameObjects.Add(new Clock(start));
-            start.X += Info.BlockWidth;
-            GameObjects.Add(new Fairy(start));
+
+            start.X += (int)((double)Info.BlockWidth * x);
+            start.Y += (int)((double)Info.BlockWidth * y);
+
+            return start;
+        }
+
+        private void PlaceItemsForDev()
+        {
+            GameObjects.Add(new FireItem(GetCoorPoint(5.5, 6)));
+
+            GameObjects.Add(new ArrowItem(GetCoorPoint(0,1)));
+            GameObjects.Add(new Heart(GetCoorPoint(0, 3)));
+            GameObjects.Add(new HeartContainer(GetCoorPoint(0, 5)));
+            
+            GameObjects.Add(new Bow(GetCoorPoint(3, 1)));
+            GameObjects.Add(new Map(GetCoorPoint(3, 3)));
+            GameObjects.Add(new Compass(GetCoorPoint(3, 5)));
+            GameObjects.Add(new Key(GetCoorPoint(8, 1)));
+            GameObjects.Add(new Rupee(GetCoorPoint(8, 3)));
+            GameObjects.Add(new Sword(GetCoorPoint(8, 5)));
+            GameObjects.Add(new Triforce(GetCoorPoint(11, 1)));
+            GameObjects.Add(new Clock(GetCoorPoint(11, 3)));
+            GameObjects.Add(new Fairy(GetCoorPoint(11, 5)));
         }
     }
 }
