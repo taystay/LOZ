@@ -13,7 +13,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		public PauseHudSprite(Texture2D texture)
 		{
 			_texture = texture;
-			frame = new Rectangle(0, 6, width, height);
+			frame = SpriteStandardizeClass.PauseHudSprite;
 		}
 
 		public void Update(GameTime gameTime)

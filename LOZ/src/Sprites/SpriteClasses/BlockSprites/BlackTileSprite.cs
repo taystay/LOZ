@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.BlockSprites
 		{
 			scale = 2.0;
 			_texture = texture;
-			frame = new Rectangle(7, 63, 32, 32);
+			frame = SpriteStandardizeClass.blackTileSprite;
 		}
 
 		//-----Update frame-----

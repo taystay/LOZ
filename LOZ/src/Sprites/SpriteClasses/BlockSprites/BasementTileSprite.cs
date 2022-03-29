@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.BlockSprites
 		{
 			scale = 2.0;
 			_texture = texture;
-			frame = new Rectangle(0, 0, 16, 16);
+			frame = SpriteStandardizeClass.basementTileSprite;
 		}
 
 		//-----Update frame-----

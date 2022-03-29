@@ -9,7 +9,7 @@ namespace LOZ.SpriteClasses.BlockSprites
 		{
 			scale = 2.0;
 			_texture = texture;
-			frame = new Rectangle(17, 0, 16, 16);
+			frame = SpriteStandardizeClass.ladderSprite;
 		}
 
 		//-----Update frame-----
