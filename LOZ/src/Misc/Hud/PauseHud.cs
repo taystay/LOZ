@@ -80,15 +80,15 @@ namespace LOZ.Hud
 
         private void DrawLinkItems(SpriteBatch spriteBatch)
         {
-            if (_linkInventory.hasMap)
+            if (_linkInventory.hasMap) // get rid of
                 DrawSingleItem(_linkInventory.mapId, spriteBatch);
-            if (_linkInventory.hasCompass)
+            if (_linkInventory.hasCompass)// get rid of
                 DrawSingleItem(_linkInventory.compassId, spriteBatch);
             if (_linkInventory.hasBomb)
                 DrawSingleItem(_linkInventory.bombId, spriteBatch);      
             if (_linkInventory.hasBow)
                 DrawSingleItem(_linkInventory.bowId, spriteBatch);
-            if (_linkInventory.hasClock)
+            if (_linkInventory.hasClock)// get rid of
                 DrawSingleItem(_linkInventory.clockId, spriteBatch);
 
             i = 0;

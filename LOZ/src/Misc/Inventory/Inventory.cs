@@ -4,6 +4,7 @@ using LOZ.ItemsClasses;
 using LOZ.Sound;
 using LOZ.SpriteClasses;
 using LOZ.Factories;
+using LOZ.GameState;
 
 namespace LOZ.Inventory
 {
@@ -14,7 +15,7 @@ namespace LOZ.Inventory
         private itemCount countableItems;
 
         #region items
-        private int idInUse = 2;
+        private int idInUse = 2; // B SLOT ITEM
         public int selectedItem { 
             get
             {
@@ -34,17 +35,17 @@ namespace LOZ.Inventory
                     
             }
         }
-        public bool hasMap { get; private set; } = false;
-        public int mapId { get; private set; } = 1;
-        public bool hasCompass { get; private set; } = false;
-        public int compassId { get; private set; } = 2;
+        public bool hasMap { get; private set; } = true;
+        public int mapId { get; private set; } = 1; // get rid of id
+        public bool hasCompass { get; private set; } = true;
+        public int compassId { get; private set; } = 2; // get rid of id
         public bool hasBomb { get; private set; } = true;
         public int bombId { get; private set; } = 3;
-        public bool hasBow { get; private set; } = false;
+        public bool hasBow { get; private set; } = true;
         public int bowId { get; private set; } = 4;
-        public bool hasClock { get; private set; } = false;
-        public int clockId { get; private set; } = 5;
-        public bool hasSword { get; private set; } = false;
+        public bool hasClock { get; private set; } = true;
+        public int clockId { get; private set; } = 5; // get rid of id
+        public bool hasSword { get; private set; } = true;
         #endregion
 
         public LinkInventory()
@@ -53,13 +54,13 @@ namespace LOZ.Inventory
             selectedItem = 2;
         }
 
-        public bool HasItem(int id)
+        public bool HasItem(int id) // has item available to draw in B Slot
         {
-            if (id == mapId && hasMap) return true;
-            else if (id == compassId && hasCompass) return true;
+            if (id == mapId && hasMap) return true; //delete
+            else if (id == compassId && hasCompass) return true;//delete
             else if (id == bombId && hasBomb) return true;
             else if (id == bowId && hasBow) return true;
-            else if (id == clockId && hasClock) return true;
+            else if (id == clockId && hasClock) return true;//delete
             return false;
         }
 
@@ -133,6 +134,7 @@ namespace LOZ.Inventory
             }
             else if (TypeC.Check(item, typeof(Heart)))
             {
+                Room.Link.Health += 2;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
             }
             else if (TypeC.Check(item, typeof(Clock)))
