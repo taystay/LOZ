@@ -13,7 +13,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		public HUDSprite(Texture2D texture)
 		{
 			_texture = texture;
-			frame = new Rectangle(0, 169, width, height);
+			frame = SpriteStandardizeClass.HUDSprite;
 		}
 
 		public void Update(GameTime gameTime)

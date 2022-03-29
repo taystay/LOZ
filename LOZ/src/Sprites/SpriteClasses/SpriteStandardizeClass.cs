@@ -3,41 +3,24 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LOZ.SpriteClasses
 {
-    abstract class SpriteStandardizeClass : ISprite
+    public static class SpriteStandardizeClass
     {
-		private protected double scale = 1;
-		private protected Rectangle frame = new Rectangle(0,0,0,0);
-		private protected Texture2D _texture = null;
-		public abstract void Update(GameTime timer);
+        //Block Sprite Rectangles
+		public static Rectangle blueSandBlock = new Rectangle(41, 63, 32, 32);
+        public static Rectangle basementTileSprite = new Rectangle(0, 0, 16, 16);
+        public static Rectangle blackTileSprite = new Rectangle(7, 63, 32, 32);
+        public static Rectangle blueTriangleSprite = new Rectangle(41, 29, 32, 32);
+        public static Rectangle darkBlueSolidSprite = new Rectangle(75, 63, 32, 32);
+        public static Rectangle ladderSprite = new Rectangle(17, 0, 16, 16);
+        public static Rectangle multicolored1Sprite = new Rectangle(75, 29, 32, 32);
+        public static Rectangle multicolored2Sprite = new Rectangle(109, 29, 32, 32);
+        public static Rectangle solidBlueSprite = new Rectangle(7, 29, 32, 32);
+        public static Rectangle stairsSprite = new Rectangle(109, 63, 32, 32);
 
-		public void ChangeScale(double scale) { }
-		public void Draw(SpriteBatch spriteBatch, Point location) {
-			Draw(spriteBatch, location, Color.White);
-		}
-		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
-		{
-			Rectangle destinationRectangle;
+        //Display Rectangles
+        public static Rectangle PauseHudSprite = new Rectangle(0, 6, 256, 175 - 6);
+        public static Rectangle HUDSprite = new Rectangle(0, 169, 256, 231 - 169);
+        public static Rectangle HUDHeartSprite = new Rectangle(109, 63, 32, 32);
 
-			//--------FRAME 1---------
-			int width = (int)(scale * (int)frame.Width);
-			int height = (int)(scale * (int)frame.Height);
-			//something to get the correct pixel size for each sprite
-			float scalewidthMult = (48 / width);
-			float scaleHeightMult = (48 / height);
-			int adjSpriteWidth = (int)(scalewidthMult * width);
-			int adjSpriteHeight = (int)(scalewidthMult * height);
-			//adjust hitbox?
-
-			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, adjSpriteWidth, adjSpriteHeight);
-
-			//for SpriteBatch.Begin(...)
-			//the paramater idea was from:
-			//https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
-			//https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
-			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-			spriteBatch.Draw(_texture, destinationRectangle, frame, c);
-			spriteBatch.End();
-
-		}
-	}
+    }
 }
