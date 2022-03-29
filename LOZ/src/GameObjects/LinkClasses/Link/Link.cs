@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Collision;
 using LOZ.ItemsClasses;
+using LOZ.GameState;
 
 namespace LOZ.LinkClasses
 {
@@ -11,6 +12,8 @@ namespace LOZ.LinkClasses
         public Point Position { get; set; }
         public ILinkState LinkState { get; set; }
         private int health = 6;
+        private bool updatePosition = false;
+        private Point newPos;
         public int Health
         {
             get
@@ -62,7 +65,8 @@ namespace LOZ.LinkClasses
 
         public void KnockBack(Point vel)
         {
-            LinkState.KnockBack(vel);
+            if (!Room.DebugMode)
+                LinkState.KnockBack(vel);
         }
 
         public void Idle()
@@ -82,12 +86,19 @@ namespace LOZ.LinkClasses
 
         public void TakeDamage(int damage)
         {
-            LinkState.TakeDamage(damage);
+            if(!Room.DebugMode)
+                LinkState.TakeDamage(damage);
         }
 
         public void Die()
         {
             LinkState.Die();
+        }
+
+        public void ChangePosition(Point p)
+        {
+            newPos = p;
+            updatePosition = true;
         }
 
         public Point GetPosition()
@@ -103,6 +114,12 @@ namespace LOZ.LinkClasses
 
         public void Update(GameTime timer)
         {
+            if(updatePosition)
+            {
+                Position = newPos;
+                updatePosition = false;
+            }
+
             LinkState.Update(timer);
         }
 

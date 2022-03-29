@@ -12,9 +12,9 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            if (Room.RoomInventory.selectedItem == Room.RoomInventory.bombId)
+            if (Room.RoomInventory.selectedItem == Room.RoomInventory.bombId && Room.RoomInventory.hasBomb)
                 Room.Link.Attack(Weapon.Bomb);
-            else if (Room.RoomInventory.selectedItem == Room.RoomInventory.bowId)
+            else if (Room.RoomInventory.selectedItem == Room.RoomInventory.bowId && Room.RoomInventory.hasBow)
                 Room.Link.Attack(Weapon.Arrow);
         }
     }

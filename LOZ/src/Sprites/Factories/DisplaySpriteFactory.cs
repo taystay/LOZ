@@ -33,6 +33,12 @@ namespace LOZ.Factories
         {
 			return new SelectItemSprite(HUDSpritesheet);
 		}
+
+		public ISprite CreateTriforceIndicator()
+		{
+			return new TriforceIndicator(HUDSpritesheet);
+		}
+
 		public ISprite CreateHUDSprite()
 		{
 			return new HUDSprite(HUDSpritesheet);

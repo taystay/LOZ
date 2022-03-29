@@ -111,6 +111,11 @@ namespace LOZ.LinkClasses
         {
             return decoratedLink.GetPosition();
         }
+
+        public void ChangePosition(Point p)
+        {
+            decoratedLink.ChangePosition(p);
+        }
         public Hitbox GetHitBox()
         {
             Hitbox hitbox = new Hitbox(Position.X - 48 / 2 + 4, Position.Y - 48 / 2 + 4, 40, 40);

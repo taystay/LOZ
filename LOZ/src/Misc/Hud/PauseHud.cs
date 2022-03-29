@@ -21,6 +21,7 @@ namespace LOZ.Hud
         private ISprite selectSprite;
         private ISprite room;
         private ISprite linkLocation;
+        private ISprite triforceLoc;
         private Point drawLocation = new Point(0, 0);
         private HudElement secondaryHud;
         private bool keyPressed = false;
@@ -40,6 +41,7 @@ namespace LOZ.Hud
             secondaryHud = new UserCurrentItemHud(linkInventory, content, new Point(0,600));
             room = Factories.DisplaySpriteFactory.Instance.CreateRoomOnMapSprite();
             linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
+            triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
         }
         public void Update()
         {
@@ -56,7 +58,9 @@ namespace LOZ.Hud
         private void DrawMap(SpriteBatch spriteBatch)
         {
             if (!_linkInventory.hasMap) return;
-            if (_linkInventory.selectedItem != _linkInventory.mapId) return;
+            ISprite map = ItemFactory.Instance.CreateMapSprite();
+            map.ChangeScale(2);
+            map.Draw(spriteBatch, new Point(190, 455));
             int offset = 38;
             int startX = 450;
             int startY = 350;
@@ -67,29 +71,38 @@ namespace LOZ.Hud
             }
             Point3D linkCoor = CurrentRoom.Instance.linkCoor;
             linkLocation.Draw(spriteBatch, new Point(startX + offset * linkCoor.X, startY + offset * linkCoor.Y));
+
+            if (!_linkInventory.hasCompass) return;
+            triforceLoc.Draw(spriteBatch, new Point(startX + offset * 6, startY + offset * 2));
+
+        }
+
+        private void DrawCompass(SpriteBatch spriteBatch)
+        {
+            if (!_linkInventory.hasCompass) return;
+            ISprite compass = ItemFactory.Instance.CreateCompassSprite();
+            compass.ChangeScale(2);
+            compass.Draw(spriteBatch, new Point(190, 620));
         }
 
         private void DrawSingleItem(int id, SpriteBatch spriteBatch)
         {
             ISprite sprite = _linkInventory.GetSpriteById(id);
             if(_linkInventory.selectedItem == id)
+            {
                 selectSprite.Draw(spriteBatch, new Point(startx + i * offset, starty));
+                sprite.Draw(spriteBatch, new Point(275, 200));
+            }    
             sprite.Draw(spriteBatch, new Point(startx + i * offset, starty));
             i++;
         }
 
         private void DrawLinkItems(SpriteBatch spriteBatch)
         {
-            if (_linkInventory.hasMap) // get rid of
-                DrawSingleItem(_linkInventory.mapId, spriteBatch);
-            if (_linkInventory.hasCompass)// get rid of
-                DrawSingleItem(_linkInventory.compassId, spriteBatch);
             if (_linkInventory.hasBomb)
                 DrawSingleItem(_linkInventory.bombId, spriteBatch);      
             if (_linkInventory.hasBow)
                 DrawSingleItem(_linkInventory.bowId, spriteBatch);
-            if (_linkInventory.hasClock)// get rid of
-                DrawSingleItem(_linkInventory.clockId, spriteBatch);
 
             i = 0;
 
@@ -101,6 +114,7 @@ namespace LOZ.Hud
             secondaryHud.Draw(spriteBatch);
             DrawLinkItems(spriteBatch);
             DrawMap(spriteBatch);
+            DrawCompass(spriteBatch);
         }
     }
 }

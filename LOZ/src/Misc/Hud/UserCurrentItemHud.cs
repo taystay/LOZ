@@ -40,7 +40,7 @@ namespace LOZ.Hud
                 sword.Draw(spriteBatch, ALocation);
             }
 
-            Point BLocation = new Point(497 + _offset.X, 160 + _offset.Y);
+            Point BLocation = new Point(500 + _offset.X, 160 + _offset.Y);
             ISprite sprite = _linkInventory.GetSelectedItemSprite();
             if (sprite == null) return;
             sprite.Draw(spriteBatch, BLocation);

@@ -70,7 +70,16 @@ namespace LOZ.LinkClasses
         }
         public virtual void RaiseItem(IItem item)
         {
-            link.LinkState = new RaiseItemLinkState(link, item);
+            if (!TypeC.Check(item, typeof(Rupee)) && !TypeC.Check(item, typeof(Heart)) && !TypeC.Check(item, typeof(ArrowItem)) && !TypeC.Check(item, typeof(Key)) && !TypeC.Check(item, typeof(Fairy)))
+                link.LinkState = new RaiseItemLinkState(link, item);
+            else
+            {
+                item.KillItem();
+            }
+            if(TypeC.Check(item, typeof(Fairy)))
+            {
+                Room.Link.Health += 1;
+            }    
             if(TypeC.Check(item, typeof(HeartContainer)))
             {
                 Room.Link.MaxHealth += 2;

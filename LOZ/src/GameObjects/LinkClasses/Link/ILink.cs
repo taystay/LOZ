@@ -29,5 +29,6 @@ namespace LOZ.LinkClasses
         public void TakeDamage(int damage);
         public void Die();
         public Point GetPosition();
+        public void ChangePosition(Point p);
     }
 }

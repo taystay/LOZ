@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using LOZ.ControllerClasses;
 using LOZ.GameState;
@@ -24,6 +25,7 @@ namespace LOZ
         private SpriteBatch spriteBatch;
         private List<IController> controllerList;
         private Dictionary<Point3D, Room> maps;
+        public SpriteFont font;
 
         public CameraState state { get; set; } = CameraState.Playing;
         private HudElement pausedHud;
@@ -67,6 +69,8 @@ namespace LOZ
             CurrentRoom.Instance.SpawnLink();
 
             pausedHud = new PauseHud(Room.RoomInventory, Content);
+
+            font = Content.Load<SpriteFont>("File");
             base.LoadContent();
         }
         protected override void Update(GameTime gameTime)
@@ -92,6 +96,11 @@ namespace LOZ
                 CurrentRoom.Instance.Draw(spriteBatch);
             else if (state == CameraState.Paused)
                 pausedHud.Draw(spriteBatch);
+
+            if (!Room.DebugMode) return;
+            spriteBatch.Begin();
+            spriteBatch.DrawString(font, "" + Mouse.GetState().X + "," + Mouse.GetState().Y, new Vector2(50, 50), Color.White);
+            spriteBatch.End();
 
 
             base.Draw(gameTime);

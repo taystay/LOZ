@@ -11,15 +11,8 @@ namespace LOZ.Collision
             IItem item_user = (IItem)item;
             if (!TypeC.Check(item, typeof(IPlayerProjectile)) && !TypeC.Check(item, typeof(FireItem)) && !TypeC.Check(item, typeof(FireProjectile)) && !TypeC.Check(item, typeof(Bomb)))
             {
-                if(!TypeC.Check(item, typeof(Rupee)) && !TypeC.Check(item, typeof(Heart)) && !TypeC.Check(item, typeof(ArrowItem)) && !TypeC.Check(item, typeof(Key)))
-                {
-                    Room.Link.RaiseItem(item_user);
-                    Room.RoomInventory.AddItem(item);
-                } else
-                {
-                    item_user.KillItem();
-                    Room.RoomInventory.AddItem(item);
-                }
+                Room.Link.RaiseItem(item_user);
+                Room.RoomInventory.AddItem(item);
             } else
             {
                 if (TypeC.Check(item, typeof(LeftRightSwordHitBox)) || TypeC.Check(item, typeof(UpDownSwordHitBox))) return;

@@ -9,12 +9,12 @@ using LOZ.EnemyClass.Projectiles;
 using LOZ.Hud;
 using LOZ.Inventory;
 using LOZ.DungeonClasses;
+using Microsoft.Xna.Framework.Input;
 
 namespace LOZ.GameState
 {
     public abstract class Room
-    {
-
+    { 
         public static HudElement hudele { get; set; }
         public static LinkInventory RoomInventory { get; set;}
 
@@ -29,16 +29,19 @@ namespace LOZ.GameState
         public abstract void LoadContent();       
         public void Update(GameTime gameTime)
         {
-            if(exterior != null) exterior.Update(gameTime);
+            
+            if (exterior != null) exterior.Update(gameTime);
             Link.Update(gameTime);
             for (int i = 0; i < GameObjects.Count; i++)
-            { // for loop because state of list may change. (items added)
+            { // for loop because state of list may change. (items added)            
                 IGameObjects item = GameObjects[i];
                 item.Update(gameTime);
-            }    
-
+            }
+            RoomInventory.Update(gameTime);
             RemoveDeadItems();
+
             colliders.Iterate();
+
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -56,6 +59,7 @@ namespace LOZ.GameState
                 item.GetHitBox().Draw(spriteBatch);
             }
             Link.GetHitBox().Draw(spriteBatch);
+            
         }
         private void RemoveDeadItems()
         {

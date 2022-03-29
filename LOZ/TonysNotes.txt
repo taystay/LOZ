@@ -1,9 +1,0 @@
-﻿
-
-TONY'S NOTES
-
-CONTROLLER
-	- Should have RegisterCommand with a key as the first parameters and 3 parameters corresponding to execute on initial press command, hold command, and release commands
-
-IITERABLE
-	- Encapsulates the object that is the iterable item we see in this sprint 2 game. Can for each of all the Iterable Objects. Make a list of ITerables... EASY!

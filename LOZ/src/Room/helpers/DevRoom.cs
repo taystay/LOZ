@@ -46,19 +46,19 @@ namespace LOZ.GameState
         {
             GameObjects.Add(new FireItem(GetCoorPoint(5.5, 6)));
 
-            GameObjects.Add(new ArrowItem(GetCoorPoint(0,1)));
+            GameObjects.Add(new ArrowItem(GetCoorPoint(0,0)));
             GameObjects.Add(new Heart(GetCoorPoint(0, 3)));
-            GameObjects.Add(new HeartContainer(GetCoorPoint(0, 5)));
+            GameObjects.Add(new HeartContainer(GetCoorPoint(0, 6)));
             
-            GameObjects.Add(new Bow(GetCoorPoint(3, 1)));
+            GameObjects.Add(new Bow(GetCoorPoint(3, 0)));
             GameObjects.Add(new Map(GetCoorPoint(3, 3)));
-            GameObjects.Add(new Compass(GetCoorPoint(3, 5)));
-            GameObjects.Add(new Key(GetCoorPoint(8, 1)));
+            GameObjects.Add(new Compass(GetCoorPoint(3, 6)));
+            GameObjects.Add(new Key(GetCoorPoint(8, 0)));
             GameObjects.Add(new Rupee(GetCoorPoint(8, 3)));
-            GameObjects.Add(new Sword(GetCoorPoint(8, 5)));
-            GameObjects.Add(new Triforce(GetCoorPoint(11, 1)));
+            GameObjects.Add(new Sword(GetCoorPoint(8, 6)));
+            GameObjects.Add(new Triforce(GetCoorPoint(11, 0)));
             GameObjects.Add(new Clock(GetCoorPoint(11, 3)));
-            GameObjects.Add(new Fairy(GetCoorPoint(11, 5)));
+            GameObjects.Add(new Fairy(GetCoorPoint(11, 6)));
         }
     }
 }

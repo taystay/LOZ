@@ -50,9 +50,16 @@ namespace LOZ.EnemyClass
                 int num = random.Next();
                 if (num % 2 == 0)
                 {
-                    CurrentRoom.Instance.Room.GameObjects.Add(new Rupee(Position));
-                    SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Die);
+                    CurrentRoom.Instance.Room.GameObjects.Add(new Rupee(Position));        
+                } else if (num % 3 == 2)
+                {
+                    CurrentRoom.Instance.Room.GameObjects.Add(new Clock(Position));
                 }
+                else if (num % 7 == 0)
+                {
+                    CurrentRoom.Instance.Room.GameObjects.Add(new Fairy(Position));
+                }
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Die);
                 return false;
             }
             
@@ -60,6 +67,7 @@ namespace LOZ.EnemyClass
         }
         protected void modifyPosition(int dx, int dy)
         {
+            if (Room.RoomInventory.hasClock) return;
             Position = new Point(Position.X + dx, Position.Y + dy);
         }
         public abstract Hitbox GetHitBox();
