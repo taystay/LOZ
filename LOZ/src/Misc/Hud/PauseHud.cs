@@ -56,6 +56,7 @@ namespace LOZ.Hud
         private void DrawMap(SpriteBatch spriteBatch)
         {
             if (!_linkInventory.hasMap) return;
+            if (_linkInventory.selectedItem != _linkInventory.mapId) return;
             int offset = 38;
             int startX = 450;
             int startY = 350;
@@ -86,7 +87,9 @@ namespace LOZ.Hud
             if (_linkInventory.hasBomb)
                 DrawSingleItem(_linkInventory.bombId, spriteBatch);      
             if (_linkInventory.hasBow)
-                DrawSingleItem(_linkInventory.bowId, spriteBatch);       
+                DrawSingleItem(_linkInventory.bowId, spriteBatch);
+            if (_linkInventory.hasClock)
+                DrawSingleItem(_linkInventory.clockId, spriteBatch);
 
             i = 0;
 

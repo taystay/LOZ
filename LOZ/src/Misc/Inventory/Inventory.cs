@@ -23,18 +23,18 @@ namespace LOZ.Inventory
             set
             {
                 idInUse = value;
-                idInUse %= 4 + 1;
+                idInUse %= 5 + 1;
                 int i = 0;
-                while (!HasItem(idInUse) && i < 5)
+                while (!HasItem(idInUse) && i < 6)
                 {
                     i++;
                     idInUse++;
-                    idInUse %= 4 + 1;
+                    idInUse %= 5 + 1;
                 }
                     
             }
         }
-        public bool hasMap { get; private set; } = true;
+        public bool hasMap { get; private set; } = false;
         public int mapId { get; private set; } = 1;
         public bool hasCompass { get; private set; } = false;
         public int compassId { get; private set; } = 2;
@@ -42,6 +42,8 @@ namespace LOZ.Inventory
         public int bombId { get; private set; } = 3;
         public bool hasBow { get; private set; } = false;
         public int bowId { get; private set; } = 4;
+        public bool hasClock { get; private set; } = false;
+        public int clockId { get; private set; } = 5;
         public bool hasSword { get; private set; } = false;
         #endregion
 
@@ -57,6 +59,7 @@ namespace LOZ.Inventory
             else if (id == compassId && hasCompass) return true;
             else if (id == bombId && hasBomb) return true;
             else if (id == bowId && hasBow) return true;
+            else if (id == clockId && hasClock) return true;
             return false;
         }
 
@@ -71,6 +74,8 @@ namespace LOZ.Inventory
                 sprite = ItemFactory.Instance.CreateMapSprite();
             else if (id == bowId)
                 sprite = ItemFactory.Instance.CreateBowSprite();
+            else if (id == clockId)
+                sprite = ItemFactory.Instance.CreateClockSprite();
             if (sprite != null)
                 sprite.ChangeScale(1.5);
             return sprite;
@@ -87,6 +92,8 @@ namespace LOZ.Inventory
                 sprite = ItemFactory.Instance.CreateBowSprite();
             else if (selectedItem == mapId && hasMap)
                 sprite = ItemFactory.Instance.CreateMapSprite();
+            else if (selectedItem == clockId && hasClock)
+                sprite = ItemFactory.Instance.CreateClockSprite();
             if (sprite != null)
                 sprite.ChangeScale(1.5);
             return sprite;
@@ -127,7 +134,12 @@ namespace LOZ.Inventory
             else if (TypeC.Check(item, typeof(Heart)))
             {
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
-            } 
+            }
+            else if (TypeC.Check(item, typeof(Clock)))
+            {
+                hasClock = true;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
+            }
             else if (TypeC.Check(item, typeof(Rupee)))
             {
                 countableItems.rupees++;
