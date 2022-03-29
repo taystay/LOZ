@@ -5,11 +5,12 @@ namespace LOZ.SpriteClasses
 {
     abstract class SpriteStandardizeClass : ISprite
     {
-		private protected double scale = 0;
+		private protected double scale = 1;
 		private protected Rectangle frame = new Rectangle(0,0,0,0);
 		private protected Texture2D _texture = null;
 		public abstract void Update(GameTime timer);
 
+		public void ChangeScale(double scale) { }
 		public void Draw(SpriteBatch spriteBatch, Point location) {
 			Draw(spriteBatch, location, Color.White);
 		}

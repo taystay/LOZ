@@ -20,6 +20,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
         {
 
         }
+		public void ChangeScale(double scale) { }
 		public void Draw(SpriteBatch spriteBatch, Point location)
 		{
 			Draw(spriteBatch, location, Color.White);

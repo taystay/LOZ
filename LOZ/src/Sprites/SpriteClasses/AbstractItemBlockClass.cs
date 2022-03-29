@@ -5,10 +5,15 @@ namespace LOZ.SpriteClasses
 {
     abstract class AbstractItemBlockClass : ISprite
     {
-		private protected double scale =1.0;
+		private protected double scale = 1.0;
 		private protected Rectangle frame;
 		private protected Texture2D _texture;
 		public abstract void Update(GameTime timer);
+
+		public void ChangeScale(double scaleSet)
+        {
+			scale = scaleSet;
+        }
 
 		public void Draw(SpriteBatch spriteBatch, Point location) {
 			Draw(spriteBatch, location, Color.White);

@@ -30,6 +30,22 @@ namespace LOZ.Hud
             //Might not even need this at all lol
         }
 
+        private void DrawSelectedItems(SpriteBatch spriteBatch)
+        {
+            Point ALocation = new Point(590 + _offset.X, 160 + _offset.Y);
+            if(_linkInventory.hasSword)
+            {
+                ISprite sword = ItemFactory.Instance.CreateSwordSprite();
+                sword.ChangeScale(1.5);
+                sword.Draw(spriteBatch, ALocation);
+            }
+
+            Point BLocation = new Point(497 + _offset.X, 160 + _offset.Y);
+            ISprite sprite = _linkInventory.GetSelectedItemSprite();
+            if (sprite == null) return;
+            sprite.Draw(spriteBatch, BLocation);
+        }
+
         private void DrawHearts(SpriteBatch spriteBatch)
         {
             Point currentDrawPoint = new Point(725 + _offset.X, 200 + _offset.Y);
@@ -54,7 +70,7 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            DrawHearts(spriteBatch);
+            
             spriteBatch.Begin();
             spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().rupees, new Vector2(375 + _offset.X, 100 + _offset.Y), Color.White);
             spriteBatch.DrawString(font, "x" + _linkInventory.getItemCounts().keys, new Vector2(375 + _offset.X, 150 + _offset.Y), Color.White);
@@ -63,6 +79,8 @@ namespace LOZ.Hud
 
             ISprite hud = DisplaySpriteFactory.Instance.CreateHUDSprite();
             hud.Draw(spriteBatch, new Point(0 + _offset.X, 0 + _offset.Y));
+            DrawHearts(spriteBatch);
+            DrawSelectedItems(spriteBatch);
         }
     }
 }

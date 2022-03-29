@@ -12,10 +12,20 @@ namespace LOZ.GameState
 {
     class CurrentRoom
     {
-        private List<Point3D> roomList = RoomPoints.roomList;
+        public List<Point3D> roomList { get; set; } = RoomPoints.roomList;
         private static CurrentRoom instance = new CurrentRoom();
         private int roomCount = 0;
         private Point3D coor = new Point3D(3, 6);
+        public Point3D linkCoor { 
+            get
+            {
+                return coor;
+            }
+            set
+            {
+                coor = value;
+            }
+        }
         public Dictionary<Point3D, Room> Rooms { get; set; }
         public Room Room
         {   get

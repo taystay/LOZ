@@ -29,9 +29,22 @@ namespace LOZ.Factories
 			HUDSpritesheet = content.Load<Texture2D>("HUDLayout");
 		}
 
+		public ISprite CreateSelectItemSprite()
+        {
+			return new SelectItemSprite(HUDSpritesheet);
+		}
 		public ISprite CreateHUDSprite()
 		{
 			return new HUDSprite(HUDSpritesheet);
+		}
+
+		public ISprite CreateRoomOnMapSprite()
+        {
+			return new MapRoom(HUDSpritesheet);
+        }
+		public ISprite CreateLinkIndicator()
+		{
+			return new linkLocationSprite(HUDSpritesheet);
 		}
 
 		public ISprite CreatePauseSprite()

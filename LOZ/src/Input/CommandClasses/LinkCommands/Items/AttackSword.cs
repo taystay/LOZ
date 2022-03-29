@@ -11,8 +11,13 @@ namespace LOZ.CommandClasses
             _room = room;
         }
         public void execute()
-        {
-            Room.Link.Attack(Weapon.Swordbeam);
+        {       
+            if (!Room.RoomInventory.hasSword) return;
+
+            if (Room.Link.Health == Room.Link.MaxHealth)
+                Room.Link.Attack(Weapon.Swordbeam);
+            else
+                Room.Link.Attack(Weapon.Default);
         }
     }
 }

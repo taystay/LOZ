@@ -15,7 +15,7 @@ namespace LOZ.SpriteClasses
 			_texture = texture;
 			frame = new Rectangle(164, 19, 2, 2);
         }
-
+		public void ChangeScale(double scale) { }
 		public void Update(GameTime timer) { }
 
 		public void Draw(SpriteBatch spriteBatch, Point location) {

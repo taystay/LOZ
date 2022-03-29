@@ -22,6 +22,7 @@ namespace LOZ.Collision
                 }
             } else
             {
+                if (TypeC.Check(item, typeof(LeftRightSwordHitBox)) || TypeC.Check(item, typeof(UpDownSwordHitBox))) return;
                 if (side == CollisionSide.Top)
                     Room.Link.KnockBack(new Point(0, -4));
                 else if (side == CollisionSide.Bottom)

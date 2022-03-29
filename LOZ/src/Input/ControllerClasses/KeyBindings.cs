@@ -21,14 +21,17 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.Escape, new Pause(gameObject));
 
 
-            ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(CurrentRoom.Instance.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(CurrentRoom.Instance.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(CurrentRoom.Instance.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.D4, new AttackFire(CurrentRoom.Instance.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad1, new AttackSword(CurrentRoom.Instance.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(CurrentRoom.Instance.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(CurrentRoom.Instance.Room));
-            ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(CurrentRoom.Instance.Room));
+            //ControllerMappings.RegisterInitialCommand(Keys.D1, new AttackSword(CurrentRoom.Instance.Room));
+            //ControllerMappings.RegisterInitialCommand(Keys.D2, new AttackArrow(CurrentRoom.Instance.Room));
+            //ControllerMappings.RegisterInitialCommand(Keys.D3, new AttackBomb(CurrentRoom.Instance.Room));
+            //ControllerMappings.RegisterInitialCommand(Keys.D4, new AttackFire(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterInitialCommand(Keys.B, new UseSelectedItem(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterReleaseCommand(Keys.B, new Idle());
+            ControllerMappings.RegisterInitialCommand(Keys.Z, new AttackSword(CurrentRoom.Instance.Room));
+            ControllerMappings.RegisterReleaseCommand(Keys.Z, new Idle());
+            ///ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(CurrentRoom.Instance.Room));
+            //ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(CurrentRoom.Instance.Room));
+            //ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(CurrentRoom.Instance.Room));
 
             ControllerMappings.RegisterReleaseCommand(Keys.D1, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.D2, new Idle());
@@ -47,8 +50,6 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterHoldCommand(Keys.Left, new LeftMove());
             ControllerMappings.RegisterHoldCommand(Keys.Down, new DownMove());
             ControllerMappings.RegisterHoldCommand(Keys.Right, new RightMove());
-            ControllerMappings.RegisterHoldCommand(Keys.Z, new Attack());
-            ControllerMappings.RegisterHoldCommand(Keys.N, new Attack());
             ControllerMappings.RegisterHoldCommand(Keys.E, new TakeDamage());
 
             ControllerMappings.RegisterReleaseCommand(Keys.W, new Idle());
@@ -59,7 +60,6 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.Left, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.Down, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.Right, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.Z, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.N, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.E, new Idle());
 

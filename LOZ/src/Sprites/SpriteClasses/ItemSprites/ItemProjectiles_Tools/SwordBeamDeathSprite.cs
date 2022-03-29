@@ -28,6 +28,8 @@ namespace LOZ
 			bottomRightProjectile = new Rectangle(159, 257, 168 - 158, 268 - 256);
 		}
 
+		public void ChangeScale(double scale) { }
+
 		//-----Update frame-----
 		public void Update(GameTime gameTime)
 		{
