@@ -5,11 +5,8 @@ using LOZ.Inventory;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
 using LOZ.GameState;
-using LOZ.Collision;
 using System.Collections.Generic;
-using LOZ.ItemsClasses;
 using Microsoft.Xna.Framework.Input;
-using LOZ.CommandClasses;
 
 namespace LOZ.Hud
 {
@@ -36,10 +33,10 @@ namespace LOZ.Hud
         {
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
-            Hud = Factories.DisplaySpriteFactory.Instance.CreatePauseSprite();
-            selectSprite = Factories.DisplaySpriteFactory.Instance.CreateSelectItemSprite();
+            Hud = DisplaySpriteFactory.Instance.CreatePauseSprite();
+            selectSprite = DisplaySpriteFactory.Instance.CreateSelectItemSprite();
             secondaryHud = new UserCurrentItemHud(linkInventory, content, new Point(0,600));
-            room = Factories.DisplaySpriteFactory.Instance.CreateRoomOnMapSprite();
+            room = DisplaySpriteFactory.Instance.CreateRoomOnMapSprite();
             linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
             triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
         }
@@ -74,7 +71,6 @@ namespace LOZ.Hud
 
             if (!_linkInventory.hasCompass) return;
             triforceLoc.Draw(spriteBatch, new Point(startX + offset * 6, startY + offset * 2));
-
         }
 
         private void DrawCompass(SpriteBatch spriteBatch)
@@ -103,9 +99,7 @@ namespace LOZ.Hud
                 DrawSingleItem(_linkInventory.bombId, spriteBatch);      
             if (_linkInventory.hasBow)
                 DrawSingleItem(_linkInventory.bowId, spriteBatch);
-
             i = 0;
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

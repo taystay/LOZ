@@ -4,7 +4,6 @@ using LOZ.ItemsClasses;
 using LOZ.Sound;
 using LOZ.SpriteClasses;
 using LOZ.Factories;
-using LOZ.GameState;
 using Microsoft.Xna.Framework;
 
 namespace LOZ.Inventory

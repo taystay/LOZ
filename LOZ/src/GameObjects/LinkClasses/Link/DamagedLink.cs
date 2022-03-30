@@ -28,7 +28,6 @@ namespace LOZ.LinkClasses
             get
             { 
                 return decoratedLink.Health;
-                
             }
             set
             {

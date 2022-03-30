@@ -48,6 +48,10 @@ namespace LOZ.Factories
         {
 			return new MapRoom(HUDSpritesheet);
         }
+		public ISprite CreateRoomOnMiniMapSprite()
+		{
+			return new MiniMapRoom(HUDSpritesheet);
+		}
 		public ISprite CreateLinkIndicator()
 		{
 			return new linkLocationSprite(HUDSpritesheet);

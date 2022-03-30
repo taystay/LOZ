@@ -5,6 +5,7 @@ using LOZ.Inventory;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
 using LOZ.GameState;
+using System.Collections.Generic;
 
 namespace LOZ.Hud
 {
@@ -12,11 +13,17 @@ namespace LOZ.Hud
     {
         private LinkInventory _linkInventory;
         private SpriteFont font;
+        private ISprite room;
+        private ISprite linkLocation;
+        private ISprite triforceLoc;
         public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content)
         {
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = new Point(0, 0);
+            room = DisplaySpriteFactory.Instance.CreateRoomOnMiniMapSprite();
+            linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
+            triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
         }
         private Point _offset;
         public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content, Point offset)
@@ -24,6 +31,9 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = offset;
+            room = DisplaySpriteFactory.Instance.CreateRoomOnMiniMapSprite();
+            linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
+            triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
         }
         public void Update()
         {
@@ -39,7 +49,22 @@ namespace LOZ.Hud
                 sword.ChangeScale(1.5);
                 sword.Draw(spriteBatch, ALocation);
             }
+            if(_linkInventory.hasMap && _offset == new Point(0,0))
+            {
+                int offset = 38;
+                int startX = 20;
+                int startY = 80;
+                List<Point3D> coords = CurrentRoom.Instance.roomList;
+                foreach (Point3D point in coords)
+                {
+                    room.Draw(spriteBatch, new Point(startX + offset * point.X, startY + (offset - 11) * point.Y));
+                }
+                Point3D linkCoor = CurrentRoom.Instance.linkCoor;
+                linkLocation.Draw(spriteBatch, new Point(startX + offset * linkCoor.X, startY + (offset - 11) * linkCoor.Y));
 
+                if (!_linkInventory.hasCompass) return;
+                triforceLoc.Draw(spriteBatch, new Point(startX + offset * 6, startY + (offset - 11) * 2));
+            }
             Point BLocation = new Point(500 + _offset.X, 160 + _offset.Y);
             ISprite sprite = _linkInventory.GetSelectedItemSprite();
             if (sprite == null) return;

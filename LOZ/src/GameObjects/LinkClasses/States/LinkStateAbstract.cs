@@ -11,6 +11,7 @@ namespace LOZ.LinkClasses
 {
     abstract class LinkStateAbstract : ILinkState
     {
+        #region privates
         private protected ISprite linkSprite;
         private protected Link link;
         protected static int attackCoolDown = 30;
@@ -23,6 +24,7 @@ namespace LOZ.LinkClasses
         protected static int currentKnockBack = 0;
         protected static bool knockedBack = false;
         protected static Point knockBackVel = new Point(0, 0);
+        #endregion 
 
         public virtual void Up() { }
         public virtual void Down() { }
