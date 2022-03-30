@@ -44,7 +44,9 @@ namespace LOZ.GameState
                 return instance;
             }
         }
-        private CurrentRoom() { Room.RoomInventory = new Inventory.LinkInventory();  }
+        private CurrentRoom() {
+            Room.RoomInventory = new Inventory.LinkInventory();
+        }
         public void LoadTextures(ContentManager Content)
         {
             DisplaySpriteFactory.Instance.LoadAllTextures(Content);
@@ -53,6 +55,7 @@ namespace LOZ.GameState
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
+            GameFont.Instance.LoadAllTextures(Content);
             Room.hudele = new UserCurrentItemHud(Room.RoomInventory, Content);
         }
         public void Debug()

@@ -48,9 +48,16 @@ namespace LOZ.Factories
         {
 			return new MapRoom(HUDSpritesheet);
         }
+<<<<<<< HEAD
 		public ISprite CreateRoomOnMiniMapSprite()
 		{
 			return new MiniMapRoom(HUDSpritesheet);
+=======
+
+		public ISprite CreateBlueMapRoomSprite()
+		{
+			return new BlueMapRoom(HUDSpritesheet);
+>>>>>>> fb7d31f (Finished hud completely. added GameFont class)
 		}
 		public ISprite CreateLinkIndicator()
 		{

@@ -1,5 +1,5 @@
 ﻿"(3,4,0)",,,,,,,,,,,
-bwall,door,door,door,,,,,,,,
+breakable,door,door,door,,,,,,,,
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,blueB,blueT,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueB,blueB
@@ -8,4 +8,4 @@ blueB,blueB,blueT,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 "skeleton(4,1)","skeleton(8,1)","skeleton(11,1)","skeleton(1,4)","skeleton(12,4)",,,,,,,
-"key(7,4)",,,,,,,,,,,
+"key(7,2)",,,,,,,,,,,

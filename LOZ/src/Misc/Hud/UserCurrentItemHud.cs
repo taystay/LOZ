@@ -21,9 +21,13 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = new Point(0, 0);
+<<<<<<< HEAD
             room = DisplaySpriteFactory.Instance.CreateRoomOnMiniMapSprite();
             linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
             triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
+=======
+            room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
+>>>>>>> fb7d31f (Finished hud completely. added GameFont class)
         }
         private Point _offset;
         public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content, Point offset)
@@ -31,9 +35,13 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = offset;
+<<<<<<< HEAD
             room = DisplaySpriteFactory.Instance.CreateRoomOnMiniMapSprite();
             linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
             triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
+=======
+            room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
+>>>>>>> fb7d31f (Finished hud completely. added GameFont class)
         }
         public void Update()
         {
@@ -71,6 +79,27 @@ namespace LOZ.Hud
             sprite.Draw(spriteBatch, BLocation);
         }
 
+        private void DrawMap(SpriteBatch spriteBatch)
+        {
+            Point3D linkCoor = CurrentRoom.Instance.linkCoor;
+            GameFont.Instance.Write(spriteBatch, "Room - " + (linkCoor.X + 6 * linkCoor.Y), 100, 75);
+            if (!_linkInventory.hasMap) return;
+            int offsetX = 25;
+            int offsetY = 15;
+            int startX = 100;
+            int startY = 125;
+            List<Point3D> coords = CurrentRoom.Instance.roomList;
+            foreach (Point3D point in coords)
+            {
+                room.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y));
+            }    
+            room.Draw(spriteBatch, new Point(startX + offsetX * linkCoor.X, startY + offsetY * linkCoor.Y), Color.Green);
+
+            if (!_linkInventory.hasCompass) return;
+            room.Draw(spriteBatch, new Point(startX + offsetX * 6, startY + offsetY * 2), Color.Yellow);
+
+        }
+
         private void DrawHearts(SpriteBatch spriteBatch)
         {
             Point currentDrawPoint = new Point(725 + _offset.X, 200 + _offset.Y);
@@ -106,6 +135,7 @@ namespace LOZ.Hud
             hud.Draw(spriteBatch, new Point(0 + _offset.X, 0 + _offset.Y));
             DrawHearts(spriteBatch);
             DrawSelectedItems(spriteBatch);
+            DrawMap(spriteBatch);
         }
     }
 }
