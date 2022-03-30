@@ -7,6 +7,7 @@ using LOZ.SpriteClasses;
 using LOZ.GameState;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
+using LOZ.DungeonClasses;
 
 namespace LOZ.Hud
 {
@@ -17,8 +18,8 @@ namespace LOZ.Hud
         private ISprite Hud;
         private ISprite selectSprite;
         private ISprite room;
-        private ISprite linkLocation;
-        private ISprite triforceLoc;
+        private ISprite horizontalWalkWay;
+        private ISprite verticalWalkWay;
         private Point drawLocation = new Point(0, 0);
         private HudElement secondaryHud;
         private bool keyPressed = false;
@@ -37,8 +38,8 @@ namespace LOZ.Hud
             selectSprite = DisplaySpriteFactory.Instance.CreateSelectItemSprite();
             secondaryHud = new UserCurrentItemHud(linkInventory, content, new Point(0,600));
             room = DisplaySpriteFactory.Instance.CreateRoomOnMapSprite();
-            linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
-            triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
+            horizontalWalkWay = DisplaySpriteFactory.Instance.GetMapWalk(10, 10);
+            verticalWalkWay = DisplaySpriteFactory.Instance.GetMapWalk(10, 10);
         }
         public void Update()
         {
@@ -55,22 +56,30 @@ namespace LOZ.Hud
         private void DrawMap(SpriteBatch spriteBatch)
         {
             if (!_linkInventory.hasMap) return;
+            Point3D linkCoor = CurrentRoom.Instance.linkCoor;
             ISprite map = ItemFactory.Instance.CreateMapSprite();
             map.ChangeScale(2);
             map.Draw(spriteBatch, new Point(190, 455));
-            int offset = 38;
+            int offsetX = 50;
+            int offsetY = 30;
             int startX = 450;
             int startY = 350;
             List<Point3D> coords = CurrentRoom.Instance.roomList;
             foreach(Point3D point in coords)
             {
-                room.Draw(spriteBatch, new Point(startX + offset * point.X, startY + offset * point.Y));
+                room.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y), Color.Black);
+                ExteriorObject roomObj = CurrentRoom.Instance.Rooms[point].exterior;
+                if (roomObj == null) continue;
+                if (roomObj.CanGoUp()) verticalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y - 10), Color.Black); ;
+                if (roomObj.CanGoDown()) verticalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y + 10), Color.Black);
+                if (roomObj.CanGoLeft()) horizontalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X - 20, startY + offsetY * point.Y), Color.Black);
+                if (roomObj.CanGoRight()) horizontalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X + 20, startY + offsetY * point.Y), Color.Black);
             }
-            Point3D linkCoor = CurrentRoom.Instance.linkCoor;
-            linkLocation.Draw(spriteBatch, new Point(startX + offset * linkCoor.X, startY + offset * linkCoor.Y));
+            
+            room.Draw(spriteBatch, new Point(startX + offsetX * linkCoor.X, startY + offsetY * linkCoor.Y), Color.Green);
 
             if (!_linkInventory.hasCompass) return;
-            triforceLoc.Draw(spriteBatch, new Point(startX + offset * 6, startY + offset * 2));
+            room.Draw(spriteBatch, new Point(startX + offsetX * 6, startY + offsetY * 2), Color.YellowGreen);
         }
 
         private void DrawCompass(SpriteBatch spriteBatch)

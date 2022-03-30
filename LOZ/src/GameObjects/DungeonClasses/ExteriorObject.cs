@@ -38,6 +38,24 @@ namespace LOZ.DungeonClasses
             }
         }
 
+        public bool CanGoUp()
+        {
+            return (_top == DoorType.Door || _top == DoorType.Hole);
+        }
+        public bool CanGoRight()
+        {
+            return (_right == DoorType.Door || _right == DoorType.Hole);
+        }
+        public bool CanGoDown()
+        {
+            return (_bottom == DoorType.Door || _bottom == DoorType.Hole);
+        }
+        public bool CanGoLeft()
+        {
+            return (_left == DoorType.Door || _left == DoorType.Hole);
+        }
+
+
         public void ChangeDoorOnUpdate(DoorLocation location, DoorType t)
         {
             if (!hasChangedBefore) { 

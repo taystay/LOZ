@@ -4,12 +4,17 @@ using LOZ.DungeonClasses;
 
 namespace LOZ.SpriteClasses.DisplaySprites
 {
-	class MapRoom : ISprite
+	class MapWalkWay : ISprite
 	{
 		private Texture2D _texture;
 		private Rectangle frame;
-		public MapRoom(Texture2D texture)
+		private int w;
+		private int h;
+
+		public MapWalkWay(Texture2D texture, int width, int height)
 		{
+			w = width;
+			h = height;
 			_texture = texture;
 
 			frame = new Rectangle(29, 73, 1, 1);
@@ -30,8 +35,8 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = frame.Width * 40;
-			int height = frame.Height * 20;
+			int width = frame.Width * w;
+			int height = frame.Height * h;
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 			//for SpriteBatch.Begin(...)

@@ -10,6 +10,7 @@ using System.IO;
 using System.Reflection;
 using LOZ.Sound;
 using LOZ.Hud;
+using LOZ.SpriteClasses;
 
 namespace LOZ
 {
@@ -25,7 +26,8 @@ namespace LOZ
         private SpriteBatch spriteBatch;
         private List<IController> controllerList;
         private Dictionary<Point3D, Room> maps;
-        public SpriteFont font;
+        private SpriteFont font;
+        private ISprite GameOverDisplay;
 
         public CameraState state { get; set; } = CameraState.Playing;
         private HudElement pausedHud;
@@ -51,6 +53,8 @@ namespace LOZ
             spriteBatch = new SpriteBatch(GraphicsDevice);        
             CurrentRoom.Instance.LoadTextures(Content);
             SoundManager.Instance.LoadSound(Content);
+
+            GameOverDisplay = Factories.DisplaySpriteFactory.Instance.CreateDeadDisplay();
 
             maps = new Dictionary<Point3D, Room>();
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
@@ -93,7 +97,11 @@ namespace LOZ
             GraphicsDevice.Clear(Color.Black);
 
             if (state == CameraState.Playing)
+            {
                 CurrentRoom.Instance.Draw(spriteBatch);
+                if (Room.Link.Health <= 0)
+                    GameOverDisplay.Draw(spriteBatch, new Point(500, 500));
+            }        
             else if (state == CameraState.Paused)
                 pausedHud.Draw(spriteBatch);
 

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using LOZ.Inventory;
@@ -21,9 +21,7 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = new Point(0, 0);
-            room = DisplaySpriteFactory.Instance.CreateRoomOnMiniMapSprite();
-            linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
-            triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
+            room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
         }
         private Point _offset;
         public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content, Point offset)
@@ -31,9 +29,7 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = offset;
-            room = DisplaySpriteFactory.Instance.CreateRoomOnMiniMapSprite();
-            linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
-            triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
+            room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
         }
         public void Update()
         {
@@ -49,26 +45,31 @@ namespace LOZ.Hud
                 sword.ChangeScale(1.5);
                 sword.Draw(spriteBatch, ALocation);
             }
-            if(_linkInventory.hasMap && _offset == new Point(0,0))
-            {
-                int offset = 38;
-                int startX = 20;
-                int startY = 80;
-                List<Point3D> coords = CurrentRoom.Instance.roomList;
-                foreach (Point3D point in coords)
-                {
-                    room.Draw(spriteBatch, new Point(startX + offset * point.X, startY + (offset - 11) * point.Y));
-                }
-                Point3D linkCoor = CurrentRoom.Instance.linkCoor;
-                linkLocation.Draw(spriteBatch, new Point(startX + offset * linkCoor.X, startY + (offset - 11) * linkCoor.Y));
-
-                if (!_linkInventory.hasCompass) return;
-                triforceLoc.Draw(spriteBatch, new Point(startX + offset * 6, startY + (offset - 11) * 2));
-            }
             Point BLocation = new Point(500 + _offset.X, 160 + _offset.Y);
             ISprite sprite = _linkInventory.GetSelectedItemSprite();
             if (sprite == null) return;
             sprite.Draw(spriteBatch, BLocation);
+        }
+
+        private void DrawMap(SpriteBatch spriteBatch)
+        {
+            Point3D linkCoor = CurrentRoom.Instance.linkCoor;
+            GameFont.Instance.Write(spriteBatch, "Room - " + (linkCoor.X + 6 * linkCoor.Y), 100 + _offset.X, 75 + _offset.Y);
+            if (!_linkInventory.hasMap) return;
+            int offsetX = 25;
+            int offsetY = 15;
+            int startX = 100 + _offset.X;
+            int startY = 125 + _offset.Y;
+            List<Point3D> coords = CurrentRoom.Instance.roomList;
+            foreach (Point3D point in coords)
+            {
+                room.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y));
+            }    
+            room.Draw(spriteBatch, new Point(startX + offsetX * linkCoor.X, startY + offsetY * linkCoor.Y), Color.Green);
+
+            if (!_linkInventory.hasCompass) return;
+            room.Draw(spriteBatch, new Point(startX + offsetX * 6, startY + offsetY * 2), Color.Yellow);
+
         }
 
         private void DrawHearts(SpriteBatch spriteBatch)
@@ -106,6 +107,7 @@ namespace LOZ.Hud
             hud.Draw(spriteBatch, new Point(0 + _offset.X, 0 + _offset.Y));
             DrawHearts(spriteBatch);
             DrawSelectedItems(spriteBatch);
+            DrawMap(spriteBatch);
         }
     }
 }

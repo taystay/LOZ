@@ -1,5 +1,5 @@
 ﻿"(5,2,0)",,,,,,,,,,,
-wall,locked,door,wall,,,,,,,,
+wall,shut,locked,wall,,,,,,,,
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,blueT,blueT,blueT
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,blueT
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT
@@ -8,4 +8,4 @@ blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,blueT
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueT,blueT,blueT,blueT,blueT
 "dragon(12,4)",,,,,,,,,,,
-"heartcontainer(12,4)",,,,,,,,,,,
+"heartcontainer(11,4)",,,,,,,,,,,

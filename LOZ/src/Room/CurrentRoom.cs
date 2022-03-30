@@ -44,7 +44,9 @@ namespace LOZ.GameState
                 return instance;
             }
         }
-        private CurrentRoom() { Room.RoomInventory = new Inventory.LinkInventory();  }
+        private CurrentRoom() {
+            Room.RoomInventory = new Inventory.LinkInventory();
+        }
         public void LoadTextures(ContentManager Content)
         {
             DisplaySpriteFactory.Instance.LoadAllTextures(Content);
@@ -53,6 +55,7 @@ namespace LOZ.GameState
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
+            GameFont.Instance.LoadAllTextures(Content);
             Room.hudele = new UserCurrentItemHud(Room.RoomInventory, Content);
         }
         public void Debug()
@@ -96,6 +99,12 @@ namespace LOZ.GameState
         public void Update(GameTime gameTime)
         {
             Room.Update(gameTime);
+            Room roomevent1 = Rooms[new Point3D(2, 4)];
+            Room roomevent2 = Rooms[new Point3D(5, 2)];
+            if (!roomevent1.HasEnemies)
+                roomevent1.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+            if (!roomevent2.HasEnemies)
+                roomevent2.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
         }
         public void SpawnLink()
         {

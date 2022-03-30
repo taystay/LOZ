@@ -1,4 +1,4 @@
-﻿
+
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses.DisplaySprites;
@@ -48,9 +48,13 @@ namespace LOZ.Factories
         {
 			return new MapRoom(HUDSpritesheet);
         }
-		public ISprite CreateRoomOnMiniMapSprite()
+		public ISprite CreateDeadDisplay()
+        {
+			return new DeadDisplay(HUDSpritesheet);
+        }
+		public ISprite CreateBlueMapRoomSprite()
 		{
-			return new MiniMapRoom(HUDSpritesheet);
+			return new BlueMapRoom(HUDSpritesheet);
 		}
 		public ISprite CreateLinkIndicator()
 		{
@@ -66,6 +70,11 @@ namespace LOZ.Factories
         {
 			return new HudHeart(HUDSpritesheet, fullHeart);
         }
+
+		public ISprite GetMapWalk(int width, int height)
+		{
+			return new MapWalkWay(HUDSpritesheet, width, height);
+		}
 
 
 	}
