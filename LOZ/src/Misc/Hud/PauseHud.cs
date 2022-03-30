@@ -20,9 +20,11 @@ namespace LOZ.Hud
         private ISprite room;
         private ISprite horizontalWalkWay;
         private ISprite verticalWalkWay;
-        private Point drawLocation = new Point(0, 0);
+        private Point drawLocation = new Point(0, 75);
         private HudElement secondaryHud;
         private bool keyPressed = false;
+
+        private Dictionary<Rectangle, Point3D> roomMapLocation;
 
         #region itemDrawing
         private int startx = 525;
@@ -40,6 +42,7 @@ namespace LOZ.Hud
             room = DisplaySpriteFactory.Instance.CreateRoomOnMapSprite();
             horizontalWalkWay = DisplaySpriteFactory.Instance.GetMapWalk(10, 10);
             verticalWalkWay = DisplaySpriteFactory.Instance.GetMapWalk(10, 10);
+            roomMapLocation = new Dictionary<Rectangle, Point3D>();
         }
         public void Update()
         {
@@ -50,6 +53,14 @@ namespace LOZ.Hud
             } else if (!Keyboard.GetState().IsKeyDown(Keys.Space))
             {
                 keyPressed = false;
+            }
+            if (Mouse.GetState().LeftButton != ButtonState.Pressed) return;
+            Point mouseloc = new Point(Mouse.GetState().X, Mouse.GetState().Y);
+            foreach(KeyValuePair<Rectangle, Point3D> p in roomMapLocation)
+            {
+                if (!p.Key.Contains(mouseloc)) continue;
+                CurrentRoom.Instance.linkCoor = p.Value;
+                Room.Link.ChangePosition(new Point(Info.Inside.X + Info.Inside.Width / 2, Info.Inside.Y + Info.Inside.Height / 2));
             }
         }
 
@@ -67,7 +78,12 @@ namespace LOZ.Hud
             List<Point3D> coords = CurrentRoom.Instance.roomList;
             foreach(Point3D point in coords)
             {
+                int x = startX + offsetX * point.X;
+                int y = startY + offsetY * point.Y;
                 room.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y), Color.Black);
+                Rectangle hitbox = new Rectangle(x - 20, y - 10, 40, 20);
+                if(!roomMapLocation.ContainsKey(hitbox))
+                    roomMapLocation.Add(hitbox, point);
                 ExteriorObject roomObj = CurrentRoom.Instance.Rooms[point].exterior;
                 if (roomObj == null) continue;
                 if (roomObj.CanGoUp()) verticalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y - 10), Color.Black); ;
@@ -79,7 +95,7 @@ namespace LOZ.Hud
             room.Draw(spriteBatch, new Point(startX + offsetX * linkCoor.X, startY + offsetY * linkCoor.Y), Color.Green);
 
             if (!_linkInventory.hasCompass) return;
-            room.Draw(spriteBatch, new Point(startX + offsetX * 6, startY + offsetY * 2), Color.YellowGreen);
+            room.Draw(spriteBatch, new Point(startX + offsetX * 6, startY + offsetY * 2), Color.Yellow);
         }
 
         private void DrawCompass(SpriteBatch spriteBatch)

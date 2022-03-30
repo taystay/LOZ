@@ -12,8 +12,10 @@ namespace LOZ.ControllerClasses
         private List<ICommand> rightClickCommands;
         private bool leftClicked = false;
         private bool rightClicked = false;
-        public MouseController()
+        private Game1 gameObject;
+        public MouseController(Game1 gameObj)
         {
+            gameObject = gameObj;
             leftClickCommands = new List<ICommand>();
             rightClickCommands = new List<ICommand>();
         }
@@ -28,6 +30,7 @@ namespace LOZ.ControllerClasses
 
         public void Update(GameTime gametime)
         {
+            if (gameObject.state != CameraState.Playing) return;
             MouseState state = Mouse.GetState();
             foreach (ICommand command in leftClickCommands)
             {

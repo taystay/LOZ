@@ -18,7 +18,7 @@ namespace LOZ.SpriteClasses
         public static Rectangle stairsSprite = new Rectangle(109, 63, 32, 32);
 
         //Display Rectangles
-        public static Rectangle PauseHudSprite = new Rectangle(0, 6, 256, 175 - 6);
+        public static Rectangle PauseHudSprite = new Rectangle(0, 23, 256, 175 - 6);
         public static Rectangle HUDSprite = new Rectangle(0, 169, 256, 231 - 169);
         public static Rectangle HUDHeartSprite = new Rectangle(109, 63, 32, 32);
 

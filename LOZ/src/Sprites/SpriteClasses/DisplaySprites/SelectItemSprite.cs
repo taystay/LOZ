@@ -12,7 +12,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		{
 			_texture = texture;
 
-			frame = new Rectangle(19, 0, 6, 6);
+			frame = new Rectangle(109, 0, 14, 14);
 		}
 
 		public void Update(GameTime gameTime)
@@ -30,8 +30,8 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = frame.Width * 12;
-			int height = frame.Height * 12;
+			int width = frame.Width * 4;
+			int height = frame.Height * 4;
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 			//for SpriteBatch.Begin(...)

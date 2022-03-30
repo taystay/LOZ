@@ -13,7 +13,7 @@ namespace LOZ.ControllerClasses
         public KeyBindings(Game1 gameObject)
         {
             ControllerMappings = new KeyboardController(gameObject);
-            mouseControllerMappings = new MouseController();
+            mouseControllerMappings = new MouseController(gameObject);
             ControllerMappings.RegisterInitialCommand(Keys.Q, new QuitGame(gameObject));
             ControllerMappings.RegisterReleaseCommand(Keys.LeftShift, new EnterDebugMode());
             ControllerMappings.RegisterReleaseCommand(Keys.R, new Reset());
