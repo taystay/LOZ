@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using LOZ.Inventory;
@@ -21,8 +21,6 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = new Point(0, 0);
-            linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
-            triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
             room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
         }
         private Point _offset;
@@ -31,8 +29,6 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = offset;
-            linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
-            triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
             room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
         }
         public void Update()

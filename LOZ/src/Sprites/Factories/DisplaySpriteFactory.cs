@@ -1,4 +1,4 @@
-﻿
+
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses.DisplaySprites;
@@ -48,7 +48,6 @@ namespace LOZ.Factories
         {
 			return new MapRoom(HUDSpritesheet);
         }
-
 		public ISprite CreateDeadDisplay()
         {
 			return new DeadDisplay(HUDSpritesheet);
