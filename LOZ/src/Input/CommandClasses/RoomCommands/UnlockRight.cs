@@ -18,6 +18,13 @@ namespace LOZ.CommandClasses.RoomCommands
             {
                 CurrentRoom.Instance.Room.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
                 Room.RoomInventory.UseKey();
+                Dictionary<Point3D, Room> roomList = CurrentRoom.Instance.Rooms;
+                Point3D linkPos = CurrentRoom.Instance.linkCoor;
+                linkPos.X++;
+                if (roomList[linkPos] == null) return;
+                ExteriorObject roomToRight = roomList[linkPos].exterior;
+                if (roomToRight != null)
+                    roomToRight.ChangeDoorOnUpdate(DoorLocation.Left, DoorType.Door);
             }
             
         }

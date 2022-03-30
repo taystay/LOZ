@@ -1,6 +1,7 @@
 ﻿using LOZ.GameState;
 using LOZ.DungeonClasses;
 using LOZ.Collision;
+using System.Collections.Generic;
 
 namespace LOZ.CommandClasses
 {
@@ -17,7 +18,14 @@ namespace LOZ.CommandClasses
             {
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Hole);
             }
-                
+            Dictionary<Point3D, Room> roomList = CurrentRoom.Instance.Rooms;
+            Point3D linkPos = CurrentRoom.Instance.linkCoor;
+            linkPos.X++;
+            if (roomList[linkPos] == null) return;
+            ExteriorObject roomToRight = roomList[linkPos].exterior;
+            if (roomToRight != null)
+                roomToRight.ChangeDoorOnUpdate(DoorLocation.Left, DoorType.Hole);
+
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.LinkClasses;
 using LOZ.EnvironmentalClasses;
+using LOZ.GameState;
+using LOZ.DungeonClasses;
 
 namespace LOZ.Collision
 {
@@ -27,6 +29,11 @@ namespace LOZ.Collision
                     block.Position = new Point(blockPos.X - collisionBox.Width, blockPos.Y);
                 else if (side == CollisionSide.Bottom)
                     block.Position = new Point(blockPos.X, blockPos.Y - collisionBox.Height);
+                Point3D roomCoor = CurrentRoom.Instance.linkCoor;
+                if (roomCoor.X == 2 && roomCoor.Y == 3)
+                {
+                    CurrentRoom.Instance.Room.exterior.ChangeDoorOnUpdate(DoorLocation.Left, DoorType.Door);
+                }
             } else
             {
                 if (side == CollisionSide.Top)

@@ -1,10 +1,11 @@
 ﻿"(2,3,0)",,,,,,,,,,,
-wall,door,door,shut,,,,,,,,
+wall,door,locked,shut,,,,,,,,
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
-blueB,blueB,blueB,blueB,blueB,blueT,blueB,blueB,blueB,blueB,blueB,blueB
+blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 "jelly(6,2)","jelly(3,3)","jelly(10,2)",,,,,,,,,
+"pushingBlock(6,4)",,,,,,,,,,

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using LOZ.LinkClasses;
 using LOZ.GameState;
 using LOZ.DungeonClasses;
+using LOZ.CommandClasses.RoomCommands;
 
 namespace LOZ.MapIO
 {
@@ -61,7 +62,6 @@ namespace LOZ.MapIO
 
             }
             listOfRooms.Add(new Point3D(3, 7 , 0), new DevRoom());
-
         }
 
     }

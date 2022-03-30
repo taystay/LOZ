@@ -1,5 +1,5 @@
 ﻿"(3,1,0)",,,,,,,,,,,
-wall,wall,door,locked,,,,,,,,
+wall,wall,locked,locked,,,,,,,,
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,darkB,darkB,darkB,blueB,blueB,blueB,blueB,blueB,darkB,darkB,blueB
 blueB,darkB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,darkB,blueB
@@ -7,5 +7,4 @@ blueB,darkB,blueB,darkB,darkB,darkB,darkB,darkB,darkB,blueB,darkB,blueB
 blueB,darkB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,darkB,blueB
 blueB,darkB,darkB,darkB,blueB,blueB,blueB,blueB,blueB,darkB,darkB,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
-
-"key(6,1)",,,,,,,,,,,
+"key(7,2)",,,,,,,,,,,
