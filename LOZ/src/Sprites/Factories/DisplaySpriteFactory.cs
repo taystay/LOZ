@@ -48,16 +48,14 @@ namespace LOZ.Factories
         {
 			return new MapRoom(HUDSpritesheet);
         }
-<<<<<<< HEAD
-		public ISprite CreateRoomOnMiniMapSprite()
-		{
-			return new MiniMapRoom(HUDSpritesheet);
-=======
 
+		public ISprite CreateDeadDisplay()
+        {
+			return new DeadDisplay(HUDSpritesheet);
+        }
 		public ISprite CreateBlueMapRoomSprite()
 		{
 			return new BlueMapRoom(HUDSpritesheet);
->>>>>>> fb7d31f (Finished hud completely. added GameFont class)
 		}
 		public ISprite CreateLinkIndicator()
 		{
@@ -73,6 +71,11 @@ namespace LOZ.Factories
         {
 			return new HudHeart(HUDSpritesheet, fullHeart);
         }
+
+		public ISprite GetMapWalk(int width, int height)
+		{
+			return new MapWalkWay(HUDSpritesheet, width, height);
+		}
 
 
 	}

@@ -18,6 +18,7 @@ namespace LOZ.GameState
     { 
         public static HudElement hudele { get; set; }
         public static LinkInventory RoomInventory { get; set;}
+        public bool HasEnemies { get; set; } = true;
 
         public List<IGameObjects> GameObjects { get; set; }
         public ExteriorObject exterior { get; set; }
@@ -29,28 +30,19 @@ namespace LOZ.GameState
         public abstract void LoadContent();       
         public void Update(GameTime gameTime)
         {
-            bool roomHasEnemies = false;
+            HasEnemies = false;
             if (exterior != null) exterior.Update(gameTime);
             Link.Update(gameTime);
             for (int i = 0; i < GameObjects.Count; i++)
             { // for loop because state of list may change. (items added)            
                 IGameObjects item = GameObjects[i];
                 if (TypeC.Check(item, typeof(IEnemy)))
-                    roomHasEnemies = true;
+                    HasEnemies = true;
                 item.Update(gameTime);
             }
             RoomInventory.Update(gameTime);
             RemoveDeadItems();
             colliders.Iterate();
-
-            if (roomHasEnemies) return;
-            Point3D roomCoor = CurrentRoom.Instance.linkCoor;
-            if (roomCoor.X == 2 && roomCoor.Y == 4)
-                exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
-            else if (roomCoor.X == 5 && roomCoor.Y == 2)
-                exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
-
-
         }
         public void Draw(SpriteBatch spriteBatch)
         {

@@ -18,7 +18,11 @@ namespace LOZ.CommandClasses
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();
             CurrentRoom.Instance.Rooms = maps;
+            CurrentRoom.Instance.linkCoor = new Point3D(3, 6, 0);
+            PlaceLink.BottomDungeonDoor();
             Room.Link.Health = 6;
+            Room.Link.MaxHealth = 6;
+            Room.Link.ChangeDirectionUp();
         }
     }
 }

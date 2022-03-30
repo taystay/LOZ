@@ -25,6 +25,7 @@ namespace LOZ.GameState
             new Point3D(2,1),
             new Point3D(1,3),
             new Point3D(2,1,1),
+            new Point3D(3,7,0)
         };
     }
 }

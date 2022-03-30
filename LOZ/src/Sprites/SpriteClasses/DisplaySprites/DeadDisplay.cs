@@ -4,15 +4,14 @@ using LOZ.DungeonClasses;
 
 namespace LOZ.SpriteClasses.DisplaySprites
 {
-	class MiniMapRoom : ISprite
+	class DeadDisplay : ISprite
 	{
 		private Texture2D _texture;
 		private Rectangle frame;
-		public MiniMapRoom(Texture2D texture)
+		public DeadDisplay(Texture2D texture)
 		{
 			_texture = texture;
-
-			frame = new Rectangle(45, 0, 9, 6);
+				frame = new Rectangle(40, 287, 94 - 39, 298 - 286);
 		}
 
 		public void Update(GameTime gameTime)
@@ -30,8 +29,8 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = frame.Width * 4;
-			int height = frame.Height * 4;
+			int width = frame.Width * 10;
+			int height = frame.Height * 10;
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 			//for SpriteBatch.Begin(...)

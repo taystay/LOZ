@@ -21,13 +21,9 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = new Point(0, 0);
-<<<<<<< HEAD
-            room = DisplaySpriteFactory.Instance.CreateRoomOnMiniMapSprite();
             linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
             triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
-=======
             room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
->>>>>>> fb7d31f (Finished hud completely. added GameFont class)
         }
         private Point _offset;
         public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content, Point offset)
@@ -35,13 +31,9 @@ namespace LOZ.Hud
             _linkInventory = linkInventory;
             font = content.Load<SpriteFont>("File"); // Use the name of your sprite font file here instead of 'Score'.
             _offset = offset;
-<<<<<<< HEAD
-            room = DisplaySpriteFactory.Instance.CreateRoomOnMiniMapSprite();
             linkLocation = DisplaySpriteFactory.Instance.CreateLinkIndicator();
             triforceLoc = DisplaySpriteFactory.Instance.CreateTriforceIndicator();
-=======
             room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
->>>>>>> fb7d31f (Finished hud completely. added GameFont class)
         }
         public void Update()
         {
@@ -57,22 +49,6 @@ namespace LOZ.Hud
                 sword.ChangeScale(1.5);
                 sword.Draw(spriteBatch, ALocation);
             }
-            if(_linkInventory.hasMap && _offset == new Point(0,0))
-            {
-                int offset = 38;
-                int startX = 20;
-                int startY = 80;
-                List<Point3D> coords = CurrentRoom.Instance.roomList;
-                foreach (Point3D point in coords)
-                {
-                    room.Draw(spriteBatch, new Point(startX + offset * point.X, startY + (offset - 11) * point.Y));
-                }
-                Point3D linkCoor = CurrentRoom.Instance.linkCoor;
-                linkLocation.Draw(spriteBatch, new Point(startX + offset * linkCoor.X, startY + (offset - 11) * linkCoor.Y));
-
-                if (!_linkInventory.hasCompass) return;
-                triforceLoc.Draw(spriteBatch, new Point(startX + offset * 6, startY + (offset - 11) * 2));
-            }
             Point BLocation = new Point(500 + _offset.X, 160 + _offset.Y);
             ISprite sprite = _linkInventory.GetSelectedItemSprite();
             if (sprite == null) return;
@@ -82,12 +58,12 @@ namespace LOZ.Hud
         private void DrawMap(SpriteBatch spriteBatch)
         {
             Point3D linkCoor = CurrentRoom.Instance.linkCoor;
-            GameFont.Instance.Write(spriteBatch, "Room - " + (linkCoor.X + 6 * linkCoor.Y), 100, 75);
+            GameFont.Instance.Write(spriteBatch, "Room - " + (linkCoor.X + 6 * linkCoor.Y), 100 + _offset.X, 75 + _offset.Y);
             if (!_linkInventory.hasMap) return;
             int offsetX = 25;
             int offsetY = 15;
-            int startX = 100;
-            int startY = 125;
+            int startX = 100 + _offset.X;
+            int startY = 125 + _offset.Y;
             List<Point3D> coords = CurrentRoom.Instance.roomList;
             foreach (Point3D point in coords)
             {

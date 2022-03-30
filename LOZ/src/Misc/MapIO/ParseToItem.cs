@@ -60,6 +60,9 @@ namespace LOZ.MapIO
                 case "bow":
                     returnVal = new Bow(location);
                     break;
+                case "sword":
+                    returnVal = new Sword(location);
+                    break;
                 case "clock":
                     returnVal = new Clock(location);
                     break;
