@@ -9,6 +9,7 @@ namespace LOZ.Factories
     class DisplaySpriteFactory
     {
 		private Texture2D HUDSpritesheet;
+		private Texture2D tranparentB;
 
 		private static DisplaySpriteFactory instance = new DisplaySpriteFactory();
 
@@ -27,6 +28,7 @@ namespace LOZ.Factories
 		public void LoadAllTextures(ContentManager content)
 		{
 			HUDSpritesheet = content.Load<Texture2D>("HUDLayout");
+			tranparentB = content.Load<Texture2D>("transparentB");
 		}
 
 		public ISprite CreateSelectItemSprite()
@@ -74,6 +76,11 @@ namespace LOZ.Factories
 		public ISprite GetMapWalk(int width, int height)
 		{
 			return new MapWalkWay(HUDSpritesheet, width, height);
+		}
+
+		public Texture2D TransparentBackground()
+		{
+			return tranparentB;
 		}
 
 

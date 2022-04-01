@@ -10,29 +10,66 @@ namespace LOZ.Camera
 {
     class CameraManager
     {
-        SpriteBatch spriteBatch;
-        Matrix translation;
-        Texture2D roomLayout;
-        Dictionary<Point3D, List<Room>> _rooms;
-        Point middle; 
+        private SpriteBatch spriteBatch;
+        
+        private Matrix translation;
+        private Texture2D roomLayout;
+        private Dictionary<Point3D, List<Room>> _rooms;
+        Point middle;
+        //private int xPosition;
+        //private int yPosition;
 
         public CameraManager(ContentManager content, Dictionary<Point3D, List<Room>> roomList)
         {
-            translation = Matrix.CreateTranslation(Info.Map.Width / 2, Info.Map.Height / 2, 0);
+             middle = new Point(Info.Map.Width / 2, Info.Map.Height / 2);
             _rooms = roomList;
-            //middle = new Point(Info.Map.Width / 2, Info.Map.Height / 2);
         }
 
-        public void TranslationToRoom(Point3D roomCoord) {
+        public void TranslationToRoom(Point3D roomCoord)
+        {
+            Point3D link = CurrentRoom.Instance.linkCoor;
+            //Positive X mean the transition to the left otherwise right
+            //Positive Y mean going up in rooms
+            if (link.X < roomCoord.X)
+            {   //going to the right
+                //translation = Matrix.CreateTranslation(Info.Map.Width, Info.Map.Height, 0);
 
-            //translation = Matrix.CreateTranslation();
+                middle.X += 1;
+            }
+            else
+            {
+                //translation = Matrix.CreateTranslation(-Info.Map.Width, Info.Map.Height, 0);
+                middle.X -= 1;
+            }
+
+            if (link.Y < roomCoord.Y)
+            {//going up 
+                //translation = Matrix.CreateTranslation(Info.Map.Width, Info.Map.Height, 0);
+                middle.Y -= 1;
+            }
+            else
+            {
+                //translation = Matrix.CreateTranslation(Info.Map.Width, -Info.Map.Height, 0);
+                middle.Y += 1;
+            }
+
+
+
+
         }
-        //what to do
-        //using dungeons rooms I will create the scale
-        //then in draw it will constantly update pixel by pixel for room translation
-        //transition from the dungeonRoom png to show
-        //then all the item spawn
-        
+
+        public void Draw() {
+
+            //Figuire out what text to draw in... Maybe past the room object in here and then load the translation matrix to
+            //each to show a transition over thousands of iteration 
+
+            translation = Matrix.CreateTranslation(middle.X, middle.Y, 0);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp,null,null,null,translation);
+            //spriteBatch.Draw()
+
+
+
+        }
 
 
     }
