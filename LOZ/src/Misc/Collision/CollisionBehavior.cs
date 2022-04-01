@@ -15,8 +15,12 @@ namespace LOZ.Collision
         }
         public void HandleCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
-            
 
+            if (TypeC.Check(secondObject, typeof(DoorCollider)))
+            {
+                DoorCollider d = (DoorCollider)secondObject;
+                d.Collision(firstObject);
+            }
 
             if (TypeC.Check(firstObject, typeof(ILink)))
             {
@@ -84,11 +88,7 @@ namespace LOZ.Collision
                 Room.Link.TakeDamage(1);
                 
             }
-            if (TypeC.Check(secondObject, typeof(DoorCollider)))
-            {
-                DoorCollider d = (DoorCollider)secondObject;
-                d.Collision(firstObject);
-            }
+            
         }
 
     }

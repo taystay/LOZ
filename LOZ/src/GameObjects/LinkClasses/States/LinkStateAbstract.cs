@@ -76,7 +76,7 @@ namespace LOZ.LinkClasses
         }
         public virtual void RaiseItem(IItem item)
         {
-            if (!TypeC.Check(item, typeof(Rupee)) && !TypeC.Check(item, typeof(Heart)) && !TypeC.Check(item, typeof(ArrowItem)) && !TypeC.Check(item, typeof(Key)) && !TypeC.Check(item, typeof(Fairy)))
+            if (TypeC.Check(item, typeof(Triforce)))
                 link.LinkState = new RaiseItemLinkState(link, item);
             else
             {
