@@ -32,14 +32,19 @@ namespace LOZ.Collision
             {
                 if(TypeC.CheckPair(objOne, typeof(ILink), objTwo, typeof(IItem)))
                 {
-                    if (TypeC.Check(objTwo, typeof(FireItem)) || TypeC.Check(objTwo, typeof(Triforce))) return;
-                    int dx = rec1.X - rec2.X;
-                    int dy = rec1.Y - rec2.Y;
+                    if (TypeC.Check(objTwo, typeof(FireItem)) || TypeC.Check(objTwo, typeof(IPlayerProjectile))) return;
+                    int linkx = rec1.X += rec1.Width / 2;
+                    int linkY = rec1.Y += rec1.Height / 2;
+                    int itemX = rec2.X += rec2.Width / 2;
+                    int itemY = rec2.Y += rec2.Height / 2;
+                    int dx = linkx - itemX;
+                    int dy = linkY - itemY;
+
                     double dtotal = Math.Sqrt(Math.Pow(dx,2) + Math.Pow(dy,2));
-                    int newDx = (1*dx/10);
-                    int newDy = (1 * dy / 10);
+                    int pickupradius = 48;
+                    if (dtotal > pickupradius) return;
                     IItem item = (IItem)objTwo;
-                    item.SetPosition(new Point(rec2.X + newDx, rec2.Y + newDy));
+                    item.SetPosition(new Point(rec1.X, rec1.Y));
                 }
 
                 return;

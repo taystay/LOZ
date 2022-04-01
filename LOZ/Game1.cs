@@ -11,6 +11,7 @@ using System.Reflection;
 using LOZ.Sound;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
+using LOZ.Factories;
 
 namespace LOZ
 {
@@ -18,6 +19,7 @@ namespace LOZ
     {
         Paused,
         Playing,
+        Victory
     }
 
     public class Game1 : Game
@@ -95,8 +97,11 @@ namespace LOZ
         {
 
             GraphicsDevice.Clear(Color.Black);
-
-            if (state == CameraState.Playing)
+            if(Room.RoomInventory.hasTriforce)
+            {
+                GameFont.Instance.Write(spriteBatch,"VICTORY!!! GOOOD JOB MAN YOURE AMAZING" , 40 , 500);
+            }
+            else if (state == CameraState.Playing)
             {
                 CurrentRoom.Instance.Draw(spriteBatch);
                 if (Room.Link.Health <= 0)

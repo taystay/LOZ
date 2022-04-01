@@ -84,7 +84,7 @@ namespace LOZ.LinkClasses
             }
             if(TypeC.Check(item, typeof(Fairy)))
             {
-                Room.Link.Health += 1;
+                Room.Link.Health += 3;
             }    
             if(TypeC.Check(item, typeof(HeartContainer)))
             {

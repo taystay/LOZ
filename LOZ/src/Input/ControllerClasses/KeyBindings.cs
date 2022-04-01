@@ -28,7 +28,7 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterInitialCommand(Keys.B, new UseSelectedItem(CurrentRoom.Instance.Room));
             ControllerMappings.RegisterReleaseCommand(Keys.B, new Idle());
             ControllerMappings.RegisterInitialCommand(Keys.Z, new AttackSword(CurrentRoom.Instance.Room));
-            ControllerMappings.RegisterReleaseCommand(Keys.Z, new Idle());
+            //ControllerMappings.RegisterReleaseCommand(Keys.Z, new Idle());
             ///ControllerMappings.RegisterInitialCommand(Keys.NumPad2, new AttackArrow(CurrentRoom.Instance.Room));
             //ControllerMappings.RegisterInitialCommand(Keys.NumPad3, new AttackBomb(CurrentRoom.Instance.Room));
             //ControllerMappings.RegisterInitialCommand(Keys.NumPad4, new AttackFire(CurrentRoom.Instance.Room));

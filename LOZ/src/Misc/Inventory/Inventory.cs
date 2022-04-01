@@ -45,6 +45,7 @@ namespace LOZ.Inventory
         private int clockDuration = 400;
         private int clockTimeLeft = 400;
         public bool hasSword { get; private set; } = false;
+        public bool hasTriforce { get; private set; } = false;
         #endregion
 
         public LinkInventory()
@@ -62,6 +63,7 @@ namespace LOZ.Inventory
             hasBomb = true;
             hasBow = false;
             hasSword = false;
+            hasTriforce = false;
         }
 
         public void Update(GameTime gameTime)
@@ -162,6 +164,7 @@ namespace LOZ.Inventory
             }
             else if (TypeC.Check(item, typeof(Triforce)))
             {
+                hasTriforce = true;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Fanfare);
             }
             else if (TypeC.Check(item, typeof(Bow)))
