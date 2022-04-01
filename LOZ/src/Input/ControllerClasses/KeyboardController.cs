@@ -8,12 +8,14 @@ namespace LOZ.ControllerClasses
     class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> storedInitCommands;
+        private List<Keys> keysPressed;
         private Dictionary<Keys, ICommand> storedHoldCommands;
         private Dictionary<Keys, ICommand> storedReleaseCommands;
         private List<Keys> releaseKeysPressed;
         public KeyboardController(Game1 GameObject)
         {
             storedInitCommands = new Dictionary<Keys, ICommand>();
+            keysPressed = new List<Keys>();
             storedHoldCommands = new Dictionary<Keys, ICommand>();
             storedReleaseCommands = new Dictionary<Keys, ICommand>();
             releaseKeysPressed = new List<Keys>();
@@ -35,7 +37,21 @@ namespace LOZ.ControllerClasses
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
             foreach(Keys key in pressedKeys)
             {
-                if (storedInitCommands.ContainsKey(key)) storedInitCommands[key].execute();
+                if (storedInitCommands.ContainsKey(key) && !keysPressed.Contains(key))
+                {
+                    keysPressed.Add(key);
+                    storedInitCommands[key].execute();
+                }
+            }
+            int i = keysPressed.Count - 1;
+            while(i >= 0)
+            {
+                Keys key = keysPressed[i];
+                if (Keyboard.GetState().IsKeyUp(key))
+                {
+                    keysPressed.Remove(key);
+                }
+                i--;
             }
         }
         private void UpdateHold()

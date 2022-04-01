@@ -15,7 +15,10 @@ namespace LOZ.Collision
         }
         public void HandleCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
-            if(TypeC.Check(firstObject, typeof(ILink)))
+            
+
+
+            if (TypeC.Check(firstObject, typeof(ILink)))
             {
                 LinkCollision(firstObject, secondObject, side);
             } 
@@ -30,15 +33,12 @@ namespace LOZ.Collision
             {
                 PlayerProjectileEnvironmentCollision.Handle(firstObject, secondObject, side);
             } 
-            else if (TypeC.Check(firstObject, typeof(DoorCollider)))
-            {
-                DoorCollider d = (DoorCollider)firstObject;
-                d.Collision(secondObject);
-            }
+            
             else if (TypeC.CheckPair(firstObject, typeof(IProjectile), secondObject, typeof(IEnvironment)))
             {
                 EnemyProjectileEnvironmentCollision.Handle(firstObject, secondObject, side);
             }
+            
 
         }
         public void EnemyCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
@@ -58,6 +58,7 @@ namespace LOZ.Collision
         }
         public void LinkCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
+            
             if (TypeC.Check(secondObject, typeof(IEnvironment)))
             {
                 LinkBlockCollision.Handle(firstObject, secondObject, side);
@@ -82,6 +83,11 @@ namespace LOZ.Collision
             {
                 Room.Link.TakeDamage(1);
                 
+            }
+            if (TypeC.Check(secondObject, typeof(DoorCollider)))
+            {
+                DoorCollider d = (DoorCollider)secondObject;
+                d.Collision(firstObject);
             }
         }
 

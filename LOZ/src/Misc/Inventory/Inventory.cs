@@ -53,6 +53,17 @@ namespace LOZ.Inventory
             selectedItem = 2;
         }
 
+        public void Reset()
+        {
+            countableItems = new itemCount(20, 0, 5);
+            selectedItem = 2;
+            hasMap = false;
+            hasCompass = false;
+            hasBomb = true;
+            hasBow = false;
+            hasSword = false;
+        }
+
         public void Update(GameTime gameTime)
         {
             if(hasClock)

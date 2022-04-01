@@ -38,7 +38,10 @@ namespace LOZ.LinkClasses
             if (attackAllowed) 
             {
                 if (type == Weapon.Default)
+                {
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Slash);
+                    timeSinceAttack = attackCoolDown;
+                }      
                 else if (type == Weapon.Swordbeam)
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Shoot);
                 else if (type == Weapon.Arrow)
@@ -46,6 +49,7 @@ namespace LOZ.LinkClasses
                 else if (type == Weapon.Fire)
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Combined);
                 CurrentRoom.Instance.Room.GameObjects.Add(weapon);
+
                 if (TypeC.Check(weapon, typeof(Bomb))) Room.RoomInventory.UseBomb();
                 if (type == Weapon.Arrow) Room.RoomInventory.UseRupee(1);
                 attackAllowed = false;

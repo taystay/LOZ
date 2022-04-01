@@ -23,6 +23,7 @@ namespace LOZ.CommandClasses
             Room.Link.Health = 6;
             Room.Link.MaxHealth = 6;
             Room.Link.ChangeDirectionUp();
+            Room.RoomInventory.Reset();
         }
     }
 }

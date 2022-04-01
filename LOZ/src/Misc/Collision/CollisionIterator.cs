@@ -17,7 +17,6 @@ namespace LOZ.Collision
         {
             CollisionDetection detect = new CollisionDetection();
             ILink link = Room.Link;
-            _gameObjects.Add(link);
            
             foreach (IGameObjects obj1 in _gameObjects)
             {
@@ -34,7 +33,12 @@ namespace LOZ.Collision
                 }
 
             }
-            _gameObjects.Remove(link);
+
+            foreach(IGameObjects item in _gameObjects)
+            {
+                //detect.CheckCollision(item, link);
+                detect.CheckCollision(link, item);
+            }
            
         }
     }

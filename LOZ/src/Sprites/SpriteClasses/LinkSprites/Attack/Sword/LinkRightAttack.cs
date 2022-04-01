@@ -20,7 +20,10 @@ namespace LOZ.SpriteClasses.LinkSprites
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
                 currentFrame++;
             if (currentFrame == maxFrames)
+            {
+                Room.Link.Idle();
                 currentFrame = 0;
+            }
             frame = frames[currentFrame];
         }
         public override void Draw(SpriteBatch spriteBatch, Point location, Color c)

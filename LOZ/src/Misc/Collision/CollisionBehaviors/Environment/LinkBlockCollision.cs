@@ -19,6 +19,7 @@ namespace LOZ.Collision
             Rectangle blockBox = blockObj.GetHitBox().ToRectangle();
             Rectangle collisionBox = Rectangle.Intersect(linkBox, blockBox);
 
+            
             if (block.Pushable)
             {
                 if (side == CollisionSide.Top)

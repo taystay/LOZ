@@ -21,7 +21,11 @@ namespace LOZ.SpriteClasses.LinkSprites
             if (timer.TotalGameTime.Milliseconds % 150 == 0)
                 currentFrame++;          
             if (currentFrame == maxFrames)
+            {
                 currentFrame = 0;
+                Room.Link.Idle();
+            }
+                
             frame = frames[currentFrame];
         }
 

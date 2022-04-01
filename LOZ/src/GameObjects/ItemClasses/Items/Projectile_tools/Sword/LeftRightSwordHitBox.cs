@@ -11,8 +11,8 @@ namespace LOZ.ItemsClasses
         {
             sprite = ItemFactory.Instance.CreateInvisibleSprite();
             _itemLocation = itemLocation;
-            hitBoxWidth = 28;
-            hitBoxHeight = 11;
+            hitBoxWidth = 40;
+            hitBoxHeight = 50;
             Damage = 1;
         }
         public override void Update(GameTime gameTime)
