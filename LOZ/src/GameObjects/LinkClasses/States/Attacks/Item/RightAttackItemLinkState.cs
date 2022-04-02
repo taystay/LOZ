@@ -16,7 +16,7 @@ namespace LOZ.LinkClasses.States
         public override void Right()
         {
             //return to idle after attack
-            link.LinkState = new RightIdleLinkState(link);
+//link.LinkState = new RightIdleLinkState(link);
         }
         public override void Idle()
         {
