@@ -23,7 +23,7 @@ namespace LOZ.GameState
         private protected CollisionIterator colliders;
         public static ILink Link { get; set; } // only one link so we dont accidently break the game with the decorator.
         public static bool DebugMode { get; set; } = false;
-        public bool Damaged { get; set; } = false;
+        public static bool Damaged { get; set; } = false;
         public abstract void LoadContent();       
         public void Update(GameTime gameTime)
         {

@@ -50,7 +50,7 @@ namespace LOZ.LinkClasses
             Room.Link.Health -= damage;
             SoundManager.Instance.SoundToPlayInstance(SoundEnum.Link_Hurt);
             this.decoratedLink = decoratedLink;
-            CurrentRoom.Instance.Room.Damaged = true;
+            Room.Damaged = true;
 
             if (Room.Link.Health <= 2 && Room.Link.Health > 0)
             {
@@ -123,7 +123,7 @@ namespace LOZ.LinkClasses
         public void Update(GameTime timer)
         {
             count--;
-            if(count == 0)
+            if(count <= 0)
             {
                 RemoveDecorator();
             }
@@ -132,7 +132,7 @@ namespace LOZ.LinkClasses
         public void RemoveDecorator()
         {
            Room.Link = decoratedLink;
-           CurrentRoom.Instance.Room.Damaged = false;
+           Room.Damaged = false;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
