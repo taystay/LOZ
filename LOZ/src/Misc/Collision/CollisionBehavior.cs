@@ -82,7 +82,7 @@ namespace LOZ.Collision
             if (TypeC.Check(secondObject, typeof(StairsBlock)))
             {
                 //CurrentRoom.Instance.Transition();
-                CurrentRoom.Instance.MoveRoomDirection(0, 0, 1);
+                CurrentRoom.Instance.Transition(0, 0, 1);
             } 
             if (TypeC.Check(secondObject, typeof(Bomb)) || TypeC.Check(secondObject, typeof(FireProjectile)))
             {

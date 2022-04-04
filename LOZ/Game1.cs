@@ -18,6 +18,8 @@ namespace LOZ
     public enum CameraState
     {
         Paused,
+        Pausing,
+        Unpausing,
         Playing,
         Victory
     }
@@ -30,6 +32,8 @@ namespace LOZ
         private Dictionary<Point3D, Room> maps;
         private SpriteFont font;
         private ISprite GameOverDisplay;
+        private Texture2D fade;
+        private float alpha = 0.0f;
 
         public CameraState state { get; set; } = CameraState.Playing;
         private HudElement pausedHud;
@@ -77,13 +81,15 @@ namespace LOZ
             pausedHud = new PauseHud(Room.RoomInventory, Content);
 
             font = Content.Load<SpriteFont>("File");
+            fade = Content.Load<Texture2D>("Black");
             base.LoadContent();
         }
         protected override void Update(GameTime gameTime)
         {
             foreach (IController controller in controllerList)
             {
-                controller.Update(gameTime);
+                if(!CurrentRoom.Instance.transition)
+                    controller.Update(gameTime);
             }
             if (state == CameraState.Playing)
                 CurrentRoom.Instance.Update(gameTime);
@@ -92,6 +98,13 @@ namespace LOZ
 
 
             base.Update(gameTime);
+        }
+        private void DrawFade(SpriteBatch spriteBatch)
+        {
+            alpha += 0.01f;
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
+            spriteBatch.Draw(fade, new Rectangle(0, 0, Info.screenWidth, Info.screenHeight), Color.White * alpha);
+            spriteBatch.End();
         }
         protected override void Draw(GameTime gameTime)
         {
@@ -106,9 +119,32 @@ namespace LOZ
                 CurrentRoom.Instance.Draw(spriteBatch);
                 if (Room.Link.Health <= 0)
                     GameOverDisplay.Draw(spriteBatch, new Point(500, 500));
-            }        
-            else if (state == CameraState.Paused)
+            } 
+            else if(state == CameraState.Pausing)
+            {
+                CurrentRoom.Instance.Draw(spriteBatch);
+                DrawFade(spriteBatch);
+                if (alpha > 1.00f)
+                {
+                    alpha = 0.0f;
+                    state = CameraState.Paused;
+                }         
+            }
+            else if (state == CameraState.Unpausing)
+            {
                 pausedHud.Draw(spriteBatch);
+                DrawFade(spriteBatch);
+                if (alpha > 1.00f)
+                {
+                    alpha = 0.0f;
+                    state = CameraState.Playing;
+                }               
+            }
+            else if (state == CameraState.Paused)
+            {
+                pausedHud.Draw(spriteBatch);
+            }
+                
 
             if (!Room.DebugMode) return;
             spriteBatch.Begin();

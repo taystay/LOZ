@@ -11,8 +11,8 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            CurrentRoom.Instance.MoveRoomDirection(1,0, 0);
-            CurrentRoom.Instance.Transition();
+            //CurrentRoom.Instance.MoveRoomDirection(1,0, 0);
+            CurrentRoom.Instance.Transition(1,0,0);
         }
     }
 }

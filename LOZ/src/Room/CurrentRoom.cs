@@ -19,6 +19,7 @@ namespace LOZ.GameState
         public bool transition { get; set; } = false;
         private float alpha = 0.0f;
         private Texture2D fade;
+        private int dx = 0, dy = 0, dz = 0;
         public Point3D linkCoor { 
             get
             {
@@ -66,9 +67,12 @@ namespace LOZ.GameState
         {
             Room.DebugMode = !Room.DebugMode;
         }
-        public void Transition()
+        public void Transition(int dx, int dy, int dz)
         {
-            if(!transition)
+            this.dx = dx;
+            this.dy = dy;
+            this.dz = dz;
+            if (!transition)
             {
                 transition = true;
             }
@@ -121,9 +125,11 @@ namespace LOZ.GameState
             {
                 if(alpha <= 1.0f)
                 {
-                    alpha += 0.01f;
-                } else
+                    alpha += 0.03f;
+                }
+                else
                 {
+                    MoveRoomDirection(dx, dy, dz);
                     alpha = 0.1f;
                     transition = false;
                 }

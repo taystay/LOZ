@@ -11,10 +11,17 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            if(gameObject.state == CameraState.Playing)
+            if (gameObject.state == CameraState.Playing)
+            {
                 gameObject.state = CameraState.Paused;
-            else if(gameObject.state == CameraState.Paused)
+                gameObject.state = CameraState.Pausing;
+            }    
+            else if (gameObject.state == CameraState.Paused)
+            {
                 gameObject.state = CameraState.Playing;
+                gameObject.state = CameraState.Unpausing;
+            }
+                
 
         }
     }

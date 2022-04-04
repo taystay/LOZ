@@ -10,7 +10,7 @@ namespace LOZ.CommandClasses
     class AttackSword : ICommand
     {
         private Room _room;
-        private bool buttonPressed = false;
+        //private bool buttonPressed = false;
         public AttackSword(Room room)
         {
             _room = room;
