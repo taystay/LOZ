@@ -108,7 +108,6 @@ namespace LOZ
         }
         protected override void Draw(GameTime gameTime)
         {
-
             GraphicsDevice.Clear(Color.Black);
             if(Room.RoomInventory.hasTriforce)
             {

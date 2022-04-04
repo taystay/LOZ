@@ -12,6 +12,7 @@ namespace LOZ.ControllerClasses
         private Dictionary<Keys, ICommand> storedHoldCommands;
         private Dictionary<Keys, ICommand> storedReleaseCommands;
         private List<Keys> releaseKeysPressed;
+        private Keys keyBeingHeld = Keys.None;
         public KeyboardController(Game1 GameObject)
         {
             storedInitCommands = new Dictionary<Keys, ICommand>();
@@ -58,9 +59,16 @@ namespace LOZ.ControllerClasses
         {
             foreach (Keys key in Keyboard.GetState().GetPressedKeys())
             {
-                if (storedHoldCommands.ContainsKey(key))
+                if (storedHoldCommands.ContainsKey(key) && keyBeingHeld == Keys.None)
                 {
                     storedHoldCommands[key].execute();
+                    keyBeingHeld = key;
+                } else if(storedHoldCommands.ContainsKey(key) && keyBeingHeld == key)
+                {
+                    storedHoldCommands[key].execute();
+                } else
+                {
+                    keyBeingHeld = Keys.None;
                 }
             }
         }
