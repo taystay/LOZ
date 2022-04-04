@@ -16,6 +16,9 @@ namespace LOZ.GameState
         private static CurrentRoom instance = new CurrentRoom();
         private int roomCount = 0;
         private Point3D coor = new Point3D(3, 6);
+        public bool transition { get; set; } = false;
+        private float alpha = 0.0f;
+        private Texture2D fade;
         public Point3D linkCoor { 
             get
             {
@@ -57,10 +60,18 @@ namespace LOZ.GameState
             DungeonFactory.Instance.LoadAllTextures(Content);
             GameFont.Instance.LoadAllTextures(Content);
             Room.hudele = new UserCurrentItemHud(Room.RoomInventory, Content);
+            fade = Content.Load<Texture2D>("Black");
         }
         public void Debug()
         {
             Room.DebugMode = !Room.DebugMode;
+        }
+        public void Transition()
+        {
+            if(!transition)
+            {
+                transition = true;
+            }
         }
         public void MoveRoomDirection(int dx, int dy, int dz)
         {
@@ -89,7 +100,6 @@ namespace LOZ.GameState
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
             }
         }
-        
         public void NextRoom(int change)
         {
             roomCount += change;
@@ -98,13 +108,26 @@ namespace LOZ.GameState
         }
         public void Update(GameTime gameTime)
         {
-            Room.Update(gameTime);
-            Room roomevent1 = Rooms[new Point3D(2, 4)];
-            Room roomevent2 = Rooms[new Point3D(5, 2)];
-            if (!roomevent1.HasEnemies)
-                roomevent1.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
-            if (!roomevent2.HasEnemies)
-                roomevent2.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+            if (!transition)
+            {
+                Room.Update(gameTime);
+                Room roomevent1 = Rooms[new Point3D(2, 4)];
+                Room roomevent2 = Rooms[new Point3D(5, 2)];
+                if (!roomevent1.HasEnemies)
+                    roomevent1.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+                if (!roomevent2.HasEnemies)
+                    roomevent2.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+            } else
+            {
+                if(alpha <= 1.0f)
+                {
+                    alpha += 0.01f;
+                } else
+                {
+                    alpha = 0.1f;
+                    transition = false;
+                }
+            }
         }
         public void SpawnLink()
         {
@@ -117,6 +140,12 @@ namespace LOZ.GameState
         public void Draw(SpriteBatch spriteBatch)
         {
             Room.Draw(spriteBatch);
+            if (transition)
+            {
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
+                spriteBatch.Draw(fade, new Rectangle(0, 0, Info.screenWidth, Info.screenHeight), Color.White * alpha);
+                spriteBatch.End();
+            }
         }
     }
 }

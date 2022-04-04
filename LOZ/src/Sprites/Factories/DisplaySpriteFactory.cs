@@ -82,7 +82,5 @@ namespace LOZ.Factories
 		{
 			return tranparentB;
 		}
-
-
 	}
 }
