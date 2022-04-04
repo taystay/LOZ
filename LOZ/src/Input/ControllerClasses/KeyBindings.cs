@@ -21,14 +21,6 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterInitialCommand(Keys.B, new UseSelectedItem(gameObject));
             ControllerMappings.RegisterReleaseCommand(Keys.B, new Idle());
             ControllerMappings.RegisterInitialCommand(Keys.Z, new AttackSword(gameObject));
-            ControllerMappings.RegisterReleaseCommand(Keys.D1, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.D2, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.D3, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.D4, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.NumPad1, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.NumPad2, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.NumPad3, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.NumPad4, new Idle());
             ControllerMappings.RegisterHoldCommand(Keys.W, new UpMove());
             ControllerMappings.RegisterHoldCommand(Keys.A, new LeftMove());
             ControllerMappings.RegisterHoldCommand(Keys.S, new DownMove());
@@ -46,7 +38,6 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.Left, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.Down, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.Right, new Idle());
-            ControllerMappings.RegisterReleaseCommand(Keys.N, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.E, new Idle());
             mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoomLeftClick());
             mouseControllerMappings.RegisterRightClickCommands(new SwitchRoomRightClick());
