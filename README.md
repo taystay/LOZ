@@ -5,15 +5,17 @@ Team Members:
 -Keit Vu
 
 Program Controls: 
-	Z&N: Tells link to attack
-	WASD + Arrowkeys: Move the link
-	Number keys (1234...): Create Link's item
-	R: Reset the current room enemies
+	Z&B: Tells link to attack with the item in hand
+	WASD + Arrowkeys: Move the link (can only move one direction at a time. You cannot override movement)
+        Escape: Goes to the inventory  and pause game
+        R: Reset the whole game
+        M: Mutes sound 
 	Q: Quit game
 	E: Damage link
-	Mouse right-click: goes to the previous room
-	Mouse left-click: goes to the next room
-	Left shift: toggle hit box on all entities
+	Mouse right-click: goes to the previous room (does not do room transition)
+	Mouse left-click: goes to the next room ( does not do room transition)
+	Left shift: toggle hit box on all entities Debug mode (cannot take damage in debug mode)
+        When having the map in inventory and clicking a room it teleport you to the room.
 
 Tools used:
 	-paint.net
@@ -28,7 +30,8 @@ Citation:
 		https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
 		https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
 	
-
 Have not implemented:
-	-Link can move around int the black tile area of the basement. The group did not implement the blocks so that link does not walk around
-	 those area since we did not have time for it. 
+    -possibly pause state (if not the same as the inventory screen)
+    
+Bug:
+    -when in inventory and press m plays a split second of low health
