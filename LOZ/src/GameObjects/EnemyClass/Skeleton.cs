@@ -2,17 +2,21 @@
 using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.Collision;
+using LOZ.GameState;
 
 namespace LOZ.EnemyClass
 {
     class Skeleton : AbstractEnemy
     {
+        private double vMag = 3.5;
+        private protected Vector2 velocity2;
         public Skeleton(Point location) 
         {
             Health = 2;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateSkeleton();
             random = new Random();
+            velocity2 = new Vector2(0, 0);
         }
 
         public override Hitbox GetHitBox()
@@ -39,8 +43,30 @@ namespace LOZ.EnemyClass
             {
                 if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
                 {
-                    velocity.X = random.Next(-2, 2);
-                    velocity.Y = random.Next(-2, 2);
+                    Point linkP = Room.Link.Position;
+
+                    //https://stackoverflow.com/questions/41317291/setting-the-magnitude-of-a-2d-vector#41321162
+                    if (random.Next(2) % 2 == 0)
+                    {
+                        double dx = (linkP.X - Position.X);
+                        double dy = (linkP.Y - Position.Y);
+
+                        double mag = Math.Sqrt(dx * dx + dy * dy);
+
+
+
+                        dx = dx * vMag / mag;
+                        dy = dy * vMag / mag;
+                        velocity2.X = (float)dx;
+                        velocity2.Y = (float)dy;
+                    }
+                    else
+                    {
+                        double dx = (int)random.Next(-2, 2);
+                        double dy = (int)random.Next(-2, 2);
+                        velocity2.X = (float)dx;
+                        velocity2.Y = (float)dy;
+                    }
                 }
                 if (IsDamaged)
                 {
@@ -49,7 +75,7 @@ namespace LOZ.EnemyClass
                         IsDamaged = false;
                 }
 
-                modifyPosition(velocity.X, velocity.Y);
+                modifyPosition((int)velocity2.X, (int)velocity2.Y);
             }
             _texture.Update(timer);
         }
