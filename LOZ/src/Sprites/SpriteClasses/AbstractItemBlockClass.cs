@@ -5,7 +5,7 @@ namespace LOZ.SpriteClasses
 {
     abstract class AbstractItemBlockClass : ISprite
     {
-		private protected double scale = 1.0;
+		private protected double scale = 1.4;
 		private protected Rectangle frame;
 		private protected Texture2D _texture;
 		public abstract void Update(GameTime timer);
@@ -27,6 +27,7 @@ namespace LOZ.SpriteClasses
 			int width = (int)(scale * (int)frame.Width);
 			int height = (int)(scale * (int)frame.Height);
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
+			//destinationRectangle = new Rectangle(location.X - 24, location.Y - 24, 48, 48);
 
 			//for SpriteBatch.Begin(...)
 			//the paramater idea was from:

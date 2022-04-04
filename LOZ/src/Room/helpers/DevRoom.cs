@@ -45,11 +45,13 @@ namespace LOZ.GameState
         private void PlaceItemsForDev()
         {
             GameObjects.Add(new FireItem(GetCoorPoint(5.5, 6)));
+            GameObjects.Add(new PortalGun(GetCoorPoint(5.5, 3)));
 
             GameObjects.Add(new ArrowItem(GetCoorPoint(0,0)));
             GameObjects.Add(new Heart(GetCoorPoint(0, 3)));
             GameObjects.Add(new HeartContainer(GetCoorPoint(0, 6)));
             
+
             GameObjects.Add(new Bow(GetCoorPoint(3, 0)));
             GameObjects.Add(new Map(GetCoorPoint(3, 3)));
             GameObjects.Add(new Compass(GetCoorPoint(3, 6)));

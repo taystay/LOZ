@@ -148,5 +148,10 @@ namespace LOZ.Factories
         {
 			return new InvisibleSprite(ItemSpriteSheet);
         }
+
+		public ISprite CreatePortalGun()
+		{
+			return new PortalGunSprite(ItemSpriteSheet);
+		}
 	}
 }

@@ -24,13 +24,13 @@ namespace LOZ.Inventory
             set
             {
                 idInUse = value;
-                idInUse %= 2 + 1;
+                idInUse %= 3 + 1;
                 int i = 0;
-                while (!HasItem(idInUse) && i < 2)
+                while (!HasItem(idInUse) && i < 3)
                 {
                     i++;
                     idInUse++;
-                    idInUse %= 2 + 1;
+                    idInUse %= 3 + 1;
                 }
                     
             }
@@ -41,6 +41,8 @@ namespace LOZ.Inventory
         public int bombId { get; private set; } = 1;
         public bool hasBow { get; private set; } = false;
         public int bowId { get; private set; } = 2;
+        public bool hasPortalGun { get; private set; } = false;
+        public int gunId { get; private set; } = 3;
         public bool hasClock { get; private set; } = false;
         private int clockDuration = 400;
         private int clockTimeLeft = 400;
@@ -62,6 +64,7 @@ namespace LOZ.Inventory
             hasCompass = false;
             hasBomb = true;
             hasBow = false;
+            hasPortalGun = false;
             hasSword = false;
             hasTriforce = false;
         }
@@ -83,6 +86,7 @@ namespace LOZ.Inventory
         {
             if (id == bombId && hasBomb) return true;
             else if (id == bowId && hasBow) return true;
+            else if (id == gunId && hasPortalGun) return true;
             return false;
         }
 
@@ -93,6 +97,8 @@ namespace LOZ.Inventory
                 sprite = ItemFactory.Instance.CreateBombSprite();
             else if (id == bowId)
                 sprite = ItemFactory.Instance.CreateBowSprite();
+            else if (id == gunId)
+                sprite = ItemFactory.Instance.CreatePortalGun();
             if (sprite != null)
                 sprite.ChangeScale(1.5);
             return sprite;
@@ -105,6 +111,8 @@ namespace LOZ.Inventory
                 sprite = ItemFactory.Instance.CreateBombSprite();
             else if (selectedItem == bowId && hasBow)
                 sprite = ItemFactory.Instance.CreateBowSprite();
+            else if (selectedItem == gunId && hasPortalGun)
+                sprite = ItemFactory.Instance.CreatePortalGun();
             if (sprite != null)
                 sprite.ChangeScale(1.5);
             return sprite;
@@ -125,6 +133,11 @@ namespace LOZ.Inventory
             else if (TypeC.Check(item, typeof(Sword)))
             {
                 hasSword = true;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Fanfare);
+            }
+            else if (TypeC.Check(item, typeof(PortalGun)))
+            {
+                hasPortalGun = true;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Fanfare);
             }
             else if (TypeC.Check(item, typeof(Map)))

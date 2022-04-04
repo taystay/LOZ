@@ -125,6 +125,9 @@ namespace LOZ.Hud
                 DrawSingleItem(_linkInventory.bombId, spriteBatch);      
             if (_linkInventory.hasBow)
                 DrawSingleItem(_linkInventory.bowId, spriteBatch);
+            if(_linkInventory.hasPortalGun)
+                DrawSingleItem(_linkInventory.gunId, spriteBatch);
+
             i = 0;
         }
 
