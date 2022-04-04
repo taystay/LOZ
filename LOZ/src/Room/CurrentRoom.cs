@@ -125,7 +125,7 @@ namespace LOZ.GameState
             {
                 if(alpha <= 1.0f)
                 {
-                    alpha += 0.03f;
+                    alpha += 0.05f;
                 }
                 else
                 {

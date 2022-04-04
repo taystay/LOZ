@@ -101,7 +101,7 @@ namespace LOZ
         }
         private void DrawFade(SpriteBatch spriteBatch)
         {
-            alpha += 0.01f;
+            alpha += 0.07f;
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(fade, new Rectangle(0, 0, Info.screenWidth, Info.screenHeight), Color.White * alpha);
             spriteBatch.End();

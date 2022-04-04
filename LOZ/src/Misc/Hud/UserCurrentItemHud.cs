@@ -14,8 +14,7 @@ namespace LOZ.Hud
         private LinkInventory _linkInventory;
         private SpriteFont font;
         private ISprite room;
-        private ISprite linkLocation;
-        private ISprite triforceLoc;
+
         public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content)
         {
             _linkInventory = linkInventory;
