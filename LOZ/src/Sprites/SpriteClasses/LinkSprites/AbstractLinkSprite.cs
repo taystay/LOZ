@@ -16,7 +16,7 @@ namespace LOZ.SpriteClasses
         public abstract void Update(GameTime timer);
 
 		public void Draw(SpriteBatch spriteBatch, Point location) {
-            if(CurrentRoom.Instance.Room.Damaged)
+            if(Room.Damaged)
                 Draw(spriteBatch, location, Color.HotPink);
             else
 			    Draw(spriteBatch, location, Color.White);
