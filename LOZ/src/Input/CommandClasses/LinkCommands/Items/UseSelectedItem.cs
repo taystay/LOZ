@@ -5,17 +5,20 @@ namespace LOZ.CommandClasses
 {
     class UseSelectedItem : ICommand
     {
-        private Room _room;
-        public UseSelectedItem(Room room)
+        private Game1 _gameObject;
+        public UseSelectedItem(Game1 gameObject)
         {
-            _room = room;
+            _gameObject = gameObject;
         }
         public void execute()
         {
-            if (Room.RoomInventory.selectedItem == Room.RoomInventory.bombId && Room.RoomInventory.hasBomb)
-                Room.Link.Attack(Weapon.Bomb);
-            else if (Room.RoomInventory.selectedItem == Room.RoomInventory.bowId && Room.RoomInventory.hasBow && Room.RoomInventory.getItemCounts().rupees > 0)
-                Room.Link.Attack(Weapon.Arrow);
+            if (_gameObject.state != CameraState.Paused && _gameObject.state != CameraState.Pausing)
+            {
+                if (Room.RoomInventory.selectedItem == Room.RoomInventory.bombId && Room.RoomInventory.hasBomb)
+                    Room.Link.Attack(Weapon.Bomb);
+                else if (Room.RoomInventory.selectedItem == Room.RoomInventory.bowId && Room.RoomInventory.hasBow && Room.RoomInventory.getItemCounts().rupees > 0)
+                    Room.Link.Attack(Weapon.Arrow);
+            }
         }
     }
 }
