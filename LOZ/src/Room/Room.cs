@@ -51,9 +51,9 @@ namespace LOZ.GameState
             {
                 item.Draw(spriteBatch);
             }
-            Link.Draw(spriteBatch);
             if (CurrentRoom.Instance.linkCoor.X == 1 && CurrentRoom.Instance.linkCoor.Y == 3)
                 GameFont.Instance.Write(spriteBatch, "Eastmost Penninsula is the \n               secret", 265, 450);
+            Link.Draw(spriteBatch);
 
             if (!DebugMode) return; //Debug hitboxes for easy of testing numbers
             foreach (IGameObjects item in GameObjects)

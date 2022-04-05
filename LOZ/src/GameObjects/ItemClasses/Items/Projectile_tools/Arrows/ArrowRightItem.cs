@@ -9,7 +9,7 @@ namespace LOZ.ItemsClasses
         private Boolean spriteChanged = false;
         private int framesPassed = 0;
         private const int Velocity = 9;
-        private const int ArrowTravelFrames = 100;
+        private const int ArrowTravelFrames = 1000000;
         private const int DeadFrames = 25;
         private const int DeadArrowSpriteOffSet = -8;
         public ArrowRightItem(Point itemLocation)

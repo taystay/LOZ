@@ -94,7 +94,10 @@ namespace LOZ.ItemsClasses
         }
         public Hitbox GetHitBox()
         {
-            return  new Hitbox(_itemLocation.X - width / 2 , _itemLocation.Y - height / 2, width, height);
+            if(!hasCollided)
+                return  new Hitbox(_itemLocation.X - width / 2 , _itemLocation.Y - height / 2, width, height);
+            else
+                return new Hitbox(_itemLocation.X - secondW / 2, _itemLocation.Y - secondH / 2, secondW, secondH);
         }
         public void Update(GameTime gameTime)
         {
