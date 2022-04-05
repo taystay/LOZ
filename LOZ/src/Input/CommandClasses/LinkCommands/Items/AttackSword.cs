@@ -18,7 +18,7 @@ namespace LOZ.CommandClasses
             {
                 if (!Room.RoomInventory.hasSword) return;
 
-                if (Room.Link.Health == Room.Link.MaxHealth)
+                if (Room.Link.Health >= Room.Link.MaxHealth)
                     Room.Link.Attack(Weapon.Swordbeam);
                 else
                     Room.Link.Attack(Weapon.Default);

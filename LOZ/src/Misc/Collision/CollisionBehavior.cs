@@ -27,6 +27,11 @@ namespace LOZ.Collision
                 if(!p.hasCollided)
                     p.Collide();
             }
+            if(TypeC.Check(secondObject, typeof(Portal)))
+            {
+                Portal p = (Portal)secondObject;
+                PortalManager.MoveThroughPortal(p, firstObject);
+            }
 
             if (TypeC.Check(firstObject, typeof(ILink)))
             {

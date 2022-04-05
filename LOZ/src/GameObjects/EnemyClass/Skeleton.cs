@@ -8,7 +8,7 @@ namespace LOZ.EnemyClass
 {
     class Skeleton : AbstractEnemy
     {
-        private double vMag = 3.5;
+        private double vMag = 1;
         private protected Vector2 velocity2;
         public Skeleton(Point location) 
         {
