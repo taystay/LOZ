@@ -21,6 +21,12 @@ namespace LOZ.Collision
                 DoorCollider d = (DoorCollider)secondObject;
                 d.Collision(firstObject);
             }
+            if(TypeC.Check(secondObject, typeof(Portal)) && TypeC.Check(firstObject, typeof(IEnvironment)))
+            {
+                Portal p = (Portal)secondObject;
+                if(!p.hasCollided)
+                    p.Collide();
+            }
 
             if (TypeC.Check(firstObject, typeof(ILink)))
             {

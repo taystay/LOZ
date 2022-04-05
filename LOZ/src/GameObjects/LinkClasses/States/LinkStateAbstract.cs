@@ -41,13 +41,15 @@ namespace LOZ.LinkClasses
                 {
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Slash);
                     timeSinceAttack = attackCoolDown;
-                }      
+                }
                 else if (type == Weapon.Swordbeam)
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Shoot);
                 else if (type == Weapon.Arrow)
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Shoot);
                 else if (type == Weapon.Fire)
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Combined);
+                else if (type == Weapon.Portal)
+                    PortalManager.AddPortal((Portal)weapon);
                 CurrentRoom.Instance.Room.GameObjects.Add(weapon);
 
                 if (TypeC.Check(weapon, typeof(Bomb))) Room.RoomInventory.UseBomb();

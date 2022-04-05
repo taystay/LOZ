@@ -8,11 +8,11 @@ namespace LOZ.DungeonClasses
     public class DoorObject : IGameObjects
     {
 		private protected ISprite sprite;
-		private protected Point itemLocation;
+		private protected Point position;
         public DoorObject(Point location, DoorLocation n)
         {
             sprite = Factories.DungeonFactory.Instance.CreateDoorWay(n);
-            itemLocation = location;
+            position = location;
         }
 		public void Update(GameTime timer)
         {
@@ -23,7 +23,7 @@ namespace LOZ.DungeonClasses
             return new Hitbox(0, 0, 0, 0);
         }
 		public void Draw(SpriteBatch spriteBatch) {
-			sprite.Draw(spriteBatch, itemLocation);
+			sprite.Draw(spriteBatch, position);
 		}
     }
 }

@@ -14,6 +14,7 @@
     <None Remove="Icon.bmp" />
     <None Remove="Ignore.gitignore" />
     <None Remove="src\Misc\Camera\" />
+    <None Remove="src\GameObjects\ItemClasses\Items\Projectile_tools\Portal\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -31,5 +32,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\Misc\Camera\" />
+    <Folder Include="src\GameObjects\ItemClasses\Items\Projectile_tools\Portal\" />
   </ItemGroup>
 </Project>

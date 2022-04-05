@@ -45,6 +45,10 @@ namespace LOZ.LinkClasses.States
                 attackPosition.Y = position.Y - 45;
                 AttemptAttack(new FireProjectile(attackPosition, Direction.Up), toUse);
             }
+            else if (toUse == Weapon.Portal)
+            {
+                AttemptAttack(new Portal(attackPosition, 0, PortalManager.getColor()), toUse);
+            }
         }
 
     }

@@ -10,6 +10,7 @@ namespace LOZ.LinkClasses
         Arrow,
         Bomb,
         Fire,
+        Portal,
         Default
     }
     public interface ILink : IGameObjects

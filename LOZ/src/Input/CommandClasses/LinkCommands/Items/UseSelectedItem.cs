@@ -18,6 +18,10 @@ namespace LOZ.CommandClasses
                     Room.Link.Attack(Weapon.Bomb);
                 else if (Room.RoomInventory.selectedItem == Room.RoomInventory.bowId && Room.RoomInventory.hasBow && Room.RoomInventory.getItemCounts().rupees > 0)
                     Room.Link.Attack(Weapon.Arrow);
+                else if (Room.RoomInventory.selectedItem == Room.RoomInventory.gunId && Room.RoomInventory.hasPortalGun)
+                {
+                    Room.Link.Attack(Weapon.Portal);
+                }
             }
         }
     }
