@@ -24,8 +24,10 @@ namespace LOZ.Collision
             if(TypeC.Check(secondObject, typeof(Portal)) && TypeC.Check(firstObject, typeof(IEnvironment)))
             {
                 Portal p = (Portal)secondObject;
+                int status = 0;
                 if(!p.hasCollided)
-                    p.Collide();
+                    status = p.Collide();
+                if (status == -1) CurrentRoom.Instance.Room.RemovedInDetection.Add(p);
             }
             if(TypeC.Check(secondObject, typeof(Portal)))
             {

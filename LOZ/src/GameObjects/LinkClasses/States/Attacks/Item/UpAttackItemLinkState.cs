@@ -14,11 +14,6 @@ namespace LOZ.LinkClasses.States
             linkSprite = LinkSpriteFactory.Instance.LinkItemUpAttack();
 
         }
-        public override void Up()
-        {
-            //return to idle after attack
-            //link.LinkState = new UpIdleLinkState(link);
-        }
         public override void Idle()
         {
             link.LinkState = new UpIdleLinkState(link);

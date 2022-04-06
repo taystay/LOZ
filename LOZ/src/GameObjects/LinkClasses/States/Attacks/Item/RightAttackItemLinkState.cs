@@ -13,11 +13,6 @@ namespace LOZ.LinkClasses.States
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkItemRightAttack();
         }
-        public override void Right()
-        {
-            //return to idle after attack
-//link.LinkState = new RightIdleLinkState(link);
-        }
         public override void Idle()
         {
             link.LinkState = new RightIdleLinkState(link);

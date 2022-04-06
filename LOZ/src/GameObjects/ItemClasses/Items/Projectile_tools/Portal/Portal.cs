@@ -13,6 +13,7 @@ namespace LOZ.ItemsClasses
         public Point _itemLocation;   
         private bool spriteActivity = true;
         private bool spriteChanged = false;
+        private int timeAlive = 1;
         private Color _color;
         int width = 0, height = 0;
         int secondW = 0, secondH = 0;
@@ -80,11 +81,13 @@ namespace LOZ.ItemsClasses
 
             sprite = DisplaySpriteFactory.Instance.GetMapWalk(width, height);
         }
-        public void Collide()
+        public int Collide()
         {
+            if (timeAlive < 2) return -1;
             hasCollided = true;
             velocity = new Vector2();
             sprite = DisplaySpriteFactory.Instance.GetMapWalk(secondW, secondH);
+            return 0;
         }
         public void KillItem()
         {
@@ -100,6 +103,7 @@ namespace LOZ.ItemsClasses
         }
         public void Update(GameTime gameTime)
         {
+            if (timeAlive <= 1) timeAlive++;
             _itemLocation.X += (int)velocity.X;
             _itemLocation.Y += (int)velocity.Y;
             sprite.Update(gameTime);

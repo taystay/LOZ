@@ -37,7 +37,6 @@ namespace LOZ.EnemyClass
         {
             if(!IsDamaged)
             {
-                System.Diagnostics.Debug.WriteLine("Damaged! oof");
                 IsDamaged = true;
                 Health -= damage;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Hit);
