@@ -224,6 +224,12 @@
 /processorParam:Quality=Best
 /build:LOZ_LowHealth.wav
 
+#begin LOZ_PortalShot.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LOZ_PortalShot.wav
+
 #begin LOZ_Recorder.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -277,6 +283,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:LOZ_Text_Slow.wav
+
+#begin LOZ_win.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LOZ_win.wav
 
 #begin megaman.png
 /importer:TextureImporter

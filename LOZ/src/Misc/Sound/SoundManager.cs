@@ -40,9 +40,11 @@ namespace LOZ.Sound
 			}
 
 			sounds["Background"].IsLooped = true;
-			sounds["Background"].Volume = 0.1f;
+			sounds["Background"].Volume = 0.2f;
 			sounds["Background"].Play();
-        }
+			sounds["PortalShot"].Volume = 0.25f;
+
+		}
 
         public void SoundToPlayInstance(SoundEnum soundType) {
 

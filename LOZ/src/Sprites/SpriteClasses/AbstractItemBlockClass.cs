@@ -19,7 +19,7 @@ namespace LOZ.SpriteClasses
 			Draw(spriteBatch, location, Color.White);
 		}
 
-		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
+		public virtual void Draw(SpriteBatch spriteBatch, Point location, Color c)
 		{
 			Rectangle destinationRectangle;
 

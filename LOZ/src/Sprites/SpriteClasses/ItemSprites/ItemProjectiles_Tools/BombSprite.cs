@@ -16,7 +16,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 
 		public override void Update(GameTime gameTime)
 		{
-			scale += .01;
+			scale += .005;
 			color.G -= 3;
 			color.B -= 3;
 		}

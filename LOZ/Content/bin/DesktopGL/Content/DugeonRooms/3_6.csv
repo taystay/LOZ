@@ -1,5 +1,5 @@
 ﻿"(3,6,0)",,,,,,,,,,,
-locked,door,door,door,,,,,,,,
+locked,door,wall,door,,,,,,,,
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
 blueB,S1,blueB,blueB,S1,blueB,blueB,S2,blueB,blueB,S2,blueB
 blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB,blueB
@@ -8,4 +8,4 @@ blueB,blueB,blueB,blueB,blueB,blueS,blueS,blueB,blueB,blueB,blueB,blueB
 blueB,S1,blueB,blueS,S1,blueS,blueS,S2,blueS,blueB,S2,blueB
 blueB,blueB,blueB,blueS,blueS,blueS,blueS,blueS,blueS,blueB,blueB,blueB
 
-"sword(6,3)",,,,,,,,,,,
+"sword(6,3)","portalgun(7,3)",,,,,,,,,,

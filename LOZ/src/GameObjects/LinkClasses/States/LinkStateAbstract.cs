@@ -49,7 +49,11 @@ namespace LOZ.LinkClasses
                 else if (type == Weapon.Fire)
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Combined);
                 else if (type == Weapon.Portal)
+                {
                     PortalManager.AddPortal((Portal)weapon);
+                    SoundManager.Instance.SoundToPlayInstance(SoundEnum.PortalShot);
+                }
+                    
                 CurrentRoom.Instance.Room.GameObjects.Add(weapon);
 
                 if (TypeC.Check(weapon, typeof(Bomb))) Room.RoomInventory.UseBomb();
@@ -129,7 +133,7 @@ namespace LOZ.LinkClasses
             linkSprite.Update(timer);
         }
         public void Draw(SpriteBatch spriteBatch, Point position)
-        {
+        { 
             linkSprite.Draw(spriteBatch, position);
         }
     }

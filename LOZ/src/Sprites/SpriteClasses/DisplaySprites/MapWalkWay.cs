@@ -24,6 +24,10 @@ namespace LOZ.SpriteClasses.DisplaySprites
         {
 
         }
+		public void IncreaseWidth(int dx)
+        {
+			w += dx;
+        }
 		public void ChangeScale(double scale) { }
 		public void Draw(SpriteBatch spriteBatch, Point location)
 		{

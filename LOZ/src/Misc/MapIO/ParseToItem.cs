@@ -57,6 +57,9 @@ namespace LOZ.MapIO
             IGameObjects returnVal;
             switch (s)
             {
+                case "portalgun":
+                    returnVal = new PortalGun(location);
+                    break;
                 case "bow":
                     returnVal = new Bow(location);
                     break;

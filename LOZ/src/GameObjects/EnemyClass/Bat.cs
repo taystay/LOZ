@@ -8,7 +8,7 @@ namespace LOZ.EnemyClass
 {
     class Bat : AbstractEnemy
     {
-        private double vMag = 1;
+        private double vMag = 1.5;
         private protected Vector2 velocity2;
         public Bat(Point location)
         {
@@ -31,7 +31,7 @@ namespace LOZ.EnemyClass
                 Point linkP = Room.Link.Position;
 
                 //https://stackoverflow.com/questions/41317291/setting-the-magnitude-of-a-2d-vector#41321162
-                if (random.Next(2) % 2 == 0)
+                if (random.Next(2) % 3 != 0)
                 {
                     double dx = (linkP.X - Position.X);
                     double dy = (linkP.Y - Position.Y);

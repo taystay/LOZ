@@ -31,6 +31,7 @@ namespace LOZ.Collision
             }
             if(TypeC.Check(secondObject, typeof(Portal)))
             {
+                if (!TypeC.Check(firstObject, typeof(ILink)) && !TypeC.Check(firstObject, typeof(IItem))) return;
                 Portal p = (Portal)secondObject;
                 PortalManager.MoveThroughPortal(p, firstObject);
             }

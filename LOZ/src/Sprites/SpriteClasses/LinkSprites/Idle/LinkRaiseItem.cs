@@ -21,7 +21,7 @@ namespace LOZ.SpriteClasses.LinkSprites
                 currentFrame++;
             if (currentFrame == maxFrames)
                 currentFrame = 0;
-            frame = frames[currentFrame];
+            frame = frames[1];
         }
 
         public override void Draw(SpriteBatch spriteBatch, Point location, Color c)

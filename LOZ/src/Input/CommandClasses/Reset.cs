@@ -2,6 +2,7 @@
 using LOZ.MapIO;
 using System.Collections.Generic;
 using System.IO;
+using LOZ.Sound;
 using System.Reflection;
 
 namespace LOZ.CommandClasses
@@ -24,6 +25,7 @@ namespace LOZ.CommandClasses
             Room.Link.MaxHealth = 6;
             Room.Link.ChangeDirectionUp();
             Room.RoomInventory.Reset();
+            SoundManager.Instance.SoundToLoop(SoundEnum.Background);
         }
     }
 }

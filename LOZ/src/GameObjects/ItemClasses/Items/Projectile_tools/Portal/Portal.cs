@@ -45,7 +45,7 @@ namespace LOZ.ItemsClasses
                 case 0:
                     width = 10;
                     height = 20;
-                    secondW = 48;
+                    secondW = 60;
                     secondH = 10;
                     bottomSide = true;
                     velocity = new Vector2(0,-6);
@@ -54,14 +54,14 @@ namespace LOZ.ItemsClasses
                     width = 20;
                     height = 10;
                     secondW = 10;
-                    secondH = 48;
+                    secondH = 60;
                     leftSide = true;
                     velocity = new Vector2(6,0);
                     break;
                 case 2:
                     width = 10;
                     height = 20;
-                    secondW = 48;
+                    secondW = 60;
                     secondH = 10;
                     upSide = true;
                     velocity = new Vector2(0,6);
@@ -70,7 +70,7 @@ namespace LOZ.ItemsClasses
                     width = 20;
                     height = 10;
                     secondW = 10;
-                    secondH = 48;
+                    secondH = 60;
                     rightSide = true;
                     velocity = new Vector2(-6,0);
                     break;
@@ -84,22 +84,6 @@ namespace LOZ.ItemsClasses
             hasCollided = true;
             velocity = new Vector2();
             sprite = DungeonFactory.Instance.GetPortal(_identifier, _color);
-            int movedist = 7;
-            switch (_identifier)
-            {           
-                case 0: //up
-                    _itemLocation.Y -= movedist;
-                    break;
-                case 1: //right
-                    _itemLocation.X += movedist;
-                    break;
-                case 2: //down
-                    _itemLocation.Y += movedist;
-                    break;
-                default: //left
-                    _itemLocation.X -= movedist;
-                    break;
-            }
             return 0;
         }
         public void KillItem()

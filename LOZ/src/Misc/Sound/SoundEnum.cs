@@ -27,6 +27,8 @@ namespace LOZ.Sound
        Sword_Slash,
        Text,
        Text_Slow,
-       Background
+       Background,
+       PortalShot,
+       win
     }
 }

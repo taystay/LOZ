@@ -11,6 +11,7 @@ using System.Reflection;
 using LOZ.Sound;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
+using LOZ.SpriteClasses.DisplaySprites;
 using LOZ.Factories;
 
 namespace LOZ
@@ -31,7 +32,7 @@ namespace LOZ
         private List<IController> controllerList;
         private Dictionary<Point3D, Room> maps;
         private SpriteFont font;
-        private ISprite GameOverDisplay;
+        private ISprite GameOverDisplay, EndScreenAnimation;
         private Texture2D fade;
         private float alpha = 0.0f;
 
@@ -82,6 +83,7 @@ namespace LOZ
 
             font = Content.Load<SpriteFont>("File");
             fade = Content.Load<Texture2D>("Black");
+            EndScreenAnimation = DisplaySpriteFactory.Instance.CreateEndScreen();
             base.LoadContent();
         }
         protected override void Update(GameTime gameTime)
@@ -91,7 +93,9 @@ namespace LOZ
                 if(!CurrentRoom.Instance.transition)
                     controller.Update(gameTime);
             }
-            if (state == CameraState.Playing)
+            if (Room.RoomInventory.hasTriforce)
+                EndScreenAnimation.Update(gameTime);
+            else if (state == CameraState.Playing)
                 CurrentRoom.Instance.Update(gameTime);
             else if (state == CameraState.Paused)
                 pausedHud.Update();
@@ -111,7 +115,10 @@ namespace LOZ
             GraphicsDevice.Clear(Color.Black);
             if(Room.RoomInventory.hasTriforce)
             {
-                GameFont.Instance.Write(spriteBatch,"VICTORY!!! GOOOD JOB MAN YOURE AMAZING" , 40 , 500);
+                CurrentRoom.Instance.Draw(spriteBatch);
+                EndScreenAnimation.Draw(spriteBatch, new Point());
+                Room.Link.Draw(spriteBatch);
+                
             }
             else if (state == CameraState.Playing)
             {

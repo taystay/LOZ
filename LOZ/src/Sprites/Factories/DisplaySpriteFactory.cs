@@ -30,7 +30,10 @@ namespace LOZ.Factories
 			HUDSpritesheet = content.Load<Texture2D>("HUDLayout");
 			tranparentB = content.Load<Texture2D>("transparentB");
 		}
-
+		public ISprite CreateEndScreen()
+        {
+			return new EndScreenAnimation(HUDSpritesheet);
+        }
 		public ISprite CreateSelectItemSprite()
         {
 			return new SelectItemSprite(HUDSpritesheet);
