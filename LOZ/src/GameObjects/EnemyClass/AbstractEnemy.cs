@@ -27,6 +27,7 @@ namespace LOZ.EnemyClass
         protected static int currentKnockBack = 0;
         protected static bool knockedBack = false;
         public Point knockBackVel = new Point(0, 0);
+        public bool hasKey { get; set; } = false;
 
         public void KillItem()
         {
@@ -55,9 +56,14 @@ namespace LOZ.EnemyClass
                 {
                     CurrentRoom.Instance.Room.GameObjects.Add(new Clock(Position));
                 }
-                else if (num % 6 == 0)
+                else if (num % 4 == 0)
                 {
                     CurrentRoom.Instance.Room.GameObjects.Add(new Fairy(Position));
+                }
+
+                if(hasKey)
+                {
+                    CurrentRoom.Instance.Room.GameObjects.Add(new Key(Position));
                 }
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Die);
                 return false;

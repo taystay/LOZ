@@ -7,6 +7,7 @@ using LOZ.LinkClasses;
 using LOZ.GameState;
 using LOZ.DungeonClasses;
 using LOZ.CommandClasses.RoomCommands;
+using LOZ.EnemyClass;
 
 namespace LOZ.MapIO
 {
@@ -62,6 +63,17 @@ namespace LOZ.MapIO
 
             }
             listOfRooms.Add(new Point3D(3, 7 , 0), new DevRoom());
+
+            List<IGameObjects> objs = listOfRooms[new Point3D(3, 2, 0)].GameObjects;
+            foreach(IGameObjects item in objs)
+            {
+                if(TypeC.Check(item, typeof(AbstractEnemy)))
+                {
+                    AbstractEnemy e = (AbstractEnemy)item;
+                    e.hasKey = true;
+                    break;
+                }
+            }
         }
 
     }

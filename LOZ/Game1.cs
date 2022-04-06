@@ -100,6 +100,10 @@ namespace LOZ
             else if (state == CameraState.Paused)
                 pausedHud.Update();
 
+            //BUG: I had friend play it all the enmies stopped updating but link was being updated.
+            //he could move so room was not in transition state, he didnt have triforce and the pause hud wasnt being drawn. Thus
+            // he has to be in playing state or one of the pasuing / unpasuing states. so if anyone figures out this bug lmk.
+
 
             base.Update(gameTime);
         }
@@ -154,7 +158,7 @@ namespace LOZ
 
             if (!Room.DebugMode) return;
             spriteBatch.Begin();
-            spriteBatch.DrawString(font, "" + Mouse.GetState().X + "," + Mouse.GetState().Y, new Vector2(50, 50), Color.White);
+            spriteBatch.DrawString(font, "" + Mouse.GetState().X + "," + Mouse.GetState().Y + ", state: " + state.ToString(), new Vector2(50, 50), Color.White);
             spriteBatch.End();
 
 

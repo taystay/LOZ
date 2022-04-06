@@ -7,6 +7,7 @@ using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 using LOZ.Sound;
 using LOZ.Hud;
+using LOZ.ItemsClasses;
 
 namespace LOZ.GameState
 {
@@ -121,6 +122,8 @@ namespace LOZ.GameState
                     roomevent1.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
                 if (!roomevent2.HasEnemies)
                     roomevent2.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+
+                    
             } else
             {
                 if(alpha <= 1.0f)

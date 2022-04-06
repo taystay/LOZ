@@ -41,8 +41,7 @@ namespace LOZ.GameState
                     item.Update(gameTime);
                 }
                 RoomInventory.Update(gameTime);
-                RemoveDeadItems();
-                
+                RemoveDeadItems();             
             }
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -54,7 +53,7 @@ namespace LOZ.GameState
                 item.Draw(spriteBatch);
             }
             if (CurrentRoom.Instance.linkCoor.X == 1 && CurrentRoom.Instance.linkCoor.Y == 3)
-                GameFont.Instance.Write(spriteBatch, "Eastmost Penninsula is the \n               secret", 265, 450);
+                GameFont.Instance.Write(spriteBatch, "Some walls may be bombable", 265, 450);
             Link.Draw(spriteBatch);
 
             if (!DebugMode) return; //Debug hitboxes for easy of testing numbers
