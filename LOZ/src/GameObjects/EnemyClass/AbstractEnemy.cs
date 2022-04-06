@@ -55,7 +55,7 @@ namespace LOZ.EnemyClass
                 {
                     CurrentRoom.Instance.Room.GameObjects.Add(new Clock(Position));
                 }
-                else if (num % 7 == 0)
+                else if (num % 6 == 0)
                 {
                     CurrentRoom.Instance.Room.GameObjects.Add(new Fairy(Position));
                 }
