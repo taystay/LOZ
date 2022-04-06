@@ -8,11 +8,11 @@ namespace LOZ.EnemyClass
 {
     class Skeleton : AbstractEnemy
     {
-        private double vMag = 1;
+        private double vMag = 2;
         private protected Vector2 velocity2;
         public Skeleton(Point location) 
         {
-            Health = 2;
+            Health = 3;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateSkeleton();
             random = new Random();
@@ -25,7 +25,12 @@ namespace LOZ.EnemyClass
         }
 
         public override void Update(GameTime timer) {
-
+            if (IsDamaged)
+            {
+                timeLeftDamage--;
+                if (timeLeftDamage <= 0)
+                    IsDamaged = false;
+            }
             if (knockedBack)
             {
                 currentKnockBack++;
@@ -67,14 +72,7 @@ namespace LOZ.EnemyClass
                         velocity2.X = (float)dx;
                         velocity2.Y = (float)dy;
                     }
-                }
-                if (IsDamaged)
-                {
-                    timeLeftDamage--;
-                    if (timeLeftDamage <= 0)
-                        IsDamaged = false;
-                }
-
+                }              
                 modifyPosition((int)velocity2.X, (int)velocity2.Y);
             }
             _texture.Update(timer);

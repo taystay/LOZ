@@ -13,7 +13,6 @@ namespace LOZ.ItemsClasses
         public Point _itemLocation;   
         private bool spriteActivity = true;
         private bool spriteChanged = false;
-        private int framesPassed = 0;
         private Color _color;
         int width = 0, height = 0;
         int secondW = 0, secondH = 0;

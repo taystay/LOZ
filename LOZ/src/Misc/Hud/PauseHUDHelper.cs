@@ -25,7 +25,7 @@ namespace LOZ.Hud
 
         internal static void DrawMap(SpriteBatch spriteBatch, LinkInventory _linkInventory, Dictionary<Rectangle, Point3D> roomMapLocation)
         {
-            if (!_linkInventory.hasMap) return;
+            if (!_linkInventory.hasMap && !Room.DebugMode) return;
             Point3D linkCoor = CurrentRoom.Instance.linkCoor;
             ISprite map = ItemFactory.Instance.CreateMapSprite();
             map.ChangeScale(2);

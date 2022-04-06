@@ -14,9 +14,9 @@ namespace LOZ.EnemyClass
         
         private protected const int HeightSpriteSection = 83;
         private protected const int WidthSpriteSection = 64;
-        private protected const int InivincibilityFrames = 30;
+        private protected const int InivincibilityFrames = 20;
         public bool IsDamaged { get; set; }
-        private protected int timeLeftDamage = 100;
+        private protected int timeLeftDamage = 30;
         private protected ISprite _texture;
         public Point Position { get; set; }
         public int Health { get; set; } = 6;
@@ -37,6 +37,7 @@ namespace LOZ.EnemyClass
         {
             if(!IsDamaged)
             {
+                System.Diagnostics.Debug.WriteLine("Damaged! oof");
                 IsDamaged = true;
                 Health -= damage;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Hit);

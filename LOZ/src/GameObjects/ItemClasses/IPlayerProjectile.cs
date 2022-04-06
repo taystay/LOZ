@@ -19,6 +19,11 @@ namespace LOZ.ItemsClasses
         {
             _itemLocation = position;
         }
+
+        public virtual void ChangeDirection (int newDirection)
+        {
+
+        }
         public void SetPositionOnUpdate(Point position)
         {
             needsPositionUpdate = true;

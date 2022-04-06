@@ -33,10 +33,10 @@ namespace LOZ.LinkClasses.States
             //Don't do anything besides attacking
             if(toUse == Weapon.Swordbeam)
             {
-                AttemptAttack(new SwordBeamDown(attackPosition), toUse);
+                AttemptAttack(new SwordProjectile(attackPosition, 2), toUse);
             } else if (toUse == Weapon.Arrow)
             {
-                AttemptAttack(new ArrowDownItem(attackPosition), toUse);
+                AttemptAttack(new ArrowProjectile(attackPosition, 2), toUse);
             } else if (toUse == Weapon.Bomb)
             {
                 AttemptAttack(new Bomb(attackPosition), toUse);

@@ -32,6 +32,7 @@ namespace LOZ.GameState
             if (exterior != null) exterior.Update(gameTime);
             Link.Update(gameTime);
             if (!CurrentRoom.Instance.transition) {
+                colliders.Iterate();
                 for (int i = 0; i < GameObjects.Count; i++)
                 { // for loop because state of list may change. (items added)            
                     IGameObjects item = GameObjects[i];
@@ -41,7 +42,7 @@ namespace LOZ.GameState
                 }
                 RoomInventory.Update(gameTime);
                 RemoveDeadItems();
-                colliders.Iterate();
+                
             }
         }
         public void Draw(SpriteBatch spriteBatch)
