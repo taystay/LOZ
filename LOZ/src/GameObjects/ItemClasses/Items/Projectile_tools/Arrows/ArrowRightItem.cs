@@ -22,6 +22,7 @@ namespace LOZ.ItemsClasses
         }
         public override void Update(GameTime gameTime)
         {
+            UpdatePosition();
             if (framesPassed >= ArrowTravelFrames)
                 base.spriteActivity = false;
             //---Update Position---
@@ -35,7 +36,8 @@ namespace LOZ.ItemsClasses
                 _itemLocation = new Point(_itemLocation.X + DeadArrowSpriteOffSet, _itemLocation.Y);
                 return;
             }
-            _itemLocation = new Point(_itemLocation.X + Velocity, _itemLocation.Y);
+            this.SetPosition(new Point(_itemLocation.X + Velocity, _itemLocation.Y));
+            System.Diagnostics.Debug.WriteLine("" + _itemLocation.ToString() + "   " + Velocity.ToString());
         }
     }
 }

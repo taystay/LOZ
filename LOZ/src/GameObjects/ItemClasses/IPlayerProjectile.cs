@@ -10,12 +10,28 @@ namespace LOZ.ItemsClasses
         private protected ISprite sprite;
         public Point _itemLocation { get; set; }
         private protected bool spriteActivity = true;
+        private protected bool needsPositionUpdate = false;
+        private protected Point newPos;
         private protected int hitBoxWidth = 2;
         private protected int hitBoxHeight = 2;
         public int Damage { get; set; } = 0;
         public void SetPosition(Point position)
         {
             _itemLocation = position;
+        }
+        public void SetPositionOnUpdate(Point position)
+        {
+            needsPositionUpdate = true;
+            newPos = position;
+        }
+        private protected void UpdatePosition()
+        {
+            if (needsPositionUpdate && newPos != null)
+            {
+                _itemLocation = newPos;
+                needsPositionUpdate = false;
+            }
+                
         }
         public bool SpriteActive()
         {

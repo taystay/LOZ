@@ -103,7 +103,7 @@ namespace LOZ.ItemsClasses
         {
             _itemLocation.X += (int)velocity.X;
             _itemLocation.Y += (int)velocity.Y;
-            sprite.Update(gameTime);        
+            sprite.Update(gameTime);
         }
         
         public void SetPosition(Point position)

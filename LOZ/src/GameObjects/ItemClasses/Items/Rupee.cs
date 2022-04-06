@@ -18,6 +18,7 @@ namespace LOZ.ItemsClasses
         public override void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);
+            UpdatePosition();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace LOZ.ItemsClasses
         }
         public override void Update(GameTime gameTime)
         {
+            UpdatePosition();
             if (spriteActivity && FramesPassed >= ArrowTravelFrames)
                 spriteActivity = false;
 

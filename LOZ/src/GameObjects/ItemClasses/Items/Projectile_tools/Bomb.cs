@@ -36,6 +36,7 @@ namespace LOZ.ItemsClasses
         {
             if (spriteActivity && framesPassed >= bombActiveTime)
                 spriteActivity = false;
+            UpdatePosition();
 
             sprite.Update(gameTime);
             framesPassed++;

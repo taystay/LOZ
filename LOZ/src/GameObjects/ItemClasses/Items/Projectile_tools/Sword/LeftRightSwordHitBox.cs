@@ -17,12 +17,14 @@ namespace LOZ.ItemsClasses
         }
         public override void Update(GameTime gameTime)
         {
+            UpdatePosition();
             if (spriteActivity && FramesPassed >= TotalActiveFrames)
                 spriteActivity = false;
 
             //---Update Position---
             sprite.Update(gameTime);
             FramesPassed++;
+            UpdatePosition();
         }
     }
 }

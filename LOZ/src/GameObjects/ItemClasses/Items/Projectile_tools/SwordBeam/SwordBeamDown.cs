@@ -27,6 +27,7 @@ namespace LOZ.ItemsClasses
 
             //---Update Position---
             sprite.Update(gameTime);
+            UpdatePosition();
             FramesPassed++;
             if (spriteChanged) return;
             if (FramesPassed >= ArrowTravelFrames - DeadFrames)

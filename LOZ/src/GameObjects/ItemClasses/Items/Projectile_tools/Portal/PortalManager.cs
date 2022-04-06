@@ -26,24 +26,62 @@ namespace LOZ.ItemsClasses
             currentColor++;
             currentColor %= 2;
         }
+        private static void SetItemPosition(int portal, IItem item)
+        {
+            Hitbox portalBox;
+            Portal p;
+            switch (portal)
+            {
+                case 0: // blue
+                    p = (Portal)bluePortal;
+                    break;
+                default: //orange
+                    p = (Portal)orangePortal;
+                    break;
+            }
+            portalBox = p.GetHitBox();
+            if (p.upSide)
+                item.SetPositionOnUpdate(new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y - item.GetHitBox().ToRectangle().Height));
+            else if (p.leftSide)
+                item.SetPositionOnUpdate(new Point(portalBox.ToRectangle().X - item.GetHitBox().ToRectangle().Width, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2));
+            else if (p.rightSide)
+                item.SetPositionOnUpdate(new Point(portalBox.ToRectangle().X + item.GetHitBox().ToRectangle().Width, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2));
+            else if (p.bottomSide)
+                item.SetPositionOnUpdate(new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + item.GetHitBox().ToRectangle().Height));
+        }
+        private static void SetLinkPosition(int portal, ILink link)
+        {
+            Hitbox portalBox;
+            Portal p;
+            switch (portal)
+            {
+                case 0: // blue
+                    p = (Portal)bluePortal;
+                    break;
+                default: //orange
+                    p = (Portal)orangePortal;
+                    break;
+            }
+            portalBox = p.GetHitBox();
+            if (p.upSide)
+                Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y - link.GetHitBox().ToRectangle().Height - 5);
+            else if (p.leftSide)
+                Room.Link.Position = new Point(portalBox.ToRectangle().X - link.GetHitBox().ToRectangle().Width - 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
+            else if (p.rightSide)
+                Room.Link.Position = new Point(portalBox.ToRectangle().X + link.GetHitBox().ToRectangle().Width + 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
+            else if (p.bottomSide)
+                Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + link.GetHitBox().ToRectangle().Height + 5);
+        }
         private static void GoThroughOrange(IGameObjects o)
         {
             Portal op = (Portal)orangePortal;
             Portal bp = (Portal)bluePortal;
-            Hitbox portalBox = bp.GetHitBox();
             if (!op.hasCollided || !bp.hasCollided) return;
             if(TypeC.Check(o, typeof(ILink)))
             {
                 ILink link = (ILink)o;
                 CurrentRoom.Instance.linkCoor = blueRoom;
-                if (bp.upSide)
-                    Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y - link.GetHitBox().ToRectangle().Height - 5);
-                else if (bp.leftSide)
-                    Room.Link.Position = new Point(portalBox.ToRectangle().X - link.GetHitBox().ToRectangle().Width - 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
-                else if (bp.rightSide)
-                    Room.Link.Position = new Point(portalBox.ToRectangle().X + link.GetHitBox().ToRectangle().Width + 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
-                else if (bp.bottomSide)
-                    Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + link.GetHitBox().ToRectangle().Height + 5);
+                SetLinkPosition(0, link); // set to blue portal
             }
             else if (TypeC.Check(o, typeof(IItem)))
             {
@@ -53,37 +91,21 @@ namespace LOZ.ItemsClasses
                     Room bluer = CurrentRoom.Instance.Rooms[blueRoom];
                     Room oranger = CurrentRoom.Instance.Rooms[orangeRoom];
                     bluer.GameObjects.Add(o);
-                    oranger.GameObjects.Remove(o);
+                    oranger.RemovedInDetection.Add(o);
                 }
-                if (bp.upSide)
-                    item.SetPosition(new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y - item.GetHitBox().ToRectangle().Height));
-                else if (bp.leftSide)
-                    item.SetPosition(new Point(portalBox.ToRectangle().X - item.GetHitBox().ToRectangle().Width, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2));
-                else if (bp.rightSide)
-                    item.SetPosition(new Point(portalBox.ToRectangle().X + item.GetHitBox().ToRectangle().Width, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2));
-                else if (bp.bottomSide)
-                    item.SetPosition(new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + item.GetHitBox().ToRectangle().Height));
+                SetItemPosition(0, item); //set to blue portal
             }
         }
         private static void GoThroughBlue(IGameObjects o)
         {
             Portal op = (Portal)orangePortal;
             Portal bp = (Portal)bluePortal;
-            Hitbox objectBox = o.GetHitBox();
-            Hitbox portalBox = op.GetHitBox();
             if (!op.hasCollided || !bp.hasCollided) return;
             if (TypeC.Check(o, typeof(ILink)))
             {
                 ILink link = (ILink)o;
                 CurrentRoom.Instance.linkCoor = orangeRoom;
-                if (op.upSide)
-                    Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y - link.GetHitBox().ToRectangle().Height - 5);
-                else if (op.leftSide)
-                    Room.Link.Position = new Point(portalBox.ToRectangle().X - link.GetHitBox().ToRectangle().Width - 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
-                else if (op.rightSide)
-                    Room.Link.Position = new Point(portalBox.ToRectangle().X + link.GetHitBox().ToRectangle().Width + 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
-                else if (op.bottomSide)
-                    Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + link.GetHitBox().ToRectangle().Height + 5);
+                SetLinkPosition(1, link); //set to orange portal
             } else if (TypeC.Check(o, typeof(IItem)))
             {
                 IItem item = (IItem)o;
@@ -91,17 +113,10 @@ namespace LOZ.ItemsClasses
                 {
                     Room bluer = CurrentRoom.Instance.Rooms[blueRoom];
                     Room oranger = CurrentRoom.Instance.Rooms[orangeRoom];
-                    bluer.GameObjects.Remove(o);
+                    bluer.RemovedInDetection.Add(o);
                     oranger.GameObjects.Add(o);
                 }
-                if (op.upSide)
-                    item.SetPosition(new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y - item.GetHitBox().ToRectangle().Height));
-                else if (op.leftSide)
-                    item.SetPosition(new Point(portalBox.ToRectangle().X - item.GetHitBox().ToRectangle().Width, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2));
-                else if (op.rightSide)
-                    item.SetPosition(new Point(portalBox.ToRectangle().X + item.GetHitBox().ToRectangle().Width, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2));
-                else if (op.bottomSide)
-                    item.SetPosition(new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + item.GetHitBox().ToRectangle().Height));
+                SetItemPosition(1, item); // set to orange portal
             }
         }
         public static void MoveThroughPortal(Portal p, IGameObjects o)

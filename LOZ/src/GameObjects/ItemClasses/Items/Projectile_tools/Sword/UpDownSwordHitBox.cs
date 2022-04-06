@@ -23,6 +23,7 @@ namespace LOZ.ItemsClasses
             //---Update Position---
             sprite.Update(gameTime);
             FramesPassed++;
+            UpdatePosition();
         }
     }
 }

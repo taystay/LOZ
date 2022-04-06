@@ -28,6 +28,7 @@ namespace LOZ.ItemsClasses
 
             //---Update Position---
             sprite.Update(gameTime);
+            UpdatePosition();
 
             if (dx == 0 || dy == 0)
             {

@@ -19,6 +19,7 @@ namespace LOZ.GameState
         public static LinkInventory RoomInventory { get; set;}
         public bool HasEnemies { get; set; } = true;
         public List<IGameObjects> GameObjects { get; set; }
+        public List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
         public ExteriorObject exterior { get; set; }
         private protected CollisionIterator colliders;
         public static ILink Link { get; set; } // only one link so we dont accidently break the game with the decorator.
@@ -64,6 +65,10 @@ namespace LOZ.GameState
         }
         private void RemoveDeadItems()
         {
+            foreach (IGameObjects item in RemovedInDetection)
+            {
+                GameObjects.Remove(item);
+            }
             for(int i = GameObjects.Count - 1; i >= 0; i--)
             {
                 IGameObjects item = GameObjects[i];
