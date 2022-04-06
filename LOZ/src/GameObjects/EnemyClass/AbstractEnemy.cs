@@ -33,7 +33,7 @@ namespace LOZ.EnemyClass
             isActive = false;
         }
 
-        public void TakeDamage(int damage)
+        public virtual void TakeDamage(int damage)
         {
             if(!IsDamaged)
             {
@@ -43,7 +43,7 @@ namespace LOZ.EnemyClass
                 timeLeftDamage = InivincibilityFrames;
             } 
         }
-        public bool IsActive()
+        public virtual bool IsActive()
         {
             if (Health <= 0)
             {

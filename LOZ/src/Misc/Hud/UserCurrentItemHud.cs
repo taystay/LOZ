@@ -14,6 +14,7 @@ namespace LOZ.Hud
         private LinkInventory _linkInventory;
         private SpriteFont font;
         private ISprite room;
+        private Point _offset;
 
         public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content)
         {
@@ -22,7 +23,7 @@ namespace LOZ.Hud
             _offset = new Point(0, 0);
             room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
         }
-        private Point _offset;
+
         public UserCurrentItemHud(LinkInventory linkInventory, ContentManager content, Point offset)
         {
             _linkInventory = linkInventory;

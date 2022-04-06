@@ -4,6 +4,7 @@ using LOZ.Factories;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.Collision;
 using LOZ.GameState;
+using LOZ.Sound;
 
 
 namespace LOZ.EnemyClass
@@ -23,9 +24,30 @@ namespace LOZ.EnemyClass
             return new Hitbox(Position.X - 24, Position.Y - 30, 48, 24);
         }
 
+        public override void TakeDamage(int damage)
+        {
+            if (!IsDamaged)
+            {
+                IsDamaged = true;
+                Health -= damage;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Boss_Hit);
+                timeLeftDamage = InivincibilityFrames;
+            }
+        }
+
+        public override bool IsActive()
+        {
+            if (Health <= 0)
+            {
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Boss_Scream1);
+                return false;
+            }
+
+            return isActive;
+        }
+
         public override void Update(GameTime timer)
         {
-
 
             if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
             {

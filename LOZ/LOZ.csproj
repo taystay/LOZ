@@ -13,8 +13,8 @@
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
     <None Remove="Ignore.gitignore" />
-    <None Remove="src\Misc\Camera\" />
     <None Remove="src\GameObjects\ItemClasses\Items\Projectile_tools\Portal\" />
+    <None Remove="src\GameObjects\DungeonClasses\DoorTypes\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -31,7 +31,7 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\Misc\Camera\" />
     <Folder Include="src\GameObjects\ItemClasses\Items\Projectile_tools\Portal\" />
+    <Folder Include="src\GameObjects\DungeonClasses\DoorTypes\" />
   </ItemGroup>
 </Project>

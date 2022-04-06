@@ -10,8 +10,6 @@ namespace LOZ.ItemsClasses
         {
             sprite = ItemFactory.Instance.CreateTriforceSprite();
             _itemLocation = itemLocation;
-            hitBoxWidth = 14;
-            hitBoxHeight = 34;
         }
         public override void Update(GameTime gameTime)
         {

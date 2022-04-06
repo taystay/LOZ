@@ -47,5 +47,12 @@ namespace LOZ.DungeonClasses
         public static Rectangle bottomHalfBox = new Rectangle(196, 436 + Inside.Height, 576 / 2 - 24, BlockWidth);
         public static Rectangle bottomHalfBox2 = new Rectangle(196 - 24 + DoorToCornerWidth, 436 + Inside.Height, 576 / 2 - 24, BlockWidth);
         public static Rectangle bottomDoorCollider = new Rectangle(topHalfBox2.X - DoorWidth, topHalfBox2.Y + Inside.Height + BlockWidth * 2, BlockWidth * 3, BlockWidth);
+
+        public static Rectangle topDoorLocation = new Rectangle(450, 425, 50, 10);
+        public static Rectangle rightDoorLocation = new Rectangle(750, 575, 10, 50);
+        public static Rectangle leftDoorLocation = new Rectangle(200, 575, 10, 50);
+        public static Rectangle bottomDoorLocation = new Rectangle(450, 750, 50, 10);
+
+
     }
 }

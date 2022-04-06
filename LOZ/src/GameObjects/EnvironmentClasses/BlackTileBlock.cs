@@ -1,8 +1,5 @@
-﻿
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
-using LOZ.SpriteClasses;
 using LOZ.Collision;
 
 namespace LOZ.EnvironmentalClasses
@@ -17,10 +14,6 @@ namespace LOZ.EnvironmentalClasses
         public override Hitbox GetHitBox()
         {
             return new Hitbox(0, 0, 0, 0);
-        }
-        public override void Update(GameTime gameTime)
-        {
-            sprite.Update(gameTime);
         }
 
     }

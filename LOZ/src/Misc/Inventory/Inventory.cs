@@ -81,7 +81,6 @@ namespace LOZ.Inventory
             }
         }
 
-
         public bool HasItem(int id) // has item available to draw in B Slot
         {
             if (id == bombId && hasBomb) return true;

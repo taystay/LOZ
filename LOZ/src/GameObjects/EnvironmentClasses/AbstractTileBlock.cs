@@ -21,7 +21,10 @@ namespace LOZ.EnvironmentalClasses
 		public bool Pushable { get; set; } = false;
 		private protected ISprite sprite;
 		private protected Point itemLocation;
-		public abstract void Update(GameTime timer);
+		public virtual void Update(GameTime gameTime) {
+			sprite.Update(gameTime);
+
+		}
 
 		public abstract Hitbox GetHitBox();
 		public Point GetPosition() {

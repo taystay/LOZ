@@ -38,8 +38,6 @@ namespace LOZ.EnemyClass
 
                     double mag = Math.Sqrt(dx * dx + dy * dy);
 
-                    
-
                     dx = dx * vMag / mag;
                     dy = dy * vMag / mag;
                     velocity2.X = (float)dx;
