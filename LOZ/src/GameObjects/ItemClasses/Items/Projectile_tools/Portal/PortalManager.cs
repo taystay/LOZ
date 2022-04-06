@@ -72,62 +72,73 @@ namespace LOZ.ItemsClasses
             else if (p.bottomSide)
                 Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + link.GetHitBox().ToRectangle().Height + 5);
         }
-        private static void GoThroughOrange(IGameObjects o)
+        private static void ChangeItemDirection(int portal, IPlayerProjectile o, Point3D endpoint)
         {
-            Portal op = (Portal)orangePortal;
-            Portal bp = (Portal)bluePortal;
-            if (!op.hasCollided || !bp.hasCollided) return;
-            if(TypeC.Check(o, typeof(ILink)))
+            Portal p;
+            switch(portal)
             {
-                ILink link = (ILink)o;
-                CurrentRoom.Instance.linkCoor = blueRoom;
-                SetLinkPosition(0, link); // set to blue portal
+                case 0:
+                    p = (Portal)bluePortal;
+                    break;
+                default:
+                    p = (Portal)orangePortal;
+                    break;
             }
-            else if (TypeC.Check(o, typeof(IItem)))
+            IGameObjects newObject = null;
+            if (p.bottomSide)
+            {      
+                o.ChangeDirection(2, newObject);
+            } else if (p.upSide)
             {
-                IItem item = (IItem)o;
-                if (!blueRoom.Equals(orangeRoom))
-                {
-                    Room bluer = CurrentRoom.Instance.Rooms[blueRoom];
-                    Room oranger = CurrentRoom.Instance.Rooms[orangeRoom];
-                    bluer.GameObjects.Add(o);
-                    oranger.RemovedInDetection.Add(o);
-                }
-                SetItemPosition(0, item); //set to blue portal
+                o.ChangeDirection(0, newObject);
+            } else if (p.rightSide)
+            {
+                o.ChangeDirection(1, newObject);
+            } else if (p.leftSide)
+            {
+                o.ChangeDirection(3, newObject);
             }
+            Room endr = CurrentRoom.Instance.Rooms[endpoint];
+            endr.RemovedInDetection.Add(p);
+            endr.GameObjects.Add(newObject);
+
         }
-        private static void GoThroughBlue(IGameObjects o)
+
+        public static void MoveThroughPortal(Portal p, IGameObjects o)
         {
             Portal op = (Portal)orangePortal;
             Portal bp = (Portal)bluePortal;
+            if (orangePortal == null || bluePortal == null) return;
             if (!op.hasCollided || !bp.hasCollided) return;
+            int endroomint;
+            Point3D start;
+            Point3D end;
+            if (p.Equals(orangePortal))
+            {
+                endroomint = 0;
+                start = orangeRoom;
+                end = blueRoom;
+            } else
+            {
+                endroomint = 1;
+                start = blueRoom;
+                end = orangeRoom;
+            }
             if (TypeC.Check(o, typeof(ILink)))
             {
                 ILink link = (ILink)o;
-                CurrentRoom.Instance.linkCoor = orangeRoom;
-                SetLinkPosition(1, link); //set to orange portal
-            } else if (TypeC.Check(o, typeof(IItem)))
-            {
-                IItem item = (IItem)o;
-                if(!blueRoom.Equals(orangeRoom))
-                {
-                    Room bluer = CurrentRoom.Instance.Rooms[blueRoom];
-                    Room oranger = CurrentRoom.Instance.Rooms[orangeRoom];
-                    bluer.RemovedInDetection.Add(o);
-                    oranger.GameObjects.Add(o);
-                }
-                SetItemPosition(1, item); // set to orange portal
+                CurrentRoom.Instance.linkCoor = end;
+                SetLinkPosition(endroomint, link);
             }
-        }
-        public static void MoveThroughPortal(Portal p, IGameObjects o)
-        {
-            if (orangePortal == null || bluePortal == null) return;
-            if (p.Equals(orangePortal))
+            else if (TypeC.Check(o, typeof(IItem)))
             {
-                GoThroughOrange(o);
-            } else
-            {
-                GoThroughBlue(o);
+                SetItemPosition(endroomint, (IItem)o);
+                if (blueRoom.Equals(orangeRoom)) return;
+                Room startr = CurrentRoom.Instance.Rooms[start];
+                Room endr = CurrentRoom.Instance.Rooms[end];
+                startr.RemovedInDetection.Add(o);
+                endr.GameObjects.Add(o);
+                //ChangeItemDirection(endroomint, (IPlayerProjectile)o, end);
             }
         }
         public static void AddPortal(Portal p)
