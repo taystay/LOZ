@@ -14,7 +14,9 @@ namespace LOZ.ItemsClasses
         private bool spriteActivity = true;
         private bool spriteChanged = false;
         private int timeAlive = 1;
-        private Color _color;
+        private int _color;
+        private int _identifier;
+        
         int width = 0, height = 0;
         int secondW = 0, secondH = 0;
         Vector2 velocity;
@@ -33,15 +35,10 @@ namespace LOZ.ItemsClasses
         {
             _itemLocation = itemLocation;
 
+            _color = color;
+            _identifier = identifier;
             if (color == 0)
-            {
-                _color = Color.Blue;
                 isBlue = true;
-            }
-            else
-            {
-                _color = Color.Orange;
-            }
 
             switch (identifier)
             {
@@ -51,7 +48,7 @@ namespace LOZ.ItemsClasses
                     secondW = 48;
                     secondH = 10;
                     bottomSide = true;
-                    velocity = new Vector2(0,-4);
+                    velocity = new Vector2(0,-6);
                     break;
                 case 1:
                     width = 20;
@@ -59,7 +56,7 @@ namespace LOZ.ItemsClasses
                     secondW = 10;
                     secondH = 48;
                     leftSide = true;
-                    velocity = new Vector2(4,0);
+                    velocity = new Vector2(6,0);
                     break;
                 case 2:
                     width = 10;
@@ -67,7 +64,7 @@ namespace LOZ.ItemsClasses
                     secondW = 48;
                     secondH = 10;
                     upSide = true;
-                    velocity = new Vector2(0,4);
+                    velocity = new Vector2(0,6);
                     break;
                 default:
                     width = 20;
@@ -75,7 +72,7 @@ namespace LOZ.ItemsClasses
                     secondW = 10;
                     secondH = 48;
                     rightSide = true;
-                    velocity = new Vector2(-4,0);
+                    velocity = new Vector2(-6,0);
                     break;
             }
 
@@ -86,7 +83,23 @@ namespace LOZ.ItemsClasses
             if (timeAlive < 2) return -1;
             hasCollided = true;
             velocity = new Vector2();
-            sprite = DisplaySpriteFactory.Instance.GetMapWalk(secondW, secondH);
+            sprite = DungeonFactory.Instance.GetPortal(_identifier, _color);
+            int movedist = 7;
+            switch (_identifier)
+            {           
+                case 0: //up
+                    _itemLocation.Y -= movedist;
+                    break;
+                case 1: //right
+                    _itemLocation.X += movedist;
+                    break;
+                case 2: //down
+                    _itemLocation.Y += movedist;
+                    break;
+                default: //left
+                    _itemLocation.X -= movedist;
+                    break;
+            }
             return 0;
         }
         public void KillItem()
@@ -121,7 +134,23 @@ namespace LOZ.ItemsClasses
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, _itemLocation, _color);
+            if (hasCollided)
+            {
+                if (_color == 0)
+                    sprite.Draw(spriteBatch, _itemLocation);
+                else
+                    sprite.Draw(spriteBatch, _itemLocation);
+            } else
+            {
+                if(_color == 0)
+                {
+                    sprite.Draw(spriteBatch, _itemLocation, Color.Blue);
+                } else
+                {
+                    sprite.Draw(spriteBatch, _itemLocation, Color.DarkOrange);
+                }
+            }
+                
         }
     }
 }

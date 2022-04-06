@@ -30,6 +30,11 @@ namespace LOZ.Factories
 			blockSpritesheet = content.Load<Texture2D>("8376");
 		}
 
+		public ISprite GetPortal(int direction, int color)
+        {
+			return new PortalSprite(blockSpritesheet, direction, color);
+        }
+
 		public ISprite GetExterior()
         {
 			return new ExteriorSprite(blockSpritesheet);
