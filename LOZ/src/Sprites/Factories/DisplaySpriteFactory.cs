@@ -10,6 +10,7 @@ namespace LOZ.Factories
     {
 		private Texture2D HUDSpritesheet;
 		private Texture2D tranparentB;
+		private Texture2D mainMenu;
 
 		private static DisplaySpriteFactory instance = new DisplaySpriteFactory();
 
@@ -29,7 +30,12 @@ namespace LOZ.Factories
 		{
 			HUDSpritesheet = content.Load<Texture2D>("HUDLayout");
 			tranparentB = content.Load<Texture2D>("transparentB");
+			mainMenu = content.Load<Texture2D>("loz_menu");
 		}
+		public ISprite GetMainMenu()
+        {
+			return new MainMenu(mainMenu);
+        }
 		public ISprite CreateEndScreen()
         {
 			return new EndScreenAnimation(HUDSpritesheet);

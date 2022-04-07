@@ -9,6 +9,7 @@ using LOZ.EnemyClass.Projectiles;
 using LOZ.Hud;
 using LOZ.Inventory;
 using LOZ.DungeonClasses;
+using LOZ.SpriteClasses;
 using LOZ.Factories;
 
 namespace LOZ.GameState
@@ -25,7 +26,8 @@ namespace LOZ.GameState
         public static ILink Link { get; set; } // only one link so we dont accidently break the game with the decorator.
         public static bool DebugMode { get; set; } = false;
         public static bool Damaged { get; set; } = false;
-        public abstract void LoadContent();       
+        public abstract void LoadContent();
+        
         public void Update(GameTime gameTime)
         {
             HasEnemies = false;

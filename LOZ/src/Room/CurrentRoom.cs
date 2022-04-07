@@ -8,6 +8,7 @@ using LOZ.DungeonClasses;
 using LOZ.Sound;
 using LOZ.Hud;
 using LOZ.ItemsClasses;
+using LOZ.SpriteClasses;
 
 namespace LOZ.GameState
 {
@@ -21,6 +22,7 @@ namespace LOZ.GameState
         private float alpha = 0.0f;
         private Texture2D fade;
         private int dx = 0, dy = 0, dz = 0;
+        
         public Point3D linkCoor { 
             get
             {
@@ -51,6 +53,7 @@ namespace LOZ.GameState
         }
         private CurrentRoom() {
             Room.RoomInventory = new Inventory.LinkInventory();
+            
         }
         public void LoadTextures(ContentManager Content)
         {
@@ -63,6 +66,7 @@ namespace LOZ.GameState
             GameFont.Instance.LoadAllTextures(Content);
             Room.hudele = new UserCurrentItemHud(Room.RoomInventory, Content);
             fade = Content.Load<Texture2D>("Black");
+            
         }
         public void Debug()
         {
@@ -113,6 +117,7 @@ namespace LOZ.GameState
         }
         public void Update(GameTime gameTime)
         {
+            
             if (!transition)
             {
                 Room.Update(gameTime);
@@ -148,6 +153,7 @@ namespace LOZ.GameState
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            
             Room.Draw(spriteBatch);
             if (transition)
             {
@@ -155,6 +161,7 @@ namespace LOZ.GameState
                 spriteBatch.Draw(fade, new Rectangle(0, 0, Info.screenWidth, Info.screenHeight), Color.White * alpha);
                 spriteBatch.End();
             }
+            
         }
     }
 }

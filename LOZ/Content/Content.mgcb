@@ -224,6 +224,18 @@
 /processorParam:Quality=Best
 /build:LOZ_LowHealth.wav
 
+#begin loz_menu.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=131,255,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:loz_menu.png
+
 #begin LOZ_PortalShot.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

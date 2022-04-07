@@ -18,6 +18,7 @@ namespace LOZ
 {
     public enum CameraState
     {
+        MainMenu,
         Paused,
         Pausing,
         Unpausing,
@@ -35,8 +36,9 @@ namespace LOZ
         private ISprite GameOverDisplay, EndScreenAnimation;
         private Texture2D fade;
         private float alpha = 0.0f;
+        private ISprite menuTest;
 
-        public CameraState state { get; set; } = CameraState.Playing;
+        public CameraState state { get; set; } = CameraState.MainMenu;
         private HudElement pausedHud;
         public Game1()
         {
@@ -84,10 +86,12 @@ namespace LOZ
             font = Content.Load<SpriteFont>("File");
             fade = Content.Load<Texture2D>("Black");
             EndScreenAnimation = DisplaySpriteFactory.Instance.CreateEndScreen();
+            menuTest = DisplaySpriteFactory.Instance.GetMainMenu();
             base.LoadContent();
         }
         protected override void Update(GameTime gameTime)
         {
+            
             foreach (IController controller in controllerList)
             {
                 if(!CurrentRoom.Instance.transition)
@@ -99,6 +103,12 @@ namespace LOZ
                 CurrentRoom.Instance.Update(gameTime);
             else if (state == CameraState.Paused)
                 pausedHud.Update();
+            else if (state == CameraState.MainMenu)
+            {
+                menuTest.Update(gameTime);
+                if (Keyboard.GetState().GetPressedKeyCount() > 0)
+                    state = CameraState.Playing;
+            }
 
             //BUG: I had friend play it all the enmies stopped updating but link was being updated.
             //he could move so room was not in transition state, he didnt have triforce and the pause hud wasnt being drawn. Thus
@@ -153,6 +163,9 @@ namespace LOZ
             else if (state == CameraState.Paused)
             {
                 pausedHud.Draw(spriteBatch);
+            } else if (state == CameraState.MainMenu)
+            {
+                menuTest.Draw(spriteBatch, new Point(Info.screenWidth / 2, Info.screenHeight / 2));
             }
                 
 
