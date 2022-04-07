@@ -23,6 +23,9 @@ Tools used:
 	-Asperite
 		-used on the enemies sprite to make a personal spritesheet of enemies
 		and cut unneccessary enemies from the spritesheet
+        -Audioacity
+            -used for audio files
+            -https://zeldauniverse.net/media/music/the-legend-of-zelda-original-soundtrack/
 
 Citation:
 	-for SpriteBatch.Begin(...)
