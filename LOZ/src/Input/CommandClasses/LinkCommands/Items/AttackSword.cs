@@ -14,15 +14,13 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            if (_gameObject.state != CameraState.Paused && _gameObject.state != CameraState.Pausing)
-            {
+
                 if (!Room.RoomInventory.hasSword) return;
 
                 if (Room.Link.Health >= Room.Link.MaxHealth)
                     Room.Link.Attack(Weapon.Swordbeam);
                 else
                     Room.Link.Attack(Weapon.Default);
-            }
         }
     }
 }

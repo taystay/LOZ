@@ -12,8 +12,6 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            if (_gameObject.state != CameraState.Paused && _gameObject.state != CameraState.Pausing)
-            {
                 if (Room.RoomInventory.selectedItem == Room.RoomInventory.bombId && Room.RoomInventory.hasBomb)
                     Room.Link.Attack(Weapon.Bomb);
                 else if (Room.RoomInventory.selectedItem == Room.RoomInventory.bowId && Room.RoomInventory.hasBow && Room.RoomInventory.getItemCounts().rupees > 0)
@@ -22,7 +20,7 @@ namespace LOZ.CommandClasses
                 {
                     Room.Link.Attack(Weapon.Portal);
                 }
-            }
+            
         }
     }
 }

@@ -16,7 +16,7 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.OemPipe, new EnterDebugMode());
             ControllerMappings.RegisterReleaseCommand(Keys.R, new Reset());
             ControllerMappings.RegisterReleaseCommand(Keys.M, new Mute());
-            ControllerMappings.RegisterReleaseCommand(Keys.Escape, new Pause(gameObject));
+            //ControllerMappings.RegisterReleaseCommand(Keys.Escape, new Pause(gameObject));
 
             ControllerMappings.RegisterInitialCommand(Keys.B, new UseSelectedItem(gameObject));
             ControllerMappings.RegisterReleaseCommand(Keys.B, new Idle());

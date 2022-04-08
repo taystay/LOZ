@@ -1,28 +1,21 @@
 ﻿using LOZ.Sound;
+using LOZ.src.CameraStates;
+using LOZ.SpriteClasses;
 
 namespace LOZ.CommandClasses
 {
     class Pause : ICommand
     {
         private Game1 gameObject;
+        
         public Pause(Game1 gameObj)
         {
             gameObject = gameObj;
+            
         }
         public void execute()
         {
-            if (gameObject.state == CameraState.Playing)
-            {
-                gameObject.state = CameraState.Paused;
-                gameObject.state = CameraState.Pausing;
-            }    
-            else if (gameObject.state == CameraState.Paused)
-            {
-                gameObject.state = CameraState.Playing;
-                gameObject.state = CameraState.Unpausing;
-            }
-                
-
+            gameObject.stateOfGame = new Paused(gameObject);
         }
     }
 }

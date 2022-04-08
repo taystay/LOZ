@@ -30,7 +30,6 @@ namespace LOZ.ControllerClasses
 
         public void Update(GameTime gametime)
         {
-            if (gameObject.state != CameraState.Playing) return;
             MouseState state = Mouse.GetState();
             foreach (ICommand command in leftClickCommands)
             {
