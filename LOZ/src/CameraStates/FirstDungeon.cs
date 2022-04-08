@@ -11,6 +11,7 @@ using System.Reflection;
 using LOZ.Sound;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
+using LOZ.ItemsClasses;
 using LOZ.SpriteClasses.DisplaySprites;
 using LOZ.Factories;
 namespace LOZ.src.CameraStates
@@ -31,7 +32,7 @@ namespace LOZ.src.CameraStates
         {
             if (CurrentRoom.Instance.transition) return;
 
-            if (Room.RoomInventory.hasTriforce)
+            if (Room.RoomInventory.HasItem(typeof(Triforce)))
                 _gameObject.stateOfGame = new Victory(_gameObject);
 
             keyboard.Update(gameTime);
