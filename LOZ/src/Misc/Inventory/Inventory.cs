@@ -16,18 +16,20 @@ namespace LOZ.Inventory
         public int bombCount { get; set; }
         public int rupeeCount { get; set; }
         public int keyCount { get; set; }
-        public int currentItem { get; set; } = -1;
+        public int currentItem { get; set; } = 0;
         #endregion
 
         public LinkInventory()
         {
-            Reset();
+            inventory = new List<IGameObjects>();
+            bombCount = 0;
+            rupeeCount = 0;
+            keyCount = 0;
         }
 
-        public void Reset()
+        public void Initialize()
         {
             inventory = new List<IGameObjects>();
-            BSlot = null;
             bombCount = 10;
             rupeeCount = 20;
             keyCount = 0;
@@ -59,9 +61,18 @@ namespace LOZ.Inventory
                 keyCount++;
         }
 
+        private void SelectType(System.Type itemType)
+        {
+            foreach(IGameObjects item in  inventory)
+            {
+                if (TypeC.Check(item, itemType))
+                    currentItem = inventory.IndexOf(item);
+            }
+        }
+
         private bool UseItem(System.Type itemType)
         {
-            for (int i = inventory.Count - 1; i >= 0; i++)
+            for (int i = inventory.Count - 1; i >= 0; i--)
             {
                 IGameObjects item = inventory[i];
                 if (TypeC.Check(item, itemType))
@@ -69,6 +80,7 @@ namespace LOZ.Inventory
                     if (inventory.IndexOf(item) >= currentItem)
                         currentItem--;
                     inventory.RemoveAt(i);
+                    SelectType(itemType);
                     return true; //item found
                 }
             }

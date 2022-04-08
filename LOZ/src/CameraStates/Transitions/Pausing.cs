@@ -32,7 +32,7 @@ namespace LOZ.src.CameraStates
         {
             fade.Update(gameTime);
             if (fade.FadeDone())
-                _gameObject.stateOfGame = new Paused(_gameObject);
+                _gameObject.CameraState = new Paused(_gameObject);
         }
         public void Reset()
         {

@@ -1,5 +1,6 @@
 ﻿using LOZ.LinkClasses;
 using LOZ.GameState;
+using LOZ.ItemsClasses;
 
 
 
@@ -15,7 +16,7 @@ namespace LOZ.CommandClasses
         public void execute()
         {
 
-                if (!Room.RoomInventory.hasSword) return;
+                if (!Room.RoomInventory.HasItem(typeof(Sword))) return;
 
                 if (Room.Link.Health >= Room.Link.MaxHealth)
                     Room.Link.Attack(Weapon.Swordbeam);

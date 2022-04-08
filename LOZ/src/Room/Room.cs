@@ -16,7 +16,6 @@ namespace LOZ.GameState
 {
     public abstract class Room
     { 
-        public static HudElement hudele { get; set; }
         public static LinkInventory RoomInventory { get; set;}
         public bool HasEnemies { get; set; } = true;
         public List<IGameObjects> GameObjects { get; set; }
@@ -42,14 +41,12 @@ namespace LOZ.GameState
                         HasEnemies = true;
                     item.Update(gameTime);
                 }
-                RoomInventory.Update(gameTime);
                 RemoveDeadItems();             
             }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (exterior != null) exterior.Draw(spriteBatch);
-            hudele.Draw(spriteBatch);
             foreach (IGameObjects item in GameObjects)
             {
                 item.Draw(spriteBatch);

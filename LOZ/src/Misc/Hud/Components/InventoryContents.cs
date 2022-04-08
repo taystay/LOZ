@@ -23,7 +23,8 @@ namespace LOZ.Hud
 
         public InventoryContents(LinkInventory inventory, Point drawLocation)
         {
- 
+            _inventory = inventory;
+            DrawPoint = drawLocation;
         }
 
         public void OffsetHud(Point offset)
@@ -48,12 +49,15 @@ namespace LOZ.Hud
             int starty = 200;
             int offset = 75;
             int i = 0;
+            List<string> typesDrawn = new List<string>();
             foreach(IGameObjects o in _inventory.inventory)
             {
                 IItem item = (IItem)o;
+                if (typesDrawn.Contains(item.GetType().FullName)) return;
                 item.SetPosition(new Point(startx + offset * i, starty));
                 item.Draw(spriteBatch);
                 i++;
+                typesDrawn.Add(item.GetType().FullName);
             }
         }
     }

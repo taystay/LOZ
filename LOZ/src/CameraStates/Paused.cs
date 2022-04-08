@@ -23,14 +23,14 @@ namespace LOZ.src.CameraStates
         public Paused(Game1 gameObject)
         {
             _gameObject = gameObject;
-            pausedHud = new PauseHud(Room.RoomInventory, _gameObject.Content);
+            pausedHud = new InventoryHud(Room.RoomInventory);
         }
         public void UpdateController(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
                 _gameObject.Exit();
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                _gameObject.stateOfGame = new Unpausing(_gameObject, pausedHud);
+                _gameObject.CameraState = new Unpausing(_gameObject, pausedHud);
             
         }
         public void Update(GameTime gameTime)

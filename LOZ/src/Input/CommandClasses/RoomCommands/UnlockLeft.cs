@@ -14,7 +14,7 @@ namespace LOZ.CommandClasses.RoomCommands
         }
         public void execute()
         {
-            if(Room.RoomInventory.getItemCounts().keys >= 1)
+            if(Room.RoomInventory.keyCount > 0)
             {
                 CurrentRoom.Instance.Room.exterior.ChangeDoorOnUpdate(DoorLocation.Left, DoorType.Door);
                 Room.RoomInventory.UseKey();

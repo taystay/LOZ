@@ -16,6 +16,7 @@ namespace LOZ.Hud
         private List<HudComponent> componenets;
         private LinkInventory _linkInventory;
 
+        private ISprite ui = DisplaySpriteFactory.Instance.CreatePauseSprite();
         public InventoryHud(LinkInventory linkInventory)
         {
             _linkInventory = linkInventory;
@@ -38,6 +39,7 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            ui.Draw(spriteBatch, new Point(0, 50));
             foreach(HudComponent component in componenets)
             {
                 component.Draw(spriteBatch);

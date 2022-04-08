@@ -15,7 +15,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            gameObject.stateOfGame = new Paused(gameObject);
+            gameObject.CameraState = new Paused(gameObject);
         }
     }
 }

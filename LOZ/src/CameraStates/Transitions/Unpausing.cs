@@ -36,7 +36,7 @@ namespace LOZ.src.CameraStates
         {
             fade.Update(gameTime);
             if (fade.FadeDone())
-                _gameObject.stateOfGame = new FirstDungeon(_gameObject);
+                _gameObject.CameraState = new FirstDungeon(_gameObject);
         }
         public void Reset()
         {

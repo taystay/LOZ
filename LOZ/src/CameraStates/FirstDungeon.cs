@@ -33,11 +33,11 @@ namespace LOZ.src.CameraStates
             if (CurrentRoom.Instance.transition) return;
 
             if (Room.RoomInventory.HasItem(typeof(Triforce)))
-                _gameObject.stateOfGame = new Victory(_gameObject);
+                _gameObject.CameraState = new Victory(_gameObject);
 
             keyboard.Update(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                _gameObject.stateOfGame = new Pausing(_gameObject);
+                _gameObject.CameraState = new Pausing(_gameObject);
         }
         public void Update(GameTime gameTime)
         {

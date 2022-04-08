@@ -6,8 +6,6 @@ namespace LOZ.SpriteClasses
 {
     class FadeOutSprite : ISprite
     {
-		private double scale;
-		private Rectangle frame;
 		private Texture2D fade;
 		private float alpha = 0.0f;
 		private float dalpha = 0.05f;

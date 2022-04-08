@@ -23,14 +23,13 @@ namespace LOZ
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private Dictionary<Point3D, Room> maps;
-        public ICameraState stateOfGame { get; set; }
+        public ICameraState CameraState { get; set; }
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
         }
         protected override void Initialize()
         {
@@ -39,48 +38,39 @@ namespace LOZ
             graphics.PreferredBackBufferHeight = Info.screenHeight;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
-
+            
             base.Initialize();
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);        
-            CurrentRoom.Instance.LoadTextures(Content);
+            
             SoundManager.Instance.LoadSound(Content);
-
+            CurrentRoom.Instance.LoadTextures(Content);
             maps = new Dictionary<Point3D, Room>();
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();
-
             CurrentRoom.Instance.Rooms = maps;
-
             CurrentRoom.Instance.SpawnLink();      
 
-            stateOfGame = new MainMenuState(this);
+            CameraState = new MainMenuState(this);
 
             base.LoadContent();
         }
         protected override void Update(GameTime gameTime)
         {
-            stateOfGame.UpdateController(gameTime);
-            stateOfGame.Update(gameTime);
-
-            //BUG: I had friend play it all the enmies stopped updating but link was being updated.
-            //he could move so room was not in transition state, he didnt have triforce and the pause hud wasnt being drawn. Thus
-            // he has to be in playing state or one of the pasuing / unpasuing states. so if anyone figures out this bug lmk.
-
+            CameraState.UpdateController(gameTime);
+            CameraState.Update(gameTime);
 
             base.Update(gameTime);
         }
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-            stateOfGame.Draw(spriteBatch);
-
+            CameraState.Draw(spriteBatch);
 
             if (Room.DebugMode)
                 GameFont.Instance.Write(spriteBatch, "" + Mouse.GetState().X + "," + Mouse.GetState().Y, 50, 50);

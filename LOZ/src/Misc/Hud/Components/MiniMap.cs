@@ -48,12 +48,12 @@ namespace LOZ.Hud
         public void Draw(SpriteBatch spriteBatch)
         {
             Point3D linkCoor = CurrentRoom.Instance.linkCoor;
-            GameFont.Instance.Write(spriteBatch, "Room - " + (linkCoor.X + 6 * linkCoor.Y), 100 + _offset.X, 75 + _offset.Y);
+            GameFont.Instance.Write(spriteBatch, "Room - " + (linkCoor.X + 6 * linkCoor.Y), DrawPoint.X + _offset.X, DrawPoint.Y - 25 + _offset.Y);
             if (_inventory.HasItem(typeof(Map))) return;
             int offsetX = 25;
             int offsetY = 15;
-            int startX = 100 + _offset.X;
-            int startY = 125 + _offset.Y;
+            int startX = DrawPoint.X + _offset.X;
+            int startY = DrawPoint.Y + _offset.Y;
             List<Point3D> coords = CurrentRoom.Instance.roomList;
             foreach (Point3D point in coords)
             {

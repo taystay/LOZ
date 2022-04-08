@@ -53,7 +53,7 @@ namespace LOZ.GameState
         }
         private CurrentRoom() {
             Room.RoomInventory = new Inventory.LinkInventory();
-            
+                      
         }
         public void LoadTextures(ContentManager Content)
         {
@@ -64,9 +64,9 @@ namespace LOZ.GameState
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
             GameFont.Instance.LoadAllTextures(Content);
-            Room.hudele = new UserCurrentItemHud(Room.RoomInventory, Content);
             fade = Content.Load<Texture2D>("Black");
-            
+            Room.RoomInventory.Initialize();
+
         }
         public void Debug()
         {

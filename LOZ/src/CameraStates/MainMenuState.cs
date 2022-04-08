@@ -28,7 +28,7 @@ namespace LOZ.src.CameraStates
         public void UpdateController(GameTime gameTime)
         {
             if (Keyboard.GetState().GetPressedKeyCount() > 0)
-                _gameObject.stateOfGame = new StartingGame(_gameObject, menu);
+                _gameObject.CameraState = new StartingGame(_gameObject, menu);
         }
         public void Update(GameTime gameTime)
         {

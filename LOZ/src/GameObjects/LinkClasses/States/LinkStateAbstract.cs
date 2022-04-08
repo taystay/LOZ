@@ -57,7 +57,7 @@ namespace LOZ.LinkClasses
                 CurrentRoom.Instance.Room.GameObjects.Add(weapon);
 
                 if (TypeC.Check(weapon, typeof(Bomb))) Room.RoomInventory.UseBomb();
-                if (type == Weapon.Arrow) Room.RoomInventory.UseRupee(1);
+                if (type == Weapon.Arrow) Room.RoomInventory.UseRupee();
                 attackAllowed = false;
                 return;
             }
