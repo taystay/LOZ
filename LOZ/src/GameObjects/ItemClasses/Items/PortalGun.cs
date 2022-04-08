@@ -10,6 +10,7 @@ namespace LOZ.ItemsClasses
         {
             sprite = ItemFactory.Instance.CreatePortalGun();
             _itemLocation = itemLocation;
+            InventoryItem = true;
         }
 
         public override void Update(GameTime gameTime)

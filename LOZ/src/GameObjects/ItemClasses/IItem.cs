@@ -15,6 +15,7 @@ namespace LOZ.ItemsClasses
 
     public interface IItem : IGameObjects
     {
+        public bool InventoryItem { get; set; }
         public void SetPositionOnUpdate(Point position);
         public void SetPosition(Point position);
         public void KillItem();

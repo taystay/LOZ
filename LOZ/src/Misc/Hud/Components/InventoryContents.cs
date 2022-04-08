@@ -49,15 +49,15 @@ namespace LOZ.Hud
             int starty = 200;
             int offset = 75;
             int i = 0;
-            List<string> typesDrawn = new List<string>();
+            List<System.Type> typesDrawn = new List<System.Type>();
             foreach(IGameObjects o in _inventory.inventory)
             {
                 IItem item = (IItem)o;
-                if (typesDrawn.Contains(item.GetType().FullName)) return;
+                if (typesDrawn.Contains(item.GetType()) || !item.InventoryItem) continue;
                 item.SetPosition(new Point(startx + offset * i, starty));
                 item.Draw(spriteBatch);
                 i++;
-                typesDrawn.Add(item.GetType().FullName);
+                typesDrawn.Add(item.GetType());
             }
         }
     }

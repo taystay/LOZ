@@ -7,6 +7,7 @@ namespace LOZ.ItemsClasses
 {
     abstract class ItemAbstract : IItem
     {
+        public bool InventoryItem { get; set; } = false;
         private protected ISprite sprite;
         private protected Point _itemLocation;
         private protected bool spriteActivity =  true;

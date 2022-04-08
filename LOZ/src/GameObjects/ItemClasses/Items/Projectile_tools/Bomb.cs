@@ -18,6 +18,7 @@ namespace LOZ.ItemsClasses
             hitBoxWidth = 14;
             hitBoxHeight = 34;
             Damage = 3;
+            InventoryItem = true;
         }
         public override void KillItem()
         {

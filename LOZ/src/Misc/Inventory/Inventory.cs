@@ -31,8 +31,8 @@ namespace LOZ.Inventory
         {
             inventory = new List<IGameObjects>();
             bombCount = 10;
-            rupeeCount = 20;
-            keyCount = 0;
+            rupeeCount = 100;
+            keyCount = 1;
             for (int i = 0; i < bombCount; i++)
                 inventory.Add(new Bomb(new Point()));
             for (int i = 0; i < rupeeCount; i++)
