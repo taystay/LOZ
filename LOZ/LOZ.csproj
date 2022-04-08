@@ -17,6 +17,7 @@
     <None Remove="src\GameObjects\DungeonClasses\DoorTypes\" />
     <None Remove="src\CameraStates\" />
     <None Remove="src\CameraStates\Transitions\" />
+    <None Remove="src\Misc\Hud\Components\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -37,5 +38,6 @@
     <Folder Include="src\GameObjects\DungeonClasses\DoorTypes\" />
     <Folder Include="src\CameraStates\" />
     <Folder Include="src\CameraStates\Transitions\" />
+    <Folder Include="src\Misc\Hud\Components\" />
   </ItemGroup>
 </Project>
