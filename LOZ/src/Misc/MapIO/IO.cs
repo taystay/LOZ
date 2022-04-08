@@ -62,7 +62,7 @@ namespace LOZ.MapIO
                 reader.Close();
 
             }
-            listOfRooms.Add(new Point3D(3, 7 , 0), new DevRoom());
+            listOfRooms.Add(new Point3D(0, 7 , 0), new DevRoom());
 
             List<IGameObjects> objs = listOfRooms[new Point3D(3, 2, 0)].GameObjects;
             foreach(IGameObjects item in objs)

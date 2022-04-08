@@ -41,7 +41,7 @@ namespace LOZ.Hud
             {
                 keyPressed = false;
             }
-            if (Mouse.GetState().LeftButton != ButtonState.Pressed) return;
+            if (Mouse.GetState().LeftButton != ButtonState.Pressed || !Room.DebugMode) return;
             Point mouseloc = new Point(Mouse.GetState().X, Mouse.GetState().Y);
             foreach(KeyValuePair<Rectangle, Point3D> p in roomMapLocation)
             {

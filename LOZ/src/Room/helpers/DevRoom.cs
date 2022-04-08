@@ -17,7 +17,7 @@ namespace LOZ.GameState
         {
             GameObjects = new List<IGameObjects>();
             colliders = new CollisionIterator(GameObjects);
-            exterior = new ExteriorObject(DoorType.Door, DoorType.Wall, DoorType.Wall, DoorType.Wall, GameObjects);
+            exterior = new ExteriorObject(DoorType.Wall, DoorType.Wall, DoorType.Wall, DoorType.Wall, GameObjects);
             PlaceFloor();
             PlaceItemsForDev();         
         }
@@ -45,7 +45,7 @@ namespace LOZ.GameState
         private void PlaceItemsForDev()
         {
             GameObjects.Add(new FireItem(GetCoorPoint(5.5, 6)));
-            GameObjects.Add(new PortalGun(GetCoorPoint(5.5, 3)));
+            GameObjects.Add(new PortalGun(GetCoorPoint(5.5, 0)));
 
             GameObjects.Add(new ArrowItem(GetCoorPoint(0,0)));
             GameObjects.Add(new Heart(GetCoorPoint(0, 3)));

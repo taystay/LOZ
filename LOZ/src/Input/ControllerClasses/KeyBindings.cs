@@ -13,7 +13,7 @@ namespace LOZ.ControllerClasses
             ControllerMappings = new KeyboardController(gameObject);
             mouseControllerMappings = new MouseController(gameObject);
             ControllerMappings.RegisterInitialCommand(Keys.Q, new QuitGame(gameObject));
-            ControllerMappings.RegisterReleaseCommand(Keys.F3, new EnterDebugMode());
+            ControllerMappings.RegisterReleaseCommand(Keys.OemPipe, new EnterDebugMode());
             ControllerMappings.RegisterReleaseCommand(Keys.R, new Reset());
             ControllerMappings.RegisterReleaseCommand(Keys.M, new Mute());
             ControllerMappings.RegisterReleaseCommand(Keys.Escape, new Pause(gameObject));
