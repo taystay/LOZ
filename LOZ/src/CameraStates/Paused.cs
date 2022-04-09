@@ -19,6 +19,7 @@ namespace LOZ.src.CameraStates
     {
         private Game1 _gameObject; // so camera state can change if needed
         private HudElement _pasuedHud;
+        private bool buttonPressed = false;
 
         public Paused(Game1 gameObject, HudElement pausedHud)
         {
@@ -31,7 +32,14 @@ namespace LOZ.src.CameraStates
                 _gameObject.Exit();
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 _gameObject.CameraState = new Unpausing(_gameObject, _pasuedHud);
-            
+            if(Keyboard.GetState().IsKeyDown(Keys.Space) && !buttonPressed)
+            {
+                buttonPressed = true;
+                Room.RoomInventory.NextItem();
+            }
+
+            if (Keyboard.GetState().GetPressedKeyCount() == 0)
+                buttonPressed = false;
         }
         public void Update(GameTime gameTime)
         {

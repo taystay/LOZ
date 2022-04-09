@@ -30,30 +30,55 @@ namespace LOZ.Inventory
         public void Initialize()
         {
             inventory = new List<IGameObjects>();
-            bombCount = 10;
+            bombCount = 1;
             rupeeCount = 100;
             keyCount = 1;
-            for (int i = 0; i < bombCount; i++)
+            currentItem = 0;
+            if(bombCount > 0)
                 inventory.Add(new Bomb(new Point()));
-            for (int i = 0; i < rupeeCount; i++)
+            if(rupeeCount > 0)
                 inventory.Add(new Rupee(new Point()));
-            for (int i = 0; i < keyCount; i++)
+            if(keyCount > 0)
                 inventory.Add(new Key(new Point()));
         }
 
         public void NextItem()
         {
-            currentItem++;
-            if (currentItem > inventory.Count - 1)
-                currentItem = 0;
             if (inventory.Count == 0)
+            {
                 currentItem = -1;
+                return;
+            }
+                
+            for (int i = 0; i < 5 && i < inventory.Count; i++)
+            {
+                currentItem++;
+                if (currentItem > inventory.Count - 1)
+                    currentItem = 0;
+                if (isInventoryItem(inventory[currentItem]))
+                {
+                    return;
+                }
+            }
+            currentItem = -1;
         }
+
+        public bool isInventoryItem(IGameObjects item)
+        {
+            IItem o = (IItem)item;
+            return o.InventoryItem;
+        }
+
+        public bool IsCurrentItem(IGameObjects item)
+        {
+            return (inventory.IndexOf(item) == currentItem);
+        }         
 
         public void AddItem(IGameObjects item)
         {
             SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
-            inventory.Add(item);
+            if(!HasItem(item.GetType()))
+                inventory.Add(item);
 
             if (TypeC.Check(item, typeof(Rupee)))
                 rupeeCount++;
@@ -77,10 +102,12 @@ namespace LOZ.Inventory
                 IGameObjects item = inventory[i];
                 if (TypeC.Check(item, itemType))
                 {
-                    if (inventory.IndexOf(item) >= currentItem)
+                    if (currentItem >= i)
                         currentItem--;
                     inventory.RemoveAt(i);
                     SelectType(itemType);
+                    if(currentItem < 0 || currentItem >= inventory.Count)
+                        NextItem();
                     return true; //item found
                 }
             }
@@ -99,20 +126,23 @@ namespace LOZ.Inventory
 
         public void UseRupee()
         {
-            if (UseItem(typeof(Rupee)))
-                rupeeCount--;
+            rupeeCount--;
+            if (rupeeCount <= 0)
+                UseItem(typeof(Rupee));
         }
 
         public void UseBomb()
         {
-            if (UseItem(typeof(Bomb)))
-                bombCount--;
+            bombCount--;
+            if (bombCount <= 0)
+                UseItem(typeof(Bomb));
         }
 
         public void UseKey()
         {
-            if (UseItem(typeof(Key)))
-                keyCount--;
+            keyCount--;
+            if (keyCount <= 0)
+                UseItem(typeof(Key));
         }
     }
 }

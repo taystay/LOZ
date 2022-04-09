@@ -28,6 +28,8 @@ namespace LOZ.Hud
             componenets.Add(new NumberedItems(linkInventory, new Point(0, 600)));
             componenets.Add(new BigMap(linkInventory, new Point(440, 370)));
             componenets.Add(new InventoryContents(linkInventory, new Point(500, 200)));
+            componenets.Add(new SelectedItemSlot(linkInventory, new Point(275, 175)));
+            componenets.Add(new CompassComponent(linkInventory, new Point(185, 600)));
         }
 
         public void Offset(Point offset)

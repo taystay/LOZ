@@ -60,8 +60,10 @@ namespace LOZ.Hud
             }
 
             int BSlotItemIdx = _inventory.currentItem;
-            if (BSlotItemIdx == -1) return;
+            if (BSlotItemIdx < 0) return;
+                System.Diagnostics.Debug.WriteLine("Current item change: " + BSlotItemIdx + " count: " + _inventory.inventory.Count);
             if (_inventory.inventory[BSlotItemIdx] == null) return;
+
             IGameObjects o = _inventory.inventory[BSlotItemIdx];
             IItem gameItem = (IItem)o;
             gameItem.SetPosition(BLocation);

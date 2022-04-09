@@ -36,6 +36,11 @@ namespace LOZ.Factories
 
 		}
 
+		public ISprite GetIntroText()
+        {
+			return new IntroText(mainMenu);
+        }
+
 		public Texture2D getBlackFade()
         {
 			return black;

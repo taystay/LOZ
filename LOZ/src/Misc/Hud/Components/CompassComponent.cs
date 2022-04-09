@@ -13,19 +13,24 @@ using LOZ.ItemsClasses;
 
 namespace LOZ.Hud
 {
-    public class InventoryContents : HudComponent
+    public class  CompassComponent : HudComponent
     {
         public Point DrawPoint { get; set; }
         private Point _offset = new Point(0, 0);
-        private ISprite selectSprite;
+
+        private static ISprite compass;
+        private static ISprite horizontalWalkWay;
+        private static ISprite verticalWalkWay;
 
         private LinkInventory _inventory;
 
-        public InventoryContents(LinkInventory inventory, Point drawLocation)
+        public CompassComponent(LinkInventory inventory, Point drawLocation)
         {
             _inventory = inventory;
             DrawPoint = drawLocation;
-            selectSprite = DisplaySpriteFactory.Instance.CreateSelectItemSprite();
+            compass = ItemFactory.Instance.CreateCompassSprite();
+            compass.ChangeScale(2);
+
         }
 
         public void OffsetHud(Point offset)
@@ -46,20 +51,8 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int startx = 525 + _offset.X;
-            int starty = 200 + _offset.Y;
-            int offset = 75;
-            int i = 0;
-            foreach(IGameObjects o in _inventory.inventory)
-            {
-                IItem item = (IItem)o;
-                if (!item.InventoryItem) continue;
-                item.SetPosition(new Point(startx + offset * i, starty));
-                item.Draw(spriteBatch);
-                if (_inventory.IsCurrentItem(o))
-                    selectSprite.Draw(spriteBatch, new Point(startx + offset * i, starty));
-                i++;
-            }
+            if (_inventory.HasItem(typeof(Compass))) return;
+            compass.Draw(spriteBatch, DrawPoint + _offset);
         }
     }
 }

@@ -24,6 +24,8 @@ namespace LOZ.Hud
 
         private LinkInventory _inventory;
 
+        private Dictionary<Rectangle, Point3D> roomHitBoxes;
+
         public BigMap(LinkInventory inventory, Point drawLocation)
         {
             _inventory = inventory;
@@ -32,6 +34,7 @@ namespace LOZ.Hud
             verticalWalkWay = DisplaySpriteFactory.Instance.GetMapWalk(10, 10);
             horizontalWalkWay = DisplaySpriteFactory.Instance.GetMapWalk(10, 10);
 
+            roomHitBoxes = new Dictionary<Rectangle, Point3D>();
 
         }
 
@@ -48,7 +51,17 @@ namespace LOZ.Hud
 
         public void Update()
         {
-
+            if (Mouse.GetState().LeftButton != ButtonState.Pressed) return;
+            Point mouseLocation = new Point(Mouse.GetState().X, Mouse.GetState().Y);
+            foreach(KeyValuePair<Rectangle, Point3D> pair in roomHitBoxes)
+            {
+                if(pair.Key.Contains(mouseLocation))
+                {
+                    CurrentRoom.Instance.linkCoor = pair.Value;
+                    Room.Link.Position = Info.Inside.Center;
+                    return;
+                }
+            }          
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -63,11 +76,17 @@ namespace LOZ.Hud
             int startX = DrawPoint.X + _offset.X;
             int startY = DrawPoint.Y + _offset.Y;
             List<Point3D> coords = CurrentRoom.Instance.roomList;
+            roomHitBoxes = new Dictionary<Rectangle, Point3D>();
             foreach (Point3D point in coords)
             {
                 int x = startX + offsetX * point.X;
                 int y = startY + offsetY * point.Y;
                 room.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y), Color.Black);
+
+                Rectangle b = new Rectangle(startX + offsetX * point.X - 20, startY + offsetY * point.Y - 10, 40, 20);
+                if (!roomHitBoxes.ContainsKey(b))
+                    roomHitBoxes.Add(b, point);
+
                 ExteriorObject roomObj = CurrentRoom.Instance.Rooms[point].exterior;
                 if (roomObj == null) continue;
                 if (roomObj.CanGoUp()) verticalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y - 10), Color.Black); ;

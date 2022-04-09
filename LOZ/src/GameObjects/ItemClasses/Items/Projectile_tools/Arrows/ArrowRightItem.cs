@@ -37,7 +37,6 @@ namespace LOZ.ItemsClasses
                 return;
             }
             this.SetPosition(new Point(_itemLocation.X + Velocity, _itemLocation.Y));
-            System.Diagnostics.Debug.WriteLine("" + _itemLocation.ToString() + "   " + Velocity.ToString());
         }
     }
 }

@@ -14,6 +14,7 @@ using LOZ.SpriteClasses;
 using LOZ.SpriteClasses.DisplaySprites;
 using LOZ.Factories;
 using LOZ.src.CameraStates;
+using LOZ.Inventory;
 
 namespace LOZ
 {
@@ -62,9 +63,19 @@ namespace LOZ
             IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             allMap.Parse();
             CurrentRoom.Instance.Rooms = maps;
-            CurrentRoom.Instance.SpawnLink();      
+            CurrentRoom.Instance.SpawnLink();
 
-            CameraState = new MainMenuState(this);
+            bool debugState = true;
+            if(debugState)
+            {
+                HudElement inv = new InventoryHud(Room.RoomInventory);
+                inv.Offset(new Point(0, -630));
+                CameraState = new FirstDungeon(this, inv);
+            } else
+                CameraState = new MainMenuState(this);
+
+            
+            //CameraState = new MainMenuState(this);
 
             base.LoadContent();
         }
