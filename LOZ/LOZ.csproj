@@ -19,6 +19,7 @@
     <None Remove="src\CameraStates\Transitions\" />
     <None Remove="src\Misc\Hud\Components\" />
     <None Remove="src\Room\AllRooms\" />
+    <None Remove="Content\bin\DesktopGL\Content\DugeonRooms\DugeonRooms\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -41,5 +42,6 @@
     <Folder Include="src\CameraStates\Transitions\" />
     <Folder Include="src\Misc\Hud\Components\" />
     <Folder Include="src\Room\AllRooms\" />
+    <Folder Include="Content\bin\DesktopGL\Content\DugeonRooms\DugeonRooms\" />
   </ItemGroup>
 </Project>

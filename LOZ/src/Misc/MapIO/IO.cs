@@ -22,6 +22,12 @@ namespace LOZ.MapIO
           
         }
 
+        public List<IGameObjects> ParsePathToBlocks(string path)
+        {
+            List<IGameObjects> objToReturn = new List<IGameObjects>();
+            return objToReturn;
+        }
+
         public void Parse()
         {
             //https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.getfiles?view=net-6.0
