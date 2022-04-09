@@ -128,5 +128,10 @@ namespace LOZ.LinkClasses
             LinkState.Draw(spriteBatch, Position);
         }
 
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            LinkState.Draw(spriteBatch, Position + offset);
+        }
+
     }
 }

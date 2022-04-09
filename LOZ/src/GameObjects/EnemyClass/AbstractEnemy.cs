@@ -89,10 +89,15 @@ namespace LOZ.EnemyClass
         public abstract void Update(GameTime timer);
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(IsDamaged)
-                _texture.Draw(spriteBatch, Position, Color.Red);
-            else 
-                _texture.Draw(spriteBatch, Position);
+            Draw(spriteBatch, new Point());
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            if (IsDamaged)
+                _texture.Draw(spriteBatch, Position + offset, Color.Red);
+            else
+                _texture.Draw(spriteBatch, Position + offset);
         }
     }
 }

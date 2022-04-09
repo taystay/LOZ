@@ -52,5 +52,10 @@ namespace LOZ.ItemsClasses
         {
             sprite.Draw(spriteBatch, _itemLocation);
         }
+
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            sprite.Draw(spriteBatch, _itemLocation + offset);
+        }
     }
 }

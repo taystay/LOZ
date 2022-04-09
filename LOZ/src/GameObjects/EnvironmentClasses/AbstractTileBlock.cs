@@ -35,5 +35,13 @@ namespace LOZ.EnvironmentalClasses
 			sprite.Draw(spriteBatch, itemLocation);
 		}
 
-    }
+		public virtual void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+			if (sprite != null) sprite.Draw(spriteBatch, itemLocation + offset);
+			else System.Diagnostics.Debug.WriteLine("" + this.GetType().ToString());
+        }
+
+
+
+	}
 }

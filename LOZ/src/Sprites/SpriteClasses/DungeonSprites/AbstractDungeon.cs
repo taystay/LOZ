@@ -21,7 +21,7 @@ namespace LOZ.SpriteClasses
 		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
 		{
 			Rectangle destinationRectangle;
-
+			//System.Diagnostics.Debug.WriteLine("" + this.GetType().ToString() + " " + location.ToString());
 			destinationRectangle = new Rectangle(location.X, location.Y, width, height);
 			width = (int)(frame.Width * scale);
 			height = (int)(frame.Height * scale);

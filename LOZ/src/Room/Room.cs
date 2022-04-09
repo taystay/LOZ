@@ -46,14 +46,18 @@ namespace LOZ.GameState
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (exterior != null) exterior.Draw(spriteBatch);
+            Draw(spriteBatch, new Point(0, 0));
+        }
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            if (exterior != null) exterior.Draw(spriteBatch, offset);
             foreach (IGameObjects item in GameObjects)
             {
-                item.Draw(spriteBatch);
+                item.Draw(spriteBatch, offset);
             }
             if (CurrentRoom.Instance.linkCoor.X == 1 && CurrentRoom.Instance.linkCoor.Y == 3)
-                GameFont.Instance.Write(spriteBatch, "Some walls may be bombable", 265, 450);
-            Link.Draw(spriteBatch);
+                GameFont.Instance.Write(spriteBatch, "Some walls may be bombable", 265 + offset.X, 450 + offset.Y);
+            Link.Draw(spriteBatch, offset);
 
             if (!DebugMode) return; //Debug hitboxes for easy of testing numbers
             foreach (IGameObjects item in GameObjects)

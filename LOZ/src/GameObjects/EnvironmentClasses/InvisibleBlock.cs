@@ -35,5 +35,10 @@ namespace LOZ.EnvironmentalClasses
 
         }
 
+        public override void Draw(SpriteBatch sprite, Point offset)
+        {
+
+        }
+
     }
 }

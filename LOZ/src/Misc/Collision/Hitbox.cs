@@ -29,7 +29,10 @@ namespace LOZ.Collision
         public void Draw(SpriteBatch spriteBatch)
         {
             yellowPixel.Draw(spriteBatch, new Point());
-
+        }
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            //yellowPixel.Draw(spriteBatch,)
         }
     }
 }

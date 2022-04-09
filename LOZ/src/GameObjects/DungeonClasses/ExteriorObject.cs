@@ -108,14 +108,18 @@ namespace LOZ.DungeonClasses
             return new Hitbox(0, 0,0 , 0);
         }
 		public virtual void Draw(SpriteBatch spriteBatch) {
-            foreach(IGameObjects door in doors)
-            {
-                door.Draw(spriteBatch);
-            }
-            sprite.Draw(spriteBatch, itemLocation);
+            Draw(spriteBatch, new Point(0, 0));
+        }
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
             foreach (IGameObjects door in doors)
             {
-                door.Draw(spriteBatch);
+                door.Draw(spriteBatch, offset);
+            }
+            sprite.Draw(spriteBatch, itemLocation + offset);
+            foreach (IGameObjects door in doors)
+            {
+                door.Draw(spriteBatch, offset);               
             }
         }
 

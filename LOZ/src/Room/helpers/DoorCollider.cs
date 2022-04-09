@@ -35,5 +35,10 @@ namespace LOZ.GameState
         {
             //nothing
         }
+
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            //nothing
+        }
     }
 }

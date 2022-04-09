@@ -8,5 +8,6 @@ namespace LOZ.Collision
         public Hitbox GetHitBox();        
         public void Update(GameTime gameTime);
         public void Draw(SpriteBatch spriteBatch);
+        public void Draw(SpriteBatch spriteBatch, Point offset);
     }
 }

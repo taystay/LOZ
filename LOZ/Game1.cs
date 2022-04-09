@@ -38,7 +38,15 @@ namespace LOZ
             graphics.PreferredBackBufferHeight = Info.screenHeight;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
-            
+
+            DisplaySpriteFactory.Instance.LoadAllTextures(Content);
+            ItemFactory.Instance.LoadAllTextures(Content);
+            LinkSpriteFactory.Instance.LoadAllTextures(Content);
+            EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            DungeonFactory.Instance.LoadAllTextures(Content);
+            GameFont.Instance.LoadAllTextures(Content);
+
             base.Initialize();
         }
         protected override void LoadContent()

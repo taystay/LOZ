@@ -22,5 +22,10 @@ namespace LOZ.DungeonClasses
         {
             sprite.Draw(spriteBatch, itemLocation);
         }
+
+        public virtual void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            sprite.Draw(spriteBatch, itemLocation + offset);
+        }
     }
 }

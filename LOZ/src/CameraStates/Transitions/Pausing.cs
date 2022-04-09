@@ -50,7 +50,9 @@ namespace LOZ.src.CameraStates
         public void Draw(SpriteBatch spriteBatch)
         {
             _topHud.Draw(spriteBatch);
-            CurrentRoom.Instance.Room.Draw(spriteBatch);
+            CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0,(630- numberOfUpdates*dy)));
+            //CurrentRoom.Instance.Room.Draw(spriteBatch);
+
             //fade.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2));
         }
     }

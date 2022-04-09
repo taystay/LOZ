@@ -48,6 +48,7 @@ namespace LOZ.src.CameraStates
         public void Draw(SpriteBatch spriteBatch)
         {
             _hud.Draw(spriteBatch);
+            CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0, - numberOfUpdates * dy));
         }
     }
 }

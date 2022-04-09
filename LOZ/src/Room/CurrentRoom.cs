@@ -52,18 +52,10 @@ namespace LOZ.GameState
             }
         }
         private CurrentRoom() {
-            Room.RoomInventory = new Inventory.LinkInventory();
-                      
+            Room.RoomInventory = new Inventory.LinkInventory();                  
         }
         public void LoadTextures(ContentManager Content)
-        {
-            DisplaySpriteFactory.Instance.LoadAllTextures(Content);
-            ItemFactory.Instance.LoadAllTextures(Content);
-            LinkSpriteFactory.Instance.LoadAllTextures(Content);
-            EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            DungeonFactory.Instance.LoadAllTextures(Content);
-            GameFont.Instance.LoadAllTextures(Content);
+        {        
             fade = Content.Load<Texture2D>("Black");
             Room.RoomInventory.Initialize();
 
@@ -153,15 +145,22 @@ namespace LOZ.GameState
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+
+            Draw(spriteBatch, new Point());
             
-            Room.Draw(spriteBatch);
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+
+            Room.Draw(spriteBatch, offset);
             if (transition)
             {
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
                 spriteBatch.Draw(fade, new Rectangle(0, 0, Info.screenWidth, Info.screenHeight), Color.White * alpha);
                 spriteBatch.End();
             }
-            
+
         }
     }
 }

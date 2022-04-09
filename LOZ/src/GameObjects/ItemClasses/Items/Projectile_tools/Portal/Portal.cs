@@ -115,23 +115,28 @@ namespace LOZ.ItemsClasses
             return spriteActivity;
         }
 
-
         public void Draw(SpriteBatch spriteBatch)
+        {
+            Draw(spriteBatch, new Point(0, 0));
+
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Point offset)
         {
             if (hasCollided)
             {
                 if (_color == 0)
-                    sprite.Draw(spriteBatch, _itemLocation);
+                    sprite.Draw(spriteBatch, _itemLocation + offset);
                 else
-                    sprite.Draw(spriteBatch, _itemLocation);
+                    sprite.Draw(spriteBatch, _itemLocation + offset);
             } else
             {
                 if(_color == 0)
                 {
-                    sprite.Draw(spriteBatch, _itemLocation, Color.Blue);
+                    sprite.Draw(spriteBatch, _itemLocation + offset, Color.Blue);
                 } else
                 {
-                    sprite.Draw(spriteBatch, _itemLocation, Color.DarkOrange);
+                    sprite.Draw(spriteBatch, _itemLocation + offset, Color.DarkOrange);
                 }
             }
                 

@@ -138,5 +138,10 @@ namespace LOZ.LinkClasses
         {
             decoratedLink.Draw(spriteBatch);
         }
+
+        public void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            decoratedLink.Draw(spriteBatch, offset);
+        }
     }
 }
