@@ -11,9 +11,8 @@ namespace LOZ.MapIO
 {
    internal class ParseToDoor
     {
-        internal static ExteriorObject ParseDoor(List<IGameObjects> obj, string lineRead)
+        internal static void ParseDoor(List<IGameObjects> obj, string lineRead)
         {
-
             int index = 0;
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
             string[] words = lineRead.Split(',');
@@ -47,10 +46,10 @@ namespace LOZ.MapIO
                 }
                 index++;
 
-
-
             }
-            return new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj);
+            new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj);
+        
+            //return new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj);
         }
     
     }

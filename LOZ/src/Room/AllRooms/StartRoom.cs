@@ -1,17 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using LOZ.MapIO;
 using LOZ.Collision;
+using System.Collections.Generic;
 
-namespace LOZ
+namespace LOZ.Room
 {
-    //class StartRoom : RoomAbstract
-    //{
-    //    //public StartRoom(List<IGameObjects> floorAndDoors)
-    //    //{
-    //    //    gameObjects = floorAndDoors;
-    //    //}
-
-    //    //will change the parser so that it passes the list of IGameobject of the floor and door and then
-    //    // each room will have a private method to add the enemies and items
-    //    //that is what I think could work easily and make it most accessible
-    //}
+    class StartRoom : RoomAbstract
+    {
+        private List<IGameObjects> roomObj;
+        public StartRoom(string pathFile)
+        {
+            roomObj = IO.Instance.ParseRoom(pathFile + "3_6.csv");
+        }
+    }
 }

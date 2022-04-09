@@ -2,19 +2,15 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-using LOZ.ControllerClasses;
 using LOZ.GameState;
 using LOZ.DungeonClasses;
-using LOZ.MapIO;
 using System.IO;
 using System.Reflection;
 using LOZ.Sound;
 using LOZ.Hud;
-using LOZ.SpriteClasses;
-using LOZ.SpriteClasses.DisplaySprites;
 using LOZ.Factories;
 using LOZ.src.CameraStates;
-using LOZ.Inventory;
+using LOZ.Room;
 
 namespace LOZ
 {
@@ -56,13 +52,17 @@ namespace LOZ
             
             SoundManager.Instance.LoadSound(Content);
             CurrentRoom.Instance.LoadTextures(Content);
-            maps = new Dictionary<Point3D, Room>();
+           
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
-            allMap.Parse();
-            CurrentRoom.Instance.Rooms = maps;
+
+            RoomMaker roomMaker = new RoomMaker(filePath + "/Content/DungeonRooms/DungeonRooms");
+            List<IRoom> allRooms = roomMaker.CreateAllRooms();
+
+            //IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
+            //allMap.Parse();
+            //CurrentRoom.Instance.Rooms = allRooms;
             CurrentRoom.Instance.SpawnLink();
 
             bool debugState = true;
