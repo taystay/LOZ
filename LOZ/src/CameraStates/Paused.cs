@@ -37,6 +37,11 @@ namespace LOZ.src.CameraStates
                 buttonPressed = true;
                 Room.RoomInventory.NextItem();
             }
+            if(Keyboard.GetState().IsKeyDown(Keys.OemPipe) && !buttonPressed)
+            {
+                buttonPressed = true;
+                Room.DebugMode = !Room.DebugMode;
+            }
 
             if (Keyboard.GetState().GetPressedKeyCount() == 0)
                 buttonPressed = false;

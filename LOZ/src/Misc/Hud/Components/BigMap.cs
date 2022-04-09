@@ -66,7 +66,7 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (_inventory.HasItem(typeof(Map)) && !Room.DebugMode) return;
+            if (!_inventory.HasItem(typeof(Map)) && !Room.DebugMode) return;
             Point3D linkCoor = CurrentRoom.Instance.linkCoor;
             ISprite map = ItemFactory.Instance.CreateMapSprite();
             map.ChangeScale(2);

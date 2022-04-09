@@ -51,7 +51,7 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (_inventory.HasItem(typeof(Compass))) return;
+            if (!_inventory.HasItem(typeof(Compass))) return;
             compass.Draw(spriteBatch, DrawPoint + _offset);
         }
     }
