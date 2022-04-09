@@ -31,7 +31,7 @@ namespace LOZ.Factories
 		{
 			HUDSpritesheet = content.Load<Texture2D>("HUDLayout");
 			tranparentB = content.Load<Texture2D>("transparentB");
-			mainMenu = content.Load<Texture2D>("loz_menu");
+			mainMenu = content.Load<Texture2D>("menuv2");
 			black = content.Load<Texture2D>("Black");
 
 		}

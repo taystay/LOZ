@@ -18,28 +18,28 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		public MainMenu(Texture2D texture)
 		{
 			_texture = texture;
-			ActualMenu = new Rectangle(0, 0, 617, 539);
+			ActualMenu = new Rectangle(0, 0, 256, 240);
 			menuWidth = Info.screenWidth;
-			menuHeight = (int)(((double)ActualMenu.Height / (double)ActualMenu.Width) * menuWidth);
-			walkway = Factories.DisplaySpriteFactory.Instance.GetMapWalk(menuWidth, menuHeight);
+            menuHeight = (int)(((double)ActualMenu.Height / (double)ActualMenu.Width) * menuWidth);
+			//walkway = Factories.DisplaySpriteFactory.Instance.GetMapWalk(menuWidth, menuHeight);
 
 		}
 
 		public void Update(GameTime gameTime)
         {
 
-			if (increasing && background.B >= 255)
-				increasing = false;
-			if (!increasing && background.B <= 0)
-				increasing = true;
+			//if (increasing && background.B >= 255)
+			//	increasing = false;
+			//if (!increasing && background.B <= 0)
+			//	increasing = true;
 
-			if(increasing)
-            {
-				background.B++;
-            } else
-            {
-				background.B--;
-            }
+			//if(increasing)
+   //         {
+			//	background.B++;
+   //         } else
+   //         {
+			//	background.B--;
+   //         }
 
         }
 		public void ChangeScale(double scale) { }
@@ -50,7 +50,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 
 		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
         {
-			walkway.Draw(spriteBatch, location, background);
+			//walkway.Draw(spriteBatch, location, background);
 			Rectangle menuDestination = new Rectangle(location.X - menuWidth / 2, location.Y - menuHeight / 2 ,menuWidth , menuHeight);
 			
 			//for SpriteBatch.Begin(...)

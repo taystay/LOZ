@@ -17,15 +17,16 @@ namespace LOZ.src.CameraStates
 {
     public class StartingGame : ICameraState
     {
-        private FadeOutSprite fade;
         private Game1 _gameObject;
         private ISprite _menu;
-        private int offsetY = -630;
+        private int dy = -10;
+        private const int offsetDist = Info.screenHeight;
+        private int numberOfUpdates;
         public StartingGame(Game1 gameObject, ISprite menu)
         {
+            numberOfUpdates = -offsetDist / dy;
             _gameObject = gameObject;
             _menu = menu;
-            fade = new FadeOutSprite();
         }
         public void UpdateController(GameTime gameTime)
         {
@@ -34,14 +35,15 @@ namespace LOZ.src.CameraStates
         public void Update(GameTime gameTime)
         {
             _menu.Update(gameTime);
-            fade.Update(gameTime);
-            if (fade.FadeDone())
+            numberOfUpdates--;
+            if (numberOfUpdates <= 0)
             {
-                HudElement invHud = new InventoryHud(Room.RoomInventory);
-                invHud.Offset(new Point(0, offsetY));
-                _gameObject.CameraState = new FirstDungeon(_gameObject, invHud);
+                HudElement inv = new InventoryHud(Room.RoomInventory);
+                inv.Offset(new Point(0,-630));
+                _gameObject.CameraState = new FirstDungeon(_gameObject, inv);
             }
-                
+
+              
         }
         public void Reset()
         {
@@ -49,8 +51,8 @@ namespace LOZ.src.CameraStates
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            _menu.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2));
-            fade.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2));
+            _menu.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2) + new Point(0, -(offsetDist + numberOfUpdates * dy)));
+            CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0, -numberOfUpdates * dy));
         }
     }
 }
