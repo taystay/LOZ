@@ -1,5 +1,6 @@
 ﻿using LOZ.LinkClasses;
 using LOZ.GameState;
+using LOZ.Room;
 
 namespace LOZ.CommandClasses
 {
