@@ -45,8 +45,8 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int startx = 525;
-            int starty = 200;
+            int startx = 525 + _offset.X;
+            int starty = 200 + _offset.Y;
             int offset = 75;
             int i = 0;
             List<System.Type> typesDrawn = new List<System.Type>();

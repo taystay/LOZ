@@ -20,13 +20,15 @@ namespace LOZ.src.CameraStates
         private FadeOutSprite fade;
         private Game1 _gameObject;
         private HudElement _hud;
+        private int dy = -10;
+        private const int offsetDist = 630;
+        private int numberOfUpdates;
 
         public Unpausing(Game1 gameObject, HudElement hud)
         {
+            numberOfUpdates = 630 / -dy;
             _gameObject = gameObject;
             _hud = hud;
-            fade = new FadeOutSprite();
-
         }
         public void UpdateController(GameTime gameTime)
         {
@@ -34,9 +36,10 @@ namespace LOZ.src.CameraStates
         }
         public void Update(GameTime gameTime)
         {
-            fade.Update(gameTime);
-            if (fade.FadeDone())
-                _gameObject.CameraState = new FirstDungeon(_gameObject);
+            numberOfUpdates--;
+            _hud.Offset(new Point(0, dy));
+            if (numberOfUpdates <= 0)
+                _gameObject.CameraState = new FirstDungeon(_gameObject, _hud);
         }
         public void Reset()
         {
@@ -45,7 +48,6 @@ namespace LOZ.src.CameraStates
         public void Draw(SpriteBatch spriteBatch)
         {
             _hud.Draw(spriteBatch);
-            fade.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2));
         }
     }
 }

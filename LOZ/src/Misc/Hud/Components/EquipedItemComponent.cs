@@ -44,8 +44,8 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Point ALocation = new Point( DrawPoint.X + 90 + _offset.X, DrawPoint.Y + _offset.Y);
-            Point BLocation = new Point(DrawPoint.X + _offset.X, DrawPoint.Y +  _offset.Y);
+            Point ALocation = new Point( DrawPoint.X + 90 + _offset.X, DrawPoint.Y + _offset.Y + 90);
+            Point BLocation = new Point(DrawPoint.X + _offset.X, DrawPoint.Y +  _offset.Y + 90);
             bool hasSword = false;
             foreach(IGameObjects item in _inventory.inventory)
             {

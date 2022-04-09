@@ -18,24 +18,24 @@ namespace LOZ.src.CameraStates
     public class Paused : ICameraState
     {
         private Game1 _gameObject; // so camera state can change if needed
-        private HudElement pausedHud;
+        private HudElement _pasuedHud;
 
-        public Paused(Game1 gameObject)
+        public Paused(Game1 gameObject, HudElement pausedHud)
         {
             _gameObject = gameObject;
-            pausedHud = new InventoryHud(Room.RoomInventory);
+            _pasuedHud = pausedHud;
         }
         public void UpdateController(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
                 _gameObject.Exit();
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                _gameObject.CameraState = new Unpausing(_gameObject, pausedHud);
+                _gameObject.CameraState = new Unpausing(_gameObject, _pasuedHud);
             
         }
         public void Update(GameTime gameTime)
         {
-            pausedHud.Update();
+            _pasuedHud.Update();
 
         }
         public void Reset()
@@ -44,7 +44,7 @@ namespace LOZ.src.CameraStates
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            pausedHud.Draw(spriteBatch);                      
+            _pasuedHud.Draw(spriteBatch);                      
         }
     }
 }

@@ -20,6 +20,7 @@ namespace LOZ.src.CameraStates
         private FadeOutSprite fade;
         private Game1 _gameObject;
         private ISprite _menu;
+        private int offsetY = -630;
         public StartingGame(Game1 gameObject, ISprite menu)
         {
             _gameObject = gameObject;
@@ -35,7 +36,12 @@ namespace LOZ.src.CameraStates
             _menu.Update(gameTime);
             fade.Update(gameTime);
             if (fade.FadeDone())
-                _gameObject.CameraState = new FirstDungeon(_gameObject);
+            {
+                HudElement invHud = new InventoryHud(Room.RoomInventory);
+                invHud.Offset(new Point(0, offsetY));
+                _gameObject.CameraState = new FirstDungeon(_gameObject, invHud);
+            }
+                
         }
         public void Reset()
         {

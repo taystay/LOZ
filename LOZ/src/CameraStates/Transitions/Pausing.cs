@@ -19,10 +19,17 @@ namespace LOZ.src.CameraStates
     {
         private FadeOutSprite fade;
         private Game1 _gameObject;
-        public Pausing(Game1 gameObject)
+        private int dy = 10;
+        private const int offsetDist = 630;
+        private int numberOfUpdates;
+        
+        private HudElement _topHud;
+        public Pausing(Game1 gameObject, HudElement topHud)
         {
+            numberOfUpdates = offsetDist / dy;
             _gameObject = gameObject;
             fade = new FadeOutSprite();
+            _topHud = topHud;
         }
         public void UpdateController(GameTime gameTime)
         {
@@ -30,9 +37,11 @@ namespace LOZ.src.CameraStates
         }
         public void Update(GameTime gameTime)
         {
-            fade.Update(gameTime);
-            if (fade.FadeDone())
-                _gameObject.CameraState = new Paused(_gameObject);
+            //fade.Update(gameTime);
+            numberOfUpdates--;
+            _topHud.Offset(new Point(0, dy));
+            if (numberOfUpdates <= 0)
+                _gameObject.CameraState = new Paused(_gameObject, _topHud);
         }
         public void Reset()
         {
@@ -40,8 +49,9 @@ namespace LOZ.src.CameraStates
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            _topHud.Draw(spriteBatch);
             CurrentRoom.Instance.Room.Draw(spriteBatch);
-            fade.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2));
+            //fade.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2));
         }
     }
 }

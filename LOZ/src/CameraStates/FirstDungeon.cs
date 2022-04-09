@@ -21,10 +21,12 @@ namespace LOZ.src.CameraStates
         private IController keyboard;
         private Game1 _gameObject; // so camera state can change if needed
         private ISprite GameOverDisplay; //probably just make a state
+        private HudElement _topHud;
 
-        public FirstDungeon(Game1 gameObject)
+        public FirstDungeon(Game1 gameObject, HudElement topHud)
         {
             _gameObject = gameObject;
+            _topHud = topHud;
             keyboard = new KeyBindings(gameObject).GetKeyboardController();
             GameOverDisplay = DisplaySpriteFactory.Instance.CreateDeadDisplay();
         }
@@ -37,7 +39,7 @@ namespace LOZ.src.CameraStates
 
             keyboard.Update(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                _gameObject.CameraState = new Pausing(_gameObject);
+                _gameObject.CameraState = new Pausing(_gameObject, _topHud);
         }
         public void Update(GameTime gameTime)
         {
@@ -50,6 +52,7 @@ namespace LOZ.src.CameraStates
         public void Draw(SpriteBatch spriteBatch)
         {
             CurrentRoom.Instance.Draw(spriteBatch);
+            _topHud.Draw(spriteBatch);
             if (Room.Link.Health <= 0)
                 GameOverDisplay.Draw(spriteBatch, new Point(500, 500));
         }

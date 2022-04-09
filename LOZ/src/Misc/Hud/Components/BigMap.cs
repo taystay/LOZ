@@ -57,11 +57,11 @@ namespace LOZ.Hud
             Point3D linkCoor = CurrentRoom.Instance.linkCoor;
             ISprite map = ItemFactory.Instance.CreateMapSprite();
             map.ChangeScale(2);
-            map.Draw(spriteBatch, new Point(190, 455));
+            map.Draw(spriteBatch, new Point(DrawPoint.X - 250 + _offset.X, DrawPoint.Y + 70 + _offset.Y));
             int offsetX = 50;
             int offsetY = 30;
-            int startX = 450;
-            int startY = 350;
+            int startX = DrawPoint.X + _offset.X;
+            int startY = DrawPoint.Y + _offset.Y;
             List<Point3D> coords = CurrentRoom.Instance.roomList;
             foreach (Point3D point in coords)
             {

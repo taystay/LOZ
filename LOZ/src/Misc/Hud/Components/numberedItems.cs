@@ -47,10 +47,10 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            GameFont.Instance.Write(spriteBatch, "x" + _inventory.rupeeCount, DrawPoint.X + 375, DrawPoint.Y + 100);
-            GameFont.Instance.Write(spriteBatch, "x" + _inventory.keyCount, DrawPoint.X + 375, DrawPoint.Y + 150);
-            GameFont.Instance.Write(spriteBatch, "x" + _inventory.bombCount, DrawPoint.X + 375, DrawPoint.Y + 200);
-            hud.Draw(spriteBatch, DrawPoint);
+            GameFont.Instance.Write(spriteBatch, "x" + _inventory.rupeeCount, DrawPoint.X + 375 + _offset.X, DrawPoint.Y + 100 + _offset.Y);
+            GameFont.Instance.Write(spriteBatch, "x" + _inventory.keyCount, DrawPoint.X + 375 + _offset.X, DrawPoint.Y + 150 + _offset.Y);
+            GameFont.Instance.Write(spriteBatch, "x" + _inventory.bombCount, DrawPoint.X + 375 + _offset.X, DrawPoint.Y + 200 + _offset.Y);
+            hud.Draw(spriteBatch, new Point(DrawPoint.X + _offset.X, DrawPoint.Y + _offset.Y));
         }
     }
 }
