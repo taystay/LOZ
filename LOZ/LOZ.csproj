@@ -18,6 +18,7 @@
     <None Remove="src\CameraStates\" />
     <None Remove="src\CameraStates\Transitions\" />
     <None Remove="src\Misc\Hud\Components\" />
+    <None Remove="src\Room\AllRooms\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -39,5 +40,6 @@
     <Folder Include="src\CameraStates\" />
     <Folder Include="src\CameraStates\Transitions\" />
     <Folder Include="src\Misc\Hud\Components\" />
+    <Folder Include="src\Room\AllRooms\" />
   </ItemGroup>
 </Project>
