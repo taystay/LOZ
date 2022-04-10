@@ -22,7 +22,7 @@ namespace LOZ.Room
         public override void Draw(SpriteBatch spriteBatch, Point offset)
         {
             GameFont.Instance.Write(spriteBatch, "Some walls may be bombable", 265 + offset.X, 450 + offset.Y);
-            DrawNor
+            DrawNormally(spriteBatch, offset);
         }
     }
 }
