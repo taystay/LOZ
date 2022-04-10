@@ -11,13 +11,12 @@ namespace LOZ.Room
 {
     abstract class RoomAbstract : IRoom
     {
-
         private protected List<IGameObjects> gameObjects;
 
         public ExteriorObject exterior { get; set; }
         private protected List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
         private protected CollisionIterator colliders;
-
+        
         public virtual void Update(GameTime gameTime)
         {
             if (exterior != null) exterior.Update(gameTime);
@@ -30,12 +29,6 @@ namespace LOZ.Room
             CurrentRoom.link.Update(gameTime);
             RemoveItems();
         }
-
-        //public virtual void Draw(SpriteBatch spriteBatch)
-        //{
-        //    Draw(spriteBatch, new Point(0, 0));
-        //}
-
         public virtual void Draw(SpriteBatch spriteBatch, Point offset)
         {
             foreach (IGameObjects item in gameObjects)
@@ -52,7 +45,6 @@ namespace LOZ.Room
             CurrentRoom.link.GetHitBox().Draw(spriteBatch, offset);
 
         }
-
         public virtual void RemoveItems()
         {
             foreach (IGameObjects item in RemovedInDetection)
@@ -79,7 +71,6 @@ namespace LOZ.Room
                 }
             }
         }
-
         protected Point GetCoorPoint(double x, double y)
         {
             Point start = Info.Inside.Location;
@@ -91,15 +82,17 @@ namespace LOZ.Room
 
             return start;
         }
-
         public ExteriorObject GetExtObj()
         {
             return exterior;
         }
-
         public void AddItem(IGameObjects item)
         {
             gameObjects.Add(item);
+        }
+        public List<IGameObjects> GetObjectsList()
+        {
+            return gameObjects;
         }
     }
 }

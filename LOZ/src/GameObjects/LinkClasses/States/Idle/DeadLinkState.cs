@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.ItemsClasses;
-using LOZ.GameState;
+using LOZ.Room;
 
 namespace LOZ.LinkClasses.States
 {
@@ -58,7 +58,7 @@ namespace LOZ.LinkClasses.States
         }
         public override void Update(GameTime timer)
         {
-            if(Room.Link.Health > 0)
+            if(RoomReference.GetLink().Health > 0)
             {
                 link.LinkState = new DownIdleLinkState(link);
             }

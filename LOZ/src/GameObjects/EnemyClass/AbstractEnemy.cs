@@ -77,7 +77,7 @@ namespace LOZ.EnemyClass
         }
         protected void modifyPosition(int dx, int dy)
         {
-            if (Room.RoomInventory.HasItem(typeof(Clock))) return;
+            if (RoomReference.GetInventory().HasItem(typeof(Clock))) return;
             Position = new Point(Position.X + dx, Position.Y + dy);
         }
         public abstract Hitbox GetHitBox();

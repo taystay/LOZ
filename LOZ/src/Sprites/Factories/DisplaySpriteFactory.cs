@@ -14,7 +14,6 @@ namespace LOZ.Factories
 		private Texture2D black;
 
 		private static DisplaySpriteFactory instance = new DisplaySpriteFactory();
-
 		public static DisplaySpriteFactory Instance
 		{
 			get
@@ -22,11 +21,9 @@ namespace LOZ.Factories
 				return instance;
 			}
 		}
-
 		private DisplaySpriteFactory()
 		{
 		}
-
 		public void LoadAllTextures(ContentManager content)
 		{
 			HUDSpritesheet = content.Load<Texture2D>("HUDLayout");
@@ -35,12 +32,10 @@ namespace LOZ.Factories
 			black = content.Load<Texture2D>("Black");
 
 		}
-
 		public ISprite GetIntroText()
         {
 			return new IntroText(mainMenu);
         }
-
 		public Texture2D getBlackFade()
         {
 			return black;
@@ -57,17 +52,14 @@ namespace LOZ.Factories
         {
 			return new SelectItemSprite(HUDSpritesheet);
 		}
-
 		public ISprite CreateTriforceIndicator()
 		{
 			return new TriforceIndicator(HUDSpritesheet);
 		}
-
 		public ISprite CreateHUDSprite()
 		{
 			return new HUDSprite(HUDSpritesheet);
 		}
-
 		public ISprite CreateRoomOnMapSprite()
         {
 			return new MapRoom(HUDSpritesheet);
@@ -84,22 +76,18 @@ namespace LOZ.Factories
 		{
 			return new linkLocationSprite(HUDSpritesheet);
 		}
-
 		public ISprite CreatePauseSprite()
         {
 			return new PauseHudSprite(HUDSpritesheet);
         }
-
 		public ISprite GetHudHeart(bool fullHeart)
         {
 			return new HudHeart(HUDSpritesheet, fullHeart);
         }
-
 		public ISprite GetMapWalk(int width, int height)
 		{
 			return new MapWalkWay(HUDSpritesheet, width, height);
 		}
-
 		public Texture2D TransparentBackground()
 		{
 			return tranparentB;

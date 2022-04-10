@@ -1,8 +1,6 @@
 ﻿using System.IO;
-using LOZ.Room;
 using System.Collections.Generic;
 using LOZ.Collision;
-using LOZ.DungeonClasses;
 
 
 namespace LOZ.MapIO

@@ -1,4 +1,5 @@
-﻿using LOZ.GameState;
+﻿using LOZ.Room;
+
 namespace LOZ.CommandClasses
 {
     class RightMove :ICommand
@@ -8,8 +9,8 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            Room.Link.ChangeDirectionRight();
-            Room.Link.Move();
+            RoomReference.GetLink().ChangeDirectionRight();
+            RoomReference.GetLink().Move();
         }
     }
 }

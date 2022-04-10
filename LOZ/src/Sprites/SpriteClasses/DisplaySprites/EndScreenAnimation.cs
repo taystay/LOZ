@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using LOZ.DungeonClasses;
 using LOZ.Collision;
 using System.Collections.Generic;
-using LOZ.GameState;
+using LOZ.Room;
 using LOZ.ItemsClasses;
 using LOZ.Sound;
 
@@ -35,7 +35,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			
 			if(triforce == null)
             {
-				List<IGameObjects> objs = CurrentRoom.Instance.Room.GameObjects;
+				List<IGameObjects> objs = RoomReference.GetCurrRoom().GetObjectsList();
 				foreach (IGameObjects item in objs)
 				{
 					if (TypeC.Check(item, typeof(Triforce)))
@@ -53,7 +53,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			}
 			if(!linkGotUpdate)
             {
-				Room.Link.Update(gameTime);
+				RoomReference.GetLink().Update(gameTime);
 				linkGotUpdate = true;
             }
 			if (numberOfUpdates >= maxUpdates) return;
@@ -74,7 +74,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
         {
 			leftBorder.Draw(spriteBatch, new Point(leftx, lefty), Color.Black);
 			rightBorder.Draw(spriteBatch, new Point(rightx, righty), Color.Black);
-			Room.Link.Draw(spriteBatch);
+			RoomReference.GetLink().Draw(spriteBatch);
 			if (triforce != null)
 				triforce.Draw(spriteBatch);
 		}

@@ -1,91 +1,59 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using System.Collections.Generic;
+using LOZ.LinkClasses;
+using LOZ.Inventory;
 using LOZ.Collision;
-using System.Collections.Generic;
-using LOZ.EnemyClass;
-using LOZ.ItemsClasses;
-using LOZ.EnemyClass.Projectiles;
-using LOZ.DungeonClasses;
 
 namespace LOZ.Room
 {
-    abstract class GameState : IRoom
+    public static class RoomReference
     {
-
-        private protected List<IGameObjects> gameObjects;
-
-        public ExteriorObject exterior { get; set; }
-        private protected List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
-        private protected CollisionIterator colliders;
-
-        public virtual void Update(GameTime gameTime)
+        public static ILink GetLink()
         {
-            if (exterior != null) exterior.Update(gameTime);
-            colliders.Iterate();
-            for (int i = 0; i < gameObjects.Count; i++)
-            {
-                IGameObjects item = gameObjects[i];
-                item.Update(gameTime);
-            }
-            CurrentRoom.link.Update(gameTime);
-            RemoveItems();
+            return CurrentRoom.link;
         }
-        public virtual void Draw(SpriteBatch spriteBatch, Point offset)
+        public static Point3D GetCurrLocation()
         {
-            foreach (IGameObjects item in gameObjects)
-            {
-                item.Draw(spriteBatch, offset);
-            }
-            CurrentRoom.link.Draw(spriteBatch, offset);
-
-            if (!CurrentRoom.DebugMode) return; //Debug hitboxes for easy of testing numbers
-            foreach (IGameObjects item in gameObjects)
-            {
-                item.GetHitBox().Draw(spriteBatch, offset);
-            }
-            CurrentRoom.link.GetHitBox().Draw(spriteBatch, offset);
-
+            return CurrentRoom.currentLocation;
         }
-        public virtual void RemoveItems()
+        public static LinkInventory GetInventory()
         {
-            foreach (IGameObjects item in RemovedInDetection)
-            {
-                gameObjects.Remove(item);
-            }
-            for (int i = gameObjects.Count - 1; i >= 0; i--)
-            {
-                IGameObjects item = gameObjects[i];
-                if (TypeC.Check(item, typeof(IItem)))
-                { 
-                    IItem itemObject = (IItem)item;
-                    if (!itemObject.SpriteActive()) gameObjects.RemoveAt(i);
-                }
-                if (TypeC.Check(item, typeof(AbstractEnemy)))
-                {
-                    AbstractEnemy itemObject = (AbstractEnemy)item;
-                    if (!itemObject.IsActive()) gameObjects.RemoveAt(i);
-                }
-                if (TypeC.Check(item, typeof(DragonBreathe)))
-                {
-                    DragonBreathe itemObject = (DragonBreathe)item;
-                    if (!itemObject.IsActive()) gameObjects.RemoveAt(i);
-                }
-            }
+            return CurrentRoom.link.Inventory;
         }
-        protected Point GetCoorPoint(double x, double y)
+        public static bool GetDebug()
         {
-            Point start = Info.Inside.Location;
-            start.X += Info.BlockWidth / 2;
-            start.Y += Info.BlockWidth / 2;
-
-            start.X += (int)((double)Info.BlockWidth * x);
-            start.Y += (int)((double)Info.BlockWidth * y);
-
-            return start;
+            return CurrentRoom.DebugMode;
         }
-        public ExteriorObject GetExtObj()
+        public static void ToggleDebug()
         {
-            return exterior;
+            CurrentRoom.DebugMode = !CurrentRoom.DebugMode;
+        }
+        public static void SetChangeRoom()
+        {
+            CurrentRoom.changeRoom = true;
+        }
+        public static List<Point3D> GetRooms()
+        {
+            return CurrentRoom.Instance.GetRoomCoor();
+        }
+        public static Dictionary<Point3D, IRoom> GetAllRooms()
+        {
+            return CurrentRoom.Instance._allRooms;
+        }
+        public static void AddItem(IGameObjects obj)
+        {
+            CurrentRoom.Instance.AddItemToRoom(obj);
+        }
+        public static void NextRoom(int change)
+        {
+            CurrentRoom.Instance.NextRoom(change);
+        }
+        public static IRoom GetCurrRoom()
+        {
+            return CurrentRoom.Instance.currentRoom;
+        }
+        public static List<IGameObjects> GetObjectsList()
+        {
+            return CurrentRoom.Instance.currentRoom.GetObjectsList();
         }
     }
 }

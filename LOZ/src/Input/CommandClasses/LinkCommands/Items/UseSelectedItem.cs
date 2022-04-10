@@ -1,5 +1,5 @@
 ﻿using LOZ.LinkClasses;
-using LOZ.GameState;
+using LOZ.Room;
 using LOZ.Inventory;
 using LOZ.ItemsClasses;
 using LOZ.Collision;
@@ -15,15 +15,15 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            LinkInventory inv = Room.RoomInventory;
+            LinkInventory inv = RoomReference.GetInventory();
             int BItemIdx = inv.currentItem;
             if (BItemIdx < 0) return;
             if(TypeC.Check(inv.inventory[BItemIdx], typeof(Bomb)))
-                Room.Link.Attack(Weapon.Bomb);
+                RoomReference.GetLink().Attack(Weapon.Bomb);
             else if (TypeC.Check(inv.inventory[BItemIdx], typeof(Bow)) && inv.rupeeCount > 0)
-                Room.Link.Attack(Weapon.Arrow);
+                RoomReference.GetLink().Attack(Weapon.Arrow);
             else if (TypeC.Check(inv.inventory[BItemIdx], typeof(PortalGun)))
-                Room.Link.Attack(Weapon.Portal);
+                RoomReference.GetLink().Attack(Weapon.Portal);
             
         }
     }

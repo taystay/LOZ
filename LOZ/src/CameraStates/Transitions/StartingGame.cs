@@ -12,7 +12,6 @@ namespace LOZ.src.CameraStates
 {
     public class StartingGame : ICameraState
     {
-
         private Game1 _gameObject;      
 
         #region constants
@@ -43,7 +42,7 @@ namespace LOZ.src.CameraStates
             bool buttonPressed = Keyboard.GetState().GetPressedKeyCount() > 0;
             if ( canSkip && buttonPressed)
             {
-                HudElement inv = new InventoryHud(Room.RoomInventory);
+                HudElement inv = new InventoryHud(RoomReference.GetInventory());
                 inv.Offset(new Point(0, -630));
                 _gameObject.CameraState = new FirstDungeon(_gameObject,inv);
             }
@@ -55,13 +54,10 @@ namespace LOZ.src.CameraStates
             numberOfUpdatesLeft--;
             if (numberOfUpdatesLeft <= 0)
             {
-                HudElement inv = new InventoryHud(Room.RoomInventory);
+                HudElement inv = new InventoryHud(RoomReference.GetInventory());
                 inv.Offset(new Point(0,-630));
                 _gameObject.CameraState = new FirstDungeon(_gameObject, inv);
             }
-
-
-              
         }
         public void Reset()
         {

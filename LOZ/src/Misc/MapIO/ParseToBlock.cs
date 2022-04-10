@@ -1,11 +1,7 @@
 ﻿using System.IO;
 using System.Collections.Generic;
-using LOZ.EnvironmentalClasses;
 using LOZ.Collision;
 using Microsoft.Xna.Framework;
-using LOZ.GameState;
-using LOZ.CommandClasses.RoomCommands;
-using LOZ.LinkClasses;
 
 namespace LOZ.MapIO
 {
@@ -20,7 +16,7 @@ namespace LOZ.MapIO
             int leftSide = location.X;
             string lineRead = reader.ReadLine();
 
-            while (reader.Peek() != 1){
+            while (reader.Peek() > -1){
                 //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
                 string[] words = lineRead.Split(',');
 

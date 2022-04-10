@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using LOZ.Hud;
 using LOZ.Room;
-using LOZ.LinkClasses;
 
 namespace LOZ.src.CameraStates
 {

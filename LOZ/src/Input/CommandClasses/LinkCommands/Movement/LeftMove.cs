@@ -1,4 +1,4 @@
-﻿using LOZ.GameState;
+﻿using LOZ.Room;
 
 namespace LOZ.CommandClasses
 {
@@ -9,8 +9,8 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            Room.Link.ChangeDirectionLeft();
-            Room.Link.Move();
+            RoomReference.GetLink().ChangeDirectionLeft();
+            RoomReference.GetLink().Move();
         }
     }
 }

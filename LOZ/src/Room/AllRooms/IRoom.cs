@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using LOZ.DungeonClasses;
 using LOZ.Collision;
@@ -13,5 +14,6 @@ namespace LOZ.Room
         public void RemoveItems();
         public ExteriorObject GetExtObj();
         public void AddItem(IGameObjects item);
+        public List<IGameObjects> GetObjectsList();
     }
 }

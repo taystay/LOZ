@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using LOZ.GameState;
-using LOZ.CommandClasses;
+﻿using System.Collections.Generic;
 using LOZ.DungeonClasses;
+using LOZ.Room;
 
 namespace LOZ.CommandClasses.RoomCommands
 {
@@ -14,15 +11,15 @@ namespace LOZ.CommandClasses.RoomCommands
         }
         public void execute()
         {
-            if(Room.RoomInventory.keyCount > 0)
+            if(RoomReference.GetInventory().keyCount > 0)
             {
-                CurrentRoom.Instance.Room.exterior.ChangeDoorOnUpdate(DoorLocation.Top, DoorType.Door);
-                Room.RoomInventory.UseKey();
-                Dictionary<Point3D, Room> roomList = CurrentRoom.Instance.Rooms;
-                Point3D linkPos = CurrentRoom.Instance.linkCoor;
+                RoomReference.GetCurrRoom().GetExtObj().ChangeDoorOnUpdate(DoorLocation.Top, DoorType.Door);
+                RoomReference.GetInventory().UseKey();
+                Dictionary<Point3D, IRoom> roomList = RoomReference.GetAllRooms();
+                Point3D linkPos = RoomReference.GetCurrLocation();
                 linkPos.Y--;
                 if (roomList[linkPos] == null) return;
-                ExteriorObject roomAbove = roomList[linkPos].exterior;
+                ExteriorObject roomAbove = roomList[linkPos].GetExtObj();
                 if (roomAbove != null)
                     roomAbove.ChangeDoorOnUpdate(DoorLocation.Bottom, DoorType.Door);
             }

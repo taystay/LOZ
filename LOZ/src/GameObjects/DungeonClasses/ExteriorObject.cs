@@ -2,8 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using LOZ.Collision;
-using LOZ.GameState;
 using System.Collections.Generic;
+using LOZ.Room;
 
 namespace LOZ.DungeonClasses
 {
@@ -71,7 +71,7 @@ namespace LOZ.DungeonClasses
                      
             if(needsUpdate)
             {
-                List<IGameObjects> objectsInGame = CurrentRoom.Instance.Room.GameObjects;
+                List<IGameObjects> objectsInGame = RoomReference.GetObjectsList();
                 foreach (IGameObjects i in currentItems)
                 {
                     objectsInGame.Remove(i);

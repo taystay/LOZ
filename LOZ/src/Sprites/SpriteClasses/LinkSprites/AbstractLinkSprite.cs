@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using LOZ.GameState;
+using LOZ.Room;
 using System.Collections.Generic;
 
 namespace LOZ.SpriteClasses
@@ -16,7 +16,7 @@ namespace LOZ.SpriteClasses
         public abstract void Update(GameTime timer);
 
 		public void Draw(SpriteBatch spriteBatch, Point location) {
-            if(Room.Damaged)
+            if(RoomReference.GetLink().Damaged)
                 Draw(spriteBatch, location, Color.HotPink);
             else
 			    Draw(spriteBatch, location, Color.White);

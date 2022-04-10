@@ -9,16 +9,16 @@ namespace LOZ.Room
 {
     class CurrentRoom
     {
-        #region publicVar
-        public static ILink link { get; set; }
-        public static Point3D currentLocation;
-        public static bool changeRoom;
-        public static bool DebugMode { get; set; }
-        public Dictionary<Point3D, IRoom> _allRooms { get; set; }
+        #region internalVar
+        internal static ILink link { get; set; }
+        internal static Point3D currentLocation;
+        internal static bool changeRoom;
+        internal static bool DebugMode { get; set; }
+        internal Dictionary<Point3D, IRoom> _allRooms { get; set; }
+        internal IRoom currentRoom;
         #endregion
 
         #region privateVar
-        private IRoom currentRoom;
         private static CurrentRoom instance = new CurrentRoom();
         private List<Point3D> coorRoom = new List<Point3D>();
         //private bool transition = false;

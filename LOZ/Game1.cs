@@ -1,13 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-using LOZ.GameState;
 using LOZ.DungeonClasses;
 using System.IO;
 using System.Reflection;
 using LOZ.Sound;
-using LOZ.Hud;
 using LOZ.Factories;
 using LOZ.src.CameraStates;
 using LOZ.Room;
@@ -27,6 +24,7 @@ namespace LOZ
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            CameraState = new MainMenuState(this);
         }
         protected override void Initialize()
         {
@@ -57,7 +55,7 @@ namespace LOZ
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-            RoomMaker roomMaker = new RoomMaker(filePath + "/Content/DungeonRooms/DungeonRooms");
+            RoomMaker roomMaker = new RoomMaker(filePath + "/Content/DugeonRooms/DugeonRooms/");
             Dictionary<Point3D, IRoom> allRooms = roomMaker.CreateAllRooms();
 
             CurrentRoom.Instance.LoadContents(allRooms);

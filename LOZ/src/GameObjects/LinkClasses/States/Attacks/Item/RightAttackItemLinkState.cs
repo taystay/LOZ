@@ -41,7 +41,7 @@ namespace LOZ.LinkClasses.States
             }
             else if (toUse == Weapon.Portal)
             {
-                AttemptAttack(new Portal(attackPosition, 1, PortalManager.getColor()), toUse);
+                //AttemptAttack(new Portal(attackPosition, 1, PortalManager.getColor()), toUse);
             }
         }
 

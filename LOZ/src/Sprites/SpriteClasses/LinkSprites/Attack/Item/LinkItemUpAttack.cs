@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using LOZ.GameState;
+using LOZ.Room;
 using System.Collections.Generic;
 
 namespace LOZ.SpriteClasses.LinkSprites
@@ -23,7 +23,7 @@ namespace LOZ.SpriteClasses.LinkSprites
             if (currentFrame == maxFrames)
             {
                 currentFrame = 0;
-                Room.Link.Idle();
+                RoomReference.GetLink().Idle();
             }
             frame = frames[currentFrame];
         }
