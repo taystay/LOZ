@@ -12,12 +12,13 @@ namespace LOZ.Room
         public static ILink link { get; set; }
         public static Point3D currentLocation;
         public static bool changeRoom;
-        #endregion 
+        public static bool DebugMode { get; set; }
+        public Dictionary<Point3D, IRoom> _allRooms { get; set; }
+        #endregion
 
         #region privateVar
-        private static CurrentRoom instance = new CurrentRoom();
         private IRoom currentRoom;
-        private Dictionary<Point3D, IRoom> _allRooms;
+        private static CurrentRoom instance = new CurrentRoom();
         //private bool transition = false;
         private int dx = 0, dy = 0, dz = 0;
         #endregion
@@ -32,6 +33,7 @@ namespace LOZ.Room
             _allRooms = rooms;
             currentLocation = new Point3D(3, 6, 0);
             changeRoom = false;
+            currentRoom = _allRooms[currentLocation];
 
             
             Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth);
@@ -53,14 +55,20 @@ namespace LOZ.Room
 
         private void ChangeRoom() {
             //change currentLocation and then change rooms if necessary
-
             if (changeRoom) 
                 currentRoom = _allRooms[currentLocation];
             changeRoom = false;   
-
         }
 
-
+        public List<Point3D> GetRoomCoor()
+        {
+            List<Point3D> coor = new List<Point3D>();
+            foreach (KeyValuePair<Point3D, IRoom> x in _allRooms)
+            {
+                coor.Add(x.Key);
+            }
+            return coor;
+        }
 
 
 

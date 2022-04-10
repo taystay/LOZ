@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿/*using System.Collections.Generic;
 using LOZ.Collision;
 
 namespace LOZ.GameState
@@ -15,4 +15,4 @@ namespace LOZ.GameState
             colliders = new CollisionIterator(GameObjects);
         }
     }
-}
+}*/

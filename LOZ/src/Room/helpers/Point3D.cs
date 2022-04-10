@@ -1,4 +1,4 @@
-﻿namespace LOZ.Room;
+﻿namespace LOZ.Room
 {
     public struct Point3D
     {

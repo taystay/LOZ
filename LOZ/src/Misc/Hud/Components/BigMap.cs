@@ -1,15 +1,13 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using LOZ.Inventory;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
-using LOZ.GameState;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
 using LOZ.DungeonClasses;
-using LOZ.Collision;
 using LOZ.ItemsClasses;
+using LOZ.Room;
 
 namespace LOZ.Hud
 {
@@ -57,8 +55,8 @@ namespace LOZ.Hud
             {
                 if(pair.Key.Contains(mouseLocation))
                 {
-                    CurrentRoom.Instance.linkCoor = pair.Value;
-                    Room.Link.Position = Info.Inside.Center;
+                    CurrentRoom.currentLocation = pair.Value;
+                    CurrentRoom.link.Position = Info.Inside.Center;
                     return;
                 }
             }          
@@ -66,8 +64,8 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!_inventory.HasItem(typeof(Map)) && !Room.DebugMode) return;
-            Point3D linkCoor = CurrentRoom.Instance.linkCoor;
+            if (!_inventory.HasItem(typeof(Map)) && !CurrentRoom.DebugMode) return;
+            Point3D linkCoor = CurrentRoom.currentLocation;
             ISprite map = ItemFactory.Instance.CreateMapSprite();
             map.ChangeScale(2);
             map.Draw(spriteBatch, new Point(DrawPoint.X - 250 + _offset.X, DrawPoint.Y + 70 + _offset.Y));
@@ -75,7 +73,7 @@ namespace LOZ.Hud
             int offsetY = 30;
             int startX = DrawPoint.X + _offset.X;
             int startY = DrawPoint.Y + _offset.Y;
-            List<Point3D> coords = CurrentRoom.Instance.roomList;
+            List<Point3D> coords = CurrentRoom.Instance.GetRoomCoor();
             roomHitBoxes = new Dictionary<Rectangle, Point3D>();
             foreach (Point3D point in coords)
             {
@@ -87,7 +85,7 @@ namespace LOZ.Hud
                 if (!roomHitBoxes.ContainsKey(b))
                     roomHitBoxes.Add(b, point);
 
-                ExteriorObject roomObj = CurrentRoom.Instance.Rooms[point].exterior;
+                ExteriorObject roomObj = CurrentRoom.Instance._allRooms[point].GetExtObj();
                 if (roomObj == null) continue;
                 if (roomObj.CanGoUp()) verticalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y - 10), Color.Black); ;
                 if (roomObj.CanGoDown()) verticalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y + 10), Color.Black);

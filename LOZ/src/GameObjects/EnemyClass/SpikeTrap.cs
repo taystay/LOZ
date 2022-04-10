@@ -2,8 +2,7 @@
 using Microsoft.Xna.Framework;
 using LOZ.Collision;
 using LOZ.LinkClasses;
-using LOZ.GameState;
-using LOZ.LinkClasses.States;
+using LOZ.Room;
 
 namespace LOZ.EnemyClass
 {
@@ -15,7 +14,6 @@ namespace LOZ.EnemyClass
             Position = location;
             velocity = new Point();
         }
-
         public override Hitbox GetHitBox()
         {
             return new Hitbox(Position.X -10, Position.Y - 10,  32, 32);
@@ -24,7 +22,7 @@ namespace LOZ.EnemyClass
         public void CheckAttack()
         {
             if (velocity.X != 0 || velocity.Y != 0) return;
-            ILink link = Room.Link;
+            ILink link = CurrentRoom.link;
             int dx = Position.X - link.Position.X;
             int dy = Position.Y - link.Position.Y;
             if (-5 <= dx && dx <= 5 && dy > 0)
@@ -37,28 +35,24 @@ namespace LOZ.EnemyClass
                 AttackLeft();
 
         }
-
         public void AttackUp()
         {
             velocity = new Point(0, attackSpeed);
         }
-
         public void AttackRight()
         {
             velocity = new Point(attackSpeed, 0);
         }
-
         public void AttackLeft()
         {
             velocity = new Point(-attackSpeed, 0);
         }
-
         public void AttackDown()
         {
             velocity = new Point(0, -attackSpeed);
         }
-
-        public override void Update(GameTime timer) {
+        public override void Update(GameTime timer)
+        {
             _texture.Update(timer);
             if (IsDamaged)
             {
@@ -78,6 +72,5 @@ namespace LOZ.EnemyClass
             else if (velocity.Y > 0)
                 velocity.Y -= 1;
         }
-
     }
 }

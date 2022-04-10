@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using LOZ.LinkClasses;
+using LOZ.DungeonClasses;
 
 namespace LOZ.Room
 {
@@ -10,5 +10,6 @@ namespace LOZ.Room
         public void Draw(SpriteBatch spriteBatch, Point offSet);
         //public void DrawRoomTransition(SpriteBatch spriteBatch, Point offSet);
         public void RemoveItems();
+        public ExteriorObject GetExtObj();
     }
 }

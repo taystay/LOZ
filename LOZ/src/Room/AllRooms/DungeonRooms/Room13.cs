@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
+using Microsoft.Xna.Framework.Graphics;
+using LOZ.Factories;
 
 namespace LOZ.Room
 {
@@ -16,6 +18,22 @@ namespace LOZ.Room
             roomObj.Add(new NPC(GetCoorPoint(6, 3)));
             roomObj.Add(new FireItem(GetCoorPoint(4, 3)));
             roomObj.Add(new FireItem(GetCoorPoint(8, 3)));
+        }
+        public override void Draw(SpriteBatch spriteBatch, Point offset)
+        {
+            GameFont.Instance.Write(spriteBatch, "Some walls may be bombable", 265 + offset.X, 450 + offset.Y);
+            foreach (IGameObjects item in gameObjects)
+            {
+                item.Draw(spriteBatch, offset);
+            }
+            CurrentRoom.link.Draw(spriteBatch, offset);
+
+            if (!CurrentRoom.DebugMode) return;
+            foreach (IGameObjects item in gameObjects)
+            {
+                item.GetHitBox().Draw(spriteBatch, offset);
+            }
+            CurrentRoom.link.GetHitBox().Draw(spriteBatch, offset);
         }
     }
 }

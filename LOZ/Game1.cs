@@ -19,7 +19,7 @@ namespace LOZ
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private Dictionary<Point3D, OldRoom> maps;
+        //private Dictionary<Point3D, OldRoom> maps;
         public ICameraState CameraState { get; set; }
 
         public Game1()
@@ -70,9 +70,9 @@ namespace LOZ
             bool debugState = true;
             if(debugState)
             {
-                HudElement inv = new InventoryHud(OldRoom.RoomInventory);
-                inv.Offset(new Point(0, -630));
-                CameraState = new FirstDungeon(this, inv);
+                //HudElement inv = new InventoryHud(OldRoom.RoomInventory);
+                //inv.Offset(new Point(0, -630));
+                //CameraState = new FirstDungeon(this, inv);
             } else
                 CameraState = new MainMenuState(this);
 

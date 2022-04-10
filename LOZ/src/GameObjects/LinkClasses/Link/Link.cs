@@ -1,9 +1,9 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Collision;
 using LOZ.ItemsClasses;
-using LOZ.GameState;
+using LOZ.Inventory;
+using LOZ.Room;
 
 namespace LOZ.LinkClasses
 {
@@ -12,6 +12,7 @@ namespace LOZ.LinkClasses
         public Point Position { get; set; }
         public ILinkState LinkState { get; set; }
         private int health = 6;
+        public LinkInventory inventory { get; set; }
         private bool updatePosition = false;
         private Point newPos;
         public int Health
@@ -29,89 +30,74 @@ namespace LOZ.LinkClasses
                 }
             }
         }
-
         public int MaxHealth { get; set; }
-
         public Link(Point location)
         {
             MaxHealth = 6;
             Position = location;
             LinkState = new DownIdleLinkState(this);
+            inventory = new LinkInventory();
         }
         public void ChangeDirectionUp()
         {
             LinkState.Up();
         }
-
         public void ChangeDirectionDown()
         {
             LinkState.Down();
         }
-
         public void ChangeDirectionLeft()
         {
             LinkState.Left();
         }
-
         public void ChangeDirectionRight()
         {
             LinkState.Right();
         }
-
         public void Move()
         {
             LinkState.Move();
         }
-
         public void KnockBack(Point vel)
         {
-            if (!Room.DebugMode)
+            if (!CurrentRoom.DebugMode)
                 LinkState.KnockBack(vel);
         }
-
         public void Idle()
         {
             LinkState.Idle();
         }
-
         public void RaiseItem(IItem item)
         {
             LinkState.RaiseItem(item);
         }
-
         public void Attack(Weapon currentUse)
         {
             LinkState.Attack(currentUse, Position);
         }
-
         public void TakeDamage(int damage)
         {
-            if(!Room.DebugMode)
+            if(!CurrentRoom.DebugMode)
                 LinkState.TakeDamage(damage);
         }
-
         public void Die()
         {
             LinkState.Die();
         }
-
         public void ChangePosition(Point p)
         {
             newPos = p;
             updatePosition = true;
         }
-
         public Point GetPosition()
         {
             return Position;
         }
-
         public Hitbox GetHitBox()
         {
             Hitbox hitbox = new Hitbox(Position.X - 48 / 2 + 14, Position.Y - 48 / 2 + 14, 20, 20);
             return hitbox;
         }
-
         public void Update(GameTime timer)
         {
             if(updatePosition)
@@ -122,16 +108,13 @@ namespace LOZ.LinkClasses
 
             LinkState.Update(timer);
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             LinkState.Draw(spriteBatch, Position);
         }
-
         public void Draw(SpriteBatch spriteBatch, Point offset)
         {
             LinkState.Draw(spriteBatch, Position + offset);
         }
-
     }
 }

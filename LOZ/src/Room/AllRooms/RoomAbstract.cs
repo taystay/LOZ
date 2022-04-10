@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.Collision;
 using System.Collections.Generic;
 using LOZ.EnemyClass;
-using LOZ.LinkClasses;
 using LOZ.ItemsClasses;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.DungeonClasses;
@@ -14,12 +13,10 @@ namespace LOZ.Room
     {
 
         private protected List<IGameObjects> gameObjects;
-  
 
         public ExteriorObject exterior { get; set; }
         private protected List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
         private protected CollisionIterator colliders;
-        public static bool DebugMode { get; set; }
 
         public virtual void Update(GameTime gameTime)
         {
@@ -47,7 +44,7 @@ namespace LOZ.Room
             }
             CurrentRoom.link.Draw(spriteBatch, offset);
 
-            if (!DebugMode) return; //Debug hitboxes for easy of testing numbers
+            if (!CurrentRoom.DebugMode) return; //Debug hitboxes for easy of testing numbers
             foreach (IGameObjects item in gameObjects)
             {
                 item.GetHitBox().Draw(spriteBatch, offset);
@@ -93,6 +90,11 @@ namespace LOZ.Room
             start.Y += (int)((double)Info.BlockWidth * y);
 
             return start;
+        }
+
+        public ExteriorObject GetExtObj()
+        {
+            return exterior;
         }
     }
 }

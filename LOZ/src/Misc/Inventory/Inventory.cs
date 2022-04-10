@@ -2,8 +2,6 @@
 using LOZ.Collision;
 using LOZ.ItemsClasses;
 using LOZ.Sound;
-using LOZ.SpriteClasses;
-using LOZ.Factories;
 using Microsoft.Xna.Framework;
 
 namespace LOZ.Inventory
@@ -26,7 +24,6 @@ namespace LOZ.Inventory
             rupeeCount = 0;
             keyCount = 0;
         }
-
         public void Initialize()
         {
             inventory = new List<IGameObjects>();
@@ -41,7 +38,6 @@ namespace LOZ.Inventory
             if(keyCount > 0)
                 inventory.Add(new Key(new Point()));
         }
-
         public void NextItem()
         {
             if (inventory.Count == 0)
@@ -62,18 +58,15 @@ namespace LOZ.Inventory
             }
             currentItem = -1;
         }
-
         public bool isInventoryItem(IGameObjects item)
         {
             IItem o = (IItem)item;
             return o.InventoryItem;
         }
-
         public bool IsCurrentItem(IGameObjects item)
         {
             return (inventory.IndexOf(item) == currentItem);
         }         
-
         public void AddItem(IGameObjects item)
         {
             SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
@@ -85,7 +78,6 @@ namespace LOZ.Inventory
             if (TypeC.Check(item, typeof(Key)))
                 keyCount++;
         }
-
         private void SelectType(System.Type itemType)
         {
             foreach(IGameObjects item in  inventory)
@@ -94,7 +86,6 @@ namespace LOZ.Inventory
                     currentItem = inventory.IndexOf(item);
             }
         }
-
         private bool UseItem(System.Type itemType)
         {
             for (int i = inventory.Count - 1; i >= 0; i--)
@@ -113,7 +104,6 @@ namespace LOZ.Inventory
             }
             return false; //item not there
         }
-
         public bool HasItem(System.Type type)
         {
             foreach(IGameObjects item in  inventory)
@@ -123,21 +113,18 @@ namespace LOZ.Inventory
             }
             return false;
         }
-
         public void UseRupee()
         {
             rupeeCount--;
             if (rupeeCount <= 0)
                 UseItem(typeof(Rupee));
         }
-
         public void UseBomb()
         {
             bombCount--;
             if (bombCount <= 0)
                 UseItem(typeof(Bomb));
         }
-
         public void UseKey()
         {
             keyCount--;

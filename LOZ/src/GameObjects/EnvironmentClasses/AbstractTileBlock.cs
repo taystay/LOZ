@@ -7,17 +7,7 @@ namespace LOZ.EnvironmentalClasses
 {
     public abstract class AbstractTileBlock : IEnvironment
     {
-		public Point Position
-        {
-            get
-            {
-				return itemLocation;
-            } 
-			set
-            {
-				itemLocation = value;
-            }
-        }
+		public Point Position { get; set; }
 		public bool Pushable { get; set; } = false;
 		private protected ISprite sprite;
 		private protected Point itemLocation;
@@ -40,8 +30,5 @@ namespace LOZ.EnvironmentalClasses
 			if (sprite != null) sprite.Draw(spriteBatch, itemLocation + offset);
 			else System.Diagnostics.Debug.WriteLine("" + this.GetType().ToString());
         }
-
-
-
 	}
 }

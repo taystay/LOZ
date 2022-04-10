@@ -17,7 +17,7 @@ namespace LOZ.Room
         public Dictionary<Point3D,IRoom> CreateAllRooms() {
             Dictionary<Point3D,IRoom> rooms = new Dictionary<Point3D, IRoom>();
 
-            rooms.Add(new Point3D(3,6,0),new StartRoom(_pathName));
+            rooms.Add(new Point3D(3, 6, 0),new StartRoom(_pathName));
             rooms.Add(new Point3D(2, 6, 0),new Room26(_pathName));
             rooms.Add(new Point3D(4, 6, 0),new Room46(_pathName));
             rooms.Add(new Point3D(3, 5, 0),new Room35(_pathName));

@@ -4,6 +4,7 @@ using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.GameState;
+using LOZ.Room;
 
 namespace LOZ.Collision
 {
@@ -27,13 +28,13 @@ namespace LOZ.Collision
                 int status = 0;
                 if(!p.hasCollided)
                     status = p.Collide();
-                if (status == -1) CurrentRoom.Instance.Room.RemovedInDetection.Add(p);
+                //if (status == -1) CurrentRoom.Instance.Room.RemovedInDetection.Add(p);
             }
             if(TypeC.Check(secondObject, typeof(Portal)))
             {
                 if (!TypeC.Check(firstObject, typeof(ILink)) && !TypeC.Check(firstObject, typeof(IItem))) return;
                 Portal p = (Portal)secondObject;
-                PortalManager.MoveThroughPortal(p, firstObject);
+                //PortalManager.MoveThroughPortal(p, firstObject);
             }
 
             if (TypeC.Check(firstObject, typeof(ILink)))
@@ -96,15 +97,14 @@ namespace LOZ.Collision
             if (TypeC.Check(secondObject, typeof(StairsBlock)))
             {
                 //CurrentRoom.Instance.Transition();
-                CurrentRoom.Instance.Transition(0, 0, 1);
+                //CurrentRoom.Instance.Transition(0, 0, 1);
+                CurrentRoom.currentLocation.Z += 1;
+                CurrentRoom.changeRoom = true;
             } 
             if (TypeC.Check(secondObject, typeof(Bomb)) || TypeC.Check(secondObject, typeof(FireProjectile)))
             {
-                Room.Link.TakeDamage(1);
-                
+                CurrentRoom.link.TakeDamage(1);
             }
-            
         }
-
     }
 }

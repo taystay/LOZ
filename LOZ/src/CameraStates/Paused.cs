@@ -1,18 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
-using LOZ.ControllerClasses;
-using LOZ.GameState;
-using LOZ.DungeonClasses;
-using LOZ.MapIO;
-using System.IO;
-using System.Reflection;
-using LOZ.Sound;
 using LOZ.Hud;
-using LOZ.SpriteClasses;
-using LOZ.SpriteClasses.DisplaySprites;
-using LOZ.Factories;
+using LOZ.Room;
+using LOZ.LinkClasses;
+
 namespace LOZ.src.CameraStates
 {
     public class Paused : ICameraState
@@ -35,12 +27,12 @@ namespace LOZ.src.CameraStates
             if(Keyboard.GetState().IsKeyDown(Keys.Space) && !buttonPressed)
             {
                 buttonPressed = true;
-                Room.RoomInventory.NextItem();
+                CurrentRoom.link.inventory.NextItem();
             }
             if(Keyboard.GetState().IsKeyDown(Keys.OemPipe) && !buttonPressed)
             {
                 buttonPressed = true;
-                Room.DebugMode = !Room.DebugMode;
+                CurrentRoom.DebugMode = !CurrentRoom.DebugMode;
             }
 
             if (Keyboard.GetState().GetPressedKeyCount() == 0)

@@ -1,10 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using LOZ.Factories;
+﻿/*using Microsoft.Xna.Framework;
 using LOZ.Collision;
-using LOZ.Sound;
-using LOZ.SpriteClasses;
-using LOZ.GameState;
 using System.Collections.Generic;
 using LOZ.LinkClasses;
 
@@ -169,4 +164,4 @@ namespace LOZ.ItemsClasses
             }
         }
     }
-}
+}*/
