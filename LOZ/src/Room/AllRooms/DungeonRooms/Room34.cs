@@ -14,7 +14,7 @@ namespace LOZ.Room
             gameObjects.Add(new Skeleton(GetCoorPoint(5, 3)));
             gameObjects.Add(new Skeleton(GetCoorPoint(7, 3)));
             gameObjects.Add(new Skeleton(GetCoorPoint(4, 6)));
-            gameObjects.Add(new Skeleton(GetCoorPoint(12, 4)));
+            gameObjects.Add(new Skeleton(GetCoorPoint(11, 4)));
             colliders = new CollisionIterator(gameObjects);
         }
     }
