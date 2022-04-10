@@ -18,7 +18,6 @@ namespace LOZ.Room
         private static CurrentRoom instance = new CurrentRoom();
         private IRoom currentRoom;
         private Dictionary<Point3D, IRoom> _allRooms;
-        //private bool transition = false;
         private int dx = 0, dy = 0, dz = 0;
         #endregion
 
@@ -27,6 +26,8 @@ namespace LOZ.Room
                 return instance;
             }
         }
+
+        private CurrentRoom() { }
 
         public void LoadContents(Dictionary<Point3D, IRoom> rooms) {
             _allRooms = rooms;
@@ -48,7 +49,7 @@ namespace LOZ.Room
 
         public void Draw(SpriteBatch spriteBatch, ILink link) {
 
-            currentRoom.Draw(spriteBatch, new Point(0,0));
+            currentRoom.Draw(spriteBatch, new Point(0,0), link);
         }
 
         private void ChangeRoom() {
