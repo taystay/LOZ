@@ -6,10 +6,10 @@ namespace LOZ.Room
 {
     class StartRoom : RoomAbstract
     {
-        private List<IGameObjects> roomObj;
+        //private List<IGameObjects> roomObj;
         public StartRoom(string pathFile)
         {
-            roomObj = IO.Instance.ParseRoom(pathFile + "3_6.csv");
+            gameObjects = IO.Instance.ParseRoom(pathFile + "3_6.csv");
         }
     }
 }

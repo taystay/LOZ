@@ -13,13 +13,13 @@ namespace LOZ.Room
         private bool hasEnemies = true;
         public Room24(string pathFile)
         {
-            roomObj = IO.Instance.ParseRoom(pathFile + "2_4.csv");
-            roomObj.Add(new Bat(GetCoorPoint(9, 1)));
-            roomObj.Add(new Bat(GetCoorPoint(1, 4)));
-            roomObj.Add(new Bat(GetCoorPoint(2, 6)));
-            roomObj.Add(new Bat(GetCoorPoint(4, 3)));
-            roomObj.Add(new Bat(GetCoorPoint(4, 5)));
-            roomObj.Add(new Bat(GetCoorPoint(9, 7)));
+            gameObjects = IO.Instance.ParseRoom(pathFile + "2_4.csv");
+            gameObjects.Add(new Bat(GetCoorPoint(9, 1)));
+            gameObjects.Add(new Bat(GetCoorPoint(1, 4)));
+            gameObjects.Add(new Bat(GetCoorPoint(2, 6)));
+            gameObjects.Add(new Bat(GetCoorPoint(4, 3)));
+            gameObjects.Add(new Bat(GetCoorPoint(4, 5)));
+            gameObjects.Add(new Bat(GetCoorPoint(9, 7)));
             if(!hasEnemies)
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
         }

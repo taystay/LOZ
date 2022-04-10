@@ -1,5 +1,4 @@
-﻿using LOZ.GameState;
-using Microsoft.Xna.Framework.Input;
+﻿using LOZ.Room;
 
 namespace LOZ.CommandClasses
 {

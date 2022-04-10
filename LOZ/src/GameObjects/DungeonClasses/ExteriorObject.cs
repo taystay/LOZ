@@ -67,7 +67,7 @@ namespace LOZ.DungeonClasses
         }
         
 		public void Update(GameTime timer)
-        {
+        { 
                      
             if(needsUpdate)
             {

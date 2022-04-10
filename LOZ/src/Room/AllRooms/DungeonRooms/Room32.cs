@@ -11,10 +11,10 @@ namespace LOZ.Room
         private List<IGameObjects> roomObj;
         public Room32(string pathFile)
         {
-            roomObj = IO.Instance.ParseRoom(pathFile + "3_2.csv");
-            roomObj.Add(new Skeleton(GetCoorPoint(2, 2)));
-            roomObj.Add(new Skeleton(GetCoorPoint(4, 4)));
-            roomObj.Add(new Skeleton(GetCoorPoint(11, 2)));
+            gameObjects = IO.Instance.ParseRoom(pathFile + "3_2.csv");
+            gameObjects.Add(new Skeleton(GetCoorPoint(2, 2)));
+            gameObjects.Add(new Skeleton(GetCoorPoint(4, 4)));
+            gameObjects.Add(new Skeleton(GetCoorPoint(11, 2)));
         }
     }
 }

@@ -1,13 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
-using LOZ.Inventory;
+using LOZ.Room;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
-using LOZ.GameState;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Input;
-using LOZ.DungeonClasses;
 
 namespace LOZ.Hud
 {
@@ -49,7 +44,7 @@ namespace LOZ.Hud
         public void Draw(SpriteBatch spriteBatch)
         {
             //725, 800 is draw location
-            int linkCurrentHealth = Room.Link.Health;
+            int linkCurrentHealth = CurrentRoom.link.Health;
             if (linkCurrentHealth < 0) return;
 
 

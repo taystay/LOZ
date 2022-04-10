@@ -11,8 +11,8 @@ namespace LOZ.Room
         private List<IGameObjects> roomObj;
         public Room62(string pathFile)
         {
-            roomObj = IO.Instance.ParseRoom(pathFile + "6_2.csv");
-            roomObj.Add(new Triforce(GetCoorPoint(6, 4)));
+            gameObjects = IO.Instance.ParseRoom(pathFile + "6_2.csv");
+            gameObjects.Add(new Triforce(GetCoorPoint(6, 4)));
         }
     }
 }

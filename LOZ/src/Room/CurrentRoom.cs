@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
+using LOZ.Collision;
 
 namespace LOZ.Room
 {
@@ -19,8 +20,9 @@ namespace LOZ.Room
         #region privateVar
         private IRoom currentRoom;
         private static CurrentRoom instance = new CurrentRoom();
+        private List<Point3D> coorRoom = new List<Point3D>();
         //private bool transition = false;
-        private int dx = 0, dy = 0, dz = 0;
+        private int roomCount = 0;
         #endregion
         public static CurrentRoom Instance {
             get {
@@ -44,9 +46,22 @@ namespace LOZ.Room
             currentRoom.Update(gameTime);
 
         }
+<<<<<<< HEAD
         public void Draw(SpriteBatch spriteBatch, ILink link) {
 
             currentRoom.Draw(spriteBatch, new Point(0,0));
+=======
+
+        public void Draw(SpriteBatch spriteBatch) {
+
+            currentRoom.Draw(spriteBatch, new Point(0,0));
+        }
+
+
+        public void DrawOffset(SpriteBatch spriteBatch, Point offset) {
+
+            currentRoom.Draw(spriteBatch, offset);
+>>>>>>> 733b1ba9eae2ce769718a3ac4ac45c87fe450639
         }
         private void ChangeRoom() {
             //change currentLocation and then change rooms if necessary
@@ -56,12 +71,23 @@ namespace LOZ.Room
         }
         public List<Point3D> GetRoomCoor()
         {
-            List<Point3D> coor = new List<Point3D>();
-            foreach (KeyValuePair<Point3D, IRoom> x in _allRooms)
+            //List<Point3D> coorRoom = new List<Point3D>();
+            foreach (KeyValuePair<Point3D, IRoom> room in _allRooms)
             {
-                coor.Add(x.Key);
+                coorRoom.Add(room.Key);
             }
-            return coor;
+            return coorRoom;
+        }
+
+        public void AddItemToRoom(IGameObjects item) {
+            currentRoom.AddItem(item);
+        }
+
+        public void NextRoom(int change)
+        {
+            roomCount += change;
+            roomCount = (roomCount % _allRooms.Count + _allRooms.Count) % _allRooms.Count; //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain
+            currentRoom = _allRooms[coorRoom[roomCount]];
         }
 
 

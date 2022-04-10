@@ -1,6 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+<<<<<<< HEAD
+=======
+using LOZ.Room;
+>>>>>>> 733b1ba9eae2ce769718a3ac4ac45c87fe450639
 using LOZ.ControllerClasses;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
@@ -26,7 +30,7 @@ namespace LOZ.src.CameraStates
         }
         public void UpdateController(GameTime gameTime)
         {
-            if (CurrentRoom.Instance.transition) return;
+            if (CurrentRoom.changeRoom) return;
 
             if (CurrentRoom.link.Inventory.HasItem(typeof(Triforce)))
                 _gameObject.CameraState = new Victory(_gameObject);

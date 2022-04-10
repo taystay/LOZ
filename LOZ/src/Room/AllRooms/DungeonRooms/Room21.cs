@@ -12,14 +12,14 @@ namespace LOZ.Room
         private IEnvironment pushBlock;
         public Room21(string pathFile)
         {
-            roomObj = IO.Instance.ParseRoom(pathFile + "2_1.csv");
+            gameObjects = IO.Instance.ParseRoom(pathFile + "2_1.csv");
             pushBlock = new SolidBlueBlock(GetCoorPoint(5, 4));
             pushBlock.Pushable = true;
-            roomObj.Add(new SpikeTrap(GetCoorPoint(1, 1)));
-            roomObj.Add(new SpikeTrap(GetCoorPoint(12, 1)));
-            roomObj.Add(new SpikeTrap(GetCoorPoint(1, 7)));
-            roomObj.Add(new SpikeTrap(GetCoorPoint(12, 7)));
-            roomObj.Add(pushBlock);
+            gameObjects.Add(new SpikeTrap(GetCoorPoint(1, 1)));
+            gameObjects.Add(new SpikeTrap(GetCoorPoint(12, 1)));
+            gameObjects.Add(new SpikeTrap(GetCoorPoint(1, 7)));
+            gameObjects.Add(new SpikeTrap(GetCoorPoint(12, 7)));
+            gameObjects.Add(pushBlock);
         }
     }
 }

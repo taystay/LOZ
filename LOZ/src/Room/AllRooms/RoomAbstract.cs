@@ -96,5 +96,10 @@ namespace LOZ.Room
         {
             return exterior;
         }
+
+        public void AddItem(IGameObjects item)
+        {
+            gameObjects.Add(item);
+        }
     }
 }
