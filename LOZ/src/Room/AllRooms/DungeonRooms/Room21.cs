@@ -1,6 +1,4 @@
 ﻿using LOZ.MapIO;
-using LOZ.Collision;
-using System.Collections.Generic;
 using LOZ.EnemyClass;
 using LOZ.EnvironmentalClasses;
 
@@ -8,7 +6,7 @@ namespace LOZ.Room
 {
     class Room21 : RoomAbstract
     {
-        private List<IGameObjects> roomObj;
+       
         private IEnvironment pushBlock;
         public Room21(string pathFile)
         {

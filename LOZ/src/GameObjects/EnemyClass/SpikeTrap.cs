@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using LOZ.Collision;
 using LOZ.LinkClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.EnemyClass
 {
@@ -22,7 +22,7 @@ namespace LOZ.EnemyClass
         public void CheckAttack()
         {
             if (velocity.X != 0 || velocity.Y != 0) return;
-            ILink link = CurrentRoom.link;
+            ILink link = RoomReference.GetLink();
             int dx = Position.X - link.Position.X;
             int dy = Position.Y - link.Position.Y;
             if (-5 <= dx && dx <= 5 && dy > 0)

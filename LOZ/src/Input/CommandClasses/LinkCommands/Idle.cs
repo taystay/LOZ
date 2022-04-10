@@ -1,4 +1,4 @@
-﻿using LOZ.Room;
+﻿using LOZ.GameStateReference;
 
 namespace LOZ.CommandClasses
 {
@@ -9,7 +9,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            CurrentRoom.link.Idle();
+            RoomReference.GetLink().Idle();
         }
     }
 }

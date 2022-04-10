@@ -2,6 +2,7 @@
 using LOZ.LinkClasses;
 using LOZ.EnvironmentalClasses;
 using LOZ.DungeonClasses;
+using LOZ.GameStateReference;
 using LOZ.Room;
 
 namespace LOZ.Collision

@@ -7,9 +7,7 @@ namespace LOZ.MapIO
 {
     class IO
     {
-        private string[] allRoomPathName;
-        private static IO instance = new IO();
-        
+        private static IO instance = new IO(); 
 
         public static IO Instance
         {

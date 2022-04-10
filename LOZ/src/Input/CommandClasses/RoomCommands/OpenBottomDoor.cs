@@ -1,5 +1,6 @@
 ﻿using LOZ.DungeonClasses;
 using System.Collections.Generic;
+using LOZ.GameStateReference;
 using LOZ.Room;
 
 namespace LOZ.CommandClasses

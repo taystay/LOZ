@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using LOZ.LinkClasses.States;
@@ -55,7 +55,8 @@ namespace LOZ.LinkClasses
                 }
 
                 //CurrentRoom.Instance.Room.GameObjects.Add(weapon);
-                CurrentRoom.Instance.AddItemToRoom(weapon);
+                RoomReference.AddItem(weapon);
+                //CurrentRoom.Instance.AddItemToRoom(weapon);
 
                 if (TypeC.Check(weapon, typeof(Bomb))) RoomReference.GetInventory().UseBomb();
                 if (type == Weapon.Arrow) RoomReference.GetInventory().UseRupee();
@@ -74,7 +75,9 @@ namespace LOZ.LinkClasses
         }
         public virtual void TakeDamage(int damage)
         {
-           CurrentRoom.link = new DamagedLink(link, damage);
+           //CurrentRoom.link = new DamagedLink(link, damage);
+            RoomReference.SetLink(new DamagedLink(link, damage));
+               
         }
         public virtual void Die()
         {
@@ -91,21 +94,21 @@ namespace LOZ.LinkClasses
             }
             if(TypeC.Check(item, typeof(Fairy)))
             {
-                CurrentRoom.link.Health += 3;
+                RoomReference.GetLink().Health += 3;
             }    
             if(TypeC.Check(item, typeof(HeartContainer)))
             {
-                CurrentRoom.link.MaxHealth += 2;
+                RoomReference.GetLink().MaxHealth += 2;
             }
             else if (TypeC.Check(item, typeof(Heart)))
             {
-                CurrentRoom.link.Health += 2;
+                RoomReference.GetLink().Health += 2;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
             }
         }
         public virtual void Update(GameTime timer)
         {
-            if (CurrentRoom.link.Health > 2)
+            if (RoomReference.GetLink().Health > 2)
             {
                 SoundManager.Instance.SoundToNotLoop(SoundEnum.LowHealth);
             }

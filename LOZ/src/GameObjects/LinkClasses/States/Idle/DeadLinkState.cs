@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.ItemsClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.LinkClasses.States
 {

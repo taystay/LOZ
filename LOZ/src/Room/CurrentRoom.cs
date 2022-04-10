@@ -9,7 +9,7 @@ namespace LOZ.Room
 {
     class CurrentRoom
     {
-        #region internalVar
+        #region protectedVar
         internal static ILink link { get; set; }
         internal static Point3D currentLocation;
         internal static bool changeRoom;
@@ -60,7 +60,7 @@ namespace LOZ.Room
                 currentRoom = _allRooms[currentLocation];
             changeRoom = false;   
         }
-        public List<Point3D> GetRoomCoor()
+        internal List<Point3D> GetRoomCoor()
         {
             //List<Point3D> coorRoom = new List<Point3D>();
             foreach (KeyValuePair<Point3D, IRoom> room in _allRooms)
@@ -69,10 +69,10 @@ namespace LOZ.Room
             }
             return coorRoom;
         }
-        public void AddItemToRoom(IGameObjects item) {
+        internal void AddItemToRoom(IGameObjects item) {
             currentRoom.AddItem(item);
         }
-        public void NextRoom(int change)
+        internal void NextRoom(int change)
         {
             roomCount += change;
             roomCount = (roomCount % _allRooms.Count + _allRooms.Count) % _allRooms.Count; //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain

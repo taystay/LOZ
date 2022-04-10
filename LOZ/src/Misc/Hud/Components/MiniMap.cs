@@ -4,6 +4,7 @@ using LOZ.Inventory;
 using LOZ.Factories;
 using LOZ.SpriteClasses;
 using LOZ.Room;
+using LOZ.GameStateReference;
 using System.Collections.Generic;
 using LOZ.ItemsClasses;
 
@@ -43,14 +44,14 @@ namespace LOZ.Hud
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Point3D linkCoor = CurrentRoom.currentLocation;
+            Point3D linkCoor = RoomReference.GetCurrLocation();
             GameFont.Instance.Write(spriteBatch, "Room - " + (linkCoor.X + 6 * linkCoor.Y), DrawPoint.X + _offset.X, DrawPoint.Y - 25 + _offset.Y);
             if (_inventory.HasItem(typeof(Map))) return;
             int offsetX = 25;
             int offsetY = 15;
             int startX = DrawPoint.X + _offset.X;
             int startY = DrawPoint.Y + _offset.Y;
-            List<Point3D> coords = CurrentRoom.Instance.GetRoomCoor();
+            List<Point3D> coords = RoomReference.GetRooms();
             foreach (Point3D point in coords)
             {
                 room.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y));

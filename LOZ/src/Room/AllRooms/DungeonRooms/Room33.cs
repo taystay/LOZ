@@ -1,7 +1,4 @@
 ﻿using LOZ.MapIO;
-using LOZ.Collision;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
 
@@ -9,7 +6,7 @@ namespace LOZ.Room
 {
     class Room33 : RoomAbstract
     {
-        private List<IGameObjects> roomObj;
+        
         public Room33(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "3_3.csv");

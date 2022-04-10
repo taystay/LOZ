@@ -4,6 +4,7 @@ using System.IO;
 using LOZ.Sound;
 using System.Reflection;
 using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.CommandClasses
 {
@@ -24,9 +25,9 @@ namespace LOZ.CommandClasses
             //CurrentRoom.Instance._allRooms = maps;
             CurrentRoom.currentLocation = new Point3D(3, 6, 0);
             PlaceLink.BottomDungeonDoor();
-            CurrentRoom.link.Health = 6;
-            CurrentRoom.link.MaxHealth = 6;
-            CurrentRoom.link.ChangeDirectionUp();
+            RoomReference.GetLink().Health = 6;
+            RoomReference.GetLink().MaxHealth = 6;
+            RoomReference.GetLink().ChangeDirectionUp();
             //CurrentRoom.RoomInventory.Initialize();
             SoundManager.Instance.SoundToLoop(SoundEnum.Background);
         }

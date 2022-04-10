@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using LOZ.DungeonClasses;
 using LOZ.Collision;
 using System.Collections.Generic;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using LOZ.ItemsClasses;
 using LOZ.Sound;
 

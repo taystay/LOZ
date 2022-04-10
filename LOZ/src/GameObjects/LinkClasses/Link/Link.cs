@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.Collision;
 using LOZ.ItemsClasses;
 using LOZ.Inventory;
-using LOZ.Room;
+using LOZ.GameStateReference;
+
 
 namespace LOZ.LinkClasses
 {
@@ -61,7 +62,7 @@ namespace LOZ.LinkClasses
         }
         public void KnockBack(Point vel)
         {
-            if (!CurrentRoom.DebugMode)
+            if (!RoomReference.GetDebug())
                 LinkState.KnockBack(vel);
         }
         public void Idle()
@@ -78,7 +79,7 @@ namespace LOZ.LinkClasses
         }
         public void TakeDamage(int damage)
         {
-            if(!CurrentRoom.DebugMode)
+            if(!RoomReference.GetDebug())
                 LinkState.TakeDamage(damage);
         }
         public void Die()

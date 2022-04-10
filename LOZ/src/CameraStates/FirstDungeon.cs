@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using LOZ.ControllerClasses;
 using LOZ.Hud;
+using LOZ.Room;
 using LOZ.SpriteClasses;
 using LOZ.ItemsClasses;
 using LOZ.Factories;
@@ -26,9 +27,11 @@ namespace LOZ.src.CameraStates
         }
         public void UpdateController(GameTime gameTime)
         {
-            if (CurrentRoom.changeRoom) return;
+            if (RoomReference.GetChangeRoom()) return;
 
-            if (CurrentRoom.link.Inventory.HasItem(typeof(Triforce)))
+           
+
+            if (RoomReference.GetInventory().HasItem(typeof(Triforce)))
                 _gameObject.CameraState = new Victory(_gameObject);
 
             keyboard.Update(gameTime);
@@ -47,7 +50,7 @@ namespace LOZ.src.CameraStates
         {
             CurrentRoom.Instance.Draw(spriteBatch);
             _topHud.Draw(spriteBatch);
-            if (CurrentRoom.link.Health <= 0)
+            if (RoomReference.GetLink().Health <= 0)
                 GameOverDisplay.Draw(spriteBatch, new Point(500, 500));
         }
     }

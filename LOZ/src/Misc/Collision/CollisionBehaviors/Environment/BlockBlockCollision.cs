@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.EnvironmentalClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.Collision
 {

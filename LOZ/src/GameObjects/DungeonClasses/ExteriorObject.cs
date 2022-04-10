@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using LOZ.Collision;
 using System.Collections.Generic;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.DungeonClasses
 {

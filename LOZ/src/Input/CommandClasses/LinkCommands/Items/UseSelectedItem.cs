@@ -1,5 +1,5 @@
 ﻿using LOZ.LinkClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using LOZ.Inventory;
 using LOZ.ItemsClasses;
 using LOZ.Collision;

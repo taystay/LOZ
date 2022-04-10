@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.Collision;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using LOZ.Sound;
 
 
@@ -65,9 +65,9 @@ namespace LOZ.EnemyClass
             modifyPosition(velocity.X,0);
 
             if ((int) timer.TotalGameTime.TotalMilliseconds % 5000 == 0) {
-                CurrentRoom.Instance.AddItemToRoom(new DragonBreathe(Position,-1)); //top fireball
-                CurrentRoom.Instance.AddItemToRoom(new DragonBreathe(Position,0)); //middle fireball
-                CurrentRoom.Instance.AddItemToRoom(new DragonBreathe(Position,1)); //bottom fireball
+                RoomReference.AddItem(new DragonBreathe(Position,-1)); //top fireball
+                RoomReference.AddItem(new DragonBreathe(Position,0)); //middle fireball
+                RoomReference.AddItem(new DragonBreathe(Position,1)); //bottom fireball
             }
 
             _texture.Update(timer);

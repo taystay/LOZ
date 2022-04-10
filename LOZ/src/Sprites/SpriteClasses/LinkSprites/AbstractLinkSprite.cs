@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using System.Collections.Generic;
 
 namespace LOZ.SpriteClasses

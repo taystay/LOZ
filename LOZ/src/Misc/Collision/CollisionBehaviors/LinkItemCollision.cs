@@ -1,5 +1,5 @@
 ﻿using LOZ.ItemsClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using Microsoft.Xna.Framework;
 
 namespace LOZ.Collision

@@ -24,7 +24,7 @@ namespace LOZ
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            CameraState = new MainMenuState(this);
+          
         }
         protected override void Initialize()
         {
@@ -59,11 +59,6 @@ namespace LOZ
             Dictionary<Point3D, IRoom> allRooms = roomMaker.CreateAllRooms();
 
             CurrentRoom.Instance.LoadContents(allRooms);
-
-            //IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
-            //allMap.Parse();
-            //CurrentRoom.Instance.Rooms = allRooms;
-            //CurrentRoom.Instance.SpawnLink();
 
             bool debugState = true;
             if(debugState)

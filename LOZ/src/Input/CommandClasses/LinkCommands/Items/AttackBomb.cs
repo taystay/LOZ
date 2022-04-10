@@ -1,20 +1,18 @@
 ﻿using LOZ.LinkClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.CommandClasses
 {
     class AttackBomb : ICommand
     {
-        private CurrentRoom _room;
-        public AttackBomb(CurrentRoom room)
+
+        public AttackBomb()
         {
-            _room = room;
+           
         }
         public void execute()
         {
-            CurrentRoom.link.Attack(Weapon.Bomb);
-            
-            //SoundManager.Instance.SoundToPlay(SoundEnum.Bomb_Blow);
+            RoomReference.GetLink().Attack(Weapon.Bomb);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using LOZ.Room;
+﻿using LOZ.GameStateReference;
 using Microsoft.Xna.Framework;
 
 namespace LOZ.Collision
@@ -7,16 +7,16 @@ namespace LOZ.Collision
     {
         public static void Handle(CollisionSide side)
         {
-            CurrentRoom.link.TakeDamage(1);
+            RoomReference.GetLink().TakeDamage(1);
 
             if (side == CollisionSide.Top)
-                CurrentRoom.link.KnockBack(new Point(0, -4));
+                RoomReference.GetLink().KnockBack(new Point(0, -4));
             else if (side == CollisionSide.Bottom)
-                CurrentRoom.link.KnockBack(new Point(0, 4));
+                RoomReference.GetLink().KnockBack(new Point(0, 4));
             else if (side == CollisionSide.Left)
-                CurrentRoom.link.KnockBack(new Point(-4, 0));
+                RoomReference.GetLink().KnockBack(new Point(-4, 0));
             else if (side == CollisionSide.Right)
-                CurrentRoom.link.KnockBack(new Point(4, 0));
+                RoomReference.GetLink().KnockBack(new Point(4, 0));
         }
     }
 }

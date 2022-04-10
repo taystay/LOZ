@@ -1,6 +1,5 @@
 ﻿using LOZ.MapIO;
 using LOZ.Collision;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using LOZ.EnemyClass;
 using LOZ.ItemsClasses;

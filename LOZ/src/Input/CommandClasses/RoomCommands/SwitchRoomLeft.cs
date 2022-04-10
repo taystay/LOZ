@@ -1,6 +1,4 @@
-﻿using LOZ.GameState;
-using Microsoft.Xna.Framework.Input;
-using LOZ.Room;
+﻿using LOZ.GameStateReference;
 
 namespace LOZ.CommandClasses
 {
@@ -13,8 +11,10 @@ namespace LOZ.CommandClasses
         {
             //CurrentRoom.Instance.MoveRoomDirection(-1,0, 0);
             //CurrentRoom.Instance.Transition(-1,0,0);
-            CurrentRoom.currentLocation.X -= 1;
-            CurrentRoom.changeRoom = true;
+            //CurrentRoom.currentLocation.X -= 1;
+            //CurrentRoom.changeRoom = true;
+            RoomReference.SetRoomLocation(-1, 0, 0);
+            RoomReference.SetChangeRoom();
         }
     }
 }

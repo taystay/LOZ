@@ -1,6 +1,5 @@
 ﻿using LOZ.MapIO;
 using LOZ.Collision;
-using System.Collections.Generic;
 using LOZ.EnemyClass;
 using Microsoft.Xna.Framework;
 using LOZ.DungeonClasses;
@@ -9,7 +8,7 @@ namespace LOZ.Room
 {
     class Room24 : RoomAbstract
     {
-        private List<IGameObjects> roomObj;
+       
         private bool hasEnemies = true;
         public Room24(string pathFile)
         {

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using LOZ.DungeonClasses;
-using System.Collections.Generic;
 
 namespace LOZ.SpriteClasses.DisplaySprites
 {

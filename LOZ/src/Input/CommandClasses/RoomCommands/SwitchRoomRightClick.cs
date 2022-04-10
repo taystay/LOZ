@@ -1,4 +1,5 @@
-﻿using LOZ.Room;
+﻿using LOZ.GameStateReference;
+
 
 namespace LOZ.CommandClasses
 {
@@ -9,7 +10,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            CurrentRoom.Instance.NextRoom(-1);
+            RoomReference.NextRoom(-1);
         }
     }
 }

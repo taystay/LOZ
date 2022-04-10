@@ -1,18 +1,18 @@
 ﻿using LOZ.LinkClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.CommandClasses
 {
     class AttackFire : ICommand
     {
-        private CurrentRoom _room;
-        public AttackFire(CurrentRoom room)
+
+        public AttackFire()
         {
-            _room = room;
+           
         }
         public void execute()
         {
-            CurrentRoom.link.Attack(Weapon.Fire);
+            RoomReference.GetLink().Attack(Weapon.Fire);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 
 		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
         {
-			Rectangle destinationRectangle;
+			//Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
 			Rectangle menuDestination = new Rectangle(location.X - menuWidth / 2, location.Y - menuHeight / 2, menuWidth, menuHeight);

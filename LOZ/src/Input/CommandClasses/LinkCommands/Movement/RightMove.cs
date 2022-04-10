@@ -1,4 +1,4 @@
-﻿using LOZ.Room;
+﻿using LOZ.GameStateReference;
 
 namespace LOZ.CommandClasses
 {

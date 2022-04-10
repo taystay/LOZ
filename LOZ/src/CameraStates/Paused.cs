@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using LOZ.Hud;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.src.CameraStates
 {
@@ -26,12 +26,12 @@ namespace LOZ.src.CameraStates
             if(Keyboard.GetState().IsKeyDown(Keys.Space) && !buttonPressed)
             {
                 buttonPressed = true;
-                CurrentRoom.link.Inventory.NextItem();
+                RoomReference.GetInventory().NextItem();
             }
             if(Keyboard.GetState().IsKeyDown(Keys.OemPipe) && !buttonPressed)
             {
                 buttonPressed = true;
-                CurrentRoom.DebugMode = !CurrentRoom.DebugMode;
+                RoomReference.ToggleDebug();
             }
 
             if (Keyboard.GetState().GetPressedKeyCount() == 0)

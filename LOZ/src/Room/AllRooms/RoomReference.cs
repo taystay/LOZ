@@ -2,14 +2,19 @@
 using LOZ.LinkClasses;
 using LOZ.Inventory;
 using LOZ.Collision;
+using LOZ.Room;
 
-namespace LOZ.Room
+namespace LOZ.GameStateReference
 {
     public static class RoomReference
     {
         public static ILink GetLink()
         {
             return CurrentRoom.link;
+        }
+        public static void SetLink(ILink linkState)
+        { 
+            CurrentRoom.link = linkState;
         }
         public static Point3D GetCurrLocation()
         {
@@ -30,6 +35,10 @@ namespace LOZ.Room
         public static void SetChangeRoom()
         {
             CurrentRoom.changeRoom = true;
+        }
+        public static bool GetChangeRoom()
+        {
+            return CurrentRoom.changeRoom;
         }
         public static List<Point3D> GetRooms()
         {
@@ -54,6 +63,17 @@ namespace LOZ.Room
         public static List<IGameObjects> GetObjectsList()
         {
             return CurrentRoom.Instance.currentRoom.GetObjectsList();
+        }
+        public static void SetRoomLocation(int x, int y, int z) {
+
+            CurrentRoom.currentLocation.X += x;
+            CurrentRoom.currentLocation.Y += x;
+            CurrentRoom.currentLocation.Z += x;
+        }
+        public static void SetRoomLocationPoint(Point3D location)
+        {
+
+            CurrentRoom.currentLocation = location;
         }
     }
 }

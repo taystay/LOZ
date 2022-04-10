@@ -4,9 +4,9 @@ using Microsoft.Xna.Framework.Input;
 using LOZ.DungeonClasses;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using LOZ.Factories;
-
+using LOZ.Room;
 
 namespace LOZ.src.CameraStates
 {

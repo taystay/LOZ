@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using System.Collections.Generic;
 
 
