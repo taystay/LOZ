@@ -17,7 +17,6 @@ namespace LOZ.Hud
         private ISprite room;
 
         private LinkInventory _inventory;
-
         public MiniMap(LinkInventory inventory, Point drawLocation)
         {
             _inventory = inventory;
@@ -25,23 +24,19 @@ namespace LOZ.Hud
             room = DisplaySpriteFactory.Instance.CreateBlueMapRoomSprite();
 
         }
-
         public void OffsetHud(Point offset)
         {
             _offset.X += offset.X;
             _offset.Y += offset.Y;
         }
-
         public void ResetHud()
         {
             _offset = new Point();
         }
-
         public void Update()
         {
 
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             Point3D linkCoor = RoomReference.GetCurrLocation();

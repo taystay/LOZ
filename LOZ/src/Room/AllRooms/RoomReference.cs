@@ -67,7 +67,8 @@ namespace LOZ.GameStateReference
         }
         public static void SetRoomLocation(int x, int y, int z) {
 
-            if (CurrentRoom.Instance._allRooms.ContainsKey(CurrentRoom.currentLocation + new Point3D(x, y, z))) return;
+            Point3D newLoc = new Point3D(CurrentRoom.currentLocation.X + x, CurrentRoom.currentLocation.Y + y, CurrentRoom.currentLocation.Z + z);
+            if (!CurrentRoom.Instance._allRooms.ContainsKey(newLoc)) return;
             CurrentRoom.currentLocation.X += x;
             CurrentRoom.currentLocation.Y += y;
             CurrentRoom.currentLocation.Z += z;
@@ -90,10 +91,10 @@ namespace LOZ.GameStateReference
                 PlaceLink.OutOfDungeon();
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
             }
+            CurrentRoom.changeRoom = true;
         }
         public static void SetRoomLocationPoint(Point3D location)
         {
-
             CurrentRoom.currentLocation = location;
         }
     }

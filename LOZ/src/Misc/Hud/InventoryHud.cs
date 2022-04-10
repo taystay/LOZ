@@ -27,7 +27,6 @@ namespace LOZ.Hud
             componenets.Add(new SelectedItemSlot(linkInventory, new Point(275, 175)));
             componenets.Add(new CompassComponent(linkInventory, new Point(185, 600)));
         }
-
         public void Offset(Point offset)
         {
             _offset.X += offset.X;
@@ -37,7 +36,6 @@ namespace LOZ.Hud
                 component.OffsetHud(offset);
             }
         }
-
         public void Update()
         {       
             foreach (HudComponent component in componenets)
@@ -45,7 +43,6 @@ namespace LOZ.Hud
                 component.Update();
             }
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             ui.Draw(spriteBatch, new Point(0 + _offset.X, 50 + _offset.Y));
