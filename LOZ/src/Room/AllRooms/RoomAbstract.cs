@@ -19,8 +19,13 @@ namespace LOZ.Room
         
         public virtual void Update(GameTime gameTime)
         {
+            UpdateNormally(gameTime);
+        }
+        private void UpdateNormally(GameTime gameTime)
+        {
+            System.Diagnostics.Debug.WriteLine("" + gameObjects.Count);
             if (exterior != null) exterior.Update(gameTime);
-            //colliders.Iterate();
+            colliders.Iterate();
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 IGameObjects item = gameObjects[i];
@@ -29,8 +34,15 @@ namespace LOZ.Room
             CurrentRoom.link.Update(gameTime);
             RemoveItems();
         }
+
         public virtual void Draw(SpriteBatch spriteBatch, Point offset)
         {
+            DrawNormally(spriteBatch, offset);
+        }
+
+        private void DrawNormally(SpriteBatch spriteBatch, Point offset)
+        {
+            if (exterior != null) exterior.Draw(spriteBatch);
             foreach (IGameObjects item in gameObjects)
             {
                 item.Draw(spriteBatch, offset);
@@ -43,7 +55,6 @@ namespace LOZ.Room
                 item.GetHitBox().Draw(spriteBatch, offset);
             }
             CurrentRoom.link.GetHitBox().Draw(spriteBatch, offset);
-
         }
         public virtual void RemoveItems()
         {
