@@ -2,10 +2,6 @@
 using LOZ.Collision;
 using LOZ.ItemsClasses;
 using LOZ.Inventory;
-<<<<<<< HEAD
-using LOZ.Room;
-=======
->>>>>>> 733b1ba9eae2ce769718a3ac4ac45c87fe450639
 
 namespace LOZ.LinkClasses
 {

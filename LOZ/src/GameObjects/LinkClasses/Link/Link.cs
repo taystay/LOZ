@@ -12,12 +12,8 @@ namespace LOZ.LinkClasses
         public Point Position { get; set; }
         public ILinkState LinkState { get; set; }
         private int health = 6;
-<<<<<<< HEAD
         public LinkInventory Inventory { get; set; }
         public bool Damaged { get; set; }
-=======
-        public static LinkInventory inventory { get; set; }
->>>>>>> 733b1ba9eae2ce769718a3ac4ac45c87fe450639
         private bool updatePosition = false;
         private Point newPos;
         public int Health

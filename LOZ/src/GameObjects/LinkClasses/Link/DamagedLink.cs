@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-<<<<<<< HEAD
-=======
 using LOZ.Room;
->>>>>>> 733b1ba9eae2ce769718a3ac4ac45c87fe450639
 using LOZ.Collision;
 using LOZ.ItemsClasses;
 using LOZ.Sound;
 using LOZ.Inventory;
-using LOZ.Room;
 
 namespace LOZ.LinkClasses
 {
@@ -110,13 +106,8 @@ namespace LOZ.LinkClasses
         }
         public void RemoveDecorator()
         {
-<<<<<<< HEAD
             CurrentRoom.link = decoratedLink;
             CurrentRoom.link.Damaged = false;
-=======
-           CurrentRoom.link = decoratedLink;
-           Room.Damaged = false;
->>>>>>> 733b1ba9eae2ce769718a3ac4ac45c87fe450639
         }
         public void Draw(SpriteBatch spriteBatch)
         {

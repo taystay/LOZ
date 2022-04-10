@@ -46,22 +46,13 @@ namespace LOZ.Room
             currentRoom.Update(gameTime);
 
         }
-<<<<<<< HEAD
-        public void Draw(SpriteBatch spriteBatch, ILink link) {
-
-            currentRoom.Draw(spriteBatch, new Point(0,0));
-=======
-
         public void Draw(SpriteBatch spriteBatch) {
 
             currentRoom.Draw(spriteBatch, new Point(0,0));
         }
-
-
         public void DrawOffset(SpriteBatch spriteBatch, Point offset) {
 
             currentRoom.Draw(spriteBatch, offset);
->>>>>>> 733b1ba9eae2ce769718a3ac4ac45c87fe450639
         }
         private void ChangeRoom() {
             //change currentLocation and then change rooms if necessary
@@ -78,11 +69,9 @@ namespace LOZ.Room
             }
             return coorRoom;
         }
-
         public void AddItemToRoom(IGameObjects item) {
             currentRoom.AddItem(item);
         }
-
         public void NextRoom(int change)
         {
             roomCount += change;
