@@ -1,19 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
-using LOZ.ControllerClasses;
-using LOZ.GameState;
-using LOZ.DungeonClasses;
-using LOZ.MapIO;
-using System.IO;
-using System.Reflection;
-using LOZ.Sound;
-using LOZ.Hud;
 using LOZ.CommandClasses;
 using LOZ.SpriteClasses;
-using LOZ.SpriteClasses.DisplaySprites;
 using LOZ.Factories;
+
 namespace LOZ.src.CameraStates
 {
     public class Victory : ICameraState

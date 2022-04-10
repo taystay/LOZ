@@ -6,14 +6,14 @@ namespace LOZ.CommandClasses
 {
     class AttackArrow :ICommand
     {
-        private Room _room;
-        public AttackArrow(Room room)
+        private OldRoom _room;
+        public AttackArrow(OldRoom room)
         {
             _room = room;
         }
         public void execute()
         {
-           Room.Link.Attack(Weapon.Arrow);
+            OldRoom.Link.Attack(Weapon.Arrow);
         }
     }
 }

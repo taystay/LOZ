@@ -20,12 +20,12 @@ namespace LOZ.GameState
         public List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
         public ExteriorObject exterior { get; set; }
         private protected CollisionIterator colliders;
-        public static ILink Link { get; set; } // only one link so we dont accidently break the game with the decorator.
+        //public static ILink Link { get; set; } // only one link so we dont accidently break the game with the decorator.
         public static bool DebugMode { get; set; } = false;
         public static bool Damaged { get; set; } = false;
         public abstract void LoadContent();
         
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, link)
         {
             HasEnemies = false;
             if (exterior != null) exterior.Update(gameTime);

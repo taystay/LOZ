@@ -5,14 +5,14 @@ namespace LOZ.CommandClasses
 {
     class AttackFire : ICommand
     {
-        private Room _room;
-        public AttackFire(Room room)
+        private OldRoom _room;
+        public AttackFire(OldRoom room)
         {
             _room = room;
         }
         public void execute()
         {
-            Room.Link.Attack(Weapon.Fire);
+            OldRoom.Link.Attack(Weapon.Fire);
         }
     }
 }

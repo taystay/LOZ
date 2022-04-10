@@ -19,7 +19,7 @@ namespace LOZ
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private Dictionary<Point3D, Room> maps;
+        private Dictionary<Point3D, OldRoom> maps;
         public ICameraState CameraState { get; set; }
 
         public Game1()
@@ -51,24 +51,26 @@ namespace LOZ
             spriteBatch = new SpriteBatch(GraphicsDevice);        
             
             SoundManager.Instance.LoadSound(Content);
-            CurrentRoom.Instance.LoadTextures(Content);
+            //CurrentRoom.Instance.LoadTextures(Content);
            
             //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
             //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
             RoomMaker roomMaker = new RoomMaker(filePath + "/Content/DungeonRooms/DungeonRooms");
-            List<IRoom> allRooms = roomMaker.CreateAllRooms();
+            Dictionary<Point3D, IRoom> allRooms = roomMaker.CreateAllRooms();
+
+            CurrentRoom.Instance.LoadContents(allRooms);
 
             //IO allMap = new IO(maps, filePath + "/Content/DugeonRooms");
             //allMap.Parse();
             //CurrentRoom.Instance.Rooms = allRooms;
-            CurrentRoom.Instance.SpawnLink();
+            //CurrentRoom.Instance.SpawnLink();
 
             bool debugState = true;
             if(debugState)
             {
-                HudElement inv = new InventoryHud(Room.RoomInventory);
+                HudElement inv = new InventoryHud(OldRoom.RoomInventory);
                 inv.Offset(new Point(0, -630));
                 CameraState = new FirstDungeon(this, inv);
             } else
@@ -91,8 +93,8 @@ namespace LOZ
             GraphicsDevice.Clear(Color.Black);
             CameraState.Draw(spriteBatch);
 
-            if (Room.DebugMode)
-                GameFont.Instance.Write(spriteBatch, "" + Mouse.GetState().X + "," + Mouse.GetState().Y, 50, 50);
+            //if (Room.DebugMode)
+            //    GameFont.Instance.Write(spriteBatch, "" + Mouse.GetState().X + "," + Mouse.GetState().Y, 50, 50);
 
             base.Draw(gameTime);
         }

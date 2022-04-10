@@ -14,7 +14,7 @@ namespace LOZ.Room
     {
         #region objects
         private protected List<IGameObjects> gameObjects;
-        public static ILink Link { get; set; }
+        //public static ILink Link { get; set; }
         #endregion
 
         public ExteriorObject exterior { get; set; }
@@ -31,14 +31,14 @@ namespace LOZ.Room
                 IGameObjects item = gameObjects[i];
                 item.Update(gameTime);
             }
-            Link.Update(gameTime);
+            CurrentRoom.link.Update(gameTime);
             RemoveItems();
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-            Draw(spriteBatch, new Point(0, 0));
-        }
+        //public virtual void Draw(SpriteBatch spriteBatch)
+        //{
+        //    Draw(spriteBatch, new Point(0, 0));
+        //}
 
         public virtual void Draw(SpriteBatch spriteBatch, Point offset)
         {
@@ -46,14 +46,14 @@ namespace LOZ.Room
             {
                 item.Draw(spriteBatch, offset);
             }
-            Link.Draw(spriteBatch, offset);
+            CurrentRoom.link.Draw(spriteBatch, offset);
 
             if (!DebugMode) return; //Debug hitboxes for easy of testing numbers
             foreach (IGameObjects item in gameObjects)
             {
                 item.GetHitBox().Draw(spriteBatch, offset);
             }
-            Link.GetHitBox().Draw(spriteBatch, offset);
+            CurrentRoom.link.GetHitBox().Draw(spriteBatch, offset);
 
         }
 

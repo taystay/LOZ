@@ -16,12 +16,12 @@ namespace LOZ.CommandClasses
         public void execute()
         {
 
-                if (!Room.RoomInventory.HasItem(typeof(Sword))) return;
+                if (!OldRoom.RoomInventory.HasItem(typeof(Sword))) return;
 
-                if (Room.Link.Health >= Room.Link.MaxHealth)
-                    Room.Link.Attack(Weapon.Swordbeam);
+                if (OldRoom.Link.Health >= OldRoom.Link.MaxHealth)
+                    OldRoom.Link.Attack(Weapon.Swordbeam);
                 else
-                    Room.Link.Attack(Weapon.Default);
+                    OldRoom.Link.Attack(Weapon.Default);
         }
     }
 }
