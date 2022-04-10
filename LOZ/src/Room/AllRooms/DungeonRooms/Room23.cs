@@ -12,9 +12,9 @@ namespace LOZ.Room
         public Room23(string pathFile)
         {
             roomObj = IO.Instance.ParseRoom(pathFile + "2_3.csv");
-            roomObj.Add(new Bat(new Point(6, 2)));
-            roomObj.Add(new Bat(new Point(4, 4)));
-            roomObj.Add(new Bat(new Point(6, 6)));
+            roomObj.Add(new Bat(GetCoorPoint(6, 2)));
+            roomObj.Add(new Bat(GetCoorPoint(4, 4)));
+            roomObj.Add(new Bat(GetCoorPoints(6, 6)));
         }
     }
 }

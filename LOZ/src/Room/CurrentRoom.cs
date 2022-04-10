@@ -10,7 +10,7 @@ namespace LOZ.Room
     {
         public static ILink link { get; set; }
         private static CurrentRoom instance = new CurrentRoom();
-        private Point3D currentLocation = new Point3D(3,6,0);
+        private Point3D currentLocation;
         private IRoom currentRoom;
         private Dictionary<Point3D, IRoom> _allRooms;
         //private bool transition = false;
@@ -24,6 +24,7 @@ namespace LOZ.Room
 
         public void LoadContents(Dictionary<Point3D, IRoom> rooms) {
             _allRooms = rooms;
+            currentLocation = new Point3D(3, 6, 0);
 
             
             Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth);
@@ -76,7 +77,7 @@ namespace LOZ.Room
         //private float alpha = 0.0f;
         //private Texture2D fade;
         //private int dx = 0, dy = 0, dz = 0;
-        
+
         //public Point3D linkCoor { get; set; }
         //public Dictionary<Point3D, OldRoom> Rooms { get; set; }
         //public OldRoom Room
@@ -119,33 +120,34 @@ namespace LOZ.Room
         //        transition = true;
         //    }
         //}
-        //public void MoveRoomDirection(int dx, int dy, int dz)
-        //{
-        //    coor.changeBy(dx, dy, dz);
-        //    if(Room == null)
-        //    {
-        //        coor.changeBy(-dx, -dy, -dz);
-        //        return;
-        //    }
+        public void MoveRoomDirection(int dx, int dy, int dz)
+        {
+            coor.changeBy(dx, dy, dz);
+            if (Room == null)
+            {
+                coor.changeBy(-dx, -dy, -dz);
+                return;
+            }
 
-        //    if (dx == 1) // moved right
-        //        PlaceLink.LeftDungeonDoor();
-        //    else if (dx == -1) // moved left
-        //        PlaceLink.RightDungeonDoor();
-        //    else if (dy == 1) // moved down
-        //        PlaceLink.TopDungeonDoor();
-        //    else if (dy == -1) // moved up
-        //        PlaceLink.BottomDungeonDoor();
-        //    else if (dz == 1)// moved into dungeon
-        //    {
-        //        PlaceLink.PlaceInDungeon();
-        //        SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
-        //    }
-        //    else if (dz == -1) {
-        //        PlaceLink.OutOfDungeon();
-        //        SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
-        //    }
-        //}
+            if (dx == 1) // moved right
+                PlaceLink.LeftDungeonDoor();
+            else if (dx == -1) // moved left
+                PlaceLink.RightDungeonDoor();
+            else if (dy == 1) // moved down
+                PlaceLink.TopDungeonDoor();
+            else if (dy == -1) // moved up
+                PlaceLink.BottomDungeonDoor();
+            else if (dz == 1)// moved into dungeon
+            {
+                PlaceLink.PlaceInDungeon();
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
+            }
+            else if (dz == -1)
+            {
+                PlaceLink.OutOfDungeon();
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
+            }
+        }
         //public void NextRoom(int change)
         //{
         //    roomCount += change;
@@ -154,7 +156,7 @@ namespace LOZ.Room
         //}
         //public void Update(GameTime gameTime)
         //{
-            
+
         //    if (!transition)
         //    {
         //        Room.Update(gameTime);
@@ -165,7 +167,7 @@ namespace LOZ.Room
         //        if (!roomevent2.HasEnemies)
         //            roomevent2.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
 
-                    
+
         //    } else
         //    {
         //        if(alpha <= 1.0f)
@@ -192,7 +194,7 @@ namespace LOZ.Room
         //{
 
         //    Draw(spriteBatch, new Point());
-            
+
         //}
 
         //public void Draw(SpriteBatch spriteBatch, Point offset)

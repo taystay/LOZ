@@ -12,10 +12,10 @@ namespace LOZ.Room
         public Room21(string pathFile)
         {
             roomObj = IO.Instance.ParseRoom(pathFile + "2_1.csv");
-            roomObj.Add(new SpikeTrap(new Point(1, 1)));
-            roomObj.Add(new SpikeTrap(new Point(12, 1)));
-            roomObj.Add(new SpikeTrap(new Point(1, 7)));
-            roomObj.Add(new SpikeTrap(new Point(12, 7)));
+            roomObj.Add(new SpikeTrap(GetCoorPoint(1, 1)));
+            roomObj.Add(new SpikeTrap(GetCoorPoint(12, 1)));
+            roomObj.Add(new SpikeTrap(GetCoorPoint(1, 7)));
+            roomObj.Add(new SpikeTrap(GetCoorPoint(12, 7)));
         }
     }
 }

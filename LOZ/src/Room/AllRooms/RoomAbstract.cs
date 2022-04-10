@@ -82,5 +82,17 @@ namespace LOZ.Room
                 }
             }
         }
+
+        protected Point GetCoorPoint(double x, double y)
+        {
+            Point start = Info.Inside.Location;
+            start.X += Info.BlockWidth / 2;
+            start.Y += Info.BlockWidth / 2;
+
+            start.X += (int)((double)Info.BlockWidth * x);
+            start.Y += (int)((double)Info.BlockWidth * y);
+
+            return start;
+        }
     }
 }

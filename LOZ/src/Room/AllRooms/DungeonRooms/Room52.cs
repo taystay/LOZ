@@ -13,8 +13,8 @@ namespace LOZ.Room
         public Room52(string pathFile)
         {
             roomObj = IO.Instance.ParseRoom(pathFile + "5_2.csv");
-            roomObj.Add(new Dragon(new Point(10, 4)));
-            roomObj.Add(new HeartContainer(new Point(11, 4)));
+            roomObj.Add(new Dragon(GetCoorPoint(10, 4)));
+            roomObj.Add(new HeartContainer(GetCoorPoint(11, 4)));
         }
     }
 }
