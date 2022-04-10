@@ -15,7 +15,7 @@ namespace LOZ.Room
         public Room13(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "1_3.csv");
-            gameObjects.Add(new NPC(GetCoorPoint(6, 3)));
+            gameObjects.Add(new NPC(GetCoorPoint(5, 3)));
             gameObjects.Add(new FireItem(GetCoorPoint(4, 3)));
             gameObjects.Add(new FireItem(GetCoorPoint(8, 3)));
             exterior = new ExteriorObject(DoorType.Wall, DoorType.Door, DoorType.Wall, DoorType.Wall, gameObjects);

@@ -14,7 +14,7 @@ namespace LOZ.Room
         public Room52(string pathFile)
         {             
             gameObjects = IO.Instance.ParseRoom(pathFile + "5_2.csv");
-            gameObjects.Add(new Dragon(GetCoorPoint(10, 4)));
+            gameObjects.Add(new Dragon(GetCoorPoint(9, 3)));
             gameObjects.Add(new HeartContainer(GetCoorPoint(11, 4)));
             exterior = new ExteriorObject(DoorType.Wall, DoorType.CrackedDoor, DoorType.KeyDoor, DoorType.Wall, gameObjects);
             colliders = new CollisionIterator(gameObjects);

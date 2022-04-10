@@ -17,7 +17,7 @@ namespace LOZ.Room
             gameObjects.Add(new Jelly(GetCoorPoint(4, 3)));
             gameObjects.Add(new Jelly(GetCoorPoint(8, 3)));
             gameObjects.Add(new Jelly(GetCoorPoint(4, 6)));
-            gameObjects.Add(new Map(GetCoorPoint(11, 4)));
+            gameObjects.Add(new Map(GetCoorPoint(10, 3)));
             exterior = new ExteriorObject(DoorType.Door, DoorType.KeyDoor, DoorType.Breakable, DoorType.Door, gameObjects);
             colliders = new CollisionIterator(gameObjects);
         }
