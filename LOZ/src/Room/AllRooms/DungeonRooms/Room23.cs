@@ -1,6 +1,7 @@
 ﻿using LOZ.MapIO;
 using LOZ.EnemyClass;
 using LOZ.EnvironmentalClasses;
+using LOZ.Collision;
 
 namespace LOZ.Room
 {
@@ -17,6 +18,7 @@ namespace LOZ.Room
             gameObjects.Add(new Bat(GetCoorPoint(4, 4)));
             gameObjects.Add(new Bat(GetCoorPoint(6, 6)));
             gameObjects.Add(pushBlock);
+            colliders = new CollisionIterator(gameObjects);
         }
     }
 }
