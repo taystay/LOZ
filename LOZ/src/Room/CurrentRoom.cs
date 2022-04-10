@@ -56,7 +56,7 @@ namespace LOZ.Room
         }
         private void ChangeRoom() {
             //change currentLocation and then change rooms if necessary
-            if (changeRoom) 
+            if (changeRoom && _allRooms.ContainsKey(currentLocation)) 
                 currentRoom = _allRooms[currentLocation];
             changeRoom = false;   
         }
