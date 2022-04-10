@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 using LOZ.Collision;
+using System.Linq;
 
 namespace LOZ.Room
 {
@@ -36,7 +37,6 @@ namespace LOZ.Room
             changeRoom = false;
             currentRoom = _allRooms[currentLocation];
 
-            
             Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth);
             link = new Link(spawnPoint);
         }
@@ -62,12 +62,7 @@ namespace LOZ.Room
         }
         internal List<Point3D> GetRoomCoor()
         {
-            //List<Point3D> coorRoom = new List<Point3D>();
-            foreach (KeyValuePair<Point3D, IRoom> room in _allRooms)
-            {
-                coorRoom.Add(room.Key);
-            }
-            return coorRoom;
+            return _allRooms.Keys.ToList(); //https://stackoverflow.com/questions/1276763/how-do-i-get-the-list-of-keys-in-a-dictionary
         }
         internal void AddItemToRoom(IGameObjects item) {
             currentRoom.AddItem(item);

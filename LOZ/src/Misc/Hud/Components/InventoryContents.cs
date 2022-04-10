@@ -13,32 +13,26 @@ namespace LOZ.Hud
         public Point DrawPoint { get; set; }
         private Point _offset = new Point(0, 0);
         private ISprite selectSprite;
-
         private LinkInventory _inventory;
-
         public InventoryContents(LinkInventory inventory, Point drawLocation)
         {
             _inventory = inventory;
             DrawPoint = drawLocation;
             selectSprite = DisplaySpriteFactory.Instance.CreateSelectItemSprite();
         }
-
         public void OffsetHud(Point offset)
         {
             _offset.X += offset.X;
             _offset.Y += offset.Y;
         }
-
         public void ResetHud()
         {
             _offset = new Point();
         }
-
         public void Update()
         {
 
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             int startx = 525 + _offset.X;
