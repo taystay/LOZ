@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LOZ.Inventory
+﻿namespace LOZ.Inventory
 {
     public enum LinkItems : int
     {
