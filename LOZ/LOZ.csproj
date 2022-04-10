@@ -41,7 +41,6 @@
     <Folder Include="src\CameraStates\" />
     <Folder Include="src\CameraStates\Transitions\" />
     <Folder Include="src\Misc\Hud\Components\" />
-    <Folder Include="src\Room\AllRooms\" />
     <Folder Include="Content\bin\DesktopGL\Content\DugeonRooms\DugeonRooms\" />
   </ItemGroup>
 </Project>

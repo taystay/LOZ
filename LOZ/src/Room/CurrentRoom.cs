@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using LOZ.Factories;
 using System.Collections.Generic;
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
 using LOZ.Sound;
-using LOZ.Hud;
-using LOZ.ItemsClasses;
-using LOZ.SpriteClasses;
 
 namespace LOZ.GameState
 {
