@@ -18,12 +18,8 @@ namespace LOZ.Room
 
         #region privateVar
         private IRoom currentRoom;
-<<<<<<< HEAD
         private static CurrentRoom instance = new CurrentRoom();
         //private bool transition = false;
-=======
-        private Dictionary<Point3D, IRoom> _allRooms;
->>>>>>> ad5731a961dd65acde92e266377c7685d30f5dd3
         private int dx = 0, dy = 0, dz = 0;
         #endregion
 

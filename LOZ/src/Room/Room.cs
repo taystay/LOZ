@@ -62,7 +62,7 @@ namespace LOZ.GameState
             /* 
                 I might go ahead and add this as a function that all IGameObjects have.
                 that way we can just do this through all IGameObjects. Some can just always return true;
-             */
+             
             foreach (IGameObjects item in RemovedInDetection)
             {
                 GameObjects.Remove(item);
