@@ -10,6 +10,7 @@ namespace LOZ.Room
         public StartRoom(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "3_6.csv");
+            colliders = new CollisionIterator(gameObjects);
         }
     }
 }

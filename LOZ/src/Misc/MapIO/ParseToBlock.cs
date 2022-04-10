@@ -20,7 +20,7 @@ namespace LOZ.MapIO
                 //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
                 string[] words = lineRead.Split(',');
 
-                for (int i=0; i< words.Length; i++) { 
+                for (int i=0; i < words.Length; i++) { 
                     obj.Add(ConvertBlock.BlockConvert(words[xIndex], location.X, location.Y));
                     location.X += 48;
                     xIndex++;

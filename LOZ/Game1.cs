@@ -8,6 +8,9 @@ using LOZ.Sound;
 using LOZ.Factories;
 using LOZ.src.CameraStates;
 using LOZ.Room;
+using LOZ.Hud;
+using LOZ.GameStateReference;
+using LOZ.GameState;
 
 namespace LOZ
 {
@@ -63,9 +66,9 @@ namespace LOZ
             bool debugState = true;
             if(debugState)
             {
-                //HudElement inv = new InventoryHud(OldRoom.RoomInventory);
-                //inv.Offset(new Point(0, -630));
-                //CameraState = new FirstDungeon(this, inv);
+                HudElement inv = new InventoryHud(RoomReference.GetLink().Inventory);
+                inv.Offset(new Point(0, -630));
+                CameraState = new FirstDungeon(this, inv);
             } else
                 CameraState = new MainMenuState(this);
 

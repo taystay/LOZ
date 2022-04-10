@@ -67,8 +67,8 @@ namespace LOZ.GameStateReference
         public static void SetRoomLocation(int x, int y, int z) {
 
             CurrentRoom.currentLocation.X += x;
-            CurrentRoom.currentLocation.Y += x;
-            CurrentRoom.currentLocation.Z += x;
+            CurrentRoom.currentLocation.Y += y;
+            CurrentRoom.currentLocation.Z += z;
         }
         public static void SetRoomLocationPoint(Point3D location)
         {
