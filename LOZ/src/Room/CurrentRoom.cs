@@ -35,7 +35,8 @@ namespace LOZ.Room
             _allRooms = rooms;
             currentLocation = new Point3D(3, 6, 0);
             changeRoom = false;
-            currentRoom = _allRooms[currentLocation];
+            currentRoom = _allRooms[currentLocation];//https://stackoverflow.com/questions/1276763/how-do-i-get-the-list-of-keys-in-a-dictionary
+            coorRoom = _allRooms.Keys.ToList();
 
             Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth);
             link = new Link(spawnPoint);
