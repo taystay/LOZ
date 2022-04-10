@@ -12,10 +12,9 @@ namespace LOZ.Room
 {
     abstract class RoomAbstract : IRoom
     {
-        #region objects
+
         private protected List<IGameObjects> gameObjects;
-        //public static ILink Link { get; set; }
-        #endregion
+  
 
         public ExteriorObject exterior { get; set; }
         private protected List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
