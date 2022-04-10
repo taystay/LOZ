@@ -3,7 +3,7 @@ using LOZ.Collision;
 
 namespace LOZ.GameState
 {
-    public class DungeonRoom : Room
+    public class DungeonRoom : OldRoom
     {
         public DungeonRoom(List<IGameObjects> list)
         {

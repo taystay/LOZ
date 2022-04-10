@@ -33,8 +33,8 @@ namespace LOZ.GameState
                 coor = value;
             }
         }
-        public Dictionary<Point3D, Room> Rooms { get; set; }
-        public Room Room
+        public Dictionary<Point3D, OldRoom> Rooms { get; set; }
+        public OldRoom Room
         {   get
             {
                 if (Rooms.ContainsKey(coor))
@@ -52,17 +52,17 @@ namespace LOZ.GameState
             }
         }
         private CurrentRoom() {
-            Room.RoomInventory = new Inventory.LinkInventory();                  
+            OldRoom.RoomInventory = new Inventory.LinkInventory();                  
         }
         public void LoadTextures(ContentManager Content)
         {        
             fade = Content.Load<Texture2D>("Black");
-            Room.RoomInventory.Initialize();
+            OldRoom.RoomInventory.Initialize();
 
         }
         public void Debug()
         {
-            Room.DebugMode = !Room.DebugMode;
+            OldRoom.DebugMode = !OldRoom.DebugMode;
         }
         public void Transition(int dx, int dy, int dz)
         {
@@ -113,8 +113,8 @@ namespace LOZ.GameState
             if (!transition)
             {
                 Room.Update(gameTime);
-                Room roomevent1 = Rooms[new Point3D(2, 4)];
-                Room roomevent2 = Rooms[new Point3D(5, 2)];
+                OldRoom roomevent1 = Rooms[new Point3D(2, 4)];
+                OldRoom roomevent2 = Rooms[new Point3D(5, 2)];
                 if (!roomevent1.HasEnemies)
                     roomevent1.exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
                 if (!roomevent2.HasEnemies)
@@ -137,11 +137,11 @@ namespace LOZ.GameState
         }
         public void SpawnLink()
         {
-            if (Room.Link != null) return;
+            if (OldRoom.Link != null) return;
             Rectangle map = Info.Map;
             Point spawnPoint = new Point(map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, map.Location.Y + map.Height - Info.DoorWidth);
-            Room.Link = new Link(spawnPoint);
-            Room.Link.ChangeDirectionUp();                     
+            OldRoom.Link = new Link(spawnPoint);
+            OldRoom.Link.ChangeDirectionUp();                     
         }
         public void Draw(SpriteBatch spriteBatch)
         {

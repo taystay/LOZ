@@ -11,37 +11,37 @@ namespace LOZ.GameState
         private static Rectangle loc = Info.Map;
         public static void LeftDungeonDoor()
         {
-            Room.Link.ChangePosition(new Point(loc.Location.X + Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth));
-            Room.Link.ChangeDirectionRight();
+            OldRoom.Link.ChangePosition(new Point(loc.Location.X + Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth));
+            OldRoom.Link.ChangeDirectionRight();
         }
         public static void RightDungeonDoor()
         {
-            Room.Link.ChangePosition(new Point(loc.Location.X + loc.Width - Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth));
-            Room.Link.ChangeDirectionLeft();
+            OldRoom.Link.ChangePosition(new Point(loc.Location.X + loc.Width - Info.DoorWidth, loc.Location.Y + Info.DoorToCornerHeight + Info.BlockWidth));
+            OldRoom.Link.ChangeDirectionLeft();
         }
 
         public static void TopDungeonDoor()
         {
-            Room.Link.ChangePosition(new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + Info.DoorWidth));
-            Room.Link.ChangeDirectionDown();
+            OldRoom.Link.ChangePosition(new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + Info.DoorWidth));
+            OldRoom.Link.ChangeDirectionDown();
         }
 
         public static void BottomDungeonDoor()
         {
-            Room.Link.ChangePosition(new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + loc.Height - Info.DoorWidth));
-            Room.Link.ChangeDirectionUp();
+            OldRoom.Link.ChangePosition(new Point(loc.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, loc.Location.Y + loc.Height - Info.DoorWidth));
+            OldRoom.Link.ChangeDirectionUp();
         }
 
         public static void PlaceInDungeon()
         {
-            Room.Link.ChangePosition(new Point(loc.Location.X + 3 * Info.BlockWidth, loc.Location.Y + Info.BlockWidth));
-            Room.Link.ChangeDirectionDown();
+            OldRoom.Link.ChangePosition(new Point(loc.Location.X + 3 * Info.BlockWidth, loc.Location.Y + Info.BlockWidth));
+            OldRoom.Link.ChangeDirectionDown();
         }
 
         public static void OutOfDungeon()
         {
-            Room.Link.ChangePosition(new Point(loc.Location.X + 7 * Info.BlockWidth, loc.Location.Y + 5 * Info.BlockWidth));
-            Room.Link.ChangeDirectionLeft();
+            OldRoom.Link.ChangePosition(new Point(loc.Location.X + 7 * Info.BlockWidth, loc.Location.Y + 5 * Info.BlockWidth));
+            OldRoom.Link.ChangeDirectionLeft();
         }
     }
 }

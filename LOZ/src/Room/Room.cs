@@ -14,7 +14,7 @@ using LOZ.Factories;
 
 namespace LOZ.GameState
 {
-    public abstract class Room
+    public abstract class OldRoom
     { 
         public static LinkInventory RoomInventory { get; set;}
         public bool HasEnemies { get; set; } = true;

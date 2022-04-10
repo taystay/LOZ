@@ -7,7 +7,7 @@ using LOZ.DungeonClasses;
 
 namespace LOZ.GameState
 {
-    public class DevRoom : Room
+    public class DevRoom : OldRoom
     {
         public DevRoom()
         {
