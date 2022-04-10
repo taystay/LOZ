@@ -12,7 +12,7 @@ namespace LOZ.Room
         private bool hasEnemies = true;
         public Room24(string pathFile)
         {
-            colliders = new CollisionIterator(gameObjects);
+            
             gameObjects = IO.Instance.ParseRoom(pathFile + "2_4.csv");
             gameObjects.Add(new Bat(GetCoorPoint(9, 1)));
             gameObjects.Add(new Bat(GetCoorPoint(1, 4)));
@@ -20,7 +20,8 @@ namespace LOZ.Room
             gameObjects.Add(new Bat(GetCoorPoint(4, 3)));
             gameObjects.Add(new Bat(GetCoorPoint(4, 5)));
             gameObjects.Add(new Bat(GetCoorPoint(9, 7)));
-            if(!hasEnemies)
+            colliders = new CollisionIterator(gameObjects);
+            if (!hasEnemies)
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
         }
 
