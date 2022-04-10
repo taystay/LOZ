@@ -14,7 +14,7 @@ namespace LOZ.MapIO
             int leftSide = location.X;
             string lineRead = reader.ReadLine();
 
-            while (reader.Peek() != 1)
+            while (yIndex != 11)
             {
                 string[] words = lineRead.Split(',');
 
