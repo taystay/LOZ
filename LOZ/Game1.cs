@@ -44,6 +44,7 @@ namespace LOZ
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             DungeonFactory.Instance.LoadAllTextures(Content);
             GameFont.Instance.LoadAllTextures(Content);
+            GetReference.SetReference(this);
 
             base.Initialize();
         }

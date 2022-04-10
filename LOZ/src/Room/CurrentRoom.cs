@@ -69,9 +69,9 @@ namespace LOZ.Room
         }
         internal void NextRoom(int change)
         {
-            roomCount += change;
-            roomCount = (roomCount % _allRooms.Count + _allRooms.Count) % _allRooms.Count; //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain
-            currentRoom = _allRooms[coorRoom[roomCount]];
+            //roomCount += change;
+            //roomCount = (roomCount % _allRooms.Count + _allRooms.Count) % _allRooms.Count; //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain
+            //currentRoom = _allRooms[coorRoom[roomCount]];
         }
 
 

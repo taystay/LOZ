@@ -1,11 +1,14 @@
 ﻿using LOZ.GameStateReference;
+using LOZ.src.CameraStates;
 
 namespace LOZ.CommandClasses
 {
     class SwitchRoomRight : ICommand
     {
-        public SwitchRoomRight()
+        private Game1 _gameObject;
+        public SwitchRoomRight(Game1 gameObj)
         {
+            _gameObject = gameObj;
         }
         public void execute()
         {
@@ -13,9 +16,9 @@ namespace LOZ.CommandClasses
             //CurrentRoom.Instance.Transition(1,0,0);
             //CurrentRoom.currentLocation.X += 1;
             //CurrentRoom.changeRoom = true;
-
-            RoomReference.SetRoomLocation(1, 0, 0);
-            RoomReference.SetChangeRoom();
+            _gameObject.CameraState = new RoomTransition(_gameObject, -1, 0, 0);
+            //RoomReference.SetRoomLocation(1, 0, 0);
+            //RoomReference.SetChangeRoom();
         }
     }
 }
