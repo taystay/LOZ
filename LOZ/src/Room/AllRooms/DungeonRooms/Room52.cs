@@ -12,11 +12,11 @@ namespace LOZ.Room
        
         private bool hasEnemies = true;
         public Room52(string pathFile)
-        {
-            colliders = new CollisionIterator(gameObjects);
+        {             
             gameObjects = IO.Instance.ParseRoom(pathFile + "5_2.csv");
             gameObjects.Add(new Dragon(GetCoorPoint(10, 4)));
             gameObjects.Add(new HeartContainer(GetCoorPoint(11, 4)));
+            colliders = new CollisionIterator(gameObjects);
             if (!hasEnemies)
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
         }
