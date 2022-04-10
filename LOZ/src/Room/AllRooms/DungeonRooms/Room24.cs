@@ -26,7 +26,7 @@ namespace LOZ.Room
         public override void Update(GameTime gameTime)
         {
             if (exterior != null) exterior.Update(gameTime);
-            colliders.Iterate();
+            //colliders.Iterate();
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 IGameObjects item = gameObjects[i];
