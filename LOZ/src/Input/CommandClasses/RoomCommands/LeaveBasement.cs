@@ -10,7 +10,7 @@ namespace LOZ.CommandClasses.RoomCommands
         public void execute()
         {
             //CurrentRoom.Instance.MoveRoomDirection(0, 0, -1);
-            //sCurrentRoom.Instance.Transition(0,0,-1);
+            //CurrentRoom.Instance.Transition(0,0,-1);
             CurrentRoom.currentLocation.Z -= 1;
             CurrentRoom.changeRoom = true;
         }
