@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using System;
 using LOZ.Collision;
-using LOZ.GameState;
+using LOZ.Room;
 using LOZ.ItemsClasses;
 using LOZ.Sound;
 
@@ -51,19 +51,23 @@ namespace LOZ.EnemyClass
                 int num = random.Next();
                 if (num % 2 == 0)
                 {
-                    CurrentRoom.Instance.Room.GameObjects.Add(new Rupee(Position));        
+                    CurrentRoom.Instance.AddItemToRoom(new Rupee(Position));
+                    //CurrentRoom.Instance.Room.GameObjects.Add(new Rupee(Position));        
                 } else if (num % 3 == 2)
                 {
-                    CurrentRoom.Instance.Room.GameObjects.Add(new Clock(Position));
+                    CurrentRoom.Instance.AddItemToRoom(new Clock(Position));
+                    //CurrentRoom.Instance.Room.GameObjects.Add(new Clock(Position));
                 }
                 else if (num % 4 == 0)
                 {
-                    CurrentRoom.Instance.Room.GameObjects.Add(new Fairy(Position));
+                    CurrentRoom.Instance.AddItemToRoom(new Fairy(Position));
+                    //CurrentRoom.Instance.Room.GameObjects.Add(new Fairy(Position));
                 }
 
                 if(hasKey)
                 {
-                    CurrentRoom.Instance.Room.GameObjects.Add(new Key(Position));
+                    CurrentRoom.Instance.AddItemToRoom(new Key(Position));
+                    //CurrentRoom.Instance.Room.GameObjects.Add(new Key(Position));
                 }
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Die);
                 return false;

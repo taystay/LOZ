@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using LOZ.GameState;
+using LOZ.Room;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
 using LOZ.LinkClasses.States;
@@ -50,11 +50,12 @@ namespace LOZ.LinkClasses
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Combined);
                 else if (type == Weapon.Portal)
                 {
-                    PortalManager.AddPortal((Portal)weapon);
+                    //PortalManager.AddPortal((Portal)weapon);
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.PortalShot);
                 }
-                    
-                CurrentRoom.Instance.Room.GameObjects.Add(weapon);
+
+                //CurrentRoom.Instance.Room.GameObjects.Add(weapon);
+                CurrentRoom.Instance.AddItemToRoom(weapon);
 
                 if (TypeC.Check(weapon, typeof(Bomb))) Room.RoomInventory.UseBomb();
                 if (type == Weapon.Arrow) Room.RoomInventory.UseRupee();
@@ -73,7 +74,7 @@ namespace LOZ.LinkClasses
         }
         public virtual void TakeDamage(int damage)
         {
-           Room.Link = new DamagedLink(link, damage);
+           CurrentRoom.link = new DamagedLink(link, damage);
         }
         public virtual void Die()
         {
@@ -90,21 +91,21 @@ namespace LOZ.LinkClasses
             }
             if(TypeC.Check(item, typeof(Fairy)))
             {
-                Room.Link.Health += 3;
+                CurrentRoom.link.Health += 3;
             }    
             if(TypeC.Check(item, typeof(HeartContainer)))
             {
-                Room.Link.MaxHealth += 2;
+                CurrentRoom.link.MaxHealth += 2;
             }
             else if (TypeC.Check(item, typeof(Heart)))
             {
-                Room.Link.Health += 2;
+                CurrentRoom.link.Health += 2;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
             }
         }
         public virtual void Update(GameTime timer)
         {
-            if (Room.Link.Health > 2)
+            if (CurrentRoom.link.Health > 2)
             {
                 SoundManager.Instance.SoundToNotLoop(SoundEnum.LowHealth);
             }

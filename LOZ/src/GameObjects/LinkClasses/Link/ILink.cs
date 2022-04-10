@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.Collision;
 using LOZ.ItemsClasses;
+using LOZ.Inventory;
 
 namespace LOZ.LinkClasses
 {

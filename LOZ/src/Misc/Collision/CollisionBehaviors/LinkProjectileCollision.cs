@@ -1,4 +1,4 @@
-﻿using LOZ.GameState;
+﻿using LOZ.Room;
 
 namespace LOZ.Collision
 {
@@ -6,7 +6,7 @@ namespace LOZ.Collision
     {
         public static void Handle(IGameObjects p)
         {
-            Room.Link.TakeDamage(1);
+            CurrentRoom.link.TakeDamage(1);
         }
     }
 }

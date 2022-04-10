@@ -1,18 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
-using LOZ.ControllerClasses;
-using LOZ.GameState;
 using LOZ.DungeonClasses;
-using LOZ.MapIO;
-using System.IO;
-using System.Reflection;
-using LOZ.Sound;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
-using LOZ.SpriteClasses.DisplaySprites;
+using LOZ.Room;
 using LOZ.Factories;
+
+
 namespace LOZ.src.CameraStates
 {
     public class StartingGame : ICameraState
@@ -76,7 +71,8 @@ namespace LOZ.src.CameraStates
         {
             _menu.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2) + new Point(0, -(offsetDist + numberOfUpdatesLeft * dy)));
             introText.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2) + new Point(0, -(offsetDist / 2 + numberOfUpdatesLeft * dy)));
-            CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0, -numberOfUpdatesLeft * dy));
+            CurrentRoom.Instance.DrawOffset(spriteBatch, new Point(0, -numberOfUpdatesLeft * dy));
+            //CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0, -numberOfUpdatesLeft * dy));
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using LOZ.ItemsClasses;
-using LOZ.GameState;
+using LOZ.Room;
 using Microsoft.Xna.Framework;
 
 namespace LOZ.Collision
@@ -11,20 +11,22 @@ namespace LOZ.Collision
             IItem item_user = (IItem)item;
             if (!TypeC.Check(item, typeof(IPlayerProjectile)) && !TypeC.Check(item, typeof(FireItem)) && !TypeC.Check(item, typeof(FireProjectile)) && !TypeC.Check(item, typeof(Bomb)))
             {
-                Room.Link.RaiseItem(item_user);
+                CurrentRoom.link.RaiseItem(item_user);
+                CurrentRoom.link.
+
                 Room.RoomInventory.AddItem(item);
             } else
             {
                 if (TypeC.Check(item, typeof(LeftRightSwordHitBox)) || TypeC.Check(item, typeof(UpDownSwordHitBox))) return;
                 if (side == CollisionSide.Top)
-                    Room.Link.KnockBack(new Point(0, -4));
+                    CurrentRoom.link.KnockBack(new Point(0, -4));
                 else if (side == CollisionSide.Bottom)
-                    Room.Link.KnockBack(new Point(0, 4));
+                    CurrentRoom.link.KnockBack(new Point(0, 4));
                 else if (side == CollisionSide.Left)
-                    Room.Link.KnockBack(new Point(-4, 0));
+                    CurrentRoom.link.KnockBack(new Point(-4, 0));
                 else if (side == CollisionSide.Right)
-                    Room.Link.KnockBack(new Point(4, 0));
-                Room.Link.TakeDamage(1);
+                    CurrentRoom.link.KnockBack(new Point(4, 0));
+                CurrentRoom.link.TakeDamage(1);
             }
         }
     }

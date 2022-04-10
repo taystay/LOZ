@@ -12,7 +12,7 @@ namespace LOZ.LinkClasses
         public Point Position { get; set; }
         public ILinkState LinkState { get; set; }
         private int health = 6;
-        public LinkInventory inventory { get; set; }
+        public static LinkInventory inventory { get; set; }
         private bool updatePosition = false;
         private Point newPos;
         public int Health

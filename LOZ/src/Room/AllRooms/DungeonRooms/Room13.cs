@@ -11,13 +11,13 @@ namespace LOZ.Room
 {
     class Room13 : RoomAbstract
     {
-        private List<IGameObjects> roomObj;
+        //private List<IGameObjects> roomObj;
         public Room13(string pathFile)
         {
-            roomObj = IO.Instance.ParseRoom(pathFile + "1_3.csv");
-            roomObj.Add(new NPC(GetCoorPoint(6, 3)));
-            roomObj.Add(new FireItem(GetCoorPoint(4, 3)));
-            roomObj.Add(new FireItem(GetCoorPoint(8, 3)));
+            gameObjects = IO.Instance.ParseRoom(pathFile + "1_3.csv");
+            gameObjects.Add(new NPC(GetCoorPoint(6, 3)));
+            gameObjects.Add(new FireItem(GetCoorPoint(4, 3)));
+            gameObjects.Add(new FireItem(GetCoorPoint(8, 3)));
         }
         public override void Draw(SpriteBatch spriteBatch, Point offset)
         {

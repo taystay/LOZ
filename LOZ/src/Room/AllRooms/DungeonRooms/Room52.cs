@@ -14,9 +14,9 @@ namespace LOZ.Room
         private bool hasEnemies = true;
         public Room52(string pathFile)
         {
-            roomObj = IO.Instance.ParseRoom(pathFile + "5_2.csv");
-            roomObj.Add(new Dragon(GetCoorPoint(10, 4)));
-            roomObj.Add(new HeartContainer(GetCoorPoint(11, 4)));
+            gameObjects = IO.Instance.ParseRoom(pathFile + "5_2.csv");
+            gameObjects.Add(new Dragon(GetCoorPoint(10, 4)));
+            gameObjects.Add(new HeartContainer(GetCoorPoint(11, 4)));
             if (!hasEnemies)
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
         }

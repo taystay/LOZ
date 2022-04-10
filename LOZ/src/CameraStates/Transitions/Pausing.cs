@@ -1,18 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
-using LOZ.ControllerClasses;
-using LOZ.GameState;
-using LOZ.DungeonClasses;
-using LOZ.MapIO;
-using System.IO;
-using System.Reflection;
-using LOZ.Sound;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
-using LOZ.SpriteClasses.DisplaySprites;
-using LOZ.Factories;
+using LOZ.Room;
+
 namespace LOZ.src.CameraStates
 {
     public class Pausing : ICameraState
@@ -50,7 +41,8 @@ namespace LOZ.src.CameraStates
         public void Draw(SpriteBatch spriteBatch)
         {
             _topHud.Draw(spriteBatch);
-            CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0,(630- numberOfUpdates*dy)));
+            //CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0,(630- numberOfUpdates*dy)));
+            CurrentRoom.Instance.DrawOffset(spriteBatch, new Point(0, 630 - numberOfUpdates * dy));
             //CurrentRoom.Instance.Room.Draw(spriteBatch);
 
             //fade.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2));

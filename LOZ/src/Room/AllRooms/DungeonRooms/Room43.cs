@@ -9,7 +9,7 @@ namespace LOZ.Room
         private List<IGameObjects> roomObj;
         public Room43(string pathFile)
         {
-            roomObj = IO.Instance.ParseRoom(pathFile + "4_3.csv");
+            gameObjects = IO.Instance.ParseRoom(pathFile + "4_3.csv");
         }
     }
 }

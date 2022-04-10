@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using LOZ.GameState;
+using LOZ.Room;
 using LOZ.LinkClasses;
 using LOZ.EnemyClass;
 
@@ -16,7 +16,7 @@ namespace LOZ.Collision
         public void Iterate()
         {
             CollisionDetection detect = new CollisionDetection();
-            ILink link = Room.Link;
+            ILink link = CurrentRoom.link;
            
             foreach (IGameObjects obj1 in _gameObjects)
             {
