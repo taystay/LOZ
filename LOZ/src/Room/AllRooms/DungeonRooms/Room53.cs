@@ -10,7 +10,7 @@ namespace LOZ.Room
         public Room53(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "5_3.csv");
-            gameObjects.Add(new Key(GetCoorPoint(8, 7)));
+            gameObjects.Add(new Key(GetCoorPoint(8, 6)));
             colliders = new CollisionIterator(gameObjects);
         }
     }

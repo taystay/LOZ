@@ -19,7 +19,7 @@ namespace LOZ.Room
             gameObjects.Add(new Bat(GetCoorPoint(9, 2)));
             gameObjects.Add(new Bat(GetCoorPoint(11, 6)));
             gameObjects.Add(new Bat(GetCoorPoint(11, 4)));
-            gameObjects.Add(new Compass(GetCoorPoint(11, 4)));
+            gameObjects.Add(new Compass(GetCoorPoint(10, 3)));
             colliders = new CollisionIterator(gameObjects);
         }
     }

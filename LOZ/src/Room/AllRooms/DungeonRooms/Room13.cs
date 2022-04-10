@@ -14,9 +14,9 @@ namespace LOZ.Room
         public Room13(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "1_3.csv");
-            gameObjects.Add(new NPC(GetCoorPoint(6, 3)));
-            gameObjects.Add(new FireItem(GetCoorPoint(4, 3)));
-            gameObjects.Add(new FireItem(GetCoorPoint(8, 3)));
+            gameObjects.Add(new NPC(GetCoorPoint(5, 2)));
+            gameObjects.Add(new FireItem(GetCoorPoint(3, 2)));
+            gameObjects.Add(new FireItem(GetCoorPoint(8, 2)));
             colliders = new CollisionIterator(gameObjects);
         }
         public override void Draw(SpriteBatch spriteBatch, Point offset)

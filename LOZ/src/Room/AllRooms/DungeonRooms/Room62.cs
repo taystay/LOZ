@@ -9,9 +9,8 @@ namespace LOZ.Room
         
         public Room62(string pathFile)
         {
-            System.Diagnostics.Debug.WriteLine("");
             gameObjects = IO.Instance.ParseRoom(pathFile + "6_2.csv");
-            gameObjects.Add(new Triforce(GetCoorPoint(6, 4)));
+            gameObjects.Add(new Triforce(GetCoorPoint(5, 3)));
             colliders = new CollisionIterator(gameObjects);
         }
     }
