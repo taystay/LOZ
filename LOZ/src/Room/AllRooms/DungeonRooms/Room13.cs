@@ -5,6 +5,7 @@ using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Factories;
+using LOZ.DungeonClasses;
 
 namespace LOZ.Room
 {
@@ -17,6 +18,7 @@ namespace LOZ.Room
             gameObjects.Add(new NPC(GetCoorPoint(6, 3)));
             gameObjects.Add(new FireItem(GetCoorPoint(4, 3)));
             gameObjects.Add(new FireItem(GetCoorPoint(8, 3)));
+            exterior = new ExteriorObject(DoorType.Wall, DoorType.Door, DoorType.Wall, DoorType.Wall, gameObjects);
             colliders = new CollisionIterator(gameObjects);
         }
         public override void Draw(SpriteBatch spriteBatch, Point offset)

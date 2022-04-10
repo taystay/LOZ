@@ -2,7 +2,7 @@
 using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
 using LOZ.Collision;
-
+using LOZ.DungeonClasses;
 
 namespace LOZ.Room
 {
@@ -18,6 +18,7 @@ namespace LOZ.Room
             gameObjects.Add(new Jelly(GetCoorPoint(8, 3)));
             gameObjects.Add(new Jelly(GetCoorPoint(4, 6)));
             gameObjects.Add(new Map(GetCoorPoint(11, 4)));
+            exterior = new ExteriorObject(DoorType.Door, DoorType.KeyDoor, DoorType.Breakable, DoorType.Door, gameObjects);
             colliders = new CollisionIterator(gameObjects);
         }
     }

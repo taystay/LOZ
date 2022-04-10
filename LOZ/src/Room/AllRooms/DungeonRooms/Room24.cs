@@ -20,6 +20,8 @@ namespace LOZ.Room
             gameObjects.Add(new Bat(GetCoorPoint(4, 3)));
             gameObjects.Add(new Bat(GetCoorPoint(4, 5)));
             gameObjects.Add(new Bat(GetCoorPoint(9, 7)));
+            exterior = new ExteriorObject(DoorType.KeyDoor, DoorType.CrackedDoor, DoorType.Wall, DoorType.Wall, gameObjects);
+
             colliders = new CollisionIterator(gameObjects);
             if (!hasEnemies)
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
