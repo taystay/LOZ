@@ -95,15 +95,21 @@ namespace LOZ.LinkClasses
             if(TypeC.Check(item, typeof(Fairy)))
             {
                 RoomReference.GetLink().Health += 3;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
             }    
             if(TypeC.Check(item, typeof(HeartContainer)))
             {
                 RoomReference.GetLink().MaxHealth += 2;
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             }
             else if (TypeC.Check(item, typeof(Heart)))
             {
                 RoomReference.GetLink().Health += 2;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Heart);
+            }
+            else
+            {
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             }
         }
         public virtual void Update(GameTime timer)

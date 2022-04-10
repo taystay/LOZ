@@ -17,11 +17,6 @@ namespace LOZ.Collision
             center.X += Info.DoorToCornerWidth + 48;
             center.Y += Info.DoorToCornerHeight + 48;
 
-            //CurrentRoom.currentLocation.X += 1;
-            //CurrentRoom.currentLocation.X -= 1;
-            //CurrentRoom.currentLocation.Y += 1;
-            //CurrentRoom.currentLocation.Y -= 1;
-
             if (collider.X - center.X > 200) 
                 PlaceLink.RightDungeonDoor();
             else if (center.X - collider.X > 200)
