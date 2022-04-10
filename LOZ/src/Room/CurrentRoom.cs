@@ -8,13 +8,19 @@ namespace LOZ.Room
 {
     class CurrentRoom
     {
+        #region publicVar
         public static ILink link { get; set; }
+        public static Point3D currentLocation;
+        public static bool changeRoom;
+        #endregion 
+
+        #region privateVar
         private static CurrentRoom instance = new CurrentRoom();
-        private Point3D currentLocation;
         private IRoom currentRoom;
         private Dictionary<Point3D, IRoom> _allRooms;
         //private bool transition = false;
         private int dx = 0, dy = 0, dz = 0;
+        #endregion
 
         public static CurrentRoom Instance {
             get {
@@ -25,6 +31,7 @@ namespace LOZ.Room
         public void LoadContents(Dictionary<Point3D, IRoom> rooms) {
             _allRooms = rooms;
             currentLocation = new Point3D(3, 6, 0);
+            changeRoom = false;
 
             
             Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth);
@@ -34,7 +41,7 @@ namespace LOZ.Room
 
         public void Update(GameTime gameTime) {
 
-            Location();
+            ChangeRoom();
             currentRoom.Update(gameTime);
 
         }
@@ -44,18 +51,12 @@ namespace LOZ.Room
             currentRoom.Draw(spriteBatch, new Point(0,0));
         }
 
-        private void Location() {
+        private void ChangeRoom() {
             //change currentLocation and then change rooms if necessary
 
-            
-
-            currentRoom = _allRooms[currentLocation];
-
-        }
-
-        private void PlaceLink() {
-
-            //place link at a door location when transitioning rooms
+            if (changeRoom) 
+                currentRoom = _allRooms[currentLocation];
+            changeRoom = false;   
 
         }
 
@@ -120,34 +121,34 @@ namespace LOZ.Room
         //        transition = true;
         //    }
         //}
-        public void MoveRoomDirection(int dx, int dy, int dz)
-        {
-            coor.changeBy(dx, dy, dz);
-            if (Room == null)
-            {
-                coor.changeBy(-dx, -dy, -dz);
-                return;
-            }
+        //public void MoveRoomDirection(int dx, int dy, int dz)
+        //{
+        //    coor.changeBy(dx, dy, dz);
+        //    if (Room == null)
+        //    {
+        //        coor.changeBy(-dx, -dy, -dz);
+        //        return;
+        //    }
 
-            if (dx == 1) // moved right
-                PlaceLink.LeftDungeonDoor();
-            else if (dx == -1) // moved left
-                PlaceLink.RightDungeonDoor();
-            else if (dy == 1) // moved down
-                PlaceLink.TopDungeonDoor();
-            else if (dy == -1) // moved up
-                PlaceLink.BottomDungeonDoor();
-            else if (dz == 1)// moved into dungeon
-            {
-                PlaceLink.PlaceInDungeon();
-                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
-            }
-            else if (dz == -1)
-            {
-                PlaceLink.OutOfDungeon();
-                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
-            }
-        }
+        //    if (dx == 1) // moved right
+        //        PlaceLink.LeftDungeonDoor();
+        //    else if (dx == -1) // moved left
+        //        PlaceLink.RightDungeonDoor();
+        //    else if (dy == 1) // moved down
+        //        PlaceLink.TopDungeonDoor();
+        //    else if (dy == -1) // moved up
+        //        PlaceLink.BottomDungeonDoor();
+        //    else if (dz == 1)// moved into dungeon
+        //    {
+        //        PlaceLink.PlaceInDungeon();
+        //        SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
+        //    }
+        //    else if (dz == -1)
+        //    {
+        //        PlaceLink.OutOfDungeon();
+        //        SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
+        //    }
+        //}
         //public void NextRoom(int change)
         //{
         //    roomCount += change;
