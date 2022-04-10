@@ -15,57 +15,54 @@ namespace LOZ.GameState
     public abstract class OldRoom
     { 
         public static LinkInventory RoomInventory { get; set;}
-        public bool HasEnemies { get; set; } = true;
         public List<IGameObjects> GameObjects { get; set; }
         public List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
         public ExteriorObject exterior { get; set; }
         private protected CollisionIterator colliders;
-        //public static ILink Link { get; set; } // only one link so we dont accidently break the game with the decorator.
+        //public static ILink link { get; set; } // only one link so we dont accidently break the game with the decorator.
         public static bool DebugMode { get; set; } = false;
         public static bool Damaged { get; set; } = false;
         public abstract void LoadContent();
         
-        public void Update(GameTime gameTime, link)
+        public void Update(GameTime gameTime, ILink link)
         {
-            HasEnemies = false;
             if (exterior != null) exterior.Update(gameTime);
-            Link.Update(gameTime);
-            if (!CurrentRoom.Instance.transition) {
-                colliders.Iterate();
-                for (int i = 0; i < GameObjects.Count; i++)
-                { // for loop because state of list may change. (items added)            
-                    IGameObjects item = GameObjects[i];
-                    if (TypeC.Check(item, typeof(IEnemy)))
-                        HasEnemies = true;
-                    item.Update(gameTime);
-                }
-                RemoveDeadItems();             
+            link.Update(gameTime);
+            colliders.Iterate();
+            for (int i = 0; i < GameObjects.Count; i++)
+            { // for loop because state of list may change. (items added)            
+                IGameObjects item = GameObjects[i];
+                item.Update(gameTime);
             }
+            RemoveDeadItems();             
+            
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, ILink link)
         {
-            Draw(spriteBatch, new Point(0, 0));
+            Draw(spriteBatch, link, new Point(0, 0));
         }
-        public void Draw(SpriteBatch spriteBatch, Point offset)
+        public void Draw(SpriteBatch spriteBatch, ILink link, Point offset)
         {
             if (exterior != null) exterior.Draw(spriteBatch, offset);
             foreach (IGameObjects item in GameObjects)
             {
                 item.Draw(spriteBatch, offset);
             }
-            if (CurrentRoom.Instance.linkCoor.X == 1 && CurrentRoom.Instance.linkCoor.Y == 3)
-                GameFont.Instance.Write(spriteBatch, "Some walls may be bombable", 265 + offset.X, 450 + offset.Y);
-            Link.Draw(spriteBatch, offset);
+            link.Draw(spriteBatch, offset);
 
             if (!DebugMode) return; //Debug hitboxes for easy of testing numbers
             foreach (IGameObjects item in GameObjects)
             {
                 item.GetHitBox().Draw(spriteBatch);
             }
-            Link.GetHitBox().Draw(spriteBatch);
+            link.GetHitBox().Draw(spriteBatch);
         }
         private void RemoveDeadItems()
         {
+            /* 
+                I might go ahead and add this as a function that all IGameObjects have.
+                that way we can just do this through all IGameObjects. Some can just always return true;
+             */
             foreach (IGameObjects item in RemovedInDetection)
             {
                 GameObjects.Remove(item);
