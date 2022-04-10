@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LOZ.GameState
+﻿namespace LOZ.GameState
 {
     public struct Point3D
     {
@@ -12,16 +8,16 @@ namespace LOZ.GameState
 
         public Point3D(int x, int y, int z)
         {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
+            X = x;
+            Y = y;
+            Z = z;
         }
 
         public Point3D(int x, int y)
         {
-            this.X = x;
-            this.Y = y;
-            this.Z = 0;
+            X = x;
+            Y = y;
+            Z = 0;
         }
 
         public void changeBy(int dx, int dy, int dz)

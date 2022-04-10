@@ -13,7 +13,6 @@ namespace LOZ.GameState
         }
         public override void LoadContent() {
             colliders = new CollisionIterator(GameObjects);
-
         }
     }
 }

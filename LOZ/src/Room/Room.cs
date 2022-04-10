@@ -6,10 +6,8 @@ using LOZ.Collision;
 using LOZ.LinkClasses;
 using LOZ.EnemyClass;
 using LOZ.EnemyClass.Projectiles;
-using LOZ.Hud;
 using LOZ.Inventory;
 using LOZ.DungeonClasses;
-using LOZ.SpriteClasses;
 using LOZ.Factories;
 
 namespace LOZ.GameState

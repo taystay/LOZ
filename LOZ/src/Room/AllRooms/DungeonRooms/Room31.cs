@@ -1,6 +1,8 @@
 ﻿using LOZ.MapIO;
 using LOZ.Collision;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using LOZ.ItemsClasses;
 
 namespace LOZ.Room
 {
@@ -10,6 +12,7 @@ namespace LOZ.Room
         public Room31(string pathFile)
         {
             roomObj = IO.Instance.ParseRoom(pathFile + "3_1.csv");
+            roomObj.Add(new Key(new Point(7, 2)));
         }
     }
 }

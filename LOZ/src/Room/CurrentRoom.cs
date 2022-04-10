@@ -19,16 +19,7 @@ namespace LOZ.GameState
         private Texture2D fade;
         private int dx = 0, dy = 0, dz = 0;
         
-        public Point3D linkCoor { 
-            get
-            {
-                return coor;
-            }
-            set
-            {
-                coor = value;
-            }
-        }
+        public Point3D linkCoor { get; set; }
         public Dictionary<Point3D, OldRoom> Rooms { get; set; }
         public OldRoom Room
         {   get
