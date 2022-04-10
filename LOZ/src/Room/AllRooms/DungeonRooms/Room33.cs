@@ -1,6 +1,8 @@
 ﻿using LOZ.MapIO;
 using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
+using LOZ.Collision;
+
 
 namespace LOZ.Room
 {
@@ -16,6 +18,7 @@ namespace LOZ.Room
             gameObjects.Add(new Jelly(GetCoorPoint(8, 3)));
             gameObjects.Add(new Jelly(GetCoorPoint(4, 6)));
             gameObjects.Add(new Map(GetCoorPoint(11, 4)));
+            colliders = new CollisionIterator(gameObjects);
         }
     }
 }

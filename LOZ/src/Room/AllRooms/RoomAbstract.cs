@@ -21,7 +21,7 @@ namespace LOZ.Room
         {
             UpdateNormally(gameTime);
         }
-        private void UpdateNormally(GameTime gameTime)
+        public void UpdateNormally(GameTime gameTime)
         {
             System.Diagnostics.Debug.WriteLine("" + gameObjects.Count);
             if (exterior != null) exterior.Update(gameTime);
@@ -40,7 +40,7 @@ namespace LOZ.Room
             DrawNormally(spriteBatch, offset);
         }
 
-        private void DrawNormally(SpriteBatch spriteBatch, Point offset)
+        public void DrawNormally(SpriteBatch spriteBatch, Point offset)
         {
             if (exterior != null) exterior.Draw(spriteBatch);
             foreach (IGameObjects item in gameObjects)

@@ -1,5 +1,6 @@
 ﻿using LOZ.MapIO;
 using LOZ.EnemyClass;
+using LOZ.Collision;
 
 namespace LOZ.Room
 {

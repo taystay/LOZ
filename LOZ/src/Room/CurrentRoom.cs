@@ -32,7 +32,7 @@ namespace LOZ.Room
         private CurrentRoom() { }
         public void LoadContents(Dictionary<Point3D, IRoom> rooms) {
             _allRooms = rooms;
-            currentLocation = new Point3D(0, 0, 0);
+            currentLocation = new Point3D(3, 6, 0);
             changeRoom = false;
             currentRoom = _allRooms[currentLocation];
 

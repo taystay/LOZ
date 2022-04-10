@@ -21,6 +21,7 @@ namespace LOZ.Room
             gameObjects.Add(new Bat(GetCoorPoint(9, 7)));
             if(!hasEnemies)
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+            colliders = new CollisionIterator(gameObjects);
         }
 
         public override void Update(GameTime gameTime)

@@ -18,6 +18,7 @@ namespace LOZ.Room
             gameObjects.Add(new HeartContainer(GetCoorPoint(11, 4)));
             if (!hasEnemies)
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+            colliders = new CollisionIterator(gameObjects);
         }
 
         public override void Update(GameTime gameTime)

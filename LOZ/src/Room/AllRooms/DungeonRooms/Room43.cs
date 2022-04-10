@@ -1,4 +1,5 @@
 ﻿using LOZ.MapIO;
+using LOZ.Collision;
 
 namespace LOZ.Room
 {
@@ -8,6 +9,7 @@ namespace LOZ.Room
         public Room43(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "4_3.csv");
+            colliders = new CollisionIterator(gameObjects);
         }
     }
 }
