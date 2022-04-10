@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using LOZ.Collision;
 using LOZ.ItemsClasses;
+using LOZ.Inventory;
+using LOZ.Room;
 
 namespace LOZ.LinkClasses
 {
@@ -18,6 +20,8 @@ namespace LOZ.LinkClasses
         public Point Position { get; set; }
         public int Health { get; set; } 
         public int MaxHealth { get; set; }
+        public LinkInventory Inventory { get; set; }
+        public bool Damaged { get; set; }
         public void ChangeDirectionUp();
         public void ChangeDirectionDown();
         public void ChangeDirectionLeft();

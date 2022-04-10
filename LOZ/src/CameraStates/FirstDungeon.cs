@@ -1,19 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
 using LOZ.ControllerClasses;
-using LOZ.GameState;
-using LOZ.DungeonClasses;
-using LOZ.MapIO;
-using System.IO;
-using System.Reflection;
-using LOZ.Sound;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
 using LOZ.ItemsClasses;
-using LOZ.SpriteClasses.DisplaySprites;
 using LOZ.Factories;
+using LOZ.Room;
+
 namespace LOZ.src.CameraStates
 {
     public class FirstDungeon : ICameraState
@@ -34,7 +28,7 @@ namespace LOZ.src.CameraStates
         {
             if (CurrentRoom.Instance.transition) return;
 
-            if (Room.RoomInventory.HasItem(typeof(Triforce)))
+            if (CurrentRoom.link.Inventory.HasItem(typeof(Triforce)))
                 _gameObject.CameraState = new Victory(_gameObject);
 
             keyboard.Update(gameTime);
@@ -53,7 +47,7 @@ namespace LOZ.src.CameraStates
         {
             CurrentRoom.Instance.Draw(spriteBatch);
             _topHud.Draw(spriteBatch);
-            if (Room.Link.Health <= 0)
+            if (CurrentRoom.link.Health <= 0)
                 GameOverDisplay.Draw(spriteBatch, new Point(500, 500));
         }
     }

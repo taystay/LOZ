@@ -22,15 +22,12 @@ namespace LOZ.Room
         //private bool transition = false;
         private int dx = 0, dy = 0, dz = 0;
         #endregion
-
         public static CurrentRoom Instance {
             get {
                 return instance;
             }
         }
-
         private CurrentRoom() { }
-
         public void LoadContents(Dictionary<Point3D, IRoom> rooms) {
             _allRooms = rooms;
             currentLocation = new Point3D(3, 6, 0);
@@ -41,27 +38,22 @@ namespace LOZ.Room
             Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth);
             link = new Link(spawnPoint);
         }
-
-
         public void Update(GameTime gameTime) {
 
             ChangeRoom();
             currentRoom.Update(gameTime);
 
         }
-
         public void Draw(SpriteBatch spriteBatch, ILink link) {
 
-            currentRoom.Draw(spriteBatch, new Point(0,0), link);
+            currentRoom.Draw(spriteBatch, new Point(0,0));
         }
-
         private void ChangeRoom() {
             //change currentLocation and then change rooms if necessary
             if (changeRoom) 
                 currentRoom = _allRooms[currentLocation];
             changeRoom = false;   
         }
-
         public List<Point3D> GetRoomCoor()
         {
             List<Point3D> coor = new List<Point3D>();

@@ -27,7 +27,7 @@ namespace LOZ.src.CameraStates
             if(Keyboard.GetState().IsKeyDown(Keys.Space) && !buttonPressed)
             {
                 buttonPressed = true;
-                CurrentRoom.link.inventory.NextItem();
+                CurrentRoom.link.Inventory.NextItem();
             }
             if(Keyboard.GetState().IsKeyDown(Keys.OemPipe) && !buttonPressed)
             {

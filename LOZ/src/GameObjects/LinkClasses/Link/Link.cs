@@ -12,7 +12,8 @@ namespace LOZ.LinkClasses
         public Point Position { get; set; }
         public ILinkState LinkState { get; set; }
         private int health = 6;
-        public LinkInventory inventory { get; set; }
+        public LinkInventory Inventory { get; set; }
+        public bool Damaged { get; set; }
         private bool updatePosition = false;
         private Point newPos;
         public int Health
@@ -36,7 +37,7 @@ namespace LOZ.LinkClasses
             MaxHealth = 6;
             Position = location;
             LinkState = new DownIdleLinkState(this);
-            inventory = new LinkInventory();
+            Inventory = new LinkInventory();
         }
         public void ChangeDirectionUp()
         {
