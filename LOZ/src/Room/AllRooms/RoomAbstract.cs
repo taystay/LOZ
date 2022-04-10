@@ -23,7 +23,6 @@ namespace LOZ.Room
         }
         public void UpdateNormally(GameTime gameTime)
         {
-            System.Diagnostics.Debug.WriteLine("" + gameObjects.Count);
             if (exterior != null) exterior.Update(gameTime);
             colliders.Iterate();
             for (int i = 0; i < gameObjects.Count; i++)
