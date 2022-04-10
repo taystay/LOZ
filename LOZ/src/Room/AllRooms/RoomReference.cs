@@ -3,6 +3,7 @@ using LOZ.LinkClasses;
 using LOZ.Inventory;
 using LOZ.Collision;
 using LOZ.Room;
+using LOZ.Sound;
 
 namespace LOZ.GameStateReference
 {
@@ -66,9 +67,29 @@ namespace LOZ.GameStateReference
         }
         public static void SetRoomLocation(int x, int y, int z) {
 
+            if (CurrentRoom.Instance._allRooms.ContainsKey(CurrentRoom.currentLocation + new Point3D(x, y, z))) return;
             CurrentRoom.currentLocation.X += x;
             CurrentRoom.currentLocation.Y += y;
             CurrentRoom.currentLocation.Z += z;
+
+            if (x == 1) // moved right
+                PlaceLink.LeftDungeonDoor();
+            else if (x == -1) // moved left
+                PlaceLink.RightDungeonDoor();
+            else if (y == 1) // moved down
+                PlaceLink.TopDungeonDoor();
+            else if (y == -1) // moved up
+                PlaceLink.BottomDungeonDoor();
+            else if (z == 1)// moved into dungeon
+            {
+                PlaceLink.PlaceInDungeon();
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
+            }
+            else if (z == -1)
+            {
+                PlaceLink.OutOfDungeon();
+                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
+            }
         }
         public static void SetRoomLocationPoint(Point3D location)
         {

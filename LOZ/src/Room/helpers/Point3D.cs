@@ -26,5 +26,12 @@
             Y += dy;
             Z += dz;
         }
+
+        public static Point3D operator +(Point3D s1, Point3D s2) {
+            s1.X += s2.X;
+            s1.Y += s2.Y;
+            s1.Z += s2.Z;
+            return new Point3D(s1.X + s2.X, s1.Y + s2.Y, s1.Z + s2.Z);           
+        }
     }
 }
