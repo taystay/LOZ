@@ -34,7 +34,6 @@ namespace LOZ.DungeonClasses
                 objectsInGame.Insert(0,new InvisibleBlock(Info.topHalfBox));
                 objectsInGame.Insert(0, new InvisibleBlock(Info.topHalfBox2));
                 objectsInGame.Insert(0, new DoorCollider(Info.topDoorCollider, new SwitchRoomUp(), typeof(ILink)));
-                //objectsInGame.Insert(0, new InvisibleBlock(Info.topDoorCollider));
             }
 
             if (left != DoorType.Door && left != DoorType.Hole)
@@ -57,7 +56,6 @@ namespace LOZ.DungeonClasses
                 objectsInGame.Insert(0, new InvisibleBlock(Info.leftHalfBox));
                 objectsInGame.Insert(0, new InvisibleBlock(Info.leftHalfBox2));
                 objectsInGame.Insert(0, new DoorCollider(Info.leftDoorCollider, new SwitchRoomLeft(), typeof(ILink)));
-               // objectsInGame.Insert(0, new InvisibleBlock(Info.leftDoorCollider));
             }
 
             if (right != DoorType.Door && right != DoorType.Hole)
@@ -81,7 +79,6 @@ namespace LOZ.DungeonClasses
                 objectsInGame.Insert(0, new InvisibleBlock(Info.rightHalfBox));
                 objectsInGame.Insert(0, new InvisibleBlock(Info.rightHalfBox2));
                 objectsInGame.Insert(0, new DoorCollider(Info.rightDoorCollider, new SwitchRoomRight(), typeof(ILink)));
-                //objectsInGame.Insert(0, new InvisibleBlock(Info.rightDoorCollider));
             }
 
             if (bottom != DoorType.Door && bottom != DoorType.Hole)
@@ -103,7 +100,6 @@ namespace LOZ.DungeonClasses
             {
                 objectsInGame.Insert(0, new InvisibleBlock(Info.bottomHalfBox));
                 objectsInGame.Insert(0, new DoorCollider(Info.bottomDoorCollider, new SwitchRoomDown(), typeof(ILink)));
-                //objectsInGame.Insert(0, new InvisibleBlock(Info.bottomDoorCollider));
                 objectsInGame.Insert(0, new InvisibleBlock(Info.bottomHalfBox2));
             }
         }

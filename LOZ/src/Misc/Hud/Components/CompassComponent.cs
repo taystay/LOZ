@@ -13,9 +13,6 @@ namespace LOZ.Hud
         private Point _offset = new Point(0, 0);
 
         private static ISprite compass;
-        private static ISprite horizontalWalkWay;
-        private static ISprite verticalWalkWay;
-
         private LinkInventory _inventory;
 
         public CompassComponent(LinkInventory inventory, Point drawLocation)
@@ -24,25 +21,20 @@ namespace LOZ.Hud
             DrawPoint = drawLocation;
             compass = ItemFactory.Instance.CreateCompassSprite();
             compass.ChangeScale(2);
-
         }
-
         public void OffsetHud(Point offset)
         {
             _offset.X += offset.X;
             _offset.Y += offset.Y;
         }
-
         public void ResetHud()
         {
             _offset = new Point();
         }
-
         public void Update()
         {
 
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             if (!_inventory.HasItem(typeof(Compass))) return;

@@ -57,9 +57,11 @@ namespace LOZ.Room
         }
         private void ChangeRoom() {
             //change currentLocation and then change rooms if necessary
-            if (changeRoom && _allRooms.ContainsKey(currentLocation)) 
+            if (changeRoom)
+            {
                 currentRoom = _allRooms[currentLocation];
-            changeRoom = false;   
+                changeRoom = false;
+            }
         }
         internal List<Point3D> GetRoomCoor()
         {
@@ -74,14 +76,6 @@ namespace LOZ.Room
             roomCount = (roomCount % _allRooms.Count + _allRooms.Count) % _allRooms.Count; //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain
             currentRoom = _allRooms[coorRoom[roomCount]];
         }
-
-
-
-
-
-
-
-
 
         //public List<Point3D> roomList { get; set; } = RoomPoints.roomList;
         //private static CurrentRoom instance = new CurrentRoom();
