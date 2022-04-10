@@ -14,29 +14,25 @@ namespace LOZ.Hud
         private Point _offset = new Point(0, 0);
 
         private LinkInventory _inventory;
-        
+       
         public EquipedItemComponent(LinkInventory inventory, Point drawLocation)
         {
             _inventory = inventory;
             DrawPoint = drawLocation;
         }
-
         public void OffsetHud(Point offset)
         {
             _offset.X += offset.X;
             _offset.Y += offset.Y;
         }
-
         public void ResetHud()
         {
             _offset = new Point();
         }
-
         public void Update()
         {
 
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             Point ALocation = new Point( DrawPoint.X + 90 + _offset.X, DrawPoint.Y + _offset.Y + 90);
@@ -55,7 +51,7 @@ namespace LOZ.Hud
             }
 
             int BSlotItemIdx = _inventory.currentItem;
-            if (BSlotItemIdx < 0 || BSlotItemIdx > _inventory.inventory.Count - 1) return;
+            if (BSlotItemIdx <= 0 || BSlotItemIdx > _inventory.inventory.Count - 1) return;
                 
             if (_inventory.inventory[BSlotItemIdx] == null) return;
 

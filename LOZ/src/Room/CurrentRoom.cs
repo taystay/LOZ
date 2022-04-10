@@ -35,7 +35,8 @@ namespace LOZ.Room
             _allRooms = rooms;
             currentLocation = new Point3D(3, 6, 0);
             changeRoom = false;
-            currentRoom = _allRooms[currentLocation];
+            currentRoom = _allRooms[currentLocation];//https://stackoverflow.com/questions/1276763/how-do-i-get-the-list-of-keys-in-a-dictionary
+            coorRoom = _allRooms.Keys.ToList();
 
             Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth);
             link = new Link(spawnPoint);
@@ -56,9 +57,11 @@ namespace LOZ.Room
         }
         private void ChangeRoom() {
             //change currentLocation and then change rooms if necessary
-            if (changeRoom && _allRooms.ContainsKey(currentLocation)) 
+            if (changeRoom)
+            {
                 currentRoom = _allRooms[currentLocation];
-            changeRoom = false;   
+                changeRoom = false;
+            }
         }
         internal List<Point3D> GetRoomCoor()
         {
@@ -73,14 +76,6 @@ namespace LOZ.Room
             //roomCount = (roomCount % _allRooms.Count + _allRooms.Count) % _allRooms.Count; //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain
             //currentRoom = _allRooms[coorRoom[roomCount]];
         }
-
-
-
-
-
-
-
-
 
         //public List<Point3D> roomList { get; set; } = RoomPoints.roomList;
         //private static CurrentRoom instance = new CurrentRoom();
