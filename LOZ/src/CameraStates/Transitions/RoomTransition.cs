@@ -39,9 +39,9 @@ namespace LOZ.src.CameraStates
             else if (dx > 0)
                 delta = new Point(-deltaAmount, 0);
 
-            if (dy < 0)
+            if (dy < 0 || dz < 0)
                 delta = new Point(0, deltaAmount);
-            else if (dy > 0)
+            else if (dy > 0 || dz > 0)
                 delta = new Point(0, -deltaAmount);
 
         }
