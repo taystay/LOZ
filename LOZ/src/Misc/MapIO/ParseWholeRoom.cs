@@ -11,6 +11,8 @@ namespace LOZ.MapIO
         {
             int xIndex = 0, yIndex = 0;
             Point location = DungeonClasses.Info.Map.Location;
+            location.X += 24;
+            location.Y += 24;
             int leftSide = location.X;
             string lineRead = reader.ReadLine();
 
