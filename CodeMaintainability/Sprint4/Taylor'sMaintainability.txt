@@ -1,0 +1,18 @@
+Author: Jose Berrios
+4/11/22
+
+Sprint 4
+
+Victory.cs: Taylor Liu
+	time: 5 mins
+
+	Overall, the code is done well. Not much parameters are in each method used so there is low coupling with that. Everything inside the class belongs together to create the victory screen, 
+	-Maintainability wise I think it is pretty maintainable, using the other methods, the code is simple and can be maintained fairly easily. 
+
+EndScreenAnimation.cs: Taylor Liu
+	time: 5 minutes. 
+	
+  Overall I think the code looks good, It has pretty low coupling since it is mostly itself and not another class doing work. Also low cohesion because everything in the program works together
+  
+	-Maintainability: I would say this code is pretty maintainable. Other than some magic numbers. The code brings things together to create the end screen animation well.  
+	

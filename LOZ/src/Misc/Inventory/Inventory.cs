@@ -21,14 +21,12 @@ namespace LOZ.Inventory
         private int clockDuration = 400;
         private int timeOfClockLeft = 400;
         #endregion
-
-
         public LinkInventory()
         {
             inventory = new List<IGameObjects>();
-            bombCount = 0;
-            rupeeCount = 0;
-            keyCount = 0;
+            bombCount = 15;
+            rupeeCount = 15;
+            keyCount = 15;
         }
         public void Initialize()
         {
@@ -36,7 +34,7 @@ namespace LOZ.Inventory
             bombCount = 0;
             rupeeCount = 0;
             keyCount = 0;
-            currentItem = 0;
+            currentItem = -1;
             if(bombCount > 0)
                 inventory.Add(new Bomb(new Point()));
             if(rupeeCount > 0)

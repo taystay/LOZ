@@ -15,13 +15,16 @@ namespace LOZ.EnemyClass
             Health = 3;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateSkeleton();
-            random = new Random();
             velocity2 = new Vector2(0, 0);
+        }
+        public Skeleton(Point location, bool hasKey) : this(location)
+        {
+            this.hasKey = hasKey;
         }
 
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(Position.X - WidthSpriteSection / 2, Position.Y - HeightSpriteSection / 2, 44, 60);
+            return new Hitbox(Position.X - 22, Position.Y - 30, 44, 60);
         }
 
         public override void Update(GameTime timer) {

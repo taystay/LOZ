@@ -2,6 +2,9 @@
 using LOZ.GameStateReference;
 using LOZ.LinkClasses;
 using LOZ.EnemyClass;
+using LOZ.Room;
+using System.Linq;
+using LOZ.DungeonClasses;
 
 namespace LOZ.Collision
 {
@@ -35,7 +38,7 @@ namespace LOZ.Collision
                     SpikeTrap t = (SpikeTrap)item;
                     t.CheckAttack();
                 }
-            } 
+            }
         }
     }
 }

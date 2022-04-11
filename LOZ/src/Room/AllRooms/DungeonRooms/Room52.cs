@@ -9,32 +9,24 @@ namespace LOZ.Room
 {
     class Room52 : RoomAbstract
     {
-       
-        private bool hasEnemies = true;
         public Room52(string pathFile)
         {             
             gameObjects = IO.Instance.ParseRoom(pathFile + "5_2.csv");
             gameObjects.Add(new Dragon(GetCoorPoint(9, 3)));
-            gameObjects.Add(new HeartContainer(GetCoorPoint(11, 4)));
+            gameObjects.Add(new HeartContainer(GetCoorPoint(10, 3)));
             exterior = new ExteriorObject(DoorType.Wall, DoorType.CrackedDoor, DoorType.KeyDoor, DoorType.Wall, gameObjects);
             colliders = new CollisionIterator(gameObjects);
-            if (!hasEnemies)
-                exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (exterior != null) exterior.Update(gameTime);
-            colliders.Iterate();
-            for (int i = 0; i < gameObjects.Count; i++)
+            UpdateNormally(gameTime);
+            foreach(IGameObjects item in gameObjects)
             {
-                IGameObjects item = gameObjects[i];
-                if (TypeC.Check(item, typeof(IEnemy)))
-                    hasEnemies = true;
-                item.Update(gameTime);
+                if (TypeC.Check(item, typeof(Dragon)))
+                    return;
             }
-            CurrentRoom.link.Update(gameTime);
-            RemoveItems();
+            exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
         }
     }
 }

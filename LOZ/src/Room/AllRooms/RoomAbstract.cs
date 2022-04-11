@@ -105,5 +105,11 @@ namespace LOZ.Room
         {
             return gameObjects;
         }
+        public void UpdateExterior(DoorType t, DoorLocation l)
+        {
+            if (exterior == null) return;
+            exterior.ChangeDoorOnUpdate(l, t);
+        }
+
     }
 }

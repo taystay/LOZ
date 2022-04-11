@@ -32,9 +32,10 @@ namespace LOZ.EnemyClass
         #endregion
 
         private protected int timeLeftDamage = 30;
-        private protected ISprite _texture;      
+        private protected ISprite _texture;
+        private protected ISprite _keySprite;
         private protected Point velocity;
-        private protected Random random;
+        private protected Random random = new Random();
         private protected bool isActive = true;
         
         
@@ -62,7 +63,7 @@ namespace LOZ.EnemyClass
                 if (num % 2 == 0)
                 {
                     RoomReference.AddItem(new Rupee(Position));
-                    //CurrentRoom.Instance.Room.GameObjects.Add(new Rupee(Position));        
+                      
                 } else if (num % 3 == 2)
                 {
                     RoomReference.AddItem(new Clock(Position));
@@ -105,10 +106,19 @@ namespace LOZ.EnemyClass
 
         public void Draw(SpriteBatch spriteBatch, Point offset)
         {
+            if (_keySprite == null && hasKey)
+            {
+                _keySprite = Factories.ItemFactory.Instance.CreateKeySprite();
+                _keySprite.ChangeScale(1.0);
+            }
+
+            if (hasKey) _keySprite.Draw(spriteBatch, Position + offset);
+
             if (IsDamaged)
                 _texture.Draw(spriteBatch, Position + offset, Color.Red);
             else
                 _texture.Draw(spriteBatch, Position + offset);
+            
         }
     }
 }

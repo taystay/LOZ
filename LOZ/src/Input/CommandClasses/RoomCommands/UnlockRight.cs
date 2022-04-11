@@ -12,17 +12,13 @@ namespace LOZ.CommandClasses.RoomCommands
         }
         public void execute()
         {
-            if(RoomReference.GetInventory().rupeeCount > 0)
+            if(RoomReference.GetInventory().keyCount > 0)
             {
-                RoomReference.GetCurrRoom().GetExtObj().ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+                RoomReference.GetCurrRoom().UpdateExterior(DoorType.Door, DoorLocation.Right);
                 RoomReference.GetInventory().UseKey();
-                Dictionary<Point3D, IRoom> roomList = RoomReference.GetAllRooms();
-                Point3D linkPos = RoomReference.GetCurrLocation();
-                linkPos.X++;
-                if (roomList[linkPos] == null) return;
-                ExteriorObject roomToRight = roomList[linkPos].GetExtObj();
-                if (roomToRight != null)
-                    roomToRight.ChangeDoorOnUpdate(DoorLocation.Left, DoorType.Door);
+                IRoom nextRoom = RoomReference.GetChangeRoom(1, 0, 0);
+                if (nextRoom != null) nextRoom.UpdateExterior(DoorType.Door, DoorLocation.Left);
+                else System.Diagnostics.Debug.WriteLine("error opening right");
             }
             
         }

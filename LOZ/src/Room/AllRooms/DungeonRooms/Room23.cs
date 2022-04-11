@@ -3,6 +3,7 @@ using LOZ.EnemyClass;
 using LOZ.EnvironmentalClasses;
 using LOZ.Collision;
 using LOZ.DungeonClasses;
+using Microsoft.Xna.Framework;
 
 namespace LOZ.Room
 {
@@ -10,10 +11,13 @@ namespace LOZ.Room
     {
        
         private IEnvironment pushBlock;
+        private Point blockEventSpot;
+        private bool hasUpdated = false;
         public Room23(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "2_3.csv");
-            pushBlock = new SolidBlueBlock(GetCoorPoint(6, 4));
+            blockEventSpot = GetCoorPoint(6, 3);
+            pushBlock = new BlueTriangleBlock(blockEventSpot);
             pushBlock.Pushable = true;
             gameObjects.Add(new Bat(GetCoorPoint(6, 2)));
             gameObjects.Add(new Bat(GetCoorPoint(4, 4)));
@@ -23,5 +27,17 @@ namespace LOZ.Room
             exterior = new ExteriorObject(DoorType.Wall, DoorType.Door, DoorType.KeyDoor, DoorType.CrackedDoor, gameObjects);
             colliders = new CollisionIterator(gameObjects);
         }
+
+        public override void Update(GameTime gameTime)
+        {
+            UpdateNormally(gameTime);
+            if (hasUpdated) return;
+            if(pushBlock.GetPosition() != blockEventSpot)
+            {
+                exterior.ChangeDoorOnUpdate(DoorLocation.Left, DoorType.Door);
+                hasUpdated = true;
+            }
+        }
+
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using LOZ.CommandClasses.RoomCommands;
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
+using LOZ.ItemsClasses;
 
 namespace LOZ.Room
 {
@@ -19,7 +20,8 @@ namespace LOZ.Room
             gameObjects.Add(new Bat(GetCoorPoint(2, 4)));
             gameObjects.Add(new Bat(GetCoorPoint(1, 5)));
             gameObjects.Add(new Bat(GetCoorPoint(5, 3)));
-            gameObjects.Add(new DoorCollider(new Rectangle(Info.Inside.Location + new Point( 24, -48 - 48 - 24), new Point(48,48)), new LeaveBasement(GetReference.GetRef()), typeof(ILink) ));
+            gameObjects.Add(new Bow(GetCoorPoint(6, 3)));
+            gameObjects.Add(new DoorCollider(new Rectangle(Info.Inside.Location + new Point(48, -48 * 2), new Point(48,48)), new LeaveBasement(GetReference.GetRef()), typeof(ILink) ));
             colliders = new CollisionIterator(gameObjects);
         }
     }

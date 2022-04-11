@@ -13,10 +13,10 @@ namespace LOZ.DungeonClasses
 		private Point itemLocation;
         private List<IGameObjects> doors;
         private List<IGameObjects> currentItems;
+        private List<IGameObjects> gameObjectsReference;
         private DoorType _top, _right, _bottom, _left, changeType;
         private bool needsUpdate = false;
         private DoorLocation changeLocation;
-        private bool hasChangedBefore = false;
 
         public ExteriorObject(DoorType top, DoorType right, DoorType bottom, DoorType left, List<IGameObjects> objectsInGame)
         {
@@ -24,6 +24,7 @@ namespace LOZ.DungeonClasses
             _right = right;
             _bottom = bottom;
             _left = left;
+            gameObjectsReference = objectsInGame;
             sprite = Factories.DungeonFactory.Instance.GetExterior();
             itemLocation = Info.Map.Location;
             doors = new List<IGameObjects>();
@@ -58,23 +59,18 @@ namespace LOZ.DungeonClasses
 
         public void ChangeDoorOnUpdate(DoorLocation location, DoorType t)
         {
-            if (!hasChangedBefore) { 
-                 changeLocation = location;
-                changeType = t;
-                needsUpdate = true;
-                hasChangedBefore = true;
-            }
+            changeLocation = location;
+            changeType = t;
+            needsUpdate = true;
         }
         
 		public void Update(GameTime timer)
-        { 
-                     
+        {                  
             if(needsUpdate)
             {
-                List<IGameObjects> objectsInGame = RoomReference.GetObjectsList();
                 foreach (IGameObjects i in currentItems)
                 {
-                    objectsInGame.Remove(i);
+                    gameObjectsReference.Remove(i);
                 }
                 doors = new List<IGameObjects>();
                 currentItems = new List<IGameObjects>();
@@ -97,11 +93,11 @@ namespace LOZ.DungeonClasses
                 ExteriorColliders.PlaceDoors(_top, _right, _bottom, _left, doors);
                 foreach (IGameObjects i in currentItems)
                 {
-                    objectsInGame.Add(i);
+                    gameObjectsReference.Add(i);
                 }
+                needsUpdate = false;
             }
-            needsUpdate = false;
-            hasChangedBefore = false;
+            
         }
 		public Hitbox GetHitBox()
         {            

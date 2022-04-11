@@ -10,9 +10,6 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		private Rectangle ActualMenu;
 		int menuWidth;
 		int menuHeight;
-		private ISprite walkway;
-		private Color background = new Color(0,255,255);
-		private bool increasing = false;
 
 		public MainMenu(Texture2D texture)
 		{
@@ -26,19 +23,6 @@ namespace LOZ.SpriteClasses.DisplaySprites
 
 		public void Update(GameTime gameTime)
         {
-
-			//if (increasing && background.B >= 255)
-			//	increasing = false;
-			//if (!increasing && background.B <= 0)
-			//	increasing = true;
-
-			//if(increasing)
-   //         {
-			//	background.B++;
-   //         } else
-   //         {
-			//	background.B--;
-   //         }
 
         }
 		public void ChangeScale(double scale) { }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using LOZ.Collision;
+using System;
 
 namespace LOZ.SpriteClasses
 {
@@ -23,9 +25,11 @@ namespace LOZ.SpriteClasses
         {
             //The code below was taken for the sprite atalas tutorial
             // URL http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
-
+            int scaledWidth = (int)(width * scale);
+            int scaledHeight = (int)(height * scale);
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, (int)(width * scale), (int)(height * scale));
+            Rectangle destinationRectangle = new Rectangle(location.X - scaledWidth / 2, location.Y - scaledHeight / 2, scaledWidth, scaledHeight);
+            
 
             //for SpriteBatch.Begin(...)
             //the paramater idea was from:
@@ -34,9 +38,6 @@ namespace LOZ.SpriteClasses
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, c);
             spriteBatch.End();
-
-
         }
-
     }
 }

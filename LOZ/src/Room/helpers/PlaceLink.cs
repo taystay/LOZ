@@ -28,12 +28,12 @@ namespace LOZ.Room
         }
         public static void PlaceInDungeon()
         {
-            CurrentRoom.link.ChangePosition(new Point(loc.Location.X + 3 * Info.BlockWidth, loc.Location.Y + Info.BlockWidth));
+            CurrentRoom.link.ChangePosition(new Point(loc.Location.X + 3 * Info.BlockWidth + 24, loc.Location.Y +  2 * Info.BlockWidth));
             CurrentRoom.link.ChangeDirectionDown();
         }
         public static void OutOfDungeon()
         {
-            CurrentRoom.link.ChangePosition(new Point(loc.Location.X + 7 * Info.BlockWidth, loc.Location.Y + 5 * Info.BlockWidth));
+            CurrentRoom.link.ChangePosition(new Point(loc.Location.X + 7 * Info.BlockWidth + 24, loc.Location.Y + 6 * Info.BlockWidth - 24));
             CurrentRoom.link.ChangeDirectionLeft();
         }
     }

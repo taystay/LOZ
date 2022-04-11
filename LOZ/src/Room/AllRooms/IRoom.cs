@@ -17,5 +17,6 @@ namespace LOZ.Room
         public ExteriorObject GetExtObj();
         public void AddItem(IGameObjects item);
         public List<IGameObjects> GetObjectsList();
+        public void UpdateExterior(DoorType t, DoorLocation l);
     }
 }
