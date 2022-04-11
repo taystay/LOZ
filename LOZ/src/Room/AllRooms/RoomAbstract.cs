@@ -41,7 +41,7 @@ namespace LOZ.Room
 
         public void DrawNormally(SpriteBatch spriteBatch, Point offset)
         {
-            if (exterior != null) exterior.Draw(spriteBatch);
+            if (exterior != null) exterior.Draw(spriteBatch, offset);
             foreach (IGameObjects item in gameObjects)
             {
                 item.Draw(spriteBatch, offset);
