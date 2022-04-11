@@ -75,7 +75,7 @@ namespace LOZ.LinkClasses
         }
         public virtual void TakeDamage(int damage)
         {
-           //CurrentRoom.link = new DamagedLink(link, damage);
+           
             RoomReference.SetLink(new DamagedLink(link, damage));
                
         }
