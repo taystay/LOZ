@@ -4,7 +4,7 @@ using LOZ.EnemyClass;
 using LOZ.ItemsClasses;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.GameState;
-using LOZ.Room;
+using LOZ.GameStateReference;
 using LOZ.CommandClasses.RoomCommands;
 using LOZ.CommandClasses;
 
@@ -101,7 +101,7 @@ namespace LOZ.Collision
             } 
             if (TypeC.Check(secondObject, typeof(Bomb)) || TypeC.Check(secondObject, typeof(FireProjectile)))
             {
-                CurrentRoom.link.TakeDamage(1);
+                RoomReference.GetLink().TakeDamage(1);
             }
         }
     }

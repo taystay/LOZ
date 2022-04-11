@@ -13,7 +13,7 @@ namespace LOZ.Room
         public Room21(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "2_1.csv");
-            pushBlock = new SolidBlueBlock(GetCoorPoint(5, 4));
+            pushBlock = new BlueTriangleBlock(GetCoorPoint(4, 3));
             pushBlock.Pushable = true;
             gameObjects.Add(new SpikeTrap(GetCoorPoint(0, 0)));
             gameObjects.Add(new SpikeTrap(GetCoorPoint(11, 0)));
