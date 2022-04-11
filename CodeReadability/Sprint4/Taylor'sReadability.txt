@@ -1,0 +1,17 @@
+Author: Jose Berrios
+4/11/22
+
+Sprint 4
+
+Victory.cs: Taylor Liu
+	time: 5 mins
+
+	Overall, the code is fairly readable. You might need some context about the other functions used but the naming conventions are good
+  and the names of the variables tell what they are making the code fairly readable
+
+EndScreenAnimation.cs: Taylor Liu
+	time: 5 minutes. 
+	
+The code in this class is readable. Knowing that this is the victory class, you can walk through the code
+and understand what it is trying to do. All naming conventions are good and the variable names are descriptive
+and let the reader of the code know what each thing does. 
