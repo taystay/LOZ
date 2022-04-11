@@ -32,10 +32,6 @@ namespace LOZ.Collision
                 else if (side == CollisionSide.Bottom)
                     block.Position = new Point(blockPos.X, blockPos.Y - collisionBox.Height);
                 Point3D roomCoor = RoomReference.GetCurrLocation();
-                if (roomCoor.X == 2 && roomCoor.Y == 3)
-                {
-                    RoomReference.GetCurrRoom().GetExtObj().ChangeDoorOnUpdate(DoorLocation.Left, DoorType.Door);
-                }
             } else
             {
                 if (side == CollisionSide.Top)

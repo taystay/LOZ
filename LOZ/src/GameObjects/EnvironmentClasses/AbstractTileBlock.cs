@@ -7,10 +7,21 @@ namespace LOZ.EnvironmentalClasses
 {
     public abstract class AbstractTileBlock : IEnvironment
     {
-		public Point Position { get; set; }
+		
 		public bool Pushable { get; set; } = false;
 		private protected ISprite sprite;
 		private protected Point itemLocation;
+		public Point Position
+		{
+			get
+            {
+				return itemLocation;
+            }
+            set
+            {
+				itemLocation = value;
+            }
+		}
 		public virtual void Update(GameTime gameTime) {
 			sprite.Update(gameTime);
 
