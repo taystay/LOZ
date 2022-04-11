@@ -15,7 +15,6 @@ namespace LOZ.CommandClasses
             RoomReference.GetCurrRoom().UpdateExterior(DoorType.Hole, DoorLocation.Left);
             IRoom nextRoom = RoomReference.GetChangeRoom(-1, 0, 0);
             if (nextRoom != null) nextRoom.UpdateExterior(DoorType.Hole, DoorLocation.Right);
-
         }
     }
 }

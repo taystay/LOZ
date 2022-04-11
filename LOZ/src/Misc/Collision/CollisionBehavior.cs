@@ -29,6 +29,7 @@ namespace LOZ.Collision
                 int status = 0;
                 if(!p.hasCollided)
                     status = p.Collide();
+                if (status == -1) RoomReference.GetCurrRoom().RemovedInDetection.Add(p);
             }
             if(TypeC.Check(secondObject, typeof(Portal)))
             {

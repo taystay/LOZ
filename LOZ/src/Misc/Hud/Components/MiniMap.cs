@@ -53,7 +53,7 @@ namespace LOZ.Hud
             }
             room.Draw(spriteBatch, new Point(startX + offsetX * linkCoor.X, startY + offsetY * linkCoor.Y), Color.Green);
 
-            if (_inventory.HasItem(typeof(Compass))) return;
+            if (!_inventory.HasItem(typeof(Compass))) return;
             room.Draw(spriteBatch, new Point(startX + offsetX * 6, startY + offsetY * 2), Color.Yellow);
         }
     }
