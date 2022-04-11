@@ -1,0 +1,19 @@
+Author: Keit Vu
+4/11/22
+
+Sprint 4
+
+Inventory.cs: Tony D'Alesandro
+	time: 10 mins
+
+	-comments: The code has a low coupling as it doesn't a lot of parameters to perform the functions. It does have low cohesion as it is general broad with naming convention. 
+
+	-A problem I could see happen with maintainability is if the user adds another item, the code would expand a lot. They would need to add more if statements, checks, and functions to return the item. A suggestion could be having a central function to do all the necessary work(use"item") and use a dictionary to hold all the items and the count of each.
+
+FirstDungeon.cs: Tony D'Alesandro
+	time: 5 mins
+	
+	comment: The code has low coupling as the reliance of other function/parameters is  low. The cohesion is low since all the function name are very broad and could work in many other applications. 
+	
+	-Maintainability: I would say maintainability is easily supportable. The user can do many things with the given functions and variable listed in the class such as making SecondDungeon. 
+	
