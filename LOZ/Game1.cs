@@ -10,7 +10,6 @@ using LOZ.src.CameraStates;
 using LOZ.Room;
 using LOZ.Hud;
 using LOZ.GameStateReference;
-using LOZ.GameState;
 
 namespace LOZ
 {
@@ -21,7 +20,6 @@ namespace LOZ
         private SpriteBatch spriteBatch;
         //private Dictionary<Point3D, OldRoom> maps;
         public ICameraState CameraState { get; set; }
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -73,9 +71,6 @@ namespace LOZ
             } else
                 CameraState = new MainMenuState(this);
 
-            
-            //CameraState = new MainMenuState(this);
-
             base.LoadContent();
         }
         protected override void Update(GameTime gameTime)
@@ -89,9 +84,6 @@ namespace LOZ
         {
             GraphicsDevice.Clear(Color.Black);
             CameraState.Draw(spriteBatch);
-
-            //if (Room.DebugMode)
-            //    GameFont.Instance.Write(spriteBatch, "" + Mouse.GetState().X + "," + Mouse.GetState().Y, 50, 50);
 
             base.Draw(gameTime);
         }

@@ -1,5 +1,4 @@
-﻿using LOZ.GameStateReference;
-using LOZ.src.CameraStates;
+﻿using LOZ.src.CameraStates;
 
 namespace LOZ.CommandClasses
 {
@@ -12,9 +11,7 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            
             _gameObject.CameraState = new RoomTransition(_gameObject, 1, 0, 0);
-         
         }
     }
 }

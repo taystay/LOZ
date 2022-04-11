@@ -8,7 +8,6 @@ using LOZ.Room;
 using LOZ.SpriteClasses;
 using LOZ.ItemsClasses;
 using LOZ.Factories;
-using System.Linq;
 
 namespace LOZ.src.CameraStates
 {
@@ -31,8 +30,6 @@ namespace LOZ.src.CameraStates
         public void UpdateController(GameTime gameTime)
         {
             if (RoomReference.GetChangeRoom()) return;
-
-           
 
             if (RoomReference.GetInventory().HasItem(typeof(Triforce)))
                 _gameObject.CameraState = new Victory(_gameObject);
