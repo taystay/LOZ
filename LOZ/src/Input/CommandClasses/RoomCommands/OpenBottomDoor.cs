@@ -12,20 +12,10 @@ namespace LOZ.CommandClasses
         }
         public void execute()
         {
-            IRoom room = RoomReference.GetCurrRoom();
-            ExteriorObject exterior = room.GetExtObj();
-            if (exterior != null)
-            {
-                exterior.ChangeDoorOnUpdate(DoorLocation.Bottom, DoorType.Hole);
-            }
-            Dictionary<Point3D, IRoom> roomList = RoomReference.GetAllRooms();
-            Point3D linkPos = RoomReference.GetCurrLocation();
-            linkPos.Y++;
-            if (roomList[linkPos] == null) return;
-            ExteriorObject roomUnder = roomList[linkPos].GetExtObj();
-            if (roomUnder != null)
-                roomUnder.ChangeDoorOnUpdate(DoorLocation.Top, DoorType.Hole);
-                
+            RoomReference.GetCurrRoom().UpdateExterior(DoorType.Hole, DoorLocation.Bottom);
+            IRoom nextRoom = RoomReference.GetChangeRoom(0, 1, 0);
+            if (nextRoom != null) nextRoom.UpdateExterior(DoorType.Hole, DoorLocation.Top);
+
         }
     }
 }

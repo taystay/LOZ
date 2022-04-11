@@ -31,7 +31,7 @@ namespace LOZ.src.CameraStates
             _gameObject = gameObject;
             dCoor = new Point3D(dx, dy, dz);
 
-            
+            RoomReference.GetChangeRoom(dCoor.X, dCoor.Y, dCoor.Z).GetExtObj().Update(null);
 
             /* need hud to draw and pass to next state*/
             topHud = new InventoryHud(RoomReference.GetInventory());
@@ -49,7 +49,7 @@ namespace LOZ.src.CameraStates
         {
             updatesLeft--;
             updates++;
-            //RoomReference.GetChangeRoom(dCoor.X, dCoor.Y, dCoor.Z).GetExtObj().Update(gameTime);
+            
             if (updatesLeft > 0) return;
 
             RoomReference.SetLinkPosition(dCoor.X, dCoor.Y, dCoor.Z);

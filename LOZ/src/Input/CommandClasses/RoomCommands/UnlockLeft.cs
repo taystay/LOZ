@@ -14,15 +14,11 @@ namespace LOZ.CommandClasses.RoomCommands
         {
             if(RoomReference.GetInventory().keyCount > 0)
             {
-                RoomReference.GetCurrRoom().GetExtObj().ChangeDoorOnUpdate(DoorLocation.Left, DoorType.Door);
+                RoomReference.GetCurrRoom().UpdateExterior(DoorType.Door, DoorLocation.Left);
                 RoomReference.GetInventory().UseKey();
-                Dictionary<Point3D, IRoom> roomList = RoomReference.GetAllRooms();
-                Point3D linkPos = RoomReference.GetCurrLocation();
-                linkPos.X--;
-                if (roomList[linkPos] == null) return;
-                ExteriorObject roomToLeft = roomList[linkPos].GetExtObj();
-                if (roomToLeft != null)
-                    roomToLeft.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Door);
+                IRoom nextRoom = RoomReference.GetChangeRoom(-1, 0, 0);
+                if (nextRoom != null) nextRoom.UpdateExterior(DoorType.Door, DoorLocation.Right);
+                else System.Diagnostics.Debug.WriteLine("error opening left");
             } 
             
         }

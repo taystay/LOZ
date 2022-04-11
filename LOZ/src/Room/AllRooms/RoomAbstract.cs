@@ -109,7 +109,6 @@ namespace LOZ.Room
         {
             if (exterior == null) return;
             exterior.ChangeDoorOnUpdate(l, t);
-            exterior.Update(null);
         }
 
     }

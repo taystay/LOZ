@@ -13,10 +13,10 @@ namespace LOZ.DungeonClasses
 		private Point itemLocation;
         private List<IGameObjects> doors;
         private List<IGameObjects> currentItems;
+        private List<IGameObjects> gameObjectsReference;
         private DoorType _top, _right, _bottom, _left, changeType;
         private bool needsUpdate = false;
         private DoorLocation changeLocation;
-        private bool hasChangedBefore = false;
 
         public ExteriorObject(DoorType top, DoorType right, DoorType bottom, DoorType left, List<IGameObjects> objectsInGame)
         {
@@ -24,6 +24,7 @@ namespace LOZ.DungeonClasses
             _right = right;
             _bottom = bottom;
             _left = left;
+            gameObjectsReference = objectsInGame;
             sprite = Factories.DungeonFactory.Instance.GetExterior();
             itemLocation = Info.Map.Location;
             doors = new List<IGameObjects>();
@@ -58,21 +59,18 @@ namespace LOZ.DungeonClasses
 
         public void ChangeDoorOnUpdate(DoorLocation location, DoorType t)
         {
-            if (!hasChangedBefore) { 
-                changeLocation = location;
-                changeType = t;
-                needsUpdate = true;
-            }
+            changeLocation = location;
+            changeType = t;
+            needsUpdate = true;
         }
         
 		public void Update(GameTime timer)
         {                  
-            if(needsUpdate && !hasChangedBefore)
+            if(needsUpdate)
             {
-                List<IGameObjects> objectsInGame = RoomReference.GetObjectsList();
                 foreach (IGameObjects i in currentItems)
                 {
-                    objectsInGame.Remove(i);
+                    gameObjectsReference.Remove(i);
                 }
                 doors = new List<IGameObjects>();
                 currentItems = new List<IGameObjects>();
@@ -93,14 +91,11 @@ namespace LOZ.DungeonClasses
                 }
                 ExteriorColliders.PlaceColliders(_top, _right, _bottom, _left, currentItems);
                 ExteriorColliders.PlaceDoors(_top, _right, _bottom, _left, doors);
-                System.Diagnostics.Debug.WriteLine(" \n\n");
                 foreach (IGameObjects i in currentItems)
                 {
-                    System.Diagnostics.Debug.WriteLine("" + i.GetType());
-                    objectsInGame.Add(i);
+                    gameObjectsReference.Add(i);
                 }
                 needsUpdate = false;
-                hasChangedBefore = true;
             }
             
         }
