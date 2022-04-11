@@ -1,7 +1,9 @@
-﻿/*using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using LOZ.Collision;
 using System.Collections.Generic;
 using LOZ.LinkClasses;
+using LOZ.GameStateReference;
+using LOZ.Room;
 
 namespace LOZ.ItemsClasses
 {
@@ -59,13 +61,13 @@ namespace LOZ.ItemsClasses
             }
             portalBox = p.GetHitBox();
             if (p.upSide)
-                Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y - link.GetHitBox().ToRectangle().Height - 5);
+                RoomReference.GetLink().Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y - link.GetHitBox().ToRectangle().Height - 5);
             else if (p.leftSide)
-                Room.Link.Position = new Point(portalBox.ToRectangle().X - link.GetHitBox().ToRectangle().Width - 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
+                RoomReference.GetLink().Position = new Point(portalBox.ToRectangle().X - link.GetHitBox().ToRectangle().Width - 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
             else if (p.rightSide)
-                Room.Link.Position = new Point(portalBox.ToRectangle().X + link.GetHitBox().ToRectangle().Width + 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
+                RoomReference.GetLink().Position = new Point(portalBox.ToRectangle().X + link.GetHitBox().ToRectangle().Width + 5, portalBox.ToRectangle().Y + portalBox.ToRectangle().Height / 2);
             else if (p.bottomSide)
-                Room.Link.Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + link.GetHitBox().ToRectangle().Height + 5);
+                RoomReference.GetLink().Position = new Point(portalBox.ToRectangle().X + portalBox.ToRectangle().Width / 2, portalBox.ToRectangle().Y + link.GetHitBox().ToRectangle().Height + 5);
         }
         private static void ChangeItemDirection(int portal, IPlayerProjectile o)
         {
@@ -121,7 +123,7 @@ namespace LOZ.ItemsClasses
             if (TypeC.Check(o, typeof(ILink)))
             {
                 ILink link = (ILink)o;
-                CurrentRoom.Instance.linkCoor = end;
+                RoomReference.SetRoomLocationPoint(end);
                 SetLinkPosition(endroomint, link);
             }
             else if (TypeC.Check(o, typeof(IItem)))
@@ -131,10 +133,10 @@ namespace LOZ.ItemsClasses
                     ChangeItemDirection(endroomint, (IPlayerProjectile)o);
                 SetItemPosition(endroomint, (IItem)o);
                 if (blueRoom.Equals(orangeRoom)) return;
-                Room startr = CurrentRoom.Instance.Rooms[start];
-                Room endr = CurrentRoom.Instance.Rooms[end];
+                IRoom startr = RoomReference.GetAllRooms()[start];
+                IRoom endr = RoomReference.GetAllRooms()[end];
                 startr.RemovedInDetection.Add(o);
-                endr.GameObjects.Add(o);
+                endr.GetObjectsList().Add(o);
                 
             }
         }
@@ -143,25 +145,25 @@ namespace LOZ.ItemsClasses
             nextColor();
             if(p.isBlue)
             {
-                Room r;
+                IRoom r;
                 if (bluePortal != null)
-                    r = CurrentRoom.Instance.Rooms[blueRoom];
+                    r = RoomReference.GetAllRooms()[blueRoom];
                 else
-                    r = CurrentRoom.Instance.Room;
-                blueRoom = CurrentRoom.Instance.linkCoor;    
-                r.GameObjects.Remove(bluePortal);
+                    r = RoomReference.GetCurrRoom();
+                blueRoom = RoomReference.GetCurrLocation();    
+                r.GetObjectsList().Remove(bluePortal);
                 bluePortal = p;
             } else
             {
-                Room r;
+                IRoom r;
                 if (orangePortal != null)
-                    r = CurrentRoom.Instance.Rooms[orangeRoom];
+                    r = RoomReference.GetAllRooms()[orangeRoom];
                 else
-                    r = CurrentRoom.Instance.Room;
-                orangeRoom = CurrentRoom.Instance.linkCoor;
-                r.GameObjects.Remove(orangePortal);
+                    r = RoomReference.GetCurrRoom();
+                orangeRoom = RoomReference.GetCurrLocation();
+                r.GetObjectsList().Remove(orangePortal);
                 orangePortal = p;
             }
         }
     }
-}*/
+}

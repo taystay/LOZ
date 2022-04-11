@@ -14,7 +14,7 @@ namespace LOZ.Room
         private protected List<IGameObjects> gameObjects;
 
         public ExteriorObject exterior { get; set; }
-        private protected List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
+        public List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
         private protected CollisionIterator colliders;
         
         public virtual void Update(GameTime gameTime)

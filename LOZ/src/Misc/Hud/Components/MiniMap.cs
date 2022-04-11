@@ -40,7 +40,7 @@ namespace LOZ.Hud
         public void Draw(SpriteBatch spriteBatch)
         {
             Point3D linkCoor = RoomReference.GetCurrLocation();
-            GameFont.Instance.Write(spriteBatch, "Room - " + linkCoor.X + " " + linkCoor.Y, DrawPoint.X + _offset.X, DrawPoint.Y - 25 + _offset.Y);
+            GameFont.Instance.Write(spriteBatch, "Room - " + linkCoor.X + " " + linkCoor.Y, DrawPoint.X + _offset.X, DrawPoint.Y - 50 + _offset.Y);
             if (!_inventory.HasItem(typeof(Map))) return;
             int offsetX = 25;
             int offsetY = 15;

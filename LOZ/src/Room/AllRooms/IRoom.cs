@@ -8,6 +8,7 @@ namespace LOZ.Room
 {
     public interface IRoom
     {
+        public List<IGameObjects> RemovedInDetection { get; set; }
         public void Update(GameTime gameTime);
         public void Draw(SpriteBatch spriteBatch, Point offSet);
         //public void DrawRoomTransition(SpriteBatch spriteBatch, Point offSet);
