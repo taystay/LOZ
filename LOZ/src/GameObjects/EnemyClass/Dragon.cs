@@ -15,13 +15,12 @@ namespace LOZ.EnemyClass
         {
             Health = 6;
             Position = location;
-            _texture = EnemySpriteFactory.Instance.CreateDragon();
-            random = new Random();     
+            _texture = EnemySpriteFactory.Instance.CreateDragon();   
         }
 
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(Position.X - 24, Position.Y - 30, 48, 24);
+            return new Hitbox(Position.X - 24, Position.Y - 24, 48, 24);
         }
 
         public override void TakeDamage(int damage)

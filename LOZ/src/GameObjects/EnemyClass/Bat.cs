@@ -15,13 +15,17 @@ namespace LOZ.EnemyClass
             Health = 1;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateBat();
-            random = new Random();
             velocity2 = new Vector2(0, 0);
+        }
+
+        public Bat(Point location, bool key) : this(location)
+        {
+            hasKey = key;
         }
 
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(Position.X - 33, Position.Y - 40, 30, 30);
+            return new Hitbox(Position.X - 15, Position.Y - 15, 30, 30);
         }
 
         public override void Update(GameTime timer)

@@ -14,6 +14,8 @@ namespace LOZ.SpriteClasses.EnemeySprite
             frame = 1;
             width = (_texture.Width / 2);
             height = _texture.Height;
+            row = 0;
+            column = frame % 2;
         }
 
         public override void Update(GameTime timer)

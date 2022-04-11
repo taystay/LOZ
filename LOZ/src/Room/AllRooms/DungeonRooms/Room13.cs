@@ -15,16 +15,16 @@ namespace LOZ.Room
         public Room13(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "1_3.csv");
-            gameObjects.Add(new NPC(GetCoorPoint(5, 3)));
-            gameObjects.Add(new FireItem(GetCoorPoint(4, 3)));
+            gameObjects.Add(new NPC(GetCoorPoint(5.5, 3)));
+            gameObjects.Add(new FireItem(GetCoorPoint(3, 3)));
             gameObjects.Add(new FireItem(GetCoorPoint(8, 3)));
             exterior = new ExteriorObject(DoorType.Wall, DoorType.Door, DoorType.Wall, DoorType.Wall, gameObjects);
             colliders = new CollisionIterator(gameObjects);
         }
         public override void Draw(SpriteBatch spriteBatch, Point offset)
         {
-            GameFont.Instance.Write(spriteBatch, "Some walls may be bombable", 265 + offset.X, 450 + offset.Y);
             DrawNormally(spriteBatch, offset);
+            GameFont.Instance.Write(spriteBatch, "Eastmost Peninisula \n     is the secret", 265 + offset.X + 50, 450 + offset.Y + 24);         
         }
     }
 }

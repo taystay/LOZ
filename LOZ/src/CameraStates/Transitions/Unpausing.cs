@@ -8,7 +8,6 @@ namespace LOZ.src.CameraStates
 {
     public class Unpausing : ICameraState
     {
-        private FadeOutSprite fade;
         private Game1 _gameObject;
         private HudElement _hud;
         private int dy = -10;

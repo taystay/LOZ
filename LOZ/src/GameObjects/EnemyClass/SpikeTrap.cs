@@ -16,7 +16,7 @@ namespace LOZ.EnemyClass
         }
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(Position.X -10, Position.Y - 10,  32, 32);
+            return new Hitbox(Position.X -16, Position.Y - 16,  32, 32);
         }
 
         public void CheckAttack()

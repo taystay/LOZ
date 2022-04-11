@@ -15,7 +15,7 @@ namespace LOZ.Room
             gameObjects.Add(new Skeleton(GetCoorPoint(6, 5)));
             gameObjects.Add(new Skeleton(GetCoorPoint(4, 6)));
             gameObjects.Add(new Skeleton(GetCoorPoint(11, 2)));
-            gameObjects.Add(new Skeleton(GetCoorPoint(11, 6)));
+            gameObjects.Add(new Skeleton(GetCoorPoint(11, 6), true));
             exterior = new ExteriorObject(DoorType.Wall, DoorType.Wall, DoorType.Wall, DoorType.Door, gameObjects);
             colliders = new CollisionIterator(gameObjects);
         }

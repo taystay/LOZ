@@ -14,67 +14,49 @@ namespace LOZ.src.CameraStates
         private Game1 _gameObject;
 
         #region next_room_logic
-        private Point3D change;
-        int offsetDist, updatesLeft, updates = 0;
+        private Point3D dCoor;
+        private readonly int offsetAmount;
+        private int updatesLeft, updates = 0;
         private Point delta;
-        private int deltaAmount = 8;      
-        private bool hasUpdated = false;
+        private readonly int changePerUpdate = 8;      
         #endregion
 
         #region sprites
-        private ISprite sides, top;
-        private HudElement topHud;
+        private readonly ISprite sides, top;
+        private readonly HudElement topHud;
         #endregion
 
         public RoomTransition(Game1 gameObject, int dx, int dy, int dz)
         {
             _gameObject = gameObject;
-            change = new Point3D(dx, dy, dz);
+            dCoor = new Point3D(dx, dy, dz);
+
+            /* need hud to draw and pass to next state*/
             topHud = new InventoryHud(RoomReference.GetInventory());
             topHud.Offset(new Point(0, -630));
+
             sides = Factories.DisplaySpriteFactory.Instance.GetMapWalk(Info.Map.Location.X,Info.screenHeight);
             top = Factories.DisplaySpriteFactory.Instance.GetMapWalk(Info.screenWidth, Info.Map.Location.Y);
 
-            if(dx != 0)
-            {
-                offsetDist = Info.DungeonWidth;
-                delta = new Point(-deltaAmount * (dx / Math.Abs(dx)), 0);
-            } else if(dy != 0)
-            {
-                offsetDist = Info.DungeonHeight;
-                delta = new Point(0, - deltaAmount * (dy / Math.Abs(dy)));
-            } else
-            {
-                offsetDist = Info.DungeonHeight;
-                delta = new Point(0, -deltaAmount * (dz / Math.Abs(dz)));
-            }
-            updatesLeft = offsetDist / deltaAmount;
+            delta = new Point(Math.Sign(dx) * -changePerUpdate, Math.Sign(dy + dz) * -changePerUpdate);
+            offsetAmount = Math.Abs(dx) * Info.DungeonWidth + Math.Abs(dy + dz) * Info.DungeonHeight;
+            updatesLeft = offsetAmount / changePerUpdate;
         }
-        public void UpdateController(GameTime gameTime)
-        {
-
-        }
+        public void UpdateController(GameTime gameTime){ }
         public void Update(GameTime gameTime)
         {
-            /* temporary fix*/
-            //if(!hasUpdated)
-            //{
-            //    IRoom r = RoomReference.GetChangeRoom(change.X, change.Y, change.Z);
-            //    if(r != null)
-            //        r.Update(gameTime);
-            //    hasUpdated = true;
-            //}
             updatesLeft--;
             updates++;
-            if (updatesLeft > 0) return;              
-            HudElement inv = new InventoryHud(RoomReference.GetInventory());
-            inv.Offset(new Point(0, -630));
-            RoomReference.SetLinkPosition(change.X, change.Y, change.Z);
-            RoomReference.GetLink().Update(gameTime);
-            RoomReference.SetRoomLocation(change.X, change.Y, change.Z);
-            _gameObject.CameraState = new FirstDungeon(_gameObject, inv);                                        
+            if (updatesLeft > 0) return;
+
+            RoomReference.SetLinkPosition(dCoor.X, dCoor.Y, dCoor.Z);
+            RoomReference.GetLink().Update(gameTime); //properly updates position
+            RoomReference.SetRoomLocation(dCoor.X, dCoor.Y, dCoor.Z);
+
+            _gameObject.CameraState = new FirstDungeon(_gameObject, topHud);                                        
         }
         public void Reset() { }
+
         #region room_and_window
         private void DrawBlackWindow(SpriteBatch spriteBatch)
         {
@@ -90,7 +72,7 @@ namespace LOZ.src.CameraStates
         private void DrawNextRoom(SpriteBatch spriteBatch)
         {
             Point changeRoomOffset = new Point(-delta.X * updatesLeft, -delta.Y * updatesLeft);
-            IRoom nextRoom = RoomReference.GetChangeRoom(change.X, change.Y, change.Z);
+            IRoom nextRoom = RoomReference.GetChangeRoom(dCoor.X, dCoor.Y, dCoor.Z);
             if (nextRoom != null)
                 nextRoom.DrawWithoutLink(spriteBatch, new Point() + changeRoomOffset);
         }
@@ -100,6 +82,7 @@ namespace LOZ.src.CameraStates
             RoomReference.GetCurrRoom().DrawWithoutLink(spriteBatch, new Point() + oldRoomOffset);
         }
         #endregion
+
         public void Draw(SpriteBatch spriteBatch)
         {                  
             DrawNextRoom(spriteBatch);

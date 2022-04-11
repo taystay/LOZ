@@ -13,7 +13,7 @@ namespace LOZ.Room
             gameObjects = IO.Instance.ParseRoom(pathFile + "3_5.csv");
             gameObjects.Add(new Skeleton(GetCoorPoint(5, 1)));
             gameObjects.Add(new Skeleton(GetCoorPoint(10, 5)));
-            gameObjects.Add(new Skeleton(GetCoorPoint(3, 7)));
+            gameObjects.Add(new Skeleton(GetCoorPoint(3, 6)));
             exterior = new ExteriorObject(DoorType.Door, DoorType.Wall, DoorType.KeyDoor, DoorType.Wall, gameObjects);
             colliders = new CollisionIterator(gameObjects);
         }

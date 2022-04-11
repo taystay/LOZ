@@ -16,13 +16,12 @@ namespace LOZ.EnemyClass
             Health = 1;
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateJelly();       
-            random = new Random();
             velocity2 = new Vector2(0, 0);
         }
 
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(Position.X - 8 , Position.Y - 9, 16, 19);
+            return new Hitbox(Position.X - 6 , Position.Y - 9, 16, 19);
         }
 
 

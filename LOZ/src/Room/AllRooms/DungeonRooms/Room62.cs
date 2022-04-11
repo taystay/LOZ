@@ -11,7 +11,7 @@ namespace LOZ.Room
         public Room62(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "6_2.csv");
-            gameObjects.Add(new Triforce(GetCoorPoint(5, 3)));
+            gameObjects.Add(new Triforce(GetCoorPoint(5.5, 3)));
             exterior = new ExteriorObject(DoorType.Wall, DoorType.Wall, DoorType.Wall, DoorType.Door, gameObjects);
             colliders = new CollisionIterator(gameObjects);
         }

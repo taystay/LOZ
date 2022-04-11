@@ -26,16 +26,16 @@ namespace LOZ.Inventory
         public LinkInventory()
         {
             inventory = new List<IGameObjects>();
-            bombCount = 0;
-            rupeeCount = 0;
-            keyCount = 0;
+            bombCount = 15;
+            rupeeCount = 15;
+            keyCount = 15;
         }
         public void Initialize()
         {
             inventory = new List<IGameObjects>();
-            bombCount = 0;
-            rupeeCount = 0;
-            keyCount = 0;
+            bombCount = 15;
+            rupeeCount = 30;
+            keyCount = 1;
             currentItem = 0;
             if(bombCount > 0)
                 inventory.Add(new Bomb(new Point()));

@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using LOZ.Collision;
 
 namespace LOZ.SpriteClasses
 {
@@ -24,10 +26,9 @@ namespace LOZ.SpriteClasses
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = (int)(scale * (int)frame.Width);
-			int height = (int)(scale * (int)frame.Height);
-			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-			//destinationRectangle = new Rectangle(location.X - 24, location.Y - 24, 48, 48);
+			int width = (int)(scale * frame.Width);
+			int height = (int)(scale * frame.Height);
+			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);		
 
 			//for SpriteBatch.Begin(...)
 			//the paramater idea was from:
@@ -37,7 +38,6 @@ namespace LOZ.SpriteClasses
 			if (_texture == null) System.Diagnostics.Debug.WriteLine("" + this.GetType().ToString());
 			if(_texture != null) spriteBatch.Draw(_texture, destinationRectangle, frame, c);
 			spriteBatch.End();
-
 		}
 
 	}
