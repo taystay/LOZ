@@ -25,19 +25,20 @@ namespace LOZ.Collision
                     if(!(obj1.Equals(obj2))) {
                         detect.CheckCollision(obj1, obj2);
                     }
-                    if(TypeC.CheckPair(obj1, typeof(SpikeTrap), obj2, typeof(ILink)))
-                    {
-                        SpikeTrap t = (SpikeTrap)obj1;
-                        t.CheckAttack();
-                    }
+                    
+                    
                 }
 
             }
 
             foreach(IGameObjects item in _gameObjects)
             {
-                //detect.CheckCollision(item, link);
                 detect.CheckCollision(link, item);
+                if (TypeC.Check(item, typeof(SpikeTrap)))
+                {
+                    SpikeTrap t = (SpikeTrap)item;
+                    t.CheckAttack();
+                }
             }
            
         }

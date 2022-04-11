@@ -7,7 +7,6 @@ namespace LOZ.EnvironmentalClasses
 {
     public class BlueTriangleBlock: AbstractTileBlock
     {
-
         public BlueTriangleBlock(Point itemLocation)
         {
             sprite = BlockSpriteFactory.Instance.CreateBlueTriangleBlockSprite();
