@@ -50,13 +50,13 @@ namespace LOZ.LinkClasses
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.Sword_Combined);
                 else if (type == Weapon.Portal)
                 {
-                    //PortalManager.AddPortal((Portal)weapon);
+                    PortalManager.AddPortal((Portal)weapon);
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.PortalShot);
                 }
 
-                //CurrentRoom.Instance.Room.GameObjects.Add(weapon);
+                
                 RoomReference.AddItem(weapon);
-                //CurrentRoom.Instance.AddItemToRoom(weapon);
+                
 
                 if (TypeC.Check(weapon, typeof(Bomb))) RoomReference.GetInventory().UseBomb();
                 if (type == Weapon.Arrow) RoomReference.GetInventory().UseRupee();
