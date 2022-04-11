@@ -3,7 +3,6 @@ using LOZ.Factories;
 using LOZ.Sound;
 using LOZ.ItemsClasses;
 
-
 namespace LOZ.LinkClasses.States
 {
     class DownAttackItemLinkState : LinkStateAbstract
@@ -41,7 +40,7 @@ namespace LOZ.LinkClasses.States
                 AttemptAttack(new FireProjectile(attackPosition, Direction.Down), toUse);
             } else if (toUse == Weapon.Portal)
             {
-                //AttemptAttack(new Portal(attackPosition, 2, PortalManager.getColor()), toUse);
+                AttemptAttack(new Portal(attackPosition, 2, PortalManager.getColor()), toUse);
             }
         }
 

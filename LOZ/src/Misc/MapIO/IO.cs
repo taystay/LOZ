@@ -31,10 +31,6 @@ namespace LOZ.MapIO
             //ParseToBlock.ParseRoom(roomObj, reader);
             if (doorRow.Length > 0)
             {
-<<<<<<< HEAD
-=======
-
->>>>>>> 2db7a2502801d60d5d9822b3d99ca51bb1846563
                 ParseToBlock.ParseRoom(roomObj, reader);
             }
             else
