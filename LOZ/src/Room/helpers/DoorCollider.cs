@@ -21,7 +21,6 @@ namespace LOZ.GameState
         {
             return box;
         }
-
         public void Collision(IGameObjects o)
         {
             if (TypeC.Check(o, _responseType))
@@ -35,7 +34,6 @@ namespace LOZ.GameState
         {
             //nothing
         }
-
         public void Draw(SpriteBatch spriteBatch, Point offset)
         {
             //nothing
