@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.Collision;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 
 namespace LOZ.EnemyClass
@@ -31,7 +31,7 @@ namespace LOZ.EnemyClass
         {
             if((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
             {
-                Point linkP = CurrentRoom.link.Position;
+                Point linkP = RoomReference.GetLink().Position;
 
                 //https://stackoverflow.com/questions/41317291/setting-the-magnitude-of-a-2d-vector#41321162
                 if (random.Next(2) % 2 == 0)

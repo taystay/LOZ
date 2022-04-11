@@ -4,6 +4,8 @@ using LOZ.Inventory;
 using LOZ.Collision;
 using LOZ.Room;
 using LOZ.Sound;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace LOZ.GameStateReference
 {
@@ -107,6 +109,15 @@ namespace LOZ.GameStateReference
         {
             CurrentRoom.Instance.currentRoom = CurrentRoom.Instance._allRooms[location];
             CurrentRoom.currentLocation = location;
+        }
+        public static void DrawOffset(SpriteBatch spriteBatch, Point offSet) {
+            CurrentRoom.Instance.DrawOffset(spriteBatch, offSet);
+
+        }
+        public static void Draw(SpriteBatch spriteBatch)
+        {
+            CurrentRoom.Instance.Draw(spriteBatch);
+
         }
     }
 }

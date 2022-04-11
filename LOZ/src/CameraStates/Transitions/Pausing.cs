@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Hud;
 using LOZ.SpriteClasses;
-using LOZ.Room;
+using LOZ.GameStateReference;
 
 namespace LOZ.src.CameraStates
 {
@@ -28,7 +28,7 @@ namespace LOZ.src.CameraStates
         }
         public void Update(GameTime gameTime)
         {
-            //fade.Update(gameTime);
+            
             numberOfUpdates--;
             _topHud.Offset(new Point(0, dy));
             if (numberOfUpdates <= 0)
@@ -41,11 +41,9 @@ namespace LOZ.src.CameraStates
         public void Draw(SpriteBatch spriteBatch)
         {
             _topHud.Draw(spriteBatch);
-            //CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0,(630- numberOfUpdates*dy)));
-            CurrentRoom.Instance.DrawOffset(spriteBatch, new Point(0, 630 - numberOfUpdates * dy));
-            //CurrentRoom.Instance.Room.Draw(spriteBatch);
-
-            //fade.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2));
+           
+            RoomReference.DrawOffset(spriteBatch, new Point(0, 630 - numberOfUpdates * dy));
+          
         }
     }
 }

@@ -4,7 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using LOZ.CommandClasses;
 using LOZ.SpriteClasses;
 using LOZ.Factories;
-using LOZ.Room;
+using LOZ.GameStateReference;
+
 
 namespace LOZ.src.CameraStates
 {
@@ -38,9 +39,9 @@ namespace LOZ.src.CameraStates
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            CurrentRoom.Instance.Draw(spriteBatch);
+            RoomReference.Draw(spriteBatch);
             EndScreenAnimation.Draw(spriteBatch, new Point());
-            CurrentRoom.link.Draw(spriteBatch);
+            RoomReference.GetLink().Draw(spriteBatch);
         }
     }
 }

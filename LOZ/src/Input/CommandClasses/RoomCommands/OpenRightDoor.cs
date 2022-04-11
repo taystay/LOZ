@@ -1,6 +1,6 @@
 ﻿using LOZ.DungeonClasses;
-using LOZ.Room;
 using LOZ.GameStateReference;
+using LOZ.Room;
 using System.Collections.Generic;
 
 namespace LOZ.CommandClasses
@@ -18,7 +18,7 @@ namespace LOZ.CommandClasses
             {
                 exterior.ChangeDoorOnUpdate(DoorLocation.Right, DoorType.Hole);
             }
-            Dictionary<Point3D, IRoom> roomList = CurrentRoom.Instance._allRooms;
+            Dictionary<Point3D, IRoom> roomList = RoomReference.GetAllRooms();
             Point3D linkPos = RoomReference.GetCurrLocation();
             linkPos.X++;
             if (roomList[linkPos] == null) return;

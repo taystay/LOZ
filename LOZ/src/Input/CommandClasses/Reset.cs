@@ -24,7 +24,6 @@ namespace LOZ.CommandClasses
             RoomReference.GetLink().Health = 6;
             RoomReference.GetLink().MaxHealth = 6;
             RoomReference.GetLink().ChangeDirectionUp();
-            //CurrentRoom.RoomInventory.Initialize();
             SoundManager.Instance.SoundToLoop(SoundEnum.Background);
         }
     }

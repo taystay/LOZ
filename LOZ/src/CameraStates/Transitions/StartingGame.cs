@@ -67,8 +67,8 @@ namespace LOZ.src.CameraStates
         {
             _menu.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2) + new Point(0, -(offsetDist + numberOfUpdatesLeft * dy)));
             introText.Draw(spriteBatch, new Point(Info.screenHeight / 2, Info.screenWidth / 2) + new Point(0, -(offsetDist / 2 + numberOfUpdatesLeft * dy)));
-            CurrentRoom.Instance.DrawOffset(spriteBatch, new Point(0, -numberOfUpdatesLeft * dy));
-            //CurrentRoom.Instance.Room.Draw(spriteBatch, new Point(0, -numberOfUpdatesLeft * dy));
+           RoomReference.DrawOffset(spriteBatch, new Point(0, -numberOfUpdatesLeft * dy));
+           
         }
     }
 }
