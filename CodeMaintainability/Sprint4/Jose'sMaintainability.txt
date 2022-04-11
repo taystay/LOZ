@@ -1,0 +1,14 @@
+Author: Taylor Liu
+4/11/22
+
+Sprint 4
+
+SpriteStandardizeClass.cs: Jose Berrios
+	time: 3 mins
+
+	-comments: The file itself has very low coupling and very high cohesion as it is desinged specifically to remove magic numbers from environment sprites. 
+
+	- There are no glaring issues with this code, but for scalability it might have been a good idea to make a constructor so that more of these static Rectangles could
+	be created easily if need be.
+
+[Jose did not create/work on a second file]

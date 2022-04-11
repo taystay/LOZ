@@ -1,0 +1,11 @@
+Author: Taylor Liu
+4/11/22
+
+Sprint 4
+
+SpriteStandardizeClass.cs: Jose Berrios
+	time: 3 mins
+
+	-comments: Very solid naming scheme that lets us understand exactly what each rectangle is used to take the position of.
+
+[Jose did not create/work on a second file]
