@@ -75,6 +75,7 @@ namespace LOZ.Room
             roomCount += change;
             roomCount = (roomCount % _allRooms.Count + _allRooms.Count) % _allRooms.Count; //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain
             currentRoom = _allRooms[coorRoom[roomCount]];
+            currentLocation = coorRoom[roomCount];
         }
     }
 }
