@@ -69,6 +69,7 @@ namespace LOZ.GameStateReference
         {
             Point3D currentRoom = CurrentRoom.currentLocation;
             Point3D nextRoom = new Point3D(currentRoom.X + dx, currentRoom.Y + dy, currentRoom.Z + dz);
+            if (!CurrentRoom.Instance._allRooms.ContainsKey(nextRoom)) return null;
             return CurrentRoom.Instance._allRooms[nextRoom];
         }
         public static void SetLinkPosition(int x, int y, int z)
@@ -97,7 +98,7 @@ namespace LOZ.GameStateReference
             
             Point3D currentRoom = CurrentRoom.currentLocation;
             Point3D nextRoom = new Point3D(currentRoom.X + x, currentRoom.Y + y, currentRoom.Z + z);
-            //if (!CurrentRoom.Instance._allRooms.ContainsKey(nextRoom)) return;
+            if (!CurrentRoom.Instance._allRooms.ContainsKey(nextRoom)) return;
             CurrentRoom.Instance.currentRoom = GetChangeRoom(x, y, z);
             CurrentRoom.currentLocation = nextRoom;
             CurrentRoom.Instance.currentRoom = CurrentRoom.Instance._allRooms[nextRoom];

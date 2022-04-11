@@ -53,7 +53,9 @@ namespace LOZ.src.CameraStates
         {
             if(!hasUpdated)
             {
-                RoomReference.GetChangeRoom(_dx, _dy, _dz).Update(gameTime);
+                IRoom r = RoomReference.GetChangeRoom(_dx, _dy, _dz);
+                if(r != null)
+                    r.Update(gameTime);
                 hasUpdated = true;
             }
             updatesLeft--;
@@ -77,7 +79,9 @@ namespace LOZ.src.CameraStates
         {
             Point changeRoomOffset = new Point(-delta.X * updatesLeft, -delta.Y * updatesLeft);
             Point oldRoomOffset = new Point(delta.X * updates, delta.Y * updates);
-            RoomReference.GetChangeRoom(_dx, _dy, _dz).DrawWithoutLink(spriteBatch, new Point() + changeRoomOffset);
+            IRoom nextRoom = RoomReference.GetChangeRoom(_dx, _dy, _dz);
+            if(nextRoom != null)
+                nextRoom.DrawWithoutLink(spriteBatch, new Point() + changeRoomOffset);
             RoomReference.GetCurrRoom().DrawWithoutLink(spriteBatch, new Point()+ oldRoomOffset);
         }
     }
