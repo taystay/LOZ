@@ -63,7 +63,7 @@ namespace LOZ.EnemyClass
                 if (num % 2 == 0)
                 {
                     RoomReference.AddItem(new Rupee(Position));
-                    //CurrentRoom.Instance.Room.GameObjects.Add(new Rupee(Position));        
+                      
                 } else if (num % 3 == 2)
                 {
                     RoomReference.AddItem(new Clock(Position));
