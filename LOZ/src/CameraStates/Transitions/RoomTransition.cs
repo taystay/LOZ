@@ -67,8 +67,9 @@ namespace LOZ.src.CameraStates
                 inv.Offset(new Point(0, -630));
                 RoomReference.SetLinkPosition(_dx, _dy, _dz);
                 RoomReference.GetLink().Update(gameTime);
+                RoomReference.SetRoomLocation(_dx, _dy, _dz);
                 _gameObject.CameraState = new FirstDungeon(_gameObject, inv);
-                RoomReference.SetRoomLocation(_dx, _dy, _dz);          
+                         
             }             
         }
         public void Reset()
