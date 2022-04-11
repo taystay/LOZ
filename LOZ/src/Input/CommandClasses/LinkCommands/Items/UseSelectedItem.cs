@@ -18,6 +18,7 @@ namespace LOZ.CommandClasses
             LinkInventory inv = RoomReference.GetInventory();
             int BItemIdx = inv.currentItem;
             if (BItemIdx < 0) return;
+            if (inv.inventory.Count == 0) return;
             if(TypeC.Check(inv.inventory[BItemIdx], typeof(Bomb)))
                 RoomReference.GetLink().Attack(Weapon.Bomb);
             else if (TypeC.Check(inv.inventory[BItemIdx], typeof(Bow)) && inv.rupeeCount > 0)

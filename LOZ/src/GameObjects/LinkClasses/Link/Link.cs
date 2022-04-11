@@ -39,6 +39,7 @@ namespace LOZ.LinkClasses
             Position = location;
             LinkState = new DownIdleLinkState(this);
             Inventory = new LinkInventory();
+            Inventory.Initialize();
         }
         public void ChangeDirectionUp()
         {

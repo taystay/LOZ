@@ -27,9 +27,9 @@ namespace LOZ.Inventory
         public void Initialize()
         {
             inventory = new List<IGameObjects>();
-            bombCount = 1;
-            rupeeCount = 100;
-            keyCount = 1;
+            bombCount = 0;
+            rupeeCount = 0;
+            keyCount = 0;
             currentItem = 0;
             if(bombCount > 0)
                 inventory.Add(new Bomb(new Point()));
