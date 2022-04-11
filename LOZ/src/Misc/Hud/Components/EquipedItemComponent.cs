@@ -51,9 +51,7 @@ namespace LOZ.Hud
             }
 
             int BSlotItemIdx = _inventory.currentItem;
-            System.Diagnostics.Debug.WriteLine("idx: " + BSlotItemIdx + " ," + _inventory.inventory.Count);
-            if (BSlotItemIdx < 0 || BSlotItemIdx >= _inventory.inventory.Count - 1) return;
-                
+            if (BSlotItemIdx < 0 || BSlotItemIdx >= _inventory.inventory.Count) return;
             if (_inventory.inventory[BSlotItemIdx] == null) return;
 
             IGameObjects o = _inventory.inventory[BSlotItemIdx];

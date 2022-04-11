@@ -108,6 +108,7 @@ namespace LOZ.LinkClasses
                 Position = newPos;
                 updatePosition = false;
             }
+            Inventory.Update();
 
             LinkState.Update(timer);
         }

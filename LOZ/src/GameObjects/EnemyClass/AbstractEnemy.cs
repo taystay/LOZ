@@ -56,18 +56,15 @@ namespace LOZ.EnemyClass
                 } else if (num % 3 == 2)
                 {
                     RoomReference.AddItem(new Clock(Position));
-                    //CurrentRoom.Instance.Room.GameObjects.Add(new Clock(Position));
                 }
                 else if (num % 4 == 0)
                 {
                     RoomReference.AddItem(new Fairy(Position));
-                    //CurrentRoom.Instance.Room.GameObjects.Add(new Fairy(Position));
                 }
 
                 if(hasKey)
                 {
                     RoomReference.AddItem(new Key(Position));
-                    //CurrentRoom.Instance.Room.GameObjects.Add(new Key(Position));
                 }
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Die);
                 return false;

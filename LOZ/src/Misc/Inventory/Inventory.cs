@@ -17,6 +17,12 @@ namespace LOZ.Inventory
         public int currentItem { get; set; } = 0;
         #endregion
 
+        #region clock
+        private int clockDuration = 400;
+        private int timeOfClockLeft = 400;
+        #endregion
+
+
         public LinkInventory()
         {
             inventory = new List<IGameObjects>();
@@ -58,6 +64,15 @@ namespace LOZ.Inventory
             }
             currentItem = -1;
         }
+        public void Update()
+        {
+            if(HasItem(typeof(Clock)))
+            {
+                timeOfClockLeft--;
+                if (timeOfClockLeft == 0)
+                    UseItem(typeof(Clock)); 
+            }
+        }
         public bool isInventoryItem(IGameObjects item)
         {
             IItem o = (IItem)item;
@@ -77,6 +92,8 @@ namespace LOZ.Inventory
                 rupeeCount++;
             if (TypeC.Check(item, typeof(Key)))
                 keyCount++;
+            if (TypeC.Check(item, typeof(Clock)))
+                timeOfClockLeft = clockDuration;
         }
         private void SelectType(System.Type itemType)
         {
