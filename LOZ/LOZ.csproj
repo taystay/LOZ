@@ -38,7 +38,6 @@
   <ItemGroup>
     <Folder Include="src\GameObjects\ItemClasses\Items\Projectile_tools\Portal\" />
     <Folder Include="src\GameObjects\DungeonClasses\DoorTypes\" />
-    <Folder Include="src\CameraStates\" />
     <Folder Include="src\CameraStates\Transitions\" />
     <Folder Include="src\Misc\Hud\Components\" />
     <Folder Include="Content\bin\DesktopGL\Content\DugeonRooms\DugeonRooms\" />
