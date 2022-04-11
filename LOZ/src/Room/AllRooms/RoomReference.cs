@@ -104,7 +104,7 @@ namespace LOZ.GameStateReference
         }
         public static void SetRoomLocationPoint(Point3D location)
         {
-
+            CurrentRoom.Instance.currentRoom = CurrentRoom.Instance._allRooms[location];
             CurrentRoom.currentLocation = location;
         }
     }

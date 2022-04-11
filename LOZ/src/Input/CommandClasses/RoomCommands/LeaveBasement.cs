@@ -1,20 +1,18 @@
 ﻿using LOZ.GameStateReference;
+using LOZ.src.CameraStates;
 
 namespace LOZ.CommandClasses.RoomCommands
 {
     class LeaveBasement : ICommand
     {
-        public LeaveBasement()
+        private Game1 _gameObject;
+        public LeaveBasement(Game1 gameObj)
         {
+            _gameObject = gameObj;
         }
         public void execute()
         {
-            //CurrentRoom.Instance.MoveRoomDirection(0, 0, -1);
-            //CurrentRoom.Instance.Transition(0,0,-1);
-            RoomReference.SetRoomLocation(0, 0, -1);
-
-            //CurrentRoom.currentLocation.Z -= 1;
-            RoomReference.SetChangeRoom();
+            _gameObject.CameraState = new RoomTransition(_gameObject, 0, 0, -1);
         }
     }
 }

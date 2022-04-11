@@ -56,8 +56,8 @@ namespace LOZ.Hud
             {
                 if(pair.Key.Contains(mouseLocation))
                 {
-                   RoomReference.SetRoomLocationPoint(pair.Value);
-                   RoomReference.GetLink().Position = Info.Inside.Center;
+                    RoomReference.SetRoomLocationPoint(pair.Value);
+                    RoomReference.GetLink().Position = Info.Inside.Center;
                    return;
                 }
             }          
