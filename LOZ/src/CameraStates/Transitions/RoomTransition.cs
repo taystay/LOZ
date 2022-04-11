@@ -15,16 +15,14 @@ namespace LOZ.src.CameraStates
         private int _dx;
         private int _dy;
         private int _dz;
-        private int offsetDist = Info.screenWidth;
+        private int offsetDist = Info.DungeonWidth;
         private int updatesLeft;
         private int updates;
         private Point delta;
-        private int deltaAmount = 4;
+        private int deltaAmount = 8;
         private Game1 _gameObject;
         public RoomTransition(Game1 gameObject, int dx, int dy, int dz)
         {
-            Thread.Sleep(1000);
-            RoomReference.SetRoomLocation(_dx, _dy, _dz);
             _gameObject = gameObject;
             updatesLeft = offsetDist / deltaAmount;
             _dx = dx;
@@ -54,7 +52,11 @@ namespace LOZ.src.CameraStates
                 
                 HudElement inv = new InventoryHud(RoomReference.GetInventory());
                 inv.Offset(new Point(0, -630));
+                RoomReference.SetLinkPosition(_dx, _dy, _dz);
+                RoomReference.GetLink().Update(gameTime);
                 _gameObject.CameraState = new FirstDungeon(_gameObject, inv);
+                RoomReference.SetRoomLocation(_dx, _dy, _dz);
+                
             }
 
                 
@@ -65,8 +67,8 @@ namespace LOZ.src.CameraStates
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            Point changeRoomOffset = new Point(delta.X * updatesLeft, delta.Y * updatesLeft);
-            Point oldRoomOffset = new Point(-delta.X * updates, delta.Y * updates);
+            Point changeRoomOffset = new Point(-delta.X * updatesLeft, delta.Y * updatesLeft);
+            Point oldRoomOffset = new Point(delta.X * updates, delta.Y * updates);
             RoomReference.GetChangeRoom(_dx, _dy, _dz).Draw(spriteBatch, new Point() + changeRoomOffset);
             RoomReference.GetCurrRoom().Draw(spriteBatch, new Point()+ oldRoomOffset);
         }

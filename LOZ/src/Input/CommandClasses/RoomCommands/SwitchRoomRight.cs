@@ -16,7 +16,7 @@ namespace LOZ.CommandClasses
             //CurrentRoom.Instance.Transition(1,0,0);
             //CurrentRoom.currentLocation.X += 1;
             //CurrentRoom.changeRoom = true;
-            _gameObject.CameraState = new RoomTransition(_gameObject, -1, 0, 0);
+            _gameObject.CameraState = new RoomTransition(_gameObject, 1, 0, 0);
             //RoomReference.SetRoomLocation(1, 0, 0);
             //RoomReference.SetChangeRoom();
         }
