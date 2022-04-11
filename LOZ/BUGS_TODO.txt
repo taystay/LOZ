@@ -1,0 +1,10 @@
+﻿
+-------BUGS----------
+
+Fix sprites drawing dragon
+    - occurs before the first update to an enemy.
+    - changing the dragon sprite off dragon does not change anything. still dragon sprites drawn
+    - changing EnemySpriteFactory.CreateDragon() to return a different sprite changes nothing either.
+
+-------OTHER STUFF TODO----------
+

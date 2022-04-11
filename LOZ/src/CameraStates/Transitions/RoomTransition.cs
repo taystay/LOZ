@@ -7,43 +7,50 @@ using LOZ.GameStateReference;
 using LOZ.DungeonClasses;
 using LOZ.Inventory;
 using System.Threading;
+using System;
 
 namespace LOZ.src.CameraStates
 {
     public class RoomTransition : ICameraState
     {
-        private int _dx;
-        private int _dy;
-        private int _dz;
-        private int offsetDist = Info.DungeonWidth;
-        private int updatesLeft;
-        private int updates;
-        private Point delta;
-        private int deltaAmount = 8;
         private Game1 _gameObject;
+
+        #region next_room_logic
+        private Point3D change;
+        int offsetDist, updatesLeft, updates = 0;
+        private Point delta;
+        private int deltaAmount = 8;      
         private bool hasUpdated = false;
+        #endregion
+
+        #region sprites
+        private ISprite sides, top;
+        private HudElement topHud;
+        #endregion
+
         public RoomTransition(Game1 gameObject, int dx, int dy, int dz)
         {
             _gameObject = gameObject;
-            
-            _dx = dx;
-            _dy = dy;
-            _dz = dz;
-            if (dx != 0)
+            change = new Point3D(dx, dy, dz);
+            topHud = new InventoryHud(RoomReference.GetInventory());
+            topHud.Offset(new Point(0, -630));
+            sides = Factories.DisplaySpriteFactory.Instance.GetMapWalk(Info.Map.Location.X,Info.screenHeight);
+            top = Factories.DisplaySpriteFactory.Instance.GetMapWalk(Info.screenWidth, Info.Map.Location.Y);
+
+            if(dx != 0)
+            {
                 offsetDist = Info.DungeonWidth;
-            else
+                delta = new Point(-deltaAmount * (dx / Math.Abs(dx)), 0);
+            } else if(dy != 0)
+            {
                 offsetDist = Info.DungeonHeight;
+                delta = new Point(0, - deltaAmount * (dy / Math.Abs(dy)));
+            } else
+            {
+                offsetDist = Info.DungeonHeight;
+                delta = new Point(0, -deltaAmount * (dz / Math.Abs(dz)));
+            }
             updatesLeft = offsetDist / deltaAmount;
-            if (dx < 0)
-                delta = new Point(deltaAmount, 0);
-            else if (dx > 0)
-                delta = new Point(-deltaAmount, 0);
-
-            if (dy < 0 || dz < 0)
-                delta = new Point(0, deltaAmount);
-            else if (dy > 0 || dz > 0)
-                delta = new Point(0, -deltaAmount);
-
         }
         public void UpdateController(GameTime gameTime)
         {
@@ -51,39 +58,56 @@ namespace LOZ.src.CameraStates
         }
         public void Update(GameTime gameTime)
         {
-            if(!hasUpdated)
-            {
-                IRoom r = RoomReference.GetChangeRoom(_dx, _dy, _dz);
-                if(r != null)
-                    r.Update(gameTime);
-                hasUpdated = true;
-            }
+            /* temporary fix*/
+            //if(!hasUpdated)
+            //{
+            //    IRoom r = RoomReference.GetChangeRoom(change.X, change.Y, change.Z);
+            //    if(r != null)
+            //        r.Update(gameTime);
+            //    hasUpdated = true;
+            //}
             updatesLeft--;
             updates++;
-            if (updatesLeft <= 0)
-            {
-                
-                HudElement inv = new InventoryHud(RoomReference.GetInventory());
-                inv.Offset(new Point(0, -630));
-                RoomReference.SetLinkPosition(_dx, _dy, _dz);
-                RoomReference.GetLink().Update(gameTime);
-                RoomReference.SetRoomLocation(_dx, _dy, _dz);
-                _gameObject.CameraState = new FirstDungeon(_gameObject, inv);
-                         
-            }             
+            if (updatesLeft > 0) return;              
+            HudElement inv = new InventoryHud(RoomReference.GetInventory());
+            inv.Offset(new Point(0, -630));
+            RoomReference.SetLinkPosition(change.X, change.Y, change.Z);
+            RoomReference.GetLink().Update(gameTime);
+            RoomReference.SetRoomLocation(change.X, change.Y, change.Z);
+            _gameObject.CameraState = new FirstDungeon(_gameObject, inv);                                        
         }
-        public void Reset()
+        public void Reset() { }
+        #region room_and_window
+        private void DrawBlackWindow(SpriteBatch spriteBatch)
         {
-
+            int x = Info.Map.X;
+            int y = Info.Map.Y;
+            int w = Info.Map.Width;
+            int h = Info.Map.Height;
+            sides.Draw(spriteBatch, new Point(3 * x / 2 + w, y + h / 2), Color.Black);
+            sides.Draw(spriteBatch, new Point(x / 2, y + h / 2), Color.Black);
+            top.Draw(spriteBatch, new Point(x + w / 2, y / 2), Color.Black);
+            top.Draw(spriteBatch, new Point(x + w / 2, 3 * y / 2 + h), Color.Black);
         }
-        public void Draw(SpriteBatch spriteBatch)
+        private void DrawNextRoom(SpriteBatch spriteBatch)
         {
             Point changeRoomOffset = new Point(-delta.X * updatesLeft, -delta.Y * updatesLeft);
-            Point oldRoomOffset = new Point(delta.X * updates, delta.Y * updates);
-            IRoom nextRoom = RoomReference.GetChangeRoom(_dx, _dy, _dz);
-            if(nextRoom != null)
+            IRoom nextRoom = RoomReference.GetChangeRoom(change.X, change.Y, change.Z);
+            if (nextRoom != null)
                 nextRoom.DrawWithoutLink(spriteBatch, new Point() + changeRoomOffset);
-            RoomReference.GetCurrRoom().DrawWithoutLink(spriteBatch, new Point()+ oldRoomOffset);
+        }
+        private void DrawCurrentRoom(SpriteBatch spriteBatch)
+        {
+            Point oldRoomOffset = new Point(delta.X * updates, delta.Y * updates);
+            RoomReference.GetCurrRoom().DrawWithoutLink(spriteBatch, new Point() + oldRoomOffset);
+        }
+        #endregion
+        public void Draw(SpriteBatch spriteBatch)
+        {                  
+            DrawNextRoom(spriteBatch);
+            DrawCurrentRoom(spriteBatch);
+            DrawBlackWindow(spriteBatch);          
+            topHud.Draw(spriteBatch);
         }
     }
 }

@@ -11,23 +11,33 @@ namespace LOZ.EnemyClass
 {
     abstract class AbstractEnemy : IEnemy
     {
-        
-        private protected const int HeightSpriteSection = 83;
-        private protected const int WidthSpriteSection = 64;
-        private protected const int InivincibilityFrames = 20;
+        #region public variables
         public bool IsDamaged { get; set; }
-        private protected int timeLeftDamage = 30;
-        private protected ISprite _texture;
         public Point Position { get; set; }
         public int Health { get; set; } = 6;
-        private protected Point velocity;
-        private protected Random random;
-        private protected bool isActive = true;
+        public Point knockBackVel = new Point(0, 0);
+        public bool hasKey { get; set; } = false;
+        #endregion
+
+        #region static variables
         protected static int knockBackDuration = 20;
         protected static int currentKnockBack = 0;
         protected static bool knockedBack = false;
-        public Point knockBackVel = new Point(0, 0);
-        public bool hasKey { get; set; } = false;
+        #endregion
+
+        #region constants
+        private protected const int HeightSpriteSection = 83;
+        private protected const int WidthSpriteSection = 64;
+        private protected const int InivincibilityFrames = 20;
+        #endregion
+
+        private protected int timeLeftDamage = 30;
+        private protected ISprite _texture;      
+        private protected Point velocity;
+        private protected Random random;
+        private protected bool isActive = true;
+        
+        
 
         public void KillItem()
         {

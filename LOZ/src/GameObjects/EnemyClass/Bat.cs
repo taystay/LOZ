@@ -44,8 +44,8 @@ namespace LOZ.EnemyClass
                     velocity2.Y = (float)dy;
                 } else
                 {
-                    double dx = (int)random.Next(-2,2);
-                    double dy = (int)random.Next(-2,2);
+                    double dx = random.Next(-2,2);
+                    double dy = random.Next(-2,2);
                     velocity2.X = (float)dx;
                     velocity2.Y = (float)dy;
                 }
