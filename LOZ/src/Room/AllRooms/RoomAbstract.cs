@@ -39,21 +39,25 @@ namespace LOZ.Room
             DrawNormally(spriteBatch, offset);
         }
 
-        public void DrawNormally(SpriteBatch spriteBatch, Point offset)
+        public void DrawWithoutLink(SpriteBatch spriteBatch, Point offset)
         {
             if (exterior != null) exterior.Draw(spriteBatch, offset);
             foreach (IGameObjects item in gameObjects)
             {
                 item.Draw(spriteBatch, offset);
             }
-            CurrentRoom.link.Draw(spriteBatch, offset);
-
             if (!CurrentRoom.DebugMode) return; //Debug hitboxes for easy of testing numbers
             foreach (IGameObjects item in gameObjects)
             {
                 item.GetHitBox().Draw(spriteBatch, offset);
             }
             CurrentRoom.link.GetHitBox().Draw(spriteBatch, offset);
+        }
+
+        public void DrawNormally(SpriteBatch spriteBatch, Point offset)
+        {
+            DrawWithoutLink(spriteBatch, offset);
+            CurrentRoom.link.Draw(spriteBatch, offset);    
         }
         public virtual void RemoveItems()
         {

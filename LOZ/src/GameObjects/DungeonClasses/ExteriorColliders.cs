@@ -17,6 +17,7 @@ namespace LOZ.DungeonClasses
         {
             if (top != DoorType.Door && top != DoorType.Hole)
             {
+             
                 objectsInGame.Add(new InvisibleBlock(Info.singleTopBox));
                 if (top == DoorType.Breakable)
                 {

@@ -47,7 +47,7 @@ namespace LOZ.MapIO
                 index++;
 
             }
-            new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj);
+            //new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj);
         
             //return new ExteriorObject(doors[0], doors[1], doors[2], doors[3], obj);
         }

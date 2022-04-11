@@ -21,22 +21,28 @@ namespace LOZ.src.CameraStates
         private Point delta;
         private int deltaAmount = 8;
         private Game1 _gameObject;
+        private bool hasUpdated = false;
         public RoomTransition(Game1 gameObject, int dx, int dy, int dz)
         {
             _gameObject = gameObject;
-            updatesLeft = offsetDist / deltaAmount;
+            
             _dx = dx;
             _dy = dy;
             _dz = dz;
+            if (dx != 0)
+                offsetDist = Info.DungeonWidth;
+            else
+                offsetDist = Info.DungeonHeight;
+            updatesLeft = offsetDist / deltaAmount;
             if (dx < 0)
                 delta = new Point(deltaAmount, 0);
             else if (dx > 0)
                 delta = new Point(-deltaAmount, 0);
 
             if (dy < 0)
-                delta = new Point(0, -deltaAmount);
-            else if (dy > 0)
                 delta = new Point(0, deltaAmount);
+            else if (dy > 0)
+                delta = new Point(0, -deltaAmount);
 
         }
         public void UpdateController(GameTime gameTime)
@@ -45,6 +51,11 @@ namespace LOZ.src.CameraStates
         }
         public void Update(GameTime gameTime)
         {
+            if(!hasUpdated)
+            {
+                RoomReference.GetChangeRoom(_dx, _dy, _dz).Update(gameTime);
+                hasUpdated = true;
+            }
             updatesLeft--;
             updates++;
             if (updatesLeft <= 0)
@@ -55,11 +66,8 @@ namespace LOZ.src.CameraStates
                 RoomReference.SetLinkPosition(_dx, _dy, _dz);
                 RoomReference.GetLink().Update(gameTime);
                 _gameObject.CameraState = new FirstDungeon(_gameObject, inv);
-                RoomReference.SetRoomLocation(_dx, _dy, _dz);
-                
-            }
-
-                
+                RoomReference.SetRoomLocation(_dx, _dy, _dz);          
+            }             
         }
         public void Reset()
         {
@@ -67,10 +75,10 @@ namespace LOZ.src.CameraStates
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            Point changeRoomOffset = new Point(-delta.X * updatesLeft, delta.Y * updatesLeft);
+            Point changeRoomOffset = new Point(-delta.X * updatesLeft, -delta.Y * updatesLeft);
             Point oldRoomOffset = new Point(delta.X * updates, delta.Y * updates);
-            RoomReference.GetChangeRoom(_dx, _dy, _dz).Draw(spriteBatch, new Point() + changeRoomOffset);
-            RoomReference.GetCurrRoom().Draw(spriteBatch, new Point()+ oldRoomOffset);
+            RoomReference.GetChangeRoom(_dx, _dy, _dz).DrawWithoutLink(spriteBatch, new Point() + changeRoomOffset);
+            RoomReference.GetCurrRoom().DrawWithoutLink(spriteBatch, new Point()+ oldRoomOffset);
         }
     }
 }
