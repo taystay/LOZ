@@ -1,13 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Hud;
-using LOZ.SpriteClasses;
 using LOZ.Room;
 using LOZ.GameStateReference;
 using LOZ.DungeonClasses;
-using LOZ.Inventory;
-using System.Threading;
 using System;
+using LOZ.SpriteClasses;
 
 namespace LOZ.src.CameraStates
 {

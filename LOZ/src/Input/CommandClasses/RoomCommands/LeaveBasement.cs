@@ -1,5 +1,4 @@
-﻿using LOZ.GameStateReference;
-using LOZ.src.CameraStates;
+﻿using LOZ.src.CameraStates;
 
 namespace LOZ.CommandClasses.RoomCommands
 {

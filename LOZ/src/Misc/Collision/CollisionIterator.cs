@@ -25,12 +25,8 @@ namespace LOZ.Collision
                     if(!(obj1.Equals(obj2))) {
                         detect.CheckCollision(obj1, obj2);
                     }
-                    
-                    
                 }
-
             }
-
             foreach(IGameObjects item in _gameObjects)
             {
                 detect.CheckCollision(link, item);
@@ -39,8 +35,7 @@ namespace LOZ.Collision
                     SpikeTrap t = (SpikeTrap)item;
                     t.CheckAttack();
                 }
-            }
-           
+            } 
         }
     }
 }

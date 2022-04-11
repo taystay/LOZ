@@ -33,12 +33,10 @@ namespace LOZ.Room
             CurrentRoom.link.Update(gameTime);
             RemoveItems();
         }
-
         public virtual void Draw(SpriteBatch spriteBatch, Point offset)
         {
             DrawNormally(spriteBatch, offset);
         }
-
         public void DrawWithoutLink(SpriteBatch spriteBatch, Point offset)
         {
             if (exterior != null) exterior.Draw(spriteBatch, offset);
@@ -53,7 +51,6 @@ namespace LOZ.Room
             }
             CurrentRoom.link.GetHitBox().Draw(spriteBatch, offset);
         }
-
         public void DrawNormally(SpriteBatch spriteBatch, Point offset)
         {
             DrawWithoutLink(spriteBatch, offset);

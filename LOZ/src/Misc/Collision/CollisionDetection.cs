@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using System.Diagnostics;
 using LOZ.ItemsClasses;
 using LOZ.LinkClasses;
 
@@ -19,9 +18,7 @@ namespace LOZ.Collision
         public CollisionDetection()
         {
             collisionBehavior = new CollisionBehavior();
-
         }
-
         public void CheckCollision(IGameObjects objOne, IGameObjects objTwo)
         {
             Rectangle rec1 = objOne.GetHitBox().ToRectangle();
@@ -81,8 +78,6 @@ namespace LOZ.Collision
                     collisionBehavior.HandleCollision(objOne, objTwo, CollisionSide.Right);
                 }
             }
-            
         }
-
     }
 }

@@ -14,7 +14,6 @@ namespace LOZ.Collision
     {
         public CollisionBehavior()
         {
-
         }
         public void HandleCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
@@ -37,7 +36,6 @@ namespace LOZ.Collision
                 Portal p = (Portal)secondObject;
                 PortalManager.MoveThroughPortal(p, firstObject);
             }
-
             if (TypeC.Check(firstObject, typeof(ILink)))
             {
                 LinkCollision(firstObject, secondObject, side);
@@ -58,8 +56,6 @@ namespace LOZ.Collision
             {
                 EnemyProjectileEnvironmentCollision.Handle(firstObject, secondObject, side);
             }
-            
-
         }
         public void EnemyCollision(IGameObjects firstObject, IGameObjects secondObject, CollisionSide side)
         {
