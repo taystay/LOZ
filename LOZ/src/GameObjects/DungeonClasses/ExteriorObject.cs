@@ -59,17 +59,15 @@ namespace LOZ.DungeonClasses
         public void ChangeDoorOnUpdate(DoorLocation location, DoorType t)
         {
             if (!hasChangedBefore) { 
-                 changeLocation = location;
+                changeLocation = location;
                 changeType = t;
                 needsUpdate = true;
-                hasChangedBefore = true;
             }
         }
         
 		public void Update(GameTime timer)
-        { 
-                     
-            if(needsUpdate)
+        {                  
+            if(needsUpdate && !hasChangedBefore)
             {
                 List<IGameObjects> objectsInGame = RoomReference.GetObjectsList();
                 foreach (IGameObjects i in currentItems)
@@ -95,13 +93,16 @@ namespace LOZ.DungeonClasses
                 }
                 ExteriorColliders.PlaceColliders(_top, _right, _bottom, _left, currentItems);
                 ExteriorColliders.PlaceDoors(_top, _right, _bottom, _left, doors);
+                System.Diagnostics.Debug.WriteLine(" \n\n");
                 foreach (IGameObjects i in currentItems)
                 {
+                    System.Diagnostics.Debug.WriteLine("" + i.GetType());
                     objectsInGame.Add(i);
                 }
+                needsUpdate = false;
+                hasChangedBefore = true;
             }
-            needsUpdate = false;
-            hasChangedBefore = false;
+            
         }
 		public Hitbox GetHitBox()
         {            

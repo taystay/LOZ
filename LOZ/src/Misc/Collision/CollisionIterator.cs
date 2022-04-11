@@ -39,12 +39,6 @@ namespace LOZ.Collision
                     t.CheckAttack();
                 }
             }
-
-            foreach(IRoom room in  RoomReference.GetAllRooms().Values.ToList<IRoom>())
-            {
-                ExteriorObject o = room.GetExtObj();
-                if(o != null) o.Update(null);
-            }
         }
     }
 }
