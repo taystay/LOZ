@@ -74,26 +74,18 @@ namespace LOZ.GameStateReference
             if (!CurrentRoom.Instance._allRooms.ContainsKey(nextRoom)) return null;
             return CurrentRoom.Instance._allRooms[nextRoom];
         }
-        public static void SetLinkPosition(int x, int y, int z)
+        public static void SetLinkPosition(int dx, int dy, int dz)
         {
-            if (x == 1) // moved right
-                PlaceLink.LeftDungeonDoor();
-            else if (x == -1) // moved left
-                PlaceLink.RightDungeonDoor();
-            else if (y == 1) // moved down
-                PlaceLink.TopDungeonDoor();
-            else if (y == -1) // moved up
-                PlaceLink.BottomDungeonDoor();
-            else if (z == 1)// moved into dungeon
+            if (dx != 0)
+                GetChangeRoom(dx, dy, dz).PlaceLinkX(dx);
+            if(dy != 0)
+                GetChangeRoom(dx, dy, dz).PlaceLinkY(dy);
+            if (dz != 0)
             {
-                PlaceLink.PlaceInDungeon();
+                GetChangeRoom(dx, dy, dz).PlaceLinkZ(dz);
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
-            }
-            else if (z == -1)
-            {
-                PlaceLink.OutOfDungeon();
-                SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
-            }
+            }           
+
             CurrentRoom.link.Idle();
         }
         public static void SetRoomLocation(int x, int y, int z) {

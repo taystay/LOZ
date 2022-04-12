@@ -38,6 +38,7 @@ namespace LOZ.LinkClasses
                 decoratedLink.Die();
             }
         }
+        public bool IsActive() { return true; }
         public void ChangeDirectionUp()
         {
             decoratedLink.ChangeDirectionUp();

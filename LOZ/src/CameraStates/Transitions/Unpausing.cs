@@ -10,7 +10,7 @@ namespace LOZ.src.CameraStates
     {
         private Game1 _gameObject;
         private HudElement _hud;
-        private int dy = -10;
+        private int dy = -12;
         private const int offsetDist = 630;
         private int numberOfUpdates;
 

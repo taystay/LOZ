@@ -31,7 +31,7 @@ namespace LOZ.Inventory
         public void Initialize()
         {
             inventory = new List<IGameObjects>();
-            bombCount = 0;
+            bombCount = 10;
             rupeeCount = 0;
             keyCount = 0;
             currentItem = -1;

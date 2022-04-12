@@ -15,6 +15,8 @@ namespace LOZ.Room
         
         public Room211(string pathFile)
         {
+            posZ = Info.Enter211;
+            negZ = Info.Enter211;
             gameObjects = IO.Instance.ParseRoom(pathFile + "2_1_1.csv");
             gameObjects.Add(new Bat(GetCoorPoint(9, 2)));
             gameObjects.Add(new Bat(GetCoorPoint(2, 4)));

@@ -8,7 +8,6 @@ namespace LOZ.EnemyClass
         public int Health { get; set; }
         public void KillItem();
         public void TakeDamage(int damage);
-        public bool IsActive();
         public void KnockBack(Point vel);
     }
 }

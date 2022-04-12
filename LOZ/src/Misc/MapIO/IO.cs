@@ -24,11 +24,7 @@ namespace LOZ.MapIO
 
             //https://docs.microsoft.com/en-US/troubleshoot/developer/visualstudio/csharp/general/file-io-operation
             StreamReader reader = new StreamReader(pathFile);
-
-
             string doorRow = reader.ReadLine();
-
-            //ParseToBlock.ParseRoom(roomObj, reader);
             if (doorRow.Length > 0)
             {
                 ParseToBlock.ParseRoom(roomObj, reader);
