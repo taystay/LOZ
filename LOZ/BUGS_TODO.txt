@@ -18,3 +18,9 @@ Fix sprites drawing dragon (FIXED)
 
 -------OTHER STUFF TODO----------
 
+ROOMS CONTAIN SPAWN AND MOVE LOCATION BETWEEN OTHER ROOMS
+Force rooms to implement or have some point for where to spawn in going down into the room
+and a point for where to go up into the room. it can be nullable and if its not null, then you are allowed
+to use the point and maybe this can be useful for left, right, up, down but that might be unneccesary.
+However, if we want a big room that is connected to the rest of the rooms, this would be a requirement.
+
