@@ -40,7 +40,6 @@ namespace LOZ.src.CameraStates
         public void Update(GameTime gameTime)
         {
             _pasuedHud.Update();
-
         }
         public void Reset()
         {
