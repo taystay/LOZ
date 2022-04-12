@@ -110,7 +110,6 @@ namespace LOZ.LinkClasses
                 updatePosition = false;
             }
             Inventory.Update();
-
             LinkState.Update(timer);
         }
         public void Draw(SpriteBatch spriteBatch)
