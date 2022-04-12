@@ -16,12 +16,19 @@ namespace LOZ.MapIO
                 return instance;
             }
         }
+        public List<IGameObjects> ParseOW(string pathFile)
+        {
+            List<IGameObjects> roomObj = new List<IGameObjects>();
+            StreamReader reader = new StreamReader(pathFile);
+            reader.ReadLine();
+            ParseWholeRoom.ParseOWDoc(roomObj, reader);
+            reader.Close();
+            return roomObj;
+        }
 
         public List<IGameObjects> ParseRoom(string pathFile)
         {
-
             List<IGameObjects> roomObj = new List<IGameObjects>();
-
             //https://docs.microsoft.com/en-US/troubleshoot/developer/visualstudio/csharp/general/file-io-operation
             StreamReader reader = new StreamReader(pathFile);
             string doorRow = reader.ReadLine();
@@ -33,9 +40,6 @@ namespace LOZ.MapIO
             {
                 ParseWholeRoom.ParseWhole(roomObj, reader);
             }
-
-
-
             reader.Close();
             return roomObj;
 

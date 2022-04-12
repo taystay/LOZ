@@ -15,13 +15,13 @@ namespace LOZ.SpriteClasses
             switch (select)
             {
 				case 0://bottom of wall
-					frame = new Rectangle(36, 172, 16, 16);
+					frame = new Rectangle(36 - 1, 172 - 1, 16, 16);
 					break;
 				case 1: //top of wall
-					frame = new Rectangle(36, 155, 16, 16);
+					frame = new Rectangle(36 - 1, 155 - 1, 16, 16);
 					break;		
 				case 2: //sand no coloration
-					frame = new Rectangle(2, 155, 16, 16);
+					frame = new Rectangle(2 - 1, 155 - 1, 16, 16);
 					break;
 				case 3: //top left of tree
 					frame = new Rectangle(2 - 1, 206 - 1, 16, 16);
@@ -36,16 +36,16 @@ namespace LOZ.SpriteClasses
 					frame = new Rectangle(36 - 1, 223 - 1, 16, 16);
 					break;
 				case 7: //center tree
-					frame = new Rectangle(19, 206, 16, 16);
+					frame = new Rectangle(19 - 1, 206 - 1, 16, 16);
 					break;
 				case 8: //bridge
-					frame = new Rectangle(2, 233, 16, 16);
+					frame = new Rectangle(18, 222, 16, 16);
 					break;
 				case 9: //water with dots
-					frame = new Rectangle(87, 172, 16, 16);
+					frame = new Rectangle(87 - 1, 172 - 1, 16, 16);
 					break;
 				default: //water with dots
-					frame = new Rectangle(87, 172, 16, 16);
+					frame = new Rectangle(87 - 1, 172 - 1, 16, 16);
 					break;
             }
         }

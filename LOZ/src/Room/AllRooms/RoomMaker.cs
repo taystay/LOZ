@@ -35,6 +35,7 @@ namespace LOZ.Room
             rooms.Add(new Point3D(5, 2, 0),new Room52(_pathName));
             rooms.Add(new Point3D(6, 2, 0),new Room62(_pathName));
             rooms.Add(new Point3D(2, 1, 1), new Room211(_pathName));
+            rooms.Add(new Point3D(3, 6, 1), new Room361(_pathName));
             rooms.Add(new Point3D(0, 0, 0),new DevRoom());
             return rooms;
         }

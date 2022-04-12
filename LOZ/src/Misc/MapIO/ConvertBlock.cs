@@ -15,7 +15,6 @@ namespace LOZ.MapIO
             switch (s)
             {
                 case "invisB":
-
                     Rectangle r = new Rectangle(location.X - 24, location.Y - 24, 48, 48);
                     returnVal = new InvisibleBlock(r);
                     break;
@@ -48,6 +47,21 @@ namespace LOZ.MapIO
                     break;
                 case "brick":
                     returnVal = new BasementBlock(location);
+                    break;
+                case "wat":
+                    returnVal = new WaterTile(location);
+                    break;
+                case "san":
+                    returnVal = new SandTile(location);
+                    break;
+                case "top":
+                    returnVal = new TopSandWall(location);
+                    break;
+                case "bot":
+                    returnVal = new BottomSandWall(location);
+                    break;
+                case "bri":
+                    returnVal = new BridgeTile(location);
                     break;
                 default:
                     returnVal = new BlackTileBlock(new Point(0, 0));

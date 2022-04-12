@@ -63,7 +63,7 @@ namespace LOZ
 
             CurrentRoom.Instance.LoadContents(allRooms);
 
-            bool debugState = false;
+            bool debugState = true;
             if(debugState)
             {
                 HudElement inv = new InventoryHud(RoomReference.GetLink().Inventory);
