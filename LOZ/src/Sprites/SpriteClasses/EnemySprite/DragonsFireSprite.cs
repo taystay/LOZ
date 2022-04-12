@@ -6,7 +6,8 @@ namespace LOZ.SpriteClasses.EnemeySprite
     class DragonsFireSprite : AbstractEnemySprite
     {
         private const int maxFrame = 4;
-
+        private const int framesPerUpdate = 500;
+        private int frameCounter = 0;
         public DragonsFireSprite(Texture2D texture)
         {
             _texture = texture;
@@ -19,8 +20,12 @@ namespace LOZ.SpriteClasses.EnemeySprite
 
         public override void Update(GameTime timer)
         {
-            if (timer.TotalGameTime.Milliseconds % 200 == 0)
+            frameCounter++;
+            if (frameCounter > framesPerUpdate)
+            {
                 frame++;
+            }
+                
             if (frame == maxFrame)
                 frame = 0;
             row = frame / 2;

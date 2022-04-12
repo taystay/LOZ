@@ -9,6 +9,8 @@ namespace LOZ.EnemyClass
     class SpikeTrap : AbstractEnemy
     {
         private const int attackSpeed = 4;
+        private const int framesPerUpdate = 500;
+        private int frameCounter = 0;
         public SpikeTrap(Point location) {
             _texture= EnemySpriteFactory.Instance.CreateTrap();
             Position = location;
@@ -53,6 +55,7 @@ namespace LOZ.EnemyClass
         }
         public override void Update(GameTime timer)
         {
+            frameCounter++;
             _texture.Update(timer);
             if (IsDamaged)
             {
@@ -62,7 +65,7 @@ namespace LOZ.EnemyClass
             }
             Point p = Position;
             Position = new Point(p.X += velocity.X, p.Y + velocity.Y);
-            if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 != 0) return;
+            if (frameCounter < framesPerUpdate) return;
             if (velocity.X < 0)
                 velocity.X += 1;
             else if (velocity.X > 0)
@@ -71,6 +74,7 @@ namespace LOZ.EnemyClass
                 velocity.Y += 1;
             else if (velocity.Y > 0)
                 velocity.Y -= 1;
+            frameCounter = 0;
         }
     }
 }

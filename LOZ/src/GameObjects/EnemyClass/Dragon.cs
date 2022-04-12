@@ -11,6 +11,10 @@ namespace LOZ.EnemyClass
 {
     class Dragon : AbstractEnemy
     {
+        private const int framesPerUpdate = 500;
+        private int frameCounter = 0;
+        private const int framesPerUpdate2 = 2000;
+        private int frameCounter2 = 0;
         public Dragon(Point location)
         {
             Health = 6;
@@ -47,11 +51,12 @@ namespace LOZ.EnemyClass
 
         public override void Update(GameTime timer)
         {
-
-            if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
+            frameCounter++;
+            frameCounter2++;
+            if (frameCounter > framesPerUpdate)
             {
                 velocity.X = random.Next(-4, 4);
-            
+                frameCounter = 0;
             }
 
             if (IsDamaged)
@@ -62,11 +67,12 @@ namespace LOZ.EnemyClass
             }
 
             modifyPosition(velocity.X,0);
-
-            if ((int) timer.TotalGameTime.TotalMilliseconds % 5000 == 0) {
+            
+            if (frameCounter2 > framesPerUpdate2) {
                 RoomReference.AddItem(new DragonBreathe(Position,-1)); //top fireball
                 RoomReference.AddItem(new DragonBreathe(Position,0)); //middle fireball
                 RoomReference.AddItem(new DragonBreathe(Position,1)); //bottom fireball
+                frameCounter2 = 0;
             }
 
             _texture.Update(timer);

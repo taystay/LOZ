@@ -8,8 +8,10 @@ namespace LOZ.EnemyClass
 {
     class Skeleton : AbstractEnemy
     {
-        private double vMag = 2;
+        private const double vMag = 2;
         private protected Vector2 velocity2;
+        private const int framesPerUpdate = 500;
+        private int frameCounter = 0;
         public Skeleton(Point location) 
         {
             Health = 3;
@@ -49,7 +51,8 @@ namespace LOZ.EnemyClass
             } 
             else
             {
-                if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
+                frameCounter++;
+                if (frameCounter > framesPerUpdate)
                 {
                     Point linkP = RoomReference.GetLink().Position;
 
@@ -58,11 +61,7 @@ namespace LOZ.EnemyClass
                     {
                         double dx = (linkP.X - Position.X);
                         double dy = (linkP.Y - Position.Y);
-
                         double mag = Math.Sqrt(dx * dx + dy * dy);
-
-
-
                         dx = dx * vMag / mag;
                         dy = dy * vMag / mag;
                         velocity2.X = (float)dx;
@@ -75,6 +74,7 @@ namespace LOZ.EnemyClass
                         velocity2.X = (float)dx;
                         velocity2.Y = (float)dy;
                     }
+                    frameCounter = 0;
                 }              
                 modifyPosition((int)velocity2.X, (int)velocity2.Y);
             }

@@ -6,7 +6,8 @@ namespace LOZ.SpriteClasses.EnemeySprite
     class NPCSprite : AbstractEnemySprite
     {
         private const int maxFrame = 3;
-
+        private const int framesPerUpdate = 500;
+        private int frameCounter = 0;
         public NPCSprite(Texture2D textue)
         {
             _texture = textue;
@@ -20,8 +21,12 @@ namespace LOZ.SpriteClasses.EnemeySprite
 
         public override void Update(GameTime timer)
         {
-            if (timer.TotalGameTime.Milliseconds % 150 == 0)
+            frameCounter++;
+            if (frameCounter > framesPerUpdate)
+            {
+                frameCounter = 0;
                 frame++;
+            }
             if (frame == maxFrame)
                 frame = 0;
             

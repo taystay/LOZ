@@ -12,7 +12,9 @@ namespace LOZ.SpriteClasses.ItemSprites
 		private int currentFrame = 0;
 		private int totalFrames = 2;
 
-
+		private const int framesPerUpdate = 500;
+		private int frameCounter = 0;
+		
 		//-----Constructor-----
 		public FireItemSprite(Texture2D texture)
 		{
@@ -27,15 +29,17 @@ namespace LOZ.SpriteClasses.ItemSprites
 		//-----Update frame-----
 		public override void Update(GameTime gameTime)
 		{
-			if(gameTime.TotalGameTime.Milliseconds % 30 == 0)
-            {
+			frameCounter++;
+			if(frameCounter > framesPerUpdate)
+			{
+				frameCounter = 0;
 				currentFrame++;
 				if(currentFrame == totalFrames)
-                {
+				{
 					currentFrame = 0;
-                }
+				}
 				frame = frames[currentFrame];
-            }
+			}
 		}
 
 	}

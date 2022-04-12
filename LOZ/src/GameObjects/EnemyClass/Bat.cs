@@ -8,8 +8,10 @@ namespace LOZ.EnemyClass
 {
     class Bat : AbstractEnemy
     {
-        private double vMag = 1.5;
+        private const double vMag = 1.5;
         private protected Vector2 velocity2;
+        private const int framesPerUpdate = 70;
+        private int frameCounter = 0;
         public Bat(Point location)
         {
             Health = 1;
@@ -30,7 +32,8 @@ namespace LOZ.EnemyClass
 
         public override void Update(GameTime timer)
         {
-            if ((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
+            frameCounter++;
+            if (frameCounter >= framesPerUpdate)
             {
                 Point linkP = RoomReference.GetLink().Position;
 
@@ -53,6 +56,7 @@ namespace LOZ.EnemyClass
                     velocity2.X = (float)dx;
                     velocity2.Y = (float)dy;
                 }
+                frameCounter = 0;
             }
 
             if(IsDamaged)

@@ -8,6 +8,8 @@ namespace LOZ.SpriteClasses.LinkSprites
 {
     class LinkItemDownAttack : AbstractLinkSprite
     {
+        private const int framesPerUpdate = 500;
+        private int frameCounter = 0;
         public LinkItemDownAttack(Texture2D sprite)
         {
             linkSprite = sprite;
@@ -19,8 +21,13 @@ namespace LOZ.SpriteClasses.LinkSprites
 
         public override void Update(GameTime timer)
         {
-            if (timer.TotalGameTime.Milliseconds % 150 == 0)
+            frameCounter++;
+            if (frameCounter > framesPerUpdate)
+            {
+                frameCounter = 0;
                 currentFrame++;
+            }
+               
             if (currentFrame == maxFrames)
             {
                 currentFrame = 0;

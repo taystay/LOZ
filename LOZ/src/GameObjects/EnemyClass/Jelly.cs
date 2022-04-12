@@ -9,8 +9,10 @@ namespace LOZ.EnemyClass
 {
     class Jelly : AbstractEnemy
     {
-        private double vMag = 1;
+        private const double vMag = 1;
         private protected Vector2 velocity2;
+        private const int framesPerUpdate = 500;
+        private int frameCounter = 0;
         public Jelly(Point location)
         {
             Health = 1;
@@ -28,8 +30,10 @@ namespace LOZ.EnemyClass
 
         public override void Update(GameTime timer)
         {
-            if((int)timer.TotalGameTime.TotalMilliseconds % 1000 == 0)
+            frameCounter++;
+            if(frameCounter > framesPerUpdate)
             {
+                frameCounter = 0;
                 Point linkP = RoomReference.GetLink().Position;
 
                 //https://stackoverflow.com/questions/41317291/setting-the-magnitude-of-a-2d-vector#41321162
@@ -37,11 +41,7 @@ namespace LOZ.EnemyClass
                 {
                     double dx = (linkP.X - Position.X);
                     double dy = (linkP.Y - Position.Y);
-
                     double mag = Math.Sqrt(dx * dx + dy * dy);
-
-
-
                     dx = dx * vMag / mag;
                     dy = dy * vMag / mag;
                     velocity2.X = (float)dx;
