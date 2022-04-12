@@ -1,0 +1,18 @@
+Author: Anthony D'Alesandro
+Date: 4/11/22
+
+Sprint 4
+
+
+IO.cs : Tony D'Alesandro
+	-Time: 5 mins
+
+	-Readability: The readability is a little sloppy in this instance. The code is written very well but the names of the functions and the if else is slightly hard to follow. It is completely unclear what ParseWhole means and ParseRoom means. 
+	
+	commenting on ParseToBlock.cs and ParseWholeRoom.cs, the readability is actually really good in these files. The function names just leave more to be desired. Commenting on maintainability, it would make sense for width and height of these rooms to be more flexibile and be centered on the screen. I personally would enjoy being able to code a 2x2 room with a stair block for entry but that seems extremely difficult in this situation.
+
+
+RoomReference.cs: Keit Vu & Taylor Liu
+	-Time: 10 mins
+
+	-Readability: The readability is overall good. Most of the functions are clear what they do. However, with the scope of this class, it does not make sense for most of these items to be functions. As we get more functions that pertain to link, the readability will greatly decrease. When using this I often forget what half the functions do. Thus I suggest making Link be accessed through a property as one example. Adding properties will leave more flexibility in function names.
