@@ -53,6 +53,14 @@ namespace LOZ.DungeonClasses
         public static Rectangle leftDoorLocation = new Rectangle(200, 575, 10, 50);
         public static Rectangle bottomDoorLocation = new Rectangle(450, 750, 50, 10);
 
+        //Place link in room spots
+        public static Point posX = new Point(Map.Location.X + DoorWidth, Map.Location.Y + DoorToCornerHeight + BlockWidth);
+        public static Point negX = new Point(Map.Location.X + Map.Width - DoorWidth, Map.Location.Y + DoorToCornerHeight + BlockWidth);
+        public static Point posY = new Point(Map.Location.X + DoorToCornerWidth + BlockWidth, Map.Location.Y + DoorWidth);
+        public static Point negY = new Point(Map.Location.X + DoorToCornerWidth + BlockWidth, Map.Location.Y + Map.Height - DoorWidth);
+        public static Point Enter211 = new Point(Map.Location.X + 3 * BlockWidth + 24, Map.Location.Y + 2 * BlockWidth);
+        public static Point Leave211 = new Point(Map.Location.X + 7 * BlockWidth + 24, Map.Location.Y + 6 * BlockWidth - 24);
+
 
     }
 }

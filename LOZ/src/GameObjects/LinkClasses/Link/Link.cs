@@ -41,6 +41,7 @@ namespace LOZ.LinkClasses
             Inventory = new LinkInventory();
             Inventory.Initialize();
         }
+        public bool IsActive() { return true; }
         public void ChangeDirectionUp()
         {
             LinkState.Up();

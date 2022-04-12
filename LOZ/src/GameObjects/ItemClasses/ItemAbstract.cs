@@ -34,7 +34,7 @@ namespace LOZ.ItemsClasses
             }
         }
 
-        public bool SpriteActive()
+        public bool IsActive()
         {
             return spriteActivity;
         }

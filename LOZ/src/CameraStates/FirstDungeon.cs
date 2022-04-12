@@ -49,7 +49,8 @@ namespace LOZ.src.CameraStates
         }
         public void Reset()
         {
-
+            _topHud = new InventoryHud(RoomReference.GetLink().Inventory);
+            _topHud.Offset(new Point(0, -630));
         }
         public void Draw(SpriteBatch spriteBatch)
         {

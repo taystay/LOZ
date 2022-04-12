@@ -38,7 +38,10 @@ namespace LOZ.DungeonClasses
                 objectsInGame.Add(i);
             }
         }
-
+        public bool IsActive()
+        {
+            return true;
+        }
         public bool CanGoUp()
         {
             return (_top == DoorType.Door || _top == DoorType.Hole);

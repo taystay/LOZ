@@ -10,9 +10,10 @@ namespace LOZ.DungeonClasses
         private protected ISprite sprite;
         private protected Point itemLocation;
 
-        public void Update(GameTime timer)
+        public void Update(GameTime timer) { }
+        public virtual bool IsActive()
         {
-
+            return true;
         }
         public Hitbox GetHitBox()
         {

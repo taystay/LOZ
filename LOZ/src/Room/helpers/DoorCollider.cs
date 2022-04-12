@@ -21,6 +21,7 @@ namespace LOZ.GameState
         {
             return box;
         }
+        public bool IsActive() { return true; }
         public void Collision(IGameObjects o)
         {
             if (TypeC.Check(o, _responseType))

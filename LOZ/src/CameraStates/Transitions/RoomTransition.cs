@@ -18,7 +18,7 @@ namespace LOZ.src.CameraStates
         private readonly int offsetAmount;
         private int updatesLeft, updates = 0;
         private Point delta;
-        private readonly int changePerUpdate = 8;      
+        private readonly int changePerUpdate = 10;      
         #endregion
 
         #region sprites
@@ -31,7 +31,8 @@ namespace LOZ.src.CameraStates
             _gameObject = gameObject;
             dCoor = new Point3D(dx, dy, dz);
 
-            RoomReference.GetChangeRoom(dCoor.X, dCoor.Y, dCoor.Z).GetExtObj().Update(null);
+            ExteriorObject o = RoomReference.GetChangeRoom(dCoor.X, dCoor.Y, dCoor.Z).GetExtObj();
+            if (o != null) o.Update(null);
 
             /* need hud to draw and pass to next state*/
             topHud = new InventoryHud(RoomReference.GetInventory());

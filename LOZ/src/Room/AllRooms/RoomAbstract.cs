@@ -16,11 +16,50 @@ namespace LOZ.Room
         public ExteriorObject exterior { get; set; }
         public List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
         private protected CollisionIterator colliders;
-        
-        public virtual void Update(GameTime gameTime)
+
+        #region lamba functions
+        public ExteriorObject GetExtObj() => exterior;
+        public void AddItem(IGameObjects item) => gameObjects.Add(item);
+        public List<IGameObjects> GetObjectsList() => gameObjects;
+        public virtual void Update(GameTime gameTime) => UpdateNormally(gameTime);
+        public virtual void Draw(SpriteBatch spriteBatch, Point offset) => DrawNormally(spriteBatch, offset);
+        #endregion
+
+        #region room moving points
+        /* 
+         * points where link would be placed if he moved on the map in this way.
+         * certain rooms might want to change these, so they are in room abstract.
+         */
+        private protected Point posX = Info.posX;
+        private protected Point negX = Info.negX;
+        private protected Point posY = Info.posY;
+        private protected Point negY = Info.negY;
+        private protected Point? posZ = null;
+        private protected Point? negZ = null;
+
+        public void PlaceLinkX(int dx)
         {
-            UpdateNormally(gameTime);
+            if (dx > 0)
+                CurrentRoom.link.Position = posX;
+            else if (dx < 0)
+                CurrentRoom.link.Position = negX;
         }
+        public void PlaceLinkY(int dy)
+        {
+            if (dy > 0)
+                CurrentRoom.link.Position = posY;
+            else if (dy < 0)
+                CurrentRoom.link.Position = negY;
+        }
+        public void PlaceLinkZ(int dz)
+        {
+            if (dz > 0 && posZ.HasValue)
+                CurrentRoom.link.Position = posZ.GetValueOrDefault();
+            else if (dz < 0 && negZ.HasValue)
+                CurrentRoom.link.Position = negZ.GetValueOrDefault();
+        }
+        #endregion
+
         public void UpdateNormally(GameTime gameTime)
         {
             if (exterior != null) exterior.Update(gameTime);
@@ -32,10 +71,6 @@ namespace LOZ.Room
             }
             CurrentRoom.link.Update(gameTime);
             RemoveItems();
-        }
-        public virtual void Draw(SpriteBatch spriteBatch, Point offset)
-        {
-            DrawNormally(spriteBatch, offset);
         }
         public void DrawWithoutLink(SpriteBatch spriteBatch, Point offset)
         {
@@ -65,21 +100,7 @@ namespace LOZ.Room
             for (int i = gameObjects.Count - 1; i >= 0; i--)
             {
                 IGameObjects item = gameObjects[i];
-                if (TypeC.Check(item, typeof(IItem)))
-                { 
-                    IItem itemObject = (IItem)item;
-                    if (!itemObject.SpriteActive()) gameObjects.RemoveAt(i);
-                }
-                if (TypeC.Check(item, typeof(AbstractEnemy)))
-                {
-                    AbstractEnemy itemObject = (AbstractEnemy)item;
-                    if (!itemObject.IsActive()) gameObjects.RemoveAt(i);
-                }
-                if (TypeC.Check(item, typeof(DragonBreathe)))
-                {
-                    DragonBreathe itemObject = (DragonBreathe)item;
-                    if (!itemObject.IsActive()) gameObjects.RemoveAt(i);
-                }
+                if (!item.IsActive()) gameObjects.RemoveAt(i);
             }
         }
         protected Point GetCoorPoint(double x, double y)
@@ -87,29 +108,14 @@ namespace LOZ.Room
             Point start = Info.Inside.Location;
             start.X += Info.BlockWidth / 2;
             start.Y += Info.BlockWidth / 2;
-
-            start.X += (int)((double)Info.BlockWidth * x);
-            start.Y += (int)((double)Info.BlockWidth * y);
-
+            start.X += (int)(Info.BlockWidth * x);
+            start.Y += (int)(Info.BlockWidth * y);
             return start;
-        }
-        public ExteriorObject GetExtObj()
-        {
-            return exterior;
-        }
-        public void AddItem(IGameObjects item)
-        {
-            gameObjects.Add(item);
-        }
-        public List<IGameObjects> GetObjectsList()
-        {
-            return gameObjects;
-        }
+        }       
         public void UpdateExterior(DoorType t, DoorLocation l)
         {
             if (exterior == null) return;
             exterior.ChangeDoorOnUpdate(l, t);
         }
-
     }
 }

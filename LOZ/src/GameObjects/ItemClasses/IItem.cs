@@ -19,6 +19,5 @@ namespace LOZ.ItemsClasses
         public void SetPositionOnUpdate(Point position);
         public void SetPosition(Point position);
         public void KillItem();
-        public Boolean SpriteActive();
     }
 }

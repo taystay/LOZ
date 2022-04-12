@@ -120,6 +120,7 @@ namespace LOZ.ItemsClasses
             Draw(spriteBatch, new Point(0, 0));
 
         }
+        public bool IsActive() { return true; }
 
         public void Draw(SpriteBatch spriteBatch, Point offset)
         {
