@@ -24,7 +24,7 @@ namespace LOZ.CommandClasses
             CurrentRoom.Instance.LoadContents(maps);
             CurrentRoom.currentLocation = new Point3D(3, 6, 0);
             PlaceLink.BottomDungeonDoor();
-            CurrentRoom.link = new Link(new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth));
+            CurrentRoom.link = new Link(new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth - 24));
             SoundManager.Instance.SoundToLoop(SoundEnum.Background);
             GetReference.GetRef().CameraState.Reset();
         }

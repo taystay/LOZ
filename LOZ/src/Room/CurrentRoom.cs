@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using LOZ.LinkClasses;
 using LOZ.DungeonClasses;
@@ -38,7 +39,7 @@ namespace LOZ.Room
             currentRoom = _allRooms[currentLocation];//https://stackoverflow.com/questions/1276763/how-do-i-get-the-list-of-keys-in-a-dictionary
             coorRoom = _allRooms.Keys.ToList();
 
-            Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth);
+            Point spawnPoint = new Point(Info.Map.Location.X + Info.DoorToCornerWidth + Info.BlockWidth, Info.Map.Location.Y + Info.Map.Height - Info.DoorWidth - 24);
             link = new Link(spawnPoint);
         }
         public void Update(GameTime gameTime) {
@@ -48,11 +49,15 @@ namespace LOZ.Room
 
         }
         public void Draw(SpriteBatch spriteBatch) {
-
+            if (DebugMode)
+            {
+                Factories.GameFont.Instance.Write(spriteBatch, "x: " + currentLocation.X + ",y: " + currentLocation.Y + ",z: " + currentLocation.Z, 300, 200);
+                Factories.GameFont.Instance.Write(spriteBatch, "mouse: {x}: " + Mouse.GetState().X + " {y}: " + Mouse.GetState().Y, 300, 250);
+            }
+                
             currentRoom.Draw(spriteBatch, new Point(0,0));
         }
-        public void DrawOffset(SpriteBatch spriteBatch, Point offset) {
-
+        public void DrawOffset(SpriteBatch spriteBatch, Point offset) {       
             currentRoom.Draw(spriteBatch, offset);
         }
         private void ChangeRoom() {

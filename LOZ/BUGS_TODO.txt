@@ -1,6 +1,15 @@
 ﻿
 -------BUGS----------
 
+Enemies wont update in a very rare case
+    - this has happened before the big refactor night and just happened on 4/12/2022
+    - enemies sprites wont update nor do they move. link can hit them and hurt them though.
+    - if he can hurt them then they go through the collision.Iterate() but then why arent the enmies being updated
+    - prediction: something with the gameTime object
+    - other prediction: currentroom is not set to the room he is actually in thus its updating the wrong room?
+    -def think its a TotalGame.TotalMillisecond issue where its never divisible by 150/1000. nothing else in the game does that
+      and the game time objects you need to be careful with. Guess we can look into that in the future.
+
 
 Bombing walls and exterior object updating doors
     - bombing wall opens a door (sometimes) and the other side is never really opened

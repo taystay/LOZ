@@ -62,7 +62,7 @@ namespace LOZ
 
             CurrentRoom.Instance.LoadContents(allRooms);
 
-            bool debugState = true;
+            bool debugState = false;
             if(debugState)
             {
                 HudElement inv = new InventoryHud(RoomReference.GetLink().Inventory);
@@ -84,6 +84,8 @@ namespace LOZ
         {
             GraphicsDevice.Clear(Color.Black);
             CameraState.Draw(spriteBatch);
+            if(RoomReference.GetDebug())
+               GameFont.Instance.Write(spriteBatch, "CameraState: " + CameraState.GetType().ToString(), 75, 910);
 
             base.Draw(gameTime);
         }
