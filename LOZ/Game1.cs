@@ -35,6 +35,7 @@ namespace LOZ
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
+            OverworldFactory.Instance.LoadAllTextures(Content);
             DisplaySpriteFactory.Instance.LoadAllTextures(Content);
             ItemFactory.Instance.LoadAllTextures(Content);
             LinkSpriteFactory.Instance.LoadAllTextures(Content);

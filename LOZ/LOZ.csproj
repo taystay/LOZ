@@ -20,6 +20,8 @@
     <None Remove="src\Misc\Hud\Components\" />
     <None Remove="src\Room\AllRooms\" />
     <None Remove="Content\bin\DesktopGL\Content\DugeonRooms\DugeonRooms\" />
+    <None Remove="src\Sprites\SpriteClasses\Overworld_sprint5_sprites\" />
+    <None Remove="src\GameObjects\OverworldTiles\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -41,5 +43,7 @@
     <Folder Include="src\CameraStates\Transitions\" />
     <Folder Include="src\Misc\Hud\Components\" />
     <Folder Include="Content\bin\DesktopGL\Content\DugeonRooms\DugeonRooms\" />
+    <Folder Include="src\Sprites\SpriteClasses\Overworld_sprint5_sprites\" />
+    <Folder Include="src\GameObjects\OverworldTiles\" />
   </ItemGroup>
 </Project>

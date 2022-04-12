@@ -2,6 +2,7 @@
 using LOZ.Collision;
 using LOZ.DungeonClasses;
 using LOZ.ItemsClasses;
+using LOZ.EnvironmentalClasses;
 
 namespace LOZ.Room
 {
