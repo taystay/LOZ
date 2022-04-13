@@ -10,7 +10,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 		private int currentFrame = 0;
 		private int totalFrames = 2;
 
-		private const int framesPerUpdate = 500;
+		private const int framesPerUpdate = 7;
 		private int frameCounter = 0;
 
 		//-----Constructor-----
