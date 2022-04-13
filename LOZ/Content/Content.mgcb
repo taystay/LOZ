@@ -49,6 +49,18 @@
 /processorParam:TextureFormat=Color
 /build:Black.png
 
+#begin Custom_Edited_-_Terraria_Customs_-_Skeletron__Skeletron_Prime_NES-Style.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Custom_Edited_-_Terraria_Customs_-_Skeletron__Skeletron_Prime_NES-Style.png
+
 #begin dragonsBreathe.png
 /importer:TextureImporter
 /processor:TextureProcessor
