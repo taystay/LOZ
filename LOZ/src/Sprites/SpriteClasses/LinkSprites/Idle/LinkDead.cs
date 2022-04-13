@@ -6,7 +6,7 @@ namespace LOZ.SpriteClasses.LinkSprites
 {
     class LinkDead : AbstractLinkSprite
     {
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = 12;
         private int frameCounter = 0;
         public LinkDead(Texture2D sprite)
         {

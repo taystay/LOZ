@@ -7,7 +7,7 @@ namespace LOZ.SpriteClasses.LinkSprites
 {
     class LinkRaiseItem : AbstractLinkSprite
     {
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = 12;
         private int frameCounter = 0;
         public LinkRaiseItem(Texture2D sprite)
         {

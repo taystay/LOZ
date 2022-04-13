@@ -11,7 +11,7 @@ namespace LOZ.EnemyClass
     {
         private const double vMag = 1;
         private protected Vector2 velocity2;
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = 30;
         private int frameCounter = 0;
         public Jelly(Point location)
         {

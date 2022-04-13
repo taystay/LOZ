@@ -10,7 +10,7 @@ namespace LOZ.EnemyClass
     {
         private const double vMag = 1.5;
         private protected Vector2 velocity2;
-        private const int framesPerUpdate = 70;
+        private const int framesPerUpdate = 30;
         private int frameCounter = 0;
         public Bat(Point location)
         {
