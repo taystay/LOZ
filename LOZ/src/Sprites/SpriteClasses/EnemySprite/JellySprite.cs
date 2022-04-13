@@ -6,7 +6,7 @@ namespace LOZ.SpriteClasses.EnemeySprite
     class JellySprite : AbstractEnemySprite
     {
         private const int maxFrame = 3;
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = UpdateSpeed.JellySprite;
         private int frameCounter = 0;
         public JellySprite(Texture2D texture)
         {

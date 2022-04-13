@@ -6,7 +6,7 @@ namespace LOZ.SpriteClasses.EnemeySprite
     class SkeletonSprite : AbstractEnemySprite
     {
         private const int maxFrame = 2;
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = UpdateSpeed.SkeletonSprite;
         private int frameCounter = 0;
         public SkeletonSprite(Texture2D sprite)
         {

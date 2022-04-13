@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.Collision;
@@ -10,9 +11,9 @@ namespace LOZ.EnemyClass
 {
     class Dragon : AbstractEnemy
     {
-        private const int framesPerUpdate = 60;
+        private const int framesPerUpdate = UpdateSpeed.DragonUpdate;
         private int frameCounter = 0;
-        private const int framesPerUpdate2 = 120;
+        private const int framesPerUpdate2 = UpdateSpeed.DragonShootUpdate;
         private int frameCounter2 = 0;
         public Dragon(Point location)
         {

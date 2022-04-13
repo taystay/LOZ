@@ -6,7 +6,7 @@ namespace LOZ.SpriteClasses.EnemeySprite
     class BatSprite : AbstractEnemySprite
     {
         private const int maxFrame = 2;
-        private const int framesPerUpdate = 10;
+        private const int framesPerUpdate = UpdateSpeed.BatSprite;
         private int frameCounter = 0;
         public BatSprite(Texture2D texture)
         {

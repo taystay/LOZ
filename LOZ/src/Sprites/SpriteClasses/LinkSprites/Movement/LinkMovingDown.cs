@@ -7,7 +7,7 @@ namespace LOZ.SpriteClasses.LinkSprites
 {
     class LinkMovingDown : AbstractLinkSprite
     {
-        private const int framesPerUpdate = 12;
+        private const int framesPerUpdate = UpdateSpeed.LinkWalk;
         private int frameCounter = 0;
         public LinkMovingDown(Texture2D sprite)
         {

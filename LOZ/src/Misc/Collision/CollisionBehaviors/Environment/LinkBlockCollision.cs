@@ -11,7 +11,6 @@ namespace LOZ.Collision
     {
         public static void Handle(IGameObjects linkObj, IGameObjects blockObj, CollisionSide side)
         {
-            if (TypeC.Check(blockObj, typeof(StairsBlock))) return;
             ILink link = (ILink)linkObj;
             IEnvironment block = (IEnvironment)blockObj;
             Point linkPos = link.Position;

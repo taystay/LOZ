@@ -16,12 +16,17 @@ namespace LOZ.MapIO
                 return instance;
             }
         }
-        public List<IGameObjects> ParseOW(string pathFile)
+        public List<IGameObjects> ParseOW(string pathFile, int startline, int endline)
         {
             List<IGameObjects> roomObj = new List<IGameObjects>();
             StreamReader reader = new StreamReader(pathFile);
-            reader.ReadLine();
-            ParseWholeRoom.ParseOWDoc(roomObj, reader);
+
+            //start at desired location
+            for (int i = 0; i < startline - 1; i++)
+                reader.ReadLine();
+
+            //close reader and parse number of lines specified
+            ParseWholeRoom.ParseOWDoc(roomObj, reader, endline - startline + 1);
             reader.Close();
             return roomObj;
         }
