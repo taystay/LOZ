@@ -27,7 +27,8 @@ namespace LOZ
         internal const int JellySprite = 5;
         internal const int DragonUpdate = 70;
         internal const int DragonSprite = 5;
-        internal const int DragonShootUpdate = 500;
+        internal const int DragonShootUpdate = 100;
+        internal const int DragonShotSprite = 40;
         internal const int SpikeTrapUpdate = 5;
     }
 }
