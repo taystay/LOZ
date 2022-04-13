@@ -11,7 +11,10 @@ namespace LOZ.CommandClasses.RoomCommands
         }
         public void execute()
         {
-            _gameObject.CameraState = new RoomTransition(_gameObject, 0, 0, -1);
+            if (GameStateReference.RoomReference.GetChangeRoom(0, 0, 1) != null)
+                _gameObject.CameraState = new RoomTransition(_gameObject, 0, 0, 1);
+            else
+                _gameObject.CameraState = new RoomTransition(_gameObject, 0, 0, -1);
         }
     }
 }

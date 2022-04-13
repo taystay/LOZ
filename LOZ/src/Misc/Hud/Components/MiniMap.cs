@@ -49,6 +49,7 @@ namespace LOZ.Hud
             List<Point3D> coords = RoomReference.GetRooms();
             foreach (Point3D point in coords)
             {
+                if (point.Z != linkCoor.Z) return;
                 room.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y));
             }
             room.Draw(spriteBatch, new Point(startX + offsetX * linkCoor.X, startY + offsetY * linkCoor.Y), Color.Green);

@@ -11,6 +11,7 @@ namespace LOZ.Room
         public Room21(string pathFile)
         {
             negZ = Info.Leave211;
+            posZ = Info.Leave211;
             gameObjects = IO.Instance.ParseRoom(pathFile + "2_1.csv");
             gameObjects.Add(new BlueTriangleBlock(GetCoorPoint(4, 3), true));
             gameObjects.Add(new SpikeTrap(GetCoorPoint(0, 0)));

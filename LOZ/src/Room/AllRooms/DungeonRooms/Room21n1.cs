@@ -10,10 +10,10 @@ using LOZ.ItemsClasses;
 
 namespace LOZ.Room
 {
-    class Room211 : RoomAbstract
+    class Room21n1 : RoomAbstract
     {
         
-        public Room211(string pathFile)
+        public Room21n1(string pathFile)
         {
             posZ = Info.Enter211;
             negZ = Info.Enter211;
