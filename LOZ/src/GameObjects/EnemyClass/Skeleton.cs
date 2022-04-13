@@ -10,7 +10,7 @@ namespace LOZ.EnemyClass
     {
         private const double vMag = 2;
         private protected Vector2 velocity2;
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = UpdateSpeed.SkeletonUpdate;
         private int frameCounter = 0;
         public Skeleton(Point location) 
         {

@@ -9,7 +9,7 @@ namespace LOZ.EnemyClass
     class SpikeTrap : AbstractEnemy
     {
         private const int attackSpeed = 4;
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = UpdateSpeed.SpikeTrapUpdate;
         private int frameCounter = 0;
         public SpikeTrap(Point location) {
             _texture= EnemySpriteFactory.Instance.CreateTrap();

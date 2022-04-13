@@ -3,10 +3,10 @@ using LOZ.src.CameraStates;
 
 namespace LOZ.CommandClasses.RoomCommands
 {
-    class EnterBasement : ICommand
+    class RoomnZ : ICommand
     {
         private Game1 _gameObject;
-        public EnterBasement(Game1 gameObj)
+        public RoomnZ(Game1 gameObj)
         {
             _gameObject = gameObj;
         }
@@ -14,8 +14,6 @@ namespace LOZ.CommandClasses.RoomCommands
         {
             if(RoomReference.GetChangeRoom(0,0,-1) != null)
                 _gameObject.CameraState = new RoomTransition(_gameObject, 0, 0, -1);
-            else
-                _gameObject.CameraState = new RoomTransition(_gameObject, 0, 0, 1);
         }   
     }
 }

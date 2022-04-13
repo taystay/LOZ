@@ -92,11 +92,6 @@ namespace LOZ.Collision
             {
                 LinkItemCollision.Handle(secondObject, side);
             }
-            if (TypeC.Check(secondObject, typeof(StairsBlock)))
-            {
-                ICommand c = new EnterBasement(GetReference.GetRef());
-                c.execute();
-            } 
             if (TypeC.Check(secondObject, typeof(Bomb)) || TypeC.Check(secondObject, typeof(FireProjectile)))
             {
                 RoomReference.GetLink().TakeDamage(1);

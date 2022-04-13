@@ -6,7 +6,7 @@ namespace LOZ.SpriteClasses.EnemeySprite
     class DragonSprite : AbstractEnemySprite
     {
         private const int maxFrame = 4;
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = UpdateSpeed.DragonSprite;
         private int frameCounter = 0;
         public DragonSprite(Texture2D texture)
         {

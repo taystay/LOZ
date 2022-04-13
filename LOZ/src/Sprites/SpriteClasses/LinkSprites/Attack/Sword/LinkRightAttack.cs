@@ -7,7 +7,7 @@ namespace LOZ.SpriteClasses.LinkSprites
 {
     class LinkRightAttack : AbstractLinkSprite
     {
-        private const int framesPerUpdate = 500;
+        private const int framesPerUpdate = UpdateSpeed.LinkAttack;
         private int frameCounter = 0;
         public LinkRightAttack(Texture2D sprite)
         {
