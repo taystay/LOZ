@@ -19,13 +19,13 @@ namespace LOZ.EnemyClass
             Health = 1;
             Position = location;
             head = EnemySpriteFactory.Instance.CreateSkeletonHead();
-            head.Scale = 4.0;
+            head.Scale = 3.0;
             velocity2 = new Vector2(0, 0);
         }
 
         public override Hitbox GetHitBox()
         {
-            return new Hitbox(Position.X - 15, Position.Y - 15, 30, 30);
+            return new Hitbox(Position.X - 28, Position.Y - 28, 56, 56);
         }
 
         public override void Update(GameTime timer)
@@ -47,7 +47,7 @@ namespace LOZ.EnemyClass
                 c = Color.Red;
 
             head.Draw(spriteBatch, Position, c, rotation);
-            rotation += 0.1f;
+            rotation += 0.05f;
 
         }
     }

@@ -31,20 +31,18 @@ namespace LOZ.SpriteClasses
             Rectangle frameToDraw = frames[currentFrame];
             int width = (int)(frameToDraw.Width * Scale);
             int height = (int)(frameToDraw.Height * Scale);
-            var origin = new Vector2(frameToDraw.X + frameToDraw.Width / 2f, frameToDraw.Y + frameToDraw.Height / 2f);
-
+            var origin = new Vector2(frameToDraw.Width / 2,frameToDraw.Height / 2); //https://stackoverflow.com/questions/31104248/monogame-rotating-a-sprite
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
-            spriteBatch.Draw( //https://stackoverflow.com/questions/31104248/monogame-rotating-a-sprite
+            spriteBatch.Draw( 
                 _texture,
-                new Rectangle(location.X - width / 2, location.Y - height / 2, width, height),
+                new Rectangle(location.X, location.Y, width, height),
                 frameToDraw,
                 c,
                 rotation,
-                location.ToVector2(),
-                //origin,
-                //new Vector2(width / 2f, height / 2f),
+                origin,
                 SpriteEffects.None,
-                0f);
+                0f
+                );
             spriteBatch.End();
         }
     }
