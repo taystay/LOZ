@@ -104,7 +104,7 @@ namespace LOZ.EnemyClass
             Draw(spriteBatch, new Point());
         }
 
-        public void Draw(SpriteBatch spriteBatch, Point offset)
+        public virtual void Draw(SpriteBatch spriteBatch, Point offset)
         {
             if (_keySprite == null && hasKey)
             {

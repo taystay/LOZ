@@ -12,6 +12,7 @@ namespace LOZ.Factories
 		private Texture2D dragonsBreatheSprite;
 		private Texture2D npc;
 		private Texture2D spikeTrap;
+		private Texture2D skeletonBoss;
 		// More private Texture2Ds follow
 		// ...
 
@@ -35,7 +36,12 @@ namespace LOZ.Factories
             dragonsBreatheSprite = content.Load<Texture2D>("dragonsBreathe");
 			npc = content.Load<Texture2D>("oldMan");
 			spikeTrap = content.Load<Texture2D>("spikeTrap");
+			skeletonBoss = content.Load<Texture2D>("Custom_Edited_-_Terraria_Customs_-_Skeletron__Skeletron_Prime_NES-Style");
+        }
 
+		public ISpriteRotatable CreateSkeletonHead()
+        {
+			return new SkeletronArm(skeletonBoss);
         }
 
         public ISprite CreateBat()
