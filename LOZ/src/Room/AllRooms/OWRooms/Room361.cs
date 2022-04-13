@@ -18,9 +18,10 @@ namespace LOZ.Room
         {
             posZ = GetCoorPoint(5, 5);
             gameObjects = IO.Instance.ParseOW(pathFile + "entrance.csv");
-            gameObjects.Add(new ThinTree(GetCoorPoint(7, 3)));
-            gameObjects.Add(new ThinTree(GetCoorPoint(3,3)));
-            gameObjects.Add(new DoorCollider(new Rectangle(GetCoorPoint(4.5, 3), new Point(48,48)), new LeaveBasement(GetReference.GetRef()), typeof(ILink)));
+            gameObjects.Add(new ThinTree(GetCoorPoint(8, 3)));
+            gameObjects.Add(new ThinTree(GetCoorPoint(2,3)));
+            gameObjects.Add(new StumpDoor(GetCoorPoint(5, 3)));
+            gameObjects.Add(new DoorCollider(new Rectangle(GetCoorPoint(4.5, 3.1), new Point(48,48)), new LeaveBasement(GetReference.GetRef()), typeof(ILink)));
             colliders = new CollisionIterator(gameObjects);
                       
         }

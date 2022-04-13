@@ -10,6 +10,7 @@ namespace LOZ.Room
     {
         public StartRoom(string pathFile)
         {
+            negZ = GetCoorPoint(1, 6);
             gameObjects = IO.Instance.ParseRoom(pathFile + "3_6.csv");
             gameObjects.Add(new Sword(GetCoorPoint(6, 3)));
             gameObjects.Add(new PortalGun(GetCoorPoint(0, 0)));
