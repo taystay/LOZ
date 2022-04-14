@@ -55,7 +55,7 @@ namespace LOZ.EnemyClass
             frameCounter2++;
             if (frameCounter > framesPerUpdate)
             {
-                velocity.X = random.Next(-4, 4);
+                //velocity.X = random.Next(-2, 2);
                 frameCounter = 0;
             }
 
@@ -69,9 +69,11 @@ namespace LOZ.EnemyClass
             modifyPosition(velocity.X,0);
             
             if (frameCounter2 > framesPerUpdate2) {
-                RoomReference.AddItem(new DragonBreathe(Position,-1)); //top fireball
-                RoomReference.AddItem(new DragonBreathe(Position,0)); //middle fireball
-                RoomReference.AddItem(new DragonBreathe(Position,1)); //bottom fireball
+                RoomReference.AddItem(new DragonBreathe(Position,0,-2)); //top fireball
+                RoomReference.AddItem(new DragonBreathe(Position,2,-1)); //middle fireball
+                RoomReference.AddItem(new DragonBreathe(Position,2,0)); //bottom fireball
+                RoomReference.AddItem(new DragonBreathe(Position,2,1)); //bottom fireball
+                RoomReference.AddItem(new DragonBreathe(Position, 0, 2));
                 frameCounter2 = 0;
             }
 

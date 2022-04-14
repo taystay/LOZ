@@ -13,20 +13,24 @@ namespace LOZ.EnemyClass.Projectiles
         private ISprite dragonFire;
         public bool activeFire { get; set; }
         private int changeY;
-        private const int animationLength = 250;
+        private int changeX;
+        private const int animationLength = 300;
         private int length=0;
 
-        public DragonBreathe(Point location, int changeYPosition)
+        public DragonBreathe(Point location, int changeYPosition, int changeXPosition)
         {
             dragonFire = EnemySpriteFactory.Instance.CreateFireBall();
             activeFire = true;
-            fireBallPosition.Y = location.Y - 20 ;
-            fireBallPosition.X = location.X - 40;
+
+            fireBallPosition = new Point(location.X, location.Y);
+            //fireBallPosition.Y = location.Y;
+            //fireBallPosition.X = location.X;
             changeY = changeYPosition;
+            changeX = changeXPosition;
         }
 
         public Hitbox GetHitBox() {
-            return new Hitbox(fireBallPosition.X , fireBallPosition.Y , 10 * 3, 10 * 3);
+            return new Hitbox(fireBallPosition.X-15, fireBallPosition.Y -15, 10 * 3, 10 * 3);
         }
         
         public void Update(GameTime timer)
@@ -34,7 +38,7 @@ namespace LOZ.EnemyClass.Projectiles
             length++;
            
             fireBallPosition.Y += changeY;
-            fireBallPosition.X -= 2;
+            fireBallPosition.X += changeX;
             
             dragonFire.Update(timer);
         }
