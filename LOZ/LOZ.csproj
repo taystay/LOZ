@@ -42,6 +42,5 @@
     <Folder Include="src\GameObjects\DungeonClasses\DoorTypes\" />
     <Folder Include="src\CameraStates\Transitions\" />
     <Folder Include="src\Misc\Hud\Components\" />
-    <Folder Include="src\Sprites\SpriteClasses\Overworld_sprint5_sprites\" />
   </ItemGroup>
 </Project>

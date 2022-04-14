@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LOZ.SpriteClasses
 {
-    class SkeletronArm : ISpriteRotatable
+    class SkeletronHead : ISpriteRotatable
     {
-		public SkeletronArm(Texture2D texture)
+		public SkeletronHead(Texture2D texture)
         {
 			_texture = texture;
 			frames.Add(new Rectangle(3, 27, 21, 29));

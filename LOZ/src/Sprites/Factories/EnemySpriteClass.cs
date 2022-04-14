@@ -39,9 +39,19 @@ namespace LOZ.Factories
 			skeletonBoss = content.Load<Texture2D>("Custom_Edited_-_Terraria_Customs_-_Skeletron__Skeletron_Prime_NES-Style");
         }
 
+		public ISpriteRotatable CreateSkeletronHand(bool leftHand)
+        {
+			return new SkeletronHand(skeletonBoss, leftHand);
+        }
+		public ISpriteRotatable CreateArmBone(bool leftHand)
+		{
+			return new SkeletronBone(skeletonBoss, leftHand);
+		}
+
+
 		public ISpriteRotatable CreateSkeletonHead()
         {
-			return new SkeletronArm(skeletonBoss);
+			return new SkeletronHead(skeletonBoss);
         }
 
         public ISprite CreateBat()
