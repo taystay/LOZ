@@ -18,7 +18,7 @@ namespace LOZ.EnemyClass
         private ISpriteRotatable head, leftArmBone, rightArmBone;
 
         private Hand leftHand, rightHand;
-        private const double ropeDist = 350;  
+        private const double ropeDist = 170;  
         
         private int FramesPerUpdate = 500;
         private int updates = 0;
@@ -75,14 +75,10 @@ namespace LOZ.EnemyClass
         public override void Update(GameTime timer)
         {
             UpdateVariables();
-
-            if (updates < FramesPerUpdate)
-            {
-                leftHand.AddForce(GetHandForces(leftHand, random.Next(0,2)));
-                rightHand.AddForce(GetHandForces(rightHand, random.Next(0, 2)));
-                if (radiansInCircle - rotation > .05f)
-                    rotation += .05f; //rotate head to normal stop
-            }
+            leftHand.AddForce(GetHandForces(leftHand, random.Next(0,2)));
+            rightHand.AddForce(GetHandForces(rightHand, random.Next(0, 2)));
+            if (radiansInCircle - rotation > .05f)
+                rotation += .05f; //rotate head to normal stop
             else if (updates >= FramesPerUpdate)
             {
                 //move him towards link
@@ -125,13 +121,14 @@ namespace LOZ.EnemyClass
                 returnVector += fBack;
             }
             if (attack == 0) return returnVector;
+            if (updates > FramesPerUpdate) return returnVector;
 
             //Gets smaller force towards link
             Point lPos = GameStateReference.RoomReference.GetLink().Position;
             Vector2 fTo = new Vector2(
-                    lPos.X - refHand.Position.X + (float)(random.NextDouble() * 1.0),
-                    lPos.Y - refHand.Position.Y + (float)(random.NextDouble() * 1.0)
-                );
+                lPos.X - refHand.Position.X + (float)(random.NextDouble() * 1.0),
+                lPos.Y - refHand.Position.Y + (float)(random.NextDouble() * 1.0)
+            );
             fTo.Normalize();
             fTo = fTo * new Vector2(speedTo, speedTo);
             returnVector += fTo;
@@ -143,8 +140,8 @@ namespace LOZ.EnemyClass
                 c = Color.Red;
             else
                 c = Color.White;
-            double angle1 = Math.Atan2(-Position.X - leftHand.Position.X, Position.Y - leftHand.Position.Y);
-            double angle2 = Math.Atan2(-Position.X - rightHand.Position.X, Position.Y - rightHand.Position.Y);
+            double angle1 = Math.Atan2(Position.Y - leftHand.Position.Y,Position.X - leftHand.Position.X);
+            double angle2 = Math.Atan2(Position.Y - rightHand.Position.Y, Position.X - rightHand.Position.X);
 
             head.Draw(spriteBatch, Position + offset, c, rotation);
             leftArmBone.Draw(spriteBatch, Position + new Point((leftHand.Position.X - Position.X) / 2, (leftHand.Position.Y - Position.Y) / 2) + offset, c, (float)angle1);
