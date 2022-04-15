@@ -5,6 +5,7 @@ using LOZ.CommandClasses;
 using LOZ.SpriteClasses;
 using LOZ.Factories;
 using LOZ.GameStateReference;
+using LOZ.Hud;
 
 
 namespace LOZ.src.CameraStates
@@ -35,7 +36,9 @@ namespace LOZ.src.CameraStates
         }
         public void Reset()
         {
-
+            HudElement inv = new InventoryHud(RoomReference.GetInventory());
+            inv.Offset(new Point(0, -630));
+            _gameObject.CameraState = new FirstDungeon(_gameObject, inv);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
