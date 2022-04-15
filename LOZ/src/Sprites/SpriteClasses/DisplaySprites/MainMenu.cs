@@ -17,8 +17,6 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			ActualMenu = new Rectangle(0, 0, 256, 240);
 			menuWidth = Info.screenWidth;
             menuHeight = (int)(((double)ActualMenu.Height / (double)ActualMenu.Width) * menuWidth);
-			//walkway = Factories.DisplaySpriteFactory.Instance.GetMapWalk(menuWidth, menuHeight);
-
 		}
 
 		public void Update(GameTime gameTime)
@@ -33,7 +31,6 @@ namespace LOZ.SpriteClasses.DisplaySprites
 
 		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
         {
-			//walkway.Draw(spriteBatch, location, background);
 			Rectangle menuDestination = new Rectangle(location.X - menuWidth / 2, location.Y - menuHeight / 2 ,menuWidth , menuHeight);
 			
 			//for SpriteBatch.Begin(...)

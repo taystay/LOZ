@@ -87,11 +87,6 @@ namespace LOZ
             CameraState.Draw(spriteBatch);
             if(RoomReference.GetDebug())
                GameFont.Instance.Write(spriteBatch, "CameraState: " + CameraState.GetType().ToString(), 75, 910);
-            //else
-            //{
-            //    Factories.GameFont.Instance.Write(spriteBatch, "TotalMS: " + gameTime.TotalGameTime.TotalMilliseconds, 300, 200);
-            //    Factories.GameFont.Instance.Write(spriteBatch, "mod 1000: " + ((int)gameTime.TotalGameTime.TotalMilliseconds % 1000 == 0), 300, 250);
-            //}
 
             base.Draw(gameTime);
         }

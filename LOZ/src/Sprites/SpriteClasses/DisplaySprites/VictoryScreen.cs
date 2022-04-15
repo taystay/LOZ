@@ -9,24 +9,26 @@ using LOZ.Sound;
 
 namespace LOZ.SpriteClasses.DisplaySprites
 {
-	class EndScreenAnimation : ISprite
+	class VictoryScreen : ISprite
 	{
 		private Texture2D _texture;
-		private MapWalkWay leftBorder, rightBorder;
-		int lefty = Info.screenHeight / 2 + 300, righty = Info.screenHeight / 2 + 300;
-		int leftx = 100, rightx = 870;
+		private Rectangle leftBorder, rightBorder;
 		private IItem triforce= null;
 		private bool linkGotUpdate = false;
 		private int numberOfUpdates = 0;
-		private int maxUpdates = 500;
+		private int maxUpdates = 600, middleUpdates = 300;
 		private bool soundPlayed = false;
+		private int offsetToMiddle = 600, offsetDown = 0;
+		private Rectangle destL, destR;
 
-		public EndScreenAnimation(Texture2D texture)
+		public VictoryScreen(Texture2D texture)
 		{
 			_texture = texture;
-			
-			leftBorder = new MapWalkWay(texture, 50, Info.screenHeight * 3);
-			rightBorder = new MapWalkWay(texture, 50, Info.screenHeight * 3);
+
+			leftBorder = new Rectangle(0, 0, 128, 240);
+			rightBorder = new Rectangle(128, 0, 128, 240);
+			destL = new Rectangle(0 - offsetToMiddle, 0, Info.screenWidth/2, Info.screenHeight);
+			destR = new Rectangle(Info.screenWidth/2 + offsetToMiddle, 0, Info.screenWidth / 2, Info.screenHeight);
 		}
 
 		public void Update(GameTime gameTime)
@@ -60,13 +62,20 @@ namespace LOZ.SpriteClasses.DisplaySprites
 				RoomReference.GetLink().Update(gameTime);
 				linkGotUpdate = true;
             }
-			if (numberOfUpdates >= maxUpdates) return;
-			int change = 3;
-			rightBorder.IncreaseWidth(change);
-			leftBorder.IncreaseWidth(change);
-			if(triforce != null)
-				triforce.Update(gameTime);
-        }
+			if (numberOfUpdates <= maxUpdates)
+            {
+				if (triforce != null)
+					triforce.Update(gameTime);
+				if (numberOfUpdates <= middleUpdates)
+					offsetToMiddle -= 2;
+				else
+					offsetDown += 1;
+			} 
+			leftBorder = new Rectangle(0, 0 + offsetDown, 128, 240);
+			rightBorder = new Rectangle(128, 0 + offsetDown, 128 , 240);
+			destL = new Rectangle(0 - offsetToMiddle, 0, Info.screenWidth / 2, Info.screenHeight);
+			destR = new Rectangle(Info.screenWidth / 2 + offsetToMiddle, 0, Info.screenWidth / 2, Info.screenHeight);
+		}
 		public void ChangeScale(double scale) { }
 		public void Draw(SpriteBatch spriteBatch, Point location)
 		{
@@ -75,9 +84,12 @@ namespace LOZ.SpriteClasses.DisplaySprites
 
 		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
         {
-			leftBorder.Draw(spriteBatch, new Point(leftx, lefty), Color.Black);
-			rightBorder.Draw(spriteBatch, new Point(rightx, righty), Color.Black);
-			RoomReference.GetLink().Draw(spriteBatch);
+			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
+			spriteBatch.Draw(_texture, destL, leftBorder, Color.White);
+			spriteBatch.Draw(_texture, destR, rightBorder, Color.White);
+			spriteBatch.End();
+			if(numberOfUpdates <= middleUpdates)
+				RoomReference.GetLink().Draw(spriteBatch);
 			if (triforce != null)
 				triforce.Draw(spriteBatch);
 		}
