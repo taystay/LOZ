@@ -15,6 +15,7 @@ namespace LOZ.EnemyClass
         private int frameCounter = 0;
         private const int framesPerUpdate2 = UpdateSpeed.DragonShootUpdate;
         private int frameCounter2 = 0;
+        private System.Random r = new Random();
         public Dragon(Point location)
         {
             Health = 6;
@@ -69,11 +70,24 @@ namespace LOZ.EnemyClass
             modifyPosition(velocity.X,0);
             
             if (frameCounter2 > framesPerUpdate2) {
-                RoomReference.AddItem(new DragonBreathe(Position,0,-2)); //top fireball
-                RoomReference.AddItem(new DragonBreathe(Position,2,-1)); //middle fireball
-                RoomReference.AddItem(new DragonBreathe(Position,2,0)); //bottom fireball
-                RoomReference.AddItem(new DragonBreathe(Position,2,1)); //bottom fireball
-                RoomReference.AddItem(new DragonBreathe(Position, 0, 2));
+
+                int lastDigit = r.Next() % 10;
+                if (lastDigit < 3)
+                {
+                    ProjectileTypes.QuadShot(Position);
+                }
+                else if (lastDigit >= 3 && lastDigit < 6)
+                {
+                    ProjectileTypes.Shotgun(Position);
+                }
+                else if (lastDigit >= 6)
+                {
+                    ProjectileTypes.Wave(Position);
+                }
+                else {
+                    ProjectileTypes.SingleShot(Position); //never runs 
+                }
+               
                 frameCounter2 = 0;
             }
 

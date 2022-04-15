@@ -12,33 +12,40 @@ namespace LOZ.EnemyClass.Projectiles
         private Point fireBallPosition;
         private ISprite dragonFire;
         public bool activeFire { get; set; }
-        private int changeY;
-        private int changeX;
+        //private double _changeY;
+        //private double _changeX;
         private const int animationLength = 300;
-        private int length=0;
+        private int length=0; 
+        private float dt = .15f;
+        private Vector2 k;
 
-        public DragonBreathe(Point location, int changeYPosition, int changeXPosition)
+        public DragonBreathe(Point location, double changeX, double changeY)
         {
             dragonFire = EnemySpriteFactory.Instance.CreateFireBall();
             activeFire = true;
+            //_changeY = changeY;
+            //_changeX = changeX;
 
             fireBallPosition = new Point(location.X, location.Y);
-            //fireBallPosition.Y = location.Y;
-            //fireBallPosition.X = location.X;
-            changeY = changeYPosition;
-            changeX = changeXPosition;
+            k = new Vector2((float)changeX, (float)changeY);
+            k.Normalize();//https://docs.microsoft.com/en-us/dotnet/api/system.numerics.vector2.normalize?view=net-6.0
+
+            //_changeY = changeY;
+            //_changeX = changeX;
         }
 
         public Hitbox GetHitBox() {
             return new Hitbox(fireBallPosition.X-15, fireBallPosition.Y -15, 10 * 3, 10 * 3);
         }
-        
+
         public void Update(GameTime timer)
         {
             length++;
-           
-            fireBallPosition.Y += changeY;
-            fireBallPosition.X += changeX;
+            //k.Normalize();
+            //https://docs.microsoft.com/en-us/dotnet/api/system.numerics.vector2.normalize?view=net-6.0
+
+            fireBallPosition.X += (int)(k.X/dt);
+            fireBallPosition.Y += (int)(k.Y/dt);
             
             dragonFire.Update(timer);
         }
