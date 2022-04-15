@@ -75,7 +75,7 @@ namespace LOZ.EnemyClass
             DragHand(rightHand);
             if (updates < FramesPerUpdate)
                 HandAttacks();
-            if (updates < FramesPerUpdate / 2)
+            if (updates == FramesPerUpdate / 2)
                 attackingWithLeft = !attackingWithLeft;
             if (updates >= FramesPerUpdate)
                 SpinnyHeadAttack();
@@ -111,6 +111,7 @@ namespace LOZ.EnemyClass
 
         private void HandAttacks()
         {
+            rotation += .05f;
             if (radiansInCircle - rotation > .10f)
                 rotation += .10f;
             if (attackingWithLeft) AttackHandToPosition(leftHand, RoomReference.GetLink().Position);
