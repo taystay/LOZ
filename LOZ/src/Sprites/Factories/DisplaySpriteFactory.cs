@@ -11,6 +11,7 @@ namespace LOZ.Factories
 		private Texture2D tranparentB;
 		private Texture2D mainMenu;
 		private Texture2D black;
+		private Texture2D vic;
 
 		private static DisplaySpriteFactory instance = new DisplaySpriteFactory();
 		public static DisplaySpriteFactory Instance
@@ -29,7 +30,7 @@ namespace LOZ.Factories
 			tranparentB = content.Load<Texture2D>("transparentB");
 			mainMenu = content.Load<Texture2D>("menuv2");
 			black = content.Load<Texture2D>("Black");
-
+			vic = content.Load<Texture2D>("VictoryScreen");
 		}
 		public ISprite GetIntroText()
         {
@@ -90,6 +91,10 @@ namespace LOZ.Factories
 		public Texture2D TransparentBackground()
 		{
 			return tranparentB;
+		}
+		public ISprite GetVicScreen()
+		{
+			return new VictoryScreen(vic);
 		}
 	}
 }

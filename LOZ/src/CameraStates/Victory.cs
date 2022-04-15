@@ -18,7 +18,7 @@ namespace LOZ.src.CameraStates
         public Victory(Game1 gameObject)
         {
             _gameObject = gameObject;
-            EndScreenAnimation = DisplaySpriteFactory.Instance.CreateEndScreen();
+            EndScreenAnimation = DisplaySpriteFactory.Instance.GetVicScreen();
         }
         public void UpdateController(GameTime gameTime)
         {
