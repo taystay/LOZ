@@ -1,35 +1,43 @@
 ﻿
--------BUGS----------
+-------     TODO LIST   ----------
 
-Enemies wont update in a very rare case
-    - this has happened before the big refactor night and just happened on 4/12/2022
-    - enemies sprites wont update nor do they move. link can hit them and hurt them though.
-    - if he can hurt them then they go through the collision.Iterate() but then why arent the enmies being updated
-    - prediction: something with the gameTime object
-    - other prediction: currentroom is not set to the room he is actually in thus its updating the wrong room?
-    -def think its a TotalGame.TotalMillisecond issue where its never divisible by 150/1000. nothing else in the game does that
-      and the game time objects you need to be careful with. Guess we can look into that in the future.
+-  (MAYBE TONY, IF NOT PUT NAME HERE) compress link states entierely. Have it be he has stats and based on the states we draw him differently
+      - velocity > 0? then break it up and draw moving sprite based on it
+      - if you press attack, it sets velocity to zero and stopps link and prevents movement
+      - ADVANTAGE: wayyyy less files
+
+- (TONY) compress sword items similar to how the portal is being done. 
+     -  we do not need 4 class for one item, we do that many times.
+
+- (TONY) cut out some useless commands
+
+- (TONY )start a works cited
+
+- (TONY) delete pngs not being used.
+
+- Fog of war when in dungeon (Camera State responsibility of fading sprites away from a point)
+
+- Main screen with an interactive component
+
+- Nightmare mode
+
+- Teleporting item into the boss room (no other way to access it but to defeat dragon and then get the teleporting item)
+
+- better win screen
 
 
-Bombing walls and exterior object updating doors
-    - bombing wall opens a door (sometimes) and the other side is never really opened
-      like there is an invisible block in the way
+-------     BUGS    ----------
+
+(FIXED) Enemies wont update in a very rare case 
+    - TotalGameTime.TotalMilliseconds % number eventually never is zero. so our updates were never happening.
 
 
-Fix sprites drawing dragon (FIXED)
-    - occurs before the first update to an enemy.
-    - changing the dragon sprite off dragon does not change anything.
-      still dragon sprites drawn
-    - changing EnemySpriteFactory.CreateDragon() to return a different sprite
-      changes nothing either.
-    - FIX: the enemy sprites do not initialize row and column and thus they
-      are zero before an update to them.
+(FIXED) Fix sprites drawing dragon 
+    - Row and column were initialized to zero and then changed after the first update. meaning dragon (0,0 on the sprite sheet)
+        always got drawn first.
 
--------OTHER STUFF TODO----------
 
-ROOMS CONTAIN SPAWN AND MOVE LOCATION BETWEEN OTHER ROOMS
-Force rooms to implement or have some point for where to spawn in going down into the room
-and a point for where to go up into the room. it can be nullable and if its not null, then you are allowed
-to use the point and maybe this can be useful for left, right, up, down but that might be unneccesary.
-However, if we want a big room that is connected to the rest of the rooms, this would be a requirement.
+-------     WORKS CITED    ----------
+
+
 
