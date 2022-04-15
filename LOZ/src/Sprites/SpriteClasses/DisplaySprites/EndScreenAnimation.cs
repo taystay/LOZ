@@ -25,8 +25,8 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		{
 			_texture = texture;
 			
-			leftBorder = new MapWalkWay(texture, 50, Info.screenHeight);
-			rightBorder = new MapWalkWay(texture, 50, Info.screenHeight);
+			leftBorder = new MapWalkWay(texture, 50, Info.screenHeight * 3);
+			rightBorder = new MapWalkWay(texture, 50, Info.screenHeight * 3);
 		}
 
 		public void Update(GameTime gameTime)

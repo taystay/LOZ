@@ -14,7 +14,7 @@ namespace LOZ.Room
     class Room461 : RoomAbstract
     {
         private ISprite fullHeart, halfHeart;
-        private IEnemy skeletron;
+        private AbstractEnemy skeletron;
         public Room461(string pathFile)
         {
             posX = GetCoorPoint(0, 3);
@@ -25,17 +25,19 @@ namespace LOZ.Room
             colliders = new CollisionIterator(gameObjects);
             fullHeart = DisplaySpriteFactory.Instance.GetHudHeart(true);
             halfHeart = DisplaySpriteFactory.Instance.GetHudHeart(false);
+            fullHeart.ChangeScale(0.3);
+            halfHeart.ChangeScale(0.3);
         }
 
         public override void Draw(SpriteBatch spriteBatch, Point offset)
         {
             DrawNormally(spriteBatch, offset);
             int skeletronHealth = skeletron.Health;
-            Point start = new Point(125, 250);
+            Point start = skeletron.Position + new Point(-12 * (skeletronHealth / 4 - 1),-45);
             for (int i = 0; i < skeletronHealth / 2; i++)
             {
-                fullHeart.Draw(spriteBatch, start);
-                start.X += 50;
+                fullHeart.Draw(spriteBatch, start + offset);
+                start.X += 12;
             }
         }
     }

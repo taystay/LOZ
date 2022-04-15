@@ -24,7 +24,7 @@ namespace LOZ.EnemyClass
 
         public Hand(Point location, bool leftHand)
         {
-            Health = 25;
+            Health = 7;
             Position = location;
             hand = EnemySpriteFactory.Instance.CreateSkeletronHand(leftHand);
             hand.Scale = 3.0;

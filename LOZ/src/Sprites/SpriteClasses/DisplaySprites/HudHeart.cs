@@ -8,6 +8,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 	{
 		private Texture2D _texture;
 		private Rectangle frame;
+		private double scale = 1.0;
 		public HudHeart(Texture2D texture, bool fullHeart)
 		{
 			_texture = texture;
@@ -21,7 +22,9 @@ namespace LOZ.SpriteClasses.DisplaySprites
         {
 
         }
-		public void ChangeScale(double scale) { }
+		public void ChangeScale(double scale) {
+			this.scale = scale;
+		}
 		public void Draw(SpriteBatch spriteBatch, Point location)
 		{
 			Draw(spriteBatch, location, Color.White);
@@ -32,8 +35,8 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = frame.Width * 5;
-			int height = frame.Height * 5;
+			int width = (int)(frame.Width * 5.0 * scale);
+			int height = (int)(frame.Height * 5.0 * scale);
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
 			//for SpriteBatch.Begin(...)
