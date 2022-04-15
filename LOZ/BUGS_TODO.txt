@@ -5,26 +5,28 @@
       - velocity > 0? then break it up and draw moving sprite based on it
       - if you press attack, it sets velocity to zero and stopps link and prevents movement
       - ADVANTAGE: wayyyy less files
+   - (TAYLOR) PLEASE DON'T DO THIS <<<<<<<< The way we have it is the way Boggus suggested we do it. There are a lot of files for extremely high cohesion and low coupling.
 
 - (TONY) compress sword items similar to how the portal is being done. 
      -  we do not need 4 class for one item, we do that many times.
 
 - (TONY) cut out some useless commands
 
-- (TONY )start a works cited
+- (TONY) start a works cited
 
 - (TONY) delete pngs not being used.
 
 - Fog of war when in dungeon (Camera State responsibility of fading sprites away from a point)
 
-- Main screen with an interactive component
+- (TAYLOR) Main screen with an interactive component
 
 - Nightmare mode
 
 - Teleporting item into the boss room (no other way to access it but to defeat dragon and then get the teleporting item)
 
-- better win screen
+- (TAYLOR) better win screen
 
+- (TAYLOR) Achievements <<<What they are is a surprise>>>
 
 -------     BUGS    ----------
 
@@ -36,6 +38,7 @@
     - Row and column were initialized to zero and then changed after the first update. meaning dragon (0,0 on the sprite sheet)
         always got drawn first.
 
+(NOT FIXED) The victory screen should take us to the MainMenu or Quit
 
 -------     WORKS CITED    ----------
 

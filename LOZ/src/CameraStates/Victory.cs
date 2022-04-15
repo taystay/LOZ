@@ -19,6 +19,7 @@ namespace LOZ.src.CameraStates
         {
             _gameObject = gameObject;
             EndScreenAnimation = DisplaySpriteFactory.Instance.GetVicScreen();
+            _gameObject.CameraState = new MainMenuState(_gameObject);
         }
         public void UpdateController(GameTime gameTime)
         {

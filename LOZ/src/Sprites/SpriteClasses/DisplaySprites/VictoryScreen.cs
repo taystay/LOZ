@@ -16,7 +16,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		private IItem triforce= null;
 		private bool linkGotUpdate = false;
 		private int numberOfUpdates = 0;
-		private int maxUpdates = 600, middleUpdates = 300;
+		private int maxUpdates = 825, middleUpdates = 300;
 		private bool soundPlayed = false;
 		private int offsetToMiddle = 600, offsetDown = 0;
 		private Rectangle destL, destR;
@@ -62,7 +62,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 				RoomReference.GetLink().Update(gameTime);
 				linkGotUpdate = true;
             }
-			if (numberOfUpdates <= maxUpdates)
+			if (numberOfUpdates < maxUpdates)
             {
 				if (triforce != null)
 					triforce.Update(gameTime);
@@ -70,7 +70,8 @@ namespace LOZ.SpriteClasses.DisplaySprites
 					offsetToMiddle -= 2;
 				else
 					offsetDown += 1;
-			} 
+			}
+			if (numberOfUpdates >= maxUpdates) return;
 			leftBorder = new Rectangle(0, 0 + offsetDown, 128, 240);
 			rightBorder = new Rectangle(128, 0 + offsetDown, 128 , 240);
 			destL = new Rectangle(0 - offsetToMiddle, 0, Info.screenWidth / 2, Info.screenHeight);

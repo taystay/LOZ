@@ -18,7 +18,6 @@ namespace LOZ
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        //private Dictionary<Point3D, OldRoom> maps;
         public ICameraState CameraState { get; set; }
         public Game1()
         {
