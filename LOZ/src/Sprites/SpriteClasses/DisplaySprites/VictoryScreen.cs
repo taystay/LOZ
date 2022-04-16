@@ -16,7 +16,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		private IItem triforce= null;
 		private bool linkGotUpdate = false;
 		private int numberOfUpdates = 0;
-		private int maxUpdates = 825, middleUpdates = 300;
+		private int maxUpdates = 1125, middleUpdates = 600;
 		private bool soundPlayed = false;
 		private int offsetToMiddle = 600, offsetDown = 0;
 		private Rectangle destL, destR;
@@ -67,7 +67,7 @@ namespace LOZ.SpriteClasses.DisplaySprites
 				if (triforce != null)
 					triforce.Update(gameTime);
 				if (numberOfUpdates <= middleUpdates)
-					offsetToMiddle -= 2;
+					offsetToMiddle -= 1;
 				else
 					offsetDown += 1;
 			}
