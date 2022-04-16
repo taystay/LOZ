@@ -30,6 +30,10 @@
 
 -------     BUGS    ----------
 
+skeletron states of attack are not working as intended. need to fix
+
+The victory screen should take us to the MainMenu or Quit
+
 (FIXED) Enemies wont update in a very rare case 
     - TotalGameTime.TotalMilliseconds % number eventually never is zero. so our updates were never happening.
 
@@ -38,7 +42,7 @@
     - Row and column were initialized to zero and then changed after the first update. meaning dragon (0,0 on the sprite sheet)
         always got drawn first.
 
-(NOT FIXED) The victory screen should take us to the MainMenu or Quit
+
 
 -------     WORKS CITED    ----------
 
