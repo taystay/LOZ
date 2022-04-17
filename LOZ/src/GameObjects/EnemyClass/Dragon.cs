@@ -3,9 +3,7 @@ using Microsoft.Xna.Framework;
 using LOZ.Factories;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.Collision;
-using LOZ.GameStateReference;
 using LOZ.Sound;
-
 
 namespace LOZ.EnemyClass
 {
@@ -15,7 +13,11 @@ namespace LOZ.EnemyClass
         private int frameCounter = 0;
         private const int framesPerUpdate2 = UpdateSpeed.DragonShootUpdate;
         private int frameCounter2 = 0;
-        private System.Random r = new Random();
+        private const int framesPerUpdate3 = UpdateSpeed.DragonShootUpdate/2;
+        private int frameCounter3 = 0;
+        private Random r = new Random();
+        private bool quad = false;
+        private int quadShots = 0;
         public Dragon(Point location)
         {
             Health = 6;
@@ -69,18 +71,18 @@ namespace LOZ.EnemyClass
 
             modifyPosition(velocity.X,0);
             
-            if (frameCounter2 > framesPerUpdate2) {
+            if (frameCounter2 > framesPerUpdate2 && !quad) {
 
-                int lastDigit = r.Next() % 10;
-                if (lastDigit < 3)
+                int lastDigit = r.Next() % 3;
+                if (lastDigit == 0)
                 {
-                    ProjectileTypes.QuadShot(Position);
+                    quad = true;
                 }
-                else if (lastDigit >= 3 && lastDigit < 6)
+                else if (lastDigit == 1)
                 {
                     ProjectileTypes.Shotgun(Position);
                 }
-                else if (lastDigit >= 6)
+                else if (lastDigit == 2)
                 {
                     ProjectileTypes.Wave(Position);
                 }
@@ -91,8 +93,23 @@ namespace LOZ.EnemyClass
                 frameCounter2 = 0;
             }
 
+            if(quad)
+            {
+                frameCounter3++;
+                if (frameCounter3 > framesPerUpdate3)
+                {
+                    quadShots++;
+                    ProjectileTypes.QuadShot(Position);
+                    frameCounter3 = 0;
+                }
+                if (quadShots > 3)
+                {
+                    quadShots = 0;
+                    quad = false;
+                }
+            }
+
             _texture.Update(timer);
         }
-
     }
 }
