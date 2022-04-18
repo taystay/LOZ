@@ -13,8 +13,6 @@ namespace LOZ.SpriteClasses.EnemeySprite
             column = 0;
             scale = 2;
         }
-
-        public override void Update(GameTime gameTime) { 
-        }
+        public override void Update(GameTime gameTime) { }
     }
 }

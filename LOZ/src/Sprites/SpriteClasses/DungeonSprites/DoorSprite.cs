@@ -26,8 +26,6 @@ namespace LOZ.SpriteClasses.BlockSprites
 					break;
 			}
 		}
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
 	}
 }

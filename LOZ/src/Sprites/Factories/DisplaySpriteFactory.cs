@@ -44,17 +44,9 @@ namespace LOZ.Factories
         {
 			return new MainMenu(mainMenu);
         }
-		public ISprite CreateEndScreen()
-        {
-			return new EndScreenAnimation(HUDSpritesheet);
-        }
 		public ISprite CreateSelectItemSprite()
         {
 			return new SelectItemSprite(HUDSpritesheet);
-		}
-		public ISprite CreateTriforceIndicator()
-		{
-			return new TriforceIndicator(HUDSpritesheet);
 		}
 		public ISprite CreateHUDSprite()
 		{

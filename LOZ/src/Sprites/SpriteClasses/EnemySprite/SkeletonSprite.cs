@@ -17,7 +17,6 @@ namespace LOZ.SpriteClasses.EnemeySprite
             row = 3;
             column = frame % 2;
         }
-
         public override void Update(GameTime timer)
         {
             frameCounter++;

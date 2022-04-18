@@ -13,8 +13,6 @@ namespace LOZ.SpriteClasses.BlockSprites
 			frame = new Rectangle(521, 11, 776 - 521 + 1,  186 - 11 + 1);
 
 		}
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
 	}
 }
