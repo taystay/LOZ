@@ -26,8 +26,7 @@ namespace LOZ.SpriteClasses.LinkSprites
             {
                 frameCounter = 0;
                 currentFrame++;
-            }
-               
+            }              
             if (currentFrame == maxFrames)
             {
                 currentFrame = 0;

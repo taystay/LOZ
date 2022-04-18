@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.SpriteClasses;
+using LOZ.SpriteClasses.DisplaySprites;
 
 namespace LOZ.Collision
 {
@@ -8,6 +9,7 @@ namespace LOZ.Collision
     {
         private Rectangle box;
         private ISprite yellowPixel;
+        private ISprite borderSprite;
         public Hitbox(int x, int y, int width, int height)
         {
             box = new Rectangle(x,y,width,height);

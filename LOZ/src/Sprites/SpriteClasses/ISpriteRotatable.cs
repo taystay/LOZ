@@ -31,7 +31,7 @@ namespace LOZ.SpriteClasses
             Rectangle frameToDraw = frames[currentFrame];
             int width = (int)(frameToDraw.Width * Scale);
             int height = (int)(frameToDraw.Height * Scale);
-            var origin = new Vector2(frameToDraw.Width / 2,frameToDraw.Height / 2); //https://stackoverflow.com/questions/31104248/monogame-rotating-a-sprite
+            var origin = new Vector2(frameToDraw.Width / 2,frameToDraw.Height / 2);
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw( 
                 _texture,

@@ -20,7 +20,7 @@ namespace LOZ.SpriteClasses.LinkSprites
         public override void Update(GameTime timer)
         {
             
-                frameCounter++;
+            frameCounter++;
             if (frameCounter > framesPerUpdate) {
                 frameCounter = 0;
                 currentFrame++;

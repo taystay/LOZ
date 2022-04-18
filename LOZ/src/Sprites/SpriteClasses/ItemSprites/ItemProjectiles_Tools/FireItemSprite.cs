@@ -4,18 +4,12 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.ItemSprites
 {
-	class FireItemSprite : AbstractItemBlockClass
+	class FireItemSprite : ItemSpriteAbstract
 	{
-		//-----Private Variables-----
-
 		private List<Rectangle> frames;
 		private int currentFrame = 0;
-		private int totalFrames = 2;
-
 		private const int framesPerUpdate = 7;
 		private int frameCounter = 0;
-		
-		//-----Constructor-----
 		public FireItemSprite(Texture2D texture)
 		{
 			scale = 2.0;
@@ -25,8 +19,6 @@ namespace LOZ.SpriteClasses.ItemSprites
 			frames.Add(new Rectangle(8, 103, 31, 31));
 			frame = frames[currentFrame];
 		}
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime)
 		{
 			frameCounter++;
@@ -34,7 +26,7 @@ namespace LOZ.SpriteClasses.ItemSprites
 			{
 				frameCounter = 0;
 				currentFrame++;
-				if(currentFrame == totalFrames)
+				if(currentFrame == frames.Count)
 				{
 					currentFrame = 0;
 				}

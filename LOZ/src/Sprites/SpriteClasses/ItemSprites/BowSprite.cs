@@ -3,18 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.ItemSprites
 {
-	class BowSprite : AbstractItemBlockClass
+	class BowSprite : ItemSpriteAbstract
 	{ 
-
-		//-----Constructor-----
 		public BowSprite(Texture2D texture)
 		{
-			//scale = 1.0;
 			_texture = texture;
 			frame = new Rectangle(159, 104, 176 - 158, 131 - 103);
 		}
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
 		
 	}

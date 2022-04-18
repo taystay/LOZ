@@ -3,18 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.ItemSprites
 {
-	class KeySprite : AbstractItemBlockClass
+	class KeySprite : ItemSpriteAbstract
 	{
-		//-----Constructor-----
 		public KeySprite(Texture2D texture)
 		{
-			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(62, 9, 20, 30);
 		}
-
-		//-----Update frame-----
-		public override void Update(GameTime gameTime) { }
-		
+		public override void Update(GameTime gameTime) { }		
 	}
 }

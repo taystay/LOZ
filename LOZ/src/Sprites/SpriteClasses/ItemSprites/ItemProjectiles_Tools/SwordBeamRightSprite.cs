@@ -3,17 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.ItemSprites
 {
-	class SwordBeamRightSprite : AbstractItemBlockClass
+	class SwordBeamRightSprite : ItemSpriteAbstract
 	{
-		//-----Constructor-----
 		public SwordBeamRightSprite(Texture2D texture)
 		{
-			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(156,161,181 - 155,174 - 160);
 		}
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
 	}
 }

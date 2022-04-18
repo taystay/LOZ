@@ -143,8 +143,11 @@ namespace LOZ.LinkClasses
             linkSprite.Update(timer);
         }
         public void Draw(SpriteBatch spriteBatch, Point position)
-        { 
-            linkSprite.Draw(spriteBatch, position);
+        {
+            if (RoomReference.GetLink().Damaged)
+                linkSprite.Draw(spriteBatch, position, Color.HotPink);
+            else
+                linkSprite.Draw(spriteBatch, position);
         }
     }
 }

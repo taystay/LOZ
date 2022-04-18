@@ -3,22 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.ItemSprites
 {
-	class HeartContainerSprite : AbstractItemBlockClass
+	class HeartContainerSprite : ItemSpriteAbstract
 	{
-
-		//-----Constructor-----
 		public HeartContainerSprite(Texture2D texture)
 		{
-			//scale = 1.0;
 			_texture = texture;
 			frame = new Rectangle(102, 6, 139 - 101, 38 - 5);
 		}
-
-		//-----Update frame-----
-		public override void Update(GameTime gameTime)
-		{
-
-		}
-
+		public override void Update(GameTime gameTime) { }
 	}
 }

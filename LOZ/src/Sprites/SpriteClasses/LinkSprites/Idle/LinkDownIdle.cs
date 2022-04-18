@@ -11,9 +11,6 @@ namespace LOZ.SpriteClasses.LinkSprites
             linkSprite = sprite;
             frame = new Rectangle(0, 0, 16, 16);
         }
-
-        public override void Update(GameTime timer)
-        {
-        }
+        public override void Update(GameTime timer) { }
     }
 }

@@ -4,15 +4,11 @@ using System.Collections.Generic;
 
 namespace LOZ.SpriteClasses.ItemSprites
 {
-	class DeadBombSprite : AbstractItemBlockClass
+	class DeadBombSprite : ItemSpriteAbstract
 	{
-		//-----Private Variables-----
 		private List<Rectangle> frames;
 		private const int totalTime = 20;
 		private int timeLeft = totalTime;
-
-
-		//-----Constructor-----
 		public DeadBombSprite(Texture2D texture)
 		{
 			scale = 3.5;
@@ -22,8 +18,6 @@ namespace LOZ.SpriteClasses.ItemSprites
 			frames.Add(new Rectangle(210, 250, 227 - 209, 267 - 249));
 			frames.Add(new Rectangle(231, 250, 248 - 230, 267 - 249));
 		}
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime)
 		{
 			timeLeft--;
@@ -34,21 +28,14 @@ namespace LOZ.SpriteClasses.ItemSprites
 			else
 				frame = frames[0];
 		}
-
 		public override void Draw(SpriteBatch spriteBatch, Point location, Color c)
 		{
 			Rectangle destinationRectangle;
 
 			//--------FRAME 1---------
-			int width = (int)(scale * (int)frame.Width);
-			int height = (int)(scale * (int)frame.Height);
+			int width = (int)(scale * frame.Width);
+			int height = (int)(scale * frame.Height);
 			destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
-			//destinationRectangle = new Rectangle(location.X - 24, location.Y - 24, 48, 48);
-
-			//for SpriteBatch.Begin(...)
-			//the paramater idea was from:
-			//https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
-			//https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
 			destinationRectangle.Y += 30;
 			spriteBatch.Draw(_texture, destinationRectangle, frame, c);

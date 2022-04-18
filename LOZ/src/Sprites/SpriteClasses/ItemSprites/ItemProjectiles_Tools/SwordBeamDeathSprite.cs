@@ -6,7 +6,6 @@ namespace LOZ
 {
 	class SwordBeamDeathSprite : ISprite
 	{
-		//-----Private Variables-----
 		private Rectangle topLeftProjectile;
 		private Rectangle topRightProjectile;
 		private Rectangle bottomLeftProjectile;
@@ -14,11 +13,7 @@ namespace LOZ
 		private Texture2D _texture;
 		private const double scale = 2.0;
 		private int numUpdates = 0;
-
 		private const int dz = 3;
-
-
-		//-----Constructor-----
 		public SwordBeamDeathSprite(Texture2D texture)
 		{
 			_texture = texture;
@@ -31,10 +26,7 @@ namespace LOZ
 		public void ChangeScale(double scale) { }
 
 		//-----Update frame-----
-		public void Update(GameTime gameTime)
-		{
-			numUpdates++;
-		}
+		public void Update(GameTime gameTime) => numUpdates++;
 
 		public void DrawTopLeft(SpriteBatch spriteBatch, Point location, Color c)
         {
@@ -67,17 +59,11 @@ namespace LOZ
 			Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 			spriteBatch.Draw(_texture, destinationRectangle, bottomRightProjectile, c);
 		}
-		public void Draw(SpriteBatch spriteBatch, Point location)
-        {
-			Draw(spriteBatch, location, Color.White);
-        }
+		public void Draw(SpriteBatch spriteBatch, Point location) => Draw(spriteBatch, location, Color.White);
+
 
 		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
 		{
-			//for SpriteBatch.Begin(...)
-			//the paramater idea was from:
-			//https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
-			//https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
 			spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
 			int offset = dz * numUpdates;
 			DrawTopLeft(spriteBatch, new Point(location.X - offset, location.Y - offset), c);

@@ -3,18 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace LOZ.SpriteClasses.ItemSprites
 {
-	class ClockSprite : AbstractItemBlockClass
+	class ClockSprite : ItemSpriteAbstract
 	{ 
-		//-----Constructor-----
 		public ClockSprite(Texture2D texture)
 		{
-			//scale = 2.0;
 			_texture = texture;
 			frame = new Rectangle(9, 6, 30, 35);
 		}
-
-		//-----Update frame-----
-		public override void Update(GameTime gameTime) { }
-		
+		public override void Update(GameTime gameTime) { }	
 	}
 }

@@ -17,7 +17,6 @@ namespace LOZ.SpriteClasses.LinkSprites
             frames.Add(new Rectangle(90, 0, 16, 16));
             frames.Add(new Rectangle(90, 30, 16, 16));
         }
-
         public override void Update(GameTime timer)
         {
             frameCounter++;
