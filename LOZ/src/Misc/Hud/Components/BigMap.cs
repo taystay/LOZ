@@ -16,15 +16,11 @@ namespace LOZ.Hud
     {
         public Point DrawPoint { get; set; }
         private Point _offset = new Point(0, 0);
-
         private static ISprite room;
         private static ISprite horizontalWalkWay;
         private static ISprite verticalWalkWay;
-
         private LinkInventory _inventory;
-
         private Dictionary<Rectangle, Point3D> roomHitBoxes;
-
         public BigMap(LinkInventory inventory, Point drawLocation)
         {
             _inventory = inventory;
@@ -32,9 +28,7 @@ namespace LOZ.Hud
             room = DisplaySpriteFactory.Instance.CreateRoomOnMapSprite();
             verticalWalkWay = DisplaySpriteFactory.Instance.GetMapWalk(10, 10);
             horizontalWalkWay = DisplaySpriteFactory.Instance.GetMapWalk(10, 10);
-
             roomHitBoxes = new Dictionary<Rectangle, Point3D>();
-
         }
 
         public void OffsetHud(Point offset)
@@ -42,12 +36,7 @@ namespace LOZ.Hud
             _offset.X += offset.X;
             _offset.Y += offset.Y;
         }
-
-        public void ResetHud()
-        {
-            _offset = new Point();
-        }
-
+        public void ResetHud() => _offset = new Point();
         public void Update()
         {
             if (Mouse.GetState().LeftButton != ButtonState.Pressed) return;
@@ -87,7 +76,6 @@ namespace LOZ.Hud
                 if (!roomHitBoxes.ContainsKey(b))
                     roomHitBoxes.Add(b, point);
 
-
                 ExteriorObject roomObj = RoomReference.GetAllRooms()[point].GetExtObj();
                 if (roomObj == null) continue;
                 if (roomObj.CanGoUp()) verticalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y - 10), Color.Black); ;
@@ -95,8 +83,6 @@ namespace LOZ.Hud
                 if (roomObj.CanGoLeft()) horizontalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X - 20, startY + offsetY * point.Y), Color.Black);
                 if (roomObj.CanGoRight()) horizontalWalkWay.Draw(spriteBatch, new Point(startX + offsetX * point.X + 20, startY + offsetY * point.Y), Color.Black);
             }
-
-
 
             if (_inventory.HasItem(typeof(Compass)))
                 room.Draw(spriteBatch, new Point(startX + offsetX * 6, startY + offsetY * 2), Color.Yellow);

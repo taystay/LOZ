@@ -31,11 +31,8 @@ namespace LOZ.src.CameraStates
         }
         public void UpdateController(GameTime gameTime)
         {
-            if (RoomReference.GetChangeRoom()) return;
-
             if (RoomReference.GetInventory().HasItem(typeof(Triforce)))
                 _gameObject.CameraState = new Victory(_gameObject);
-
             keyboard.Update(gameTime);
             mouse.Update(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))

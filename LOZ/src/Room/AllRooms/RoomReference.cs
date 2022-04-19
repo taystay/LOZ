@@ -11,62 +11,30 @@ namespace LOZ.GameStateReference
 {
     public static class RoomReference
     {
-        public static ILink GetLink()
-        {
-            return CurrentRoom.link;
-        }
-        public static void SetLink(ILink linkState)
-        { 
+        public static ILink GetLink() =>
+            CurrentRoom.link;
+        public static void SetLink(ILink linkState) =>
             CurrentRoom.link = linkState;
-        }
-        public static Point3D GetCurrLocation()
-        {
-            return CurrentRoom.currentLocation;
-        }
-        public static LinkInventory GetInventory()
-        {
-            return CurrentRoom.link.Inventory;
-        }
-        public static bool GetDebug()
-        {
-            return CurrentRoom.DebugMode;
-        }
-        public static void ToggleDebug()
-        {
+        public static Point3D GetCurrLocation() =>
+            CurrentRoom.currentLocation;
+        public static LinkInventory GetInventory() =>
+            CurrentRoom.link.Inventory;
+        public static bool GetDebug() =>
+            CurrentRoom.DebugMode;
+        public static void ToggleDebug() =>
             CurrentRoom.DebugMode = !CurrentRoom.DebugMode;
-        }
-        public static void SetChangeRoom()
-        {
-            CurrentRoom.changeRoom = true;
-        }
-        public static bool GetChangeRoom()
-        {
-            return CurrentRoom.changeRoom;
-        }
-        public static List<Point3D> GetRooms()
-        {
-            return CurrentRoom.Instance.GetRoomCoor();
-        }
-        public static Dictionary<Point3D, IRoom> GetAllRooms()
-        {
-            return CurrentRoom.Instance._allRooms;
-        }
-        public static void AddItem(IGameObjects obj)
-        {
+        public static List<Point3D> GetRooms() =>
+            CurrentRoom.Instance.GetRoomCoor();
+        public static Dictionary<Point3D, IRoom> GetAllRooms() =>
+            CurrentRoom.Instance._allRooms;
+        public static void AddItem(IGameObjects obj) =>
             CurrentRoom.Instance.AddItemToRoom(obj);
-        }
-        public static void NextRoom(int change)
-        {
+        public static void NextRoom(int change) =>
             CurrentRoom.Instance.NextRoom(change);
-        }
-        public static IRoom GetCurrRoom()
-        {
-            return CurrentRoom.Instance.currentRoom;
-        }
-        public static List<IGameObjects> GetObjectsList()
-        {
-            return CurrentRoom.Instance.currentRoom.GetObjectsList();
-        }
+        public static IRoom GetCurrRoom() =>
+            CurrentRoom.Instance.currentRoom;
+        public static List<IGameObjects> GetObjectsList() =>
+            CurrentRoom.Instance.currentRoom.GetObjectsList();
         public static IRoom GetChangeRoom(int dx, int dy, int dz)
         {
             Point3D currentRoom = CurrentRoom.currentLocation;
@@ -85,7 +53,6 @@ namespace LOZ.GameStateReference
                 GetChangeRoom(dx, dy, dz).PlaceLinkZ(dz);
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Stairs);
             }           
-
             CurrentRoom.link.Idle();
         }
         public static void SetRoomLocation(int x, int y, int z) {
@@ -102,14 +69,7 @@ namespace LOZ.GameStateReference
             CurrentRoom.Instance.currentRoom = CurrentRoom.Instance._allRooms[location];
             CurrentRoom.currentLocation = location;
         }
-        public static void DrawOffset(SpriteBatch spriteBatch, Point offSet) {
-            CurrentRoom.Instance.DrawOffset(spriteBatch, offSet);
-
-        }
-        public static void Draw(SpriteBatch spriteBatch)
-        {
-            CurrentRoom.Instance.Draw(spriteBatch);
-
-        }
+        public static void DrawOffset(SpriteBatch spriteBatch, Point offSet) => CurrentRoom.Instance.DrawOffset(spriteBatch, offSet);
+        public static void Draw(SpriteBatch spriteBatch) => CurrentRoom.Instance.Draw(spriteBatch);
     }
 }

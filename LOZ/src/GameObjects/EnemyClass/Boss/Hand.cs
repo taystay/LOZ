@@ -11,7 +11,6 @@ namespace LOZ.EnemyClass
 {
     class Hand : AbstractEnemy
     {
-        private List<IGameObjects> _roomObjects;
         private Color c = Color.White;
         private ISpriteRotatable hand;
 

@@ -29,10 +29,7 @@ namespace LOZ.Hud
         {
             _offset = new Point();
         }
-        public void Update()
-        {
-
-        }
+        public void Update() { }
         public void Draw(SpriteBatch spriteBatch)
         {
             int startx = 525 + _offset.X;

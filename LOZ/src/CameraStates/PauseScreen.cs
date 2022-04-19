@@ -12,7 +12,6 @@ namespace LOZ.src.CameraStates
     {
         private Game1 _gameObject; // so camera state can change if needed
         private HudElement _pasuedHud;
-        private bool buttonPressed = false;
         private ISprite _pauseScreen;
 
         public PauseScreen(Game1 gameObject, ISprite pauseScreen, HudElement pauseHud)
@@ -27,9 +26,6 @@ namespace LOZ.src.CameraStates
                 _gameObject.Exit();
             if (Keyboard.GetState().IsKeyDown(Keys.P))
                 _gameObject.CameraState = new Unpausing(_gameObject, _pasuedHud);
-
-            if (Keyboard.GetState().GetPressedKeyCount() == 0)
-                buttonPressed = false;
         }
         public void Update(GameTime gameTime)
         {

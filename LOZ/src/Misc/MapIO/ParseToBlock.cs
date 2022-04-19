@@ -14,17 +14,10 @@ namespace LOZ.MapIO
             location.X += 24;
             location.Y += 24;
             int leftSide = location.X;
-            //string lineRead = reader.ReadLine();
-            //reader.Peek() != -1;
-
             while (yIndex != 7) {
                 string lineRead = reader.ReadLine();
-                if (lineRead == null)
-                    break;
-
-                //https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0
+                if (lineRead == null) break;            
                 string[] words = lineRead.Split(',');
-
                 for (int i=0; i < words.Length; i++) { 
                     obj.Add(ConvertBlock.BlockConvert(words[xIndex], location.X, location.Y));
                     location.X += 48;
@@ -37,10 +30,7 @@ namespace LOZ.MapIO
                     }
                 }
                 xIndex = 0;
-                yIndex++;
-
-                //https://docs.microsoft.com/en-US/troubleshoot/developer/visualstudio/csharp/general/file-io-operation
-                //lineRead = reader.ReadLine();
+                yIndex++;             
             }
 
         }

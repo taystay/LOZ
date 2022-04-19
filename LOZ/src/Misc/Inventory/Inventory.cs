@@ -76,10 +76,7 @@ namespace LOZ.Inventory
             IItem o = (IItem)item;
             return o.InventoryItem;
         }
-        public bool IsCurrentItem(IGameObjects item)
-        {
-            return (inventory.IndexOf(item) == currentItem);
-        }         
+        public bool IsCurrentItem(IGameObjects item) => inventory.IndexOf(item) == currentItem;       
         public void AddItem(IGameObjects item)
         {
             SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);

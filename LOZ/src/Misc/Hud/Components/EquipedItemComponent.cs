@@ -12,9 +12,7 @@ namespace LOZ.Hud
     {
         public Point DrawPoint { get; set; }
         private Point _offset = new Point(0, 0);
-
-        private LinkInventory _inventory;
-       
+        private LinkInventory _inventory;     
         public EquipedItemComponent(LinkInventory inventory, Point drawLocation)
         {
             _inventory = inventory;
@@ -25,14 +23,8 @@ namespace LOZ.Hud
             _offset.X += offset.X;
             _offset.Y += offset.Y;
         }
-        public void ResetHud()
-        {
-            _offset = new Point();
-        }
-        public void Update()
-        {
-
-        }
+        public void ResetHud() => _offset = new Point();
+        public void Update() { }
         public void Draw(SpriteBatch spriteBatch)
         {
             Point ALocation = new Point( DrawPoint.X + 90 + _offset.X, DrawPoint.Y + _offset.Y + 90);
@@ -49,7 +41,6 @@ namespace LOZ.Hud
                 sword.ChangeScale(1.5);
                 sword.Draw(spriteBatch, ALocation);
             }
-
             int BSlotItemIdx = _inventory.currentItem;
             if (BSlotItemIdx < 0 || BSlotItemIdx >= _inventory.inventory.Count) return;
             if (_inventory.inventory[BSlotItemIdx] == null) return;

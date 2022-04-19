@@ -45,9 +45,14 @@ The victory screen should take us to the MainMenu or Quit
 
 
 -------     WORKS CITED    ----------
-
+https://stackoverflow.com/questions/1276763/how-do-i-get-the-list-of-keys-in-a-dictionary
 https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
+https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain
 https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
 http://rbwhitaker.wikidot.com/monogame-texture-atlases-2 
 https://stackoverflow.com/questions/31104248/monogame-rotating-a-sprite
-
+https://stackoverflow.com/questions/1276763/how-do-i-get-the-list-of-keys-in-a-dictionary
+https://www.c-sharpcorner.com/article/loop-through-enum-values-in-c-sharp/
+https://docs.microsoft.com/en-us/dotnet/api/system.enum.getnames?view=net-6.0
+https://docs.microsoft.com/en-US/troubleshoot/developer/visualstudio/csharp/general/file-io-operation
+https://docs.monogame.net/api/Microsoft.Xna.Framework.Rectangle.html#Microsoft_Xna_Framework_Rectangle_Contains_System_Single_System_Single_

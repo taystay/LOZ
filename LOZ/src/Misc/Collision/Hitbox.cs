@@ -9,32 +9,19 @@ namespace LOZ.Collision
     {
         private Rectangle box;
         private ISprite yellowPixel;
-        private ISprite borderSprite;
         public Hitbox(int x, int y, int width, int height)
         {
             box = new Rectangle(x,y,width,height);
             yellowPixel = Factories.ItemFactory.Instance.CreateYellowPixelSprite(box);
         }
-        public void Update(int x, int y, int width, int height)
-        {
-            box = new Rectangle(x, y, width, height);
-        }
+        public void Update(int x, int y, int width, int height) => box = new Rectangle(x, y, width, height);
         public void Update(int dx, int dy)
         {
             box.X += dx;
             box.Y += dy;
         }
-        public Rectangle ToRectangle()
-        {
-            return box;
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            yellowPixel.Draw(spriteBatch, new Point());
-        }
-        public void Draw(SpriteBatch spriteBatch, Point offset)
-        {
-            yellowPixel.Draw(spriteBatch, offset);
-        }
+        public Rectangle ToRectangle() => box;
+        public void Draw(SpriteBatch spriteBatch) => yellowPixel.Draw(spriteBatch, new Point());
+        public void Draw(SpriteBatch spriteBatch, Point offset) => yellowPixel.Draw(spriteBatch, offset);
     }
 }

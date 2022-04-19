@@ -17,36 +17,27 @@ namespace LOZ.Hud
         private ISprite fullHeart;
         private ISprite halfHeart;
         #endregion    
-        
+       
         public HeartComponent(Point drawLocation)
         {
             fullHeart = DisplaySpriteFactory.Instance.GetHudHeart(true);
             halfHeart = DisplaySpriteFactory.Instance.GetHudHeart(false);
             DrawPoint = drawLocation;
         }
-
         public void OffsetHud(Point offset)
         {
             _offset.X += offset.X;
             _offset.Y += offset.Y;
         }
-
         public void ResetHud()
         {
             _offset = new Point();
         }
-
-        public void Update()
-        {
-
-        }
-
+        public void Update() { }
         public void Draw(SpriteBatch spriteBatch)
         {
-            //725, 800 is draw location
             int linkCurrentHealth = RoomReference.GetLink().Health;
             if (linkCurrentHealth < 0) return;
-
 
             Point currentDrawPoint = new Point(DrawPoint.X + _offset.X, DrawPoint.Y + _offset.Y);                           
             for (int i = 0; i < linkCurrentHealth / 2; i++)

@@ -12,45 +12,26 @@ namespace LOZ.Sound
 		private Dictionary<String, SoundEffectInstance> sounds;
 		private static SoundManager instance = new SoundManager();
 		private bool mute;
-
-		public static SoundManager Instance
-		{
-			get
-			{
-				return instance;
-			}
-		}
-
-		private SoundManager()
-		{
-		}
-
+		public static SoundManager Instance { get { return instance; } }
+		private SoundManager() { }
 		public void LoadSound(ContentManager content)
-        {
+		{
 			mute = false;
 			sounds = new Dictionary<string, SoundEffectInstance>();
-
-			//https://www.c-sharpcorner.com/article/loop-through-enum-values-in-c-sharp/
-			//https://docs.microsoft.com/en-us/dotnet/api/system.enum.getnames?view=net-6.0
 			string[] soundNames = Enum.GetNames(typeof(SoundEnum));
-
 			foreach (string s in soundNames) {
-				soundEffect = content.Load<SoundEffect>("LOZ_"+s);
+				soundEffect = content.Load<SoundEffect>("LOZ_" + s);
 				sounds.Add(s, soundEffect.CreateInstance());
 			}
-
 			sounds["Background"].IsLooped = true;
 			sounds["Background"].Volume = 0.1f;
 			sounds["Background"].Play();
 			sounds["PortalShot"].Volume = 0.25f;
-
 		}
 
-        public void SoundToPlayInstance(SoundEnum soundType) {
-
-			if(!mute) sounds[soundType.ToString()].Play();
+		public void SoundToPlayInstance(SoundEnum soundType) {
+			if (!mute) sounds[soundType.ToString()].Play();
 		}
-
 		public void SoundToLoop(SoundEnum soundType) {
 
 			if (!mute)
@@ -86,7 +67,6 @@ namespace LOZ.Sound
                     if ( !s.Key.Equals(SoundEnum.Background.ToString())  && !s.Key.Equals(SoundEnum.LowHealth.ToString()) ) s.Value.Stop();
                 }
             }
-
         }
 	}
 }

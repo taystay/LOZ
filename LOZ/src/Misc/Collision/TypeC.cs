@@ -16,9 +16,7 @@
             return false;
         }
 
-        public static bool CheckPair(object o1, System.Type t1, object o2, System.Type t2)
-        {
-            return (Check(o1, t1) && Check(o2, t2));
-        }
+        public static bool CheckPair(object o1, System.Type t1, object o2, System.Type t2) =>
+            Check(o1, t1) && Check(o2, t2);
     }
 }

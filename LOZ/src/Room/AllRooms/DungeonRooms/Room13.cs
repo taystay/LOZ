@@ -11,7 +11,6 @@ namespace LOZ.Room
 {
     class Room13 : RoomAbstract
     {
-        //private List<IGameObjects> roomObj;
         public Room13(string pathFile)
         {
             gameObjects = IO.Instance.ParseRoom(pathFile + "1_3.csv");

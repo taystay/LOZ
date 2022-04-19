@@ -25,14 +25,8 @@ namespace LOZ.Hud
             _offset.X += offset.X;
             _offset.Y += offset.Y;
         }
-        public void ResetHud()
-        {
-            _offset = new Point();
-        }
-        public void Update()
-        {
-
-        }
+        public void ResetHud() => _offset = new Point();
+        public void Update() { }
         public void Draw(SpriteBatch spriteBatch)
         {
             GameFont.Instance.Write(spriteBatch, "x" + _inventory.rupeeCount, DrawPoint.X + 375 + _offset.X, DrawPoint.Y + 100 + _offset.Y);

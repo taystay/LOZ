@@ -17,27 +17,15 @@ namespace LOZ.GameState
             _command = command;
             _responseType = responseType;
         }
-        public Hitbox GetHitBox()
-        {
-            return box;
-        }
+        public Hitbox GetHitBox() => box;
         public bool IsActive() { return true; }
         public void Collision(IGameObjects o)
         {
             if (TypeC.Check(o, _responseType))
                 _command.execute();
         }
-        public void Update(GameTime gameTime)
-        {
-            //nothing
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            //nothing
-        }
-        public void Draw(SpriteBatch spriteBatch, Point offset)
-        {
-            //nothing
-        }
+        public void Update(GameTime gameTime) { }
+        public void Draw(SpriteBatch spriteBatch){ }
+        public void Draw(SpriteBatch spriteBatch, Point offset) { }
     }
 }

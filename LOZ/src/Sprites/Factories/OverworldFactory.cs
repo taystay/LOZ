@@ -17,8 +17,6 @@ namespace LOZ.Factories
 		}
 		private OverworldFactory() { }
 		public void LoadAllTextures(ContentManager content) => blockSpritesheet = content.Load<Texture2D>("LOZEnvironemnt");
-
-
 		public ISprite BottomWall() => new OverworldTile(blockSpritesheet, 0);
 		public ISprite TopWall() => new OverworldTile(blockSpritesheet, 1);
 		public ISprite Sand() => new OverworldTile(blockSpritesheet, 2);

@@ -11,16 +11,11 @@ namespace LOZ.Collision
     public class CollisionIterator
     {
         private List<IGameObjects> _gameObjects;
-        public CollisionIterator(List<IGameObjects> gameObjects)
-        {
-            _gameObjects = gameObjects;
-
-        }
+        public CollisionIterator(List<IGameObjects> gameObjects) => _gameObjects = gameObjects;
         public void Iterate()
         {
             CollisionDetection detect = new CollisionDetection();
-            ILink link = RoomReference.GetLink();
-           
+            ILink link = RoomReference.GetLink();      
             foreach (IGameObjects obj1 in _gameObjects)
             {
                 foreach (IGameObjects obj2 in _gameObjects)

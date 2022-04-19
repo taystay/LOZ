@@ -12,7 +12,6 @@ namespace LOZ.Room
     abstract class RoomAbstract : IRoom
     {
         private protected List<IGameObjects> gameObjects;
-
         public ExteriorObject exterior { get; set; }
         public List<IGameObjects> RemovedInDetection { get; set; } = new List<IGameObjects>();
         private protected CollisionIterator colliders;

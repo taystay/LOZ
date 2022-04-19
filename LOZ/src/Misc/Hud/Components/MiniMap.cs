@@ -33,10 +33,7 @@ namespace LOZ.Hud
         {
             _offset = new Point();
         }
-        public void Update()
-        {
-
-        }
+        public void Update() { }
         public void Draw(SpriteBatch spriteBatch)
         {
             Point3D linkCoor = RoomReference.GetCurrLocation();
@@ -53,7 +50,6 @@ namespace LOZ.Hud
                 room.Draw(spriteBatch, new Point(startX + offsetX * point.X, startY + offsetY * point.Y));
             }
             room.Draw(spriteBatch, new Point(startX + offsetX * linkCoor.X, startY + offsetY * linkCoor.Y), Color.Green);
-
             if (!_inventory.HasItem(typeof(Compass))) return;
             room.Draw(spriteBatch, new Point(startX + offsetX * 6, startY + offsetY * 2), Color.Yellow);
         }
