@@ -9,149 +9,39 @@ namespace LOZ.Factories
     class ItemFactory
     {
 		private Texture2D ItemSpriteSheet;
-
 		private static ItemFactory instance = new ItemFactory();
-
-		public static ItemFactory Instance
-		{
-			get
-			{
-				return instance;
-			}
-		}
-
-		private ItemFactory()
-		{
-		}
-
+		public static ItemFactory Instance { get { return instance; } }
+		private ItemFactory() { }
 		public void LoadAllTextures(ContentManager content)
 		{
 			ItemSpriteSheet = content.Load<Texture2D>("items");
 		}
-
-		public ISprite CreateDeadBeamSprite()
-		{
-			return new SwordBeamDeathSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateSwordBeamDownSprite()
-		{
-			return new SwordBeamDownSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateSwordBeamUpSprite()
-		{
-			return new SwordBeamUpSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateSwordBeamLeftSprite()
-		{
-			return new SwordBeamLeftSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateSwordBeamRightSprite()
-		{
-			return new SwordBeamRightSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateArrowUpSprite()
-        {
-			return new ArrowUpSprite(ItemSpriteSheet);
-        }
-
-		public ISprite CreateDeadArrowSprite()
-		{
-			return new DeadArrowSprite(ItemSpriteSheet);
-		}
-		public ISprite CreateDeadBombSprite()
-		{
-			return new DeadBombSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateArrowLeftSprite()
-		{
-			return new ArrowLeftSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateArrowDownSprite()
-		{
-			return new ArrowDownSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateArrowRightSprite()
-		{
-			return new ArrowRightSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateCompassSprite()
-        {
-			return new CompassSprite(ItemSpriteSheet);
-        }
-
-		public ISprite CreateClockSprite()
-		{
-			return new ClockSprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateFireItemSprite()
-        {
-			return new FireItemSprite(ItemSpriteSheet);
-        }
-
-		public ISprite CreateMapSprite()
-        {
-			return new MapSprite(ItemSpriteSheet);
-        }
-
-		public ISprite CreateKeySprite()
-		{
-			return new KeySprite(ItemSpriteSheet);
-		}
-
-		public ISprite CreateHeartContainerSprite()
-		{
-			return new HeartContainerSprite(ItemSpriteSheet);
-		}
-		public ISprite CreateTriforceSprite()
-		{
-			return new TriforceSprite(ItemSpriteSheet);
-		}
-		public ISprite CreateBowSprite()
-		{
-			return new BowSprite(ItemSpriteSheet);
-		}
-		public ISprite CreateSwordSprite()
-        {
-			return new SwordSprite(ItemSpriteSheet);
-        }
-		public ISprite CreateHeartSprite()
-		{
-			return new HeartSprite(ItemSpriteSheet);
-		}
-		public ISprite CreateRupeeSprite()
-		{
-			return new RupeeSprite(ItemSpriteSheet);
-		}
-		public ISprite CreateBombSprite()
-		{
-			return new BombSprite(ItemSpriteSheet);
-		}
-		public ISprite CreateFairySprite()
-		{
-			return new FairySprite(ItemSpriteSheet);
-		}
-		public ISprite CreateYellowPixelSprite(Rectangle Box)
-		{
-			return new YellowPixelSprite(ItemSpriteSheet, Box);
-		}
-		public ISprite CreateInvisibleSprite()
-        {
-			return new InvisibleSprite(ItemSpriteSheet);
-        }
-
-		public ISprite CreatePortalGun()
-		{
-			return new PortalGunSprite(ItemSpriteSheet);
-		}
+		public ISprite CreateDeadBeamSprite() => new SwordBeamDeathSprite(ItemSpriteSheet);
+		public ISprite CreateSwordBeamDownSprite() => new SwordBeamDownSprite(ItemSpriteSheet);
+		public ISprite CreateSwordBeamUpSprite() => new SwordBeamUpSprite(ItemSpriteSheet);
+		public ISprite CreateSwordBeamLeftSprite() => new SwordBeamLeftSprite(ItemSpriteSheet);
+		public ISprite CreateSwordBeamRightSprite() => new SwordBeamRightSprite(ItemSpriteSheet);
+		public ISprite CreateArrowUpSprite() => new ArrowUpSprite(ItemSpriteSheet);
+		public ISprite CreateDeadArrowSprite() => new DeadArrowSprite(ItemSpriteSheet);
+		public ISprite CreateDeadBombSprite() => new DeadBombSprite(ItemSpriteSheet);
+		public ISprite CreateArrowLeftSprite() => new ArrowLeftSprite(ItemSpriteSheet);
+		public ISprite CreateArrowDownSprite() => new ArrowDownSprite(ItemSpriteSheet);
+		public ISprite CreateArrowRightSprite() => new ArrowRightSprite(ItemSpriteSheet);
+		public ISprite CreateCompassSprite() => new CompassSprite(ItemSpriteSheet);
+		public ISprite CreateClockSprite() => new ClockSprite(ItemSpriteSheet);
+		public ISprite CreateFireItemSprite() => new FireItemSprite(ItemSpriteSheet);
+		public ISprite CreateMapSprite() => new MapSprite(ItemSpriteSheet);
+		public ISprite CreateKeySprite() => new KeySprite(ItemSpriteSheet);
+		public ISprite CreateHeartContainerSprite() => new HeartContainerSprite(ItemSpriteSheet);
+		public ISprite CreateTriforceSprite() => new TriforceSprite(ItemSpriteSheet);
+		public ISprite CreateBowSprite() => new BowSprite(ItemSpriteSheet);
+		public ISprite CreateSwordSprite() => new SwordSprite(ItemSpriteSheet);
+		public ISprite CreateHeartSprite() => new HeartSprite(ItemSpriteSheet);
+		public ISprite CreateRupeeSprite() => new RupeeSprite(ItemSpriteSheet);
+		public ISprite CreateBombSprite() => new BombSprite(ItemSpriteSheet);
+		public ISprite CreateFairySprite() => new FairySprite(ItemSpriteSheet);
+		public ISprite CreateYellowPixelSprite(Rectangle Box) => new YellowPixelSprite(ItemSpriteSheet, Box);
+		public ISprite CreateInvisibleSprite() => new InvisibleSprite(ItemSpriteSheet);
+		public ISprite CreatePortalGun() => new PortalGunSprite(ItemSpriteSheet);
 	}
 }
