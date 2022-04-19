@@ -13,9 +13,6 @@ namespace LOZ.SpriteClasses.BlockSprites
 			_texture = texture;
 			frame = SpriteStandardizeClass.darkBlueSolidSprite;
 		}
-
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime)
 		{
 

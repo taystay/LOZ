@@ -12,8 +12,6 @@ namespace LOZ.SpriteClasses.BlockSprites
 			_texture = texture;
 			frame = SpriteStandardizeClass.multicolored1Sprite;
 		}
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
 
 

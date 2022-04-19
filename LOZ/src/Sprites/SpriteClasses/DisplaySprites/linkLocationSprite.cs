@@ -11,20 +11,12 @@ namespace LOZ.SpriteClasses.DisplaySprites
 		public linkLocationSprite(Texture2D texture)
 		{
 			_texture = texture;
-
 			frame = new Rectangle(40, 2, 2, 2);
 		}
 
-		public void Update(GameTime gameTime)
-        {
-
-        }
+		public void Update(GameTime gameTime) { }
 		public void ChangeScale(double scale) { }
-		public void Draw(SpriteBatch spriteBatch, Point location)
-		{
-			Draw(spriteBatch, location, Color.White);
-		}
-
+		public void Draw(SpriteBatch spriteBatch, Point location) => Draw(spriteBatch, location, Color.White);
 		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
         {
 			Rectangle destinationRectangle;

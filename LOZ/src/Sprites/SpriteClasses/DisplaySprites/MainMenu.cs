@@ -18,14 +18,9 @@ namespace LOZ.SpriteClasses.DisplaySprites
 			menuWidth = Info.screenWidth;
             menuHeight = (int)(((double)ActualMenu.Height / (double)ActualMenu.Width) * menuWidth);
 		}
-
 		public void Update(GameTime gameTime) { }
 		public void ChangeScale(double scale) { }
-		public void Draw(SpriteBatch spriteBatch, Point location)
-		{
-			Draw(spriteBatch, location, Color.White);
-		}
-
+		public void Draw(SpriteBatch spriteBatch, Point location) => Draw(spriteBatch, location, Color.White);
 		public void Draw(SpriteBatch spriteBatch, Point location, Color c)
         {
 			Rectangle menuDestination = new Rectangle(location.X - menuWidth / 2, location.Y - menuHeight / 2 ,menuWidth , menuHeight);

@@ -11,8 +11,6 @@ namespace LOZ.SpriteClasses.BlockSprites
 			_texture = texture;
 			frame = SpriteStandardizeClass.basementTileSprite;
 		}
-
-		//-----Update frame-----
 		public override void Update(GameTime gameTime) { }
 	}
 }
