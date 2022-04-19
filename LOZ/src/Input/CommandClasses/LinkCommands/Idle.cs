@@ -4,12 +4,8 @@ namespace LOZ.CommandClasses
 {
     class Idle :ICommand
     {
-        public Idle()
-        {
-        }
-        public void execute()
-        {
+        public Idle() { }
+        public void execute() =>
             RoomReference.GetLink().Idle();
-        }
     }
 }

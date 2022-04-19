@@ -12,9 +12,7 @@ namespace LOZ.CommandClasses
 {
     class Reset : ICommand
     {
-        public Reset()
-        {
-        }
+        public Reset() { }
         public void execute()
         {
             Dictionary<Point3D, IRoom> maps = new Dictionary<Point3D, IRoom>();

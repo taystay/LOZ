@@ -7,9 +7,7 @@ namespace LOZ.CommandClasses
 {
     class OpenBottomDoor : ICommand
     {
-        public OpenBottomDoor()
-        {
-        }
+        public OpenBottomDoor() { }
         public void execute()
         {
             RoomReference.GetCurrRoom().UpdateExterior(DoorType.Hole, DoorLocation.Bottom);

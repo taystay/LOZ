@@ -7,9 +7,7 @@ namespace LOZ.CommandClasses.RoomCommands
 {
     class UnlockLeft : ICommand
     {
-        public UnlockLeft()
-        {
-        }
+        public UnlockLeft() { }
         public void execute()
         {
             if(RoomReference.GetInventory().keyCount > 0)

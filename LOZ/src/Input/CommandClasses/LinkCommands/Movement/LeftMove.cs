@@ -4,9 +4,7 @@ namespace LOZ.CommandClasses
 {
     class LeftMove :ICommand
     {
-        public LeftMove()
-        {
-        }
+        public LeftMove() { }
         public void execute()
         {
             RoomReference.GetLink().ChangeDirectionLeft();

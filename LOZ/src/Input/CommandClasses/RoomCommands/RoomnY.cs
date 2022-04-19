@@ -5,10 +5,8 @@ namespace LOZ.CommandClasses
     class RoomnY : ICommand
     {
         private Game1 _gameObject;
-        public RoomnY(Game1 gameObj)
-        {
+        public RoomnY(Game1 gameObj) =>
             _gameObject = gameObj;
-        }
         public void execute()
         {
             if (RoomReference.GetChangeRoom(0, -1, 0) != null)

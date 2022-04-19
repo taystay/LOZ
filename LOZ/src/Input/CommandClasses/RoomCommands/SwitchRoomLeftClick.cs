@@ -4,12 +4,8 @@ namespace LOZ.CommandClasses
 {
     class SwitchRoomLeftClick : ICommand
     {
-        public SwitchRoomLeftClick()
-        {
-        }
-        public void execute()
-        {
+        public SwitchRoomLeftClick() { }
+        public void execute() =>
             RoomReference.NextRoom(1);
-        }
     }
 }

@@ -9,10 +9,8 @@ namespace LOZ.CommandClasses
     class UseSelectedItem : ICommand
     {
         private Game1 _gameObject;
-        public UseSelectedItem(Game1 gameObject)
-        {
+        public UseSelectedItem(Game1 gameObject) =>
             _gameObject = gameObject;
-        }
         public void execute()
         {
             LinkInventory inv = RoomReference.GetInventory();

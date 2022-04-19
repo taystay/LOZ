@@ -16,8 +16,6 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.OemPipe, new EnterDebugMode());
             ControllerMappings.RegisterReleaseCommand(Keys.R, new Reset());
             ControllerMappings.RegisterReleaseCommand(Keys.M, new Mute());
-            //ControllerMappings.RegisterReleaseCommand(Keys.Escape, new Pause(gameObject));
-
             ControllerMappings.RegisterInitialCommand(Keys.B, new UseSelectedItem(gameObject));
             ControllerMappings.RegisterReleaseCommand(Keys.B, new Idle());
             ControllerMappings.RegisterInitialCommand(Keys.Z, new AttackSword(gameObject));
@@ -42,13 +40,7 @@ namespace LOZ.ControllerClasses
             mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoomLeftClick());
             mouseControllerMappings.RegisterRightClickCommands(new SwitchRoomRightClick());
         }
-        public KeyboardController GetKeyboardController()
-        {
-            return ControllerMappings;
-        }
-        public MouseController GetMouseController()
-        {
-            return mouseControllerMappings;
-        }
+        public KeyboardController GetKeyboardController() => ControllerMappings;
+        public MouseController GetMouseController() => mouseControllerMappings;
     }
 }

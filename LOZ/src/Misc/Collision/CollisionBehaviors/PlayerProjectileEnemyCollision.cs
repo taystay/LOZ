@@ -10,11 +10,9 @@ namespace LOZ.Collision
         {
             IPlayerProjectile projectile = (IPlayerProjectile)p;
             AbstractEnemy _enemy = (AbstractEnemy)enemy;
-
             if (!TypeC.Check(enemy, typeof(SpikeTrap)))
             {
                 _enemy.TakeDamage(projectile.Damage);
-
                 if (side == CollisionSide.Top)
                     _enemy.KnockBack(new Point(0, -4));
                 else if (side == CollisionSide.Bottom)

@@ -4,9 +4,7 @@ namespace LOZ.CommandClasses
 {
     class UpMove :ICommand
     {
-        public UpMove()
-        {
-        }
+        public UpMove() { }
         public void execute()
         {
             RoomReference.GetLink().ChangeDirectionUp();

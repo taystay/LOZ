@@ -5,10 +5,8 @@ namespace LOZ.CommandClasses
     class RoompX : ICommand
     {
         private Game1 _gameObject;
-        public RoompX(Game1 gameObj)
-        {
+        public RoompX(Game1 gameObj) =>
             _gameObject = gameObj;
-        }
         public void execute()
         {
             if (GameStateReference.RoomReference.GetChangeRoom(1, 0, 0) != null)

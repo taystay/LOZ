@@ -21,18 +21,12 @@ namespace LOZ.ControllerClasses
             storedReleaseCommands = new Dictionary<Keys, ICommand>();
             releaseKeysPressed = new List<Keys>();
         }
-        public void RegisterInitialCommand(Keys key, ICommand initialPressCommand)
-        {
+        public void RegisterInitialCommand(Keys key, ICommand initialPressCommand) =>
             storedInitCommands.Add(key, initialPressCommand);
-        }
-        public void RegisterHoldCommand(Keys key, ICommand holdCommand)
-        {
+        public void RegisterHoldCommand(Keys key, ICommand holdCommand) =>
             storedHoldCommands.Add(key, holdCommand);
-        }
-        public void RegisterReleaseCommand(Keys key, ICommand onReleaseCommand)
-        {
+        public void RegisterReleaseCommand(Keys key, ICommand onReleaseCommand) =>
             storedReleaseCommands.Add(key, onReleaseCommand);
-        }
         private void UpdateInitPress()
         {
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
