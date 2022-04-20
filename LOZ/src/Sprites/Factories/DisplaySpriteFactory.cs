@@ -13,7 +13,7 @@ namespace LOZ.Factories
 		private Texture2D black;
 		private Texture2D vic;
 		private static DisplaySpriteFactory instance = new DisplaySpriteFactory();
-		public static DisplaySpriteFactory Instance {get{return instance;}}
+		public static DisplaySpriteFactory Instance {get => instance;}
 		private DisplaySpriteFactory() { }
 		public void LoadAllTextures(ContentManager content)
 		{

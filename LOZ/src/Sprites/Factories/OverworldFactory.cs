@@ -11,10 +11,7 @@ namespace LOZ.Factories
 
 
 		private static OverworldFactory instance = new OverworldFactory();
-		public static OverworldFactory Instance
-		{
-			get { return instance; }
-		}
+		public static OverworldFactory Instance { get => instance; }
 		private OverworldFactory() { }
 		public void LoadAllTextures(ContentManager content) => blockSpritesheet = content.Load<Texture2D>("LOZEnvironemnt");
 		public ISprite BottomWall() => new OverworldTile(blockSpritesheet, 0);

@@ -23,7 +23,7 @@ namespace LOZ.Room
             gameObjects.Add(new ThinTree(GetCoorPoint(2,3)));
             gameObjects.Add(new StumpDoor(GetCoorPoint(5, 3)));
             gameObjects.Add(new DoorCollider(new Rectangle(GetCoorPoint(4.5, 3.1), new Point(48,48)), new RoomnZ(GetReference.GetRef()), typeof(ILink)));
-            gameObjects.Add(new DoorCollider(new Rectangle(GetCoorPoint(12, 2.5), new Point(48, 48)), new RoompX(GetReference.GetRef()), typeof(ILink)));
+            //gameObjects.Add(new DoorCollider(new Rectangle(GetCoorPoint(12, 2.5), new Point(48, 48)), new RoompX(GetReference.GetRef()), typeof(ILink)));
             colliders = new CollisionIterator(gameObjects);                   
         }
     }

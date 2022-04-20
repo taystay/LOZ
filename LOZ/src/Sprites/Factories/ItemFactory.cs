@@ -10,12 +10,10 @@ namespace LOZ.Factories
     {
 		private Texture2D ItemSpriteSheet;
 		private static ItemFactory instance = new ItemFactory();
-		public static ItemFactory Instance { get { return instance; } }
+		public static ItemFactory Instance { get => instance;  }
 		private ItemFactory() { }
-		public void LoadAllTextures(ContentManager content)
-		{
+		public void LoadAllTextures(ContentManager content) =>
 			ItemSpriteSheet = content.Load<Texture2D>("items");
-		}
 		public ISprite CreateDeadBeamSprite() => new SwordBeamDeathSprite(ItemSpriteSheet);
 		public ISprite CreateSwordBeamDownSprite() => new SwordBeamDownSprite(ItemSpriteSheet);
 		public ISprite CreateSwordBeamUpSprite() => new SwordBeamUpSprite(ItemSpriteSheet);

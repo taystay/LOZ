@@ -10,12 +10,10 @@ namespace LOZ.Factories
 	{
 		private Texture2D linkSpriteSheet;
 		private static LinkSpriteFactory instance = new LinkSpriteFactory();
-		public static LinkSpriteFactory Instance { get {return instance;} }
+		public static LinkSpriteFactory Instance { get => instance; }
 		private LinkSpriteFactory() { }
-		public void LoadAllTextures(ContentManager content)
-		{
+		public void LoadAllTextures(ContentManager content) =>
 			linkSpriteSheet = content.Load<Texture2D>("LinkSprites");
-		}
         public ISprite LinkDownIdle() =>
 			new LinkDownIdle(linkSpriteSheet);   
 		public ISprite LinkUpIdle() =>

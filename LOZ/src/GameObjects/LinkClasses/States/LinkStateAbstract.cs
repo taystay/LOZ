@@ -89,6 +89,7 @@ namespace LOZ.LinkClasses
             if(TypeC.Check(item, typeof(HeartContainer)))
             {
                 RoomReference.GetLink().MaxHealth += 2;
+                RoomReference.GetLink().Health = RoomReference.GetLink().MaxHealth;
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             }
             else if (TypeC.Check(item, typeof(Heart)))

@@ -14,7 +14,7 @@ namespace LOZ.Factories
 		private Texture2D spikeTrap;
 		private Texture2D skeletonBoss;
 		private static EnemySpriteFactory instance = new EnemySpriteFactory();
-		public static EnemySpriteFactory Instance { get { return instance; } }
+		public static EnemySpriteFactory Instance { get => instance; }
 		private EnemySpriteFactory() { }
 		public void LoadAllTextures(ContentManager content)
 		{
@@ -24,7 +24,6 @@ namespace LOZ.Factories
 			spikeTrap = content.Load<Texture2D>("spikeTrap");
 			skeletonBoss = content.Load<Texture2D>("Custom_Edited_-_Terraria_Customs_-_Skeletron__Skeletron_Prime_NES-Style");
         }
-
 		public ISpriteRotatable CreateSkeletronHand(bool leftHand) => new SkeletronHand(skeletonBoss, leftHand);
 		public ISpriteRotatable CreateArmBone(bool leftHand) => new SkeletronBone(skeletonBoss, leftHand);
 		public ISpriteRotatable CreateSkeletonHead() => new SkeletronHead(skeletonBoss);

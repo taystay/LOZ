@@ -10,7 +10,7 @@ namespace LOZ.Factories
 		private Texture2D blockSpritesheet;
 		private Texture2D basementSheet;
 		private static BlockSpriteFactory instance = new BlockSpriteFactory();
-		public static BlockSpriteFactory Instance { get { return instance;} }
+		public static BlockSpriteFactory Instance { get => instance; }
 		private BlockSpriteFactory() { }
 		public void LoadAllTextures(ContentManager content)
 		{

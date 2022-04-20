@@ -42,6 +42,16 @@ namespace LOZ.GameStateReference
             if (!CurrentRoom.Instance._allRooms.ContainsKey(nextRoom)) return null;
             return CurrentRoom.Instance._allRooms[nextRoom];
         }
+        public static void SetAbsoluteRoom(int x, int y, int z)
+        {
+            Point3D currentRoom = CurrentRoom.currentLocation;
+            int dx = -currentRoom.X + x;
+            int dy = -currentRoom.Y + y;
+            int dz = -currentRoom.Z + z;
+            if (GetChangeRoom(dx, dy, dz) == null) return;
+            SetLinkPosition(dx, dy, dz);
+            SetRoomLocation(dx, dy, dz);
+        }
         public static void SetLinkPosition(int dx, int dy, int dz)
         {
             if (dx != 0)

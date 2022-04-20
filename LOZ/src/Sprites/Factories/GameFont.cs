@@ -11,7 +11,7 @@ namespace LOZ.Factories
     {
 		private SpriteFont font;
 		private static GameFont instance = new GameFont();
-		public static GameFont Instance { get{return instance;} }
+		public static GameFont Instance { get => instance; }
 		private GameFont() { }
 		public void LoadAllTextures(ContentManager content) => font = content.Load<SpriteFont>("File");	
 		public void Write(SpriteBatch spriteBatch, string s, int x, int y)

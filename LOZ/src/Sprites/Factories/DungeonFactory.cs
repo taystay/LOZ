@@ -11,12 +11,10 @@ namespace LOZ.Factories
     {
 		private Texture2D blockSpritesheet;
 		private static DungeonFactory instance = new DungeonFactory();
-		public static DungeonFactory Instance { get { return instance; } }
+		public static DungeonFactory Instance { get => instance; }
 		private DungeonFactory() { }
-		public void LoadAllTextures(ContentManager content)
-		{
+		public void LoadAllTextures(ContentManager content) =>
 			blockSpritesheet = content.Load<Texture2D>("8376");
-		}
 	    public ISprite GetPortal(int direction, int color) =>
 			new PortalSprite(blockSpritesheet, direction, color);
 		public ISprite GetExterior() =>
