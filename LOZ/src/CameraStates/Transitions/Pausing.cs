@@ -46,14 +46,14 @@ namespace LOZ.src.CameraStates
                 if (numberOfUpdates <= 0)
                     _gameObject.CameraState = new PauseScreen(_gameObject, _menuScreen, _topHud);
             }
-
         }
         public void Reset() { }
         public void Draw(SpriteBatch spriteBatch)
-        {
-            if(_menuScreen == null)
-                _topHud.Draw(spriteBatch);
+        {         
             RoomReference.DrawOffset(spriteBatch, new Point(0, 630 - numberOfUpdates * dy));
+            Factories.FOWFactory.Instance.DrawShadow(spriteBatch, new Point(0, 630 - numberOfUpdates * dy));
+            if (_menuScreen == null)
+                _topHud.Draw(spriteBatch);
         }
     }
 }

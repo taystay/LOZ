@@ -17,7 +17,7 @@ namespace LOZ
     public class Game1 : Game
     {
         private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch { get; set; }
         public ICameraState CameraState { get; set; }
         public Game1()
         {
@@ -47,8 +47,10 @@ namespace LOZ
         }
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);        
-            
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            FOWFactory.Instance.PrepareShadow(spriteBatch, GraphicsDevice);
+
+
             SoundManager.Instance.LoadSound(Content);
 
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
@@ -83,7 +85,6 @@ namespace LOZ
             CameraState.Draw(spriteBatch);
             if (RoomReference.GetDebug())
                 GameFont.Instance.Write(spriteBatch, "CameraState: " + CameraState.GetType().ToString(), 75, 910);
-            ////https://community.monogame.net/t/how-to-make-lightsources-torch-fire-campfire-etc-in-dark-area-2d-pixel-game/8058/20
 
             base.Draw(gameTime);
         }

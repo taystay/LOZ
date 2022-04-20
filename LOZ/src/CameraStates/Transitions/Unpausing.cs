@@ -30,9 +30,10 @@ namespace LOZ.src.CameraStates
         }
         public void Reset() { }
         public void Draw(SpriteBatch spriteBatch)
-        {
-            _hud.Draw(spriteBatch);        
+        {                
             RoomReference.DrawOffset(spriteBatch, new Point(0, -numberOfUpdates * dy));
+            Factories.FOWFactory.Instance.DrawShadow(spriteBatch, new Point(0, -numberOfUpdates * dy));
+            _hud.Draw(spriteBatch);          
         }
     }
 }
