@@ -28,10 +28,10 @@ namespace LOZ.EnemyClass
         #region constants
         private protected const int HeightSpriteSection = 83;
         private protected const int WidthSpriteSection = 64;
-        private protected const int InivincibilityFrames = 20;
+        private protected const int InivincibilityFrames = 40;
         #endregion
 
-        private protected int timeLeftDamage = 30;
+        private protected int timeLeftDamage = 20;
         private protected ISprite _texture;
         private protected ISprite _keySprite;
         private protected Point velocity;

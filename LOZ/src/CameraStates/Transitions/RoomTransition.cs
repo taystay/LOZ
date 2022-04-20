@@ -84,7 +84,8 @@ namespace LOZ.src.CameraStates
         {
             Point oldRoomOffset = new Point(delta.X * updates, delta.Y * updates);
             RoomReference.GetCurrRoom().DrawWithoutLink(spriteBatch, new Point() + oldRoomOffset);
-            Factories.FOWFactory.Instance.DrawShadow(spriteBatch, new Point() + oldRoomOffset);
+            if (!RoomReference.GetDebug() && RoomReference.GetCurrLocation().Z == 0)
+                Factories.FOWFactory.Instance.DrawShadow(spriteBatch, new Point() + oldRoomOffset);
         }
         #endregion
 

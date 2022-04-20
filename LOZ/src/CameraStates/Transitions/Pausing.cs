@@ -51,7 +51,8 @@ namespace LOZ.src.CameraStates
         public void Draw(SpriteBatch spriteBatch)
         {         
             RoomReference.DrawOffset(spriteBatch, new Point(0, 630 - numberOfUpdates * dy));
-            Factories.FOWFactory.Instance.DrawShadow(spriteBatch, new Point(0, 630 - numberOfUpdates * dy));
+            if (!RoomReference.GetDebug() && RoomReference.GetCurrLocation().Z == 0)
+                Factories.FOWFactory.Instance.DrawShadow(spriteBatch, new Point(0, 630 - numberOfUpdates * dy));
             if (_menuScreen == null)
                 _topHud.Draw(spriteBatch);
         }
