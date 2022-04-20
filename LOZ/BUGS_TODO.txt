@@ -56,3 +56,5 @@ https://www.c-sharpcorner.com/article/loop-through-enum-values-in-c-sharp/
 https://docs.microsoft.com/en-us/dotnet/api/system.enum.getnames?view=net-6.0
 https://docs.microsoft.com/en-US/troubleshoot/developer/visualstudio/csharp/general/file-io-operation
 https://docs.monogame.net/api/Microsoft.Xna.Framework.Rectangle.html#Microsoft_Xna_Framework_Rectangle_Contains_System_Single_System_Single_
+https://stackoverflow.com/questions/41317291/setting-the-magnitude-of-a-2d-vector#41321162
+https://docs.microsoft.com/en-us/dotnet/api/system.numerics.vector2.normalize?view=net-6.0

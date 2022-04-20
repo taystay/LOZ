@@ -37,17 +37,10 @@ namespace LOZ.src.CameraStates
             if (Keyboard.GetState().GetPressedKeyCount() == 0)
                 buttonPressed = false;
         }
-        public void Update(GameTime gameTime)
-        {
+        public void Update(GameTime gameTime) =>
             _pasuedHud.Update();
-        }
-        public void Reset()
-        {
-
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        {
+        public void Reset() { }
+        public void Draw(SpriteBatch spriteBatch) =>
             _pasuedHud.Draw(spriteBatch);                      
-        }
     }
 }

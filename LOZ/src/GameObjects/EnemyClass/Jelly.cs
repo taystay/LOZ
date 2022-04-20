@@ -20,14 +20,8 @@ namespace LOZ.EnemyClass
             _texture = EnemySpriteFactory.Instance.CreateJelly();       
             velocity2 = new Vector2(0, 0);
         }
-
-        public override Hitbox GetHitBox()
-        {
-            return new Hitbox(Position.X - 6 , Position.Y - 9, 16, 19);
-        }
-
-
-
+        public override Hitbox GetHitBox() =>
+            new Hitbox(Position.X - 6 , Position.Y - 9, 16, 19);
         public override void Update(GameTime timer)
         {
             frameCounter++;
@@ -35,8 +29,6 @@ namespace LOZ.EnemyClass
             {
                 frameCounter = 0;
                 Point linkP = RoomReference.GetLink().Position;
-
-                //https://stackoverflow.com/questions/41317291/setting-the-magnitude-of-a-2d-vector#41321162
                 if (random.Next(2) % 2 == 0)
                 {
                     double dx = (linkP.X - Position.X);
@@ -61,9 +53,7 @@ namespace LOZ.EnemyClass
                 if (timeLeftDamage <= 0)
                     IsDamaged = false;
             }
-
             modifyPosition((int)velocity2.X, (int)velocity2.Y);
-
             _texture.Update(timer);
         }
 

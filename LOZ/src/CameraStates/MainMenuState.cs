@@ -22,17 +22,10 @@ namespace LOZ.src.CameraStates
             if (Keyboard.GetState().GetPressedKeyCount() > 0)
                 _gameObject.CameraState = new StartingGame(_gameObject, menu);
         }
-        public void Update(GameTime gameTime)
-        {
+        public void Update(GameTime gameTime) =>
             menu.Update(gameTime);
-        }
-        public void Reset()
-        {
-
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        {
+        public void Reset() { }
+        public void Draw(SpriteBatch spriteBatch) =>
             menu.Draw(spriteBatch, new Point(Info.screenWidth / 2, Info.screenHeight / 2));
-        }
     }
 }

@@ -9,6 +9,5 @@ namespace LOZ.DungeonClasses
             sprite = Factories.DungeonFactory.Instance.CreateWall(n);
             itemLocation = location;
         }
-
     }
 }

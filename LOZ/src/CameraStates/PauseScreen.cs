@@ -27,17 +27,10 @@ namespace LOZ.src.CameraStates
             if (Keyboard.GetState().IsKeyDown(Keys.P))
                 _gameObject.CameraState = new Unpausing(_gameObject, _pasuedHud);
         }
-        public void Update(GameTime gameTime)
-        {
+        public void Update(GameTime gameTime) =>
             _pauseScreen.Update(gameTime);
-        }
-        public void Reset()
-        {
-
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        { 
+        public void Reset() { }
+        public void Draw(SpriteBatch spriteBatch) =>
             _pauseScreen.Draw(spriteBatch, new Point(Info.screenWidth / 2, Info.screenHeight / 2));
-        }
     }
 }

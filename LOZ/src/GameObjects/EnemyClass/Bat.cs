@@ -20,24 +20,16 @@ namespace LOZ.EnemyClass
             velocity2 = new Vector2(0, 0);
         }
 
-        public Bat(Point location, bool key) : this(location)
-        {
+        public Bat(Point location, bool key) : this(location) =>
             hasKey = key;
-        }
-
-        public override Hitbox GetHitBox()
-        {
-            return new Hitbox(Position.X - 15, Position.Y - 15, 30, 30);
-        }
-
+        public override Hitbox GetHitBox() =>
+            new Hitbox(Position.X - 15, Position.Y - 15, 30, 30);
         public override void Update(GameTime timer)
         {
             frameCounter++;
             if (frameCounter >= framesPerUpdate)
             {
                 Point linkP = RoomReference.GetLink().Position;
-
-                //https://stackoverflow.com/questions/41317291/setting-the-magnitude-of-a-2d-vector#41321162
                 if (random.Next(2) % 3 != 0)
                 {
                     double dx = (linkP.X - Position.X);
@@ -58,16 +50,13 @@ namespace LOZ.EnemyClass
                 }
                 frameCounter = 0;
             }
-
-            if(IsDamaged)
+            if (IsDamaged)
             {
                 timeLeftDamage--;
                 if (timeLeftDamage <= 0)
                     IsDamaged = false;
             }
-
             modifyPosition((int)velocity2.X, (int)velocity2.Y);
-
             _texture.Update(timer);
         }
 

@@ -24,12 +24,8 @@ namespace LOZ.EnemyClass
             Position = location;
             _texture = EnemySpriteFactory.Instance.CreateDragon();   
         }
-
-        public override Hitbox GetHitBox()
-        {
-            return new Hitbox(Position.X - 24, Position.Y - 24, 48, 24);
-        }
-
+        public override Hitbox GetHitBox() =>
+            new Hitbox(Position.X - 24, Position.Y - 24, 48, 24);
         public override void TakeDamage(int damage)
         {
             if (!IsDamaged)
@@ -48,7 +44,6 @@ namespace LOZ.EnemyClass
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Boss_Scream1);
                 return false;
             }
-
             return isActive;
         }
 
@@ -58,19 +53,15 @@ namespace LOZ.EnemyClass
             frameCounter2++;
             if (frameCounter > framesPerUpdate)
             {
-                //velocity.X = random.Next(-2, 2);
                 frameCounter = 0;
             }
-
             if (IsDamaged)
             {
                 timeLeftDamage--;
                 if (timeLeftDamage <= 0)
                     IsDamaged = false;
             }
-
-            modifyPosition(velocity.X,0);
-            
+            modifyPosition(velocity.X,0);         
             if (frameCounter2 > framesPerUpdate2 && !quad) {
 
                 int lastDigit = r.Next() % 3;
@@ -88,8 +79,7 @@ namespace LOZ.EnemyClass
                 }
                 else {
                     ProjectileTypes.SingleShot(Position); //never runs 
-                }
-               
+                }      
                 frameCounter2 = 0;
             }
 

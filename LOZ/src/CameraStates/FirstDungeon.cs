@@ -40,10 +40,8 @@ namespace LOZ.src.CameraStates
             if (Keyboard.GetState().IsKeyDown(Keys.P))
                 _gameObject.CameraState = new Pausing(_gameObject, _pauseScreen, _topHud);
         }
-        public void Update(GameTime gameTime)
-        {
+        public void Update(GameTime gameTime) =>
             CurrentRoom.Instance.Update(gameTime);
-        }
         public void Reset()
         {
             _topHud = new InventoryHud(RoomReference.GetLink().Inventory);

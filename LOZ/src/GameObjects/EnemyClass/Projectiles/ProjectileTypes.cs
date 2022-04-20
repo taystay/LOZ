@@ -25,7 +25,6 @@ namespace LOZ.EnemyClass.Projectiles
                 RoomReference.AddItem(new DragonBreathe(position, differnceX * r.Next(1,8), differnceY * r.Next(1,8)));
                 i++;
             }
-
         }
 
         internal static void SingleShot(Point position)

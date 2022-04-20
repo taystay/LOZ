@@ -29,10 +29,7 @@ namespace LOZ.src.CameraStates
             _menuScreen = menuScreen;
             _topHud = topHud;
         }
-        public void UpdateController(GameTime gameTime)
-        {
-
-        }
+        public void UpdateController(GameTime gameTime) { }
         public void Update(GameTime gameTime)
         {
             if(_menuScreen == null)
@@ -51,10 +48,7 @@ namespace LOZ.src.CameraStates
             }
 
         }
-        public void Reset()
-        {
-
-        }
+        public void Reset() { }
         public void Draw(SpriteBatch spriteBatch)
         {
             if(_menuScreen == null)

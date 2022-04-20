@@ -38,13 +38,8 @@ namespace LOZ.EnemyClass
         private protected Random random = new Random();
         private protected bool isActive = true;
         
-        
-
-        public void KillItem()
-        {
+        public void KillItem() =>
             isActive = false;
-        }
-
         public virtual void TakeDamage(int damage)
         {
             if(!IsDamaged)
@@ -79,8 +74,7 @@ namespace LOZ.EnemyClass
                 }
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Enemy_Die);
                 return false;
-            }
-            
+            }          
             return isActive;
         }
         protected void modifyPosition(int dx, int dy)
@@ -99,10 +93,8 @@ namespace LOZ.EnemyClass
             }
         }
         public abstract void Update(GameTime timer);
-        public void Draw(SpriteBatch spriteBatch)
-        {
+        public void Draw(SpriteBatch spriteBatch) =>
             Draw(spriteBatch, new Point());
-        }
 
         public virtual void Draw(SpriteBatch spriteBatch, Point offset)
         {
@@ -117,8 +109,7 @@ namespace LOZ.EnemyClass
             if (IsDamaged)
                 _texture.Draw(spriteBatch, Position + offset, Color.Red);
             else
-                _texture.Draw(spriteBatch, Position + offset);
-            
+                _texture.Draw(spriteBatch, Position + offset);          
         }
     }
 }

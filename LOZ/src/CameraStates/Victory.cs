@@ -31,10 +31,8 @@ namespace LOZ.src.CameraStates
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
                 _gameObject.Exit();
         }
-        public void Update(GameTime gameTime)
-        {
+        public void Update(GameTime gameTime) =>
             EndScreenAnimation.Update(gameTime);
-        }
         public void Reset()
         {
             HudElement inv = new InventoryHud(RoomReference.GetInventory());

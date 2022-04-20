@@ -20,10 +20,7 @@ namespace LOZ.src.CameraStates
             _gameObject = gameObject;
             _hud = hud;
         }
-        public void UpdateController(GameTime gameTime)
-        {
-
-        }
+        public void UpdateController(GameTime gameTime) { }
         public void Update(GameTime gameTime)
         {
             numberOfUpdates--;
@@ -31,14 +28,10 @@ namespace LOZ.src.CameraStates
             if (numberOfUpdates <= 0)
                 _gameObject.CameraState = new FirstDungeon(_gameObject, _hud);
         }
-        public void Reset()
-        {
-
-        }
+        public void Reset() { }
         public void Draw(SpriteBatch spriteBatch)
         {
-            _hud.Draw(spriteBatch);
-            
+            _hud.Draw(spriteBatch);        
             RoomReference.DrawOffset(spriteBatch, new Point(0, -numberOfUpdates * dy));
         }
     }

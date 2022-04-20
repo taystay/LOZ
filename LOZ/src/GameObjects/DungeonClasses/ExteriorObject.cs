@@ -38,28 +38,15 @@ namespace LOZ.DungeonClasses
                 objectsInGame.Add(i);
             }
         }
-        public bool IsActive()
-        {
-            return true;
-        }
-        public bool CanGoUp()
-        {
-            return (_top == DoorType.Door || _top == DoorType.Hole);
-        }
-        public bool CanGoRight()
-        {
-            return (_right == DoorType.Door || _right == DoorType.Hole);
-        }
-        public bool CanGoDown()
-        {
-            return (_bottom == DoorType.Door || _bottom == DoorType.Hole);
-        }
-        public bool CanGoLeft()
-        {
-            return (_left == DoorType.Door || _left == DoorType.Hole);
-        }
-
-
+        public bool IsActive() => true;
+        public bool CanGoUp() =>
+            _top == DoorType.Door || _top == DoorType.Hole;
+        public bool CanGoRight() =>
+            _right == DoorType.Door || _right == DoorType.Hole;
+        public bool CanGoDown() =>
+            _bottom == DoorType.Door || _bottom == DoorType.Hole;
+        public bool CanGoLeft() =>
+            _left == DoorType.Door || _left == DoorType.Hole;
         public void ChangeDoorOnUpdate(DoorLocation location, DoorType t)
         {
             changeLocation = location;
@@ -102,13 +89,10 @@ namespace LOZ.DungeonClasses
             }
             
         }
-		public Hitbox GetHitBox()
-        {            
-            return new Hitbox(0, 0,0 , 0);
-        }
-		public virtual void Draw(SpriteBatch spriteBatch) {
+		public Hitbox GetHitBox() =>
+            new Hitbox(0, 0,0 , 0);
+		public virtual void Draw(SpriteBatch spriteBatch) =>
             Draw(spriteBatch, new Point(0, 0));
-        }
         public void Draw(SpriteBatch spriteBatch, Point offset)
         {
             foreach (IGameObjects door in doors)

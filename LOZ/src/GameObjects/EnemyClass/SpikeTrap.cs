@@ -32,24 +32,15 @@ namespace LOZ.EnemyClass
                 AttackRight();
             else if (-5 <= dy && dy <= 5 && dx > 0)
                 AttackLeft();
-
         }
-        public void AttackUp()
-        {
+        public void AttackUp() =>
             velocity = new Point(0, attackSpeed);
-        }
-        public void AttackRight()
-        {
+        public void AttackRight() =>
             velocity = new Point(attackSpeed, 0);
-        }
-        public void AttackLeft()
-        {
+        public void AttackLeft() =>
             velocity = new Point(-attackSpeed, 0);
-        }
-        public void AttackDown()
-        {
+        public void AttackDown() =>
             velocity = new Point(0, -attackSpeed);
-        }
         public override void Update(GameTime timer)
         {
             frameCounter++;
