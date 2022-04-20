@@ -79,53 +79,10 @@ namespace LOZ
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-
-
-            // this rendertarget will hold a black rectangle that gets masked with alphaMask
-            RenderTarget2D darkness = new RenderTarget2D(GraphicsDevice, Info.screenWidth, Info.screenHeight);
-
-            // the stuff we mask out of darkness, essentially this texture defines our lights
-            Texture2D alphaMask = Content.Load<Texture2D>("whiteCircle");
-
-            // prepare the darkness
-            GraphicsDevice.SetRenderTarget(darkness);
-            GraphicsDevice.Clear(new Color(0, 0, 0, 100));
-
-            var blend = new BlendState
-            {
-                AlphaBlendFunction = BlendFunction.ReverseSubtract,
-                AlphaSourceBlend = Blend.One,
-                AlphaDestinationBlend = Blend.One,
-            };
-
-            spriteBatch.Begin(blendState: blend);
-            spriteBatch.Draw(alphaMask, darkness.Bounds, Color.White);
-            spriteBatch.End();
-
-            // set the render target back to the backbuffer
-            GraphicsDevice.SetRenderTarget(null);
-            // Clear it
-            GraphicsDevice.Clear(Color.Black);
-
-
+      
             CameraState.Draw(spriteBatch);
             if (RoomReference.GetDebug())
                 GameFont.Instance.Write(spriteBatch, "CameraState: " + CameraState.GetType().ToString(), 75, 910);
-            spriteBatch.Begin();
-            // draw the masked darkness!
-            spriteBatch.Draw(darkness, Vector2.Zero, Color.White);
-            spriteBatch.End();
-
-
-
-
-
-
-
-
-
-
             ////https://community.monogame.net/t/how-to-make-lightsources-torch-fire-campfire-etc-in-dark-area-2d-pixel-game/8058/20
 
             base.Draw(gameTime);

@@ -12,6 +12,7 @@ namespace LOZ.Factories
 		private Texture2D mainMenu;
 		private Texture2D black;
 		private Texture2D vic;
+		private Texture2D alphaMask;
 		private static DisplaySpriteFactory instance = new DisplaySpriteFactory();
 		public static DisplaySpriteFactory Instance {get => instance;}
 		private DisplaySpriteFactory() { }
@@ -22,7 +23,9 @@ namespace LOZ.Factories
 			mainMenu = content.Load<Texture2D>("menuv2");
 			black = content.Load<Texture2D>("Black");
 			vic = content.Load<Texture2D>("VictoryScreen");
+			alphaMask = content.Load<Texture2D>("whiteCircle");
 		}
+		public Texture2D GetAlphaMask() => alphaMask;
 		public ISprite GetIntroText() => new IntroText(mainMenu);
 		public Texture2D getBlackFade() => black;
 		public ISprite GetMainMenu() => new MainMenu(mainMenu);
