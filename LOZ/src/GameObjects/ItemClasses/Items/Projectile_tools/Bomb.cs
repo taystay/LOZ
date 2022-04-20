@@ -31,14 +31,12 @@ namespace LOZ.ItemsClasses
                 return  new Hitbox(_itemLocation.X - 75 / 2 , _itemLocation.Y - 75 / 2, 75, 75);
             else
                 return new Hitbox(-50, -50,0,0);
-
         }
         public override void Update(GameTime gameTime)
         {
             if (spriteActivity && framesPassed >= bombActiveTime)
                 spriteActivity = false;
             UpdatePosition();
-
             sprite.Update(gameTime);
             framesPassed++;
             if (spriteChanged) return;

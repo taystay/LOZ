@@ -5,7 +5,6 @@ namespace LOZ.ItemsClasses
 {
     class Map : ItemAbstract
     {
-
         public Map(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateMapSprite();

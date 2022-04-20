@@ -12,7 +12,6 @@ namespace LOZ.EnvironmentalClasses
             sprite = BlockSpriteFactory.Instance.CreateBlueTriangleBlockSprite();
             this.itemLocation = itemLocation;
         }
-
         public BlueTriangleBlock(Point itemLocation, bool pushable)
         {
             Pushable = pushable;
@@ -24,6 +23,5 @@ namespace LOZ.EnvironmentalClasses
             int w = Info.BlockWidth;
             return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w, w);
         }
-
     }
 }

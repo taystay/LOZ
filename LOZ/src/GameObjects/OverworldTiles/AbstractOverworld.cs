@@ -20,14 +20,8 @@ namespace LOZ.EnvironmentalClasses
         #region virtual functions
         public virtual bool IsActive() => true;
 		public virtual void Draw(SpriteBatch spriteBatch) => Draw(spriteBatch, new Point());		
-		public virtual void Update(GameTime gameTime)
-		{
-			sprite.Update(gameTime);
-		}
-		public virtual void Draw(SpriteBatch spriteBatch, Point offset)
-		{
-			sprite.Draw(spriteBatch, Position + offset);
-		}
+		public virtual void Update(GameTime gameTime) => sprite.Update(gameTime);
+		public virtual void Draw(SpriteBatch spriteBatch, Point offset) => sprite.Draw(spriteBatch, Position + offset);
         #endregion
     }
 }

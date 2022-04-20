@@ -13,7 +13,6 @@ namespace LOZ.ItemsClasses
             hitBoxWidth = 11;
             hitBoxHeight = 28;
         }
-
         public override void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);

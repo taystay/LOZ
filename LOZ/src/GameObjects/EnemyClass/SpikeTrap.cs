@@ -16,11 +16,8 @@ namespace LOZ.EnemyClass
             Position = location;
             velocity = new Point();
         }
-        public override Hitbox GetHitBox()
-        {
-            return new Hitbox(Position.X -16, Position.Y - 16,  32, 32);
-        }
-
+        public override Hitbox GetHitBox() =>
+            new Hitbox(Position.X -16, Position.Y - 16,  32, 32);
         public void CheckAttack()
         {
             if (velocity.X != 0 || velocity.Y != 0) return;

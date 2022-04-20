@@ -16,6 +16,5 @@ namespace LOZ.ItemsClasses
             sprite.Update(gameTime);
             UpdatePosition();
         }
-
     }
 }

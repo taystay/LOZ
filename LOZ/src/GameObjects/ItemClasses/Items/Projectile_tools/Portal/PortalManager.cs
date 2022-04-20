@@ -14,10 +14,7 @@ namespace LOZ.ItemsClasses
         private static Point3D orangeRoom { get; set; }
         private static IGameObjects bluePortal { get; set; }
         private static Point3D blueRoom { get; set; }
-        public static int getColor()
-        {          
-            return currentColor;           
-        }
+        public static int getColor() => currentColor;           
         public static void nextColor()
         {
             currentColor++;

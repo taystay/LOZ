@@ -5,7 +5,6 @@ namespace LOZ.ItemsClasses
 {
     class Clock : ItemAbstract
     { 
-
         public Clock(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateClockSprite();

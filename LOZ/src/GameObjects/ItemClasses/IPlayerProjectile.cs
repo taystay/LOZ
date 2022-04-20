@@ -16,15 +16,9 @@ namespace LOZ.ItemsClasses
         private protected int hitBoxWidth = 2;
         private protected int hitBoxHeight = 2;
         public int Damage { get; set; } = 0;
-        public void SetPosition(Point position)
-        {
+        public void SetPosition(Point position) =>
             _itemLocation = position;
-        }
-
-        public virtual void ChangeDirection (int newDirection)
-        {
-
-        }
+        public virtual void ChangeDirection(int newDirection) { }
         public void SetPositionOnUpdate(Point position)
         {
             needsPositionUpdate = true;
@@ -36,31 +30,16 @@ namespace LOZ.ItemsClasses
             {
                 _itemLocation = newPos;
                 needsPositionUpdate = false;
-            }
-                
+            }             
         }
-        public bool IsActive()
-        {
-            return spriteActivity;
-        }
-        public virtual void KillItem()
-        {
-            spriteActivity = false;
-        }
-        public virtual Hitbox GetHitBox()
-        {
-            Hitbox hitbox = new Hitbox(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
-            return hitbox;
-        }
+        public bool IsActive() => spriteActivity;
+        public virtual void KillItem() => spriteActivity = false;
+        public virtual Hitbox GetHitBox() =>
+            new Hitbox(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
         public abstract void Update(GameTime gameTime);
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
+        public void Draw(SpriteBatch spriteBatch) =>
             sprite.Draw(spriteBatch, _itemLocation);
-        }
-        public void Draw(SpriteBatch spriteBatch, Point offset)
-        {
+        public void Draw(SpriteBatch spriteBatch, Point offset) =>
             sprite.Draw(spriteBatch, _itemLocation + offset);
-        }
     }
 }

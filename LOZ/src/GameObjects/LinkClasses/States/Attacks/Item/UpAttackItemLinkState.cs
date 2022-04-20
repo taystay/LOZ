@@ -12,12 +12,9 @@ namespace LOZ.LinkClasses.States
         {
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkItemUpAttack();
-
         }
-        public override void Idle()
-        {
+        public override void Idle() =>
             link.LinkState = new UpIdleLinkState(link);
-        }
         public override void Attack(Weapon toUse, Point position)
         {
             attackPosition.X = position.X;
@@ -45,6 +42,5 @@ namespace LOZ.LinkClasses.States
                 AttemptAttack(new Portal(attackPosition, 0, PortalManager.getColor()), toUse);
             }
         }
-
     }
 }

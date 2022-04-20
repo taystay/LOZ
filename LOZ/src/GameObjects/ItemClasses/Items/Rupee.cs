@@ -5,7 +5,6 @@ namespace LOZ.ItemsClasses
 {
     class Rupee :ItemAbstract
     {
-
         public Rupee(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateRupeeSprite();

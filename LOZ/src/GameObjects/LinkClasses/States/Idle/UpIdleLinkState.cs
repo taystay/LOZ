@@ -11,29 +11,15 @@ namespace LOZ.LinkClasses.States
         {
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkUpIdle();
-
         }
-
-        public override void Down()
-        {
+        public override void Down() =>
             link.LinkState = new DownIdleLinkState(link);
-        }
-
-        public override void Left()
-        {
+        public override void Left() =>
             link.LinkState = new LeftIdleLinkState(link);
-        }
-
-        public override void Right()
-        {
+        public override void Right() =>
             link.LinkState = new RightIdleLinkState(link);
-        }
-
-        public override void Move()
-        {
+        public override void Move() =>
             link.LinkState = new UpMovingLinkState(link);
-        }
-
         public override void Attack(Weapon toUse, Point position)
         {
             if (toUse == Weapon.Default)

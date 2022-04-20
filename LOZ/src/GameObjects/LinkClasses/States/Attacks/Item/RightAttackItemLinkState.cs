@@ -13,10 +13,8 @@ namespace LOZ.LinkClasses.States
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkItemRightAttack();
         }
-        public override void Idle()
-        {
+        public override void Idle() =>
             link.LinkState = new RightIdleLinkState(link);
-        }
         public override void Attack(Weapon toUse, Point position)
         {
             attackPosition.X = position.X + 36;

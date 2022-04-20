@@ -17,7 +17,5 @@ namespace LOZ.EnvironmentalClasses
             int w = Info.BlockWidth;
             return new Hitbox(itemLocation.X - w / 2, itemLocation.Y - w / 2, w, w);
         }
-
-
     }
 }

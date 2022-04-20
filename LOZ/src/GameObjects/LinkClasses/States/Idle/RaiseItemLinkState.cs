@@ -10,7 +10,6 @@ namespace LOZ.LinkClasses.States
         private int startTime = 0;
         private int endTime = 80;
         private IItem item;
-
         public RaiseItemLinkState(Link link, IItem item)
         {
             this.link = link;
@@ -18,12 +17,7 @@ namespace LOZ.LinkClasses.States
             linkSprite = LinkSpriteFactory.Instance.LinkRaiseItem();
             item.SetPosition(new Point(link.Position.X, link.Position.Y - 50));
         }
-
-        public override void Attack(Weapon toUse, Point position) 
-        { 
-            //Can't do anything when raising item
-        }
-
+        public override void Attack(Weapon toUse, Point position) { }
         public override void Update(GameTime timer)
         {
             linkSprite.Update(timer);

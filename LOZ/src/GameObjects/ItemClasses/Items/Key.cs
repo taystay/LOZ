@@ -10,7 +10,6 @@ namespace LOZ.ItemsClasses
             sprite = ItemFactory.Instance.CreateKeySprite();
             _itemLocation = itemLocation;
         }
-
         public override void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);

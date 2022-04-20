@@ -14,31 +14,16 @@ namespace LOZ.EnvironmentalClasses
             this.width = width;
             this.height = height;
         }
-
         public InvisibleBlock(Rectangle r)
         {
             this.itemLocation = r.Location;
             this.width = r.Width;
             this.height = r.Height;
         }
-        public override Hitbox GetHitBox()
-        {
-            return new Hitbox(itemLocation.X, itemLocation.Y, width, height);
-        }
-        public override void Update(GameTime gameTime)
-        { 
-
-        }
-
-        public override void Draw(SpriteBatch sprite)
-        {
-
-        }
-
-        public override void Draw(SpriteBatch sprite, Point offset)
-        {
-
-        }
-
+        public override Hitbox GetHitBox() =>
+            new Hitbox(itemLocation.X, itemLocation.Y, width, height);
+        public override void Update(GameTime gameTime) { }
+        public override void Draw(SpriteBatch sprite) { }
+        public override void Draw(SpriteBatch sprite, Point offset) { }
     }
 }

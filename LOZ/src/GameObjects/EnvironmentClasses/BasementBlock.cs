@@ -11,11 +11,7 @@ namespace LOZ.EnvironmentalClasses
             sprite = BlockSpriteFactory.Instance.CreateBasementBlockSprite();
             this.itemLocation = itemLocation;
         }
-        public override Hitbox GetHitBox()
-        {
-            return new Hitbox(itemLocation.X - 24, itemLocation.Y - 24, 48, 48);
-        }
-   
-
+        public override Hitbox GetHitBox() =>
+            new Hitbox(itemLocation.X - 24, itemLocation.Y - 24, 48, 48);
     }
 }

@@ -13,23 +13,19 @@ namespace LOZ.EnvironmentalClasses
 		private protected Point itemLocation;
 		public Point Position
 		{
-			get
-            {
-				return itemLocation;
-            }
-            set
-            {
-				itemLocation = value;
-            }
+			get => itemLocation;
+            set => itemLocation = value;
 		}
-		public virtual bool IsActive() { return true; }
-		public virtual void Update(GameTime gameTime) { sprite.Update(gameTime); }
+		public virtual bool IsActive() =>
+			true; 
+		public virtual void Update(GameTime gameTime) =>
+			sprite.Update(gameTime); 
 		public abstract Hitbox GetHitBox();
-		public Point GetPosition() { return Position; }
-		public virtual void Draw(SpriteBatch spriteBatch)
-		{
+
+		public Point GetPosition() =>
+			Position; 
+		public virtual void Draw(SpriteBatch spriteBatch) =>
 			sprite.Draw(spriteBatch, itemLocation);
-		}
 		public virtual void Draw(SpriteBatch spriteBatch, Point offset)
         {
 			if (sprite != null) sprite.Draw(spriteBatch, itemLocation + offset);

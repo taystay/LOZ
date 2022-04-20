@@ -21,7 +21,6 @@ namespace LOZ.EnvironmentalClasses
             topright = fac.TopRightTree();
             bottomright = fac.BottomRightTree();
         }
-
         public override Hitbox GetHitBox() => new Hitbox(Position.X - 48, Position.Y - 48, 96, 96);
         public override void Update(GameTime gameTime)
         {

@@ -52,16 +52,11 @@ namespace LOZ.LinkClasses
                 {
                     PortalManager.AddPortal((Portal)weapon);
                     SoundManager.Instance.SoundToPlayInstance(SoundEnum.PortalShot);
-                }
-
-                
+                }           
                 RoomReference.AddItem(weapon);
-                
-
                 if (TypeC.Check(weapon, typeof(Bomb))) RoomReference.GetInventory().UseBomb();
                 if (type == Weapon.Arrow) RoomReference.GetInventory().UseRupee();
                 attackAllowed = false;
-                return;
             }
         }
         public virtual void KnockBack(Point vel)
@@ -73,12 +68,8 @@ namespace LOZ.LinkClasses
                 return;
             }
         }
-        public virtual void TakeDamage(int damage)
-        {
-           
+        public virtual void TakeDamage(int damage) =>
             RoomReference.SetLink(new DamagedLink(link, damage));
-               
-        }
         public virtual void Die()
         {
             SoundManager.Instance.SoundToPlayInstance(SoundEnum.Link_Die);
@@ -89,9 +80,7 @@ namespace LOZ.LinkClasses
             if (TypeC.Check(item, typeof(Triforce)))
                 link.LinkState = new RaiseItemLinkState(link, item);
             else
-            {
                 item.KillItem();
-            }
             if(TypeC.Check(item, typeof(Fairy)))
             {
                 RoomReference.GetLink().Health += 3;

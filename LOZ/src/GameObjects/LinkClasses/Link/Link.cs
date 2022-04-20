@@ -19,10 +19,7 @@ namespace LOZ.LinkClasses
         private Point newPos;
         public int Health
         {
-            get
-            {
-                return health;
-            }
+            get { return health; }
             set
             {
                 health = value;
@@ -41,84 +38,59 @@ namespace LOZ.LinkClasses
             Inventory = new LinkInventory();
             Inventory.Initialize();
         }
-        public bool IsActive() { return true; }
-        public void ChangeDirectionUp()
-        {
+        public bool IsActive() =>
+            true; 
+        public void ChangeDirectionUp() =>
             LinkState.Up();
-        }
-        public void ChangeDirectionDown()
-        {
+        public void ChangeDirectionDown() =>
             LinkState.Down();
-        }
-        public void ChangeDirectionLeft()
-        {
+        public void ChangeDirectionLeft() =>
             LinkState.Left();
-        }
-        public void ChangeDirectionRight()
-        {
+        public void ChangeDirectionRight() =>
             LinkState.Right();
-        }
-        public void Move()
-        {
+        public void Move() =>
             LinkState.Move();
-        }
+        public void Idle() =>
+            LinkState.Idle();
+        public void RaiseItem(IItem item) =>
+            LinkState.RaiseItem(item);
+        public void Attack(Weapon currentUse) =>
+            LinkState.Attack(currentUse, Position);
+        public void Die() =>
+            LinkState.Die();    
+        public Point GetPosition() =>
+            Position;
+        public Hitbox GetHitBox() =>
+            new Hitbox(Position.X - 48 / 2 + 14, Position.Y - 48 / 2 + 14, 20, 20);     
+        public void Draw(SpriteBatch spriteBatch) =>
+            LinkState.Draw(spriteBatch, Position);
+        public void Draw(SpriteBatch spriteBatch, Point offset) =>
+            LinkState.Draw(spriteBatch, Position + offset);
+
         public void KnockBack(Point vel)
         {
             if (!RoomReference.GetDebug())
                 LinkState.KnockBack(vel);
-        }
-        public void Idle()
-        {
-            LinkState.Idle();
-        }
-        public void RaiseItem(IItem item)
-        {
-            LinkState.RaiseItem(item);
-        }
-        public void Attack(Weapon currentUse)
-        {
-            LinkState.Attack(currentUse, Position);
-        }
-        public void TakeDamage(int damage)
-        {
-            if(!RoomReference.GetDebug())
-                LinkState.TakeDamage(damage);
-        }
-        public void Die()
-        {
-            LinkState.Die();
         }
         public void ChangePosition(Point p)
         {
             newPos = p;
             updatePosition = true;
         }
-        public Point GetPosition()
+        public void TakeDamage(int damage)
         {
-            return Position;
-        }
-        public Hitbox GetHitBox()
-        {
-            Hitbox hitbox = new Hitbox(Position.X - 48 / 2 + 14, Position.Y - 48 / 2 + 14, 20, 20);
-            return hitbox;
+            if (!RoomReference.GetDebug())
+                LinkState.TakeDamage(damage);
         }
         public void Update(GameTime timer)
         {
-            if(updatePosition)
+            if (updatePosition)
             {
                 Position = newPos;
                 updatePosition = false;
             }
             Inventory.Update();
             LinkState.Update(timer);
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            LinkState.Draw(spriteBatch, Position);
-        }
-        public void Draw(SpriteBatch spriteBatch, Point offset)
-        {
-            LinkState.Draw(spriteBatch, Position + offset);
         }
     }
 }

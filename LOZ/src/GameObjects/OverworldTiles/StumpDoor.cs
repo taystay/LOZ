@@ -24,7 +24,6 @@ namespace LOZ.EnvironmentalClasses
             stumpSprites.Add(fac.CenterTree(), new Point(0, -24));
             blackBox = DisplaySpriteFactory.Instance.GetMapWalk(48,48);
         }
-
         public override Hitbox GetHitBox() => new Hitbox(Position.X - 144/2, Position.Y - 96/2, 144, 96);
         public override void Update(GameTime gameTime)
         {

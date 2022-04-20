@@ -15,16 +15,13 @@ namespace LOZ.ItemsClasses
         private protected Point newPos;
         private protected int hitBoxWidth = 14;
         private protected int hitBoxHeight = 34;
-        public void SetPosition(Point position)
-        {
+        public void SetPosition(Point position) =>
             _itemLocation = position;
-        }
         public void SetPositionOnUpdate(Point position)
         {
             needsPositionUpdate = true;
             newPos = position;
         }
-
         private protected void UpdatePosition()
         {
             if (needsPositionUpdate && newPos != null)
@@ -33,29 +30,16 @@ namespace LOZ.ItemsClasses
                 needsPositionUpdate = false;
             }
         }
-
-        public bool IsActive()
-        {
-            return spriteActivity;
-        }
-        public void KillItem()
-        {
+        public bool IsActive() =>
+            spriteActivity;
+        public void KillItem() =>
             spriteActivity = false;
-        }
-        public Hitbox GetHitBox()
-        {
-            Hitbox hitbox = new Hitbox(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
-            return hitbox;
-        }
+        public Hitbox GetHitBox() =>
+            new Hitbox(_itemLocation.X - hitBoxWidth / 2, _itemLocation.Y - hitBoxHeight / 2, hitBoxWidth, hitBoxHeight);
         public abstract void Update(GameTime gameTime);
-        public void Draw(SpriteBatch spriteBatch)
-        {
+        public void Draw(SpriteBatch spriteBatch) =>
             sprite.Draw(spriteBatch, _itemLocation);
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Point offset)
-        {
+        public void Draw(SpriteBatch spriteBatch, Point offset) =>
             sprite.Draw(spriteBatch, _itemLocation + offset);
-        }
     }
 }

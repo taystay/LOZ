@@ -25,17 +25,13 @@ namespace LOZ.ItemsClasses
         {
             if (spriteActivity && deadFrames <= 0)
                 spriteActivity = false;
-
-            //---Update Position---
             sprite.Update(gameTime);
             UpdatePosition();
-
             if (dx == 0 || dy == 0)
             {
                 deadFrames--;
                 return;
             }
-
             if (_direction == Direction.Up)
                 _itemLocation = new Point(_itemLocation.X, _itemLocation.Y - dy);
             else if (_direction == Direction.Right)

@@ -13,13 +13,28 @@ namespace LOZ.LinkClasses
         private ILink decoratedLink;
         private int count = 60;
 
-        #region GETSETS
-        public Point Position { get{ return decoratedLink.Position; } set{ decoratedLink.Position = value; } }
-        public int Health { get { return decoratedLink.Health; } set { decoratedLink.Health = value; } }
-        public int MaxHealth { get { return decoratedLink.MaxHealth; } set { decoratedLink.MaxHealth = value; } }
-        public LinkInventory Inventory { get { return decoratedLink.Inventory; } set { decoratedLink.Inventory = value; } }
-        public bool Damaged { get { return decoratedLink.Damaged; } set { decoratedLink.Damaged = value; } }
-        #endregion
+        public Point Position
+        {
+            get => decoratedLink.Position;
+            set => decoratedLink.Position = value;
+        }
+        public int Health
+        {
+            get => decoratedLink.Health;
+            set => decoratedLink.Health = value;
+        }
+        public int MaxHealth {
+            get => decoratedLink.MaxHealth;
+            set => decoratedLink.MaxHealth = value;
+        }
+        public LinkInventory Inventory {
+            get => decoratedLink.Inventory;
+            set => decoratedLink.Inventory = value;
+        }
+        public bool Damaged {
+            get => decoratedLink.Damaged;
+            set => decoratedLink.Damaged = value;
+        }
 
         public DamagedLink(ILink decoratedLink, int damage)
         {
@@ -27,7 +42,6 @@ namespace LOZ.LinkClasses
             SoundManager.Instance.SoundToPlayInstance(SoundEnum.Link_Hurt);
             this.decoratedLink = decoratedLink;
             RoomReference.GetLink().Damaged = true;
-
             if (RoomReference.GetLink().Health <= 2 && RoomReference.GetLink().Health > 0)
             {
                 SoundManager.Instance.SoundToLoop(SoundEnum.LowHealth);
@@ -38,64 +52,35 @@ namespace LOZ.LinkClasses
                 decoratedLink.Die();
             }
         }
-        public bool IsActive() { return true; }
-        public void ChangeDirectionUp()
-        {
+        public bool IsActive() =>
+            true;
+        public void ChangeDirectionUp() =>
             decoratedLink.ChangeDirectionUp();
-        }
-        public void ChangeDirectionDown()
-        {
+        public void ChangeDirectionDown() =>
             decoratedLink.ChangeDirectionDown();
-        }
-        public void ChangeDirectionLeft()
-        {
+        public void ChangeDirectionLeft() =>
             decoratedLink.ChangeDirectionLeft();
-        }
-        public void ChangeDirectionRight()
-        {
+        public void ChangeDirectionRight() =>
             decoratedLink.ChangeDirectionRight();
-        }
-        public void Move()
-        {
-            decoratedLink.Move();
-        }
-        public void KnockBack(Point vel)
-        {
-            //Should not be knocked back while taking damage
-        }
-        public void Idle()
-        {
+        public void Move() =>
+            decoratedLink.Move();     
+        public void Idle() =>
             decoratedLink.Idle();
-        }
-        public void RaiseItem(IItem item)
-        {
+        public void RaiseItem(IItem item) =>
             decoratedLink.RaiseItem(item);
-        }
-        public void Attack(Weapon currentUse)
-        {
+        public void Attack(Weapon currentUse) =>
             decoratedLink.Attack(currentUse);
-        }
-        public void TakeDamage(int damage)
-        {
-            //Already taking damage
-        }
-        public void Die()
-        {
+        public void Die() =>
             decoratedLink.Die();
-        }
-        public Point GetPosition()
-        {
-            return decoratedLink.GetPosition();
-        }
-        public void ChangePosition(Point p)
-        {
+        public Point GetPosition() =>
+            decoratedLink.GetPosition();
+        public void ChangePosition(Point p) =>
             decoratedLink.ChangePosition(p);
-        }
-        public Hitbox GetHitBox()
-        {
-            Hitbox hitbox = new Hitbox(Position.X - 48 / 2 + 14, Position.Y - 48 / 2 + 14, 20, 20);
-            return hitbox;
-        }
+        public Hitbox GetHitBox() =>
+            new Hitbox(Position.X - 48 / 2 + 14, Position.Y - 48 / 2 + 14, 20, 20);
+
+        public void KnockBack(Point vel) { }
+        public void TakeDamage(int damage) { }
         public void Update(GameTime timer)
         {
             count--;
@@ -110,13 +95,9 @@ namespace LOZ.LinkClasses
             RoomReference.SetLink(decoratedLink);
             RoomReference.GetLink().Damaged = false;
         }
-        public void Draw(SpriteBatch spriteBatch)
-        {
+        public void Draw(SpriteBatch spriteBatch) =>
             decoratedLink.Draw(spriteBatch);
-        }
-        public void Draw(SpriteBatch spriteBatch, Point offset)
-        {
+        public void Draw(SpriteBatch spriteBatch, Point offset) =>
             decoratedLink.Draw(spriteBatch, offset);
-        }
     }
 }

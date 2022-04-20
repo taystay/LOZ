@@ -106,22 +106,12 @@ namespace LOZ.ItemsClasses
             sprite.Update(gameTime);
         }
         
-        public void SetPosition(Point position)
-        {
+        public void SetPosition(Point position) =>
             _itemLocation = position;
-        }
-        public bool SpriteActive()
-        {
-            return spriteActivity;
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
+        public bool SpriteActive() => spriteActivity;
+        public void Draw(SpriteBatch spriteBatch) =>
             Draw(spriteBatch, new Point(0, 0));
-
-        }
-        public bool IsActive() { return true; }
-
+        public bool IsActive() => true;
         public void Draw(SpriteBatch spriteBatch, Point offset)
         {
             if (hasCollided)

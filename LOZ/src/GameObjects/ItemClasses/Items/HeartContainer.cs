@@ -5,7 +5,6 @@ namespace LOZ.ItemsClasses
 {
     class HeartContainer : ItemAbstract
     {
-
         public HeartContainer(Point itemLocation)
         {
             sprite = ItemFactory.Instance.CreateHeartContainerSprite();
@@ -13,7 +12,6 @@ namespace LOZ.ItemsClasses
             hitBoxWidth = 14;
             hitBoxHeight = 34;
         }
-
         public override void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);

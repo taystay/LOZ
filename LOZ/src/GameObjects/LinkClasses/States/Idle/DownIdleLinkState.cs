@@ -7,33 +7,19 @@ namespace LOZ.LinkClasses
 {
     class DownIdleLinkState : LinkStateAbstract
     {
-
         public DownIdleLinkState(Link link)
         {
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkDownIdle();
-
         }
-
-        public override void Up()
-        {
+        public override void Up() =>
             link.LinkState = new UpIdleLinkState(link);
-        }
-        public override void Left()
-        {
+        public override void Left() =>
             link.LinkState = new LeftIdleLinkState(link);
-        }
-
-        public override void Right()
-        {
+        public override void Right() =>
             link.LinkState = new RightIdleLinkState(link);
-        }
-
-        public override void Move()
-        {
+        public override void Move() =>
             link.LinkState = new DownMovingLinkState(link);
-        }
-
         public override void Attack(Weapon toUse, Point position)
         {
             if (toUse == Weapon.Default)

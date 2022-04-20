@@ -12,50 +12,17 @@ namespace LOZ.LinkClasses.States
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkDead();
         }
-        public override void Up()
-        {
-            //Link is dead.
-        }
-        public override void Down()
-        {
-            //Link is dead.
-        }
-        public override void Left()
-        {
-            //Link is dead.
-        }
-        public override void Right()
-        {
-            //Link is dead.
-        }
-        public override void Move()
-        {
-            //Link is dead.
-        }
-        public override void Idle()
-        {
-            //Link is dead.
-        }
-        public override void Attack(Weapon toUse, Point position) 
-        {
-            //Link is dead.
-        }
-        public override void KnockBack(Point vel)
-        {
-            //Link is dead.
-        }
-        public override void TakeDamage(int damage)
-        {
-            //Link is dead.
-        }
-        public override void Die()
-        {
-            //Link is dead.
-        }
-        public override void RaiseItem(IItem item)
-        {
-            //Link is dead.
-        }
+        public override void Up() { }
+        public override void Down() { }
+        public override void Left() { }
+        public override void Right() { }
+        public override void Move() { }
+        public override void Idle() { }
+        public override void Attack(Weapon toUse, Point position) { }
+        public override void KnockBack(Point vel) { }
+        public override void TakeDamage(int damage) { }
+        public override void Die() { }
+        public override void RaiseItem(IItem item) { }
         public override void Update(GameTime timer)
         {
             if(RoomReference.GetLink().Health > 0)
