@@ -58,3 +58,6 @@ https://docs.microsoft.com/en-US/troubleshoot/developer/visualstudio/csharp/gene
 https://docs.monogame.net/api/Microsoft.Xna.Framework.Rectangle.html#Microsoft_Xna_Framework_Rectangle_Contains_System_Single_System_Single_
 https://stackoverflow.com/questions/41317291/setting-the-magnitude-of-a-2d-vector#41321162
 https://docs.microsoft.com/en-us/dotnet/api/system.numerics.vector2.normalize?view=net-6.0
+https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
+https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
+https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
