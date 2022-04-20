@@ -28,7 +28,6 @@ namespace LOZ
         }
         protected override void Initialize()
         {
-            // https://community.monogame.net/t/get-the-actual-screen-width-and-height-on-windows-10-c-monogame/10006
             graphics.PreferredBackBufferWidth = Info.screenWidth;
             graphics.PreferredBackBufferHeight = Info.screenHeight;
             graphics.IsFullScreen = false;
@@ -51,10 +50,7 @@ namespace LOZ
             spriteBatch = new SpriteBatch(GraphicsDevice);        
             
             SoundManager.Instance.LoadSound(Content);
-            //CurrentRoom.Instance.LoadTextures(Content);
-           
-            //https://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path
-            //https://docs.microsoft.com/en-us/dotnet/api/system.string.remove?view=net-6.0
+
             string filePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
             RoomMaker roomMaker = new RoomMaker(filePath + "/Content/DugeonRooms/DugeonRooms/");
@@ -86,6 +82,7 @@ namespace LOZ
             CameraState.Draw(spriteBatch);
             if(RoomReference.GetDebug())
                GameFont.Instance.Write(spriteBatch, "CameraState: " + CameraState.GetType().ToString(), 75, 910);
+            //https://community.monogame.net/t/how-to-make-lightsources-torch-fire-campfire-etc-in-dark-area-2d-pixel-game/8058/20
 
             base.Draw(gameTime);
         }
