@@ -28,6 +28,8 @@
 
 - (TAYLOR) Achievements <<<What they are is a surprise>>>
 
+- (JOSE) Cheats: Unlimited Arrows, ExtraBombs, Obtain Portal Gun, Cheat Sequencing
+
 -------     BUGS    ----------
 
 skeletron states of attack are not working as intended. need to fix

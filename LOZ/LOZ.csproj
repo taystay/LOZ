@@ -42,6 +42,7 @@
     <Folder Include="src\GameObjects\ItemClasses\Items\Projectile_tools\Portal\" />
     <Folder Include="src\GameObjects\DungeonClasses\DoorTypes\" />
     <Folder Include="src\CameraStates\Transitions\" />
+    <Folder Include="src\Input\ControllerClasses\cheatControllers\" />
     <Folder Include="src\Misc\Hud\Components\" />
   </ItemGroup>
 </Project>

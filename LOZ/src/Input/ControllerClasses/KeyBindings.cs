@@ -37,6 +37,10 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.Down, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.Right, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.E, new Idle());
+            //Temporary until Sequence check works
+            ControllerMappings.RegisterReleaseCommand(Keys.F, new UnlimitedArrows(gameObject));
+            ControllerMappings.RegisterReleaseCommand(Keys.U, new ExtraBombs(gameObject));
+
             mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoomLeftClick());
             mouseControllerMappings.RegisterRightClickCommands(new SwitchRoomRightClick());
         }
