@@ -20,6 +20,11 @@ namespace LOZ.Collision
             {
                 DoorCollider d = (DoorCollider)secondObject;
                 d.Collision(firstObject);
+                if(TypeC.Check(firstObject, typeof(IPlayerProjectile)))
+                {
+                    IPlayerProjectile p = (IPlayerProjectile)firstObject;
+                    p.KillItem();
+                }
             }
             if(TypeC.Check(secondObject, typeof(Portal)) && TypeC.Check(firstObject, typeof(IEnvironment)))
             {

@@ -102,7 +102,7 @@ namespace LOZ.LinkClasses
                 SoundManager.Instance.SoundToPlayInstance(SoundEnum.Get_Item);
             }
         }
-        public virtual void Update(GameTime timer)
+        public void NormalUpdate(GameTime timer)
         {
             if (RoomReference.GetLink().Health > 2)
             {
@@ -120,18 +120,22 @@ namespace LOZ.LinkClasses
             if (knockedBack)
             {
                 currentKnockBack++;
-                if(currentKnockBack >= knockBackDuration)
+                if (currentKnockBack >= knockBackDuration)
                 {
                     knockedBack = false;
                     currentKnockBack = 0;
-                } 
+                }
                 else
                 {
                     link.Position = new Point(link.Position.X + knockBackVel.X, link.Position.Y + knockBackVel.Y);
                 }
-            } 
+            }
             linkSprite.Update(timer);
         }
+
+        public virtual void Update(GameTime timer) =>
+            NormalUpdate(timer);
+
         public void Draw(SpriteBatch spriteBatch, Point position)
         {
             if (RoomReference.GetLink().Damaged)

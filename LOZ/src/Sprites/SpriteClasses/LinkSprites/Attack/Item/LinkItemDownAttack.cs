@@ -30,7 +30,6 @@ namespace LOZ.SpriteClasses.LinkSprites
             if (currentFrame == maxFrames)
             {
                 currentFrame = 0;
-                RoomReference.GetLink().Idle();
             }
             frame = frames[currentFrame];
         }

@@ -9,14 +9,19 @@ namespace LOZ.LinkClasses.States
 {
     class LeftAttackItemLinkState : LinkStateAbstract
     {
+        private readonly int attackLength = 22;
+        private int counter = 0;
         private Point attackPosition;
         public LeftAttackItemLinkState(Link link)
         {
             this.link = link;
             linkSprite = LinkSpriteFactory.Instance.LinkItemLeftAttack();
         }
-        public override void Idle() =>
-            link.LinkState = new LeftIdleLinkState(link);
+        public override void Idle()
+        {
+            if (counter >= attackLength)
+                link.LinkState = new LeftIdleLinkState(link);
+        }
         public override void Attack(Weapon toUse, Point position)
         {
             attackPosition.X = position.X - 36;
@@ -43,6 +48,13 @@ namespace LOZ.LinkClasses.States
             {
                 AttemptAttack(new Portal(attackPosition, 3, PortalManager.getColor()), toUse);
             }
+        }
+        public override void Update(GameTime timer)
+        {
+            NormalUpdate(timer);
+            counter++;
+            if (counter >= attackLength)
+                Idle();
         }
 
     }

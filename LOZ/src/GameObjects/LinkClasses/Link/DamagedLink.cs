@@ -18,6 +18,11 @@ namespace LOZ.LinkClasses
             get => decoratedLink.Position;
             set => decoratedLink.Position = value;
         }
+        public ILinkState LinkState
+        {
+            get => decoratedLink.LinkState;
+            set => decoratedLink.LinkState = value;
+        }
         public int Health
         {
             get => decoratedLink.Health;

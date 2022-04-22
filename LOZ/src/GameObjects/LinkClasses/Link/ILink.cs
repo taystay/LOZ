@@ -21,6 +21,7 @@ namespace LOZ.LinkClasses
         public int MaxHealth { get; set; }
         public LinkInventory Inventory { get; set; }
         public bool Damaged { get; set; }
+        public ILinkState LinkState { get; set; }
         public void ChangeDirectionUp();
         public void ChangeDirectionDown();
         public void ChangeDirectionLeft();

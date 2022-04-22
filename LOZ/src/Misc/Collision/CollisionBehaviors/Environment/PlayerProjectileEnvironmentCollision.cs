@@ -26,7 +26,7 @@ namespace LOZ.Collision
                 else if (side == CollisionSide.Bottom)
                     projectile.SetPosition(new Point(projectile._itemLocation.X, projectile._itemLocation.Y + collisionBox.Height));
             } else if (TypeC.Check(environemnt, typeof(InvisibleBlock)))
-                projectile.KillItem();   
+            projectile.KillItem();   
         }
     }
 }

@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using LOZ.GameStateReference;
 using System.Collections.Generic;
+using LOZ.LinkClasses.States;
+using LOZ.LinkClasses;
 
 namespace LOZ.SpriteClasses.LinkSprites
 {
@@ -27,9 +29,7 @@ namespace LOZ.SpriteClasses.LinkSprites
             if (currentFrame == maxFrames)
             {
                 currentFrame = 0;
-                RoomReference.GetLink().Idle();
-            }
-                
+            }                
             frame = frames[currentFrame];
         }
 
@@ -40,17 +40,9 @@ namespace LOZ.SpriteClasses.LinkSprites
             Rectangle destinationRectangle = new Rectangle(location.X - width / 2, location.Y - height / 2, width, height);
 
             if (currentFrame == 1)
-            {
                 destinationRectangle = new Rectangle((location.X - width / 2), (location.Y - height / 2) + 12, width, height);
-            }
-
-            //for SpriteBatch.Begin(...)
-            //the paramater idea was from:
-            //https://stackoverflow.com/questions/34626732/seeing-wrap-texture-when-using-clamp-mode-in-monogame-pictures-incl
-            //https://csharp.hotexamples.com/examples/Microsoft.Xna.Framework.Graphics/SpriteBatch/Begin/php-spritebatch-begin-method-examples.html
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp);
             spriteBatch.Draw(linkSprite, destinationRectangle, frame, Color.White);
-
             spriteBatch.End();
         }
     }
