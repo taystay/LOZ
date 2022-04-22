@@ -22,6 +22,7 @@ namespace LOZ.Collision
                 else if (side == CollisionSide.Right)
                     _enemy.KnockBack(new Point(4, 0));
             }
+            projectile.KillItem();
         }
     }
 }
