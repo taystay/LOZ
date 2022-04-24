@@ -19,6 +19,7 @@ namespace LOZ
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch { get; set; }
         public ICameraState CameraState { get; set; }
+        public bool HardCore { get; set; }
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -60,7 +61,7 @@ namespace LOZ
 
             CurrentRoom.Instance.LoadContents(allRooms);
 
-            bool debugState = true;
+            bool debugState = false;
             if(debugState)
             {
                 HudElement inv = new InventoryHud(RoomReference.GetLink().Inventory);

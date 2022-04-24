@@ -10,6 +10,7 @@ namespace LOZ.Factories
 		private Texture2D HUDSpritesheet;
 		private Texture2D tranparentB;
 		private Texture2D mainMenu;
+		private Texture2D hardMenu;
 		private Texture2D black;
 		private Texture2D vic;
 		private Texture2D alphaMask;
@@ -21,6 +22,7 @@ namespace LOZ.Factories
 			HUDSpritesheet = content.Load<Texture2D>("HUDLayout");
 			tranparentB = content.Load<Texture2D>("transparentB");
 			mainMenu = content.Load<Texture2D>("menuv2");
+			hardMenu = content.Load<Texture2D>("menuv3");
 			black = content.Load<Texture2D>("Black");
 			vic = content.Load<Texture2D>("VictoryScreen");
 			alphaMask = content.Load<Texture2D>("whiteCircle");
@@ -29,6 +31,7 @@ namespace LOZ.Factories
 		public ISprite GetIntroText() => new IntroText(mainMenu);
 		public Texture2D getBlackFade() => black;
 		public ISprite GetMainMenu() => new MainMenu(mainMenu);
+		public ISprite GetHardMenu() => new MainMenu(hardMenu);
 		public ISprite CreateSelectItemSprite() => new SelectItemSprite(HUDSpritesheet);
 		public ISprite CreateHUDSprite() => new HUDSprite(HUDSpritesheet);
 		public ISprite CreateRoomOnMapSprite() => new MapRoom(HUDSpritesheet);
