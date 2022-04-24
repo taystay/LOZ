@@ -12,8 +12,9 @@ namespace LOZ.Sound
 		private Dictionary<String, SoundEffectInstance> sounds;
 		private static SoundManager instance = new SoundManager();
 		private bool mute;
-		public static SoundManager Instance { get { return instance; } }
 		private SoundManager() { }
+
+		public static SoundManager Instance { get { return instance; } }
 		public void LoadSound(ContentManager content)
 		{
 			mute = false;

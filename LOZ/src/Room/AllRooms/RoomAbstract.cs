@@ -2,9 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using LOZ.Collision;
 using System.Collections.Generic;
-using LOZ.EnemyClass;
-using LOZ.ItemsClasses;
-using LOZ.EnemyClass.Projectiles;
 using LOZ.DungeonClasses;
 
 namespace LOZ.Room

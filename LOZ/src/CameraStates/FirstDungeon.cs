@@ -8,7 +8,6 @@ using LOZ.Room;
 using LOZ.SpriteClasses;
 using LOZ.ItemsClasses;
 using LOZ.Factories;
-using LOZ.DungeonClasses;
 
 namespace LOZ.src.CameraStates
 {
@@ -54,7 +53,7 @@ namespace LOZ.src.CameraStates
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            CurrentRoom.Instance.Draw(spriteBatch);
+            RoomReference.Draw(spriteBatch);
 
             if (!RoomReference.GetDebug() && RoomReference.GetCurrLocation().Z == 0)
                 FOWFactory.Instance.DrawShadow(spriteBatch);

@@ -10,10 +10,10 @@ namespace LOZ.EnemyClass
     class Dragon : AbstractEnemy
     {
         private const int framesPerUpdate = UpdateSpeed.DragonUpdate;
-        private int frameCounter = 0;
         private const int framesPerUpdate2 = UpdateSpeed.DragonShootUpdate;
+        private const int framesPerUpdate3 = UpdateSpeed.DragonShootUpdate / 8;
+        private int frameCounter = 0;
         private int frameCounter2 = 0;
-        private const int framesPerUpdate3 = UpdateSpeed.DragonShootUpdate/2;
         private int frameCounter3 = 0;
         private Random r = new Random();
         private bool quad = false;
@@ -63,23 +63,6 @@ namespace LOZ.EnemyClass
             }
             modifyPosition(velocity.X,0);         
             if (frameCounter2 > framesPerUpdate2 && !quad) {
-
-                int lastDigit = r.Next() % 3;
-                if (lastDigit == 0)
-                {
-                    quad = true;
-                }
-                else if (lastDigit == 1)
-                {
-                    ProjectileTypes.Shotgun(Position);
-                }
-                else if (lastDigit == 2)
-                {
-                    ProjectileTypes.Wave(Position);
-                }
-                else {
-                    ProjectileTypes.SingleShot(Position); //never runs 
-                }      
                 frameCounter2 = 0;
             }
 
@@ -100,6 +83,23 @@ namespace LOZ.EnemyClass
             }
 
             _texture.Update(timer);
+        }
+
+
+        private void DragonAttack() {
+
+            int lastDigit = r.Next() % 4;
+            if (lastDigit == 0)
+                quad = true;
+            else if (lastDigit == 1)
+                ProjectileTypes.Shotgun(Position);
+            else if (lastDigit == 2)
+                ProjectileTypes.Wave(Position);
+            else
+            {
+                ProjectileTypes.SingleShot(Position); //never runs 
+            }
+
         }
     }
 }

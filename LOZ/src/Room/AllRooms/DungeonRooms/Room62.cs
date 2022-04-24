@@ -1,16 +1,12 @@
 ﻿using LOZ.MapIO;
-using LOZ.ItemsClasses;
 using LOZ.Collision;
 using LOZ.DungeonClasses;
 using LOZ.GameState;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using LOZ.LinkClasses;
 using LOZ.CommandClasses;
-using LOZ.EnemyClass;
-using LOZ.SpriteClasses;
-using LOZ.Factories;
 using LOZ.EnvironmentalClasses;
+using LOZ.ItemsClasses;
 
 namespace LOZ.Room
 {
@@ -23,6 +19,11 @@ namespace LOZ.Room
             gameObjects.Add(new StairsBlock(GetCoorPoint(2, 2)));
             gameObjects.Add(new DoorCollider(new Rectangle(GetCoorPoint(1.6, 1.6), new Point(52, 52)), new EnterBossFight(), typeof(ILink)));
             exterior = new ExteriorObject(DoorType.Wall, DoorType.Wall, DoorType.Wall, DoorType.Door, gameObjects);
+
+            gameObjects.Add(new Heart(GetCoorPoint(4, 2)));
+            gameObjects.Add(new Heart(GetCoorPoint(5, 2)));
+            gameObjects.Add(new Heart(GetCoorPoint(6, 2)));
+
             colliders = new CollisionIterator(gameObjects);
         }
     }

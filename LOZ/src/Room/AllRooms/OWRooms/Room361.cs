@@ -1,14 +1,10 @@
 ﻿using LOZ.MapIO;
-using LOZ.EnemyClass;
 using LOZ.Collision;
 using LOZ.GameState;
 using Microsoft.Xna.Framework;
 using LOZ.CommandClasses.RoomCommands;
 using LOZ.LinkClasses;
-using LOZ.DungeonClasses;
-using LOZ.ItemsClasses;
 using LOZ.EnvironmentalClasses;
-using LOZ.CommandClasses;
 
 namespace LOZ.Room
 {

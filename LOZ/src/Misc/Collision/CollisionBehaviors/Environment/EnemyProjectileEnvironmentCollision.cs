@@ -11,7 +11,7 @@ namespace LOZ.Collision
             DragonBreathe projectile = (DragonBreathe)p;
             IEnvironment environemnt = (IEnvironment)e;
 
-            if (TypeC.Check(environemnt, typeof(InvisibleBlock)))
+            if (TypeC.Check(environemnt, typeof(InvisibleBlock)) || TypeC.Check(environemnt, typeof(BlueTriangleBlock)))
             {
                 projectile.activeFire = false;
             }
