@@ -1,0 +1,8 @@
+For the final sprint, we wanted to add many aspects to the game that would increase its diffculty and hopefully make it more fun to play. In order to do this, we first 
+brainstormed ideas that included ideas such as making a bullet hell game mode, new bosses, adding the overworld, adding achievements, cheatcodes, an npc for escort 
+quests, and a portal gun/new weapons. In the end, the ideas that made it was a new boss in the form of Skeletron from Terraria, the Dragon located at the end of the 
+dungeon beign changed to be a bullet hell, and cheatcodes. Another thing added in this sprint was the portal gun inspired by Valve's Portal series. Using this will allow 
+players to play around with the projectiles in the game more and be more creative with the ways they approach attacking enemies and traversing the dungeon.Finally, because 
+we wanted to polish the game so that it felt like something publishable so we added a main menu screen with the option to toggle a hardcore mode, added sound effects where 
+we felt it necessary to keep the immersion of the game, and an almost unique credits that will  roll once the game has been completed and the triforce piece collected. As a
+final note, when toggling hardcore mode, each enemy killed will spwan an invincible ghost enemy that will slowy pursue the player until they leave the room.

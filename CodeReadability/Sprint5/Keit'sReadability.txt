@@ -1,0 +1,17 @@
+Author: Taylor Liu
+4/24/22
+
+Sprint 5
+
+DragonBreathe.cs: Kiet Vu
+	Time: 5 mins
+	
+	Comments: This code was very easy to read, with each variable name fully describing the purpose of the variable. The code itself is also very easy to follow with
+	the logic of the methods being extremely simple and easy to read.
+
+ProjectileTypes.cs: Kiet Vu
+	Time: 10 mins
+	
+	Comment: Each method name generally describes the purpose of the method which leaves little to the imagination for what the attack could look like when called.
+	The logic for each method is also succinct and easy to follow when simply tracing the offset that's being called.
+	

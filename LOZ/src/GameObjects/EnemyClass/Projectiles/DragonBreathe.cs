@@ -45,9 +45,7 @@ namespace LOZ.EnemyClass.Projectiles
             return activeFire;
         }
 
-        public void Draw(SpriteBatch spriteBatch) =>
-            dragonFire.Draw(spriteBatch, fireBallPosition);
-        public void Draw(SpriteBatch spriteBatch, Point offset) =>
-            dragonFire.Draw(spriteBatch, fireBallPosition + offset);
+        public void Draw(SpriteBatch spriteBatch) => dragonFire.Draw(spriteBatch, fireBallPosition);
+        public void Draw(SpriteBatch spriteBatch, Point offset) => dragonFire.Draw(spriteBatch, fireBallPosition + offset);
     }
 }

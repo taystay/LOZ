@@ -1,0 +1,25 @@
+Author: Taylor Liu
+4/24/22
+
+Sprint 5
+
+DragonBreathe.cs: Kiet Vu
+	Time: 5 mins
+	
+	Comments: Overall this code has very high cohesion, having all of it's variables and imports dealing with specifically the individual fire ball being spawned when
+	the dragon fires its breahte attacks.
+
+	Maintainability: This code should be relatively easy to maintain as it takes into account the fireball's position, sprite, and activity, even letting the programmer
+	pass in the speed and direction that the fireball will be travelling at which ensures that the fireball can be used for multiple purposes. Though it might be worth
+	considering if we ever work on this in the future to add a color parameter or size parameter so that the fireball is even more customizable.
+
+ProjectileTypes.cs: Kiet Vu
+	Time: 10 mins
+	
+	Comment: Extremely low coupling with relatively high cohesion. While the class does define multiple methods that all do different actions. They all only rely on the
+	class DragonBreathe to spawn the fireballs and each method is only in charge of spawning one attack pattern for the dragons breathe attacks. Overall very good.
+
+	Maintainability: This code looks to be easily maintainable with each method only handling a single attack that the dragon can perform. If the dragon were to get more
+	attacks that rely on projectiles, more methods would need to be created which could be harder to keep maintainable. Additionally, if the DragonBreathe class were to
+	ever change, every reference to it in ProjectileTypes would need to be manually updated.
+	
