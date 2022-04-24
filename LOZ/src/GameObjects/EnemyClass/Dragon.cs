@@ -11,13 +11,15 @@ namespace LOZ.EnemyClass
     {
         private const int framesPerUpdate = UpdateSpeed.DragonUpdate;
         private const int framesPerUpdate2 = UpdateSpeed.DragonShootUpdate;
-        private const int framesPerUpdate3 = UpdateSpeed.DragonShootUpdate / 8;
+        private const int framesPerUpdate3 = UpdateSpeed.DragonShootUpdate / 16;
         private int frameCounter = 0;
         private int frameCounter2 = 0;
         private int frameCounter3 = 0;
         private Random r = new Random();
         private bool quad = false;
         private int quadShots = 0;
+        private int coolDown = 125;
+
         public Dragon(Point location)
         {
             Health = 6;
@@ -62,11 +64,17 @@ namespace LOZ.EnemyClass
                     IsDamaged = false;
             }
             modifyPosition(velocity.X,0);         
-            if (frameCounter2 > framesPerUpdate2 && !quad) {
+            if (frameCounter2 > framesPerUpdate2) {
                 frameCounter2 = 0;
             }
 
-            if(quad)
+            if (coolDown <0)
+            {
+                DragonAttack();
+                coolDown = 125;
+            }
+
+            if (quad)
             {
                 frameCounter3++;
                 if (frameCounter3 > framesPerUpdate3)
@@ -82,6 +90,7 @@ namespace LOZ.EnemyClass
                 }
             }
 
+            coolDown--;
             _texture.Update(timer);
         }
 
