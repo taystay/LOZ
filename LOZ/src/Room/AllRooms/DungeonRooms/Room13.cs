@@ -23,7 +23,7 @@ namespace LOZ.Room
         public override void Draw(SpriteBatch spriteBatch, Point offset)
         {
             DrawNormally(spriteBatch, offset);
-            GameFont.Instance.Write(spriteBatch, "Eastmost Peninisula \n     is the secret", 265 + offset.X + 50, 450 + offset.Y + 24);         
+            GameFont.Instance.Write(spriteBatch, "    Some walls may\n      be bombable", 265 + offset.X + 50, 450 + offset.Y + 24);         
         }
     }
 }

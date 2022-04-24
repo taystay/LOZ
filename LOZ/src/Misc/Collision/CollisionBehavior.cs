@@ -5,8 +5,6 @@ using LOZ.ItemsClasses;
 using LOZ.EnemyClass.Projectiles;
 using LOZ.GameState;
 using LOZ.GameStateReference;
-using LOZ.CommandClasses.RoomCommands;
-using LOZ.CommandClasses;
 
 namespace LOZ.Collision
 {
@@ -66,7 +64,7 @@ namespace LOZ.Collision
                 LinkBlockCollision.Handle(firstObject, secondObject, side);
             else if (TypeC.Check(secondObject, typeof(IProjectile)))
                 LinkProjectileCollision.Handle(secondObject);
-            else if (TypeC.Check(secondObject, typeof(IEnemy)))
+            else if (TypeC.Check(secondObject, typeof(IEnemy)) && !TypeC.Check(secondObject, typeof(NPC)))
                 LinkEnemyCollision.Handle(side);
             else if (TypeC.Check(secondObject, typeof(IItem)))
                 LinkItemCollision.Handle(secondObject, side);
