@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using LOZ.LinkClasses;
-using LOZ.GameStateReference;
+﻿using LOZ.GameStateReference;
 using LOZ.Inventory;
-using LOZ.ItemsClasses;
 using LOZ.Sound;
 
 namespace LOZ.CommandClasses
