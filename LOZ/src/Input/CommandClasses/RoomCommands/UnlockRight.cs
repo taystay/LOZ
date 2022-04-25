@@ -19,7 +19,6 @@ namespace LOZ.CommandClasses.RoomCommands
                 if (nextRoom != null) nextRoom.UpdateExterior(DoorType.Door, DoorLocation.Left);
                 else System.Diagnostics.Debug.WriteLine("error opening right");
             }
-            
         }
     }
 }
