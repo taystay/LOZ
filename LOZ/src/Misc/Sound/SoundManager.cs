@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
-using System.Diagnostics;
 
 namespace LOZ.Sound
 {
@@ -13,7 +12,6 @@ namespace LOZ.Sound
 		private static SoundManager instance = new SoundManager();
 		private bool mute;
 		private SoundManager() { }
-
 		public static SoundManager Instance { get { return instance; } }
 		public void LoadSound(ContentManager content)
 		{
