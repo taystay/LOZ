@@ -18,7 +18,7 @@ namespace LOZ.CommandClasses
         {
             //when bombs reach 0 will not work when adding bombs
             LinkInventory inv = RoomReference.GetInventory();
-            //inv.AddItem(new PortalGun(new Point(0, 0)));
+            //inv.AddItem(item: Portal);
             
         }
     }

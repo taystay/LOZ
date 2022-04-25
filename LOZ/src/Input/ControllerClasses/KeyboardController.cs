@@ -14,7 +14,7 @@ namespace LOZ.ControllerClasses
         private Dictionary<Keys, ICommand> storedReleaseCommands;
         private List<Keys> releaseKeysPressed;
         private Keys keyBeingHeld = Keys.None;
-        private Dictionary< Tuple<Keys, Keys, Keys> , ICommand> storedSeqCommands;
+        private Dictionary<Keys , ICommand> storedSeqCommands;
         public KeyboardController(Game1 GameObject)
         {
             storedInitCommands = new Dictionary<Keys, ICommand>();
@@ -22,7 +22,7 @@ namespace LOZ.ControllerClasses
             storedHoldCommands = new Dictionary<Keys, ICommand>();
             storedReleaseCommands = new Dictionary<Keys, ICommand>();
             releaseKeysPressed = new List<Keys>();
-            storedSeqCommands = new Dictionary<Tuple<Keys, Keys, Keys>, ICommand>();
+            storedSeqCommands = new Dictionary<Keys, ICommand>();
         }
         public void RegisterInitialCommand(Keys key, ICommand initialPressCommand) =>
             storedInitCommands.Add(key, initialPressCommand);
@@ -30,8 +30,8 @@ namespace LOZ.ControllerClasses
             storedHoldCommands.Add(key, holdCommand);
         public void RegisterReleaseCommand(Keys key, ICommand onReleaseCommand) =>
             storedReleaseCommands.Add(key, onReleaseCommand);
-        public void RegisterSeqCommand(Tuple<Keys, Keys, Keys> tuple, ICommand command) =>
-            storedSeqCommands.Add(tuple, command);
+        public void RegisterSeqCommand(Keys key, ICommand command) =>
+            storedSeqCommands.Add(key, command);
 
         private void UpdateInitPress()
         {
@@ -94,34 +94,22 @@ namespace LOZ.ControllerClasses
 
         private void UpdateSequence()
         {
-            /* int j = 0;
-             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-             KeyboardState pressedKeys2 = Keyboard.GetState();
-             Dictionary<Tuple<Keys, Keys, Keys>, ICommand>.KeyCollection keys = storedSeqCommands.Keys;
-             Tuple<Keys, Keys, Keys>[] t = new Tuple<Keys, Keys, Keys>[3];
-             keys.CopyTo(t, j);
-            */
-            //need to somehow get keys from dictionary when key is an array, or tuple.
-            /*
-            foreach (Keys key in pressedKeys)
-            {
-                if (storedSeqCommands.ContainsKey(key) && !keysPressed.Contains(key))
+   
+            KeyboardState pressedKeys = Keyboard.GetState();
+
+                 //ExtraBombs
+                if (pressedKeys.IsKeyDown(Keys.F) && pressedKeys.IsKeyDown(Keys.G) && pressedKeys.IsKeyDown(Keys.H))
                 {
-                    keysPressed.Add(key);
-                    storedInitCommands[key].execute();
+                storedSeqCommands[Keys.F].execute();
                 }
-            }
-            int i = keysPressed.Count - 1;
-            while (i >= 0)
-            {
-                Keys key = keysPressed[i];
-                if (Keyboard.GetState().IsKeyUp(key))
+                //UnlimitedArrows
+                if (pressedKeys.IsKeyDown(Keys.W) && pressedKeys.IsKeyDown(Keys.U) && pressedKeys.IsKeyDown(Keys.H))
                 {
-                    keysPressed.Remove(key);
+                    storedSeqCommands[Keys.D9].execute();
                 }
-                i--;
-            }
-            */
+
+
+
 
         }
             

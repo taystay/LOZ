@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using LOZ.CommandClasses;
 using LOZ.GameState;
+using System;
 
 namespace LOZ.ControllerClasses
 {
@@ -38,9 +39,8 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.Right, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.E, new Idle());
             //Temporary until Sequence check works
-            ControllerMappings.RegisterReleaseCommand(Keys.F, new UnlimitedArrows(gameObject));
-            ControllerMappings.RegisterReleaseCommand(Keys.U, new ExtraBombs(gameObject));
-
+            ControllerMappings.RegisterSeqCommand(Keys.F , new ExtraBombs(gameObject));
+            ControllerMappings.RegisterSeqCommand(Keys.D9, new UnlimitedArrows(gameObject));
             mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoomLeftClick());
             mouseControllerMappings.RegisterRightClickCommands(new SwitchRoomRightClick());
         }
