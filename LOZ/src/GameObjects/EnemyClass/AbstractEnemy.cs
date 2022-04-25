@@ -54,6 +54,9 @@ namespace LOZ.EnemyClass
         {
             if (Health <= 0)
             {
+                if(RoomReference.GetHardMode())
+                    RoomReference.AddItem(new GhostGuy(Position));
+
                 int num = random.Next();
                 if (num % 2 == 0)
                 {

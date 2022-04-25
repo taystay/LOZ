@@ -61,6 +61,9 @@ namespace LOZ.src.CameraStates
             _topHud.Draw(spriteBatch);
             if (RoomReference.GetLink().Health <= 0)
                 GameOverDisplay.Draw(spriteBatch, new Point(500, 500));
+
+            if (RoomReference.GetDebug())
+                GameFont.Instance.Write(spriteBatch, "F+G for bombs\nW+U for rupees\nL+O for portal gun", 15, 100);
         }
     }
 }

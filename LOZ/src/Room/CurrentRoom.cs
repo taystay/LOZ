@@ -42,8 +42,8 @@ namespace LOZ.Room
         public void Draw(SpriteBatch spriteBatch) {
             if (DebugMode)
             {
-                Factories.GameFont.Instance.Write(spriteBatch, "x: " + currentLocation.X + ",y: " + currentLocation.Y + ",z: " + currentLocation.Z, 300, 200);
-                Factories.GameFont.Instance.Write(spriteBatch, "mouse: {x}: " + Mouse.GetState().X + " {y}: " + Mouse.GetState().Y, 300, 250);
+                Factories.GameFont.Instance.Write(spriteBatch, "x: " + currentLocation.X + ",y: " + currentLocation.Y + ",z: " + currentLocation.Z, 14, 245);
+                Factories.GameFont.Instance.Write(spriteBatch, "mouse: {x}: " + Mouse.GetState().X + " {y}: " + Mouse.GetState().Y, 14, 290);
             }          
             currentRoom.Draw(spriteBatch, new Point(0,0));
         }

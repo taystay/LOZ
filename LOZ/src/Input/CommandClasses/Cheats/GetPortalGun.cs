@@ -6,6 +6,7 @@ using LOZ.GameStateReference;
 using LOZ.Inventory;
 using LOZ.ItemsClasses;
 using LOZ.Room;
+using Microsoft.Xna.Framework;
 
 namespace LOZ.CommandClasses
 {
@@ -18,8 +19,7 @@ namespace LOZ.CommandClasses
         {
             //when bombs reach 0 will not work when adding bombs
             LinkInventory inv = RoomReference.GetInventory();
-            //inv.AddItem(item: Portal);
-            
+            inv.AddItem(new PortalGun(new Point()));        
         }
     }
 }

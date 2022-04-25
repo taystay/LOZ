@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using LOZ.DungeonClasses;
 using LOZ.SpriteClasses;
 using LOZ.Factories;
+using LOZ.GameStateReference;
 
 namespace LOZ.src.CameraStates
 {
@@ -24,7 +25,7 @@ namespace LOZ.src.CameraStates
             else if (Keyboard.GetState().IsKeyDown(Keys.H) && pressed == Keys.None)
             {
                 pressed = Keys.H;
-                _gameObject.HardCore = !_gameObject.HardCore;
+                RoomReference.ToggleHardMode();
             }
             if (!Keyboard.GetState().IsKeyDown(Keys.H) && pressed == Keys.H)
                 pressed = Keys.None;
@@ -34,7 +35,7 @@ namespace LOZ.src.CameraStates
         public void Reset() { }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!_gameObject.HardCore)
+            if (!RoomReference.GetHardMode())
                 menu = DisplaySpriteFactory.Instance.GetMainMenu();
             else
                 menu = DisplaySpriteFactory.Instance.GetHardMenu();

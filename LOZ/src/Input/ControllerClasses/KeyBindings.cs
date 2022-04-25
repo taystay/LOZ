@@ -2,6 +2,7 @@
 using LOZ.CommandClasses;
 using LOZ.GameState;
 using System;
+using System.Collections.Generic;
 
 namespace LOZ.ControllerClasses
 {
@@ -38,10 +39,9 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterReleaseCommand(Keys.Down, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.Right, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.E, new Idle());
-            //Temporary until Sequence check works
-            ControllerMappings.RegisterSeqCommand(Keys.F , new ExtraBombs(gameObject));
-            ControllerMappings.RegisterSeqCommand(Keys.D9, new UnlimitedArrows(gameObject));
-            ControllerMappings.RegisterSeqCommand(Keys.D8, new GetPortalGun(gameObject));
+            ControllerMappings.RegisterKeySequenceCommand(new List<Keys>(){Keys.F, Keys.G} , new ExtraBombs(gameObject));
+            ControllerMappings.RegisterKeySequenceCommand(new List<Keys>() { Keys.W, Keys.U }, new UnlimitedArrows(gameObject));
+            ControllerMappings.RegisterKeySequenceCommand(new List<Keys>() { Keys.L, Keys.O }, new GetPortalGun(gameObject));
             mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoomLeftClick());
             mouseControllerMappings.RegisterRightClickCommands(new SwitchRoomRightClick());
         }

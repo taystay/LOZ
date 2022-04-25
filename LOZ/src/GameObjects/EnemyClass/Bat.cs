@@ -34,9 +34,7 @@ namespace LOZ.EnemyClass
                 {
                     double dx = (linkP.X - Position.X);
                     double dy = (linkP.Y - Position.Y);
-
                     double mag = Math.Sqrt(dx * dx + dy * dy);
-
                     dx = dx * vMag / mag;
                     dy = dy * vMag / mag;
                     velocity2.X = (float)dx;

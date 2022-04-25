@@ -14,7 +14,7 @@ namespace LOZ.ControllerClasses
         private Dictionary<Keys, ICommand> storedReleaseCommands;
         private List<Keys> releaseKeysPressed;
         private Keys keyBeingHeld = Keys.None;
-        private Dictionary<Keys , ICommand> storedSeqCommands;
+        private Dictionary<List<Keys>, ICommand> SequenceCommands;
         public KeyboardController(Game1 GameObject)
         {
             storedInitCommands = new Dictionary<Keys, ICommand>();
@@ -22,16 +22,16 @@ namespace LOZ.ControllerClasses
             storedHoldCommands = new Dictionary<Keys, ICommand>();
             storedReleaseCommands = new Dictionary<Keys, ICommand>();
             releaseKeysPressed = new List<Keys>();
-            storedSeqCommands = new Dictionary<Keys, ICommand>();
-        }
+            SequenceCommands = new Dictionary<List<Keys>, ICommand>();
+    }
         public void RegisterInitialCommand(Keys key, ICommand initialPressCommand) =>
             storedInitCommands.Add(key, initialPressCommand);
         public void RegisterHoldCommand(Keys key, ICommand holdCommand) =>
             storedHoldCommands.Add(key, holdCommand);
         public void RegisterReleaseCommand(Keys key, ICommand onReleaseCommand) =>
             storedReleaseCommands.Add(key, onReleaseCommand);
-        public void RegisterSeqCommand(Keys key, ICommand command) =>
-            storedSeqCommands.Add(key, command);
+        public void RegisterKeySequenceCommand(List<Keys> keys, ICommand command) =>
+            SequenceCommands.Add(keys, command);
 
         private void UpdateInitPress()
         {
@@ -94,28 +94,17 @@ namespace LOZ.ControllerClasses
 
         private void UpdateSequence()
         {
-   
-            KeyboardState pressedKeys = Keyboard.GetState();
-
-                 //ExtraBombs
-                if (pressedKeys.IsKeyDown(Keys.F) && pressedKeys.IsKeyDown(Keys.G) && pressedKeys.IsKeyDown(Keys.H))
-                {
-                storedSeqCommands[Keys.F].execute();
-                }
-                //UnlimitedArrows
-                if (pressedKeys.IsKeyDown(Keys.W) && pressedKeys.IsKeyDown(Keys.U) && pressedKeys.IsKeyDown(Keys.H))
-                {
-                    storedSeqCommands[Keys.D9].execute();
-                }
-                //Portal gun
-            if (pressedKeys.IsKeyDown(Keys.P) && pressedKeys.IsKeyDown(Keys.O) && pressedKeys.IsKeyDown(Keys.T))
+            foreach(KeyValuePair<List<Keys>, ICommand> pair in SequenceCommands)
             {
-                storedSeqCommands[Keys.D8].execute();
+                bool allKeysDown = true;
+                foreach(Keys key in pair.Key)
+                {
+                    if (!Keyboard.GetState().IsKeyDown(key))
+                        allKeysDown = false;
+                }
+                if (!allKeysDown) continue;
+                pair.Value.execute();
             }
-
-
-
-
         }
             
         public void Update(GameTime gameTime)

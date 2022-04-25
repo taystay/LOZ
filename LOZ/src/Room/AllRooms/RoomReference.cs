@@ -11,6 +11,9 @@ namespace LOZ.GameStateReference
 {
     public static class RoomReference
     {
+        private static bool HardMode = false;
+        public static bool GetHardMode() => HardMode;
+        public static void ToggleHardMode() => HardMode = !HardMode;
         public static ILink GetLink() => CurrentRoom.link;
         public static void SetLink(ILink linkState) => CurrentRoom.link = linkState;
         public static Point3D GetCurrLocation() => CurrentRoom.currentLocation;

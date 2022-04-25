@@ -24,5 +24,6 @@ namespace LOZ.Factories
 		public ISprite CenterTree() => new OverworldTile(blockSpritesheet, 7);
 		public ISprite Bridge() => new OverworldTile(blockSpritesheet, 8);
 		public ISprite Water() => new OverworldTile(blockSpritesheet, 9);
+		public ISpriteRotatable Ghost() => new GhostSprite(blockSpritesheet);
 	}
 }

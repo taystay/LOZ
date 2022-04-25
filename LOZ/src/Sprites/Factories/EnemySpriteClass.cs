@@ -34,5 +34,6 @@ namespace LOZ.Factories
         public ISprite CreateFireBall() => new DragonsFireSprite(dragonsBreatheSprite);
 		public ISprite CreateNPC() => new NPCSprite(npc);
 		public ISprite CreateTrap() => new SpikeTrapSprite(spikeTrap);
+		public ISpriteRotatable CreateGhost() => new GhostSprite(skeletonBoss);
 	}
 }

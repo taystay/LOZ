@@ -18,7 +18,7 @@ namespace LOZ.CommandClasses
         {
             //when bombs reach 0 will not work when adding bombs
             LinkInventory inv = RoomReference.GetInventory();
-            inv.bombCount = inv.bombCount + 20;
+            inv.bombCount = inv.bombCount + 1;
             SoundManager.Instance.SoundToPlayInstance(SoundEnum.Secret);
         }
     }
