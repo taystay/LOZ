@@ -11,7 +11,7 @@ Program Controls:
     R: Reset the whole game
     M: Mutes sound 
     Q: Quit game
-    E: Damage link
+    E: Heal link
     Mouse right-click: goes to the previous room (does not do room transition)
     Mouse left-click: goes to the next room ( does not do room transition)
     Left shift: toggle hit box on all entities Debug mode (cannot take damage in debug mode)
