@@ -1,8 +1,5 @@
-﻿
-using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using LOZ.SpriteClasses.BlockSprites;
-using LOZ.SpriteClasses;
 using LOZ.DungeonClasses;
 using Microsoft.Xna.Framework;
 using LOZ.GameStateReference;
