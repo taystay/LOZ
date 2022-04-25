@@ -107,6 +107,11 @@ namespace LOZ.ControllerClasses
                 {
                     storedSeqCommands[Keys.D9].execute();
                 }
+                //Portal gun
+            if (pressedKeys.IsKeyDown(Keys.P) && pressedKeys.IsKeyDown(Keys.O) && pressedKeys.IsKeyDown(Keys.T))
+            {
+                storedSeqCommands[Keys.D8].execute();
+            }
 
 
 

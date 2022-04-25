@@ -41,6 +41,7 @@ namespace LOZ.ControllerClasses
             //Temporary until Sequence check works
             ControllerMappings.RegisterSeqCommand(Keys.F , new ExtraBombs(gameObject));
             ControllerMappings.RegisterSeqCommand(Keys.D9, new UnlimitedArrows(gameObject));
+            ControllerMappings.RegisterSeqCommand(Keys.D8, new GetPortalGun(gameObject));
             mouseControllerMappings.RegisterLeftClickCommands(new SwitchRoomLeftClick());
             mouseControllerMappings.RegisterRightClickCommands(new SwitchRoomRightClick());
         }
