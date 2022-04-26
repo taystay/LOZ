@@ -1,0 +1,19 @@
+Author: Anthony D'Alesandro
+4/25/22
+
+Sprint 5
+
+MainMenuState.cs: Taylor Liu
+	Time: 5 mins
+	
+	Comments: Code is very simple and easy to read. variables are named well. There was one useless comment that could be thrown away. One thing I did notice though was that a couple of the if states could be simplified a little bit.
+	
+						if(KeyBoard.GetState().number of keys down == 0) then pressed=Keys.None 
+						
+						this would be much more readable. things like that but mostly great code.
+
+PauseScreen.cs: Taylor Liu
+	Time: 10 mins
+	
+	Comment: Each method is easy to follow and there is not much to read. The variables are very easy to comprehend and there is very little flow to the methods. Thus this is a very well written program. 
+	
