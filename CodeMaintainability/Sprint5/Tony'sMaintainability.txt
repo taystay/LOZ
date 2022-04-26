@@ -1,15 +1,26 @@
-Author: Anthony D'Alesandro
+Author: Jose Berrios
 4/25/22
 
 Sprint 5
 
-MainMenuState.cs: Taylor Liu
+Skeletron.cs: Tony D'Alesandro
 	Time: 5 mins
 	
-	Comments: Code is very maintainable. If you wanted to bind more keys to the menu state the if statements would get out of control but for the scope of what we need the state for this is completely unneccesary so it would be very simple to implement. I would have liked to seen the menu be only one sprite with a transparent background and the background just changes color and you draw two sprites even and encapsulated that into one sprite.
+	Comments: This codes cohesion is high, having the class being focused on creating the physics
+  for the boss
 
-PauseScreen.cs: Taylor Liu
-	Time: 10 mins
+	Maintainability: I think this code is maintainable, you could use this physics logic on other 
+  sprites and it could work. Maybe a little bit more clean rope like physics but other than that 
+  I think the code is maintainable
+
+FOWFactory.cs: Tony D'Alesandro
+	Time: 5 mins
 	
-	Comment: The parameters to the constructor make it so you can change the pause screen at run time and draw more if needed. I enjoy the way it was implemented and it can be easy to build upon.
+	Comment: Code has high cohesion and low coupling, the code does focuses on one thing which is creating
+  the FOW affect. Low coupling in that this class does not affect any other classes. 
+
+	Maintainability: This code is easily maintainable, you could use this pretty much on any other game 
+  and it would most likely work the same way. The only thing would be starting it on the player character
+  which could work differently when porting to other places. 
 	
+>>>>>>> 10958f5bb77f6f314749eef5032f8c1a8c3c3d56

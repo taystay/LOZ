@@ -11,7 +11,7 @@ namespace LOZ.GameState
         private Hitbox box;
         private ICommand _command;
         private Type _responseType;
-        public DoorCollider(Rectangle r, ICommand command, System.Type responseType)
+        public DoorCollider(Rectangle r, ICommand command, Type responseType)
         {
             box = new Hitbox(r.X, r.Y, r.Width, r.Height);
             _command = command;

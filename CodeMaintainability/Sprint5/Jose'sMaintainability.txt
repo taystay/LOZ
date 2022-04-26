@@ -1,0 +1,17 @@
+Author: Keit Vu
+
+Date: 4/25
+Sprint 5:
+
+ExtraBombs.cs and UnlimitedArrows.cs: Author: Jose
+	-5 mins
+	quality: The quality of the code is high and clean. The variable names are clear and the flow of the code is easy to follow.
+
+	Possibility: A hypothetical change that could not be easily implement would be if the user decided to add more cheat codes then the developer would have to create a new file for each change. A better way to do maintainability could be that a general class rather than specific case so that adding cheat code could be easier.
+
+KeyboardController.cs (the UpdateSequence): Author Jose
+	-5 mins
+	quality: the code is easy to follow an understand on what is happening with clear variable label to follow along what is being done. 
+
+	Possibility: A change that could happen is that instead of holding all the keys down at the same time it is a sequence that has to happen in a certain time interval. This would not be able to implement since it requires all the keys to be held down all at the same time. 
+	

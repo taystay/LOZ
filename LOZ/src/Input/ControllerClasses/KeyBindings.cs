@@ -29,7 +29,7 @@ namespace LOZ.ControllerClasses
             ControllerMappings.RegisterHoldCommand(Keys.Left, new LeftMove());
             ControllerMappings.RegisterHoldCommand(Keys.Down, new DownMove());
             ControllerMappings.RegisterHoldCommand(Keys.Right, new RightMove());
-            ControllerMappings.RegisterHoldCommand(Keys.E, new TakeDamage());
+            ControllerMappings.RegisterInitialCommand(Keys.E, new Heal());
             ControllerMappings.RegisterReleaseCommand(Keys.W, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.A, new Idle());
             ControllerMappings.RegisterReleaseCommand(Keys.S, new Idle());

@@ -1,0 +1,14 @@
+Author: Anthony D'Alesandro
+4/25/22
+
+Sprint 5
+
+MainMenuState.cs: Taylor Liu
+	Time: 5 mins
+	
+	Comments: Code is very maintainable. If you wanted to bind more keys to the menu state the if statements would get out of control but for the scope of what we need the state for this is completely unneccesary so it would be very simple to implement. I would have liked to seen the menu be only one sprite with a transparent background and the background just changes color and you draw two sprites even and encapsulated that into one sprite.
+
+PauseScreen.cs: Taylor Liu
+	Time: 10 mins
+	
+	Comment: The parameters to the constructor make it so you can change the pause screen at run time and draw more if needed. I enjoy the way it was implemented and it can be easy to build upon.

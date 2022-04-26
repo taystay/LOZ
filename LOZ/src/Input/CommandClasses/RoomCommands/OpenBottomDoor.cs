@@ -1,7 +1,7 @@
 ﻿using LOZ.DungeonClasses;
-using System.Collections.Generic;
 using LOZ.GameStateReference;
 using LOZ.Room;
+using LOZ.Sound;
 
 namespace LOZ.CommandClasses
 {
@@ -10,6 +10,7 @@ namespace LOZ.CommandClasses
         public OpenBottomDoor() { }
         public void execute()
         {
+            SoundManager.Instance.SoundToPlayInstance(SoundEnum.Secret);
             RoomReference.GetCurrRoom().UpdateExterior(DoorType.Hole, DoorLocation.Bottom);
             IRoom nextRoom = RoomReference.GetChangeRoom(0, 1, 0);
             if (nextRoom != null) nextRoom.UpdateExterior(DoorType.Hole, DoorLocation.Top);

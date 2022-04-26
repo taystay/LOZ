@@ -1,0 +1,11 @@
+Author: Keit Vu
+Date: 4/25/2022
+Sprint 5
+
+ExtraBombs.cs: Jose
+	-5 mins
+	readability: The code is easily readable with variable names clear and easy to follow. Something not readable was the use of using Game1 and understand where game was used for the code. 
+
+KeyboardController(UpdateSequence): Jose
+	-5 mins
+	readability: The variable names were clear to understand and all the variable names had a useful name. All the if condition for the variable made sense and has low cyclomatic complexity.
