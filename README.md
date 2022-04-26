@@ -21,6 +21,7 @@ Program Controls:
     F+G(hold both) : cheat codes to add bombs
     W+U (hold both): cheat codes to add rupees
     L+O (hold both): cheat code to add portal gun
+    H: Hardcore mode
 
 Tools used:
     -paint.net
