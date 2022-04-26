@@ -64,4 +64,4 @@ Citation:
 BUGS: None
 
 Refactor:
-The code was refactor using lambda operator to reduce lines of code.s
+The code was refactor using lambda operator to reduce lines of code.
