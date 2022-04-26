@@ -1,0 +1,19 @@
+
+Author: Jose Berrios
+4/25/22
+
+Sprint 5
+
+Skeletron.cs: Tony D'Alesandro
+	Time: 5 mins
+	
+	Readability: The code is fairly readable, the variable names describe themselves well and help with reading,
+  Some of the logic is hard to read but overall it is fairly simple. 
+
+FOWFactory.cs: Tony D'Alesandro
+	Time: 5 mins
+	
+ Readability: Each variable name is named well and helps with the readability of the class. The class is short
+ which also helps with readabilty, some of the logic and methods used can be confusing but with all of the 
+ good naming conventions the readabilty of this class is done well. 
+	
