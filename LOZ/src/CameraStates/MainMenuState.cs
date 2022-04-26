@@ -11,7 +11,7 @@ namespace LOZ.src.CameraStates
     public class MainMenuState : ICameraState
     {
         private Game1 _gameObject; // so camera state can change if needed
-        private ISprite menu; //probably just make a state
+        private ISprite menu;
         private Keys pressed = Keys.None;
         public MainMenuState(Game1 gameObject)
         {
